@@ -1,11 +1,11 @@
-# Advanced recommendations for collaboration
+# Recomendações Avançadas para Colaboração
 
-- [Why Collaboration](./why-collaboration.md)
-- [How to use the "Social Question of the Day"](./social-question.md)
-- [Engagement Team Development](./teaming-up.md)
+- [Por que Colaborar](./why-collaboration.md)
+- [Como usar a "Pergunta Social do Dia"](./social-question.md)
+- [Desenvolvimento de Equipe de Engajamento](./teaming-up.md)
 
-## Pair and Swarm programming
+## Programação em Par e em Grupo (Swarm)
 
-- [Virtual Collaboration and Pair Programming](./virtual-collaboration.md)
-- [How to add a Pairing Custom Field in Azure DevOps User Stories](./add-pairing-field-azure-devops-cards.md)
-- [Effortless Pair Programming with GitHub Codespaces and VSCode](./pair-programming-tools.md)
+- [Colaboração Virtual e Programação em Par](./virtual-collaboration.md)
+- [Como adicionar um Campo Personalizado de Emparelhamento em Histórias de Usuário do Azure DevOps](./add-pairing-field-azure-devops-cards.md)
+- [Programação em Par Sem Esforço com GitHub Codespaces e VSCode](./pair-programming-tools.md)

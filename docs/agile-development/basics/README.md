@@ -1,10 +1,10 @@
-# Agile Development Basics
+# Fundamentos do Desenvolvimento Ágil
 
-If you are new to Agile development or if you are looking for a refresher, this section will provides links to information that provide best pracices for Backlog Management, Agile Ceremonies, Roles within Agile and Agile Sprints.
+Se você é novo no desenvolvimento Ágil ou está procurando uma atualização, esta seção fornecerá links para informações que oferecem melhores práticas para Gerenciamento de Backlog, Cerimônias Ágeis, Papéis dentro do Ágil e Sprints Ágeis.
 
-- [What is Agile](https://learn.microsoft.com/en-us/devops/plan/what-is-agile 'What is Agile')
-- [What is Agile Development](https://learn.microsoft.com/en-us/devops/plan/what-is-agile-development 'What is Agile Development')
-- [Backlog Management](./Backlog%20Management/)
-- [Ceremonies](./Ceremonies/)
-- [Roles](./Roles/)
+- [O que é Ágil](https://learn.microsoft.com/en-us/devops/plan/what-is-agile 'O que é Ágil')
+- [O que é Desenvolvimento Ágil](https://learn.microsoft.com/en-us/devops/plan/what-is-agile-development 'O que é Desenvolvimento Ágil')
+- [Gerenciamento de Backlog](./Backlog%20Management/)
+- [Cerimônias](./Ceremonies/)
+- [Papéis](./Roles/)
 - [Sprints](./Sprints/)

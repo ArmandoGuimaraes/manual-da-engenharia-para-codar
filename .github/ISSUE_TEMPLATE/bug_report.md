@@ -1,19 +1,19 @@
 ---
 name: Bug report
-about: Create a report to help us improve
+about: Crie um relatório para nos ajudar a melhorar
 title: "[BUG]"
 labels: 'bug'
 assignees: ''
 ---
-Remember to label the issue with the appropriate area, and also assign it to yourself if you plan to work in the issue in the near future.
+Lembre-se de rotular o problema com a área apropriada e também atribuí-lo a si mesmo se planeja trabalhar no problema em um futuro próximo.
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**Descreva o bug**
+Uma descrição clara e concisa do que é o bug.
 
-**To Reproduce**
-Steps to reproduce the behavior:
+**Reproduzir**
+Etapas para reproduzir o comportamento:
 
-1. Go to '...'
-1. Click on '....'
-1. Scroll down to '....'
-1. See error
+1. Vá para '...'
+1. Clique em '....'
+1. Role para baixo até '....'
+1. Veja o erro

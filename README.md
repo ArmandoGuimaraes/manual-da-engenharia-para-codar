@@ -1,71 +1,71 @@
-# ISE Code-With Customer/Partner Engineering Playbook
+# Manual da Engenharia para Codar
 
-An engineer or data scientist working on an [ISE](docs/ISE.md) project...
+Um engenheiro ou cientista de dados trabalhando em um projeto da [Engenharia](docs/ISE.md)...
 
-* Has responsibilities to their team – mentor, coach, and lead.
-* Knows their **playbook**. Follows their playbook. Fixes their playbook if it is broken. If they find a better playbook, they copy it. If somebody could use your playbook, give them yours.
-* Leads by example. Models the behaviors we desire both interpersonally and technically.
-* Strives to understand how their work fits into a broader context and ensures the outcome.
+- Tem responsabilidades para com sua equipe – mentorar, treinar e liderar.
+- Conhece seu **manual**. Segue seu manual. Corrige seu manual se ele estiver quebrado. Se encontrar um manual melhor, copia-o. Se alguém puder usar seu manual, dê o seu.
+- Lidera pelo exemplo. Modela os comportamentos que desejamos tanto interpessoalmente quanto tecnicamente.
+- Esforça-se para entender como seu trabalho se encaixa em um contexto mais amplo e garante o resultado.
 
-This is our playbook. All contributions welcome! Please feel free to submit a [pull request](https://github.com/microsoft/code-with-engineering-playbook/pulls) to get involved.
+Este é o nosso manual. Todas as contribuições são bem-vindas! Sinta-se à vontade para enviar um [pull request](https://github.com/microsoft/code-with-engineering-playbook/pulls) para se envolver.
 
-> **Note:** If you are reading this on GitHub - head over to [https://microsoft.github.io/code-with-engineering-playbook/](https://microsoft.github.io/code-with-engineering-playbook/) for a better reading experience
+> **Nota:** Se você está lendo isso no GitHub - vá para [https://microsoft.github.io/code-with-engineering-playbook/](https://microsoft.github.io/code-with-engineering-playbook/) para uma melhor experiência de leitura
 
-## Why Have A Playbook
+## Por que ter um Manual
 
-* To increase overall efficiency for team members and the whole team in general.
-* Reduce the number of mistakes and avoid common pitfalls.
-* Strive to be a better engineer and learn from other people's shared experience.
+- Para aumentar a eficiência geral dos membros da equipe e da equipe como um todo.
+- Reduzir o número de erros e evitar armadilhas comuns.
+- Esforçar-se para ser um engenheiro melhor e aprender com a experiência compartilhada de outras pessoas.
 
-## "The" Checklist
+## "A" Lista de Verificação
 
-If you do nothing else follow the [Engineering Fundamentals Checklist](docs/ENG-FUNDAMENTALS-CHECKLIST.md)! It's here to help follow the Engineering Fundamentals.
+Se você não fizer mais nada, siga a [Lista de Verificação dos Fundamentos de Engenharia](docs/ENG-FUNDAMENTALS-CHECKLIST.md)! Ela está aqui para ajudar a seguir os Fundamentos de Engenharia.
 
-## Structure of a Sprint
+## Estrutura de um Sprint
 
-A [breakdown of sections](docs/SPRINT-STRUCTURE.md) according to the structure of an Agile sprint.
+Uma [divisão de seções](docs/SPRINT-STRUCTURE.md) de acordo com a estrutura de um sprint ágil.
 
-## General Guidance
+## Orientação Geral
 
-* Keep the code quality bar high.
-* Value quality and precision over ‘getting things done’.
-* Work diligently on the one important thing.
-* As a distributed team take time to share context via wiki, teams and backlog items.
-* Make the simple thing work now. Build fewer features today, but ensure they work amazingly. Then add more features tomorrow.
-* Avoid adding scope to a backlog item, instead add a new backlog item.
-* Our goal is to ship incremental customer value.
-* Keep backlog item details up to date to communicate the state of things with the rest of your team.
-* Report product issues found and provide clear and repeatable engineering feedback!
-* We all own our code and each one of us has an obligation to make all parts of the solution great.
+- Mantenha o padrão de qualidade do código elevado.
+- Valorize a qualidade e a precisão em detrimento de 'fazer as coisas'.
+- Trabalhe diligentemente na coisa mais importante.
+- Como uma equipe distribuída, reserve um tempo para compartilhar o contexto via wiki, equipes e itens de backlog.
+- Faça a coisa simples funcionar agora. Construa menos recursos hoje, mas garanta que eles funcionem incrivelmente bem. Depois adicione mais recursos amanhã.
+- Evite adicionar escopo a um item de backlog, em vez disso, adicione um novo item de backlog.
+- Nosso objetivo é enviar valor incremental ao cliente.
+- Mantenha os detalhes do item de backlog atualizados para comunicar o estado das coisas com o resto de sua equipe.
+- Relate problemas de produto encontrados e forneça feedback de engenharia claro e repetível!
+- Todos nós somos proprietários de nosso código e cada um de nós tem a obrigação de tornar todas as partes da solução excelentes.
 
-## QuickLinks
+## Links Rápidos
 
-* [Engineering Fundamentals Checklist](docs/ENG-FUNDAMENTALS-CHECKLIST.md)
-* [Structure of a Sprint](docs/SPRINT-STRUCTURE.md)
+- [Lista de Verificação dos Fundamentos de Engenharia](docs/ENG-FUNDAMENTALS-CHECKLIST.md)
+- [Estrutura de um Sprint](docs/SPRINT-STRUCTURE.md)
 
-## Engineering Fundamentals
+## Fundamentos de Engenharia
 
-* [Accessibility](docs/accessibility/README.md)
-* [Agile Development](docs/agile-development/README.md)
-* [Automated Testing](docs/automated-testing/README.md)
-* [Code Reviews](docs/code-reviews/README.md)
-* [Continuous Delivery (CD)](docs/continuous-delivery/README.md)
-* [Continuous Integration (CI)](docs/continuous-integration/README.md)
-* [Design](docs/design/readme.md)
-* [Developer Experience](docs/developer-experience/README.md)
-* [Documentation](docs/documentation/README.md)
-* [Engineering Feedback](docs/engineering-feedback/README.md)
-* [Observability](docs/observability/README.md)
-* [Security](docs/security/README.md)
-* [Privacy](docs/privacy/README.md)
-* [Source Control](docs/source-control/README.md)
-* [Reliability](docs/reliability/README.md)
+- [Acessibilidade](docs/accessibility/README.md)
+- [Desenvolvimento Ágil](docs/agile-development/README.md)
+- [Testes Automatizados](docs/automated-testing/README.md)
+- [Revisões de Código](docs/code-reviews/README.md)
+- [Entrega Contínua (CD)](docs/continuous-delivery/README.md)
+- [Integração Contínua (CI)](docs/continuous-integration/README.md)
+- [Design](docs/design/readme.md)
+- [Experiência do Desenvolvedor](docs/developer-experience/README.md)
+- [Documentação](docs/documentation/README.md)
+- [Feedback de Engenharia](docs/engineering-feedback/README.md)
+- [Observabilidade](docs/observability/README.md)
+- [Segurança](docs/security/README.md)
+- [Privacidade](docs/privacy/README.md)
+- [Controle de Fonte](docs/source-control/README.md)
+- [Confiabilidade](docs/reliability/README.md)
 
-## Fundamentals for Specific Technology Areas
+## Fundamentos para Áreas Tecnológicas Específicas
 
-* [Machine Learning Fundamentals](docs/machine-learning/README.md)
-* [User-Interface Engineering](docs/user-interface-engineering/README.md)
+- [Fundamentos de Aprendizado de Máquina](docs/machine-learning/README.md)
+- [Engenharia de Interface do Usuário](docs/user-interface-engineering/README.md)
 
-## Contributing
+## Contribuindo
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
+Veja [CONTRIBUTING.md](CONTRIBUTING.md) para diretrizes de contribuição.

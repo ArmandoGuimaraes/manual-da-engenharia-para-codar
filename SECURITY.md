@@ -1,41 +1,37 @@
-<!-- BEGIN MICROSOFT SECURITY.MD V0.0.7 BLOCK -->
+# Segurança
 
-# Security
+A Microsoft leva a sério a segurança de nossos produtos e serviços de software, o que inclui todos os repositórios de código-fonte gerenciados por meio de nossas organizações no GitHub, que incluem [Microsoft](https://github.com/Microsoft), [Azure](https://github.com/Azure), [DotNet](https://github.com/dotnet), [AspNet](https://github.com/aspnet), [Xamarin](https://github.com/xamarin) e [nossas organizações no GitHub](https://opensource.microsoft.com/).
 
-Microsoft takes the security of our software products and services seriously, which includes all source code repositories managed through our GitHub organizations, which include [Microsoft](https://github.com/Microsoft), [Azure](https://github.com/Azure), [DotNet](https://github.com/dotnet), [AspNet](https://github.com/aspnet), [Xamarin](https://github.com/xamarin), and [our GitHub organizations](https://opensource.microsoft.com/).
+Se você acredita que encontrou uma vulnerabilidade de segurança em qualquer repositório de propriedade da Microsoft que atenda à [definição de vulnerabilidade de segurança da Microsoft](https://aka.ms/opensource/security/definition), por favor, relate-a para nós conforme descrito abaixo.
 
-If you believe you have found a security vulnerability in any Microsoft-owned repository that meets [Microsoft's definition of a security vulnerability](https://aka.ms/opensource/security/definition), please report it to us as described below.
+## Relatando Problemas de Segurança
 
-## Reporting Security Issues
+**Por favor, não relate vulnerabilidades de segurança por meio de issues públicas no GitHub.**
 
-**Please do not report security vulnerabilities through public GitHub issues.**
+Em vez disso, relate-as ao Microsoft Security Response Center (MSRC) em [https://msrc.microsoft.com/create-report](https://aka.ms/opensource/security/create-report).
 
-Instead, please report them to the Microsoft Security Response Center (MSRC) at [https://msrc.microsoft.com/create-report](https://aka.ms/opensource/security/create-report).
+Se preferir enviar sem fazer login, envie um e-mail para [secure@microsoft.com](mailto:secure@microsoft.com). Se possível, criptografe sua mensagem com nossa chave PGP; faça o download dela na [página de chave PGP do Microsoft Security Response Center](https://aka.ms/opensource/security/pgpkey).
 
-If you prefer to submit without logging in, send email to [secure@microsoft.com](mailto:secure@microsoft.com).  If possible, encrypt your message with our PGP key; please download it from the [Microsoft Security Response Center PGP Key page](https://aka.ms/opensource/security/pgpkey).
+Você deve receber uma resposta dentro de 24 horas. Se por algum motivo você não receber, faça um acompanhamento por e-mail para garantir que recebemos sua mensagem original. Informações adicionais podem ser encontradas em [microsoft.com/msrc](https://aka.ms/opensource/security/msrc).
 
-You should receive a response within 24 hours. If for some reason you do not, please follow up via email to ensure we received your original message. Additional information can be found at [microsoft.com/msrc](https://aka.ms/opensource/security/msrc).
+Por favor, inclua as informações solicitadas abaixo (tanto quanto você puder fornecer) para nos ajudar a entender melhor a natureza e o escopo do possível problema:
 
-Please include the requested information listed below (as much as you can provide) to help us better understand the nature and scope of the possible issue:
+* Tipo de problema (por exemplo, estouro de buffer, injeção de SQL, cross-site scripting, etc.)
+* Caminhos completos dos arquivos de origem relacionados à manifestação do problema
+* A localização do código-fonte afetado (tag/ramo/commit ou URL direto)
+* Qualquer configuração especial necessária para reproduzir o problema
+* Instruções passo a passo para reproduzir o problema
+* Prova de conceito ou código de exploração (se possível)
+* Impacto do problema, incluindo como um invasor pode explorar o problema
 
-* Type of issue (e.g. buffer overflow, SQL injection, cross-site scripting, etc.)
-* Full paths of source file(s) related to the manifestation of the issue
-* The location of the affected source code (tag/branch/commit or direct URL)
-* Any special configuration required to reproduce the issue
-* Step-by-step instructions to reproduce the issue
-* Proof-of-concept or exploit code (if possible)
-* Impact of the issue, including how an attacker might exploit the issue
+Essas informações nos ajudarão a triar seu relatório mais rapidamente.
 
-This information will help us triage your report more quickly.
+Se você estiver relatando para um programa de recompensas por bugs, relatórios mais completos podem contribuir para uma recompensa maior. Visite nossa [página do Programa de Recompensas por Bugs da Microsoft](https://aka.ms/opensource/security/bounty) para obter mais detalhes sobre nossos programas ativos.
 
-If you are reporting for a bug bounty, more complete reports can contribute to a higher bounty award. Please visit our [Microsoft Bug Bounty Program](https://aka.ms/opensource/security/bounty) page for more details about our active programs.
+## Idiomas Preferidos
 
-## Preferred Languages
+Preferimos que todas as comunicações sejam em inglês.
 
-We prefer all communications to be in English.
+## Política
 
-## Policy
-
-Microsoft follows the principle of [Coordinated Vulnerability Disclosure](https://aka.ms/opensource/security/cvd).
-
-<!-- END MICROSOFT SECURITY.MD BLOCK -->
+A Microsoft segue o princípio da [Divulgação Coordenada de Vulnerabilidades](https://aka.ms/opensource/security/cvd).

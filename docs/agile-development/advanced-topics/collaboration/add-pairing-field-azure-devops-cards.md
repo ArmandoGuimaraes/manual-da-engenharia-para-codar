@@ -1,87 +1,87 @@
-# How to add a Pairing Custom Field in Azure DevOps User Stories
+# Como adicionar um Campo Personalizado de Emparelhamento em Histórias de Usuário do Azure DevOps
 
-This document outlines the benefits of adding a custom field of type _Identity_ in [Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/user-guide/what-is-azure-devops) user stories, prerequisites, and a step-by-step guide.
+Este documento descreve os benefícios de adicionar um campo personalizado do tipo _Identidade_ nas histórias de usuário do [Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/user-guide/what-is-azure-devops), pré-requisitos e um guia passo a passo.
 
-## Benefits of adding a custom field
+## Benefícios de adicionar um campo personalizado
 
-Having the names of both individuals [pairing on a story](README.md) visible on the Azure DevOps cards can be helpful during sprint ceremonies and lead to greater accountability by the pairing assignee. For example, it is easier to keep track of the individuals assigned stories as part of a pair during sprint planning by using the "pairing names" field. During stand-up it can also help the Process Lead filter stories assigned to the individual (both as an owner or as a pairing assignee) and show these on the board. Furthermore, the pairing field can provide an additional data point for reports and burndown rates.
+Ter os nomes de ambos os indivíduos [trabalhando em uma história](README.md) visíveis nos cartões do Azure DevOps pode ser útil durante as cerimônias de sprint e levar a uma maior responsabilidade pelo responsável pelo emparelhamento. Por exemplo, é mais fácil acompanhar os indivíduos designados para histórias como parte de um par durante o planejamento do sprint usando o campo "nomes de emparelhamento". Durante o stand-up, isso também pode ajudar o Líder de Processo a filtrar histórias atribuídas ao indivíduo (tanto como proprietário quanto como responsável pelo emparelhamento) e mostrá-las no quadro. Além disso, o campo de emparelhamento pode fornecer um ponto de dados adicional para relatórios e taxas de queima.
 
-## Prerequisites
+## Pré-requisitos
 
-Prior to customizing Azure DevOps, review [Configure and customize Azure Boards](https://learn.microsoft.com/en-us/azure/devops/boards/configure-customize).
+Antes de personalizar o Azure DevOps, revise [Configurar e personalizar o Azure Boards](https://learn.microsoft.com/en-us/azure/devops/boards/configure-customize).
 
-In order to add a custom field to user stories in Azure DevOps changes must be made as an **Organizational setting**. This document therefore assumes use of an existing Organization in Azure DevOps and that the user account used to make these changes is a member of the [Project Collection Administrators Group](https://learn.microsoft.com/en-us/azure/devops/organizations/security/set-project-collection-level-permissions).
+Para adicionar um campo personalizado às histórias de usuário no Azure DevOps, as alterações devem ser feitas como uma **Configuração Organizacional**. Este documento, portanto, pressupõe o uso de uma Organização existente no Azure DevOps e que a conta de usuário usada para fazer essas alterações é membro do [Grupo de Administradores da Coleção de Projetos](https://learn.microsoft.com/en-us/azure/devops/organizations/security/set-project-collection-level-permissions).
 
-### Change the organization settings
+### Alterar as configurações da organização
 
-1. Duplicate the process currently in use.
+1. Duplicar o processo atualmente em uso.
 
-    Navigate to the **Organization Settings**, within the Boards / Process tab.
+    Navegue até as **Configurações da Organização**, dentro da aba Boards / Process.
 
-    ![Organization Settings](./images/azure-devops-organization-settings.png)
+    ![Configurações da Organização](./images/azure-devops-organization-settings.png)
 
-2. Select the **Process** type, click on the icon with three dots **...** and click **Create inherited process**.
+2. Selecione o tipo de **Processo**, clique no ícone com três pontos **...** e clique em **Criar processo herdado**.
 
-    ![Create Inherited Process](./images/azure-devops-create-inherited-process.png)
+    ![Criar Processo Herdado](./images/azure-devops-create-inherited-process.png)
 
-3. Click on the newly created inherited process.
+3. Clique no processo herdado recém-criado.
 
-    As you can see in the example below, we called it 'Pairing'.
+    Como você pode ver no exemplo abaixo, nós o chamamos de 'Emparelhamento'.
 
-    ![Select Inherited Process](./images/azure-devops-pairing-process.png)
+    ![Selecionar Processo Herdado](./images/azure-devops-pairing-process.png)
 
-4. Click on the work item type **User Story**.
+4. Clique no tipo de item de trabalho **História de Usuário**.
 
-    ![Modify User Story](./images/azure-devops-user-story-process.png)
+    ![Modificar História de Usuário](./images/azure-devops-user-story-process.png)
 
-5. Click **New Field**.
+5. Clique em **Novo Campo**.
 
-    ![Add the new field](./images/azure-devops-new-field.png)
+    ![Adicionar o novo campo](./images/azure-devops-new-field.png)
 
-6. Give it a **Name** and select **Identity** in Type. Click on **Add Field**.
+6. Dê um **Nome** e selecione **Identidade** em Tipo. Clique em **Adicionar Campo**.
 
-    ![Add the new field](./images/azure-devops-add-field-to-user-story.png)
+    ![Adicionar o novo campo](./images/azure-devops-add-field-to-user-story.png)
 
-    This completes the change in Organization settings. The rest of the instructions must be completed under Project Settings.
+    Isso completa a mudança nas Configurações da Organização. O restante das instruções deve ser concluído nas Configurações do Projeto.
 
-### Change the project settings
+### Alterar as configurações do projeto
 
-1. Go to the Project that is to be modified, select **Project Settings**.
+1. Vá para o Projeto que será modificado, selecione **Configurações do Projeto**.
 
-    ![Change project settings](./images/azure-devops-project-settings.png)
+    ![Alterar configurações do projeto](./images/azure-devops-project-settings.png)
 
-2. Select **Project configuration**.
+2. Selecione **Configuração do Projeto**.
 
-    ![Change project settings](./images/azure-devops-project-configuration.png)
+    ![Alterar configurações do projeto](./images/azure-devops-project-configuration.png)
 
-3. Click on **process customization page**.
+3. Clique na **página de personalização de processo**.
 
-    ![Change project settings](./images/azure-devops-process-customization.png)
+    ![Alterar configurações do projeto](./images/azure-devops-process-customization.png)
 
-4. Click on **Projects** then click on **Change process**.
+4. Clique em **Projetos** e depois clique em **Alterar processo**.
 
-    ![Change project settings](./images/azure-devops-change-process.png)
+    ![Alterar configurações do projeto](./images/azure-devops-change-process.png)
 
-5. Change the **target process** to Pairing then click Save.
+5. Altere o **processo alvo** para Emparelhamento e clique em Salvar.
 
-    ![Change project settings](./images/azure-devops-change-project-process.png)
+    ![Alterar configurações do projeto](./images/azure-devops-change-project-process.png)
 
-6. Go to **Boards**.
+6. Vá para **Boards**.
 
-    ![Change project settings](./images/azure-devops-boards.png)
+    ![Alterar configurações do projeto](./images/azure-devops-boards.png)
 
-7. Click on the Gear icon to open Settings.
+7. Clique no ícone de engrenagem para abrir Configurações.
 
-    ![Change project settings](./images/azure-devops-board-settings.png)
+    ![Alterar configurações do projeto](./images/azure-devops-board-settings.png)
 
-8. Add field to card.
+8. Adicione o campo ao cartão.
 
-    Click on the green + icon to add select the Pairing field. Check the box to display fields, even when they are empty. **Save and close**.
+    Clique no ícone verde + para adicionar e selecionar o campo de Emparelhamento. Marque a caixa para exibir campos, mesmo quando estiverem vazios. **Salvar e fechar**.
 
-    ![Change project settings](./images/azure-devops-add-field-to-card.png)
+    ![Alterar configurações do projeto](./images/azure-devops-add-field-to-card.png)
 
-9. View the modified the card.
+9. Veja o cartão modificado.
 
-    Notice the new Pairing field. The Story can now be assigned an Owner and a Pairing assignee!
+    Observe o novo campo de Emparelhamento. A História agora pode ser atribuída a um Proprietário e a um Responsável pelo Emparelhamento!
 
-    ![Change project settings](./images/azure-devops-pairing-field.png)
+    ![Alterar configurações do projeto](./images/azure-devops-pairing-field.png)

@@ -1,67 +1,62 @@
-# Engagement Team Development
+# Desenvolvimento da Equipe de Engajamento
 
-In every ISE engagement, dynamics are different so are the team requirements. Based on transfer learning among teams, we aim to build right "code-with" environments in every team.
+Em cada envolvimento ISE, as dinâmicas são diferentes, assim como as necessidades da equipe. Com base na transferência de aprendizado entre equipes, nosso objetivo é construir os ambientes certos de "código com" em cada equipe.
 
-This documentation gives a high-level template with some suggestions by aiming to accelerate team swarming phase to achieve a high speed agility however it has no intention to provide a list of "must-do" items.
+Esta documentação oferece um modelo de alto nível com algumas sugestões, visando acelerar a fase de formação da equipe para alcançar uma agilidade de alta velocidade, mas não tem a intenção de fornecer uma lista de itens "obrigatórios".
 
-## Identification
+## Identificação
 
-As it's stated in Tuckman's [team phases](https://en.wikipedia.org/wiki/Tuckman%27s_stages_of_group_development), traditional team development has several stages.
-However those phases can be extremely fast or sometimes mismatched in teams due to external factors, what applies to ISE engagements.
+Como é afirmado nas [fases de equipe](https://pt.wikipedia.org/wiki/Modelo_de_Tuckman) de Tuckman, o desenvolvimento tradicional de equipe tem várias etapas. No entanto, essas fases podem ser extremamente rápidas ou às vezes incompatíveis em equipes devido a fatores externos, o que se aplica aos envolvimentos ISE.
 
-In order to minimize the risk and set the expectations on the right way for all parties, an identification phase is important to understand each other.
-Some potential steps in this phase may be as following (not limited):
+Para minimizar o risco e definir as expectativas de forma correta para todas as partes, uma fase de identificação é importante para entender uns aos outros. Alguns passos potenciais nesta fase podem ser os seguintes (não limitados):
 
-- [Working agreement](../team-agreements/working-agreements.md)
+- [Acordo de Trabalho](../team-agreements/working-agreements.md)
 
-- Identification of styles/preferences in communication, sharing, learning, decision making of each team member
-  
-  - Talking about necessity of pair programming
-  - Decisions on backlog management & refinement meetings, weekly design sessions, social time sessions...etc.
-  - Sync/Async communication methods, work hours/flexible times
+- Identificação dos estilos/preferências na comunicação, compartilhamento, aprendizado e tomada de decisão de cada membro da equipe
+  - Discussão sobre a necessidade de programação em pares
+  - Decisões sobre gerenciamento e refinamento do backlog, reuniões de design semanais, sessões de tempo social... etc.
+  - Métodos de comunicação síncronos/assíncronos, horários de trabalho/flexíveis
 
-- Decisions and identifications of charts that will be helpful to provide transparent and true information to everyone
+- Decisões e identificações de gráficos que serão úteis para fornecer informações transparentes e verdadeiras para todos
 
-- Identification of "Software Craftspersonship" areas which means the tools and methods will be widely used during the engagement and taking the required actions on team upskilling side if necessary.
+- Identificação das áreas de "Artesanato de Software", o que significa que as ferramentas e métodos serão amplamente utilizados durante o envolvimento e tomar as ações necessárias no lado de aprimoramento da equipe, se necessário.
+  - GitHub, VSCode LiveShare, AzDevOps, ferramentas e bibliotecas de desenvolvimento necessárias... mais.
+  - Se o aprimoramento em determinado(s) tópico(s) for necessário, identificar as áreas e organizar picos de código para aumentar o conhecimento da equipe sobre o(s) tópico(s) em questão.
 
-  - GitHub, VSCode LiveShare, AzDevOps, necessary development tools & libraries ... more.
-  - If upskilling on certain topic(s) is needed, identifying the areas and arranging code spikes for increasing the team knowledge on the regarding topic(s).
+- Identificação de canais de comunicação, loops de feedback e horários recorrentes de chamadas da equipe fora das reuniões regulares de sprint
 
-- Identification of communication channels, feedback loops and recurrent team call slots out of regular sprint meetings
+- Introdução ao [Manifesto da Equipe de Agilidade Técnica](../team-agreements/team-manifesto.md) e planejamento da entrega técnica, visando manter o risco da dívida técnica mínimo.
 
-- Introduction to [Technical Agility Team Manifesto](../team-agreements/team-manifesto.md) and planning the technical delivery by aiming to keep
-technical debt risk minimum.
+## Seguindo o Plano e Depuração Ágil
 
-## Following the Plan and Agile Debugging
+A fase de identificação acelera o processo de construção de um ambiente seguro para cada indivíduo na equipe; posteriormente, a equipe tem os ativos necessários para seguir o plano. E é responsabilidade da própria equipe (engenheiros, PO, Líder de Processo) depurar seu nível de agilidade.
 
-Identification phase accelerates the process of building a safe environment for every individual in the team, later on team has the required assets to follow the plan.
-And it is team's itself responsibility (engineers,PO,Process Lead) to debug their Agility level.
+Em cada equipe, a estabilização leva tempo, e a depuração ágil proativa é o melhor acelerador para diminuir a distração longe do objetivo do sprint/envolvimento. A equipe também é responsável por manter o plano atualizado com base nas mudanças/necessidades da equipe e nos resultados da depuração.
 
-In every team stabilization takes time and pro-active agile debugging is the best accelerator to decrease the distraction away from sprint/engagement goal.
-Team is also responsible to keep the plan up-to-date based on team changes/needs and debugging results.
+Apenas como exemplo, as atividades de depuração de agilidade podem incluir:
 
-Just as an example, agility debugging activities may include:
+- Painéis relacionados com "Objetivo", como queima de trabalho/queima de saída, envelhecimento de itens/PR, gráfico de humor... etc. são acessíveis à equipe e a equipe está sempre atualizada
 
-- Dashboards related with "Goal" such as burndown/burnout, Item/PR Aging, Mood Chart ..etc. are accessible to the team and team is always up-to-date
+- Reuniões de Refinamento do Backlog
+  - Tamanho das histórias (Muito grande? Muito pequeno?)
+  - As "Histórias de Usuário" e "Tarefas" estão claras?
+  - Os Critérios de Aceitação são suficientes e corretos?
+  - Todos estão prontos para começar após pegar a História de Usuário/Tarefa?
 
-- Backlog Refinement meetings
-  - Size of stories (Too big? Too small?)
-  - Are "User Stories" and "Tasks" clear ?
-  - Are Acceptance Criteria enough and right?
-  - Is everyone ready-to-go after taking the User Story/Task?
+- Execução de [Retrospectivas Eficientes](../../core-expectations/README.md)
 
-- Running [Efficient Retrospectives](../../core-expectations/README.md)
+- O Objetivo do Sprint está claro em cada iteração?
 
-- Is the Sprint Goal clear in every iteration ?
+- O processo de estimativa na equipe está melhorando ao longo do tempo ou atende à previsão de entrega/carga de trabalho?
 
-- Is the estimation process in the team improving over time or does it meet the delivery/workload prediction?
+Consulte gentilmente os [Valores do Scrum](https://scrumguides.org/scrum-guide.html) para ter uma melhor compre
 
-Kindly check [Scrum Values](https://scrumguides.org/scrum-guide.html) to have a better understanding to improve team commitment.
+ensão para melhorar o comprometimento da equipe.
 
-Following that, above suggestions aim to remove agile/team disfunctionalities and provide a broader team understanding, potential time savings and full transparency.
+Seguindo isso, as sugestões acima visam remover disfuncionalidades ágeis/equipe e fornecer uma compreensão mais ampla da equipe, economia de tempo potencial e total transparência.
 
-## Resources
+## Recursos
 
-- [Tuckman's Stages of Group Development](https://en.wikipedia.org/wiki/Tuckman%27s_stages_of_group_development)
+- [Fases de Grupo de Tuckman](https://pt.wikipedia.org/wiki/Modelo_de_Tuckman)
 
-- [Scrum Values](https://scrumguides.org/scrum-guide.html)
+- [Valores do Scrum](https://scrumguides.org/scrum-guide.html)

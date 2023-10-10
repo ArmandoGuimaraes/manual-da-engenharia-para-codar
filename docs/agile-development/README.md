@@ -1,5 +1,5 @@
-# Agile documentation
+# Documentação Ágil
 
-- [Agile Basics](./basics/): Learn or refresh your basic agile knowledge.
-- [Agile Core Expectations](./core-expectations/): What are our core expectations from an Agile team.
-- [Agile Advanced Topics](./advanced-topics/): Go beyond the basics.
+- [Conceitos Básicos de Ágil](./basics/): Aprenda ou atualize seu conhecimento básico sobre métodos ágeis.
+- [Expectativas Centrais do Ágil](./core-expectations/): Quais são as nossas expectativas centrais de uma equipe Ágil.
+- [Tópicos Avançados em Ágil](./advanced-topics/): Vá além dos conceitos básicos.

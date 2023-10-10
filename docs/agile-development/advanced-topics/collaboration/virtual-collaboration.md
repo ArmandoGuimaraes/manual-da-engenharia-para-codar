@@ -1,66 +1,62 @@
-# Virtual Collaboration and Pair Programming
+# Colaboração Virtual e Programação em Par
 
-Pair programming is the de facto work method that most large engineering organizations use for “hands on keyboard” coding. Two developers, working synchronously, looking at the same screen and attempting to code and design together, which often results in better and clearer code than either could produce individually.
+A programação em par é o método de trabalho padrão que a maioria das grandes organizações de engenharia usa para codificação "mãos no teclado". Dois desenvolvedores, trabalhando de forma síncrona, olhando para a mesma tela e tentando codificar e projetar juntos, o que frequentemente resulta em um código melhor e mais claro do que qualquer um poderia produzir individualmente.
 
-Pair programming works well under the correct circumstances, but it loses some of its charm when executed in a completely virtual setting. The virtual setup still involves two developers looking at the same screen and talking out their designs, but there are often logistical issues to deal with, including lag, microphone set up issues, workspace and personal considerations, and many other small, individually trivial problems that worsen the experience.
+A programação em par funciona bem nas circunstâncias corretas, mas perde parte de seu charme quando executada em um ambiente completamente virtual. O ambiente virtual ainda envolve dois desenvolvedores olhando para a mesma tela e discutindo seus projetos, mas frequentemente há questões logísticas a serem tratadas, incluindo latência, problemas de configuração de microfone, considerações de espaço de trabalho e pessoais, e muitos outros pequenos problemas individualmente triviais que pioram a experiência.
 
-Virtual work patterns are different from the in-person patterns we are accustomed to. Pair programming at its core is based on the following principles:
+Os padrões de trabalho virtual são diferentes dos padrões presenciais aos quais estamos acostumados. A programação em par, em sua essência, é baseada nos seguintes princípios:
 
-1. Generating clarity through communication
-2. Producing higher quality through collaboration
-3. Creating ownership through equal contribution
+1. Gerar clareza através da comunicação
+2. Produzir maior qualidade através da colaboração
+3. Criar propriedade através da contribuição igual
 
-Pair programming is one way to achieve these results. Red Team Testing (RTT) is an alternate programming method that uses the same principles but with some of the advantages that virtual work methods provide.
+A programação em par é uma forma de alcançar esses resultados. O Teste de Equipe Vermelha (RTT, Red Team Testing) é um método de programação alternativo que usa os mesmos princípios, mas com algumas das vantagens que os métodos de trabalho virtual oferecem.
 
-## Red Team Testing
+## Teste de Equipe Vermelha (Red Team Testing - RTT)
 
-Red Team Testing borrows its name from the “Red Team” and “Blue Team” paradigm of penetration testing, and is a collaborative, parallel way of working virtually. In Red Team Testing, two developers jointly decide on the interface, architecture, and design of the program, and then separate for the implementation phase. One developer writes tests using the public interface, attempting to perform edge case testing, input validation, and otherwise stress testing the interface. The second developer is simultaneously writing the implementation which will eventually be tested.
+O Teste de Equipe Vermelha toma seu nome do paradigma de "Equipe Vermelha" e "Equipe Azul" de testes de penetração e é uma forma colaborativa e paralela de trabalhar virtualmente. No RTT, dois desenvolvedores decidem conjuntamente sobre a interface, arquitetura e design do programa, e então se separam para a fase de implementação. Um desenvolvedor escreve testes usando a interface pública, tentando realizar testes de casos extremos, validação de entrada e outros testes de estresse na interface. O segundo desenvolvedor está simultaneamente escrevendo a implementação que eventualmente será testada.
 
-Red Team Testing has the same philosophy as any other Test-Driven Development lifecycle: All implementation is separated from the interface, and the interface can be tested with no knowledge of the implementation.
+O RTT tem a mesma filosofia que qualquer outro ciclo de vida de Desenvolvimento Orientado a Testes: toda implementação é separada da interface, e a interface pode ser testada sem conhecimento da implementação.
 
-![ptt-diagram](images/PTTdiagram.PNG)
+![diagrama-ptt](imagens/PTTdiagram.PNG)
 
-## Steps
+## Etapas
 
-1. Design Phase: Both developers design the interface together. This includes:
-    * Method signatures and names
-    * Writing documentation or docstrings for what the methods are intended to do.
-    * Architecture decisions that would influence testing (Factory patterns, etc.)
+1. Fase de Design: Ambos os desenvolvedores projetam a interface juntos. Isso inclui:
+    * Assinaturas e nomes de métodos
+    * Escrever documentação ou docstrings para o que os métodos pretendem fazer.
+    * Decisões de arquitetura que influenciariam os testes (padrões de fábrica, etc.)
 
-2. Implementation Phase: The developers separate and parallelize work, while continuing to communicate.
-    * Developer A will design the implementation of the methods, adhering to the previously decided design.
-    * Developer B will concurrently write tests for the same method signatures, without knowing details of the implementation.
+2. Fase de Implementação: Os desenvolvedores se separam e paralelizam o trabalho, continuando a se comunicar.
+    * O Desenvolvedor A projetará a implementação dos métodos, aderindo ao design previamente decidido.
+    * O Desenvolvedor B escreverá testes simultaneamente para as mesmas assinaturas de método, sem conhecer os detalhes da implementação.
 
-3. Integration & Testing Phase: Both developers commit their code and run the tests.
-    * Utopian Scenario: All tests run and pass correctly.
-    * Realistic Scenario: The tests have either broken or failed due to flaws in testing. This leads to further clarification of the design and a discussion of why the tests failed.
+3. Fase de Integração e Teste: Ambos os desenvolvedores fazem o commit de seu código e executam os testes.
+    * Cenário utópico: Todos os testes são executados e passam corretamente.
+    * Cenário realista: Os testes falharam ou quebraram devido a falhas nos testes. Isso leva a um esclarecimento adicional do design e uma discussão sobre por que os testes falharam.
 
-4. The developers will repeat the three phases until the code is functional and tested.
+4. Os desenvolvedores repetirão as três fases até que o código esteja funcional e testado.
 
-## When to follow the RTT strategy
+## Quando seguir a estratégia RTT
 
-RTT works well under specific circumstances. If collaboration needs to happen virtually, and all communication is virtual, RTT reduces the need for constant communication while maintaining the benefits of a joint design session. This considers the human element: Virtual communication is more exhausting than in person communication.
+O RTT funciona bem em circunstâncias específicas. Se a colaboração precisa acontecer virtualmente, e toda a comunicação é virtual, o RTT reduz a necessidade de comunicação constante enquanto mantém os benefícios de uma sessão de design conjunta. Isso considera o elemento humano: a comunicação virtual é mais exaustiva do que a comunicação presencial.
 
-RTT also works well when there is complete consensus, or no consensus at all, on what purpose the code serves. Since creating the design jointly and agreeing to implement and test against it are part of the RTT method, RTT forcibly creates clarity through iteration and communication.
+O RTT também funciona bem quando há consenso completo, ou nenhum consenso, sobre qual propósito o código serve. Como criar o design em conjunto e concordar em implementar e testar contra ele fazem parte do método RTT, o RTT cria clareza forçada através da iteração e comunicação.
 
-## Benefits
+## Benefícios
 
-RTT has many of the same benefits as Pair Programming and Test-Driven development but tries to update them for a virtual setting.
+O RTT tem muitos dos mesmos benefícios que a Programação em Par e o Desenvolvimento Orientado a Testes, mas tenta atualizá-los para um ambiente virtual.
 
-* Code implementation and testing can be done in parallel, over long distances or across time zones, which reduces the overall time taken to finish writing the code.
+* A implementação e os testes de código podem ser feitos em paralelo, a grandes distâncias ou em fusos horários diferentes, o que reduz o tempo total necessário para terminar de escrever o código.
 
-* RTT maintains the pair programming paradigm, while reducing the need for video communication or constant communication between developers.
+* O RTT mantém o paradigma de programação em par, enquanto reduz a necessidade de comunicação constante por vídeo ou entre desenvolvedores.
 
-* RTT allows detailed focus on design and engineering alignment before implementing any code, leading to cleaner and simpler interfaces.
+* O RTT permite um foco detalhado em design e alinhamento de engenharia antes de implementar qualquer código, levando a interfaces mais limpas e simples.
 
-* RTT encourages testing to be prioritized alongside implementation, instead of having testing follow or be influenced by the implementation of the code.
+* O RTT incentiva que os testes sejam priorizados ao lado da implementação, em vez de seguir ou ser influenciado pela implementação do código.
 
-* Documentation is inherently a part of RTT, since both the implementer and the tester need correct, up to date documentation, in the implementation phase.
+* A documentação é inerentemente uma parte do RTT, já que tanto o implementador quanto o testador precisam de documentação correta e atualizada na fase de implementação.
 
-## What you need for RTT to work well
+## O que você precisa para o RTT funcionar bem
 
-* Demand for constant communication and good teamwork may pose a challenge; daily updates amongst team members are essential to maintain alignment on varying code requirements.
-
-* Clarity of the code design and testing strategy must be established beforehand and documented as reference. Lack of an established design will cause misalignment between the two major pieces of work and a need for time-consuming refactoring.
-
-* RTT does not work well if only one developer has knowledge of the overall design. Team communication is critical to ensuring that every developer involved in RTT is on the same page.
+* A demanda por comunicação constante e bom trabalho em equipe pode representar um desafio; atualizações diárias entre os membros da equipe são essenciais para man

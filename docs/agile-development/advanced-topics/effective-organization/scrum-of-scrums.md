@@ -1,36 +1,36 @@
-# Scrum of Scrums
+# Scrum de Scrums
 
-Scrum of scrums is a technique used to scale Scrum to a larger group working towards the same project goal. In Scrum, we consider a team being too big when going over 10-12 individuals. This should be decided on a case by case basis. If the project is set up in multiple work streams that contain a fixed group of people and a common [stand-up](../../core-expectations/README.md) meeting is slowing down productivity: scrum of scrums should be considered. The team would identify the different subgroups that would act as a separate scrum teams with their own backlog, board and [stand-up](../../core-expectations/README.md).
+Scrum de Scrums é uma técnica usada para escalar o Scrum para um grupo maior trabalhando em direção ao mesmo objetivo de projeto. No Scrum, consideramos uma equipe grande demais quando ultrapassa 10-12 indivíduos. Isso deve ser decidido caso a caso. Se o projeto for configurado em várias correntes de trabalho que contêm um grupo fixo de pessoas e uma reunião de [stand-up](../../core-expectations/README.md) comum está diminuindo a produtividade, o Scrum de Scrums deve ser considerado. A equipe identificaria os diferentes subgrupos que atuariam como equipes Scrum separadas com seu próprio backlog, quadro e [stand-up](../../core-expectations/README.md).
 
-## Goals
+## Objetivos
 
-The goal of the scrum of scrums ceremony is to give sub-teams the agility they need while not loosing visibility and coordination. It also helps to ensure that the sub-teams are achieving their sprint goals, and they are going in the right direction to achieve the overall project goal.
+O objetivo da cerimônia de Scrum de Scrums é dar às subequipes a agilidade de que precisam sem perder visibilidade e coordenação. Também ajuda a garantir que as subequipes estejam alcançando seus objetivos de sprint e que estejam indo na direção certa para alcançar o objetivo geral do projeto.
 
-The scrum of scrums ceremony happens every day and can be seen as a regular [stand-up](../../core-expectations/README.md):
+A cerimônia de Scrum de Scrums acontece todos os dias e pode ser vista como um [stand-up](../../core-expectations/README.md) regular:
 
-- What was done the day before by the sub-team.
-- What will be done today by the sub-team.
-- What are blockers or other issues for the sub-team.
-- What are the blockers or issues that may impact other sub-teams.
+- O que foi feito no dia anterior pela subequipe.
+- O que será feito hoje pela subequipe.
+- Quais são os bloqueadores ou outros problemas para a subequipe.
+- Quais são os bloqueadores ou problemas que podem impactar outras subequipes.
 
-The outcome of the meeting will result in a list of impediments related to coordination of the whole project. Solutions could be: agreeing on interfaces between teams, discussing architecture changes, evolving responsibility boundaries, etc.
+O resultado da reunião resultará em uma lista de impedimentos relacionados à coordenação de todo o projeto. As soluções podem ser: concordar com interfaces entre equipes, discutir mudanças de arquitetura, evoluir limites de responsabilidade, etc.
 
-This list of impediments is usually managed in a separate [backlog](../backlog-management/README.md) but does not have to.
+Esta lista de impedimentos geralmente é gerenciada em um [backlog](../backlog-management/README.md) separado, mas não precisa ser.
 
-## Participation
+## Participação
 
-The common guideline is to have on average one person per sub-team to participate in the scrum of scrums. Ideally, the Process Lead of each sub-team would represent them in this ceremony. In some instances, the representative for the day is selected at the end of each sub-team daily [stand-up](../../core-expectations/README.md) and could change every day. In practice, having a fixed representative tends to be more efficient in the long term.
+A orientação comum é ter, em média, uma pessoa por subequipe para participar do Scrum de Scrums. Idealmente, o Líder de Processo de cada subequipe os representaria nesta cerimônia. Em alguns casos, o representante do dia é selecionado no final de cada [stand-up](../../core-expectations/README.md) diário da subequipe e pode mudar todos os dias. Na prática, ter um representante fixo tende a ser mais eficiente a longo prazo.
 
-## Impact
+## Impacto
 
-This practice is helpful in cases of longer projects and with a larger scope, requiring more people. When having more people, it is usually easier to divide the project in sub-teams. Having a daily scrum of scrums improves communication, lowers the risk of integration issues and increases the project chances of success.
+Esta prática é útil em casos de projetos mais longos e com um escopo maior, exigindo mais pessoas. Ao ter mais pessoas, geralmente é mais fácil dividir o projeto em subequipes. Ter um Scrum de Scrums diário melhora a comunicação, reduz o risco de problemas de integração e aumenta as chances de sucesso do projeto.
 
-When choosing to implement Scrum of Scrums, you need to keep in mind that some team members will have additional meetings to coordinate and participate in. Also: all team members for each sub-team need to be updated on the decisions at a later point to ensure a good flow of information.
+Ao escolher implementar o Scrum de Scrums, você precisa ter em mente que alguns membros da equipe terão reuniões adicionais para coordenar e participar. Além disso: todos os membros da equipe de cada subequipe precisam ser atualizados sobre as decisões em um momento posterior para garantir um bom fluxo de informações.
 
-## Measures
+## Medidas
 
-The easiest way to measure the impact is by tracking the time to resolve issues in the scrum of scrums backlog. You can also track issues reported during the [retrospective](../../core-expectations/README.md) related to global coordination (is it well done? can it be improved?).
+A maneira mais fácil de medir o impacto é acompanhando o tempo para resolver problemas no backlog do Scrum de Scrums. Você também pode acompanhar problemas relatados durante a [retrospectiva](../../core-expectations/README.md) relacionados à coordenação global (está bem feito? pode ser melhorado?).
 
-## Facilitation Guidance
+## Orientações para Facilitação
 
-This should be facilitated like a regular [stand-up](../../core-expectations/README.md).
+Isso deve ser facilitado como um [stand-up](../../core-expectations/README.md) regular.

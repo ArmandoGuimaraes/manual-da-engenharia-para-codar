@@ -1,42 +1,42 @@
-# Definition of Ready
+# Definição de Pronto
 
-When the development team picks a user story from the top of the backlog, the user story needs to have enough detail to estimate the work needed to complete the story within the sprint. If it has enough detail to estimate, it is Ready to be developed.
+Quando a equipe de desenvolvimento escolhe uma história de usuário do topo do backlog, a história precisa ter detalhes suficientes para estimar o trabalho necessário para completá-la dentro do sprint. Se tiver detalhes suficientes para a estimativa, ela está Pronta para ser desenvolvida.
 
-> If a user story is not Ready in the beginning of the Sprint it increases the chance that the story will not be done at the end of this sprint.
+> Se uma história de usuário não estiver Pronta no início do Sprint, aumenta a chance de que a história não será concluída no final deste sprint.
 
-## What it is
+## O que é
 
-*Definition of Ready* is the agreement made by the scrum team around how complete a user story should be in order to be selected as candidate for estimation in the sprint planning. These can be codified as a checklist in user stories using [GitHub Issue Templates](https://help.github.com/en/github/building-a-strong-community/configuring-issue-templates-for-your-repository) or [Azure DevOps Work Item Templates](https://learn.microsoft.com/en-us/azure/devops/boards/backlogs/work-item-template?view=azure-devops&tabs=browser).
+*Definição de Pronto* é o acordo feito pela equipe Scrum sobre quão completa uma história de usuário deve estar para ser selecionada como candidata à estimativa no planejamento do sprint. Estes podem ser codificados como uma lista de verificação nas histórias de usuário usando [Modelos de Issue do GitHub](https://help.github.com/en/github/building-a-strong-community/configuring-issue-templates-for-your-repository) ou [Modelos de Item de Trabalho do Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/boards/backlogs/work-item-template?view=azure-devops&tabs=browser).
 
-It can be understood as a checklist that helps the Product Owner to ensure that the user story they wrote contains all the necessary details for the scrum team to understand the work to be done.
+Pode ser entendido como uma lista de verificação que ajuda o Proprietário do Produto a garantir que a história de usuário que escreveu contém todos os detalhes necessários para a equipe Scrum entender o trabalho a ser feito.
 
-### Examples of ready checklist items
+### Exemplos de itens da lista de verificação de pronto
 
-* [ ] Does the description have the details including any input values required to implement the user story?
-* [ ] Does the user story have clear and complete acceptance criteria?
-* [ ] Does the user story address the business need?
-* [ ] Can we measure the acceptance criteria?
-* [ ] Is the user story small enough to be implemented in a short amount of time, but large enough to provide value to the customer?
-* [ ] Is the user story blocked? For example, does it depend on any of the following:
-  * The completion of unfinished work
-  * A deliverable provided by another team (code artifact, data, etc...)
+* [ ] A descrição contém os detalhes, incluindo quaisquer valores de entrada necessários para implementar a história de usuário?
+* [ ] A história de usuário tem critérios de aceitação claros e completos?
+* [ ] A história de usuário aborda a necessidade de negócios?
+* [ ] Podemos medir os critérios de aceitação?
+* [ ] A história de usuário é pequena o suficiente para ser implementada em um curto período de tempo, mas grande o suficiente para fornecer valor ao cliente?
+* [ ] A história de usuário está bloqueada? Por exemplo, ela depende de algum dos seguintes:
+  * A conclusão de um trabalho não terminado
+  * Um entregável fornecido por outra equipe (artefato de código, dados, etc...)
 
-## Who writes it
+## Quem escreve
 
-The ready checklist can be written by a Product Owner in agreement with the development team and the Process Lead.
+A lista de verificação de pronto pode ser escrita por um Proprietário do Produto em acordo com a equipe de desenvolvimento e o Líder do Processo.
 
-## When should a Definition of Ready be updated
+## Quando a Definição de Pronto deve ser atualizada
 
-Update or change the definition of ready anytime the scrum team observes that there are missing information in the user stories that recurrently impacts the planning.
+Atualize ou altere a definição de pronto sempre que a equipe Scrum observar que há informações faltando nas histórias de usuário que impactam recorrentemente o planejamento.
 
-## What should be avoided
+## O que deve ser evitado
 
-The ready checklist should contain items that apply broadly. Don't include items or details that only apply to one or two user stories. This may become an overhead when writing the user stories.
+A lista de verificação de pronto deve conter itens que se aplicam de forma ampla. Não inclua itens ou detalhes que se aplicam apenas a uma ou duas histórias de usuário. Isso pode se tornar um excesso ao escrever as histórias de usuário.
 
-## How to get stories ready
+## Como preparar histórias para estarem prontas
 
-In the case that the highest priority work is not yet ready, it still may be possible to make forward progress. Here are some strategies that may help:
+No caso de o trabalho de maior prioridade ainda não estar pronto, ainda pode ser possível fazer progresso. Aqui estão algumas estratégias que podem ajudar:
 
-* [Backlog Refinement](../backlog-management/README.md) sessions are a good time to validate that high priority user stories are verified to have a clear description, acceptance criteria and demonstrable business value. It is also a good time to breakdown large stories will likely not be completable in a single sprint.
-* Prioritization sessions are a good time to prioritize user stories that unblock other blocked high priority work.
-* Blocked user stories can often be broken down in a way that unblocks a portion of the original stories scope. This is a good way to make forward progress even when some work is blocked.
+* Sessões de [Refinamento do Backlog](../backlog-management/README.md) são um bom momento para validar que histórias de usuário de alta prioridade são verificadas para ter uma descrição clara, critérios de aceitação e valor comercial demonstrável. Também é um bom momento para dividir grandes histórias que provavelmente não serão concluídas em um único sprint.
+* Sessões de priorização são um bom momento para priorizar histórias de usuário que desbloqueiam outros trabalhos de alta prioridade bloqueados.
+* Histórias de usuário bloqueadas muitas vezes podem ser divididas de forma a desbloquear uma parte do escopo original. Esta é uma boa maneira de fazer progresso, mesmo quando algum trabalho está bloqueado.

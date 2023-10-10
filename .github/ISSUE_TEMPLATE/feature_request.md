@@ -7,10 +7,10 @@ assignees: ''
 
 ---
 
-**Sua solicitação de recurso está relacionada a um problema? Por favor descreva.**
+**Sua ideia está relacionada a um problema? Por favor descreva.**
 Uma descrição clara e concisa de qual é o problema. Ex. Fico sempre frustrado quando [...]
 
-**Descreva a solução que você deseja**
+**Descreva a ideia que você deseja**
 Uma descrição clara e concisa do que você deseja que aconteça.
 
 **Descreva as alternativas que você considerou**

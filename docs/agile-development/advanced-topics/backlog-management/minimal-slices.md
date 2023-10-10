@@ -1,42 +1,42 @@
-# Minimalism Slices
+# Fatias Minimalistas
 
-## Always deliver your work using minimal valuable slices
+## Sempre entregue seu trabalho usando fatias mínimas valiosas
 
-- Split your work item into small chunks that are contributed in incremental commits.
+- Divida seu item de trabalho em pequenos pedaços que são contribuídos em commits incrementais.
 
-- Contribute your chunks frequently. Follow an iterative approach by regularly providing updates and changes to the team. This allows for instant feedback and early issue discovery and ensures you are developing in the right direction, both technically and functionally.
+- Contribua com seus pedaços frequentemente. Siga uma abordagem iterativa, fornecendo atualizações e mudanças regularmente para a equipe. Isso permite feedback instantâneo e descoberta precoce de problemas, garantindo que você está desenvolvendo na direção certa, tanto tecnicamente quanto funcionalmente.
 
-- Do NOT work independently on your task without providing any updates to your team.
+- NÃO trabalhe independentemente em sua tarefa sem fornecer atualizações para sua equipe.
 
-### Example
+### Exemplo
 
-Imagine you are working on adding UWP (Universal Windows Platform) application building functionality for existing continuous integration service which already has Android/iOS support.
+Imagine que você está trabalhando na adição de funcionalidade de construção de aplicativos UWP (Universal Windows Platform) para um serviço de integração contínua que já possui suporte para Android/iOS.
 
-#### Bad approach
+#### Abordagem Ruim
 
-After six weeks of work you created PR with all required functionality, including portal UI (build settings), backend REST API (UWP build functionality), telemetry, unit and integration tests, etc.
+Após seis semanas de trabalho, você criou um PR com toda a funcionalidade necessária, incluindo a interface do portal (configurações de construção), API REST do backend (funcionalidade de construção UWP), telemetria, testes unitários e de integração, etc.
 
-#### Good approach
+#### Boa Abordagem
 
-You divided your feature into smaller user stories (which in turn were divided into multiple tasks) and started working on them one by one:
+Você dividiu seu recurso em histórias de usuário menores (que por sua vez foram divididas em várias tarefas) e começou a trabalhar nelas uma de cada vez:
 
-- As a user I can successfully build UWP apps using current service
-- As a user I can see telemetry when building the apps
-- As a user I have the ability to select build configuration (debug, release)
-- As a user I have the ability to select target platform (arm, x86, x64)
+- Como usuário, posso construir aplicativos UWP com sucesso usando o serviço atual
+- Como usuário, posso ver a telemetria ao construir os aplicativos
+- Como usuário, tenho a capacidade de selecionar a configuração de construção (debug, release)
+- Como usuário, tenho a capacidade de selecionar a plataforma de destino (arm, x86, x64)
 - ...
 
-You also divided your stories into smaller tasks and sent PRs based on those tasks.
-E.g. you have the following tasks for the first user story above:
+Você também dividiu suas histórias em tarefas menores e enviou PRs com base nessas tarefas.
+Por exemplo, você tem as seguintes tarefas para a primeira história de usuário acima:
 
-- Enable UWP platform on backend
-- Add `build` button to the UI (build first solution file found)
-- Add `select solution file` dropdown to the UI
-- Implement unit tests
-- Implement integration tests to verify build succeeded
-- Update documentation
+- Habilitar a plataforma UWP no backend
+- Adicionar botão `construir` à interface do usuário (construir o primeiro arquivo de solução encontrado)
+- Adicionar um menu suspenso `selecionar arquivo de solução` à interface do usuário
+- Implementar testes unitários
+- Implementar testes de integração para verificar se a construção foi bem-sucedida
+- Atualizar documentação
 - ...
 
-### Resources
+### Recursos
 
-- [Minimalism Rules](http://minifesto.org/)
+- [Regras do Minimalismo](http://minifesto.org/)

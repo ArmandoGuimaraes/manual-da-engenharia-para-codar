@@ -1,56 +1,56 @@
-# Social Question of the Day
+# Pergunta Social do Dia
 
-The social question of the day is an optional short question to follow the three project questions in the daily stand-up. It develops team cohesion and interpersonal trust over the course of an engagement by facilitating the sharing of personal preferences, lifestyle, or other context.
+A pergunta social do dia é uma questão curta opcional a ser feita após as três perguntas do projeto no stand-up diário. Ela desenvolve a coesão da equipe e a confiança interpessoal ao longo de um projeto, facilitando o compartilhamento de preferências pessoais, estilo de vida ou outros contextos.
 
-The social question should be chosen before the stand-up. The facilitator should select the question either independently or from the team's asynchronous suggestions. This minimizes delays at the start of the stand-up.
+A pergunta social deve ser escolhida antes do stand-up. O facilitador deve selecionar a pergunta de forma independente ou a partir das sugestões assíncronas da equipe. Isso minimiza atrasos no início do stand-up.
 
-> **Tip:** having the stand-up facilitator role rotate each sprint lets the facilitator choose the social question independently without burdening any one team member.
+> **Dica:** fazer o papel de facilitador do stand-up rodar a cada sprint permite que o facilitador escolha a pergunta social de forma independente, sem sobrecarregar nenhum membro da equipe.
 
-## Properties of a good question
+## Propriedades de uma Boa Pergunta
 
-A good question has a brief answer with small optional elaboration. A yes or no answer doesn't tell you very much about someone, while knowing that their favorite fruit is a [durian](https://en.wikipedia.org/wiki/Durian) is informative.
+Uma boa pergunta tem uma resposta breve com pequena elaboração opcional. Uma resposta sim ou não não diz muito sobre alguém, enquanto saber que sua fruta favorita é um [durian](https://pt.wikipedia.org/wiki/Durian) é informativo.
 
-Good questions are low in consequence but allow controversy. Watching someone strongly exclaim that salmon and lox on cinnamon-raisin is the best bagel order is endearing. As a corollary, a good question is one someone is likely to be passionate about. You know a little more about a team member's personality if their eyes light up when describing their favorite karaoke song.
+Boas perguntas são de baixa consequência, mas permitem controvérsia. Ver alguém afirmar fortemente que salmão e lox em bagel de canela e uva-passa é o melhor pedido é cativante. Como corolário, uma boa pergunta é aquela sobre a qual alguém provavelmente é apaixonado. Você sabe um pouco mais sobre a personalidade de um membro da equipe se os olhos dele se iluminam ao descrever sua música de karaokê favorita.
 
-## Starter list of questions
+## Lista Inicial de Perguntas
 
-Potentially good questions include:
+Perguntas potencialmente boas incluem:
 
-- What's your Starbucks order?
-- What's your favorite operating system?
-- What's your favorite version of Windows?
-- What's your favorite plant, houseplant or otherwise?
-- What's your favorite fruit?
-- What's your favorite fast food?
-- What's your favorite noodle?
-- What's your favorite text editor?
-- Mountains or beach?
-- DC or Marvel?
-- Coffee with one person from history: who?
-- What's your silliest online purchase?
-- What's your alternate career?
-- What's the best bagel topping?
-- What's your guilty TV pleasure?
-- What's your go-to karaoke song?
-- Would you rather see the past or the future?
-- Would you rather be able to teleport or to fly?
-- Would you rather live underwater or in space for a year?
-- What's your favorite phone app?
-- What's your favorite fish, to eat or otherwise?
-- What was your best costume?
-- Who is someone you admire (from history, from your personal life, etc.)? Give one reason why.
-- What's the best compliment you've ever received?
-- What's your favorite or most used emoji right now?
-- What was your biggest DIY project?
-- What's a spice that you use on everything?
-- What's your top Spotify (or just your favorite) genre/artist for this year?
-- What was your first computer?
-- What's your favorite kind of taco?
-- What's your favorite decade?
-- What's the best way to eat potatoes?
-- What was your best vacation (stay-cations acceptable)?
-- Favorite cartoon?
-- Pick someone in your family and tell us something awesome about them.
-- What was your longest road trip?
-- What thing do you remember learning when you were young that is taught differently now?
-- What was your favorite toy as a child?
+- Qual é o seu pedido no Starbucks?
+- Qual é o seu sistema operacional favorito?
+- Qual é a sua versão favorita do Windows?
+- Qual é a sua planta favorita, de casa ou de outro tipo?
+- Qual é a sua fruta favorita?
+- Qual é o seu fast-food favorito?
+- Qual é o seu macarrão favorito?
+- Qual é o seu editor de texto favorito?
+- Montanhas ou praia?
+- DC ou Marvel?
+- Café com uma pessoa da história: quem?
+- Qual foi a sua compra online mais tola?
+- Qual é a sua carreira alternativa?
+- Qual é o melhor recheio para bagel?
+- Qual é o seu prazer culposo na TV?
+- Qual é a sua música de karaokê preferida?
+- Você preferiria ver o passado ou o futuro?
+- Você preferiria ser capaz de se teleportar ou voar?
+- Você preferiria viver debaixo d'água ou no espaço por um ano?
+- Qual é o seu aplicativo de telefone favorito?
+- Qual é o seu peixe favorito, para comer ou de outra forma?
+- Qual foi a sua melhor fantasia?
+- Quem é alguém que você admira (da história, da sua vida pessoal, etc.)? Dê um motivo.
+- Qual foi o melhor elogio que você já recebeu?
+- Qual é o seu emoji favorito ou mais usado no momento?
+- Qual foi o seu maior projeto de faça você mesmo?
+- Qual é o tempero que você usa em tudo?
+- Qual é o seu gênero/artista mais ouvido no Spotify (ou apenas o seu favorito) para este ano?
+- Qual foi o seu primeiro computador?
+- Qual é o seu tipo favorito de taco?
+- Qual é a sua década favorita?
+- Qual é a melhor forma de comer batatas?
+- Qual foi a sua melhor férias (ficar em casa é aceitável)?
+- Desenho animado favorito?
+- Escolha alguém da sua família e nos diga algo incrível sobre ele.
+- Qual foi a sua viagem de carro mais longa?
+- O que você se lembra de ter aprendido quando era jovem e que é ensinado de forma diferente agora?
+- Qual era o seu brinquedo favorito quando criança?

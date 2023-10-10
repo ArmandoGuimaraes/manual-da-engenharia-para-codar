@@ -1,10 +1,10 @@
-# Team Agreements
+# Acordos de Equipe
 
-* [Definition of Done](./definition-of-done.md)
-* [Definition of Ready](./definition-of-ready.md)
-* [Working Agreements](./working-agreements.md)
-* [Team Manifesto](./team-manifesto.md)
+* [Definição de Concluído](./definition-of-done.md)
+* [Definição de Pronto](./definition-of-ready.md)
+* [Acordos de Trabalho](./working-agreements.md)
+* [Manifesto da Equipe](./team-manifesto.md)
 
-## Goals
+## Objetivos
 
-Team agreements help clarify expectations for all team members, whether they are expectations around how the team works together (Working Agreements) or how to judge if a story is complete (Definition of Done).
+Os acordos de equipe ajudam a esclarecer as expectativas para todos os membros da equipe, seja em relação a como a equipe trabalha junta (Acordos de Trabalho) ou como julgar se uma história está completa (Definição de Concluído).

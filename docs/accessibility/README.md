@@ -1,64 +1,35 @@
-# Accessibility
+# Acessibilidade
 
-Accessibility is a critical component of any successful project and ensures the solutions we build are usable and enjoyed by as many people as possible. While meeting accessibility compliance standards is required, accessibility is much broader than compliance alone. Accessibility is about using techniques like inclusive design to infuse different perspectives and the full range of human diversity into the products we build. By incorporating accessibility into your project from the initial envisioning through MVP and beyond, you are promoting a more inclusive environment for your team and helping close the "Disability Divide" that exists for many people living with disabilities.
+A acessibilidade é um componente crítico de qualquer projeto bem-sucedido e garante que as soluções que construímos sejam utilizáveis e apreciadas pelo maior número possível de pessoas. Embora o cumprimento das normas de acessibilidade seja obrigatório, a acessibilidade vai muito além do mero cumprimento. A acessibilidade é sobre usar técnicas como design inclusivo para infundir diferentes perspectivas e toda a gama de diversidade humana nos produtos que construímos. Ao incorporar acessibilidade em seu projeto desde a visão inicial até o MVP e além, você está promovendo um ambiente mais inclusivo para sua equipe e ajudando a fechar o "Divisão de Deficiência" que existe para muitas pessoas que vivem com deficiências.
 
-## Getting Started
+## Começando
 
-If you are new to accessibility or are looking for an overview of accessibility fundamentals, Microsoft Learn offers a great training course that covers a broad range of topics from creating accessible content in Office to designing accessibility features in your own apps. You can learn more about the course or get started at [Microsoft Learn: Accessibility Fundamentals](https://learn.microsoft.com/en-us/learn/paths/accessibility-fundamentals/).
+Se você é novo em acessibilidade ou está procurando uma visão geral dos fundamentos da acessibilidade, o Microsoft Learn oferece um ótimo curso de treinamento que abrange uma ampla gama de tópicos, desde a criação de conteúdo acessível no Office até o design de recursos de acessibilidade em seus próprios aplicativos. Você pode aprender mais sobre o curso ou começar em [Microsoft Learn: Fundamentos de Acessibilidade](https://learn.microsoft.com/en-us/learn/paths/accessibility-fundamentals/).
 
-## Inclusive Design
+## Design Inclusivo
 
-Inclusive design is a methodology that embraces the full range of human diversity as a resource to help build better products and services. Inclusive design compliments accessibility going beyond accessibility compliance standards to ensure products are usable and enjoyed by all people. By leveraging the inclusive design methodology early in a project, you can expect a more inclusive and better solution for everyone. The [Microsoft Inclusive Design](https://www.microsoft.com/design/inclusive/) website offers a variety of resources for incorporating inclusive design in your projects including inclusive design activities that can be used in envisioning and architecture design sessions.
+O design inclusivo é uma metodologia que abraça toda a gama de diversidade humana como um recurso para ajudar a construir melhores produtos e serviços. O design inclusivo complementa a acessibilidade, indo além das normas de conformidade de acessibilidade para garantir que os produtos sejam utilizáveis e apreciados por todas as pessoas. Ao aproveitar a metodologia de design inclusivo no início de um projeto, você pode esperar uma solução mais inclusiva e melhor para todos. O site [Microsoft Design Inclusivo](https://www.microsoft.com/design/inclusive/) oferece uma variedade de recursos para incorporar design inclusivo em seus projetos, incluindo atividades de design inclusivo que podem ser usadas em sessões de visão e design de arquitetura.
 
-The Microsoft Inclusive Design methodology includes the following principles:
+A metodologia de Design Inclusivo da Microsoft inclui os seguintes princípios:
 
-### Recognize exclusion
+### Reconhecer a exclusão
 
-Designing for inclusivity not only opens up our products and services to more people, it also reflects how people really are. All humans grow and adapt to the world around them and we want our designs to reflect that.
+Projetar para inclusividade não apenas abre nossos produtos e serviços para mais pessoas, mas também reflete como as pessoas realmente são. Todos os seres humanos crescem e se adaptam ao mundo ao seu redor, e queremos que nossos designs reflitam isso.
 
-### Solve for one, extend to many
+### Resolver para um, estender para muitos
 
-Everyone has abilities, and limits to those abilities. Designing for people with permanent disabilities actually results in designs that benefit people universally. Constraints are a beautiful thing.
+Todos têm habilidades e limites para essas habilidades. Projetar para pessoas com deficiências permanentes realmente resulta em designs que beneficiam as pessoas universalmente. Restrições são uma coisa linda.
 
-### Learn from diversity
+### Aprender com a diversidade
 
-Human beings are the real experts in adapting to diversity. Inclusive design puts people in the center from the very start of the process, and those fresh, diverse perspectives are the key to true insight.
+Os seres humanos são os verdadeiros especialistas em se adaptar à diversidade. O design inclusivo coloca as pessoas no centro desde o início do processo, e essas perspectivas frescas e diversas são a chave para uma verdadeira percepção.
 
-## Tools
+## Ferramentas
 
-### Accessibility Insights
+### Insights de Acessibilidade
 
-[Accessibility Insights](https://accessibilityinsights.io/) is a free, open-source solution for identifying accessibility issues in Windows, Android, and web applications. Accessibility Insights can identify a broad range of accessibility issues including problems with missing image alt tags, heading organization, tab order, color contrast, and many more. In addition, you can use Accessibility Insights to simulate color blindness to ensure your user interface is accessible to those that experience some form of color blindness. You can download Accessibility Insights here: [https://accessibilityinsights.io/downloads/](https://accessibilityinsights.io/downloads/)
+[Insights de Acessibilidade](https://accessibilityinsights.io/) é uma solução gratuita e de código aberto para identificar problemas de acessibilidade em aplicativos Windows, Android e web. Insights de Acessibilidade podem identificar uma ampla gama de problemas de acessibilidade, incluindo problemas com tags de imagem alternativas ausentes, organização de cabeçalhos, ordem de tabulação, contraste de cores e muito mais. Além disso, você pode usar Insights de Acessibilidade para simular daltonismo para garantir que sua interface do usuário seja acessível àqueles que experimentam alguma forma de daltonismo. Você pode baixar Insights de Acessibilidade aqui: [https://accessibilityinsights.io/downloads/](https://accessibilityinsights.io/downloads/)
 
-### Accessibility Linter
+### Linter de Acessibilidade
 
-[Deque Systems](https://www.deque.com/) are web accessibility experts that provide accessibility training and tools to many organizations including Microsoft. One of the many tools offered by Deque is the [axe Accessibility Linter for VS Code](https://marketplace.visualstudio.com/items?itemName=deque-systems.vscode-axe-linter). This VS Code extension use the [axe-core rules](https://github.com/dequelabs/axe-core/blob/develop/doc/rule-descriptions.md#:~:text=WCAG%202.0%20Level%20A%20%26%20AA%20Rules%20,%20%20%20%2011%20more%20rows%20?msclkid=604d209ed16411eca3c4c2af8c378e89) engine to identify accessibility issues in HTML, Angular, React, Markdown, and Vue. Using an accessibility linter can help ensure accessibility issues get addressed early in the development lifecycle.
-
-## Practices
-
-### Accessibility Testing
-
-Accessibility testing is a specialized subset of software testing and includes automated tools and manual testing processes that vary from project to project. In addition to tools like Accessibility Insights discussed earlier, there are many other solutions for accessibility testing. The W3C provides a comprehensive list of evaluation and testing tools on their website at [https://www.w3.org/WAI/ER/tools/](https://www.w3.org/WAI/ER/tools/).
-
-If you are looking to add automated testing to your Azure Pipelines, you may want to consider the [Accessibility Testing extension](https://marketplace.visualstudio.com/items?itemName=DrewLewis.Accessibility) built by Drew Lewis, a former Microsoft employee.
-
-It's important to keep in mind that automated tooling alone is not enough - make sure to augment your automated tests with manual ones. Accessibility Insights (linked above) can guide users through some manual testing steps.
-
-### Code and Documentation Basics
-
-Before you get to testing, you can make some small changes in how you write code and documentation.
-
-- Document! Beyond text documentation, this also means code comments, clear variable and file naming, and pipeline or script outputs that clearly report success or failure and give details.
-- Avoid small case for variable and file names, hashtags, neologisms, etc. Use camelCase, snake_case, or other methods of creating separation between words.
-- Introduce abbreviations by spelling the full term out, then the abbreviation in parentheses.
-- Use headers effectively to break up content by topic. Don't use more than one h1 per page, and don't skip levels (e.g. use an h3 directly under an h1). Avoid using formatting to make something *look* like a header when it's not.
-- Use descriptive link text. Avoid attaching a link to phrases like "Read more" and ensure that the text directly states what it links to. Link text should be able to stand on its own.
-- When including images or diagrams, add alt text. This should never just be "Image" or "Diagram" (or similar). In your description, highlight the purpose of the image or diagram in the page and what it is intended to convey.
-- Prefer tabs to spaces when possible. This allows users to default to their preferred tab width, so users with a range of vision can all take in code easily.
-
-## Additional Resources
-
-* [Microsoft Accessibility Technology & Tools](https://www.microsoft.com/accessibility)
-* [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/TR/WCAG20/#intro)
-* [Accessibility Guidelines and Requirements | Microsoft Style Guide](https://learn.microsoft.com/en-us/style-guide/accessibility/accessibility-guidelines-requirements)
-* [Google Developer Style Guide: Write Accessible Documentation](https://developers.google.com/style/accessibility)
+[Deque Systems](https://www.deque.com/) são especialistas em acessibilidade na web que fornecem treinamento e ferramentas de acessibilidade para muitas organizações, incluindo a Microsoft. Uma das muitas ferramentas oferecidas pela Deque é o [axe Linter de Acessibilidade para VS Code](https://marketplace.visualstudio.com/items?itemName=deque-systems.vscode-axe-linter). Esta extensão do VS Code usa o mecanismo de regras [axe-core](https://github.com/dequelabs/axe-core/blob/develop/doc/rule-descriptions.md#:~:text=WCAG%202.0%20Level%20A%20%26%20AA%20Rules%20,%20%20%20%2011%20more%20rows%20?msclkid=604d209ed16411eca3c4c2af8c378e89) para identificar problemas de acessibilidade em HTML, Angular, React, Markdown e Vue. Usar

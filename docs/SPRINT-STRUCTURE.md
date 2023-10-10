@@ -1,75 +1,75 @@
-# Structure of a Sprint
+# Estrutura de um Sprint
 
-The purpose of this document is to:
+O objetivo deste documento é:
 
-- Organize content in the playbook for quick reference and discoverability
-- Provide content in a logical structure which reflects the engineering process
-- Extensible hierarchy to allow teams to share deep subject-matter expertise
+- Organizar o conteúdo no playbook para rápida referência e descobrimento
+- Fornecer conteúdo em uma estrutura lógica que reflita o processo de engenharia
+- Hierarquia extensível para permitir que as equipes compartilhem conhecimento profundo em assuntos específicos
 
-## The first week of an ISE Project
+## A primeira semana de um Projeto ISE
 
-### Before starting the project
+### Antes de iniciar o projeto
 
-- [ ] [Discuss and start writing the Team Agreements](agile-development/advanced-topics/team-agreements/README.md). Update these documents with any process decisions made throughout the project
-  - [Working Agreement](agile-development/advanced-topics/team-agreements/working-agreements.md)
-  - [Definition of Ready](agile-development/advanced-topics/team-agreements/definition-of-ready.md)
-  - [Definition of Done](agile-development/advanced-topics/team-agreements/definition-of-done.md)
-  - [Estimation](agile-development/core-expectations/README.md)
-- [ ] [Set up the repository/repositories](source-control/README.md#creating-a-new-repository)
-  - Decide on repository structure/s
-  - Add [README.md](resources/templates/README.md), [LICENSE](resources/templates/LICENSE), [CONTRIBUTING.md](resources/templates/CONTRIBUTING.md), .gitignore, etc
-- [ ] [Build a Product Backlog](agile-development/advanced-topics/backlog-management/README.md)
-  - Set up a project in your chosen project management tool (ex. Azure DevOps)
-  - [INVEST](https://en.wikipedia.org/wiki/INVEST_(mnemonic)) in good User Stories and Acceptance Criteria
-  - [Non-Functional Requirements Guidance](design/design-patterns/non-functional-requirements-capture-guide.md)
+- [ ] [Discutir e começar a escrever os Acordos da Equipe](agile-development/advanced-topics/team-agreements/README.md). Atualize esses documentos com quaisquer decisões de processo feitas ao longo do projeto
+  - [Acordo de Trabalho](agile-development/advanced-topics/team-agreements/working-agreements.md)
+  - [Definição de Pronto](agile-development/advanced-topics/team-agreements/definition-of-ready.md)
+  - [Definição de Concluído](agile-development/advanced-topics/team-agreements/definition-of-done.md)
+  - [Estimativa](agile-development/core-expectations/README.md)
+- [ ] [Configurar o(s) repositório(s)](source-control/README.md#creating-a-new-repository)
+  - Decidir sobre a estrutura(s) do repositório
+  - Adicionar [README.md](resources/templates/README.md), [LICENSE](resources/templates/LICENSE), [CONTRIBUTING.md](resources/templates/CONTRIBUTING.md), .gitignore, etc
+- [ ] [Construir um Backlog de Produto](agile-development/advanced-topics/backlog-management/README.md)
+  - Configurar um projeto na sua ferramenta de gerenciamento de projeto escolhida (ex. Azure DevOps)
+  - [INVEST](https://en.wikipedia.org/wiki/INVEST_(mnemonic)) em boas Histórias de Usuário e Critérios de Aceitação
+  - [Orientação para Requisitos Não Funcionais](design/design-patterns/non-functional-requirements-capture-guide.md)
 
-### Day 1
+### Dia 1
 
-- [ ] [Plan the first sprint](agile-development/core-expectations/README.md)
-  - Agree on a sprint goal, and how to measure the sprint progress
-  - Determine team capacity
-  - Assign user stories to the sprint and split user stories into tasks
-  - Set up Work in Progress (WIP) limits
-- [ ] [Decide on test frameworks and discuss test strategies](automated-testing/README.md)
-  - Discuss the purpose and goals of tests and how to measure test coverage
-  - Agree on how to separate unit tests from integration, load and smoke tests
-  - Design the first test cases
-- [ ] [Decide on branch naming](source-control/naming-branches.md)
-- [ ] [Discuss security needs and verify that secrets are kept out of source control](continuous-delivery/azure-devops/secret-management-per-branch.md)
+- [ ] [Planejar o primeiro sprint](agile-development/core-expectations/README.md)
+  - Concordar com um objetivo de sprint e como medir o progresso do sprint
+  - Determinar a capacidade da equipe
+  - Atribuir histórias de usuário ao sprint e dividir histórias de usuário em tarefas
+  - Configurar limites de Trabalho em Andamento (WIP)
+- [ ] [Decidir sobre frameworks de teste e discutir estratégias de teste](automated-testing/README.md)
+  - Discutir o propósito e os objetivos dos testes e como medir a cobertura de teste
+  - Concordar em como separar testes unitários de testes de integração, carga e fumaça
+  - Projetar os primeiros casos de teste
+- [ ] [Decidir sobre a nomenclatura das branches](source-control/naming-branches.md)
+- [ ] [Discutir necessidades de segurança e verificar que segredos são mantidos fora do controle de versão](continuous-delivery/azure-devops/secret-management-per-branch.md)
 
-### Day 2
+### Dia 2
 
-- [ ] [Set up Source Control](source-control/README.md)
-  - Agree on [best practices for commits](source-control/git-guidance/README.md#commit-best-practices)
-- [ ] [Set up basic Continuous Integration with linters and automated tests](continuous-integration/README.md)
-- [ ] [Set up meetings for Daily Stand-ups and decide on a Process Lead](agile-development/core-expectations/README.md)
-  - Discuss purpose, goals, participants and facilitation guidance
-  - Discuss timing, and how to run an efficient stand-up
-- [ ] [If the project has sub-teams, set up a Scrum of Scrums](agile-development/advanced-topics/effective-organization/scrum-of-scrums.md)
+- [ ] [Configurar Controle de Fonte](source-control/README.md)
+  - Concordar com [melhores práticas para commits](source-control/git-guidance/README.md#commit-best-practices)
+- [ ] [Configurar Integração Contínua básica com linters e testes automatizados](continuous-integration/README.md)
+- [ ] [Configurar reuniões para Stand-ups Diários e decidir sobre um Líder de Processo](agile-development/core-expectations/README.md)
+  - Discutir propósito, objetivos, participantes e orientações para facilitação
+  - Discutir o momento e como executar um stand-up eficiente
+- [ ] [Se o projeto tiver subequipes, configurar um Scrum de Scrums](agile-development/advanced-topics/effective-organization/scrum-of-scrums.md)
 
-### Day 3
+### Dia 3
 
-- [ ] [Agree on code style](code-reviews/README.md) and on [how to assign Pull Requests](code-reviews/pull-requests.md)
-- [ ] [Set up Build Validation for Pull Requests (2 reviewers, linters, automated tests)](code-reviews/README.md) and agree on [Definition of Done](agile-development/advanced-topics/team-agreements/definition-of-done.md)
-- [ ] [Agree on a Code Merging strategy](source-control/merge-strategies.md) and update the [CONTRIBUTING.md](resources/templates/CONTRIBUTING.md)
-- [ ] [Agree on logging and observability frameworks and strategies](observability/README.md)
+- [ ] [Concordar com o estilo de código](code-reviews/README.md) e sobre [como atribuir Pull Requests](code-reviews/pull-requests.md)
+- [ ] [Configurar Validação de Build para Pull Requests (2 revisores, linters, testes automatizados)](code-reviews/README.md) e concordar com [Definição de Concluído](agile-development/advanced-topics/team-agreements/definition-of-done.md)
+- [ ] [Concordar com uma estratégia de Mesclagem de Código](source-control/merge-strategies.md) e atualizar o [CONTRIBUTING.md](resources/templates/CONTRIBUTING.md)
+- [ ] [Concordar com frameworks e estratégias de registro e observabilidade](observability/README.md)
 
-### Day 4
+### Dia 4
 
-- [ ] [Set up Continuous Deployment](continuous-delivery/README.md)
-  - Determine what environments are appropriate for this solution
-  - For each environment discuss purpose, when deployment should trigger, pre-deployment approvers, sing-off for promotion.
-- [ ] [Decide on a versioning strategy](source-control/component-versioning.md)
-- [ ] Agree on how to [Design a feature and conduct a Design Review](design/design-reviews/README.md)
+- [ ] [Configurar Implantação Contínua](continuous-delivery/README.md)
+  - Determinar quais ambientes são apropriados para esta solução
+  - Para cada ambiente, discutir o propósito, quando a implantação deve ser acionada, aprovadores pré-implantação, aprovação para promoção.
+- [ ] [Decidir sobre uma estratégia de versionamento](source-control/component-versioning.md)
+- [ ] Concordar em como [Projetar um recurso e conduzir uma Revisão de Design](design/design-reviews/README.md)
 
-### Day 5
+### Dia 5
 
-- [ ] Conduct a Sprint Demo
-- [ ] [Conduct a Retrospective](agile-development/core-expectations/README.md)
-  - Determine required participants, how to capture input (tools) and outcome
-  - Set a timeline, and discuss facilitation, meeting structure etc.
-- [ ] [Refine the Backlog](agile-development/advanced-topics/backlog-management/README.md)
-  - Determine required participants
-  - Update the [Definition of Ready](agile-development/advanced-topics/team-agreements/definition-of-ready.md)
-  - Update estimates, and the [Estimation](agile-development/core-expectations/README.md) document
-- [ ] [Submit Engineering Feedback for issues encountered](engineering-feedback/README.md)
+- [ ] Realizar uma Demonstração de Sprint
+- [ ] [Conduzir uma Retrospectiva](agile-development/core-expectations/README.md)
+  - Determinar participantes necessários, como capturar entrada (ferramentas) e resultado
+  - Definir um cronograma e discutir facilitação, estrutura da reunião, etc.
+- [ ] [Refinar o Backlog](agile-development/advanced-topics/backlog-management/README.md)
+  - Determinar participantes necessários
+  - Atualizar a [Definição de Pronto](agile-development/advanced-topics/team-agreements/definition-of-ready.md)
+  - Atualizar estimativas e o documento [Estimativa](agile-development/core-expectations/README.md)
+- [ ] [Enviar Feedback de Engenharia para problemas encontrados](engineering-feedback/README.md)

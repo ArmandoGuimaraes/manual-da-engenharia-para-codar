@@ -1,5 +1,5 @@
 # Pull Request Template
 
-## What are you trying to address
+## O que você está tentando resolver
 
-- Write a detailed description of all changes - and if appropriate, why they are needed
+- Escreva uma descrição detalhada de todas as alterações - e, se apropriado, por que são necessárias

@@ -58,9 +58,7 @@ Abaixo, você pode encontrar alguns tópicos que muitas equipes abordam durante 
 | Refatoração             | Como a equipe gerencia/segue isso?                                                                                                                                 |
 | Documentação Ágil       | A equipe deseja usar diagramas e tabelas mais do que artigos detalhados do KB?                                                                                     |
 | Documentação Eficiente  | Quando é necessário? É um pré-requisito para concluir tarefas/PRs etc.?                                                                                            |
-| Definição de Diversão   | Como nos divertiremos para relaxar/desfrutar do espírito de equipe
-
- durante o envolvimento?                                                                         |
+| Definição de Diversão   | Como nos divertiremos para relaxar/desfrutar do espírito de equipe durante o envolvimento no projeto?                                                              |
 
 ## Ferramentas
 

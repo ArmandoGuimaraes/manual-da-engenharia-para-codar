@@ -1,9 +1,9 @@
-# Agile Ceremonies basics
+# Fundamentos das Cerimônias Ágeis
 
-This section has links directing you to best practices for conducting the Agile ceremonies.  After reading through the best practices you should have a basic understanding of the key Agile ceremonies in terms of purpose, value and best practices around conducting and facilitating these ceremonies.
+Esta seção contém links que direcionam você para as melhores práticas para conduzir as cerimônias ágeis. Após ler as melhores práticas, você deve ter um entendimento básico das principais cerimônias ágeis em termos de propósito, valor e melhores práticas para conduzir e facilitar essas cerimônias.
 
-- [Planning](https://scrumguides.org/scrum-guide.html#sprint-planning 'Sprint Planning')
-- [Refinement](https://learn.microsoft.com/devops/plan/what-is-agile-development#diligent-backlog-refinement 'Refinement')
-- [Retrospective](https://scrumguides.org/scrum-guide.html#sprint-retrospective 'Retrospective')
-- [Sprint Review/Demo](https://scrumguides.org/scrum-guide.html#sprint-review 'Sprint Review')
-- [Stand-Up/Daily Scrum](https://scrumguides.org/scrum-guide.html#daily-scrum 'Stand-up/Daily Scrum')
+- [Planejamento](https://scrumguides.org/scrum-guide.html#sprint-planning 'Planejamento do Sprint')
+- [Refinamento](https://learn.microsoft.com/devops/plan/what-is-agile-development#diligent-backlog-refinement 'Refinamento')
+- [Retrospectiva](https://scrumguides.org/scrum-guide.html#sprint-retrospective 'Retrospectiva')
+- [Revisão/Demo do Sprint](https://scrumguides.org/scrum-guide.html#sprint-review 'Revisão do Sprint')
+- [Stand-Up/Scrum Diário](https://scrumguides.org/scrum-guide.html#daily-scrum 'Stand-up/Scrum Diário')

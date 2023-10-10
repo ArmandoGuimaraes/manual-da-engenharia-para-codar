@@ -1,83 +1,82 @@
-# Sections of a Working Agreement
+# Seções de um Acordo de Trabalho
 
-A working agreement is a document, or a set of documents that describe how we work together as a team and what our
-expectations and principles are.
+Um acordo de trabalho é um documento ou um conjunto de documentos que descrevem como trabalhamos juntos como uma equipe e quais são nossas expectativas e princípios.
 
-The working agreement created by the team at the beginning of the project, and is stored in the repository so that it is
-readily available for everyone working on the project.
+O acordo de trabalho é criado pela equipe no início do projeto e é armazenado no repositório para que esteja prontamente disponível para todos que trabalham no projeto.
 
-The following are examples of sections and points that can be part of a working agreement but each team should compose
-their own, and adjust times, communication channels, branch naming policies etc. to fit their team needs.
+A seguir estão exemplos de seções e pontos que podem fazer parte de um acordo de trabalho, mas cada equipe deve compor o seu próprio e ajustar horários, canais de comunicação, políticas de nomeação de branches, etc., para atender às necessidades da equipe.
 
-## General
+## Geral
 
-- We work as one team towards a common goal and clear scope
-- We make sure everyone's voice is heard, listened to
-- We show all team members equal respect
-- We work as a team to have common expectations for technical delivery that are documented in a [Team Manifesto](team-manifesto.md).
-- We make sure to spread our expertise and skills in the team, so no single person is relied on for one skill
-- All times below are listed in CET
+- Trabalhamos como uma única equipe em direção a um objetivo comum e escopo claro
+- Certificamo-nos de que a voz de todos seja ouvida e escutada
+- Mostramos igual respeito a todos os membros da equipe
+- Trabalhamos como uma equipe para ter expectativas comuns para a entrega técnica que são documentadas em um [Manifesto da Equipe](team-manifesto.md).
+- Certificamo-nos de disseminar nossa expertise e habilidades na equipe, para que nenhuma única pessoa seja a única responsável por uma habilidade
+- Todos os horários abaixo estão listados em CET
 
-## Communication
+## Comunicação
 
-- We communicate all information relevant to the team through the Project Teams channel
-- We add all [technical spikes](../../../design/design-reviews/recipes/technical-spike.md), [trade studies](../../../design/design-reviews/trade-studies/README.md), and other technical documentation to the project repository through [async design reviews in PRs](../../../design/design-reviews/recipes/async-design-reviews.md)
+- Comunicamos todas as informações relevantes para a equipe através do canal de Equipes do Projeto
+- Adicionamos todos os [spikes técnicos](../../../design/design-reviews/recipes/technical-spike.md), [estudos de trade-off](../../../design/design-reviews/trade-studies/README.md) e outra documentação técnica ao repositório do projeto através de [revisões de design assíncronas em PRs](../../../design/design-reviews/recipes/async-design-reviews.md)
 
-## Work-life Balance
+## Equilíbrio entre Trabalho e Vida Pessoal
 
-- Our office hours, when we can expect to collaborate via Microsoft Teams, phone or face-to-face are Monday to Friday 10AM - 5PM
-- We are not expected to answer emails past 6PM, on weekends or when we are on holidays or vacation.
-- We work in different time zones and respect this, especially when setting up recurring meetings.
-- We record meetings when possible, so that team members who could not attend live can listen later.
+- Nosso horário de expediente, quando podemos esperar colaborar via Microsoft Teams, telefone ou presencialmente, é de segunda a sexta-feira, das 10h às 17h
+- Não somos obrigados a responder e-mails após as 18h, nos fins de semana ou quando estamos de férias ou feriados.
+- Trabalhamos em diferentes fusos horários e respeitamos isso, especialmente ao marcar reuniões recorrentes.
+- Gravamos reuniões sempre que possível, para que os membros da equipe que não puderam participar ao vivo possam ouvir mais tarde.
 
-## Quality and not Quantity
+## Qualidade e não Quantidade
 
-- We agree on a [Definition of Done](definition-of-done.md) for our user story's and sprints and live by it.
-- We follow engineering best practices like the [Code With Engineering Playbook](https://github.com/microsoft/code-with-engineering-playbook)
+- Concordamos com uma [Definição de Concluído](definition-of-done.md) para nossas histórias de usuário e sprints e vivemos de acordo com ela.
+- Seguimos as melhores práticas de engenharia, como o [Code With Engineering Playbook](https://github.com/microsoft/code-with-engineering-playbook)
 
-## Scrum Rhythm
+## Ritmo do Scrum
 
-| Activity                                              | When                  | Duration | Who          | Accountable  | Goal                                                                       |
-|-------------------------------------------------------|-----------------------|----------|--------------|--------------|----------------------------------------------------------------------------|
-| [Project Standup](../../core-expectations/README.md)  | Tue-Fri 9AM           | 15 min   | Everyone     | Process Lead | What has been accomplished, next steps, blockers                           |
-| Sprint Demo                                           | Monday 9AM            | 1 hour   | Everyone     | Dev Lead     | Present work done and sign off on user story completion                    |
-| [Sprint Retro](../../core-expectations/README.md)     | Monday 10AM           | 1 hour   | Everyone     | Process Lead | Dev Teams shares learnings and what can be improved                        |
-| [Sprint Planning](../../core-expectations/README.md)  | Monday 11AM           | 1 hour   | Everyone     | PO           | Size and plan user stories for the sprint                                  |
-| Task Creation                                         | After Sprint Planning | -        | Dev Team     | Dev Lead     | Create tasks to clarify and determine velocity                             |
-| [Backlog refinement](../backlog-management/README.md) | Wednesday 2PM         | 1 hour   | Dev Lead, PO | PO           | Prepare for next sprint and ensure that stories are ready for next sprint. |
+| Atividade                                             | Quando                 | Duração  | Quem         | Responsável | Objetivo                                                                  |
+|-------------------------------------------------------|------------------------|----------|--------------|-------------|---------------------------------------------------------------------------|
+| [Reunião Diária do Projeto](../../core-expectations/README.md) | Ter-Sex 9h              | 15 min   | Todos        | Líder de Processo | O que foi realizado, próximos passos, bloqueios                            |
+| Demonstração do Sprint                                | Segunda 9h             | 1 hora   | Todos        | Líder de Desenvolvimento | Apresentar o trabalho realizado e aprovar a conclusão da história de usuário |
+| [Retrospectiva do Sprint](../../core-expectations/README.md)  | Segunda 10h            | 1 hora   | Todos        | Líder de Processo | A equipe de desenvolvimento compartilha aprendizados e o que pode ser melhorado |
+| [Planejamento do Sprint](../../core-expectations/README.md)   | Segunda 11h            | 1 hora   | Todos        | PO          | Dimensionar e planejar histórias de usuário para o sprint                   |
+| Criação de Tarefas                                    | Após o Planejamento do Sprint | -     | Equipe de Desenvolvimento | Líder de Desenvolvimento | Criar tarefas para esclarecer e determinar a velocidade                    |
+| [Refinamento do Backlog](../backlog-management/README.md)     | Quarta 14h             | 1 hora   | Líder de Desenvolvimento, PO | PO  | Preparar para o próximo sprint e garantir que as histórias estejam prontas para o próximo sprint. |
 
-## Process Lead
+## Líder de Processo
 
-The Process Lead is responsible for leading any scrum or agile practices to enable the project to move forward.
+O Líder de Processo é responsável por liderar quaisquer práticas de scrum ou ágeis para permitir que o projeto avance.
 
-- Facilitate standup meetings and hold team accountable for attendance and participation.
-- Keep the meeting moving as described in the [Project Standup](../../core-expectations/README.md) page.
-- Make sure all action items are documented and ensure each has an owner and a due date and tracks the open issues.
-- Notes as needed after planning / stand-ups.
-- Make sure that items are moved to the parking lot and ensure follow-up afterwards.
-- Maintain a location showing team’s work and status and removing impediments that are blocking the team.
-- Hold the team accountable for results in a supportive fashion.
-- Make sure that project and program documentation are up-to-date.
-- Guarantee the tracking/following up on action items from retrospectives (iteration and release planning) and from daily standup meetings.
-- Facilitate the sprint retrospective.
-- Coach Product Owner and the team in the process, as needed.
+- Facilitar reuniões diárias e responsabilizar a equipe pela presença e participação.
+- Manter a reunião em movimento conforme descrito na página [Reunião Diária do Projeto](../../core-expectations/README.md).
+- Certificar-se de que todas as ações estão documentadas e garantir que cada uma tenha um responsável e uma data de vencimento e rastrear as questões em aberto.
+- Anotações conforme necessário após o planejamento/reuniões diárias.
+- Certificar-se de que os itens são movidos para o estacionamento e garantir o acompanhamento posterior.
+- Manter um local mostrando o trabalho e o status da equipe e remover impedimentos que estão bloqueando a equipe.
+- Responsabilizar a equipe pelos
 
-## Backlog Management
+ resultados de forma solidária.
+- Certificar-se de que a documentação do projeto e do programa estão atualizadas.
+- Garantir o rastreamento/seguimento de ações da retrospectiva (planejamento de iteração e liberação) e das reuniões diárias.
+- Facilitar a retrospectiva do sprint.
+- Treinar o Product Owner e a equipe no processo, conforme necessário.
 
-- We work together on a [Definition of Ready](definition-of-ready.md) and all user stories assigned to a sprint need to follow this
-- We communicate what we are working on through the board
-- We assign ourselves a task when we are ready to work on it (not before) and move it to active
-- We capture any work we do related to the project in a user story/task
-- We close our tasks/user stories only when they are done (as described in the [Definition of Done](definition-of-done.md))
-- We work with the PM if we want to add a new user story to the sprint
-- If we add new tasks to the board, we make sure it matches the acceptance criteria of the user story (to avoid scope creep).
-  If it doesn't match the acceptance criteria we should discuss with the PM to see if we need a new user story for the task or if we should adjust the acceptance criteria.
+## Gerenciamento de Backlog
 
-## Code Management
+- Trabalhamos juntos em uma [Definição de Pronto](definition-of-ready.md) e todas as histórias de usuário atribuídas a um sprint precisam seguir isso
+- Comunicamos o que estamos trabalhando através do quadro
+- Atribuímos a nós mesmos uma tarefa quando estamos prontos para trabalhar nela (não antes) e a movemos para ativo
+- Capturamos qualquer trabalho que fazemos relacionado ao projeto em uma história de usuário/tarefa
+- Fechamos nossas tarefas/histórias de usuário apenas quando estão concluídas (conforme descrito na [Definição de Concluído](definition-of-done.md))
+- Trabalhamos com o PM se quisermos adicionar uma nova história de usuário ao sprint
+- Se adicionarmos novas tarefas ao quadro, certificamo-nos de que ela corresponde aos critérios de aceitação da história de usuário (para evitar o aumento do escopo).
+  Se não corresponder aos critérios de aceitação, devemos discutir com o PM para ver se precisamos de uma nova história de usuário para a tarefa ou se devemos ajustar os critérios de aceitação.
 
-- We follow the git flow branch naming convention for branches and identify the task number e.g. `feature/123-add-working-agreement`
-- We merge all code into main branches through PRs
-- All PRs are reviewed by one person from [Customer/Partner Name] and one from Microsoft (for knowledge transfer and to ensure code and security standards are met)
-- We always review existing PRs before starting work on a new task
-- We look through open PRs at the end of stand-up to make sure all PRs have reviewers.
-- We treat documentation as code and apply the same [standards to Markdown](../../../code-reviews/recipes/markdown.md) as code
+## Gerenciamento de Código
+
+- Seguimos a convenção de nomenclatura de branch do git flow para branches e identificamos o número da tarefa, por exemplo, `feature/123-add-working-agreement`
+- Mesclamos todo o código em branches principais através de PRs
+- Todos os PRs são revisados por uma pessoa de [Nome do Cliente/Parceiro] e uma da Microsoft (para transferência de conhecimento e para garantir que os padrões de código e segurança sejam atendidos)
+- Sempre revisamos os PRs existentes antes de começar a trabalhar em uma nova tarefa
+- Olhamos os PRs abertos no final da reunião diária para garantir que todos os PRs tenham revisores.
+- Tratamos a documentação como código e aplicamos os mesmos [padrões ao Markdown](../../../code-reviews/recipes/markdown.md) como código.

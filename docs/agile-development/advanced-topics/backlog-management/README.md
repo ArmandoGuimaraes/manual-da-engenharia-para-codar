@@ -1,4 +1,4 @@
-# Advanced recommendations for Backlog Management
+# Recomendações Avançadas para Gerenciamento de Backlog
 
-- [External Feedback](./external-feedback.md)
-- [Minimal slices](./minimal-slices.md)
+- [Feedback Externo](./external-feedback.md)
+- [Fatias Mínimas](./minimal-slices.md)

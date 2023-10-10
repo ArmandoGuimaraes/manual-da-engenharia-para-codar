@@ -1,69 +1,71 @@
-# Team Manifesto
+# Manifesto da Equipe
 
-## Introduction
+## Introdução
 
-ISE teams work with a new development team in each customer engagement which requires a phase of introduction & knowledge transfer before starting an engagement.
+As equipes da ISE trabalham com uma nova equipe de desenvolvimento em cada envolvimento com o cliente, o que requer uma fase de introdução e transferência de conhecimento antes de iniciar um envolvimento.
 
-Completion of this phase of ice-breakers and discussions about the standards takes time, but is required to start increasing the learning curve of the new team.
+A conclusão desta fase de quebra-gelos e discussões sobre os padrões leva tempo, mas é necessária para começar a aumentar a curva de aprendizado da nova equipe.
 
-A team manifesto is a light-weight one page agile document among team members which summarizes the basic principles and values of the team and aiming to provide a consensus about technical expectations from each team member in order to deliver high quality output at the end of each engagement.
+Um manifesto da equipe é um documento ágil de uma página entre os membros da equipe que resume os princípios e valores básicos da equipe e visa fornecer um consenso sobre as expectativas técnicas de cada membro da equipe para entregar um resultado de alta qualidade no final de cada envolvimento.
 
-It aims to reduce the time on setting the right expectations without arranging longer "team document reading" meetings and provide a consensus among team members to answer the question - "How does the new team develop the software?" - by covering all engineering fundamentals and excellence topics such as release process, clean coding, testing.
+O objetivo é reduzir o tempo na definição das expectativas corretas sem organizar reuniões mais longas de "leitura de documentos da equipe" e fornecer um consenso entre os membros da equipe para responder à pergunta - "Como a nova equipe desenvolve o software?" - abrangendo todos os tópicos fundamentais de engenharia e excelência, como processo de lançamento, codificação limpa, testes.
 
-Another main goal of writing the manifesto is to start a conversation during the "manifesto building session" to detect any differences of opinion around how the team should work.
+Outro objetivo principal de escrever o manifesto é iniciar uma conversa durante a "sessão de construção do manifesto" para detectar quaisquer diferenças de opinião sobre como a equipe deve trabalhar.
 
-It also serves in the same way when a new team member joins to the team. New joiners can quickly get up to speed on the agreed standards.
+Ele também serve da mesma forma quando um novo membro da equipe se junta à equipe. Novos integrantes podem se atualizar rapidamente sobre os padrões acordados.
 
-## How to Build a Team Manifesto
+## Como Construir um Manifesto da Equipe
 
-It can be said that the best time to start building it is at the very early phase of the engagement when teams meet with each other for swarming or during the preparation phase.
+Pode-se dizer que o melhor momento para começar a construí-lo é na fase muito inicial do envolvimento, quando as equipes se encontram umas com as outras para swarming ou durante a fase de preparação.
 
-It is recommended to keep team manifesto as simple as possible, so preferably, one-page simple document which **doesn't include any references or links** is a nice format for it.
-If there is a need for providing knowledge on certain topics, the way to do is delivering brown-bag sessions, technical katas, team practices, documentations and others later on.
+É recomendado manter o manifesto da equipe o mais simples possível, então, de preferência, um documento simples de uma página que **não inclui quaisquer referências ou links** é um bom formato para ele.
+Se houver necessidade de fornecer conhecimento sobre certos tópicos, a forma de fazer isso é realizar sessões brown-bag, katas técnicas, práticas de equipe, documentações e outros posteriormente.
 
-A few important points about the team manifesto
+Alguns pontos importantes sobre o manifesto da equipe:
 
-- The team manifesto is built by the development team itself
-- It should cover all required technical engineering points for the excellence as well as behavioral agility mindset items that the team finds relevant
-- It aims to give a common understanding about the desired expertise, practices and/or mindset within the team
-- Based on the needs of the team and retrospective results, it can be modified during the engagement.
+- O manifesto da equipe é construído pela própria equipe de desenvolvimento
+- Deve cobrir todos os pontos técnicos de engenharia necessários para a excelência, bem como itens de mentalidade de agilidade comportamental que a equipe considera relevantes
+- Visa dar um entendimento comum sobre a expertise, práticas e/ou mentalidade desejadas dentro da equipe
+- Com base nas necessidades da equipe e nos resultados da retrospectiva, ele pode ser modificado durante o envolvimento.
 
-In ISE, we aim for quality over quantity, and well-crafted software as well as to a comfortable/transparent environment where each team member can reach their highest potential.
+Na ISE, buscamos qualidade em vez de quantidade, e software bem elaborado, bem como um ambiente confortável/transparente onde cada membro da equipe possa alcançar seu maior potencial.
 
-The difference between the team manifesto and other team documents is that it is used to give a short summary of expectations around the technical way of working and supported mindset in the team, before code-with sprints starts.
+A diferença entre o manifesto da equipe e outros documentos da equipe é que ele é usado para dar um breve resumo das expectativas em torno da forma técnica de trabalhar e da mentalidade apoiada na equipe, antes que os sprints de code-with comecem.
 
-Below, you can find some including, but not limited, topics many teams touch during engagements,
+Abaixo, você pode encontrar alguns tópicos que muitas equipes abordam durante os envolvimentos,
 
-| Topic                   | What is it about ?                                                                                                                                                    |
-|-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Collective Ownership    | Does team own the code rather than individuals? What is the expectation?                                                                                              |
-| Respect                 | Any preferred statement about it's a "must-have" team value                                                                                                           |
-| Collaboration           | Any preferred statement about how does team want to collaborate ?                                                                                                     |
-| Transparency            | A simple statement about it's a "must-have" team value and if preferred, how does this being provided by the team ? meetings, retrospective, feedback mechanisms etc. |
-| Craftspersonship        | Which tools such as Git, VS Code LiveShare, etc. are being used ? What is the definition of expected best usage of them?                                              |
-| PR sizing               | What does team prefer in PRs ?                                                                                                                                        |
-| Branching               | Team's branching strategy and standards                                                                                                                               |
-| Commit standards        | Preferred format in commit messages, rules and more                                                                                                                   |
-| Clean Code              | Does team follow clean code principles ?                                                                                                                              |
-| Pair/Mob Programming    | Will team apply pair/mob programming ? If yes, what programming styles are suitable for the team ?                                                                    |
-| Release Process         | Principles around release process such as quality gates, reviewing process ...etc.                                                                                    |
-| Code Review             | Any rule for code reviewing such as min number of reviewers, team rules ...etc.                                                                                       |
-| Action Readiness        | How the backlog will be refined? How do we ensure clear Definition of Done and Acceptance Criteria ?                                                                  |
-| TDD                     | Will the team follow TDD ?                                                                                                                                            |
-| Test Coverage           | Is there any expected number, percentage or measurement ?                                                                                                             |
-| Dimensions in Testing   | Required tests for high quality software, eg : unit, integration, functional, performance, regression, acceptance                                                     |
-| Build process           | build for all? or not; The clear statement of where code and under what conditions code should work ? eg : OS, DevOps, tool dependency                                |
-| Bug fix                 | The rules of bug fixing in the team ? eg: contact people, attaching PR to the issue etc.                                                                              |
-| Technical debt          | How does team manage/follow it?                                                                                                                                       |
-| Refactoring             | How does team manage/follow it?                                                                                                                                       |
-| Agile Documentation     | Does team want to use diagrams and tables more rather than detailed KB articles ?                                                                                     |
-| Efficient Documentation | When is it necessary ? Is it a prerequisite to complete tasks/PRs etc.?                                                                                               |
-| Definition of Fun       | How will we have fun for relaxing/enjoying the team spirit during the engagement?                                                                                     |
+| Tópico                  | Sobre o que é?                                                                                                                                                    |
+|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Propriedade Coletiva    | A equipe possui o código em vez de indivíduos? Qual é a expectativa?                                                                                              |
+| Respeito                | Qualquer declaração preferida sobre ser um valor "obrigatório" da equipe                                                                                           |
+| Colaboração             | Qualquer declaração preferida sobre como a equipe deseja colaborar?                                                                                               |
+| Transparência           | Uma simples declaração sobre ser um valor "obrigatório" da equipe e, se preferir, como isso é fornecido pela equipe? reuniões, retrospectivas, mecanismos de feedback, etc. |
+| Expertise em Ferramentas de Desenvolvimento  | Quais ferramentas, como Git, VS Code LiveShare, etc., estão sendo usadas? Qual é a definição do uso esperado delas?                                               |
+| Dimensionamento de PR   | O que a equipe prefere em PRs?                                                                                                                                    |
+| Ramificação             | Estratégia e padrões de ramificação da equipe                                                                                                                     |
+| Padrões de Commit       | Formato preferido nas mensagens de commit, regras e mais                                                                                                           |
+| Código Limpo            | A equipe segue princípios de código limpo?                                                                                                                        |
+| Programação em Par/Multidão | A equipe aplicará programação em par/multidão? Se sim, quais estilos de programação são adequados para a equipe?                                                 |
+| Processo de Lançamento  | Princípios em torno do processo de lançamento, como portões de qualidade, processo de revisão...etc.                                                              |
+| Revisão de Código       | Qualquer regra para revisão de código, como número mínimo de revisores, regras da equipe...etc.                                                                   |
+| Prontidão para Ação     | Como o backlog será refinado? Como garantimos uma clara Definição de Concluído e Critérios de Aceitação?                                                          |
+| TDD                    | A equipe seguirá TDD?                                                                                                                                              |
+| Cobertura de Teste      | Existe algum número, porcentagem ou medida esperada?                                                                                                               |
+| Dimensões em Testes     | Testes necessários para software de alta qualidade, por exemplo: unitários, integração, funcionais, desempenho, regressão, aceitação                               |
+| Processo de Construção  | Construir para todos? ou não; A declaração clara de onde o código e sob quais condições o código deve funcionar? por exemplo: SO, DevOps, dependência de ferramenta  |
+| Correção de Bugs        | As regras para correção de bugs na equipe? por exemplo: pessoas de contato, anexando PR ao problema, etc.                                                          |
+| Dívida Técnica          | Como a equipe gerencia/segue isso?                                                                                                                                 |
+| Refatoração             | Como a equipe gerencia/segue isso?                                                                                                                                 |
+| Documentação Ágil       | A equipe deseja usar diagramas e tabelas mais do que artigos detalhados do KB?                                                                                     |
+| Documentação Eficiente  | Quando é necessário? É um pré-requisito para concluir tarefas/PRs etc.?                                                                                            |
+| Definição de Diversão   | Como nos divertiremos para relaxar/desfrutar do espírito de equipe
 
-## Tools
+ durante o envolvimento?                                                                         |
 
-Generally team sessions are enough for building a manifesto and having a consensus around it, and if there is a need for improving it in a structured way, there are many blogs and tools online, any retrospective tool can be used.
+## Ferramentas
 
-## Resources
+Geralmente, sessões de equipe são suficientes para construir um manifesto e chegar a um consenso em torno dele, e se houver necessidade de melhorá-lo de forma estruturada, existem muitos blogs e ferramentas online, qualquer ferramenta de retrospectiva pode ser usada.
 
-[Technical Agility*](https://v46.scaledagileframework.com/team-and-technical-agility/)
+## Recursos
+
+[Agilidade Técnica*](https://v46.scaledagileframework.com/team-and-technical-agility/)

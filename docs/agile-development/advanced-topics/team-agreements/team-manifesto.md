@@ -45,7 +45,7 @@ Abaixo, você pode encontrar alguns tópicos que muitas equipes abordam durante 
 | Branching               | Estratégia e padrões de branches da equipe                                                                                                                     |
 | Padrões de Commit       | Formato preferido nas mensagens de commit, regras e mais                                                                                                           |
 | Código Limpo            | A equipe segue princípios de código limpo?                                                                                                                        |
-| Programação em Par/Multidão | A equipe aplicará programação em par/multidão? Se sim, quais estilos de programação são adequados para a equipe?                                                 |
+| Programação em Par/Enxame | A equipe aplicará programação em par/enxame? Se sim, quais estilos de programação são adequados para a equipe?                                                 |
 | Processo de Lançamento  | Princípios em torno do processo de lançamento, como portões de qualidade, processo de revisão...etc.                                                              |
 | Revisão de Código       | Qualquer regra para revisão de código, como número mínimo de revisores, regras da equipe...etc.                                                                   |
 | Prontidão para Ação     | Como o backlog será refinado? Como garantimos uma clara Definição de Concluído e Critérios de Aceitação?                                                          |

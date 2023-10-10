@@ -1,4 +1,4 @@
-# Advanced recommendations for a more effective organization
+# Recomendações Avançadas para uma Organização Mais Eficiente
 
-- [Delivery/Release plan](./delivery-plan.md)
-- [Scrum of Scrum](./scrum-of-scrums.md)
+- [Plano de Entrega/Lançamento](./delivery-plan.md)
+- [Scrum de Scrums](./scrum-of-scrums.md)

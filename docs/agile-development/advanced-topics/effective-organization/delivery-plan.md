@@ -1,47 +1,47 @@
-# Delivery Plan
+# Plano de Entrega
 
-## Goals
+## Objetivos
 
-While Scrum does not require and discourages planning more than one sprint at a time. Most of us work in enterprises where we are dependent outside teams (for example: marketing, sales, support).
+Embora o Scrum não exija e desencoraje o planejamento de mais de um sprint por vez, a maioria de nós trabalha em empresas onde somos dependentes de equipes externas (por exemplo: marketing, vendas, suporte).
 
-A rough assessment of the planned project scope is achievable within a reasonable time frame and resources. The goal is to have a rough plan and estimate as a starting point, not to implement "Agilefall."
+Uma avaliação aproximada do escopo do projeto planejado é alcançável dentro de um prazo e recursos razoáveis. O objetivo é ter um plano e uma estimativa aproximados como ponto de partida, e não implementar o "Agilefall".
 
-Note that this is just a starting point to enable planning discussions. We expect the actual schedule to evolve and shift over time and that you will update the scope and timeline as you progress.
+Note que este é apenas um ponto de partida para permitir discussões de planejamento. Esperamos que o cronograma real evolua e mude ao longo do tempo e que você atualize o escopo e o cronograma à medida que avança.
 
-Delivery Plans ensure your teams are aligning with your organizational goals.
+Os Planos de Entrega garantem que suas equipes estejam alinhadas com os objetivos organizacionais.
 
-## Benefits
+## Benefícios
 
-- As you complete the assessment, you can push back on the scope, time frame or ask for more resources.
-- As you progress in your project/product delivery, you can highlight risks to the scope, time frame, and resources.
+- Ao concluir a avaliação, você pode questionar o escopo, o prazo ou pedir mais recursos.
+- À medida que avança na entrega do seu projeto/produto, você pode destacar riscos para o escopo, prazo e recursos.
 
-## Approach
+## Abordagem
 
-One approach you can take to accomplish is with stickies and a spreadsheet.
+Uma abordagem que você pode adotar é com post-its e uma planilha.
 
-Step 1: Stack rank the features for everything in your backlog
+Etapa 1: Classifique as funcionalidades por ordem de importância para tudo em seu backlog
 
-- Functional Features
-- [Non-functional Features] (docs/TECH-LEADS-CHECKLIST.md)
-- User Research and Design
-- Testing
-- Documentation
-- Knowledge Transfer/Support Processes
+- Funcionalidades Funcionais
+- [Funcionalidades Não-funcionais](docs/TECH-LEADS-CHECKLIST.md)
+- Pesquisa e Design de Usuário
+- Testes
+- Documentação
+- Transferência de Conhecimento/Processos de Suporte
 
-Step 2: T-Shirt Features in terms of working weeks per person. In some scenarios, you have no idea how complex the work. In this situation, you can ask for time to conduct a spike (timebox the effort so you can get back on time).
+Etapa 2: Classifique as funcionalidades em termos de semanas de trabalho por pessoa. Em alguns cenários, você não tem ideia de quão complexo é o trabalho. Nessa situação, você pode pedir tempo para realizar um spike (limitar o esforço para que você possa voltar a tempo).
 
-Step 3: Calculate the capacity for the team based on the number of weeks person with his/her start and end date and minus holidays, vacation, conferences, training, and onboarding days. Also, minus time if the person is also working on defects and support.
+Etapa 3: Calcule a capacidade da equipe com base no número de semanas por pessoa com sua data de início e término e menos feriados, férias, conferências, treinamentos e dias de integração. Além disso, subtraia o tempo se a pessoa também estiver trabalhando em defeitos e suporte.
 
-Step 4: Based on your capacity, you know have the options
+Etapa 4: Com base em sua capacidade, você agora tem as opções
 
-- Ask for more resources. Caution: onboarding new resources take time.
-- Reduce the scope to the most MVP.  Caution: as you trim more of the scope, it might not be valuable anymore to the customer. Consider a cupcake which is everything you need. You don't want to skim off the frosting.
-- Ask for more time. Usually, this is the most flexible, but if there is a marketing date that you need to hit, this might be as flexible.
+- Pedir mais recursos. Atenção: integrar novos recursos leva tempo.
+- Reduzir o escopo para o MVP mais básico. Atenção: ao reduzir mais o escopo, ele pode não ser mais valioso para o cliente. Considere um cupcake que é tudo o que você precisa. Você não quer retirar a cobertura.
+- Pedir mais tempo. Geralmente, isso é o mais flexível, mas se houver uma data de marketing que você precisa cumprir, isso pode não ser tão flexível.
 
-## Tools
+## Ferramentas
 
-You can also leverage one of these tools by creating your epics and features and add the weeks estimates.
+Você também pode aproveitar uma dessas ferramentas criando seus épicos e funcionalidades e adicionando as estimativas de semanas.
 
-The [Plans (Preview) feature on Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/project/navigation/preview-features?view=azure-devops) will help you make a plan. Delivery Plans provide a schedule of stories or features your team plan to deliver. Delivery Plans show the scheduled work items by a sprint (iteration path) of selected teams against a calendar view.
+O [recurso Planos (Pré-visualização) no Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/project/navigation/preview-features?view=azure-devops) ajudará você a fazer um plano. Os Planos de Entrega fornecem um cronograma de histórias ou funcionalidades que sua equipe planeja entregar. Os Planos de Entrega mostram os itens de trabalho agendados por um sprint (caminho de iteração) de equipes selecionadas contra uma visão de calendário.
 
-Confluence JIRA, Trello, Rally, Asana, Basecamp, and GitHub Issues are other similar tools in the market (some are free, others you pay a monthly fee, or you can install on-prem) that you can leverage.
+Confluence JIRA, Trello, Rally, Asana, Basecamp e GitHub Issues são outras ferramentas semelhantes no mercado (algumas são gratuitas, outras você paga uma taxa mensal, ou você pode instalar no local) que você pode aproveitar.

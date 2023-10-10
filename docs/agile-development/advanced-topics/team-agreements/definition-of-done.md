@@ -1,34 +1,34 @@
-# Definition of Done
+# Definição de Concluído
 
-To close a user story, a sprint, or a milestone it is important to verify that the tasks are complete.
+Para fechar uma história de usuário, um sprint ou um marco, é importante verificar se as tarefas estão completas.
 
-The development team should decide together what their Definition of Done is and document this in the project. Below are some examples of checks to verify that the user story, sprint, task is completed.
+A equipe de desenvolvimento deve decidir em conjunto qual é a sua Definição de Concluído e documentar isso no projeto. Abaixo estão alguns exemplos de verificações para garantir que a história de usuário, sprint, tarefa esteja concluída.
 
-## Feature/User Story
+## Funcionalidade/História de Usuário
 
-- [ ] Acceptance criteria are met
-- [ ] Refactoring is complete
-- [ ] Code builds with no error
-- [ ] Unit tests are written and pass
-- [ ] Existing Unit Tests pass
-- [ ] Sufficient diagnostics/telemetry are logged
-- [ ] Code review is complete
-- [ ] UX review is complete (if applicable)
-- [ ] Documentation is updated
-- [ ] The feature is merged into the develop branch
-- [ ] The feature is signed off by the product owner
+- [ ] Critérios de aceitação são atendidos
+- [ ] Refatoração está completa
+- [ ] O código é compilado sem erros
+- [ ] Testes unitários são escritos e aprovados
+- [ ] Testes unitários existentes são aprovados
+- [ ] Diagnósticos/telemetria suficientes são registrados
+- [ ] Revisão de código está completa
+- [ ] Revisão de UX está completa (se aplicável)
+- [ ] Documentação está atualizada
+- [ ] A funcionalidade é mesclada na branch de desenvolvimento
+- [ ] A funcionalidade é aprovada pelo proprietário do produto
 
-## Sprint Goal
+## Objetivo do Sprint
 
-- [ ] Definition of Done for all user stories included in the sprint are met
-- [ ] Product backlog is updated
-- [ ] Functional and Integration tests pass
-- [ ] Performance tests pass
-- [ ] End 2 End tests pass
-- [ ] All bugs are fixed
-- [ ] The sprint is signed off from developers, software architects, project manager, product owner etc.
+- [ ] Definição de Concluído para todas as histórias de usuário incluídas no sprint são atendidas
+- [ ] Backlog do produto está atualizado
+- [ ] Testes funcionais e de integração são aprovados
+- [ ] Testes de desempenho são aprovados
+- [ ] Testes de ponta a ponta são aprovados
+- [ ] Todos os bugs são corrigidos
+- [ ] O sprint é aprovado por desenvolvedores, arquitetos de software, gerente de projeto, proprietário do produto, etc.
 
-## Release/Milestone
+## Lançamento/Marco
 
-- [ ] Code Complete (goals of sprints are met)
-- [ ] Release is marked as ready for production deployment by product owner
+- [ ] Código Completo (objetivos dos sprints são atendidos)
+- [ ] O lançamento é marcado como pronto para implantação em produção pelo proprietário do produto

@@ -1,8 +1,8 @@
-# Agile Development advanced topics
+# Tópicos Avançados em Desenvolvimento Ágil
 
-Documentation that help you going beyond the basics and core expectations.
+Documentação que ajuda você a ir além dos conceitos básicos e expectativas centrais.
 
-- [Backlog Management](./backlog-management/)
-- [Collaboration](./collaboration/)
-- [Effective Organization](./effective-organization/)
-- [Team Agreements](./team-agreements/)
+- [Gerenciamento de Backlog](./backlog-management/)
+- [Colaboração](./collaboration/)
+- [Organização Efetiva](./effective-organization/)
+- [Acordos de Equipe](./team-agreements/)

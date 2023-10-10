@@ -18,7 +18,7 @@ O Teste de Equipe Vermelha toma seu nome do paradigma de "Equipe Vermelha" e "Eq
 
 O RTT tem a mesma filosofia que qualquer outro ciclo de vida de Desenvolvimento Orientado a Testes: toda implementação é separada da interface, e a interface pode ser testada sem conhecimento da implementação.
 
-![diagrama-ptt](imagens/PTTdiagram.PNG)
+![diagrama-ptt](images/PTTdiagram.PNG)
 
 ## Etapas
 

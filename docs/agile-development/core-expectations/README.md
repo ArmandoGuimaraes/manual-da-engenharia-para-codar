@@ -1,220 +1,224 @@
-# Agile core expectations
+# Expectativas Centrais do Agile
 
-This section contains core expectations for agile practices in ISE:
+Esta seção contém as expectativas centrais para as práticas ágeis na ISE:
 
-- It should stay concise and link to external documentation for details.
-- Each section contains a list of core expectations and suggestions:
-  - **Core expectations** are what each dev team is expected to aim for.
-  - **Suggestions** *are not* expectations. They are our learned experience for meeting those expectations, and can be adopted and modified to suit the project.
+- Deve permanecer concisa e vincular à documentação externa para detalhes.
+- Cada seção contém uma lista de expectativas centrais e sugestões:
+  - **Expectativas centrais** são o que cada equipe de desenvolvimento deve almejar.
+  - **Sugestões** *não são* expectativas. São nossa experiência aprendida para atender a essas expectativas e podem ser adotadas e modificadas para se adequar ao projeto.
 
-**Notes:**
+**Notas:**
 
-- We prefer the usage of "process lead" over "scrum master". It describes the same role.
-- **"Crew"**, in this document, refers to the entire team working on an project (dev team, dev lead, PM, etc.).
-- We follow Agile principles and usually [Scrum](https://www.scrum.org/resources/what-is-scrum)
+- Preferimos o uso de "líder de processo" em vez de "scrum master". Descreve o mesmo papel.
+- **"Equipe"**, neste documento, refere-se a toda a equipe trabalhando em um projeto (equipe de desenvolvimento, líder de desenvolvimento, gerente de projeto, etc.).
+- Seguimos os princípios ágeis e geralmente [Scrum](https://www.scrum.org/resources/what-is-scrum)
 
-## Overall expectations for a project
+## Expectativas Gerais para um Projeto
 
-- The crew is predictable in their delivery.
-- The crew makes relevant adjustments and shares these transparently.
-- Roles and Responsibilities are clarified and agreed before the project starts.
-- The crew is driving continuous improvement of their own process to meet the core expectations and increase project success.
+- A equipe é previsível em sua entrega.
+- A equipe faz ajustes relevantes e os compartilha de forma transparente.
+- Papéis e responsabilidades são esclarecidos e acordados antes do início do projeto.
+- A equipe está impulsionando a melhoria contínua de seu próprio processo para atender às expectativas centrais e aumentar o sucesso do projeto.
 
-## Core expectations and suggestions
+## Expectativas e Sugestões Centrais
 
 ### Sprints
 
 ___
 
-**Expectations:**
+**Expectativas:**
 
-- Sprint structure gives frequent opportunities for feedback and adjustment in the context of relatively small projects.
-- Sprint ceremonies should be planned to accommodate working schedules of the team and take into consideration hard and soft time constraints.
+- A estrutura do sprint oferece oportunidades frequentes para feedback e ajuste no contexto de projetos relativamente pequenos.
+- As cerimônias do sprint devem ser planejadas para acomodar os horários de trabalho da equipe e levar em consideração restrições de tempo rígidas e flexíveis.
 
-**Suggestions:**
+**Sugestões:**
 
-- Sprinting starts day 1: Game plan creation, game plan review and sharing are included in sprints and should be reflected in the backlog.
-- Define a sprint goal that will be used to determine the success of the sprint.
-- Note: Sprints are usually 1 week long to increase the number of opportunities for adjustments. And minimize the risk of missing the sprint goal.
+- O sprint começa no dia 1: a criação do plano de jogo, a revisão do plano de jogo e o compartilhamento estão incluídos nos sprints e devem ser refletidos no backlog.
+- Defina um objetivo de sprint que será usado para determinar o sucesso do sprint.
+- Nota: Os sprints geralmente duram 1 semana para aumentar o número de oportunidades para ajustes. E minimizar o risco de perder o objetivo do sprint.
 
-### Estimation
-
-___
-
-**Expectations:**
-
-- Estimation supports the predictability of the team work and delivery.
-- Estimation re-enforces the value of accountability to the team.
-- The estimation process is improved over time and discussed on a regular basis.
-- Estimation is inclusive of the different individuals in the team.
-
-**Suggestions:**
-Rough estimation is usually done for a generic SE 2 dev.
-
-- Example 1
-  - The team use t-shirt sizes (S, M, L, XL) and agrees in advance which size fits a sprint.
-  - In this example: S, M fits a sprint, L, XL too big for a sprint and need to be split / refined
-  - The dev lead with support of the team roughly estimates how much S and M stories can be done in the first sprints
-  - This rough estimation is refined over time and used to as an input for future sprint planning and to adjust project end date forecasting
-- Example 2
-  - The team uses a single indicator: "does this story fits in one sprint?", if not, the story needs to be split
-  - The dev lead with support of the team roughly estimates how many stories can be done in the first sprints
-  - How many stories are done in each sprint on average is used as an input for future sprint planning and as an indicator to adjust project end date forecasting
-- Example 3
-  - The team does planning poker and estimates in story points
-  - Story points are roughly used to estimate how much can be done in next sprint
-  - The dev lead and the TPM uses the past sprints and observed velocity to adjust project end date forecasting
-
-- Other considerations
-  - Estimating stories using story points in smaller project does not always provide the value it would in bigger ones.
-  - Avoid converting story points or t-shirt sizes to days.
-  - Measure estimation accuracy:
-    - Collect data to monitor estimation accuracy and sprint completion over time to drive improvements.
-    - Use the sprint goal to understand if the estimation was correct. If the sprint goal is met: does anything else matter?
-  - Scrum Practices: While Scrum does not prescribe how to size work, Professional Scrum is biased away from absolute estimation (hours, function points, ideal-days, etc.) and towards relative sizing.
-    - Planning Poker: is a collaborative technique to assign relative size. Developers may choose whatever units they want - story points and t-shirt sizes are examples of units.
-    - 'Same-Size' PBIs is a relative estimation approach that involves breaking items down small enough that they are roughly the same size. Velocity can be understood as a count of PBIs; this is sometimes used by teams doing continuously delivery.
-    - 'Right-Size' PBIs is a relative estimation approach that involves breaking things down small enough to deliver value in a certain time period (i.e. get to Done by the end of a Sprint). This is sometimes associated with teams utilizing flow for forecasting. Teams use historical data to determine if they think they can get the PBI done within the confidence level that their historical data says they typically get a PBI done.
-
-**Links:**
-
-- [The Most Important Thing You Are Missing about Estimation](https://www.scrum.org/resources/blog/most-important-thing-you-are-missing-about-estimation)
-
-### Sprint planning
+### Estimativa
 
 ___
 
-**Expectations:**
+**Expectativas:**
 
-- The planning supports Diversity and Inclusion principles and provides equal opportunities.
-- The Planning defines how the work is going to be completed in the sprint.
-- Stories fit in a sprint and are [designed](https://github.com/microsoft/code-with-engineering-playbook/tree/main/docs/design/design-reviews) and [ready](../advanced-topics/team-agreements/definition-of-ready.md) before the planning.
+- A estimativa suporta a previsibilidade do trabalho e entrega da equipe.
+- A estimativa reforça o valor da responsabilidade para a equipe.
+- O processo de estimativa é aprimorado ao longo do tempo e discutido regularmente.
+- A estimativa é inclusiva dos diferentes indivíduos na equipe.
 
-**Suggestions:**
+**Sugestões:**
+A estimativa aproximada geralmente é feita para um SE 2 genérico de desenvolvimento.
 
-**Sprint goal:**
+- Exemplo 1
+  - A equipe usa tamanhos de camiseta (P, M, G, GG) e concorda antecipadamente qual tamanho se encaixa em um sprint.
+  - Neste exemplo: P, M se encaixam em um sprint, G, GG são muito grandes para um sprint e precisam ser divididos / refinados
+  - O líder de desenvolvimento, com o apoio da equipe, estima aproximadamente quantas histórias P e M podem ser feitas nos primeiros sprints
+  - Essa estimativa aproximada é refinada ao longo do tempo e usada como uma entrada para o planejamento futuro do sprint e para ajustar a previsão da data de término do projeto
+- Exemplo 2
+  - A equipe usa um único indicador: "essa história cabe em um sprint?", se não, a história precisa ser dividida
+  - O líder de desenvolvimento, com o apoio da equipe, estima aproximadamente quantas histórias podem ser feitas nos primeiros sprints
+  - Quantas histórias são feitas em cada sprint, em média, é usado como uma entrada para o planejamento futuro do sprint e como um indicador para ajustar a previsão da data de término do projeto
+- Exemplo 3
+  - A equipe faz o planejamento do poker e estima em pontos de história
+  - Os pontos de história são usados aproximadamente para estimar quanto pode ser feito no próximo sprint
+  - O líder de desenvolvimento e o TPM usam os sprints passados e a velocidade observada para ajustar a previsão da data de término do projeto
 
-Consider defining a sprint goal, or list of goals for each sprint. Effective sprint goals are a concise bullet point list of items. A Sprint goal can be created first and used as an input to choose the Stories for the sprint. A sprint goal could also be created from the list of stories that were picked for the Sprint.
-
-The sprint goal can be used :
-
-- At the end of each stand up meeting, to remember the north star for the Sprint and help everyone taking a step back
-- *During the sprint review ("was the goal achieved?", "If not, why?")
-
-*Note: A simple way to define a sprint goal, is to create a User Story in each sprint backlog and name it "Sprint XX goal". You can add the bullet points in the description.*
-
-**Stories:**
-
-- Example 1 - Preparing in advance:
-  - The dev lead and product owner plan time to prepare the sprint backlog ahead of sprint planning.
-  - The dev lead uses their experience (past and on the current project) and the estimation made for these stories to gauge how many should be in the sprint.
-  - The dev lead asks the entire team to look at the tentative sprint backlog in advance of the sprint planning.
-  - The dev lead assigns stories to specific developers after confirming with them that it makes sense
-  - During the sprint planning meeting, the team reviews the sprint goal and the stories. Everyone confirm they understand the plan and feel it's reasonable.
-- Example 2 - Building during the planning meeting:
-  - The product owner ensures that the highest priority items of the product backlog is refined and estimated following the team estimation process.
-  - During the Sprint planning meeting, the product owner describe each stories, one by one, starting by highest priority.
-  - For each story, the dev lead and the team confirm they understand what needs to be done and add the story to the sprint backlog.
-  - The team keeps considering more stories up to a point where they agree the sprint backlog is full. This should be informed by the estimation, past developer experience and past experience in this specific project.
-  - Stories are assigned during the planning meeting:
-    - Option 1: The dev lead makes suggestion on who could work on each stories. Each engineer agrees or discuss if required.
-    - Option 2: The team review each story and engineer volunteer select the one they want to be assigned to. (*Note*: this option might cause issues with the first core expectations. Who gets to work on what? Ultimately, it is the dev lead responsibility to ensure each engineer gets the opportunity to work on what makes sense for their growth.)
-
-**Tasks:**
-
-- Examples of approaches for task creation and assignment:
-  - Stories are split into tasks ahead of time by dev lead and assigned before/during sprint planning to engineers.
-  - Stories are assigned to more senior engineers who are responsible for splitting into tasks.
-  - Stories are split into tasks during the Sprint planning meeting by the entire team.
-  - *Note*: Depending on the seniority of the team, consider splitting into tasks before sprint planning. This can help getting out of sprint planning with all work assigned. It also increase clarity for junior engineers.
+- Outras considerações
+  - Estimar histórias usando pontos de história em projetos menores nem sempre fornece o valor que forneceria em maiores.
+  - Evite converter pontos de história ou tamanhos de camiseta para dias.
+  - Medir a precisão da estimativa:
+    - Colete dados para monitorar a precisão da estimativa e a conclusão do sprint ao longo do tempo para impulsionar melhorias.
+    - Use o objetivo do sprint para entender se a estimativa estava correta. Se o objetivo do sprint for atingido: mais alguma coisa importa?
+  - Práticas de Scrum: Embora o Scrum não prescreva como dimensionar o trabalho, o Scrum Profissional é tendencioso contra a estimativa absoluta (horas, pontos de função, dias ideais, etc.) e em direção ao dimensionamento relativo.
+    - Planejamento do Poker: é uma técnica colaborativa para atribuir tamanho relativo. Os desenvolvedores podem escolher quaisquer unidades que desejarem - pontos de história e tamanhos de camiseta são exemplos de unidades.
+    - PBIs do 'Mesmo Tamanho' é uma abordagem de estimativa relativa que envolve dividir os itens em partes pequenas o suficiente para que sejam mais ou menos do mesmo tamanho. A velocidade pode ser entendida como uma contagem de PBIs; isso às vezes é usado por equipes que fazem entrega contínua.
+    - PBIs do 'Tamanho Certo' é uma abordagem de estimativa relativa que envolve dividir as coisas em partes pequenas o suficiente para entregar valor em um determinado período de tempo (ou seja, chegar a Feito até o final de um Sprint). Isso às vezes está associado a equipes que utilizam fluxo para previsão. As equipes usam dados históricos para determinar se acham que podem concluir o PBI dentro do nível de confiança que seus dados históricos dizem que normalmente concluem um PBI.
 
 **Links:**
 
-- [Definition of Ready](../advanced-topics/team-agreements/definition-of-ready.md)
-- [Sprint Goal Template](https://www.scrum.org/resources/blog/five-questions-sprint-goal)
+- [A coisa mais importante que você está perdendo sobre estimativa](https://www.scrum.org/resources/blog/most-important-thing-you-are-missing-about-estimation)
 
-*Notes: Self assignment by team members can give a feeling of fairness in how work is split in the team. Sometime, this ends up not being the case as it can give an advantage to the loudest or more experienced voices in the team. Individuals also tend to stay in their comfort zone, which might not be the right approach for their own growth.*
+### Planejamento do Sprint
+
+___
+
+**Expectativas:**
+
+- O planejamento su
+
+porta princípios de Diversidade e Inclusão e oferece oportunidades iguais.
+- O Planejamento define como o trabalho será concluído no sprint.
+- As histórias se encaixam em um sprint e são [projetadas](https://github.com/microsoft/code-with-engineering-playbook/tree/main/docs/design/design-reviews) e [prontas](../advanced-topics/team-agreements/definition-of-ready.md) antes do planejamento.
+
+**Sugestões:**
+
+**Objetivo do Sprint:**
+
+Considere definir um objetivo de sprint ou uma lista de objetivos para cada sprint. Objetivos de sprint eficazes são uma lista concisa de itens em forma de tópicos. Um objetivo de sprint pode ser criado primeiro e usado como uma entrada para escolher as histórias para o sprint. Um objetivo de sprint também pode ser criado a partir da lista de histórias que foram escolhidas para o Sprint.
+
+O objetivo do sprint pode ser usado:
+
+- No final de cada reunião de stand-up, para lembrar a estrela do norte para o Sprint e ajudar todos a dar um passo atrás
+- *Durante a revisão do sprint ("o objetivo foi alcançado?", "Se não, por quê?")
+
+*Nota: Uma maneira simples de definir um objetivo de sprint é criar uma história de usuário em cada backlog de sprint e nomeá-la "Objetivo do Sprint XX". Você pode adicionar os tópicos na descrição.*
+
+**Histórias:**
+
+- Exemplo 1 - Preparando com antecedência:
+  - O líder de desenvolvimento e o proprietário do produto planejam tempo para preparar o backlog do sprint antes do planejamento do sprint.
+  - O líder de desenvolvimento usa sua experiência (passada e no projeto atual) e a estimativa feita para essas histórias para avaliar quantas devem estar no sprint.
+  - O líder de desenvolvimento pede à equipe inteira para olhar o backlog provisório do sprint antes do planejamento do sprint.
+  - O líder de desenvolvimento atribui histórias a desenvolvedores específicos após confirmar com eles que faz sentido
+  - Durante a reunião de planejamento do sprint, a equipe revisa o objetivo do sprint e as histórias. Todos confirmam que entendem o plano e acham que é razoável.
+- Exemplo 2 - Construindo durante a reunião de planejamento:
+  - O proprietário do produto garante que os itens de maior prioridade do backlog do produto sejam refinados e estimados seguindo o processo de estimativa da equipe.
+  - Durante a reunião de planejamento do Sprint, o proprietário do produto descreve cada história, uma a uma, começando pela de maior prioridade.
+  - Para cada história, o líder de desenvolvimento e a equipe confirmam que entendem o que precisa ser feito e adicionam a história ao backlog do sprint.
+  - A equipe continua considerando mais histórias até um ponto em que concordam que o backlog do sprint está cheio. Isso deve ser informado pela estimativa, experiência passada do desenvolvedor e experiência passada neste projeto específico.
+  - As histórias são atribuídas durante a reunião de planejamento:
+    - Opção 1: O líder de desenvolvimento faz sugestões sobre quem poderia trabalhar em cada história. Cada engenheiro concorda ou discute, se necessário.
+    - Opção 2: A equipe revisa cada história e os engenheiros voluntários selecionam a que desejam ser atribuídos. (*Nota*: esta opção pode causar problemas com as primeiras expectativas centrais. Quem trabalha no quê? Em última análise, é responsabilidade do líder de desenvolvimento garantir que cada engenheiro tenha a oportunidade de trabalhar no que faz sentido para seu crescimento.)
+
+**Tarefas:**
+
+- Exemplos de abordagens para criação e atribuição de tarefas:
+  - As histórias são divididas em tarefas com antecedência pelo líder de desenvolvimento e atribuídas antes/durante o planejamento do sprint aos engenheiros.
+  - As histórias são atribuídas a engenheiros mais experientes, que são responsáveis por dividi-las em tarefas.
+  - As histórias são divididas em tarefas durante a reunião de planejamento do Sprint pela equipe inteira.
+  - *Nota*: Dependendo da senioridade da equipe, considere dividir em tarefas antes do planejamento do sprint. Isso pode ajudar a sair do planejamento do sprint com todo o trabalho atribuído. Também aumenta a clareza para engenheiros júnior.
+
+**Links:**
+
+- [Definição de Pronto](../advanced-topics/team-agreements/definition-of-ready.md)
+- [Modelo de Objetivo de Sprint](https://www.scrum.org/resources/blog/five-questions-sprint-goal)
+
+*Notas: A autoatribuição por membros da equipe pode dar uma sensação de justiça na forma como o trabalho é dividido na equipe. Às vezes, isso acaba não sendo o caso, pois pode dar vantagem às vozes mais altas ou mais experientes na equipe. Os indivíduos também tendem a permanecer em sua zona de conforto,
+
+ o que pode não ser a abordagem certa para o próprio crescimento.*
 
 ### Backlog
 
 ___
 
-**Expectations:**
+**Expectativas:**
 
-- User stories have a clear acceptance criteria and definition of done.
-- Design activities are planned as part of the backlog (a design for a story that needs it should be done before it is added in a Sprint).
+- As histórias de usuário têm critérios de aceitação claros e definição de pronto.
+- As atividades de design são planejadas como parte do backlog (um design para uma história que precisa dele deve ser feito antes de ser adicionado em um Sprint).
 
-**Suggestions:**
+**Sugestões:**
 
-- Consider the backlog refinement as an ongoing activity, that expands outside of the typical "Refinement meeting".
-- Technical debt is mostly due to shortcuts made in the implementation as well as the future maintenance cost as the natural result of continuous improvement. Shortcuts should generally be avoided. In some rare instances where they happen, prioritizing and planning improvement activities to reduce this debt at a later time is the recommended approach.
+- Considere o refinamento do backlog como uma atividade contínua, que se expande fora da típica "Reunião de Refinamento".
+- A dívida técnica é principalmente devida a atalhos feitos na implementação, bem como ao custo de manutenção futuro como resultado natural da melhoria contínua. Atalhos devem geralmente ser evitados. Em alguns casos raros em que ocorrem, priorizar e planejar atividades de melhoria para reduzir essa dívida em um momento posterior é a abordagem recomendada.
 
-### Retrospectives
-
-___
-
-**Expectations:**
-
-- Retrospectives lead to actionable items that help grow the team's engineering practices. These items are in the backlog, assigned, and prioritized to be fixed by a date agreed upon (default being next retrospective).
-- Is used to ask the hard questions ("we usually don't finish what we plan, let's talk about this") when necessary.
-
-**Suggestions:**
-
-- Consider [other retro formats](https://www.goodreads.com/book/show/721338.Agile_Retrospectives) available outside of Mad Sad Glad.
-  - Gather Data: Triple Nickels, Timeline, Mad Sad Glad, Team Radar
-  - Generate Insights: 5 Whys, Fishbone, Patterns and Shifts
-- Consider setting a retro focus area.
-- Schedule enough time to ensure that you can have the conversation you need to get the correct plan an action and improve how you work.
-- Bring in a neutral facilitator for project retros or retros that introspect after a difficult period.
-
-**Use the following retrospectives techniques to address specific trends that might be  emerging on an engagement:**
-
-**5 whys:**
-
-If a team is confronting a problem and is unsure of the exact root cause, the 5 whys exercise taken from the business analysis sector can help get to the bottom of it. For example, if a team cannot get to *Done* each Sprint, that would go at the top of the whiteboard. The team then asks why that problem exists, writing that answer in the box below.  Next, the team asks why again, but this time in response to the *why* they just identified. Continue this process until the team identifies an actual root cause, which usually becomes apparent within five steps.
-
-**Processes, tools, individuals, interactions and the Definition of Done:**
-
-This approach encourages team members to think more broadly.  Ask team members to identify what is going well and ideas for improvement within the categories of processes, tools, individuals/interactions, and the Definition of Done.  Then, ask team members to vote on which improvement ideas to focus on during the upcoming Sprint.
-
-**Focus:**
-
-This retrospective technique incorporates the concept of visioning. Using this technique, you ask team members where they would like to go?  Decide what the team should look like in 4 weeks, and then ask what is holding them back from that and how they can resolve the impediment.  If you are focusing on specific improvements, you can use this technique for one or two Retrospectives in a row so that the team can see progress over time.
-
-### Sprint Demo
+### Retrospectivas
 
 ___
 
-**Expectations:**
+**Expectativas:**
 
-- Each sprint has demos that illustrate the sprint goal and how it fits in the engagement goal.
+- As retrospectivas levam a itens acionáveis que ajudam a crescer as práticas de engenharia da equipe. Esses itens estão no backlog, atribuídos e priorizados para serem corrigidos até uma data acordada (o padrão sendo a próxima retrospectiva).
+- É usado para fazer as perguntas difíceis ("geralmente não terminamos o que planejamos, vamos falar sobre isso") quando necessário.
 
-**Suggestions:**
+**Sugestões:**
 
-- Consider not pre-recording sprint demos in advance. You can record the demo meeting and archive them.
-- A demo does not have to be about running code. It can be showing documentation that was written.
+- Considere [outros formatos de retro](https://www.goodreads.com/book/show/721338.Agile_Retrospectives) disponíveis fora de Mad Sad Glad.
+  - Coletar dados: Triple Nickels, Linha do Tempo, Mad Sad Glad, Radar da Equipe
+  - Gerar Insights: 5 Porquês, Espinha de Peixe, Padrões e Mudanças
+- Considere definir uma área de foco para a retro.
+- Agende tempo suficiente para garantir que você possa ter a conversa de que precisa para obter o plano correto de ação e melhorar a forma como você trabalha.
+- Traga um facilitador neutro para retrospectivas de projeto ou retrospectivas que introspectam após um período difícil.
+
+**Use as seguintes técnicas de retrospectivas para abordar tendências específicas que possam estar surgindo em um projeto:**
+
+**5 porquês:**
+
+Se uma equipe está enfrentando um problema e não tem certeza da causa raiz exata, o exercício dos 5 porquês, retirado do setor de análise de negócios, pode ajudar a chegar ao fundo dele. Por exemplo, se uma equipe não consegue chegar a *Pronto* a cada Sprint, isso iria para o topo do quadro branco. A equipe então pergunta por que esse problema existe, escrevendo essa resposta na caixa abaixo. Em seguida, a equipe pergunta por que novamente, mas desta vez em resposta ao *porquê* que acabaram de identificar. Continue esse processo até que a equipe identifique uma causa raiz real, que geralmente se torna aparente em cinco etapas.
+
+**Processos, ferramentas, indivíduos, interações e a Definição de Pronto:**
+
+Esta abordagem incentiva os membros da equipe a pensar de forma mais ampla. Peça aos membros da equipe para identificar o que está indo bem e ideias para melhoria nas categorias de processos, ferramentas, indivíduos/interações e a Definição de Pronto. Em seguida, peça aos membros da equipe para votar em quais ideias de melhoria focar durante o próximo Sprint.
+
+**Foco:**
+
+Esta técnica de retrospectiva incorpora o conceito de visão. Usando esta técnica, você pergunta aos membros da equipe para onde gostariam de ir? Decida como a equipe deve ser em 4 semanas e, em seguida, pergunte o que está impedindo-os de chegar lá e como podem resolver o impedimento. Se você está focando em melhorias específicas, você pode usar esta técnica para uma ou duas retrospectivas seguidas, para que a equipe possa ver o progresso ao longo do tempo.
+
+### Demonstração do Sprint
+
+___
+
+**Expectativas:**
+
+- Cada sprint tem demonstrações que ilustram o objetivo do sprint e como ele se encaixa no objetivo do projeto.
+
+**Sugestões:**
+
+- Considere não pré-gravar demonstrações de sprint com antecedência. Você pode gravar a reunião de demonstração e arquivá-la.
+- Uma demonstração não precisa ser sobre código em execução. Pode ser mostrando documentação que foi escrita.
 
 ## Stand-up
 
 ___
 
-**Expectations:**
+**Expectativas:**
 
-- The stand-up is run efficiently.
-- The stand-up helps the team understand what was done, what will be done and what are the blockers.
-- The stand-up helps the team understand if they will meet the sprint goal or not.
+- O stand-up é executado de forma eficiente.
+- O stand-up ajuda a equipe a entender o que foi feito, o que será feito e quais são os bloqueadores.
+- O stand-up ajuda a equipe a entender se eles atenderão ao objetivo do sprint ou não.
 
-**Suggestions:**
+**Sugestões:**
 
-- Keep stand up short and efficient. Table the longer conversations for a parking lot section, or for a conversation that will be planned later.
-- Run daily stand ups: 15 minutes of stand up and 15 minutes of parking lot.
-- If someone cannot make the stand-up exceptionally: Ask them to do a written stand up in advance.
-- Stand ups should include everyone involved in the project, including the customer.
-- Projects with widely divergent time zones should be avoided if possible, but if you are on one, you should adapt the standups to meet the needs and time constraints of all team members.
+- Mantenha o stand-up curto e eficiente. Reserve as conversas mais longas para uma seção de estacionamento ou para uma conversa que será planejada posteriormente.
+- Faça stand-ups diários: 15 minutos de stand-up e 15 minutos de estacionamento.
+- Se alguém não puder comparecer ao stand-up excepcionalmente: Peça-lhes para fazer um stand-up escrito com antecedência.
+- Os stand-ups devem incluir todos os envolvidos no projeto, incluindo o cliente.
+- Projetos com fusos horários amplamente divergentes devem ser evitados, se possível, mas se você estiver em um, você deve adaptar os stand-ups para atender às necessidades e restrições de tempo de todos os membros da equipe.
 
-### Documentation
+### Documentação
 
-- [What Is Scrum?](https://www.scrum.org/resources/what-is-scrum)
-- [Agile Retrospective: Making Good Teams Great](https://www.goodreads.com/book/show/721338.Agile_Retrospectives)
-- [User Stories Applied: For Software Development](https://www.goodreads.com/book/show/3856.User_Stories_Applied)
-- [Essential Scrum: A Practical Guide to The Most Popular Agile Process](https://www.goodreads.com/book/show/13663747-essential-scrum)
+- [O que é Scrum?](https://www.scrum.org/resources/what-is-scrum)
+- [Retrospectiva Ágil: Tornando Boas Equipes Ótimas](https://www.goodreads.com/book/show/721338.Agile_Retrospectives)
+- [Histórias de Usuários Aplicadas: Para Desenvolvimento de Software](https://www.goodreads.com/book/show/3856.User_Stories_Applied)
+- [Scrum Essencial: Um Guia Prático para o Processo Ágil Mais Popular](https://www.goodreads.com/book/show/13663747-essential-scrum)

@@ -42,7 +42,7 @@ Abaixo, você pode encontrar alguns tópicos que muitas equipes abordam durante 
 | Transparência           | Uma simples declaração sobre ser um valor "obrigatório" da equipe e, se preferir, como isso é fornecido pela equipe? reuniões, retrospectivas, mecanismos de feedback, etc. |
 | Expertise em Ferramentas de Desenvolvimento  | Quais ferramentas, como Git, VS Code LiveShare, etc., estão sendo usadas? Qual é a definição do uso esperado delas?                                               |
 | Dimensionamento de PR   | O que a equipe prefere em PRs?                                                                                                                                    |
-| Ramificação             | Estratégia e padrões de ramificação da equipe                                                                                                                     |
+| Branching               | Estratégia e padrões de branches da equipe                                                                                                                     |
 | Padrões de Commit       | Formato preferido nas mensagens de commit, regras e mais                                                                                                           |
 | Código Limpo            | A equipe segue princípios de código limpo?                                                                                                                        |
 | Programação em Par/Multidão | A equipe aplicará programação em par/multidão? Se sim, quais estilos de programação são adequados para a equipe?                                                 |

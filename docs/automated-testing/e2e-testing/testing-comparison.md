@@ -1,14 +1,14 @@
-# Unit vs Integration vs System vs E2E Testing
+# Teste Unitário vs Teste de Integração vs Teste de Sistema vs Teste E2E
 
-The table below illustrates the most critical characteristics and differences among Unit, Integration, System, and End-to-End Testing, and when to apply each methodology in a project.
+A tabela abaixo ilustra as características mais críticas e diferenças entre Teste Unitário, Teste de Integração, Teste de Sistema e Teste de Ponta a Ponta (E2E), e quando aplicar cada metodologia em um projeto.
 
-|                       | Unit Test              | Integration Test                             | System Testing                                            | E2E Test                                                      |
-|-----------------------|------------------------|----------------------------------------------|-----------------------------------------------------------|---------------------------------------------------------------|
-| **Scope**             | Modules, APIs          | Modules, interfaces                          | Application, system                                       | All sub-systems, network dependencies, services and databases |
-| **Size**              | Tiny                   | Small to medium                              | Large                                                     | X-Large                                                       |
-| **Environment**       | Development            | Integration test                             | QA test                                                   | Production like                                               |
-| **Data**              | Mock data              | Test data                                    | Test data                                                 | Copy of real production data                                  |
-| **System Under Test** | Isolated unit test     | Interfaces and flow data between the modules | Particular system as a whole                              | Application flow from start to end                            |
-| **Scenarios**         | Developer perspectives | Developers and IT Pro tester perspectives    | Developer and QA tester perspectives                      | End-user perspectives                                         |
-| **When**              | After each build       | After Unit testing                           | Before E2E testing and after Unit and Integration testing | After System testing                                          |
-**Automated or Manual** | Automated | Manual or automated  | Manual or automated | Manual |
+|                       | Teste Unitário        | Teste de Integração                          | Teste de Sistema                                          | Teste E2E                                                    |
+|-----------------------|-----------------------|----------------------------------------------|-----------------------------------------------------------|---------------------------------------------------------------|
+| **Escopo**            | Módulos, APIs         | Módulos, interfaces                           | Aplicação, sistema                                        | Todos os subsistemas, dependências de rede, serviços e bancos de dados |
+| **Tamanho**           | Pequeno               | Pequeno a médio                              | Grande                                                    | Extra Grande                                                  |
+| **Ambiente**          | Desenvolvimento       | Teste de integração                          | Teste de QA                                               | Similar à produção                                            |
+| **Dados**             | Dados simulados       | Dados de teste                               | Dados de teste                                            | Cópia de dados de produção reais                               |
+| **Sistema Sob Teste** | Teste unitário isolado| Interfaces e fluxo de dados entre os módulos | Sistema específico como um todo                           | Fluxo da aplicação do início ao fim                            |
+| **Cenários**          | Perspectivas do desenvolvedor | Perspectivas de desenvolvedores e testadores de TI | Perspectivas de desenvolvedores e testadores de QA       | Perspectivas do usuário final                                  |
+| **Quando**            | Após cada build       | Após o teste unitário                        | Antes do teste E2E e após os testes unitários e de integração | Após o teste de sistema                                       |
+| **Automatizado ou Manual** | Automatizado      | Manual ou automatizado                        | Manual ou automatizado                                     | Manual                                                        |

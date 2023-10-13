@@ -1,58 +1,58 @@
-# Integration Testing
+# Teste de Integração
 
-Integration testing is a software testing methodology used to determine how well individually developed components, or modules of a system communicate with each other. This method of testing confirms that an aggregate of a system, or sub-system, works together correctly or otherwise exposes erroneous behavior between two or more units of code.
+O teste de integração é uma metodologia de teste de software usada para determinar o quão bem os componentes ou módulos de um sistema desenvolvidos individualmente se comunicam entre si. Este método de teste confirma que um agregado de um sistema, ou sub-sistema, funciona corretamente em conjunto ou, caso contrário, expõe comportamentos errôneos entre duas ou mais unidades de código.
 
-## Why Integration Testing
+## Por que Teste de Integração
 
-Because one component of a system may be developed independently or in isolation of another it is important to verify the interaction of some or all components. A complex system may be composed of databases, APIs, interfaces, and more, that all interact with each other or additional external systems. Integration tests expose system-level issues such as broken database schemas or faulty third-party API integration. It ensures higher test coverage and serves as an important feedback loop throughout development.
+Como um componente de um sistema pode ser desenvolvido de forma independente ou isolada de outro, é importante verificar a interação de alguns ou todos os componentes. Um sistema complexo pode ser composto por bancos de dados, APIs, interfaces e mais, que interagem entre si ou com sistemas externos adicionais. Os testes de integração expõem problemas no nível do sistema, como esquemas de banco de dados quebrados ou integração defeituosa de APIs de terceiros. Ele garante uma maior cobertura de teste e serve como um importante ciclo de feedback ao longo do desenvolvimento.
 
-## Integration Testing Design Blocks
+## Blocos de Design de Teste de Integração
 
-Consider a banking application with three modules: login, transfers, and current balance, all developed independently. An integration test may verify when a user logs in they are re-directed to their current balance with the correct amount for the specific mock user. Another integration test may perform a transfer of a specified amount of money. The test may confirm there are sufficient funds in the account to perform the transfer, and after the transfer the current balance is updated appropriately for the mock user. The login page may be mocked with a test user and mock credentials if this module is not completed when testing the transfers module.
+Considere um aplicativo bancário com três módulos: login, transferências e saldo atual, todos desenvolvidos de forma independente. Um teste de integração pode verificar quando um usuário faz login, ele é redirecionado para o seu saldo atual com o valor correto para o usuário fictício específico. Outro teste de integração pode realizar uma transferência de uma quantia específica de dinheiro. O teste pode confirmar que há fundos suficientes na conta para realizar a transferência e, após a transferência, o saldo atual é atualizado adequadamente para o usuário fictício. A página de login pode ser simulada com um usuário de teste e credenciais fictícias se este módulo não estiver concluído ao testar o módulo de transferências.
 
-Integration testing is done by the developer or QA tester. In the past, integration testing always happened after unit and before system and E2E testing. Compared to unit-tests, integration tests are fewer in quantity, usually run slower, and are more expensive to set up and develop. Now, if a team is following agile principles, integration tests can be performed before or after unit tests, early and often, as there is no need to wait for sequential processes. Additionally, integration tests can utilize mock data in order to simulate a complete system. There is an abundance of language-specific testing frameworks that can be used throughout the entire development lifecycle.
+O teste de integração é feito pelo desenvolvedor ou pelo testador de QA. No passado, o teste de integração sempre acontecia após o teste de unidade e antes do teste de sistema e E2E. Em comparação com os testes de unidade, os testes de integração são menores em quantidade, geralmente mais lentos e mais caros para configurar e desenvolver. Agora, se uma equipe está seguindo princípios ágeis, os testes de integração podem ser realizados antes ou depois dos testes de unidade, cedo e frequentemente, pois não há necessidade de esperar por processos sequenciais. Além disso, os testes de integração podem utilizar dados fictícios para simular um sistema completo. Há uma abundância de frameworks de teste específicos para cada linguagem que podem ser usados ao longo de todo o ciclo de desenvolvimento.
 
-\*\* It is important to note the difference between integration and acceptance testing. Integration testing confirms a group of components work together as intended from a technical perspective, while acceptance testing confirms a group of components work together as intended from a business scenario.
+\*\* É importante notar a diferença entre teste de integração e teste de aceitação. O teste de integração confirma que um grupo de componentes funciona em conjunto como pretendido do ponto de vista técnico, enquanto o teste de aceitação confirma que um grupo de componentes funciona em conjunto como pretendido a partir de um cenário de negócios.
 
-## Applying Integration Testing
+## Aplicando Teste de Integração
 
-Prior to writing integration tests, the engineers must identify the different components of the system, and their intended behaviors and inputs and outputs. The architecture of the project must be fully documented or specified somewhere that can be readily referenced (e.g., the architecture diagram).
+Antes de escrever testes de integração, os engenheiros devem identificar os diferentes componentes do sistema e seus comportamentos, entradas e saídas pretendidos. A arquitetura do projeto deve estar totalmente documentada ou especificada em algum lugar que possa ser prontamente consultado (por exemplo, o diagrama de arquitetura).
 
-There are two main techniques for integration testing.
+Existem duas técnicas principais para teste de integração.
 
 ### Big Bang
 
-Big Bang integration testing is when all components are tested as a single unit. This is best for small system as a system too large may be difficult to localize for potential errors from failed tests. This approach also requires all components in the system under test to be completed which may delay when testing begins.
+O teste de integração Big Bang é quando todos os componentes são testados como uma única unidade. Isso é melhor para sistemas pequenos, pois um sistema muito grande pode ser difícil de localizar para possíveis erros de testes falhados. Esta abordagem também requer que todos os componentes no sistema em teste estejam concluídos, o que pode atrasar o início dos testes.
 
-![Big Bang Integration Testing](./images/bigBang.jpg)
+![Teste de Integração Big Bang](./images/bigBang.jpg)
 
-### Incremental Testing
+### Teste Incremental
 
-Incremental testing is when two or more components that are logically related are tested as a unit. After testing the unit, additional components are combined and tested all together. This process repeats until all necessary components are tested.
+O teste incremental é quando dois ou mais componentes que são logicamente relacionados são testados como uma unidade. Após o teste da unidade, componentes adicionais são combinados e testados todos juntos. Este processo se repete até que todos os componentes necessários sejam testados.
 
 #### Top Down
 
-Top down testing is when higher level components are tested following the control flow of a software system. In the scenario, what is commonly referred to as stubs are used to emulate the behavior of lower level modules not yet complete or merged in the integration test.
+O teste Top Down é quando os componentes de nível superior são testados seguindo o fluxo de controle de um sistema de software. Nesse cenário, o que é comumente chamado de stubs são usados para emular o comportamento de módulos de nível inferior ainda não concluídos ou mesclados no teste de integração.
 
-![Top Down Integration Testing](./images/topDown.png)
+![Teste de Integração Top Down](./images/topDown.png)
 
 #### Bottom Up
 
-Bottom up testing is when lower level modules are tested together. In the scenario, what is commonly referred to as drivers are used to emulate the behavior of higher level modules not yet complete or included in the integration test.
+O teste Bottom Up é quando os módulos de nível inferior são testados juntos. Nesse cenário, o que é comumente chamado de drivers são usados para emular o comportamento de módulos de nível superior ainda não concluídos ou incluídos no teste de integração.
 
-![Bottom Up Integration Testing](./images/bottomUp.jpg)
+![Teste de Integração Bottom Up](./images/bottomUp.jpg)
 
-A third approach known as the sandwich or hybrid model combines the bottom up and town down approaches to test lower and higher level components at the same time.
+Uma terceira abordagem conhecida como o modelo sanduíche ou híbrido combina as abordagens de baixo para cima e de cima para baixo para testar componentes de nível inferior e superior ao mesmo tempo.
 
-### Things to Avoid
+### Coisas a Evitar
 
-There is a tradeoff a developer must make between integration test code coverage and engineering cycles. With mock dependencies, test data, and multiple environments at test, too many integration tests are infeasible to maintain and become increasingly less meaningful. Too much mocking will slow down the test suite, make scaling difficult, and may be a sign the developer should consider other tests for the scenario such as acceptance or E2E.
+Há um trade-off que o desenvolvedor deve fazer entre a cobertura de código do teste de integração e os ciclos de engenharia. Com dependências fictícias, dados de teste e vários ambientes em teste, muitos testes de integração são inviáveis de manter e se tornam cada vez menos significativos. Muita simulação vai desacelerar o conjunto de testes, tornar o dimensionamento difícil e pode ser um sinal de que o desenvolvedor deve considerar outros testes para o cenário, como testes de aceitação ou E2E.
 
-Integration tests of complex systems require high maintenance. Avoid testing business logic in integration tests by keeping test suites separate. Do not test beyond the acceptance criteria of the task and be sure to clean up any resources created for a given test. Additionally, avoid writing tests in a production environment. Instead, write them in a scaled-down copy environment.
+Os testes de integração de sistemas complexos requerem alta manutenção. Evite testar a lógica de negócios em testes de integração, mantendo os conjuntos de testes separados. Não teste além dos critérios de aceitação da tarefa e certifique-se de limpar quaisquer recursos criados para um determinado teste. Além disso, evite escrever testes em um ambiente de produção. Em vez disso, escreva-os em um ambiente de cópia reduzida.
 
-## Integration Testing Frameworks and Tools
+## Frameworks e Ferramentas de Teste de Integração
 
-Many tools and frameworks can be used to write both unit and integration tests. The following tools are for automating integration tests.
+Muitas ferramentas e frameworks podem ser usados para escrever tanto testes de unidade quanto de integração. As seguintes ferramentas são para automatizar testes de integração.
 
 - [JUnit](https://junit.org/junit5/)
 - [Robot Framework](https://robotframework.org/)
@@ -61,16 +61,14 @@ Many tools and frameworks can be used to write both unit and integration tests. 
 - [Selenium](https://www.selenium.dev/)
 - [Behave (Python)](https://behave.readthedocs.io/)
 
-## Conclusion
+## Conclusão
 
-Integration testing demonstrates how one module of a system, or external system, interfaces with another. This can be a test of two components, a sub-system, a whole system, or a collection of systems. Tests should be written frequently and throughout the entire development lifecycle using an appropriate amount of mocked dependencies and test data. Because integration tests prove that independently developed modules interface as technically designed, it increases confidence in the development cycle providing a path for a system that deploys and scales.
+O teste de integração demonstra como um módulo de um sistema, ou sistema externo, se interfaceia com outro. Isso pode ser um teste de dois componentes, um sub-sistema, um sistema inteiro ou uma coleção de sistemas. Os testes devem ser escritos com frequência e ao longo de todo o ciclo de vida do desenvolvimento, usando uma quantidade apropriada de dependências e dados fictícios. Como os testes de integração provam que os módulos desenvolvidos independentemente se interfaceiam conforme tecnicamente projetado, isso aumenta a confiança no ciclo de desenvolvimento, fornecendo um caminho para um sistema que é implantado e escalável.
 
-## Resources
+## Recursos
 
-<!-- markdown-link-check-disable -->
-- [Integration testing approaches](https://www.softwaretestinghelp.com/what-is-integration-testing/)
-<!-- markdown-link-check-enable -->
-- [Integration testing pros and cons](https://www.geeksforgeeks.org/software-engineering-integration-testing/)
-- [Integration tests mocks and stubs](https://circleci.com/blog/how-to-test-software-part-i-mocking-stubbing-and-contract-testing/)
+- [Abordagens de teste de integração](https://www.softwaretestinghelp.com/what-is-integration-testing/)
+- [Prós e contras do teste de integração](https://www.geeksforgeeks.org/software-engineering-integration-testing/)
+- [Mocks e stubs em testes de integração](https://circleci.com/blog/how-to-test-software-part-i-mocking-stubbing-and-contract-testing/)
 - [Software Testing: Principles and Practices](https://www.goodreads.com/book/show/21278464-software-testing)
-- [Integration testing Behave test quick start](https://github.com/Nick287/Behave-Quick-Start)
+- [Início rápido do teste Behave](https://github.com/Nick287/Behave-Quick-Start)

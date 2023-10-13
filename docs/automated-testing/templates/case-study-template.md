@@ -1,39 +1,39 @@
-# ~Customer Project~ Case Study
+# ~Projeto do Cliente~ Estudo de Caso
 
-## Background
+## Contexto
 
-Describe the customer and business requirements with the explicit problem statement.
+Descreva o cliente e os requisitos de negócios com a declaração explícita do problema.
 
-## System Under Test (SUT)
+## Sistema Sob Teste (SST)
 
-Include the system's conceptual architecture and highlight the architecture components that were included in the E2E testing.
+Inclua a arquitetura conceitual do sistema e destaque os componentes da arquitetura que foram incluídos nos testes de ponta a ponta (E2E).
 
-## Problems and Limitations
+## Problemas e Limitações
 
-Describe about the problems of the overall SUT solution that prevented from testing specific (or any) part of the solution.
-Describe limitation of the testing tools and framework(s) used in this implementation
+Descreva os problemas da solução geral do SST que impediram o teste de uma parte específica (ou qualquer parte) da solução.
+Descreva as limitações das ferramentas e frameworks de teste usados nesta implementação.
 
-## E2E Testing Framework and Tools
+## Framework e Ferramentas de Teste E2E
 
-Describe what testing framework and/or tools were used to implement E2E testing in the SUT.
+Descreva qual framework e/ou ferramentas foram usadas para implementar testes E2E no SST.
 
-## Test Cases
+## Casos de Teste
 
-Describe the E2E test cases were created to E2E test the SUT
+Descreva os casos de teste E2E que foram criados para testar o SST.
 
-## Test Metrics
+## Métricas de Teste
 
-Describe any architecture solution were used to monitor, observe and track the various service states that were used as the E2E testing metrics. Also, include the list of test cases were build to measure the progress of E2E testing.
+Descreva qualquer solução de arquitetura que foi usada para monitorar, observar e rastrear os vários estados de serviço que foram usados como métricas de teste E2E. Além disso, inclua a lista de casos de teste que foram construídos para medir o progresso dos testes E2E.
 
-## E2E Testing Architecture
+## Arquitetura de Teste E2E
 
-Describe any testing architecture were built to run E2E testing.
+Descreva qualquer arquitetura de teste que foi construída para executar testes E2E.
 
-## E2E Testing Implementation (Code samples)
+## Implementação de Teste E2E (Exemplos de Código)
 
-Include sample test cases and their implementation in the programming language of choice.
-Include any common reusable code implementation blocks that could be leveraged in the future project's E2E testing implementation.
+Inclua exemplos de casos de teste e sua implementação na linguagem de programação de sua escolha.
+Inclua quaisquer blocos de implementação de código reutilizável comuns que possam ser aproveitados em futuras implementações de testes E2E do projeto.
 
-## E2E Testing Reporting and Results
+## Relatórios e Resultados de Teste E2E
 
-Include sample of E2E testing reports and results obtained from the E2E testing runs in this project.
+Inclua exemplos de relatórios e resultados obtidos nas execuções de testes E2E neste projeto.

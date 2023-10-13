@@ -19,7 +19,7 @@
     
     
       
-        <title>Smoke Testing - Manual da Engenharia para Codar</title>
+        <title>Teste de Fumaça (Smoke Testing) - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#smoke-testing" class="md-skip">
+        <a href="#teste-de-fumaca-smoke-testing" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Smoke Testing
+              Teste de Fumaça (Smoke Testing)
             
           </span>
         </div>
@@ -7138,30 +7138,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#when-to-use" class="md-nav__link">
-    When To Use
+  <a href="#quando-usar" class="md-nav__link">
+    Quando Usar
   </a>
   
-    <nav class="md-nav" aria-label="When To Use">
+    <nav class="md-nav" aria-label="Quando Usar">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#problem-addressed" class="md-nav__link">
-    Problem Addressed
+  <a href="#problema-abordado" class="md-nav__link">
+    Problema Abordado
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#roi-tipping-point" class="md-nav__link">
-    ROI Tipping Point
+  <a href="#ponto-de-inflexao-do-roi" class="md-nav__link">
+    Ponto de Inflexão do ROI
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#applicable-to" class="md-nav__link">
-    Applicable to
+  <a href="#aplicavel-a" class="md-nav__link">
+    Aplicável a
   </a>
   
 </li>
@@ -7172,15 +7172,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    Conclusion
+  <a href="#conclusao" class="md-nav__link">
+    Conclusão
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    Resources
+  <a href="#recursos" class="md-nav__link">
+    Recursos
   </a>
   
 </li>
@@ -7199,27 +7199,27 @@
                 
 
 
-<h1 id="smoke-testing">Smoke Testing</h1>
-<p>Smoke tests, sometimes named <strong><em>Sanity</em></strong>, <strong><em>Acceptance</em></strong>, or <strong><em>Build/Release Verification</em></strong> tests, are a sub-type of system/functional tests that are usually used as gates that verify the application's readiness as a preliminary step. If an application passes the smoke tests, it is acceptable, or in a stable-enough state, for the next stages of testing or deployment.</p>
-<h2 id="when-to-use">When To Use</h2>
-<h3 id="problem-addressed">Problem Addressed</h3>
-<p>Smoke tests are meant to find, as early as possible, if an application is working or not. The goal of smoke tests is to save time; if the current version of the application does not pass smoke tests, then the rest of the integration or deployment chain for it can be abandoned. Smoke tests do not aim to provide full functionality coverage but instead focus on a few quick acceptance invocations for which the application should, at all times, respond correctly to.</p>
-<h3 id="roi-tipping-point">ROI Tipping Point</h3>
-<p>Smoke tests cover only the most critical application path, and should not be used to actually test the application's behavior, keeping execution time and complexity to minimum. The tests can be formed of a subset of the application's integration or e2e tests, and they cover as much of the functionality with as little depth as required.</p>
-<p>The golden rule of a good smoke test is that it saves time on validating that the application is acceptable to a stage where better, more thorough testing will begin.</p>
-<h3 id="applicable-to">Applicable to</h3>
+<h1 id="teste-de-fumaca-smoke-testing">Teste de Fumaça (Smoke Testing)</h1>
+<p>Testes de fumaça, às vezes chamados de testes de <strong><em>Sanidade</em></strong>, <strong><em>Aceitação</em></strong> ou <strong><em>Verificação de Build/Lançamento</em></strong>, são um subtipo de testes de sistema/funcionais geralmente usados como portões que verificam a prontidão da aplicação como um passo preliminar. Se uma aplicação passa nos testes de fumaça, ela é aceitável ou está em um estado estável o suficiente para as próximas etapas de teste ou implantação.</p>
+<h2 id="quando-usar">Quando Usar</h2>
+<h3 id="problema-abordado">Problema Abordado</h3>
+<p>Os testes de fumaça têm como objetivo descobrir, o mais cedo possível, se uma aplicação está funcionando ou não. O objetivo dos testes de fumaça é economizar tempo; se a versão atual da aplicação não passar nos testes de fumaça, então o resto da cadeia de integração ou implantação para ela pode ser abandonado. Os testes de fumaça não visam fornecer cobertura total de funcionalidade, mas sim focar em algumas invocações de aceitação rápidas para as quais a aplicação deve, em todos os momentos, responder corretamente.</p>
+<h3 id="ponto-de-inflexao-do-roi">Ponto de Inflexão do ROI</h3>
+<p>Os testes de fumaça cobrem apenas o caminho crítico da aplicação e não devem ser usados para realmente testar o comportamento da aplicação, mantendo o tempo de execução e a complexidade no mínimo. Os testes podem ser formados por um subconjunto dos testes de integração ou e2e da aplicação, e eles cobrem tanto da funcionalidade com a menor profundidade possível.</p>
+<p>A regra de ouro de um bom teste de fumaça é que ele economiza tempo na validação de que a aplicação é aceitável para um estágio onde testes melhores e mais completos começarão.</p>
+<h3 id="aplicavel-a">Aplicável a</h3>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox" disabled checked/> <strong>Local dev desktop</strong> - <em>Example:</em> Applying manual smoke testing to verify that the application is OK.</li>
-<li class="task-list-item"><input type="checkbox" disabled checked/> <strong>Build pipelines</strong> - <em>Example:</em> Running a small set of the integration test suite before running the full coverage of tests, which may take a long time.</li>
-<li class="task-list-item"><input type="checkbox" disabled checked/> <strong>Non-production and Production deployments</strong> - <em>Example:</em> Running a curl command to the product's API and asserting the response is 200 before running load test which consume resources.</li>
-<li class="task-list-item"><input type="checkbox" disabled checked/> <strong>PR Validation</strong> - <em>Example:</em> - Deploying the application chart to a test namespace and validating the release is successful and no immediate regressions are merged.</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> <strong>Desktop de desenvolvimento local</strong> - <em>Exemplo:</em> Aplicação de teste de fumaça manual para verificar se a aplicação está OK.</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> <strong>Pipelines de Build</strong> - <em>Exemplo:</em> Execução de um pequeno conjunto da suíte de teste de integração antes de executar a cobertura total de testes, que pode levar muito tempo.</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> <strong>Implantações em ambientes não-produtivos e produtivos</strong> - <em>Exemplo:</em> Execução de um comando curl para a API do produto e afirmando que a resposta é 200 antes de executar testes de carga que consomem recursos.</li>
+<li class="task-list-item"><input type="checkbox" disabled checked/> <strong>Validação de PR</strong> - <em>Exemplo:</em> Implantação do gráfico da aplicação em um namespace de teste e validação de que o lançamento é bem-sucedido e que nenhuma regressão imediata é mesclada.</li>
 </ul>
-<h2 id="conclusion">Conclusion</h2>
-<p>Smoke testing is a low-effort, high-impact step to ship more reliable software. It should be considered amongst the first stages to implement when planning continuously integrated and delivered systems.</p>
-<h2 id="resources">Resources</h2>
+<h2 id="conclusao">Conclusão</h2>
+<p>O teste de fumaça é uma etapa de baixo esforço e alto impacto para enviar software mais confiável. Ele deve ser considerado entre as primeiras etapas a serem implementadas ao planejar sistemas continuamente integrados e entregues.</p>
+<h2 id="recursos">Recursos</h2>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Smoke_testing_(software)">Wikipedia - Smoke Testing</a></li>
-<li><a href="https://landing.google.com/sre/sre-book/chapters/testing-reliability/#system-tests">Google SRE Book - System Tests</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Smoke_testing_(software)">Wikipedia - Teste de Fumaça</a></li>
+<li><a href="https://landing.google.com/sre/sre-book/chapters/testing-reliability/#system-tests">Livro SRE do Google - Testes de Sistema</a></li>
 </ul>
 
   <hr>
@@ -7227,7 +7227,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 17, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 13, 2023</span>
       
     
   </small>

@@ -59,9 +59,7 @@ Frameworks de teste recomendados:
 - Web
   - [BrowserStack](https://www.browserstack.com)
   - [Cypress](https://www.cypress.io)
-  - [Jest](https://jestjs
-
-.io/docs/en/snapshot-testing)
+  - [Jest](https://jestjs.io/docs/en/snapshot-testing)
   - [Selenium](https://www.selenium.dev)
 - OS/Aplicações Móveis
   - [Coded UI tests (CUITs)](https://learn.microsoft.com/en-us/visualstudio/test/use-ui-automation-to-test-your-code?view=vs-2019)

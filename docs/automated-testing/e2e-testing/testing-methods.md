@@ -1,26 +1,26 @@
-# E2E Testing Methods
+# Métodos de Teste E2E
 
-## Horizontal Test
+## Teste Horizontal
 
-This method is used very commonly. It occurs horizontally across the context of multiple applications. Take an example of a data ingest management system.
+Este método é muito comumente usado. Ele ocorre horizontalmente no contexto de várias aplicações. Pegue, por exemplo, um sistema de gerenciamento de ingestão de dados.
 
-![Horizontal Test](./images/horizontal-e2e-testing.png)
+![Teste Horizontal](./images/horizontal-e2e-testing.png)
 
-The inbound data may be  injected from various sources, but it then "flatten" into a horizontal processing pipeline that may include various components, such as a gateway API, data transformation, data validation, storage, etc... Throughout the entire Extract-Transform-Load (ETL) processing, the data flow can be tracked and monitored under the horizontal spectrum with little sprinkles of optional, and thus not important for the overall E2E test case, services, like logging, auditing, authentication.
+Os dados de entrada podem ser injetados de várias fontes, mas depois são "achatados" em um pipeline de processamento horizontal que pode incluir vários componentes, como uma API de gateway, transformação de dados, validação de dados, armazenamento, etc. Ao longo de todo o processamento de Extração-Transformação-Carga (ETL), o fluxo de dados pode ser rastreado e monitorado sob o espectro horizontal com pequenos toques opcionais, e portanto não importantes para o caso de teste E2E geral, serviços como registro, auditoria, autenticação.
 
-## Vertical Test
+## Teste Vertical
 
-In this method, all most critical transactions of any application are verified and evaluated right from the start to finish. Each individual layer of the application is tested starting from top to bottom. Take an example of a web-based application that uses middleware services for reaching back-end resources.
+Neste método, todas as transações mais críticas de qualquer aplicação são verificadas e avaliadas desde o início até o fim. Cada camada individual da aplicação é testada começando de cima para baixo. Pegue, por exemplo, uma aplicação baseada na web que usa serviços de middleware para acessar recursos de back-end.
 
-![Vertical Test](./images/vertical-e2e-testing.png)
+![Teste Vertical](./images/vertical-e2e-testing.png)
 
- In such case, each layer (tier) is required to be fully tested in conjunction with the "connected" layers above and beneath, in which services "talk" to each other during the end to end data flow. All these complex testing scenarios will require proper validation and dedicated automated testing. Thus, this method is much more difficult.
+Nesse caso, cada camada (nível) precisa ser totalmente testada em conjunto com as camadas "conectadas" acima e abaixo, nas quais os serviços "conversam" entre si durante o fluxo de dados de ponta a ponta. Todos esses cenários de teste complexos exigirão validação adequada e testes automatizados dedicados. Portanto, este método é muito mais difícil.
 
-## E2E Test Cases Design Guidelines
+## Diretrizes para o Design de Casos de Teste E2E
 
-Below enlisted are few **guidelines** that should be kept in mind while designing the test cases for performing E2E testing:
+A seguir estão listadas algumas **diretrizes** que devem ser levadas em consideração ao projetar os casos de teste para a realização de testes E2E:
 
-- Test cases should be designed from the end user’s perspective.
-- Should focus on testing some existing features of the system.
-- Multiple scenarios should be considered for creating multiple test cases.
-- Different sets of test cases should be created to focus on multiple scenarios of the system.
+- Os casos de teste devem ser projetados a partir da perspectiva do usuário final.
+- Deve-se focar em testar alguns recursos existentes do sistema.
+- Vários cenários devem ser considerados para criar múltiplos casos de teste.
+- Diferentes conjuntos de casos de teste devem ser criados para focar em múltiplos cenários do sistema.

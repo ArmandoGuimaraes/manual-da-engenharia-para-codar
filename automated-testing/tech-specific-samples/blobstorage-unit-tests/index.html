@@ -19,7 +19,7 @@
     
     
       
-        <title>Using Azurite to Run Blob Storage Tests in a Pipeline - Manual da Engenharia para Codar</title>
+        <title>Utilizando Azurite para Executar Testes de Armazenamento Blob em um Pipeline - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#using-azurite-to-run-blob-storage-tests-in-a-pipeline" class="md-skip">
+        <a href="#utilizando-azurite-para-executar-testes-de-armazenamento-blob-em-um-pipeline" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Using Azurite to Run Blob Storage Tests in a Pipeline
+              Utilizando Azurite para Executar Testes de Armazenamento Blob em um Pipeline
             
           </span>
         </div>
@@ -7140,30 +7140,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#utilize-an-azure-storage-emulator-azurite" class="md-nav__link">
-    Utilize an Azure Storage emulator - Azurite
+  <a href="#utilize-um-emulador-de-armazenamento-azure-azurite" class="md-nav__link">
+    Utilize um emulador de armazenamento Azure - Azurite
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-install-and-run-azurite" class="md-nav__link">
-    1. Install and run Azurite
+  <a href="#1-instalar-e-executar-o-azurite" class="md-nav__link">
+    1. Instalar e executar o Azurite
   </a>
   
-    <nav class="md-nav" aria-label="1. Install and run Azurite">
+    <nav class="md-nav" aria-label="1. Instalar e executar o Azurite">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#a-using-npm" class="md-nav__link">
-    a. Using NPM
+  <a href="#a-usando-npm" class="md-nav__link">
+    a. Usando NPM
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#b-using-a-docker-image" class="md-nav__link">
-    b. Using a docker image
+  <a href="#b-usando-uma-imagem-docker" class="md-nav__link">
+    b. Usando uma imagem docker
   </a>
   
 </li>
@@ -7174,15 +7174,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-run-tests-on-your-local-machine" class="md-nav__link">
-    2. Run tests on your local machine
+  <a href="#2-executar-testes-em-sua-maquina-local" class="md-nav__link">
+    2. Executar testes em sua máquina local
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-run-tests-on-azure-pipelines" class="md-nav__link">
-    3. Run tests on Azure Pipelines
+  <a href="#3-executar-testes-no-azure-pipelines" class="md-nav__link">
+    3. Executar testes no Azure Pipelines
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referências
   </a>
   
 </li>
@@ -7201,40 +7208,40 @@
                 
 
 
-<h1 id="using-azurite-to-run-blob-storage-tests-in-a-pipeline">Using Azurite to Run Blob Storage Tests in a Pipeline</h1>
-<p>This document determines the approach for writing automated tests with a short feedback loop (i.e. unit tests) against security considerations (private endpoints) for the Azure Blob Storage functionality.</p>
-<p>Once private endpoints are enabled for the Azure Storage accounts, the current tests will fail when executed locally or as part of a pipeline because this connection will be blocked.</p>
-<h2 id="utilize-an-azure-storage-emulator-azurite">Utilize an Azure Storage emulator - Azurite</h2>
-<p>To emulate a local Azure Blob Storage, we can use <a href="https://learn.microsoft.com/en-us/azure/storage/common/storage-use-emulator">Azure Storage Emulator</a>. The Storage Emulator currently runs only on Windows. If you need a Storage Emulator for Linux, one option is the community maintained, open-source Storage Emulator <a href="https://github.com/azure/azurite">Azurite</a>.</p>
+<h1 id="utilizando-azurite-para-executar-testes-de-armazenamento-blob-em-um-pipeline">Utilizando Azurite para Executar Testes de Armazenamento Blob em um Pipeline</h1>
+<p>Este documento determina a abordagem para escrever testes automatizados com um ciclo de feedback curto (ou seja, testes unitários) contra considerações de segurança (endpoints privados) para a funcionalidade do Azure Blob Storage.</p>
+<p>Uma vez que os endpoints privados são ativados para as contas de armazenamento do Azure, os testes atuais falharão quando executados localmente ou como parte de um pipeline, pois essa conexão será bloqueada.</p>
+<h2 id="utilize-um-emulador-de-armazenamento-azure-azurite">Utilize um emulador de armazenamento Azure - Azurite</h2>
+<p>Para emular um Azure Blob Storage local, podemos usar o <a href="https://learn.microsoft.com/en-us/azure/storage/common/storage-use-emulator">Azure Storage Emulator</a>. O Storage Emulator atualmente roda apenas no Windows. Se você precisar de um Storage Emulator para Linux, uma opção é o emulador de armazenamento de código aberto mantido pela comunidade <a href="https://github.com/azure/azurite">Azurite</a>.</p>
 <blockquote>
-<p><em>The Azure Storage Emulator is no longer being actively developed.</em> <a href="https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite"><strong>Azurite</strong></a> <em>is the Storage Emulator platform going forward. Azurite supersedes the Azure Storage Emulator. Azurite will continue to be updated to support the latest versions of Azure Storage APIs. For more information, see</em> <a href="https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite"><strong>Use the Azurite emulator for local Azure Storage development</strong></a><em>.</em></p>
+<p><em>O Azure Storage Emulator não está mais sendo ativamente desenvolvido.</em> <a href="https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite"><strong>Azurite</strong></a> <em>é a plataforma de emulador de armazenamento daqui para frente. Azurite substitui o Azure Storage Emulator. Azurite continuará a ser atualizado para suportar as versões mais recentes das APIs de armazenamento Azure. Para mais informações, veja</em> <a href="https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite"><strong>Use o emulador Azurite para desenvolvimento local de armazenamento Azure</strong></a><em>.</em></p>
 </blockquote>
-<p>Some differences in functionality exist between the Storage Emulator and Azure storage services. For more information about these differences, see the <a href="https://learn.microsoft.com/en-us/azure/storage/common/storage-use-emulator#differences-between-the-storage-emulator-and-azure-storage">Differences between the Storage Emulator and Azure Storage</a>.</p>
-<p>There are several ways to install and run Azurite on your local system as listed <a href="https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite#install-and-run-azurite-by-using-npm">here</a>. In this document we will cover <code>Install and run Azurite using NPM</code> and <code>Install and run the Azurite Docker image</code>.</p>
-<h2 id="1-install-and-run-azurite">1. Install and run Azurite</h2>
-<h3 id="a-using-npm">a. Using NPM</h3>
-<p>In order to run Azurite V3 you need Node.js &gt;= 8.0 installed on your system. Azurite works cross-platform on Windows, Linux, and OS X.</p>
-<p>After the Node.js installation, you can install Azurite simply with npm which is the Node.js package management tool included with every Node.js installation.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Install Azurite</span>
+<p>Existem algumas diferenças de funcionalidade entre o Storage Emulator e os serviços de armazenamento Azure. Para mais informações sobre essas diferenças, consulte <a href="https://learn.microsoft.com/en-us/azure/storage/common/storage-use-emulator#differences-between-the-storage-emulator-and-azure-storage">Diferenças entre o Storage Emulator e o armazenamento Azure</a>.</p>
+<p>Há várias maneiras de instalar e executar o Azurite em seu sistema local, conforme listado <a href="https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite#install-and-run-azurite-by-using-npm">aqui</a>. Neste documento, abordaremos <code>Instalar e executar o Azurite usando NPM</code> e <code>Instalar e executar a imagem Docker do Azurite</code>.</p>
+<h2 id="1-instalar-e-executar-o-azurite">1. Instalar e executar o Azurite</h2>
+<h3 id="a-usando-npm">a. Usando NPM</h3>
+<p>Para executar o Azurite V3, você precisa ter o Node.js &gt;= 8.0 instalado em seu sistema. O Azurite funciona de forma multiplataforma no Windows, Linux e OS X.</p>
+<p>Após a instalação do Node.js, você pode instalar o Azurite simplesmente com npm, que é a ferramenta de gerenciamento de pacotes Node.js incluída em cada instalação do Node.js.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Instalar o Azurite</span>
 npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>azurite
 
-<span class="c1"># Create azurite directory</span>
+<span class="c1"># Criar o diretório azurite</span>
 mkdir<span class="w"> </span>c:/azurite
 
-<span class="c1"># Launch Azurite for Windows</span>
+<span class="c1"># Iniciar o Azurite para Windows</span>
 azurite<span class="w"> </span>--silent<span class="w"> </span>--location<span class="w"> </span>c:<span class="se">\a</span>zurite<span class="w"> </span>--debug<span class="w"> </span>c:<span class="se">\a</span>zurite<span class="se">\d</span>ebug.log
 </code></pre></div>
-<p>The output will be:</p>
-<div class="highlight"><pre><span></span><code>Azurite<span class="w"> </span>Blob<span class="w"> </span>service<span class="w"> </span>is<span class="w"> </span>starting<span class="w"> </span>at<span class="w"> </span>http://127.0.0.1:10000
-Azurite<span class="w"> </span>Blob<span class="w"> </span>service<span class="w"> </span>is<span class="w"> </span>successfully<span class="w"> </span>listening<span class="w"> </span>at<span class="w"> </span>http://127.0.0.1:10000
-Azurite<span class="w"> </span>Queue<span class="w"> </span>service<span class="w"> </span>is<span class="w"> </span>starting<span class="w"> </span>at<span class="w"> </span>http://127.0.0.1:10001
-Azurite<span class="w"> </span>Queue<span class="w"> </span>service<span class="w"> </span>is<span class="w"> </span>successfully<span class="w"> </span>listening<span class="w"> </span>at<span class="w"> </span>http://127.0.0.1:10001
+<p>A saída será:</p>
+<div class="highlight"><pre><span></span><code>O<span class="w"> </span>serviço<span class="w"> </span>Blob<span class="w"> </span><span class="k">do</span><span class="w"> </span>Azurite<span class="w"> </span>está<span class="w"> </span>iniciando<span class="w"> </span>em<span class="w"> </span>http://127.0.0.1:10000
+O<span class="w"> </span>serviço<span class="w"> </span>Blob<span class="w"> </span><span class="k">do</span><span class="w"> </span>Azurite<span class="w"> </span>está<span class="w"> </span>ouvindo<span class="w"> </span>com<span class="w"> </span>sucesso<span class="w"> </span>em<span class="w"> </span>http://127.0.0.1:10000
+O<span class="w"> </span>serviço<span class="w"> </span>de<span class="w"> </span>fila<span class="w"> </span><span class="k">do</span><span class="w"> </span>Azurite<span class="w"> </span>está<span class="w"> </span>iniciando<span class="w"> </span>em<span class="w"> </span>http://127.0.0.1:10001
+O<span class="w"> </span>serviço<span class="w"> </span>de<span class="w"> </span>fila<span class="w"> </span><span class="k">do</span><span class="w"> </span>Azurite<span class="w"> </span>está<span class="w"> </span>ouvindo<span class="w"> </span>com<span class="w"> </span>sucesso<span class="w"> </span>em<span class="w"> </span>http://127.0.0.1:10001
 </code></pre></div>
-<h3 id="b-using-a-docker-image">b. Using a docker image</h3>
-<p>Another way to run Azurite is using docker, using default <code>HTTP</code> endpoint</p>
+<h3 id="b-usando-uma-imagem-docker">b. Usando uma imagem docker</h3>
+<p>Outra forma de executar o Azurite é usando o docker, usando o endpoint <code>HTTP</code> padrão.</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">10000</span>:10000<span class="w"> </span>mcr.microsoft.com/azure-storage/azurite<span class="w"> </span>azurite-blob<span class="w"> </span>--blobHost<span class="w"> </span><span class="m">0</span>.0.0.0
 </code></pre></div>
-<p>Docker Compose is another option and can run the same docker image using the <code>docker-compose.yml</code> file below.</p>
+<p>O Docker Compose é outra opção e pode executar a mesma imagem docker usando o arquivo <code>docker-compose.yml</code> abaixo.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.4&#39;</span>
 <span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">azurite</span><span class="p">:</span>
@@ -7247,90 +7254,93 @@ Azurite<span class="w"> </span>Queue<span class="w"> </span>service<span class="
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;10000:10000&quot;</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;10001:10001&quot;</span>
 </code></pre></div>
-<h2 id="2-run-tests-on-your-local-machine">2. Run tests on your local machine</h2>
-<p>Python 3.8.7 is used for this, but it should be fine on other 3.x versions as well.</p>
+<h2 id="2-executar-testes-em-sua-maquina-local">2. Executar testes em sua máquina local</h2>
+<p>O Python 3.8.7 é usado para isso, mas deve funcionar bem em outras versões 3.x também.</p>
 <ol>
 <li>
-<p>Install and run Azurite for local tests:</p>
-<p>Option 1: using npm:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Install Azurite</span>
+<p>Instale e execute o Azurite para testes locais:</p>
+<p>Opção 1: usando npm:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Instalar o Azurite</span>
 npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>azurite
-<span class="c1"># Create azurite directory</span>
+<span class="c1"># Criar o diretório azurite</span>
 mkdir<span class="w"> </span>c:/azurite
-<span class="c1"># Launch Azurite for Windows</span>
+<span class="c1"># Iniciar o Azurite para Windows</span>
 azurite<span class="w"> </span>--silent<span class="w"> </span>--location<span class="w"> </span>c:<span class="se">\a</span>zurite<span class="w"> </span>--debug<span class="w"> </span>c:<span class="se">\a</span>zurite<span class="se">\d</span>ebug.log
 </code></pre></div>
-<p>Option 2: using docker</p>
+<p>Opção 2: usando docker</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">10000</span>:10000<span class="w"> </span>mcr.microsoft.com/azure-storage/azurite<span class="w"> </span>azurite-blob<span class="w"> </span>--blobHost<span class="w"> </span><span class="m">0</span>.0.0.0
 </code></pre></div>
 </li>
 <li>
-<p>In Azure Storage Explorer, select <code>Attach to a local emulator</code></p>
-<p><img alt="connect blob" src="images/blob_storage_connection.png" /></p>
+<p>No Azure Storage Explorer, selecione <code>Anexar a um emulador local</code></p>
+<p><img alt="conectar blob" src="images/blob_storage_connection.png" /></p>
 </li>
 <li>
-<p>Provide a Display name and port number, then your connection will be ready, and you can use Storage Explorer to manage your local blob storage.</p>
-<p><img alt="attach to local" src="images/blob_storage_connection_attach.png" /></p>
-<p>To test and see how these endpoints are running you can attach your local blob storage to the <a href="https://azure.microsoft.com/en-us/features/storage-explorer/"><strong>Azure Storage Explorer</strong></a>.</p>
+<p>Forneça um nome para exibição e número da porta, então sua conexão estará pronta, e você poderá usar o Storage Explorer para gerenciar seu armazenamento blob local.</p>
+<p><img alt="anexar ao local" src="images/blob_storage_connection_attach.png" /></p>
+<p>Para testar e ver como esses endpoints estão funcionando, você pode anexar seu armazenamento blob local ao <a href="https://azure.microsoft.com/en-us/features/storage-explorer/"><strong>Azure Storage Explorer</strong></a>.</p>
 </li>
 <li>
-<p>Create a virtual python environment
+<p>Crie um ambiente virtual python
    <code>python -m venv .venv</code></p>
 </li>
 <li>
-<p>Container name and initialize env variables: Use conftest.py for test integration.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">azure.storage.blob</span> <span class="kn">import</span> <span class="n">BlobServiceClient</span>
-<span class="kn">import</span> <span class="nn">os</span>
-
-<span class="k">def</span> <span class="nf">pytest_generate_tests</span><span class="p">(</span><span class="n">metafunc</span><span class="p">):</span>
-   <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;STORAGE_CONNECTION_STRING&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;&#39;</span>
-   <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;STORAGE_CONTAINER&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;test-container&#39;</span>
-
-   <span class="c1"># Crete container for Azurite for the first run</span>
-   <span class="n">blob_service_client</span> <span class="o">=</span> <span class="n">BlobServiceClient</span><span class="o">.</span><span class="n">from_connection_string</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;STORAGE_CONNECTION_STRING&quot;</span><span class="p">))</span>
-   <span class="k">try</span><span class="p">:</span>
-      <span class="n">blob_service_client</span><span class="o">.</span><span class="n">create_container</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;STORAGE_CONTAINER&quot;</span><span class="p">))</span>
-   <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-      <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-</code></pre></div>
-<p>*<em>Note: value for <code>STORAGE_CONNECTION_STRING</code> is default value for Azurite, it's not a private key</em></p>
+<p>Nome do contêiner e inicialize as variáveis de ambiente: Use conftest.py para integração de teste.</p>
+<p>```python
+ from azure.storage.blob import BlobServiceClient
+ import os</p>
+<p>def pytest_generate_tests(metafunc):
+    os.environ['STORAGE_CONNECTION_STRING'] = 'DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02x</p>
 </li>
+</ol>
+<p>NOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;'
+      os.environ['STORAGE_CONTAINER'] = 'test-container'</p>
+<div class="highlight"><pre><span></span><code>  # Criar contêiner para Azurite na primeira execução
+  blob_service_client = BlobServiceClient.from_connection_string(os.environ.get(&quot;STORAGE_CONNECTION_STRING&quot;))
+  try:
+     blob_service_client.create_container(os.environ.get(&quot;STORAGE_CONTAINER&quot;))
+  except Exception as e:
+     print(e)
+</code></pre></div>
+<p>```</p>
+<p>*<em>Nota: o valor para <code>STORAGE_CONNECTION_STRING</code> é o valor padrão para o Azurite, não é uma chave privada</em></p>
+<ol>
 <li>
-<p>Install the dependencies</p>
+<p>Instale as dependências</p>
 <p><code>pip install -r requirements_tests.txt</code></p>
 </li>
 <li>
-<p>Run tests:</p>
+<p>Execute os testes:</p>
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>./tests
 </code></pre></div>
 </li>
 </ol>
-<p>After running tests, you can see the files in your local blob storage</p>
+<p>Após executar os testes, você pode ver os arquivos em seu armazenamento blob local</p>
 <p><img alt="https local blob" src="images/http_local_blob_storage.png" /></p>
-<h2 id="3-run-tests-on-azure-pipelines">3. Run tests on Azure Pipelines</h2>
-<p>After running tests locally we need to make sure these tests pass on Azure Pipelines too. We have 2 options here, we can use docker image as hosted agent on Azure or install an npm package in the Pipeline steps.</p>
+<h2 id="3-executar-testes-no-azure-pipelines">3. Executar testes no Azure Pipelines</h2>
+<p>Após executar os testes localmente, precisamos garantir que esses testes também passem no Azure Pipelines. Temos 2 opções aqui, podemos usar a imagem docker como agente hospedado no Azure ou instalar um pacote npm nas etapas do Pipeline.</p>
 <div class="highlight"><pre><span></span><code>trigger:
 -<span class="w"> </span>master
 
 steps:
 -<span class="w"> </span>task:<span class="w"> </span>UsePythonVersion@0
-<span class="w">  </span>displayName:<span class="w"> </span><span class="s1">&#39;Use Python 3.7&#39;</span>
+<span class="w">  </span>displayName:<span class="w"> </span><span class="s1">&#39;Usar Python 3.7&#39;</span>
 <span class="w">  </span>inputs:
 <span class="w">    </span>versionSpec:<span class="w"> </span><span class="m">3</span>.7
 
 -<span class="w"> </span>bash:<span class="w"> </span><span class="p">|</span>
 <span class="w">    </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements_tests.txt
-<span class="w">  </span>displayName:<span class="w"> </span><span class="s1">&#39;Setup requirements for tests&#39;</span>
+<span class="w">  </span>displayName:<span class="w"> </span><span class="s1">&#39;Configurar requisitos para testes&#39;</span>
 
 -<span class="w"> </span>bash:<span class="w"> </span><span class="p">|</span>
 <span class="w">    </span>sudo<span class="w"> </span>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>azurite
 <span class="w">    </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>azurite
 <span class="w">    </span>sudo<span class="w"> </span>azurite<span class="w"> </span>--silent<span class="w"> </span>--location<span class="w"> </span>azurite<span class="w"> </span>--debug<span class="w"> </span>azurite<span class="se">\d</span>ebug.log<span class="w"> </span><span class="p">&amp;</span>
-<span class="w">  </span>displayName:<span class="w"> </span><span class="s1">&#39;Install and Run Azurite&#39;</span>
+<span class="w">  </span>displayName:<span class="w"> </span><span class="s1">&#39;Instalar e Executar o Azurite&#39;</span>
 
 -<span class="w"> </span>bash:<span class="w"> </span><span class="p">|</span>
 <span class="w">    </span>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>--junit-xml<span class="o">=</span>unit_tests_report.xml<span class="w"> </span>--cov<span class="o">=</span>tests<span class="w"> </span>--cov-report<span class="o">=</span>html<span class="w"> </span>--cov-report<span class="o">=</span>xml<span class="w"> </span>./tests
-<span class="w">  </span>displayName:<span class="w"> </span><span class="s1">&#39;Run Tests&#39;</span>
+<span class="w">  </span>displayName:<span class="w"> </span><span class="s1">&#39;Executar Testes&#39;</span>
 
 -<span class="w"> </span>task:<span class="w"> </span>PublishCodeCoverageResults@1
 <span class="w">  </span>inputs:
@@ -7344,15 +7354,22 @@ steps:
 <span class="w">    </span>testResultsFiles:<span class="w"> </span><span class="s1">&#39;**/*_tests_report.xml&#39;</span>
 <span class="w">    </span>failTaskOnFailedTests:<span class="w"> </span><span class="nb">true</span>
 </code></pre></div>
-<p>Once we set up our pipeline in Azure Pipelines, result will be like below</p>
+<p>Uma vez que configuramos nosso pipeline no Azure Pipelines, o resultado será como abaixo</p>
 <p><img alt="azure pipelines" src="images/azure_pipeline.png" /></p>
+<h2 id="referencias">Referências</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/storage/common/storage-use-emulator">Azure Storage Emulator</a></li>
+<li><a href="https://github.com/azure/azurite">Azurite no GitHub</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite">Use o emulador Azurite para desenvolvimento local de armazenamento Azure</a></li>
+<li><a href="https://azure.microsoft.com/en-us/features/storage-explorer/">Azure Storage Explorer</a></li>
+</ul>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 15, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 13, 2023</span>
       
     
   </small>
@@ -7370,7 +7387,7 @@ steps:
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../azdo-container-dev-test-release/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Building Containers with Azure DevOps using DevTest Pattern" rel="prev">
+        <a href="../azdo-container-dev-test-release/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Construindo Containers com Azure DevOps usando o Padrão DevTest" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -7379,7 +7396,7 @@ steps:
               <span class="md-footer__direction">
                 Previous
               </span>
-              Building Containers with Azure DevOps using DevTest Pattern
+              Construindo Containers com Azure DevOps usando o Padrão DevTest
             </div>
           </div>
         </a>

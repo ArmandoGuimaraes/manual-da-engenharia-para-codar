@@ -19,7 +19,7 @@
     
     
       
-        <title>Building Containers with Azure DevOps using DevTest Pattern - Manual da Engenharia para Codar</title>
+        <title>Construindo Containers com Azure DevOps usando o Padrão DevTest - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#building-containers-with-azure-devops-using-devtest-pattern" class="md-skip">
+        <a href="#construindo-containers-com-azure-devops-usando-o-padrao-devtest" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Building Containers with Azure DevOps using DevTest Pattern
+              Construindo Containers com Azure DevOps usando o Padrão DevTest
             
           </span>
         </div>
@@ -7140,36 +7140,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#table-of-contents" class="md-nav__link">
-    Table of Contents
+  <a href="#indice" class="md-nav__link">
+    Índice
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#build-the-container" class="md-nav__link">
-    Build the Container
+  <a href="#construir-o-container" class="md-nav__link">
+    Construir o Container
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#test-the-container" class="md-nav__link">
-    Test the Container
+  <a href="#testar-o-container" class="md-nav__link">
+    Testar o Container
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#push-container" class="md-nav__link">
-    Push container
+  <a href="#enviar-container" class="md-nav__link">
+    Enviar Container
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
+  <a href="#referencias" class="md-nav__link">
+    Referências
   </a>
   
 </li>
@@ -7188,236 +7188,89 @@
                 
 
 
-<h1 id="building-containers-with-azure-devops-using-devtest-pattern">Building Containers with Azure DevOps using DevTest Pattern</h1>
-<p>In this documents, we highlight learnings from applying the DevTest pattern to container development in Azure DevOps through pipelines.</p>
-<p>The pattern enabled as to build container for development, testing and releasing the container for further reuse (production ready).</p>
-<p>We will dive into tools needed to build, test and push a container, our environment and go through each step separately.</p>
-<p>Follow this link to dive deeper or revisit the <a href="https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/dev-test-paas">DevTest pattern</a>.</p>
-<h2 id="table-of-contents">Table of Contents</h2>
-<p><a href="#build-the-container">Build the Container</a>
-<a href="#test-the-container">Test the Container</a>
-<a href="#push-container">Push Container</a>
-<a href="#references">References</a></p>
-<h2 id="build-the-container">Build the Container</h2>
-<p>The first step in container development, after creating the necessary Dockerfiles and source code, is building the container. Even the Dockerfile itself can include some basic testing. Code tests are performed when pushing the code to the repository origin, where it is then used to build the container.</p>
-<p>The first step in our pipeline is to run the <code>docker build</code> command with a temporary tag and the required build arguments:</p>
-<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Bash@3</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BuildImage</span>
-<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Build</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">image</span><span class="nv"> </span><span class="s">via</span><span class="nv"> </span><span class="s">docker&#39;</span>
-<span class="w">  </span><span class="nt">inputs</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">workingDirectory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;$(System.DefaultWorkingDirectory)${{</span><span class="nv"> </span><span class="s">parameters.buildDirectory</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="w">    </span><span class="nt">targetType</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;inline&#39;</span>
-<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">      </span><span class="no">docker build -t ${{ parameters.imageName }} --build-arg YOUR_BUILD_ARG -f ${{ parameters.dockerfileName }} .</span>
-<span class="w">  </span><span class="nt">env</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">PredefinedPassword</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$(Password)</span>
-<span class="w">    </span><span class="nt">NewVariable</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;newVariableValue&quot;</span>
+<h1 id="construindo-containers-com-azure-devops-usando-o-padrao-devtest">Construindo Containers com Azure DevOps usando o Padrão DevTest</h1>
+<p>Neste documento, destacamos os aprendizados obtidos ao aplicar o padrão DevTest ao desenvolvimento de containers no Azure DevOps por meio de pipelines.</p>
+<p>O padrão nos permitiu construir containers para desenvolvimento, teste e liberação do container para reutilização posterior (pronto para produção).</p>
+<p>Vamos explorar as ferramentas necessárias para construir, testar e enviar um container, nosso ambiente e passar por cada etapa separadamente.</p>
+<p>Siga este link para aprofundar ou revisitar o <a href="https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/dev-test-paas">padrão DevTest</a>.</p>
+<h2 id="indice">Índice</h2>
+<p><a href="#construir-o-container">Construir o Container</a>
+<a href="#testar-o-container">Testar o Container</a>
+<a href="#enviar-container">Enviar Container</a>
+<a href="#referências">Referências</a></p>
+<h2 id="construir-o-container">Construir o Container</h2>
+<p>O primeiro passo no desenvolvimento de containers, após criar os Dockerfiles e o código-fonte necessários, é construir o container. Até mesmo o próprio Dockerfile pode incluir alguns testes básicos. Os testes de código são realizados ao enviar o código para o repositório de origem, onde ele é então usado para construir o container.</p>
+<p>A primeira etapa em nosso pipeline é executar o comando <code>docker build</code> com uma tag temporária e os argumentos de construção necessários:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ... código omitido para brevidade</span>
 </code></pre></div>
-<p>This task includes the parameters <code>buildDirectory</code>, <code>imageName</code> and <code>dockerfileName</code>, which have to be set beforehand.
-This task can for example be used in a template for multiple containers to improve code reuse.</p>
-<p>It is also possible to pass environment variables directly to the Dockerfile through the <code>env</code> section of the task.</p>
-<p>If this task succeeds, the Dockerfile was build without errors and we can continue to testing the container itself.</p>
-<h2 id="test-the-container">Test the Container</h2>
-<p>To test the container, we are using the tox environment.
-For more details on tox please visit the tox section of this repository or visit <a href="https://tox.wiki/en/latest/user_guide.html">the official tox documentation page</a>.</p>
-<p>Before we test the container, we are checking for exposed credentials in the docker image history.
-If known passwords, used to access our internal resources, are exposed here, the build step will fail:</p>
-<div class="highlight"><pre><span></span><code>- task: Bash@3
-  name: CheckIfPasswordInDockerHistory
-  displayName: &#39;Check for password in docker history&#39;
-  inputs:
-    workingDirectory: &quot;$(System.DefaultWorkingDirectory)&quot;
-    targetType: &#39;inline&#39;
-    failOnStdErr: true
-    script: |
-      if docker image history --no-trunc ${{ parameters.imageName }} | grep -qF $PredefinedPassword; then
-        exit 1;
-      fi
-      exit 0;
-  env:
-    PredefinedPassword: $(Password)
+<p>Essa tarefa inclui os parâmetros <code>buildDirectory</code>, <code>imageName</code> e <code>dockerfileName</code>, que devem ser definidos previamente.
+Essa tarefa pode, por exemplo, ser usada em um modelo para vários containers para melhorar a reutilização de código.</p>
+<p>Também é possível passar variáveis de ambiente diretamente para o Dockerfile por meio da seção <code>env</code> da tarefa.</p>
+<p>Se essa tarefa for bem-sucedida, o Dockerfile foi construído sem erros e podemos continuar testando o próprio container.</p>
+<h2 id="testar-o-container">Testar o Container</h2>
+<p>Para testar o container, estamos usando o ambiente tox.
+Para mais detalhes sobre o tox, visite a seção tox deste repositório ou visite <a href="https://tox.wiki/en/latest/user_guide.html">a página oficial de documentação do tox</a>.</p>
+<p>Antes de testarmos o container, estamos verificando se há credenciais expostas no histórico da imagem docker.
+Se senhas conhecidas, usadas para acessar nossos recursos internos, estiverem expostas aqui, a etapa de construção falhará:</p>
+<div class="highlight"><pre><span></span><code># ... código omitido para brevidade
 </code></pre></div>
-<p>After the credential test, the container is tested through the pytest extension <a href="https://testinfra.readthedocs.io/en/latest/">testinfra</a>.
-Testinfra is a Python-based tool which can be used to start a container, gather prerequisites, test the container and shut it down again, without any effort besides writing the tests. These tests can for example include:</p>
+<p>Após o teste de credencial, o container é testado por meio da extensão pytest <a href="https://testinfra.readthedocs.io/en/latest/">testinfra</a>.
+Testinfra é uma ferramenta baseada em Python que pode ser usada para iniciar um container, reunir pré-requisitos, testar o container e desligá-lo novamente, sem nenhum esforço além de escrever os testes. Esses testes podem, por exemplo, incluir:</p>
 <ul>
-<li>if files exist</li>
-<li>if environment variables are set correctly</li>
-<li>if certain processes are running</li>
-<li>if the correct host environment is used</li>
+<li>se arquivos existem</li>
+<li>se variáveis de ambiente estão configuradas corretamente</li>
+<li>se certos processos estão em execução</li>
+<li>se o ambiente host correto está sendo usado</li>
 </ul>
-<p>For a complete collection of capabilities and requirements, please visit <a href="https://github.com/pytest-dev/pytest-testinfra">the testinfra project on GitHub</a>.</p>
-<p>A few methods of a Linux-based container test can look like this:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_dependencies</span><span class="p">(</span><span class="n">host</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Check all files needed to run the container properly.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">env_file</span> <span class="o">=</span> <span class="s2">&quot;/app/environment.sh.env&quot;</span>
-    <span class="k">assert</span> <span class="n">host</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="n">env_file</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span>
-
-    <span class="n">activate_sh_path</span> <span class="o">=</span> <span class="s2">&quot;/app/start.sh&quot;</span>
-    <span class="k">assert</span> <span class="n">host</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="n">activate_sh_path</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span>
-
-
-<span class="k">def</span> <span class="nf">test_container_running</span><span class="p">(</span><span class="n">host</span><span class="p">):</span>
-    <span class="n">process</span> <span class="o">=</span> <span class="n">host</span><span class="o">.</span><span class="n">process</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">comm</span><span class="o">=</span><span class="s2">&quot;start.sh&quot;</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">process</span><span class="o">.</span><span class="n">user</span> <span class="o">==</span> <span class="s2">&quot;root&quot;</span>
-
-
-<span class="k">def</span> <span class="nf">test_host_system</span><span class="p">(</span><span class="n">host</span><span class="p">):</span>
-    <span class="n">system_type</span> <span class="o">=</span> <span class="s1">&#39;linux&#39;</span>
-    <span class="n">distribution</span> <span class="o">=</span> <span class="s1">&#39;ubuntu&#39;</span>
-    <span class="n">release</span> <span class="o">=</span> <span class="s1">&#39;18.04&#39;</span>
-
-    <span class="k">assert</span> <span class="n">system_type</span> <span class="o">==</span> <span class="n">host</span><span class="o">.</span><span class="n">system_info</span><span class="o">.</span><span class="n">type</span>
-    <span class="k">assert</span> <span class="n">distribution</span> <span class="o">==</span> <span class="n">host</span><span class="o">.</span><span class="n">system_info</span><span class="o">.</span><span class="n">distribution</span>
-    <span class="k">assert</span> <span class="n">release</span> <span class="o">==</span> <span class="n">host</span><span class="o">.</span><span class="n">system_info</span><span class="o">.</span><span class="n">release</span>
-
-
-<span class="k">def</span> <span class="nf">extract_env_var</span><span class="p">(</span><span class="n">file_content</span><span class="p">):</span>
-    <span class="kn">import</span> <span class="nn">re</span>
-
-    <span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;ENV_VAR=</span><span class="se">\&quot;</span><span class="s2">(?P&lt;s&gt;[^</span><span class="se">\&quot;</span><span class="s2">]*)</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
-
-    <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">file_content</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">test_ports_exposed</span><span class="p">(</span><span class="n">host</span><span class="p">):</span>
-    <span class="n">port1</span> <span class="o">=</span> <span class="s2">&quot;9010&quot;</span>
-    <span class="n">st1</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;grep -q </span><span class="si">{</span><span class="n">port1</span><span class="si">}</span><span class="s2"> /app/Dockerfile &amp;&amp; echo &#39;true&#39; || echo &#39;false&#39;&quot;</span>
-    <span class="n">cmd1</span> <span class="o">=</span> <span class="n">host</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">st1</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">cmd1</span><span class="o">.</span><span class="n">stdout</span>
-
-
-<span class="k">def</span> <span class="nf">test_listening_simserver_sockets</span><span class="p">(</span><span class="n">host</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">host</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="s2">&quot;tcp://0.0.0.0:32512&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">is_listening</span>
-    <span class="k">assert</span> <span class="n">host</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="s2">&quot;tcp://0.0.0.0:32513&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">is_listening</span>
+<p>Para uma coleção completa de capacidades e requisitos, visite <a href="https://github.com/pytest-dev/pytest-testinfra">o projeto testinfra no GitHub</a>.</p>
+<p>Alguns métodos de um teste de container baseado em Linux podem parecer assim:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ... código omitido para brevidade</span>
 </code></pre></div>
-<p>To start the test, a <a href="http://pytest.org">pytest</a> command is executed through tox.</p>
-<p>A task containing the tox command can look like this:</p>
-<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Bash@3</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RunTestCommands</span>
-<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Test</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">Run</span><span class="nv"> </span><span class="s">test</span><span class="nv"> </span><span class="s">commands&quot;</span>
-<span class="w">  </span><span class="nt">inputs</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">workingDirectory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;$(System.DefaultWorkingDirectory)&quot;</span>
-<span class="w">    </span><span class="nt">targetType</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;inline&#39;</span>
-<span class="w">    </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">      </span><span class="no">tox -e testinfra-${{ parameters.makeTarget }} -- ${{ parameters.imageName }}</span>
-<span class="w">    </span><span class="nt">failOnStderr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<p>Para iniciar o teste, um comando <a href="http://pytest.org">pytest</a> é executado por meio do tox.</p>
+<p>Uma tarefa contendo o comando tox pode parecer assim:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ... código omitido para brevidade</span>
 </code></pre></div>
-<p>Which could trigger the following pytest code, which is contained in the tox.ini file:</p>
-<div class="highlight"><pre><span></span><code>pytest<span class="w"> </span>-vv<span class="w"> </span>tests/<span class="o">{</span>env:CONTEXT<span class="o">}</span><span class="w"> </span>--container-image<span class="o">={</span>posargs:<span class="o">{</span>env:IMAGE_TAG<span class="o">}}</span><span class="w"> </span>--volume<span class="o">={</span>env:VOLUME<span class="o">}</span>
+<p>O que poderia acionar o seguinte código pytest, que está contido no arquivo tox.ini:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ... código omitido para brevidade</span>
 </code></pre></div>
-<p>As a last task of this pipeline to build and test the container, we set a variable called <code>testsPassed</code> which is only <code>true</code>, if the previous tasks succeeded:</p>
-<div class="highlight"><pre><span></span><code>- task: Bash@3
-  name: UpdateTestResultVariable
-  condition: succeeded()
-  inputs:
-    targetType: &#39;inline&#39;
-    script: |
-      echo &#39;##vso[task.setvariable variable=testsPassed]true&#39;
+<p>Como última tarefa deste pipeline para construir e testar o container, definimos uma variável chamada <code>testsPassed</code>, que é apenas <code>true</code>, se as tarefas anteriores tiverem sido bem-sucedidas:</p>
+<div class="highlight"><pre><span></span><code># ... código omitido para brevidade
 </code></pre></div>
-<h2 id="push-container">Push container</h2>
-<p>After building and testing, if our container runs as expected, we want to release it to our Azure Container Registry (ACR) to be used by our larger application. Before that, we want to automate the push behavior and define a meaningful tag.</p>
-<p>As a developer it is often helpful to have containers pushed to ACR, even if they are failing.
-This can be done by checking for the <code>testsPassed</code> variable we introduced at the end of our testing.</p>
-<p>If the test failed, we want to add a failed suffix at the end of the tag:</p>
-<!-- markdownlint-disable MD013 -->
-<div class="highlight"><pre><span></span><code>- task: Bash@3
-  name: SetFailedSuffixTag
-  displayName: &quot;Set failed suffix, if the tests failed.&quot;
-  condition: and(eq(variables[&#39;testsPassed&#39;], false), ne(variables[&#39;Build.SourceBranchName&#39;], &#39;main&#39;))
-  # if this is not a release and failed -&gt; retag the image to add failedSuffix
-  inputs:
-    targetType: inline
-    script: |
-      docker tag ${{ parameters.containerRegistry }}/${{ parameters.imageRepository }}:${{ parameters.imageTag }} ${{ parameters.containerRegistry }}/${{ parameters.imageRepository }}:${{ parameters.imageTag }}$(failedSuffix)
+<h2 id="enviar-container">Enviar Container</h2>
+<p>Após construir e testar, se nosso container funcionar conforme o esperado, queremos liberá-lo para nosso Azure Container Registry (ACR) para ser usado por nossa aplicação maior. Antes disso, queremos automatizar o comportamento de envio e definir uma tag significativa.</p>
+<p>Como desenvolvedor, muitas vezes é útil ter containers enviados para o ACR, mesmo que estejam falhando.
+Isso pode ser feito verificando a variável <code>testsPassed</code> que introduzimos no final de nossos testes.</p>
+<p>Se o teste falhou, queremos adicionar um sufixo de falha no final da tag:</p>
+<div class="highlight"><pre><span></span><code># ... código omitido para brevidade
 </code></pre></div>
-<!-- markdownlint-enable MD013 -->
+<p>A condição verifica se o valor de <code>testsPassed</code> é <code>false</code> e também se não estamos na <em>main branch</em>, pois não queremos enviar containers falhos da main.
+Isso nos ajuda a manter nosso ambiente de produção limpo.</p>
+<p>O valor para imageRepository foi definido em outro modelo, junto com o <code>failedSuffix</code> e <code>testsPassed</code>:</p>
+<div class="highlight"><pre><span></span><code># ... código omitido para brevidade
+</code></pre></div>
+<p>A imageTag está aberta para discussão, pois depende muito de como sua equipe deseja usar o container. Optamos por <code>Build.SourceVersion</code>, que é o ID do commit da branch em que o container foi desenvolvido.
+Isso permite que você rastreie facilmente a origem do container e auxilie na depuração.</p>
+<p>Um link para as variáveis predefinidas do Azure DevOps pode ser encontrado na <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&amp;tabs=yaml#build-variables-devops-services">Documentação do Azure sobre Azure DevOps</a>.</p>
+<p>Após adicionar uma tag ao container, a imagem deve ser enviada.
+Isso pode ser feito com a seguinte tarefa:</p>
+<div class="highlight"><pre><span></span><code># ... código omitido para brevidade
+``
 
-<p>The condition checks, if the value of <code>testsPassed</code> is <code>false</code> and also if we
-are not on the <em>main</em> branch, as we don't want to push failed containers from main.
-This helps us to keep our production environment clean.</p>
-<p>The value for imageRepository was defined in another template, along with
-the <code>failedSuffix</code> and <code>testsPassed</code>:</p>
-<div class="highlight"><pre><span></span><code>parameters:
-  - name: component
+`
 
-variables:
-  testsPassed: false
-  failedSuffix: &quot;-failed&quot;
-  # the imageRepo will changed based on dev or release
-  ${{ if eq( variables[&#39;Build.SourceBranchName&#39;], &#39;main&#39; ) }}:
-    imageRepository: &#39;stable/${{ parameters.component }}&#39;
-  ${{ if ne( variables[&#39;Build.SourceBranchName&#39;], &#39;main&#39; ) }}:
-    imageRepository: &#39;dev/${{ parameters.component }}&#39;
-</code></pre></div>
-<p>The imageTag is open to discussion, as it depends highly on how your team wants
-to use the container. We went for <code>Build.SourceVersion</code> which is the commit ID
-of the branch the container was developed in.
-This allows you to easily track the origin of the container and aids debugging.</p>
-<p>A link to Azure DevOps predefined variables can be found in the
-<a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&amp;tabs=yaml#build-variables-devops-services">Azure Docs on Azure DevOps</a></p>
-<p>After a tag was added to the container, the image must be pushed.
-This can be done with the following task:</p>
-<!-- markdownlint-disable MD013 -->
-<div class="highlight"><pre><span></span><code>- task: Docker@1
-  name: pushFailedDockerImage
-  displayName: &#39;Pushes failed image via Docker&#39;
-  condition: and(eq(variables[&#39;testsPassed&#39;], false), ne(variables[&#39;Build.SourceBranchName&#39;], &#39;main&#39;))
-  # if this is not a release and failed -&gt; push the image with the failed tag
-  inputs:
-    containerregistrytype: &#39;Azure Container Registry&#39;
-    azureSubscriptionEndpoint: ${{ parameters.serviceConnection }}
-    azureContainerRegistry: ${{ parameters.containerRegistry }}
-    command: &#39;Push an image&#39;
-    imageName: &#39;${{ parameters.imageRepository }}:${{ parameters.imageTag }}$(failedSuffix)&#39;
-</code></pre></div>
-<!-- markdownlint-enable MD013 -->
+Da mesma forma, estas são as etapas para publicar o container no ACR, se os testes forem bem-sucedidos:
 
-<p>Similarly, these are the steps to publish the container to the ACR,
-if the tests succeeded:</p>
-<!-- markdownlint-disable MD013 -->
-<div class="highlight"><pre><span></span><code>- task: Bash@3
-  name: SetLatestSuffixTag
-  displayName: &quot;Set latest suffix, if the tests succeed.&quot;
-  condition:  eq(variables[&#39;testsPassed&#39;], true)
-  inputs:
-    targetType: inline
-    script: |
-      docker tag ${{ parameters.containerRegistry }}/${{ parameters.imageRepository }}:${{ parameters.imageTag }} ${{ parameters.containerRegistry }}/${{ parameters.imageRepository }}:latest
-- task: Docker@1
-  name: pushSuccessfulDockerImageSha
-  displayName: &#39;Pushes successful image via Docker&#39;
-  condition: eq(variables[&#39;testsPassed&#39;], true)
-  inputs:
-    containerregistrytype: &#39;Azure Container Registry&#39;
-    azureSubscriptionEndpoint: ${{ parameters.serviceConnection }}
-    azureContainerRegistry: ${{ parameters.containerRegistry }}
-    command: &#39;Push an image&#39;
-    imageName: &#39;${{ parameters.imageRepository }}:${{ parameters.imageTag }}&#39;
-- task: Docker@1
-  name: pushSuccessfulDockerImageLatest
-  displayName: &#39;Pushes successful image as latest&#39;
-  condition: eq(variables[&#39;testsPassed&#39;], true)
-  inputs:
-    containerregistrytype: &#39;Azure Container Registry&#39;
-    azureSubscriptionEndpoint: ${{ parameters.serviceConnection }}
-    azureContainerRegistry: ${{ parameters.containerRegistry }}
-    command: &#39;Push an image&#39;
-    imageName: &#39;${{ parameters.imageRepository }}:latest&#39;
+```yml
+# ... código omitido para brevidade
 </code></pre></div>
-<!-- markdownlint-enable MD013 -->
-
-<p>If you don't want to include the <code>latest</code> tag, you can also remove the steps
-involving latest (SetLatestSuffixTag &amp; pushSuccessfulDockerImageLatest).</p>
-<h2 id="references">References</h2>
+<p>Se você não quiser incluir a tag <code>latest</code>, também pode remover as etapas envolvendo latest (SetLatestSuffixTag &amp; pushSuccessfulDockerImageLatest).</p>
+<h2 id="referencias">Referências</h2>
 <ul>
-<li><a href="https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/dev-test-paas">DevTest pattern</a></li>
-<li><a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&amp;tabs=yaml#build-variables-devops-services">Azure Docs on Azure DevOps</a></li>
-<li><a href="https://tox.wiki/en/latest/user_guide.html">official tox documentation page</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/dev-test-paas">Padrão DevTest</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&amp;tabs=yaml#build-variables-devops-services">Documentação do Azure sobre Azure DevOps</a></li>
+<li><a href="https://tox.wiki/en/latest/user_guide.html">Página oficial de documentação do tox</a></li>
 <li><a href="https://testinfra.readthedocs.io/en/latest/">Testinfra</a></li>
-<li><a href="https://github.com/pytest-dev/pytest-testinfra">Testinfra project on GitHub</a></li>
+<li><a href="https://github.com/pytest-dev/pytest-testinfra">Projeto Testinfra no GitHub</a></li>
 <li><a href="http://pytest.org">pytest</a></li>
 </ul>
 
@@ -7426,7 +7279,7 @@ involving latest (SetLatestSuffixTag &amp; pushSuccessfulDockerImageLatest).</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 15, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 13, 2023</span>
       
     
   </small>
@@ -7460,13 +7313,13 @@ involving latest (SetLatestSuffixTag &amp; pushSuccessfulDockerImageLatest).</p>
       
       
         
-        <a href="../blobstorage-unit-tests/" class="md-footer__link md-footer__link--next" aria-label="Next: Using Azurite to Run Blob Storage Tests in a Pipeline" rel="next">
+        <a href="../blobstorage-unit-tests/" class="md-footer__link md-footer__link--next" aria-label="Next: Utilizando Azurite para Executar Testes de Armazenamento Blob em um Pipeline" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Using Azurite to Run Blob Storage Tests in a Pipeline
+              Utilizando Azurite para Executar Testes de Armazenamento Blob em um Pipeline
             </div>
           </div>
           <div class="md-footer__button md-icon">

@@ -19,7 +19,7 @@
     
     
       
-        <title>E2E Testing Methods - Manual da Engenharia para Codar</title>
+        <title>Métodos de Teste E2E - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#e2e-testing-methods" class="md-skip">
+        <a href="#metodos-de-teste-e2e" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              E2E Testing Methods
+              Métodos de Teste E2E
             
           </span>
         </div>
@@ -1289,12 +1289,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          E2E Testing Methods
+          Métodos de Teste E2E
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        E2E Testing Methods
+        Métodos de Teste E2E
       </a>
       
         
@@ -1313,22 +1313,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#horizontal-test" class="md-nav__link">
-    Horizontal Test
+  <a href="#teste-horizontal" class="md-nav__link">
+    Teste Horizontal
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#vertical-test" class="md-nav__link">
-    Vertical Test
+  <a href="#teste-vertical" class="md-nav__link">
+    Teste Vertical
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#e2e-test-cases-design-guidelines" class="md-nav__link">
-    E2E Test Cases Design Guidelines
+  <a href="#diretrizes-para-o-design-de-casos-de-teste-e2e" class="md-nav__link">
+    Diretrizes para o Design de Casos de Teste E2E
   </a>
   
 </li>
@@ -7193,22 +7193,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#horizontal-test" class="md-nav__link">
-    Horizontal Test
+  <a href="#teste-horizontal" class="md-nav__link">
+    Teste Horizontal
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#vertical-test" class="md-nav__link">
-    Vertical Test
+  <a href="#teste-vertical" class="md-nav__link">
+    Teste Vertical
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#e2e-test-cases-design-guidelines" class="md-nav__link">
-    E2E Test Cases Design Guidelines
+  <a href="#diretrizes-para-o-design-de-casos-de-teste-e2e" class="md-nav__link">
+    Diretrizes para o Design de Casos de Teste E2E
   </a>
   
 </li>
@@ -7227,22 +7227,22 @@
                 
 
 
-<h1 id="e2e-testing-methods">E2E Testing Methods</h1>
-<h2 id="horizontal-test">Horizontal Test</h2>
-<p>This method is used very commonly. It occurs horizontally across the context of multiple applications. Take an example of a data ingest management system.</p>
-<p><img alt="Horizontal Test" src="../images/horizontal-e2e-testing.png" /></p>
-<p>The inbound data may be  injected from various sources, but it then "flatten" into a horizontal processing pipeline that may include various components, such as a gateway API, data transformation, data validation, storage, etc... Throughout the entire Extract-Transform-Load (ETL) processing, the data flow can be tracked and monitored under the horizontal spectrum with little sprinkles of optional, and thus not important for the overall E2E test case, services, like logging, auditing, authentication.</p>
-<h2 id="vertical-test">Vertical Test</h2>
-<p>In this method, all most critical transactions of any application are verified and evaluated right from the start to finish. Each individual layer of the application is tested starting from top to bottom. Take an example of a web-based application that uses middleware services for reaching back-end resources.</p>
-<p><img alt="Vertical Test" src="../images/vertical-e2e-testing.png" /></p>
-<p>In such case, each layer (tier) is required to be fully tested in conjunction with the "connected" layers above and beneath, in which services "talk" to each other during the end to end data flow. All these complex testing scenarios will require proper validation and dedicated automated testing. Thus, this method is much more difficult.</p>
-<h2 id="e2e-test-cases-design-guidelines">E2E Test Cases Design Guidelines</h2>
-<p>Below enlisted are few <strong>guidelines</strong> that should be kept in mind while designing the test cases for performing E2E testing:</p>
+<h1 id="metodos-de-teste-e2e">Métodos de Teste E2E</h1>
+<h2 id="teste-horizontal">Teste Horizontal</h2>
+<p>Este método é muito comumente usado. Ele ocorre horizontalmente no contexto de várias aplicações. Pegue, por exemplo, um sistema de gerenciamento de ingestão de dados.</p>
+<p><img alt="Teste Horizontal" src="../images/horizontal-e2e-testing.png" /></p>
+<p>Os dados de entrada podem ser injetados de várias fontes, mas depois são "achatados" em um pipeline de processamento horizontal que pode incluir vários componentes, como uma API de gateway, transformação de dados, validação de dados, armazenamento, etc. Ao longo de todo o processamento de Extração-Transformação-Carga (ETL), o fluxo de dados pode ser rastreado e monitorado sob o espectro horizontal com pequenos toques opcionais, e portanto não importantes para o caso de teste E2E geral, serviços como registro, auditoria, autenticação.</p>
+<h2 id="teste-vertical">Teste Vertical</h2>
+<p>Neste método, todas as transações mais críticas de qualquer aplicação são verificadas e avaliadas desde o início até o fim. Cada camada individual da aplicação é testada começando de cima para baixo. Pegue, por exemplo, uma aplicação baseada na web que usa serviços de middleware para acessar recursos de back-end.</p>
+<p><img alt="Teste Vertical" src="../images/vertical-e2e-testing.png" /></p>
+<p>Nesse caso, cada camada (nível) precisa ser totalmente testada em conjunto com as camadas "conectadas" acima e abaixo, nas quais os serviços "conversam" entre si durante o fluxo de dados de ponta a ponta. Todos esses cenários de teste complexos exigirão validação adequada e testes automatizados dedicados. Portanto, este método é muito mais difícil.</p>
+<h2 id="diretrizes-para-o-design-de-casos-de-teste-e2e">Diretrizes para o Design de Casos de Teste E2E</h2>
+<p>A seguir estão listadas algumas <strong>diretrizes</strong> que devem ser levadas em consideração ao projetar os casos de teste para a realização de testes E2E:</p>
 <ul>
-<li>Test cases should be designed from the end user’s perspective.</li>
-<li>Should focus on testing some existing features of the system.</li>
-<li>Multiple scenarios should be considered for creating multiple test cases.</li>
-<li>Different sets of test cases should be created to focus on multiple scenarios of the system.</li>
+<li>Os casos de teste devem ser projetados a partir da perspectiva do usuário final.</li>
+<li>Deve-se focar em testar alguns recursos existentes do sistema.</li>
+<li>Vários cenários devem ser considerados para criar múltiplos casos de teste.</li>
+<li>Diferentes conjuntos de casos de teste devem ser criados para focar em múltiplos cenários do sistema.</li>
 </ul>
 
   <hr>
@@ -7250,7 +7250,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 7, 2021</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 13, 2023</span>
       
     
   </small>

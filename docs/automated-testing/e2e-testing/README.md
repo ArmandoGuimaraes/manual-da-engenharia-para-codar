@@ -1,183 +1,183 @@
-# E2E Testing
+# Teste de Ponta a Ponta (E2E)
 
-End-to-end (E2E) testing is a Software testing methodology to test a functional and data application flow consisting of several sub-systems working together from  start to end.
+O teste de ponta a ponta (E2E) é uma metodologia de teste de software para verificar um fluxo funcional e de dados de uma aplicação composta por vários subsistemas trabalhando juntos do início ao fim.
 
-At times, these systems are developed in different technologies by different teams or organizations. Finally, they come together to form a functional business application.  Hence, testing a single system would not suffice. Therefore, end-to-end testing verifies the application from start to end putting all its components together.
+Muitas vezes, esses sistemas são desenvolvidos em diferentes tecnologias por diferentes equipes ou organizações. Finalmente, eles se unem para formar uma aplicação de negócios funcional. Portanto, testar um único sistema não seria suficiente. Assim, o teste de ponta a ponta verifica a aplicação do início ao fim, colocando todos os seus componentes juntos.
 
-![End to End Testing](./images/e2e-testing.png)
+![Teste de Ponta a Ponta](./images/e2e-testing.png)
 
-## Why E2E Testing [The Why]
+## Por que Teste E2E [O Porquê]
 
-In many commercial software application scenarios, a modern software system consists of its interconnection with multiple sub-systems. These sub-systems can be within the same organization or can be components of different organizations. Also, these sub-systems can have somewhat similar or different lifetime release cycle from the current system. As a result, if there is any failure or fault in any sub-system, it can adversely affect the whole software system leading to its collapse.
+Em muitos cenários de aplicativos de software comerciais, um sistema de software moderno consiste em sua interconexão com vários subsistemas. Esses subsistemas podem estar dentro da mesma organização ou podem ser componentes de diferentes organizações. Além disso, esses subsistemas podem ter ciclos de lançamento de vida útil semelhantes ou diferentes do sistema atual. Como resultado, se houver qualquer falha ou defeito em qualquer subsistema, isso pode afetar adversamente todo o sistema de software, levando ao seu colapso.
 
-![E2E Testing Pyramid](./images/testing-pyramid.png)
+![Pirâmide de Teste E2E](./images/testing-pyramid.png)
 
-The above illustration is a testing pyramid from [Kent C. Dodd's blog](https://blog.kentcdodds.com/write-tests-not-too-many-mostly-integration-5e8c7fff591c) which is a combination of the pyramids from [Martin Fowler’s blog](https://martinfowler.com/bliki/TestPyramid.html) and the [Google Testing Blog](https://testing.googleblog.com/2015/04/just-say-no-to-more-end-to-end-tests.html).
+A ilustração acima é uma pirâmide de teste do [blog de Kent C. Dodd](https://blog.kentcdodds.com/write-tests-not-too-many-mostly-integration-5e8c7fff591c), que é uma combinação das pirâmides do [blog de Martin Fowler](https://martinfowler.com/bliki/TestPyramid.html) e do [Google Testing Blog](https://testing.googleblog.com/2015/04/just-say-no-to-more-end-to-end-tests.html).
 
-The majority of your tests are at the bottom of the pyramid. As you move up the pyramid, the number of tests gets smaller. Also, going up the pyramid, tests get slower and more expensive to write, run, and maintain. Each type of testing vary for its purpose, application and the areas it's supposed to cover. For more information on comparison analysis of different testing types, please see this [## Unit vs Integration vs System vs E2E Testing](../README.md) document.
+A maioria dos seus testes está na parte inferior da pirâmide. À medida que você sobe na pirâmide, o número de testes diminui. Além disso, subindo na pirâmide, os testes ficam mais lentos e mais caros para escrever, executar e manter. Cada tipo de teste varia para o seu propósito, aplicação e as áreas que se destina a cobrir. Para mais informações sobre a análise comparativa de diferentes tipos de testes, consulte este documento [## Unidade vs Integração vs Sistema vs Teste E2E](../README.md).
 
-## E2E Testing Design Blocks [The What]
+## Blocos de Design de Teste E2E [O Quê]
 
-![E2E Testing Design Framework](./images/e2e-blocks.png)
+![Blocos de Design de Teste E2E](./images/e2e-blocks.png)
 
-We will look into all the 3 categories one by one:
+Vamos examinar todas as 3 categorias uma por uma:
 
-### User Functions
+### Funções do Usuário
 
-Following actions should be performed as a part of building user functions:
+As seguintes ações devem ser realizadas como parte da construção de funções do usuário:
 
-- List user initiated functions of the software systems, and their interconnected sub-systems.
-- For any function, keep track of the actions performed as well as Input and Output data.
-- Find the relations, if any between different Users functions.
-- Find out the nature of different user functions i.e. if they are independent or are reusable.
+- Liste as funções iniciadas pelo usuário dos sistemas de software e seus subsistemas interconectados.
+- Para qualquer função, acompanhe as ações realizadas, bem como os dados de entrada e saída.
+- Encontre as relações, se houver, entre diferentes funções do usuário.
+- Descubra a natureza das diferentes funções do usuário, ou seja, se são independentes ou reutilizáveis.
 
-### Conditions
+### Condições
 
-Following activities should be performed as a part of building conditions based on user functions:
+As seguintes atividades devem ser realizadas como parte da construção de condições com base nas funções do usuário:
 
-- For each and every user functions, a set of conditions should be prepared.
-- Timing, data conditions and other factors that affect user functions can be considered as parameters.
+- Para cada uma das funções do usuário, um conjunto de condições deve ser preparado.
+- O tempo, as condições de dados e outros fatores que afetam as funções do usuário podem ser considerados como parâmetros.
 
-### Test Cases
+### Casos de Teste
 
-Following factors should be considered for building test cases:
+Os seguintes fatores devem ser considerados para a construção de casos de teste:
 
-- For every scenario, one or more test cases should be created to test each and every functionality of the user functions. If possible, these test cases should be automated through the standard CI/CD build pipeline processes with the track of each successful and failed build in AzDO.
-- Every single condition should be enlisted as a separate test case.
+- Para cada cenário, um ou mais casos de teste devem ser criados para testar cada funcionalidade das funções do usuário. Se possível, esses casos de teste devem ser automatizados por meio dos processos padrão de pipeline de CI/CD com o acompanhamento de cada build bem-sucedido e falho no AzDO.
+- Cada condição deve ser listada como um caso de teste separado.
 
-## Applying the E2E testing [The How]
+## Aplicando o Teste E2E [O Como]
 
-Like any other testing, E2E testing also goes through formal planning, test execution, and closure phases.
+Como qualquer outro teste, o teste E2E também passa por fases formais de planejamento, execução de teste e encerramento.
 
-E2E testing is done with the following steps:
+O teste E2E é feito com as seguintes etapas:
 
-### Planning
+### Planejamento
 
-- Business and Functional Requirement analysis
-- Test plan development
-- Test case development
-- Production like Environment setup for the testing
-- Test data setup
-- Decide exit criteria
-- Choose the testing methods that most applicable to your system. For the definition of the various testing methods, please see [Testing Methods](./testing-methods.md) document.
+- Análise de requisitos de negócios e funcionais
+- Desenvolvimento do plano de teste
+- Desenvolvimento do caso de teste
+- Configuração do ambiente de teste semelhante à produção
+- Configuração dos dados de teste
+- Decidir critérios de saída
+- Escolher os métodos de teste mais aplicáveis ao seu sistema. Para a definição dos vários métodos de teste, consulte o documento [Métodos de Teste](./testing-methods.md).
 
-### Pre-requisite
+### Pré-requisito
 
-- System Testing should be complete for all the participating systems.
-- All subsystems should be combined to work as a complete application.
-- Production like test environment should be ready.
+- O teste do sistema deve estar completo para todos os sistemas participantes.
+- Todos os subsistemas devem ser combinados para funcionar como uma aplicação completa.
+- O ambiente de teste semelhante à produção deve estar pronto.
 
-### Test Execution
+### Execução do Teste
 
-- Execute the test cases
-- Register the test results and decide on pass and failure
-- Report the Bugs in the bug reporting tool
-- Re-verify the bug fixes
+- Execute os casos de teste
+- Registre os resultados do teste e decida sobre a aprovação e falha
+- Relate os bugs na ferramenta de relatório de bugs
+- Re-verifique as correções de bugs
 
-### Test closure
+### Encerramento do Teste
 
-- Test report preparation
-- Evaluation of exit criteria
-- Test phase closure
+- Preparação do relatório de teste
+- Avaliação dos critérios de saída
+- Encerramento da fase de teste
 
-### Test Metrics
+### Métricas de Teste
 
-The tracing the quality metrics gives insight about the current status of testing. Some common metrics of E2E testing are:
+Rastrear as métricas de qualidade dá uma visão sobre o status atual do teste. Algumas métricas comuns de teste E2E são:
 
-- **Test case preparation status**: Number of test cases ready versus the total number of test cases.
-- **Frequent Test progress**: Number of test cases executed in the consistent frequent manner, e.g. weekly, versus a target number of the test cases in the same time period.
-- **Defects Status**: This metric represents the status of the defects found during testing. Defects should be logged into defect tracking tool (e.g. AzDO backlog) and resolved as per their severity and priority. Therefore, the percentage of open and closed defects as per their severity and priority should be calculated to track this metric. The AzDO Dashboard Query can be used to track this metric.
-- **Test environment availability**: This metric tracks the duration of the test environment used for end-to-end testing versus its scheduled allocation duration.
+- **Status de preparação do caso de teste**: Número de casos de teste prontos versus o número total de casos de teste.
+- **Progresso frequente do teste**: Número de casos de teste executados de maneira frequente e consistente, por exemplo, semanalmente, versus um número-alvo de casos de teste no mesmo período de tempo.
+- **Status dos defeitos**: Esta métrica representa o status dos defeitos encontrados durante o teste. Os defeitos devem ser registrados na ferramenta de rastreamento de defeitos (por exemplo, backlog do AzDO) e resolvidos de acordo com sua gravidade e prioridade. Portanto, a porcentagem de defeitos abertos e fechados de acordo com sua gravidade e prioridade deve ser calculada para rastrear esta métrica. A consulta do painel AzDO pode ser usada para rastrear essa métrica.
+- **Disponibilidade do ambiente de teste**: Esta métrica rastreia a duração do ambiente de teste usado para o teste de ponta a ponta versus sua duração de alocação programada.
 
-## E2E Testing Frameworks and Tools
+## Frameworks e Ferramentas de Teste E2E
 
 ### 1. Gauge Framework
 
 ![Gauge Framework](./images/gauge.jpg)
 
-Gauge is a free and open source framework for writing and running E2E tests. Some key features of Gauge that makes it unique include:
+Gauge é um framework gratuito e de código aberto para escrever e executar testes E2E. Algumas características-chave do Gauge que o tornam único incluem:
 
-- Simple, flexible and rich syntax based on Markdown.
-- Consistent cross-platform/language support for writing test code.
-- A modular architecture with plugins support.
-- Supports data driven execution and external data sources.
-- Helps you create maintainable test suites.
-- Supports Visual Studio Code, Intellij IDEA, IDE Support.
-- Supports html, json and XML reporting.
+- Sintaxe simples, flexível e rica baseada em Markdown.
+- Suporte consistente entre plataformas/linguagens para escrever código de teste.
+- Uma arquitetura modular com suporte a plugins.
+- Suporta execução orientada a dados e fontes de dados externas.
+- Ajuda você a criar suítes de teste sustentáveis.
+- Suporta Visual Studio Code, Intellij IDEA, IDE Support.
+- Suporta relatórios em html, json e XML.
 
-[Gauge Framework Website](https://gauge.org/)
+[Site do Gauge Framework](https://gauge.org/)
 
 ### 2. Robot Framework
 
 ![Robot Framework](./images/robot.jpg)
 
-Robot Framework is a generic open source automation framework. The framework has easy syntax, utilizing human-readable keywords. Its capabilities can be extended by libraries implemented with Python or Java.
+Robot Framework é um framework de automação de código aberto genérico. O framework tem uma sintaxe fácil, utilizando palavras-chave legíveis por humanos. Suas capacidades podem ser estendidas por bibliotecas implementadas com Python ou Java.
 
-Robot shares a lot of the same "pros" as Gauge, except the developer tooling and the syntax. In our usage, we found the VS Code Intellisense offered with Gauge to be much more stable than the offerings for Robot. We also found the syntax to be less readable than what Gauge offered. While both frameworks allow for markup based test case definitions, the Gauge syntax reads much more like an English sentence than Robot. Finally, Intellisense is baked into the markup files for Gauge test cases, which will create a function stub for the actual test definition if the developer allows it. The same cannot be said of the Robot Framework.
+Robot compartilha muitos dos mesmos "prós" que o Gauge, exceto as ferramentas de desenvolvimento e a sintaxe. Em nosso uso, descobrimos que o Intellisense do VS Code oferecido com o Gauge era muito mais estável do que as ofertas para o Robot. Também achamos a sintaxe menos legível do que o que o Gauge oferecia. Embora ambos os frameworks permitam definições de casos de teste baseadas em marcação, a sintaxe do Gauge lê muito mais como uma frase em português do que o Robot. Finalmente, o Intellisense está incorporado nos arquivos de marcação para casos de teste do Gauge, o que criará um stub de função para a definição de teste real se o desenvolvedor permitir. O mesmo não pode ser dito do Robot Framework.
 
-[Robot Framework Website](https://robotframework.org/#introduction)
+[Site do Robot Framework](https://robotframework.org/#introduction)
 
 ### 3. TestCraft
 
 ![TestCraft](./images/TestCraft-logo.png)
 
-TestCraft is a codeless Selenium test automation platform. Its revolutionary AI technology and unique visual modeling allow for faster test creation and execution while eliminating test maintenance overhead.
+TestCraft é uma plataforma de automação de teste Selenium sem código. Sua tecnologia revolucionária de IA e modelagem visual única permitem uma criação e execução de teste mais rápida, eliminando a sobrecarga de manutenção de teste.
 
-The testers create fully automated test scenarios without coding. Customers find bugs faster, release more frequently, integrate with the CI/CD approach and improve the overall quality of their digital products. This all creates a complete end-to-end testing experience.
+Os testadores criam cenários de teste totalmente automatizados sem codificação. Os clientes encontram bugs mais rapidamente, lançam com mais frequência, integram-se com a abordagem CI/CD e melhoram a qualidade geral de seus produtos digitais. Isso cria uma experiência completa de teste de ponta a ponta.
 
-[Perfecto (TestCraft) Website](https://www.perfecto.io/) or get it  from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=testcraft.build-release-task)
+[Site do Perfecto (TestCraft)](https://www.perfecto.io/) ou obtenha-o no [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=testcraft.build-release-task)
 
 ### 4. Ranorex Studio
 
 ![Ranorex Studio](./images/ranorex-studio2.png)
 
-**Ranorex Studio** is a complete end-to-end test automation tool for desktop, web, and mobile applications. Create reliable tests fast without any coding at all, or using the full IDE. Use external CSV or Excel files, or a SQL database as inputs to your tests.
+**Ranorex Studio** é uma ferramenta completa de automação de teste de ponta a ponta para aplicações desktop, web e móveis. Crie testes confiáveis rapidamente sem qualquer codificação ou usando o IDE completo. Use arquivos CSV ou Excel externos ou um banco de dados SQL como entradas para seus testes.
 
-Run tests in parallel or on a Selenium Grid with built-in Selenium WebDriver. Ranorex Studio integrates with your CI/CD process to shorten your release cycles without sacrificing quality.
+Execute testes em paralelo ou em uma grade Selenium com o Selenium WebDriver integrado. O Ranorex Studio se integra ao seu processo de CI/CD para encurtar seus ciclos de lançamento sem sacrificar a qualidade.
 
-**Ranorex Studio** tests also integrate with Azure DevOps (AzDO), which can be run as part of a build pipeline in AzDO.
+Os testes do **Ranorex Studio** também se integram ao Azure DevOps (AzDO), que podem ser executados como parte de um pipeline de build no AzDO.
 
-[Ranorex Studio Website](https://www.ranorex.com/free-trial)
+[Site do Ranorex Studio](https://www.ranorex.com/free-trial)
 
 ### 5. Katalon Studio
 
 ![Katalon](./images/New-Logo-Katalon-Studio.png)
 
-**Katalon Studio** is an excellent end-to-end automation solution for web, API, mobile, and desktop testing with DevOps support.
+**Katalon Studio** é uma excelente solução de automação de ponta a ponta para testes web, API, móveis e desktop com suporte DevOps.
 
-With Katalon Studio, automated testing can be easily integrated into any CI/CD pipeline to release products faster while guaranteeing high quality. Katalon Studio customizes for users from beginners to experts. Robust functions such as Spying, Recording, Dual-editor interface and Custom Keywords make setting up, creating and maintaining tests possible for users.
+Com o Katalon Studio, o teste automatizado pode ser facilmente integrado a qualquer pipeline de CI/CD para lançar produtos mais rapidamente, garantindo alta qualidade. O Katalon Studio personaliza para usuários de iniciantes a especialistas. Funções robustas como Espionagem, Gravação, Interface de editor duplo e Palavras-chave personalizadas tornam possível a configuração, criação e manutenção de testes para os usuários.
 
-Built on top of Selenium and Appium, Katalon Studio helps standardize your end-to-end tests standardized. It also complies with the most popular frameworks to work seamlessly with other tools in the automated testing ecosystem.
+Construído em cima do Selenium e Appium, o Katalon Studio ajuda a padronizar seus testes de ponta a ponta. Ele também está em conformidade com os frameworks mais populares para trabalhar de forma integrada com outras ferramentas no ecossistema de teste automatizado.
 
-Katalon is endorsed by Gartner, IT professionals, and a large testing community.
+O Katalon é endossado pela Gartner, profissionais de TI e uma grande comunidade de teste.
 
-> Note: At the time of this writing, Katalon Studio extension for AzDO was NOT available for Linux.
+> Nota: No momento da escrita deste texto, a extensão do Katalon Studio para AzDO NÃO estava disponível para Linux.
 
-[Katalon Studio Website](https://www.katalon.com/) or read about its [integration with AzDO](https://docs.katalon.com/katalon-studio/docs/azure-devops-extension.html#installation)
+[Site do Katalon Studio](https://www.katalon.com/) ou leia sobre sua [integração com o AzDO](https://docs.katalon.com/katalon-studio/docs/azure-devops-extension.html#installation)
 
 ### 6. BugBug.io
 
 ![BugBug](./images/bugbug-logo-208x65.png)
 
-**BugBug** is an easy way to automate tests for web applications. The tool focuses on simplicity, yet allows you to cover all essential test cases without coding. It's an all-in-one solution - you can easily create tests and use the built-in cloud to run them on schedule or from your CI/CD, without changes to your own infrastructure.
+**BugBug** é uma maneira fácil de automatizar testes para aplicações web. A ferramenta foca na simplicidade, mas ainda permite que você cubra todos os casos de teste essenciais sem codificação. É uma solução completa - você pode criar testes facilmente e usar a nuvem integrada para executá-los de acordo com um cronograma ou a partir do seu CI/CD, sem alterações na sua própria infraestrutura.
 
-BugBug is an interesting alternative to Selenium because it's actually a completely different technology. It is based on a Chrome extension that allows BugBug to record and run tests faster than old-school frameworks.
+BugBug é uma alternativa interessante ao Selenium porque é realmente uma tecnologia completamente diferente. Ele é baseado em uma extensão do Chrome que permite ao BugBug gravar e executar testes mais rapidamente do que os frameworks da velha escola.
 
-The biggest advantage of BugBug is its user-friendliness. Most tests created with BugBug simply work out of the box. This makes it easier for non-technical people to maintain tests - with BugBug you can save money on hiring a QA engineer.
+A maior vantagem do BugBug é sua facilidade de uso. A maioria dos testes criados com o BugBug simplesmente funciona imediatamente. Isso torna mais fácil para pessoas não técnicas manterem os testes - com o BugBug, você pode economizar dinheiro na contratação de um engenheiro de QA.
 
-[BugBug Website](https://bugbug.io?utm_source=microsoft_github&utm_medium=referral)
+[Site do BugBug](https://bugbug.io?utm_source=microsoft_github&utm_medium=referral)
 
-## Conclusion
+## Conclusão
 
-Hope you learned various aspects of E2E testing like its processes, metrics, the difference between Unit, Integration  and E2E testing, and the various recommended E2E test frameworks and tools.
+Espero que você tenha aprendido vários aspectos do teste E2E, como seus processos, métricas, a diferença entre testes Unitários, de Integração e E2E, e os vários frameworks e ferramentas de teste E2E recomendados.
 
-For any commercial release of the software, E2E test verification plays an important role as it tests the entire application in an environment that exactly imitates real-world users like network communication, middleware and backend services interaction, etc.
+Para qualquer lançamento comercial do software, a verificação do teste E2E desempenha um papel importante, pois testa toda a aplicação em um ambiente que imita exatamente os usuários do mundo real, como comunicação de rede, interação com middleware e serviços de back-end, etc.
 
-Finally, the E2E test is often performed manually as the cost of automating such test cases is too high to be afforded by any organization. Having said that, the ultimate goal of each organization is to make the e2e testing as streamlined as possible adding full and semi-automation testing components into the process. Hence, the various E2E testing frameworks and tools listed in this article come to the rescue.
+Por fim, o teste E2E é frequentemente realizado manualmente, pois o custo de automatizar tais casos de teste é muito alto para ser suportado por qualquer organização. Dito isso, o objetivo final de cada organização é tornar o teste E2E o mais eficiente possível, adicionando componentes de teste totalmente e semi-automatizados ao processo. Portanto, os vários frameworks e ferramentas de teste E2E listados neste artigo vêm em socorro.
 
-## Resources
+## Recursos
 
-- [Wikipedia: Software testing](https://en.wikipedia.org/wiki/Software_testing)
-- [Wikipedia: Unit testing](https://en.wikipedia.org/wiki/Unit_testing)
-- [Wikipedia: Integration testing](https://en.wikipedia.org/wiki/Integration_testing)
-- [Wikipedia: System testing](https://en.wikipedia.org/wiki/System_testing)
+- [Wikipedia: Teste de Software](https://en.wikipedia.org/wiki/Software_testing)
+- [Wikipedia: Teste Unitário](https://en.wikipedia.org/wiki/Unit_testing)
+- [Wikipedia: Teste de Integração](https://en.wikipedia.org/wiki/Integration_testing)
+- [Wikipedia: Teste de Sistema](https://en.wikipedia.org/wiki/System_testing)

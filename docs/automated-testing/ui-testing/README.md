@@ -1,68 +1,70 @@
-# User Interface Testing
+# Teste de Interface do Usuário (UI)
 
-This section is primarily geared towards web-based UIs, but the guidance is similar for mobile and OS based applications.  
+Esta seção é voltada principalmente para UIs baseadas na web, mas as orientações são semelhantes para aplicativos móveis e baseados em sistemas operacionais.
 
-## Applicability
+## Aplicabilidade
 
-UI Testing is not always going to be applicable, for example applications without a UI or parts of an application that require no human interaction.  In those cases unit, functional and integration/e2e testing would be the primary means.  UI Testing is going to be mainly applicable when dealing with a public facing UI that is used in a diverse environment or in a mission critical UI that requires higher fidelity.  With something like an admin UI that is used by just a handful of people, UI Testing is still valuable but not as high priority.
+O teste de UI nem sempre será aplicável, por exemplo, em aplicações sem uma UI ou partes de uma aplicação que não requerem interação humana. Nesses casos, os testes unitários, funcionais e de integração/e2e seriam os principais meios. O teste de UI será principalmente aplicável ao lidar com uma UI voltada para o público que é usada em um ambiente diversificado ou em uma UI crítica que requer maior fidelidade. Com algo como uma UI de administração que é usada por apenas algumas pessoas, o teste de UI ainda é valioso, mas não tão prioritário.
 
-## Goals
+## Objetivos
 
-UI testing provides the ability to ensure that users have a consistent visual user experience across a variety of means of access and that the user interaction is consistent with the function requirements.
+O teste de UI fornece a capacidade de garantir que os usuários tenham uma experiência visual consistente em uma variedade de meios de acesso e que a interação do usuário seja consistente com os requisitos funcionais.
 
-- Ensure the UI appearance and interaction satisfy the functional and non-functional requirements
-- Detect changes in the UI both across devices and delivery platforms and between code changes
-- Provide confidence to designers and developers the user experience is consistent
-- Support fast code evolution and refactoring while reducing the risk of regressions
+- Garantir que a aparência e interação da UI satisfaçam os requisitos funcionais e não funcionais
+- Detectar mudanças na UI tanto entre dispositivos e plataformas de entrega quanto entre mudanças de código
+- Dar confiança a designers e desenvolvedores de que a experiência do usuário é consistente
+- Apoiar a rápida evolução do código e refatoração, reduzindo o risco de regressões
 
-## Evidence and Measures
+## Evidências e Medidas
 
-Integrating UI Tests in to your CI/CD is necessary but more challenging than unit tests.  The increased challenge is that UI tests either need to run in headless mode with something like [Puppeteer](https://github.com/puppeteer/puppeteer) or there needs to be more extensive orchestration with Azure DevOps or GitHub that would handle the full testing integration for you like [BrowserStack](https://www.browserstack.com/automate/azure)
+Integrar testes de UI no seu CI/CD é necessário, mas mais desafiador do que testes unitários. O desafio aumentado é que os testes de UI precisam ser executados em modo headless com algo como [Puppeteer](https://github.com/puppeteer/puppeteer) ou precisa haver uma orquestração mais extensa com Azure DevOps ou GitHub que cuidaria da integração completa de testes para você, como [BrowserStack](https://www.browserstack.com/automate/azure).
 
-Integrations like `BrowserStack` are nice since they provide Azure DevOps reports as part of the test run.
+Integrações como `BrowserStack` são interessantes, pois fornecem relatórios do Azure DevOps como parte da execução do teste.
 
-That said, Azure DevOps supports a variety of test adapters, so you can use any UI Testing framework that supports outputting the test results to one of the output formats listed at [Publish Test Results task](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/test/publish-test-results?view=azure-devops&tabs=yaml).
+Dito isso, o Azure DevOps suporta uma variedade de adaptadores de teste, então você pode usar qualquer framework de teste de UI que suporte a saída dos resultados do teste para um dos formatos de saída listados em [Publish Test Results task](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/test/publish-test-results?view=azure-devops&tabs=yaml).
 
-If you're using an Azure DevOps pipeline to run UI tests, consider using a [self hosted agent](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser) in order to manage framework versions and avoid unexpected updates.
+Se você estiver usando um pipeline do Azure DevOps para executar testes de UI, considere usar um [agente auto-hospedado](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser) para gerenciar as versões do framework e evitar atualizações inesperadas.
 
-## General Guidance
+## Orientação Geral
 
-The scope of UI testing should be strategic. UI tests can take a significant amount of time to both implement and run, and it's challenging to test every type of user interaction in a production application due to the large number of possible interactions.
+O escopo do teste de UI deve ser estratégico. Os testes de UI podem levar uma quantidade significativa de tempo tanto para implementar quanto para executar, e é desafiador testar todos os tipos de interação do usuário em um aplicativo de produção devido ao grande número de interações possíveis.
 
-Designing the UI tests around the functional tests makes sense.  For example, given an input form, a UI test would ensure that the visual representation is consistent across devices, is accessible and easy to interact with, and is consistent across code changes.
+Projetar os testes de UI em torno dos testes funcionais faz sentido. Por exemplo, dado um formulário de entrada, um teste de UI garantiria que a representação visual seja consistente entre dispositivos, seja acessível e fácil de interagir, e seja consistente entre mudanças de código.
 
-UI Tests will catch 'runtime' bugs that unit and functional tests won't.  For example if the submit button for an input form is rendered but not clickable due to a positioning bug in the UI, then this could be considered a runtime bug that would not have been caught by unit or functional tests.
+Os testes de UI pegarão bugs de 'tempo de execução' que os testes unitários e funcionais não pegarão. Por exemplo, se o botão de envio de um formulário de entrada for renderizado, mas não for clicável devido a um bug de posicionamento na UI, então isso poderia ser considerado um bug de tempo de execução que não teria sido pego por testes unitários ou funcionais.
 
-UI Tests can run on mock data or snapshots of production data, like in QA or staging.
+Os testes de UI podem ser executados em dados fictícios ou em instantâneos de dados de produção, como em QA ou staging.
 
-### Writing Tests
+### Escrevendo Testes
 
-Good UI tests follow a few general principles:
+Bons testes de UI seguem alguns princípios gerais:
 
-- Choose a UI testing framework that enables quick feedback and is easy to use
-- Design the UI to be easily testable.  For example, add CSS selectors or set the id on elements in a web page to allow easier selecting.
-- Test on all primary devices that the user uses, don't just test on a single device or OS.
-- When a test mutates data ensure that data is created on demand and cleaned up after.  The consequence of not doing this would be inconsistent testing.
+- Escolha um framework de teste de UI que permita um feedback rápido e seja fácil de usar
+- Projete a UI para ser facilmente testável. Por exemplo, adicione seletores CSS ou defina o id em elementos de uma página da web para permitir uma seleção mais fácil.
+- Teste em todos os dispositivos primários que o usuário usa, não teste apenas em um único dispositivo ou sistema operacional.
+- Quando um teste altera dados, garanta que os dados sejam criados sob demanda e limpos posteriormente. A consequência de não fazer isso seria testes inconsistentes.
 
-### Common Issues
+### Problemas Comuns
 
-UI Testing can get very challenging at the lower level, especially with a testing framework like Selenium.  If you choose to go this route, then you'll likely encounter timeouts, missing elements, and you'll have significant friction with the testing framework itself.  Due to many issues with UI testing there have been a number of free and paid solutions that help alleviate certain issues with frameworks like Selenium.  This is why you'll find Cypress in the recommended frameworks as it solves many of the known issues with Selenium.
+O teste de UI pode se tornar muito desafiador no nível mais baixo, especialmente com um framework de teste como o Selenium. Se você optar por seguir esse caminho, provavelmente encontrará timeouts, elementos ausentes e terá atrito significativo com o próprio framework de teste. Devido a muitos problemas com o teste de UI, surgiram várias soluções gratuitas e pagas que ajudam a aliviar certos problemas com frameworks como o Selenium. É por isso que você encontrará o Cypress nos frameworks recomendados, pois ele resolve muitos dos problemas conhecidos com o Selenium.
 
-This is an important point though.  Depending on the UI testing framework you choose will result in either a smoother test creation experience, or a very frustrating and time-consuming one.  If you were to choose just Selenium the development costs and time costs would likely be very high.  It's better to use either a framework built on top of Selenium or one that attempts to solve many of the problems with something like Selenium.
+Este é um ponto importante. Dependendo do framework de teste de UI que você escolher, o resultado será uma experiência de criação de teste mais suave ou uma muito frustrante e demorada. Se você optar apenas pelo Selenium, os custos de desenvolvimento e os custos de tempo provavelmente serão muito altos. É melhor usar um framework construído em cima do Selenium ou um que tente resolver muitos dos problemas com algo como o Selenium.
 
-Note there that there are further considerations as when running in headless mode the UI can render differently than what you may see on your development machine, particularly with web applications.  Furthermore, note that when rendering in different page dimensions elements may disappear on the page due to CSS rules, therefore not be selectable by certain frameworks with default options out of the box.  All of these issues can be resolved and worked around, but the rendering demonstrates another particular challenge of UI testing.
+Note que há outras considerações, como quando executado em modo headless, a UI pode renderizar de forma diferente do que você pode ver na sua máquina de desenvolvimento, particularmente com aplicações web. Além disso, note que ao renderizar em diferentes dimensões de página, elementos podem desaparecer na página devido a regras de CSS, portanto, não seriam selecionáveis por certos frameworks com opções padrão fora da caixa. Todos esses problemas podem ser resolvidos e contornados, mas a renderização demonstra outro desafio particular do teste de UI.
 
-## Specific Guidance
+## Orientação Específica
 
-Recommended testing frameworks:
+Frameworks de teste recomendados:
 
 - Web
   - [BrowserStack](https://www.browserstack.com)
   - [Cypress](https://www.cypress.io)
-  - [Jest](https://jestjs.io/docs/en/snapshot-testing)
+  - [Jest](https://jestjs
+
+.io/docs/en/snapshot-testing)
   - [Selenium](https://www.selenium.dev)
-- OS/Mobile Applications
+- OS/Aplicações Móveis
   - [Coded UI tests (CUITs)](https://learn.microsoft.com/en-us/visualstudio/test/use-ui-automation-to-test-your-code?view=vs-2019)
   - [Xamarin.UITest](https://learn.microsoft.com/en-us/appcenter/test-cloud/uitest/)
 
-> Note that the framework listed above that is paid is BrowserStack, it's listed as it's an industry standard, the rest are open source and free.
+> Note que o framework listado acima que é pago é o BrowserStack, ele está listado porque é um padrão da indústria, o resto são de código aberto e gratuitos.

@@ -1,78 +1,78 @@
-# Consumer-driven Contract Testing (CDC)
+# Teste de Contrato Orientado pelo Consumidor (CDC)
 
-Consumer-driven Contract Testing (or CDC for short) is a software testing methodology used to test components of a system in isolation while ensuring that provider components are compatible with the expectations that consumer components have of them.
+O Teste de Contrato Orientado pelo Consumidor (ou CDC, na sigla em inglês) é uma metodologia de teste de software usada para testar componentes de um sistema isoladamente, garantindo que os componentes provedores sejam compatíveis com as expectativas que os componentes consumidores têm deles.
 
-## Why Consumer-driven Contract Testing
+## Por que Teste de Contrato Orientado pelo Consumidor
 
-CDC tries to overcome the [several painful drawbacks](https://pactflow.io/blog/proving-e2e-tests-are-a-scam) of automated E2E tests with components interacting together:
+O CDC tenta superar as [várias desvantagens dolorosas](https://pactflow.io/blog/proving-e2e-tests-are-a-scam) dos testes E2E automatizados com componentes interagindo juntos:
 
-* E2E tests are slow
-* E2E tests break easily
-* E2E tests are expensive and hard to maintain
-* E2E tests of larger systems may be hard or impossible to run outside a dedicated testing environment
+* Testes E2E são lentos
+* Testes E2E quebram facilmente
+* Testes E2E são caros e difíceis de manter
+* Testes E2E de sistemas maiores podem ser difíceis ou impossíveis de serem executados fora de um ambiente de teste dedicado
 
-Although testing best practices suggest to write just a few E2E tests compared to the cheaper, faster and more stable integration and unit tests as pictured in the testing pyramid below, experience shows [many teams end up writing too many E2E tests](https://testing.googleblog.com/2015/04/just-say-no-to-more-end-to-end-tests.html). A reason for this is that E2E tests give developers the highest confidence to release as they are testing the "real" system.
+Embora as melhores práticas de teste sugiram escrever apenas alguns testes E2E em comparação com os testes de integração e unitários mais baratos, rápidos e estáveis, como ilustrado na pirâmide de testes abaixo, a experiência mostra que [muitas equipes acabam escrevendo muitos testes E2E](https://testing.googleblog.com/2015/04/just-say-no-to-more-end-to-end-tests.html). Uma razão para isso é que os testes E2E dão aos desenvolvedores a maior confiança para lançar, pois estão testando o "sistema real".
 
-![E2E Testing Pyramid](./images/testing-pyramid.png)
+![Pirâmide de Teste E2E](./images/testing-pyramid.png)
 
-CDC addresses these issues by testing interactions between components in isolation using mocks that conform to a shared understanding documented in a "contract". Contracts are agreed between consumer and provider, and are regularly verified against a real instance of the provider component. This effectively partitions a larger system into smaller pieces that can be tested individually in isolation of each other, leading to simpler, fast and stable tests that also give confidence to release.
+O CDC aborda essas questões testando interações entre componentes isoladamente usando mocks que estão de acordo com um entendimento compartilhado documentado em um "contrato". Contratos são acordados entre consumidor e provedor e são regularmente verificados contra uma instância real do componente provedor. Isso efetivamente divide um sistema maior em partes menores que podem ser testadas individualmente isoladas umas das outras, levando a testes mais simples, rápidos e estáveis que também dão confiança para lançar.
 
-Some E2E tests are still required to verify the system as a whole when deployed in the real environment, but most functional interactions between components can be covered with CDC tests.
+Alguns testes E2E ainda são necessários para verificar o sistema como um todo quando implantado no ambiente real, mas a maioria das interações funcionais entre componentes pode ser coberta com testes CDC.
 
-CDC testing was initially developed for testing RESTful API's, but the pattern scales to all consumer-provider systems and tooling for other messaging protocols besides HTTP does exist.
+O teste CDC foi inicialmente desenvolvido para testar APIs RESTful, mas o padrão se aplica a todos os sistemas consumidor-provedor e existem ferramentas para outros protocolos de mensagens além do HTTP.
 
-## Consumer-driven Contract Testing Design Blocks
+## Blocos de Design de Teste de Contrato Orientado pelo Consumidor
 
-In a [consumer-driven approach](https://martinfowler.com/articles/consumerDrivenContracts.html) the consumer drives changes to contracts between a consumer (the client) and a provider (the server). This may sound counterintuitive, but it helps providers create APIs that fit the real requirements of the consumers rather than trying to guess these in advance. Next we describe the CDC building blocks ordered by their occurrence in the development cycle.
+Em uma [abordagem orientada pelo consumidor](https://martinfowler.com/articles/consumerDrivenContracts.html), o consumidor direciona as mudanças nos contratos entre um consumidor (o cliente) e um provedor (o servidor). Isso pode parecer contraintuitivo, mas ajuda os provedores a criar APIs que se ajustem às necessidades reais dos consumidores, em vez de tentar adivinhá-las antecipadamente. A seguir, descrevemos os blocos de construção do CDC ordenados por sua ocorrência no ciclo de desenvolvimento.
 
-![CDC testing](./images/cdc-testing.png)
+![Teste CDC](./images/cdc-testing.png)
 
-### Consumer Tests with Provider Mock
+### Testes do Consumidor com Mock do Provedor
 
-The consumers start by creating integration tests against a provider mock and running them as part of their CI pipeline. Expected responses are defined in the provider mock for requests fired from the tests. Through this, the consumer essentially defines the contract they expect the provider to fulfill.
+Os consumidores começam criando testes de integração contra um mock do provedor e executando-os como parte de seu pipeline de CI. Respostas esperadas são definidas no mock do provedor para solicitações disparadas a partir dos testes. Por meio disso, o consumidor essencialmente define o contrato que espera que o provedor cumpra.
 
-### Contract
+### Contrato
 
-Contracts are generated from the expectations defined in the provider mock as a result of a successful test run. CDC frameworks like [Pact](https://docs.pact.io/) provide a [specification for contracts](https://github.com/pact-foundation/pact-specification) in json format consisting of the list of request/responses generated from the consumer tests plus some additional metadata.
+Contratos são gerados a partir das expectativas definidas no mock do provedor como resultado de uma execução bem-sucedida do teste. Frameworks de CDC como o [Pact](https://docs.pact.io/) fornecem uma [especificação para contratos](https://github.com/pact-foundation/pact-specification) no formato json, consistindo na lista de solicitações/respostas geradas a partir dos testes do consumidor, além de alguns metadados adicionais.
 
-Contracts are not a replacement for a discussion between the consumer and provider team. This is the moment where this discussion should take place (if not already done before). The consumer tests and generated contract are refined with the feedback and cooperation of the provider team. Lastly the finalized contract is versioned and stored in a central place accessible by both consumer and provider.
+Contratos não são um substituto para uma discussão entre a equipe do consumidor e do provedor. Este é o momento em que essa discussão deve ocorrer (se já não tiver ocorrido antes). Os testes do consumidor e o contrato gerado são refinados com o feedback e a cooperação da equipe do provedor. Por último, o contrato finalizado é versionado e armazenado em um local central acessível por ambos, consumidor e provedor.
 
-Contracts are complementary to API specification documents like OpenAPI. API specifications describe the structure and the format of the API. A contract instead specifies that for a given request, a given response is expected. An API specifications document is helpful in writing an API contract and can be used to validate that the contract conforms to the API specification.
+Contratos complementam documentos de especificação de API como o OpenAPI. Especificações de API descrevem a estrutura e o formato da API. Um contrato, por outro lado, especifica que para uma determinada solicitação, uma determinada resposta é esperada. Um documento de especificações de API é útil para escrever um contrato de API e pode ser usado para validar que o contrato está em conformidade com a especificação da API.
 
-### Provider Contract Verification
+### Verificação de Contrato do Provedor
 
-On the provider side tests are also executed as part of a separate pipeline which verifies contracts against real responses of the provider. Contract verification fails if real responses differ from the expected responses as specified in the contract. The cause of this can be:
+Do lado do provedor, testes também são executados como parte de um pipeline separado que verifica contratos contra respostas reais do provedor. A verificação do contrato falha se as respostas reais diferirem das respostas esperadas, conforme especificado no contrato. A causa disso pode ser:
 
-1. Invalid expectations on the consumer side leading to incompatibility with the current provider implementation
-2. Broken provider implementation due to some missing functionality or a regression
+1. Expectativas inválidas do lado do consumidor, levando à incompatibilidade com a implementação atual do provedor.
+2. Implementação defeituosa do provedor devido a alguma funcionalidade ausente ou a uma regressão.
 
-Either way, thanks to CDC it is easy to pinpoint integration issues down to the consumer/provider of the affected interaction. This is a big advantage compared to the debugging pain this could have been with an E2E test approach.
+De qualquer forma, graças ao CDC, é fácil identificar problemas de integração até o consumidor/provedor da interação afetada. Isso é uma grande vantagem em comparação com a dor de depuração que isso poderia ter sido com uma abordagem de teste E2E.
 
-## CDC Testing Frameworks and Tools
+## Frameworks e Ferramentas de Teste CDC
 
-[Pact](https://docs.pact.io/) is an implementation of CDC testing that allows mocking of responses in the consumer codebase, and verification of the interactions in the provider codebase, while defining a [specification for contracts](https://github.com/pact-foundation/pact-specification). It was originally written in Ruby but has available wrappers for multiple languages. Pact is the de-facto standard to use when working with CDC.
+[Pact](https://docs.pact.io/) é uma implementação de teste CDC que permite a simulação de respostas no código-base do consumidor e a verificação das interações no código-base do provedor, enquanto define uma [especificação para contratos](https://github.com/pact-foundation/pact-specification). Foi originalmente escrito em Ruby, mas tem wrappers disponíveis para várias linguagens. Pact é o padrão de facto a ser usado ao trabalhar com CDC.
 
-[Spring Cloud Contract](https://cloud.spring.io/spring-cloud-contract/reference/html) is an implementation of CDC testing from Spring, and offers easy integration in the Spring ecosystem. Support for non-Spring and non-JVM providers and consumers also exists.
+[Spring Cloud Contract](https://cloud.spring.io/spring-cloud-contract/reference/html) é uma implementação de teste CDC da Spring e oferece fácil integração no ecossistema Spring. Suporte para provedores e consumidores não-Spring e não-JVM também existe.
 
-## Conclusion
+## Conclusão
 
-CDC has several benefits that make it an approach worth considering when dealing with systems composed of multiple components interacting together.
+O CDC tem vários benefícios que o tornam uma abordagem a ser considerada ao lidar com sistemas compostos por múltiplos componentes interagindo juntos.
 
-Maintenance efforts can be reduced by testing consumer-provider interactions in isolation without the need of a complex integrated environment, specially as the interactions between components grow in number and become more complex.
+Os esforços de manutenção podem ser reduzidos testando interações entre consumidor e provedor isoladamente, sem a necessidade de um ambiente integrado complexo, especialmente à medida que as interações entre componentes aumentam em número e se tornam mais complexas.
 
-![CDC VS E2E tests](./images/cdc-vs-e2e.png)
+![CDC VS Testes E2E](./images/cdc-vs-e2e.png)
 
-Additionally, a close collaboration between consumer and provider teams is strongly encouraged through the CDC development process, which can bring many other benefits. Contracts offer a formal way to document the shared understanding how components interact with each other, and serve as a base for the communication between teams. In a way, the contract repository serves as a live documentation of all consumer-provider interactions of a system.
+Além disso, uma colaboração próxima entre as equipes de consumidores e provedores é fortemente incentivada através do processo de desenvolvimento do CDC, o que pode trazer muitos outros benefícios. Contratos oferecem uma forma formal de documentar o entendimento compartilhado de como os componentes interagem entre si e servem como base para a comunicação entre as equipes. De certa forma, o repositório de contratos serve como uma documentação ao vivo de todas as interações entre consumidor e provedor de um sistema.
 
-CDC has some drawbacks as well. An extra layer of testing is added requiring a proper investment in education for team members to understand and use CDC correctly.
+O CDC tem algumas desvantagens também. Uma camada extra de teste é adicionada, exigindo um investimento adequado em educação para que os membros da equipe entendam e usem o CDC corretamente.
 
-Additionally, [the CDC test scope](https://docs.pact.io/getting_started/testing-scope) should be considered carefully to prevent blurring CDC with other higher level functional testing layers. Contract tests are not the place to verify internal business logic and correctness of the consumer.
+Além disso, [o escopo do teste CDC](https://docs.pact.io/getting_started/testing-scope) deve ser considerado cuidadosamente para evitar confundir o CDC com outras camadas de teste funcional de nível superior. Testes de contrato não são o lugar para verificar a lógica de negócios interna e a correção do consumidor.
 
-## Resources
+## Recursos
 
-* Testing pyramid from [Kent C. Dodd's blog](https://blog.kentcdodds.com/write-tests-not-too-many-mostly-integration-5e8c7fff591c)
-* [Pact](https://docs.pact.io/), a code-first consumer-driven contract testing tool with support for several different programming languages
-* [Consumer-driven contracts](https://martinfowler.com/articles/consumerDrivenContracts.html) from Ian Robinson
-* [Contract test](https://martinfowler.com/bliki/ContractTest.html) from Martin Fowler
-* A simple example of using [Pact consumer-driven contract testing in a Java client-server application](https://github.com/oottka/pact-spring)
-* [Pact dotnet workshop](https://github.com/pact-foundation/pact-workshop-dotnet-core-v1)
+* Pirâmide de teste do [blog de Kent C. Dodd](https://blog.kentcdodds.com/write-tests-not-too-many-mostly-integration-5e8c7fff591c)
+* [Pact](https://docs.pact.io/), uma ferramenta de teste de contrato orientada pelo consumidor baseada em código com suporte para várias linguagens de programação diferentes
+* [Contratos orientados pelo consumidor](https://martinfowler.com/articles/consumerDrivenContracts.html) de Ian Robinson
+* [Teste de contrato](https://martinfowler.com/bliki/ContractTest.html) de Martin Fowler
+* Um exemplo simples de uso do [teste de contrato orientado pelo consumidor Pact em uma aplicação cliente-servidor Java](https://github.com/oottka/pact-spring)
+* [Workshop Pact dotnet](https://github.com/pact-foundation/pact-workshop-dotnet-core-v1)

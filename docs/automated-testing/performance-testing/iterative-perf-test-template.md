@@ -1,37 +1,37 @@
-# Performance Test Iteration Template
+# Modelo de Iteração de Teste de Desempenho
 
-> This document provides template for capturing results of performance tests. Performance tests are done in iterations and each iteration should have a clear goal. The results of any iteration is immutable regardless whether the goal was achieved or not. If the iteration failed or the goal is not achieved then a new iteration of testing is carried out with appropriate fixes. It is recommended to keep track of the recorded iterations to maintain a timeline of how system evolved and which changes affected the performance in what way. Feel free to modify this template as needed.
+> Este documento fornece um modelo para capturar os resultados de testes de desempenho. Os testes de desempenho são feitos em iterações e cada iteração deve ter um objetivo claro. Os resultados de qualquer iteração são imutáveis, independentemente de o objetivo ter sido alcançado ou não. Se a iteração falhou ou o objetivo não foi alcançado, então uma nova iteração de teste é realizada com as correções apropriadas. É recomendável manter o registro das iterações gravadas para manter uma linha do tempo de como o sistema evoluiu e quais mudanças afetaram o desempenho de que maneira. Sinta-se à vontade para modificar este modelo conforme necessário.
 
-## Iteration Template
+## Modelo de Iteração
 
-### Goal
+### Objetivo
 
-> Mention in bullet points the goal for this iteration of test. The goal should be small and measurable within this iteration.
+> Mencione em tópicos o objetivo para esta iteração de teste. O objetivo deve ser pequeno e mensurável dentro desta iteração.
 
-### Test Details
+### Detalhes do Teste
 
-- **Date**: *Date and time when this iteration started and ended*
-- **Duration**: *Time it took to complete this iteration.*
-- **Application Code**: *Commit id and link to the commit for the code(s) which are being tested in this iteration*
-- **Benchmarking Configuration:**
-  - **Application Configuration:** *In bullet points mention the configuration for application that should be recorded*
-  - **System Configuration:** *In bullet points mention the configuration of the infrastructure*
+- **Data**: *Data e hora em que esta iteração começou e terminou*
+- **Duração**: *Tempo que levou para concluir esta iteração.*
+- **Código da Aplicação**: *ID do commit e link para o commit dos códigos que estão sendo testados nesta iteração*
+- **Configuração de Referência:**
+  - **Configuração da Aplicação**: *Em tópicos, mencione a configuração da aplicação que deve ser registrada*
+  - **Configuração do Sistema**: *Em tópicos, mencione a configuração da infraestrutura*
 
-> Record different types of configurations. Usually application specific configuration changes between iterations whereas system or infrastructure configurations rarely change
+> Registre diferentes tipos de configurações. Geralmente, as mudanças de configuração específicas da aplicação entre iterações, enquanto as configurações do sistema ou infraestrutura raramente mudam.
 
-### Work Items
+### Itens de Trabalho
 
-> List of links to relevant work items (task, story, bug) being tested in this iteration.
+> Lista de links para itens de trabalho relevantes (tarefa, história, bug) sendo testados nesta iteração.
 
-### Results
+### Resultados
 
 ```md
-In bullet points document the results from the test.  
-- Attach any documents supporting the test results.
-- Add links to the dashboard for metrics and logs such as Application Insights.
-- Capture screenshots for metrics and include it in the results. Good candidate for this is CPU/Memory/Disk usage.
+Em tópicos, documente os resultados do teste.
+- Anexe quaisquer documentos que apoiem os resultados do teste.
+- Adicione links para o painel de métricas e logs, como Application Insights.
+- Capture capturas de tela para métricas e inclua-as nos resultados. Um bom candidato para isso é o uso de CPU/Memória/Disco.
 ```
 
-### Observations
+### Observações
 
-> Observations are insights derived from test results. Keep the observations brief and as bullet points. Mention outcomes supporting the goal of the iteration. If any of the observation results in a work item (task, story, bug) then add the link to the work item together with the observation.  
+> As observações são percepções derivadas dos resultados dos testes. Mantenha as observações breves e em forma de tópicos. Mencione resultados que apoiem o objetivo da iteração. Se alguma das observações resultar em um item de trabalho (tarefa, história, bug), adicione o link para o item de trabalho junto com a observação.

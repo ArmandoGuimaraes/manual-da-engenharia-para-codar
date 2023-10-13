@@ -19,7 +19,7 @@
     
     
       
-        <title>Synthetic Monitoring Tests - Manual da Engenharia para Codar</title>
+        <title>Testes de Monitoramento Sintético - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#synthetic-monitoring-tests" class="md-skip">
+        <a href="#testes-de-monitoramento-sintetico" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Synthetic Monitoring Tests
+              Testes de Monitoramento Sintético
             
           </span>
         </div>
@@ -7138,16 +7138,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-synthetic-monitoring-tests" class="md-nav__link">
-    Why Synthetic Monitoring tests
+  <a href="#por-que-testes-de-monitoramento-sintetico" class="md-nav__link">
+    Por que Testes de Monitoramento Sintético
   </a>
   
-    <nav class="md-nav" aria-label="Why Synthetic Monitoring tests">
+    <nav class="md-nav" aria-label="Por que Testes de Monitoramento Sintético">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#shift-right-testing" class="md-nav__link">
-    Shift-Right Testing
+  <a href="#testes-shift-right" class="md-nav__link">
+    Testes Shift-Right
   </a>
   
 </li>
@@ -7158,23 +7158,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#synthetic-monitoring-tests-design-blocks" class="md-nav__link">
-    Synthetic Monitoring tests Design Blocks
+  <a href="#blocos-de-design-de-testes-de-monitoramento-sintetico" class="md-nav__link">
+    Blocos de Design de Testes de Monitoramento Sintético
   </a>
   
-    <nav class="md-nav" aria-label="Synthetic Monitoring tests Design Blocks">
+    <nav class="md-nav" aria-label="Blocos de Design de Testes de Monitoramento Sintético">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#probes" class="md-nav__link">
-    Probes
+  <a href="#sondas" class="md-nav__link">
+    Sondas
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#monitoring" class="md-nav__link">
-    Monitoring
+  <a href="#monitoramento" class="md-nav__link">
+    Monitoramento
   </a>
   
 </li>
@@ -7185,44 +7185,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#applying-synthetic-monitoring-tests" class="md-nav__link">
-    Applying Synthetic Monitoring Tests
+  <a href="#aplicando-testes-de-monitoramento-sintetico" class="md-nav__link">
+    Aplicando Testes de Monitoramento Sintético
   </a>
   
-    <nav class="md-nav" aria-label="Applying Synthetic Monitoring Tests">
+    <nav class="md-nav" aria-label="Aplicando Testes de Monitoramento Sintético">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#asserting-the-system-under-tests" class="md-nav__link">
-    Asserting the system under tests
+  <a href="#afirmando-o-sistema-sob-testes" class="md-nav__link">
+    Afirmando o sistema sob testes
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#building-a-synthetic-monitoring-solution" class="md-nav__link">
-    Building a Synthetic Monitoring Solution
+  <a href="#construindo-uma-solucao-de-monitoramento-sintetico" class="md-nav__link">
+    Construindo uma Solução de Monitoramento Sintético
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#monitoring-the-health-of-tests" class="md-nav__link">
-    Monitoring the health of tests
+  <a href="#monitorando-a-saude-dos-testes" class="md-nav__link">
+    Monitorando a saúde dos testes
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#synthetic-monitoring-and-real-user-monitoring" class="md-nav__link">
-    Synthetic Monitoring and Real User Monitoring
+  <a href="#monitoramento-sintetico-e-monitoramento-de-usuarios-reais" class="md-nav__link">
+    Monitoramento Sintético e Monitoramento de Usuários Reais
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#risks" class="md-nav__link">
-    Risks
+  <a href="#riscos" class="md-nav__link">
+    Riscos
   </a>
   
 </li>
@@ -7233,22 +7233,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#synthetic-monitoring-tests-frameworks-and-tools" class="md-nav__link">
-    Synthetic Monitoring tests Frameworks and Tools
+  <a href="#frameworks-e-ferramentas-de-testes-de-monitoramento-sintetico" class="md-nav__link">
+    Frameworks e Ferramentas de Testes de Monitoramento Sintético
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    Conclusion
+  <a href="#conclusao" class="md-nav__link">
+    Conclusão
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    Resources
+  <a href="#recursos" class="md-nav__link">
+    Recursos
   </a>
   
 </li>
@@ -7267,79 +7267,65 @@
                 
 
 
-<h1 id="synthetic-monitoring-tests">Synthetic Monitoring Tests</h1>
-<p>Synthetic Monitoring Tests are a set of functional tests that target a live system in production. The focus of these tests, which are sometimes named "watchdog", "active monitoring" or "synthetic transactions", is to verify the product's health and resilience continuously.</p>
-<h2 id="why-synthetic-monitoring-tests">Why Synthetic Monitoring tests</h2>
-<p>Traditionally, software providers rely on testing through CI/CD stages in the well known <a href="https://martinfowler.com/bliki/TestPyramid.html">testing pyramid</a> (unit, integration, e2e) to validate that the product is healthy and without regressions. Such tests will run on the build agent or in the test/stage environment before being deployed to production and released to live user traffic. During the services' lifetime in the production environment, they are safeguarded by monitoring and alerting tools that rely on Real User Metrics/Monitoring (<a href="https://en.wikipedia.org/wiki/Real_user_monitoring">RUM</a>).</p>
-<p>However, as more organizations today provide highly-available (99.9+ SLA) products, they find that the nature of long-lived distributed applications, which typically rely on several hardware and software components, is to fail. Frequent releases (sometimes multiple times per day) of various components of the system can create further instability. This rapid rate of change to the production environment tends to make testing during CI/CD stages not hermetic and actually not representative of the end user experience and how the production system actually behaves.</p>
-<p>For such systems, the ambition of service engineering teams is to reduce to a minimum the time it takes to fix errors, or the <a href="https://en.wikipedia.org/wiki/Mean_time_to_repair">MTTR - Mean Time To Repair</a>. It is a continuous effort, performed on the live/production system. Synthetic Monitors can be used to detect the following issues:</p>
+<h1 id="testes-de-monitoramento-sintetico">Testes de Monitoramento Sintético</h1>
+<p>Testes de Monitoramento Sintético são um conjunto de testes funcionais que têm como alvo um sistema ativo em produção. O foco desses testes, às vezes chamados de "watchdog", "monitoramento ativo" ou "transações sintéticas", é verificar continuamente a saúde e a resiliência do produto.</p>
+<h2 id="por-que-testes-de-monitoramento-sintetico">Por que Testes de Monitoramento Sintético</h2>
+<p>Tradicionalmente, os provedores de software confiam em testes por meio de etapas de CI/CD na conhecida <a href="https://martinfowler.com/bliki/TestPyramid.html">pirâmide de testes</a> (unitários, integração, e2e) para validar que o produto está saudável e sem regressões. No entanto, à medida que mais organizações hoje fornecem produtos altamente disponíveis (SLA de 99,9+), elas descobrem que a natureza de aplicações distribuídas de longa duração, que normalmente dependem de vários componentes de hardware e software, é falhar.</p>
+<p>Para tais sistemas, a ambição das equipes de engenharia de serviço é reduzir ao mínimo o tempo necessário para corrigir erros, ou o <a href="https://en.wikipedia.org/wiki/Mean_time_to_repair">MTTR - Tempo Médio para Reparo</a>. É um esforço contínuo, realizado no sistema ativo/produção. Monitores Sintéticos podem ser usados para detectar os seguintes problemas:</p>
 <ul>
-<li>Availability - Is the system or specific region available.</li>
-<li>Transactions and customer journeys - Known good requests should work, while known bad requests should error.</li>
-<li>Performance - How fast are actions and is that performance maintained through high loads and through version releases.</li>
-<li>3rd Party components - Cloud or software components used by the system may fail.</li>
+<li>Disponibilidade - Se o sistema ou região específica está disponível.</li>
+<li>Transações e jornadas do cliente - Requisições conhecidas como boas devem funcionar, enquanto requisições conhecidas como ruins devem gerar erro.</li>
+<li>Desempenho - Quão rápido são as ações e se esse desempenho é mantido sob cargas elevadas e através de lançamentos de versão.</li>
+<li>Componentes de Terceiros - Componentes de nuvem ou software usados pelo sistema podem falhar.</li>
 </ul>
-<h3 id="shift-right-testing">Shift-Right Testing</h3>
-<p>Synthetic Monitoring tests are a subset of tests that run in production, sometimes named Test-in-Production or Shift-Right tests.
-With <a href="https://en.wikipedia.org/wiki/Shift-left_testing">Shift-Left</a> paradigms that are so popular, the approach is to perform testing as early as possible in the application development lifecycle (i.e., moved left on the project timeline).
-Shift right compliments and adds on top of Shift-Left. It refers to running tests late in the cycle, during deployment, release, and post-release when the product is serving production traffic. They provide modern engineering teams a broader set of tools to assure high SLAs over time.</p>
-<h2 id="synthetic-monitoring-tests-design-blocks">Synthetic Monitoring tests Design Blocks</h2>
-<p>A synthetic monitoring test is a test that uses synthetic data and real testing accounts to inject user behaviors to the system and validates their effect, usually by passively relying on existing monitoring and alerting capabilities.
-Components of synthetic monitoring tests include <strong>Probes</strong>, test code/ accounts which generates data, and <strong>Monitoring tools</strong> placed to validate both the system's behavior under test and the health of the probes themselves.</p>
-<p><img alt="E2E Testing Pyramid" src="images/syntheticMonitoring.png" /></p>
-<h3 id="probes">Probes</h3>
-<p>Probes are the source of synthetic user actions that drive testing. They target the product's front-end or publicly-facing APIs and are running on their own production environment.
-A Synthetic Monitoring test is, in fact, very related to black-box tests and would usually focus on end-to-end scenarios from a user's perspective. It is not uncommon for the same code for e2e or integration tests to be used to implement the probe.</p>
-<h3 id="monitoring">Monitoring</h3>
-<p>Given that Synthetic Monitoring tests are continuously running, at intervals, in a production environment, the assertion of system behavior through analysis relies on existing monitoring pillars used in live system (Logging, Metrics, Distributed Tracing).
-There would usually be a finite set of tests, and key metrics that are used to build monitors and alerts to assert against the known <a href="https://en.wikipedia.org/wiki/Service-level_objective">SLO</a>, and verify that the <a href="https://en.wikipedia.org/wiki/OKR">OKR</a> for that system are maintained. The monitoring tools are effectively capturing both RUMs and synthetic data generated by the probes.</p>
-<h2 id="applying-synthetic-monitoring-tests">Applying Synthetic Monitoring Tests</h2>
-<h3 id="asserting-the-system-under-tests">Asserting the system under tests</h3>
-<p>Synthetic monitoring tests are usually statistical. Test metrics are compared against some historical or running average with a time dimension <em>(Example: Over the last 30 days, for this time of day, the mean average response time is 250ms for AddToCart operation with a standard deviation from the mean of +/- 32ms)</em>. So if an observed measurement is within a <a href="https://en.wikipedia.org/wiki/Standard_deviation">deviation of the norm</a> at any time, the services are probably healthy.</p>
-<h3 id="building-a-synthetic-monitoring-solution">Building a Synthetic Monitoring Solution</h3>
-<p>At a high level, building synthetic monitors usually consists of the following steps:</p>
+<h3 id="testes-shift-right">Testes Shift-Right</h3>
+<p>Testes de Monitoramento Sintético são um subconjunto de testes que são executados em produção, às vezes chamados de Test-in-Production ou testes Shift-Right. Com paradigmas de <a href="https://en.wikipedia.org/wiki/Shift-left_testing">Shift-Left</a> que são tão populares, a abordagem é realizar testes o mais cedo possível no ciclo de desenvolvimento da aplicação. Shift-Right complementa e adiciona ao Shift-Left, referindo-se à execução de testes tarde no ciclo, durante e após o lançamento, quando o produto está atendendo ao tráfego de produção.</p>
+<h2 id="blocos-de-design-de-testes-de-monitoramento-sintetico">Blocos de Design de Testes de Monitoramento Sintético</h2>
+<p>Um teste de monitoramento sintético é um teste que usa dados sintéticos e contas de teste reais para injetar comportamentos de usuário no sistema e validar seu efeito. Os componentes dos testes de monitoramento sintético incluem <strong>Sondas</strong>, código de teste/contas que geram dados, e <strong>Ferramentas de Monitoramento</strong> colocadas para validar tanto o comportamento do sistema sob teste quanto a saúde das próprias sondas.</p>
+<h3 id="sondas">Sondas</h3>
+<p>Sondas são a fonte de ações de usuário sintéticas que conduzem os testes. Elas têm como alvo a interface do usuário do produto ou APIs voltadas para o público e estão executando em seu próprio ambiente de produção. Um teste de monitoramento sintético está, de fato, muito relacionado a testes de caixa-preta e normalmente se concentra em cenários de ponta a ponta do ponto de vista de um usuário.</p>
+<h3 id="monitoramento">Monitoramento</h3>
+<p>Dado que os testes de monitoramento sintético estão sendo executados continuamente, em intervalos, em um ambiente de produção, a afirmação do comportamento do sistema por meio da análise depende dos pilares de monitoramento existentes usados no sistema ativo (Logging, Métricas, Rastreamento Distribuído).</p>
+<h2 id="aplicando-testes-de-monitoramento-sintetico">Aplicando Testes de Monitoramento Sintético</h2>
+<h3 id="afirmando-o-sistema-sob-testes">Afirmando o sistema sob testes</h3>
+<p>Testes de monitoramento sintético são geralmente estatísticos. As métricas de teste são comparadas com alguma média histórica ou em execução com uma dimensão de tempo.</p>
+<h3 id="construindo-uma-solucao-de-monitoramento-sintetico">Construindo uma Solução de Monitoramento Sintético</h3>
+<p>Em um nível alto, a construção de monitores sintéticos geralmente consiste nas seguintes etapas:</p>
 <ul>
-<li>Determine the metric to be validated (functional result, latency, etc.)</li>
-<li>Build a piece of automation that measures that metric against the system, and gathers telemetry into the system's existing monitoring infrastructure.</li>
-<li>Set up monitoring alarms/actions/responses that detect the failure of the system to meet the desired goal of the metric.</li>
-<li>Run the test case automation continuously at an appropriate interval.</li>
+<li>Determinar a métrica a ser validada (resultado funcional, latência, etc.)</li>
+<li>Construir uma automação que meça essa métrica contra o sistema e colete telemetria na infraestrutura de monitoramento existente do sistema.</li>
+<li>Configurar alarmes/ações/respostas de monitoramento que detectem a falha do sistema em atender ao objetivo desejado da métrica.</li>
+<li>Executar a automação de casos de teste continuamente em um intervalo apropriado.</li>
 </ul>
-<h3 id="monitoring-the-health-of-tests">Monitoring the health of tests</h3>
-<p>Probes runtime is a production environment on its own, and the health of tests is critical. Many providers offer cloud-based systems that host such runtimes, while some organizations use existing production environments to run these tests on. In either way, a monitor-the-monitor strategy should be a first-class citizen of the production environment's alerting systems.</p>
-<h3 id="synthetic-monitoring-and-real-user-monitoring">Synthetic Monitoring and Real User Monitoring</h3>
-<p>Synthetic monitoring does not replace the need for RUM. Probes are predictable code that verifies specific scenarios, and they do not 100% completely and truly represent how a user session is handled. On the other hand, prefer not to use RUMs to test for site reliability because:</p>
+<h3 id="monitorando-a-saude-dos-testes">Monitorando a saúde dos testes</h3>
+<p>O tempo de execução das sondas é um ambiente de produção por si só, e a saúde dos testes é crítica. Muitos provedores oferecem sistemas baseados em nuvem que hospedam esses tempos de execução, enquanto algumas organizações usam ambientes de produção existentes para executar esses testes. De qualquer forma, uma estratégia de monitorar o monitor deve ser uma parte essencial dos sistemas de alerta do ambiente de produção.</p>
+<h3 id="monitoramento-sintetico-e-monitoramento-de-usuarios-reais">Monitoramento Sintético e Monitoramento de Usuários Reais</h3>
+<p>O monitoramento sintético não substitui a necessidade de RUM. Sondas são códigos previsíveis que verificam cenários específicos, e elas não representam 100% completamente e verdadeiramente como uma sessão de usuário é tratada.</p>
+<h3 id="riscos">Riscos</h3>
+<p>Testar em produção, em geral, tem um fator de risco associado a ele, que não existe em testes executados durante as etapas de CI/CD. Especificamente, em testes de monitoramento sintético, o seguinte pode afetar o ambiente de produção:</p>
 <ul>
-<li>As the name implies, RUM requires user traffic. The site may be down, but since no user visited the monitored path, no alerts were triggered yet.</li>
-<li>Inconsistent Traffic and usage patterns make it hard to gauge for benchmarks.</li>
+<li>Dados corrompidos ou inválidos - Testes injetam dados de teste que podem ser de alguma forma corrompidos.</li>
+<li>Vazamento de dados protegidos - Testes</li>
 </ul>
-<h3 id="risks">Risks</h3>
-<p>Testing in production, in general, has a risk factor attached to it, which does not exist tests executed during CI/CD stages. Specifically, in synthetic monitoring tests, the following may affect the production environment:</p>
+<p>são executados em um ambiente de produção e emitem logs ou rastreamentos que podem conter dados protegidos.
+- Sistemas sobrecarregados - Testes sintéticos podem causar erros ou sobrecarregar o sistema.</p>
+<h2 id="frameworks-e-ferramentas-de-testes-de-monitoramento-sintetico">Frameworks e Ferramentas de Testes de Monitoramento Sintético</h2>
+<p>A maioria dos principais players de monitoramento/APM tem um produto empresarial que suporta monitoramento sintético integrado aos seus sistemas. No entanto, tais soluções são tipicamente caras.</p>
+<p>Algumas organizações preferem executar sondas em infraestrutura existente usando ferramentas conhecidas como <a href="https://www.postman.com/">Postman</a>, <a href="https://github.com/wg/wrk">Wrk</a>, <a href="https://jmeter.apache.org/">JMeter</a>, <a href="https://www.selenium.dev/">Selenium</a> ou até mesmo código personalizado para gerar os dados sintéticos.</p>
 <ul>
-<li>Corrupted or invalid data - Tests inject test data which may be in some ways corrupt. Consider using a testing schema.</li>
-<li>Protected data leakage - Tests run in a production environment and emit logs or trace that may contain protected data.</li>
-<li>Overloaded systems - Synthetic tests may cause errors or overload the system.</li>
-<li>Unintended side effects or impacts on other production systems.</li>
-<li>Skewed analytics (traffic funnels, A/B test results, etc.)</li>
-<li>Auth/AuthZ - Tests are required to run in production where access to tokens and secrets may be restricted or more challenging to retrieve.</li>
-</ul>
-<h2 id="synthetic-monitoring-tests-frameworks-and-tools">Synthetic Monitoring tests Frameworks and Tools</h2>
-<p>Most key monitoring/APM players have an enterprise product that supports synthetic monitoring built into their systems (see list below). Such offerings make some of the risks raised above irrelevant as the integration and runtime aspects of the solution are OOTB. However, such solutions are typically pricey.</p>
-<p>Some organizations prefer running probes on existing infrastructure using known tools such as <a href="https://www.postman.com/">Postman</a>, <a href="https://github.com/wg/wrk">Wrk</a>, <a href="https://jmeter.apache.org/">JMeter</a>, <a href="https://www.selenium.dev/">Selenium</a> or even custom code to generate the synthetic data. Such solutions must account for isolating and decoupling the probe's production environment from the core product's as well as provide monitoring, geo-distribution, and maintaining test health.</p>
-<ul>
-<li><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/monitor-web-app-availability">Application Insights availability</a> - Simple availability tests that allow some customization using <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/availability-multistep">Multi-step web test</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/monitor-web-app-availability">Application Insights availability</a></li>
 <li><a href="https://www.datadoghq.com/dg/apm/synthetics/api-test/">DataDog Synthetics</a></li>
 <li><a href="https://www.dynatrace.com/platform/synthetic-monitoring/">Dynatrace Synthetic Monitoring</a></li>
 <li><a href="https://newrelic.com/products/synthetics">New Relic Synthetics</a></li>
 <li><a href="https://checklyhq.com">Checkly</a></li>
 </ul>
-<h2 id="conclusion">Conclusion</h2>
-<p>The value of production tests, in general, and specifically Synthetic monitoring, is only there for particular engagement types, and there is associated risk and cost to them. However, when applicable, they provide continuous assurance that there are no system failures from a user's perspective.
-When developing a PaaS/SaaS solution, Synthetic monitoring is key to the success of service reliability teams, and they are becoming an integral part of the quality assurance stack of highly available products.</p>
-<h2 id="resources">Resources</h2>
+<h2 id="conclusao">Conclusão</h2>
+<p>O valor dos testes em produção, em geral, e especificamente do monitoramento sintético, só existe para tipos específicos de engajamento, e há riscos e custos associados a eles. No entanto, quando aplicáveis, eles fornecem garantia contínua de que não há falhas no sistema do ponto de vista do usuário.</p>
+<h2 id="recursos">Recursos</h2>
 <ul>
-<li><a href="https://landing.google.com/sre/sre-book/chapters/testing-reliability/">Google SRE book - Testing Reliability</a></li>
-<li><a href="https://learn.microsoft.com/en-us/devops/deliver/shift-right-test-production">Microsoft DevOps Architectures - Shift Right to Test in Production</a></li>
-<li><a href="https://martinfowler.com/bliki/SyntheticMonitoring.html">Martin Fowler - Synthetic Monitoring</a></li>
+<li><a href="https://landing.google.com/sre/sre-book/chapters/testing-reliability/">Livro SRE do Google - Testando Confiabilidade</a></li>
+<li><a href="https://learn.microsoft.com/en-us/devops/deliver/shift-right-test-production">Arquiteturas DevOps da Microsoft - Shift Right para Testar em Produção</a></li>
+<li><a href="https://martinfowler.com/bliki/SyntheticMonitoring.html">Martin Fowler - Monitoramento Sintético</a></li>
 </ul>
 
   <hr>
@@ -7347,7 +7333,7 @@ When developing a PaaS/SaaS solution, Synthetic monitoring is key to the success
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 4, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 13, 2023</span>
       
     
   </small>

@@ -19,7 +19,7 @@
     
     
       
-        <title>Testing - Manual da Engenharia para Codar</title>
+        <title>Testando - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#testing" class="md-skip">
+        <a href="#testando" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Testing
+              Testando
             
           </span>
         </div>
@@ -7136,22 +7136,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#map-of-outcomes-to-testing-techniques" class="md-nav__link">
-    Map of Outcomes to Testing Techniques
+  <a href="#mapa-de-resultados-para-tecnicas-de-teste" class="md-nav__link">
+    Mapa de Resultados para Técnicas de Teste
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sections-within-testing" class="md-nav__link">
-    Sections within Testing
+  <a href="#secoes-dentro-de-testes" class="md-nav__link">
+    Seções dentro de Testes
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#technology-specific-testing" class="md-nav__link">
-    Technology Specific Testing
+  <a href="#testes-especificos-de-tecnologia" class="md-nav__link">
+    Testes Específicos de Tecnologia
   </a>
   
 </li>
@@ -7170,196 +7170,211 @@
                 
 
 
-<h1 id="testing">Testing</h1>
-<h2 id="map-of-outcomes-to-testing-techniques">Map of Outcomes to Testing Techniques</h2>
-<p>The table below maps outcomes -- the results that you may want to achieve in your validation efforts -- to one or more techniques that can be used to accomplish that outcome.</p>
+<h1 id="testando">Testando</h1>
+<h2 id="mapa-de-resultados-para-tecnicas-de-teste">Mapa de Resultados para Técnicas de Teste</h2>
+<p>A tabela abaixo mapeia resultados -- os resultados que você pode querer alcançar em seus esforços de validação -- para uma ou mais técnicas que podem ser usadas para alcançar esse resultado.</p>
 <table>
 <thead>
 <tr>
-<th>When I am working on...</th>
-<th>I want to get this outcome...</th>
-<th>...so I should consider</th>
+<th>Quando estou trabalhando em...</th>
+<th>Quero obter este resultado...</th>
+<th>...então devo considerar</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Development</td>
-<td>Prove backward compatibility with existing callers and clients</td>
+<td>Desenvolvimento</td>
+<td>Comprovar compatibilidade retroativa com chamadores e clientes existentes</td>
 <td><a href="shadow-testing/">Shadow testing</a></td>
 </tr>
 <tr>
-<td>Development</td>
-<td>Ensure program logic is correct for a variety of expected, mainline, edge and unexpected inputs</td>
-<td><a href="unit-testing/">Unit testing</a>; Functional tests; <a href="cdc-testing/">Consumer-driven Contract Testing</a>; <a href="integration-testing/">Integration testing</a></td>
+<td>Desenvolvimento</td>
+<td>Garantir que a lógica do programa esteja correta para uma variedade de entradas esperadas, principais, de borda e inesperadas</td>
+<td><a href="unit-testing/">Unit testing</a>; Testes funcionais; <a href="cdc-testing/">Consumer-driven Contract Testing</a>; <a href="integration-testing/">Integration testing</a></td>
 </tr>
 <tr>
-<td>Development</td>
-<td>Prevent regressions in logical correctness; earlier is better</td>
-<td><a href="unit-testing/">Unit testing</a>; Functional tests; <a href="cdc-testing/">Consumer-driven Contract Testing</a>; <a href="integration-testing/">Integration testing</a>; Rings (each of these are expanding scopes of coverage)</td>
+<td>Desenvolvimento</td>
+<td>Prevenir regressões na correção lógica; quanto mais cedo, melhor</td>
+<td><a href="unit-testing/">Unit testing</a>; Testes funcionais; <a href="cdc-testing/">Consumer-driven Contract Testing</a>; <a href="integration-testing/">Integration testing</a>; Anéis (cada um desses são escopos de cobertura em expansão)</td>
 </tr>
 <tr>
-<td>Development</td>
-<td>Validate interactions between components in isolation, ensuring that consumer and provider components are compatible and conform to a shared understanding documented in a contract</td>
+<td>Desenvolvimento</td>
+<td>Validar rapidamente a correção principal de um ponto de funcionalidade (por exemplo, uma única API), manualmente</td>
+<td>Testes de fumaça manuais Ferramentas: postman, powershell, curl</td>
+</tr>
+<tr>
+<td>Desenvolvimento</td>
+<td>Validar interações entre componentes isoladamente, garantindo que componentes consumidores e provedores sejam compatíveis e estejam de acordo com um entendimento compartilhado documentado em um contrato</td>
 <td><a href="cdc-testing/">Consumer-driven Contract Testing</a></td>
 </tr>
 <tr>
-<td>Development; <a href="integration-testing/">Integration testing</a></td>
-<td>Validate that multiple components function together across multiple interfaces in a call chain, incl network hops</td>
-<td><a href="integration-testing/">Integration testing</a>; End-to-end (<a href="e2e-testing/">End-to-End testing</a>) tests; Segmented end-to-end (<a href="e2e-testing/">End-to-End testing</a>)</td>
+<td>Desenvolvimento; <a href="integration-testing/">Integration testing</a></td>
+<td>Validar que múltiplos componentes funcionem juntos em várias interfaces em uma cadeia de chamadas, incluindo saltos de rede</td>
+<td><a href="integration-testing/">Integration testing</a>; Testes de ponta a ponta (<a href="e2e-testing/">End-to-End testing</a>); Testes de ponta a ponta segmentados (<a href="e2e-testing/">End-to-End testing</a>)</td>
 </tr>
 <tr>
-<td>Development</td>
-<td>Prove disaster recoverability – recover from corruption of data</td>
-<td>DR drills</td>
+<td>Desenvolvimento</td>
+<td>Comprovar recuperação de desastres – recuperação de corrupção de dados</td>
+<td>Simulações de DR</td>
 </tr>
 <tr>
-<td>Development</td>
-<td>Find vulnerabilities in service Authentication or Authorization</td>
-<td>Scenario (security)</td>
+<td>Desenvolvimento</td>
+<td>Encontrar vulnerabilidades na autenticação ou autorização do serviço</td>
+<td>Cenário (segurança)</td>
 </tr>
 <tr>
-<td>Development</td>
-<td>Prove implementation correctness in advance of a dependency or absent a dependency</td>
-<td><a href="unit-testing/">Unit testing</a> (with mocks); <a href="unit-testing/">Unit testing</a> (with emulators); <a href="cdc-testing/">Consumer-driven Contract Testing</a></td>
+<td>Desenvolvimento</td>
+<td>Comprovar interpretação correta de RBAC e reivindicações no código de autorização</td>
+<td>Cenário (segurança)</td>
 </tr>
 <tr>
-<td>Development</td>
-<td>Ensure that the user interface is accessible</td>
+<td>Desenvolvimento</td>
+<td>Documentar e/ou impor uso válido da API</td>
+<td><a href="unit-testing/">Unit testing</a>; Testes funcionais; <a href="cdc-testing/">Consumer-driven Contract Testing</a></td>
+</tr>
+<tr>
+<td>Desenvolvimento</td>
+<td>Comprovar a correção da implementação antes de uma dependência ou na ausência de uma dependência</td>
+<td><a href="unit-testing/">Unit testing</a> (com mocks); <a href="unit-testing/">Unit testing</a> (com emuladores); <a href="cdc-testing/">Consumer-driven Contract Testing</a></td>
+</tr>
+<tr>
+<td>Desenvolvimento</td>
+<td>Garantir que a interface do usuário seja acessível</td>
 <td><a href="../accessibility/">Accessibility</a></td>
 </tr>
 <tr>
-<td>Development</td>
-<td>Ensure that users can operate the interface</td>
-<td><a href="ui-testing/">UI testing (automated)</a> (human usability observation)</td>
+<td>Desenvolvimento</td>
+<td>Garantir que os usuários possam operar a interface</td>
+<td><a href="ui-testing/">UI testing (automated)</a> (observação de usabilidade humana)</td>
 </tr>
 <tr>
-<td>Development</td>
-<td>Prevent regression in user experience</td>
-<td>UI automation; <a href="e2e-testing/">End-to-End testing</a></td>
+<td>Desenvolvimento</td>
+<td>Prevenir regressão na experiência do usuário</td>
+<td>Automação de UI; <a href="e2e-testing/">End-to-End testing</a></td>
 </tr>
 <tr>
-<td>Development</td>
-<td>Detect and prevent 'noisy neighbor' phenomena</td>
+<td>Desenvolvimento</td>
+<td>Detectar e prevenir fenômenos de 'vizinho barulhento'</td>
 <td><a href="performance-testing/load-testing/">Load testing</a></td>
 </tr>
 <tr>
-<td>Development</td>
-<td>Detect availability drops</td>
-<td><a href="synthetic-monitoring-tests/">Synthetic Transaction testing</a>; Outside-in probes</td>
+<td>Desenvolvimento</td>
+<td>Detectar quedas de disponibilidade</td>
+<td><a href="synthetic-monitoring-tests/">Synthetic Transaction testing</a>; Sondas externas</td>
 </tr>
 <tr>
-<td>Development</td>
-<td>Prevent regression in 'composite' scenario use cases / workflows (e.g. an e-commerce system might have many APIs that used together in a sequence perform a "shop-and-buy" scenario)</td>
-<td><a href="e2e-testing/">End-to-End testing</a>; Scenario</td>
+<td>Desenvolvimento</td>
+<td>Prevenir regressão em casos de uso / fluxos de trabalho de cenário 'composto' (por exemplo, um sistema de comércio eletrônico pode ter muitas APIs que, usadas juntas em uma sequência, executam um cenário de "compra e venda")</td>
+<td><a href="e2e-testing/">End-to-End testing</a>; Cenário</td>
 </tr>
 <tr>
-<td>Development; Operations</td>
-<td>Prevent regressions in runtime performance metrics e.g. latency / cost / resource consumption; earlier is better</td>
-<td>Rings; <a href="synthetic-monitoring-tests/">Synthetic Transaction testing</a> / Transaction; Rollback Watchdogs</td>
+<td>Desenvolvimento; Operações</td>
+<td>Prevenir regressões em métricas de desempenho em tempo de execução, por exemplo, latência / custo / consumo de recursos; quanto mais cedo, melhor</td>
+<td>Anéis; <a href="synthetic-monitoring-tests/">Synthetic Transaction testing</a> / Transação; Cães de guarda de reversão</td>
 </tr>
 <tr>
-<td>Development; Optimization</td>
-<td>Compare any given metric between 2 candidate implementations or variations in functionality</td>
-<td>Flighting; A/B testing</td>
+<td>Desenvolvimento; Otimização</td>
+<td>Comparar qualquer métrica dada entre 2 implementações candidatas ou variações na funcionalidade</td>
+<td>Testes A/B; Flighting</td>
 </tr>
 <tr>
-<td>Development; Staging</td>
-<td>Prove production system of provisioned capacity meets goals for reliability, availability, resource consumption, performance</td>
-<td><a href="performance-testing/load-testing/">Load testing (stress)</a>; Spike; Soak; <a href="performance-testing/">Performance testing</a></td>
+<td>Desenvolvimento; Staging</td>
+<td>Comprovar que o sistema de produção de capacidade provisionada atende aos objetivos de confiabilidade, disponibilidade, consumo de recursos, desempenho</td>
+<td><a href="performance-testing/load-testing/">Load testing (stress)</a>; Pico; Soak; <a href="performance-testing/">Performance testing</a></td>
 </tr>
 <tr>
-<td>Development; Staging</td>
-<td>Understand key user experience performance characteristics – latency, chattiness, resiliency to network errors</td>
-<td>Load; <a href="performance-testing/">Performance testing</a>; Scenario (network partitioning)</td>
+<td>Desenvolvimento; Staging</td>
+<td>Entender as principais características de desempenho da experiência do usuário – latência, conversação, resiliência a erros de rede</td>
+<td>Carga; <a href="performance-testing/">Performance testing</a>; Cenário (particionamento de rede)</td>
 </tr>
 <tr>
-<td>Development; Staging; Operation</td>
-<td>Discover melt points (the loads at which failure or maximum tolerable resource consumption occurs) for each individual component in the stack</td>
+<td>Desenvolvimento; Staging; Operação</td>
+<td>Descobrir pontos de fusão (as cargas nas quais ocorre falha ou consumo máximo tolerável de recursos) para cada componente individual na pilha</td>
 <td>Squeeze; <a href="performance-testing/load-testing/">Load testing (stress)</a></td>
 </tr>
 <tr>
-<td>Development; Staging; Operation</td>
-<td>Discover overall system melt point (the loads at which the end-to-end system fails) and which component is the weakest link in the whole stack</td>
+<td>Desenvolvimento; Staging; Operação</td>
+<td>Descobrir o ponto de fusão geral do sistema (as cargas nas quais o sistema de ponta a ponta falha) e qual componente é o elo mais fraco em toda a pilha</td>
 <td>Squeeze; <a href="performance-testing/load-testing/">Load testing (stress)</a></td>
 </tr>
 <tr>
-<td>Development; Staging; Operation</td>
-<td>Measure capacity limits for given provisioning to predict or satisfy future provisioning needs</td>
+<td>Desenvolvimento; Staging; Operação</td>
+<td>Medir limites de capacidade para provisionamento dado para prever ou satisfazer necessidades futuras de provisionamento</td>
 <td>Squeeze; <a href="performance-testing/load-testing/">Load testing (stress)</a></td>
 </tr>
 <tr>
-<td>Development; Staging; Operation</td>
-<td>Create / exercise failover runbook</td>
-<td>Failover drills</td>
+<td>Desenvolvimento; Staging; Operação</td>
+<td>Criar / exercitar manual de failover</td>
+<td>Simulações de Failover</td>
 </tr>
 <tr>
-<td>Development; Staging; Operation</td>
-<td>Prove disaster recoverability – loss of data center (the meteor scenario); measure MTTR</td>
-<td>DR drills</td>
+<td>Desenvolvimento; Staging; Operação</td>
+<td>Comprovar recuperação de desastres – perda de data center (o cenário do meteoro); medir MTTR</td>
+<td>Simulações de DR</td>
 </tr>
 <tr>
-<td>Development; Staging; Operation</td>
-<td>Understand whether observability dashboards are correct, and telemetry is complete; flowing</td>
-<td>Trace Validation; <a href="performance-testing/load-testing/">Load testing (stress)</a>; Scenario; <a href="e2e-testing/">End-to-End testing</a></td>
+<td>Desenvolvimento; Staging; Operação</td>
+<td>Entender se os painéis de observabilidade estão corretos e se a telemetria está completa e fluindo</td>
+<td>Validação de Rastreamento; <a href="performance-testing/load-testing/">Load testing (stress)</a>; Cenário; <a href="e2e-testing/">End-to-End testing</a></td>
 </tr>
 <tr>
-<td>Development; Staging; Operation</td>
-<td>Measure impact of seasonality of traffic</td>
+<td>Desenvolvimento; Staging; Operação</td>
+<td>Medir impacto da sazonalidade do tráfego</td>
 <td><a href="performance-testing/load-testing/">Load testing</a></td>
 </tr>
 <tr>
-<td>Development; Staging; Operation</td>
-<td>Prove Transaction and alerts correctly notify / take action</td>
-<td><a href="synthetic-monitoring-tests/">Synthetic Transaction testing</a> (negative cases); <a href="performance-testing/load-testing/">Load testing</a></td>
+<td>Desenvolvimento; Staging; Operação</td>
+<td>Comprovar que transações e alertas notificam / tomam ações corretamente</td>
+<td><a href="synthetic-monitoring-tests/">Synthetic Transaction testing</a> (casos negativos); <a href="performance-testing/load-testing/">Load testing</a></td>
 </tr>
 <tr>
-<td>Development; Staging; Operation; Optimizing</td>
-<td>Understand scalability curve, i.e. how the system consumes resources with load</td>
+<td>Desenvolvimento; Staging; Operação; Otimização</td>
+<td>Entender a curva de escalabilidade, ou seja, como o sistema consome recursos com carga</td>
 <td><a href="performance-testing/load-testing/">Load testing (stress)</a>; <a href="performance-testing/">Performance testing</a></td>
 </tr>
 <tr>
-<td>Operation; Optimizing</td>
-<td>Discover system behavior over long-haul time</td>
+<td>Operação; Otimização</td>
+<td>Descobrir o comportamento do sistema ao longo do tempo</td>
 <td>Soak</td>
 </tr>
 <tr>
-<td>Optimizing</td>
-<td>Find cost savings opportunities</td>
+<td>Otimização</td>
+<td>Encontrar oportunidades de economia de custos</td>
 <td>Squeeze</td>
 </tr>
 <tr>
-<td>Staging; Operation</td>
-<td>Measure impact of failover / scale-out (repartitioning, increasing provisioning) / scale-down</td>
-<td>Failover drills; Scale drills</td>
+<td>Staging; Operação</td>
+<td>Medir impacto de failover / aumento de escala (reparticionamento, aumento de provisionamento) / redução de escala</td>
+<td>Simulações de Failover; Simulações de Escala</td>
 </tr>
 <tr>
-<td>Staging; Operation</td>
-<td>Create/Exercise runbook for increasing/reducing provisioning</td>
-<td>Scale drills</td>
+<td>Staging; Operação</td>
+<td>Criar/Exercitar manual para aumento/redução de provisionamento</td>
+<td>Simulações de Escala</td>
 </tr>
 <tr>
-<td>Staging; Operation</td>
-<td>Measure behavior under rapid changes in traffic</td>
+<td>Staging; Operação</td>
+<td>Medir comportamento sob mudanças rápidas no tráfego</td>
 <td>Spike</td>
 </tr>
 <tr>
-<td>Staging; Optimizing</td>
-<td>Discover cost metrics per unit load volume (what factors influence cost at what load points, e.g. cost per million concurrent users)</td>
-<td>Load (stress)</td>
+<td>Staging; Otimização</td>
+<td>Descobrir métricas de custo por unidade de volume de carga (quais fatores influenciam o custo em quais pontos de carga, por exemplo, custo por milhão de usuários simultâneos)</td>
+<td>Carga (stress)</td>
 </tr>
 <tr>
-<td>Development; Operation</td>
-<td>Discover points where a system is not resilient to unpredictable yet inevitable failures (network outage, hardware failure, VM host servicing, rack/switch failures, random acts of the Malevolent Divine, solar flares, sharks that eat undersea cable relays, cosmic radiation, power outages, renegade backhoe operators, wolves chewing on junction boxes, …)</td>
-<td>Chaos</td>
+<td>Desenvolvimento; Operação</td>
+<td>Descobrir pontos onde um sistema não é resiliente a falhas imprevisíveis, mas inevitáveis (queda de rede, falha de hardware, manutenção de host de VM, falhas de rack/switch, atos aleatórios do Divino Malévolo, flares solares, tubarões que comem relés de cabos submarinos, radiação cósmica, quedas de energia, operadores de retroescavadeiras renegados, lobos mastigando caixas de junção, ...)</td>
+<td>Caos</td>
 </tr>
 <tr>
-<td>Development</td>
-<td>Perform unit testing on Power platform custom connectors</td>
+<td>Desenvolvimento</td>
+<td>Realizar testes unitários em conectores personalizados da plataforma Power</td>
 <td><a href="unit-testing/custom-connector/">Custom Connector Testing</a></td>
 </tr>
 </tbody>
 </table>
-<h2 id="sections-within-testing">Sections within Testing</h2>
+<h2 id="secoes-dentro-de-testes">Seções dentro de Testes</h2>
 <ul>
 <li><a href="cdc-testing/">Consumer-driven contract (CDC) testing</a></li>
 <li><a href="e2e-testing/">End-to-End testing</a></li>
@@ -7372,10 +7387,10 @@
 <li><a href="ui-testing/">UI testing</a></li>
 <li><a href="unit-testing/">Unit testing</a></li>
 </ul>
-<h2 id="technology-specific-testing">Technology Specific Testing</h2>
+<h2 id="testes-especificos-de-tecnologia">Testes Específicos de Tecnologia</h2>
 <ul>
-<li><a href="tech-specific-samples/azdo-container-dev-test-release">Using DevTest Pattern for building containers with AzDO</a></li>
-<li><a href="tech-specific-samples/blobstorage-unit-tests/">Using Azurite to run blob storage tests in pipeline</a></li>
+<li><a href="tech-specific-samples/azdo-container-dev-test-release">Usando o padrão DevTest para construir contêineres com AzDO</a></li>
+<li><a href="tech-specific-samples/blobstorage-unit-tests/">Usando Azurite para executar testes de armazenamento de blob no pipeline</a></li>
 </ul>
 
   <hr>
@@ -7383,7 +7398,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 15, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 13, 2023</span>
       
     
   </small>

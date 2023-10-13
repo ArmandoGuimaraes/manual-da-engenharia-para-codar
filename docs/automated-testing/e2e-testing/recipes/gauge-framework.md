@@ -1,123 +1,119 @@
-# Gauge Framework
+# Framework Gauge
 
-Gauge is a free and open source framework for writing and running E2E tests. Some key features of Gauge that makes it unique include:
+Gauge é um framework gratuito e de código aberto para escrever e executar testes E2E. Algumas características-chave do Gauge que o tornam único incluem:
 
-- Simple, flexible and rich syntax based on Markdown.
-- Consistent cross-platform/language support for writing test code.
-- A modular architecture with plugins support
-- Extensible through plugins and hackable.
-- Supports data driven execution and external data sources
-- Helps you create maintainable test suites
-- Supports Visual Studio Code, Intellij IDEA, IDE Support
+- Sintaxe simples, flexível e rica baseada em Markdown.
+- Suporte consistente entre plataformas/linguagens para escrever código de teste.
+- Uma arquitetura modular com suporte a plugins.
+- Extensível através de plugins e personalizável.
+- Suporta execução orientada a dados e fontes de dados externas.
+- Ajuda você a criar suítes de teste sustentáveis.
+- Suporta Visual Studio Code, Intellij IDEA, suporte IDE.
 
-## What is a Specification
+## O que é uma Especificação
 
-Gauge specifications are written using a Markdown syntax. For example
+As especificações do Gauge são escritas usando uma sintaxe Markdown. Por exemplo:
 
 ```bash
-# Search for the data blob
+# Procurar pelo blob de dados
 
-## Look for file
-* Goto Azure blob
+## Procurar por arquivo
+* Ir para o blob do Azure
 ```
 
-In this specification *Search for the data blob* is the **specification heading**, *Look for file* is a **scenario** with a step *Goto Azure blob*
+Nesta especificação, *Procurar pelo blob de dados* é o **cabeçalho da especificação**, *Procurar por arquivo* é um **cenário** com um passo *Ir para o blob do Azure*.
 
-## What is an Implementation
+## O que é uma Implementação
 
-You can implement the steps in a specification using a programming language, for example:
+Você pode implementar os passos em uma especificação usando uma linguagem de programação, por exemplo:
 
 ```bash
 from getgauge.python import step
 import os
 from step_impl.utils.driver import Driver
-@step("Goto Azure blob")
+@step("Ir para o blob do Azure")
 def gotoAzureStorage():
   URL = os.getenv('STORAGE_ENDPOINT')
   Driver.driver.get(URL)
 ```
 
-The Gauge runner reads and runs steps and its implementation for every scenario in the specification and generates a report of passing or failing scenarios.
+O runner do Gauge lê e executa passos e suas implementações para cada cenário na especificação e gera um relatório de cenários aprovados ou reprovados.
 
 ```bash
-# Search for the data blob
+# Procurar pelo blob de dados
 
-## Look for file  ✔
+## Procurar por arquivo  ✔
 
-Successfully generated html-report to => reports/html-report/index.html
-Specifications:       1 executed      1 passed        0 failed        0 skipped
-Scenarios:    1 executed      1 passed        0 failed        0 skipped
+Relatório html gerado com sucesso para => reports/html-report/index.html
+Especificações:       1 executadas      1 aprovadas        0 reprovadas        0 ignoradas
+Cenários:    1 executados      1 aprovados        0 reprovados        0 ignorados
 ```
 
-## Re-using Steps
+## Reutilizando Passos
 
-Gauge helps you focus on testing the flow of an application. Gauge does this by making steps as re-usable as possible. With Gauge, you don’t need to build custom frameworks using a programming language.
+O Gauge ajuda você a se concentrar no teste do fluxo de uma aplicação. O Gauge faz isso tornando os passos tão reutilizáveis quanto possível. Com o Gauge, você não precisa construir frameworks personalizados usando uma linguagem de programação.
 
-For example, Gauge steps can pass parameters to an implementation by using a text with quotes.
+Por exemplo, os passos do Gauge podem passar parâmetros para uma implementação usando um texto entre aspas.
 
 ```bash
-# Search for the data blob
+# Procurar pelo blob de dados
 
-## Look for file
-* Goto Azure blob
-* Search for "store_data.csv"
+## Procurar por arquivo
+* Ir para o blob do Azure
+* Procurar por "store_data.csv"
 ```
 
-The implementation can now use “store_data.csv” as follows
+A implementação agora pode usar "store_data.csv" da seguinte forma:
 
 ```bash
 from getgauge.python import step
 import os
-@step("Search for <query>")
+@step("Procurar por <query>")
 def searchForQuery(query):
   write(query)
   press("Enter")
-
-step("Search for <query>", (query) => {
-  write(query);
-  press("Enter");
 ```
 
-You can then re-use this step within or across scenarios with different parameters:
+Você pode então reutilizar este passo dentro ou entre cenários com diferentes parâmetros:
 
 ```bash
-# Search for the data blob
+# Procurar pelo blob de dados
 
-## Look for Store data #1
-* Goto Azure blob
-* Search for "store_1.csv"
+## Procurar por dados da loja #1
+* Ir para o blob do Azure
+* Procurar por "store_1.csv"
 
-## Look for Store data #2
-* Goto Azure blob
-* Search for "store_2.csv"
+## Procurar por dados da loja #2
+* Ir para o blob do Azure
+* Procurar por "store_2.csv"
 ```
 
-Or combine more than one step into **concepts**
+Ou combinar mais de um passo em **conceitos**
 
 ```bash
-# Search Azure Storage for <query>
-* Goto Azure blob
-* Search for "store_1.csv"
+# Procurar no armazenamento do Azure por <query>
+* Ir para o blob do Azure
+* Procurar por "store_1.csv"
 ```
 
-The concept, Search Azure Storage for `<query>` can be used like a step in a specification
+O conceito, Procurar no armazenamento do Azure por `<query>` pode ser usado como um passo em uma especificação.
 
 ```bash
-# Search for the data blob
+# Procurar pelo blob de dados
 
-## Look for Store data #1
-* Search Azure Storage for "store_1.csv"
+## Procurar por dados da loja #1
+* Procurar no armazenamento do Azure por "store_1.csv"
 
-## Look for Store data #2
-* Search Azure Storage for "store_2.csv"
+## Procurar por dados da loja #2
+* Procurar no armazenamento do Azure por "store_2.csv"
 ```
 
-## Data-Driven Testing
+## Teste Orientado a Dados
 
-Gauge also supports data driven testing using Markdown tables as well as external csv files for example
+O Gauge também suporta teste orientado a dados usando tabelas Markdown, bem como arquivos csv externos, por exemplo:
 
 ```bash
-# Search for the data blob
+# Procurar pelo blob de dados
 
 | query   |
 |---------|
@@ -125,86 +121,86 @@ Gauge also supports data driven testing using Markdown tables as well as externa
 | store_2 |
 | store_3 |
 
-## Look for stores data
-* Search Azure Storage for <query>
+## Procurar por dados das lojas
+* Procurar no armazenamento do Azure por <query>
 ```
 
-This will execute the scenario for all rows in the table.
+Isso executará o cenário para todas as linhas da tabela.
 
-In the examples above, we refactored a specification to be concise and flexible without changing the implementation.
+Nos exemplos acima, refatoramos uma especificação para ser concisa e flexível sem alterar a implementação.
 
-## Other Features
+## Outros Recursos
 
-This is brief introduction to a few Gauge features. Please refer to the Gauge documentation for additional features such as:
+Esta é uma breve introdução a alguns recursos do Gauge. Consulte a documentação do Gauge para recursos adicionais, como:
 
-- [Reports](https://docs.gauge.org/getting_started/view-a-report.html)
+- [Relatórios](https://docs.gauge.org/getting_started/view-a-report.html)
 - [Tags](https://docs.gauge.org/execution.html?#filter-specifications-and-scenarios-by-using-tags)
-- [Parallel execution](https://docs.gauge.org/execution.html#filter-specifications-and-scenarios-by-using-tags)
-- [Environments](https://docs.gauge.org/configuration.html#using-environments-in-a-gauge-project)
-- [Screenshots](https://docs.gauge.org/writing-specifications.html#taking-custom-screenshots)
+- [Execução Paralela](https://docs.gauge.org/execution.html#filter-specifications-and-scenarios-by-using-tags)
+- [Ambientes](https://docs.gauge.org/configuration.html#using-environments-in-a-gauge-project)
+- [Capturas de tela](https://docs.gauge.org/writing-specifications.html#taking-custom-screenshots)
 - [Plugins](https://docs.gauge.org/plugin.html)
-- And much more
+- E muito mais
 
-## Installing Gauge
+## Instalando o Gauge
 
-This getting started guide takes you through the core features of Gauge. By the end of this guide, you’ll be able to install Gauge and learn how to create your first Gauge test automation project.
+Este guia de introdução o levará pelos recursos principais do Gauge. Ao final deste guia, você será capaz de instalar o Gauge e aprender como criar seu primeiro projeto de automação de teste com o Gauge.
 
-## Installation Instructions for Windows OS
+## Instruções de Instalação para Windows OS
 
-### Step 1: Installing Gauge on Windows
+### Passo 1: Instalando o Gauge no Windows
 
-This section gives specific instructions on setting up Gauge in a Microsoft Windows environment.
-Download the following [installation bundle](https://github.com/getgauge/gauge/releases/download/v1.0.6/gauge-1.0.6-windows.x86_64.exe) to get the latest stable release of Gauge.
+Esta seção fornece instruções específicas sobre como configurar o Gauge em um ambiente Microsoft Windows.
+Baixe o seguinte [pacote de instalação](https://github.com/getgauge/gauge/releases/download/v1.0.6/gauge-1.0.6-windows.x86_64.exe) para obter a versão estável mais recente do Gauge.
 
-### Step 2: Installing Gauge extension for Visual Studio Code
+### Passo 2: Instalando a extensão Gauge para Visual Studio Code
 
-Follow the steps to add the Gauge Visual Studio Code plugin from the IDE
+Siga os passos para adicionar o plugin Gauge Visual Studio Code a partir do IDE.
 
-1. Install the following [Gauge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=getgauge.gauge).
+1. Instale a seguinte [extensão Gauge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=getgauge.gauge).
 
-### Troubleshooting Installation
+### Solução de Problemas de Instalação
 
-If, when you run your first gauge spec you receive the error of missing python packages, open the command line terminal window and run this command:
+Se, ao executar sua primeira especificação do Gauge, você receber o erro de pacotes Python ausentes, abra a janela do terminal de linha de comando e execute este comando:
 
 ```bash
 python.exe -m pip install getgauge==0.3.7 --user
 ```
 
-## Installation Instructions for macOS
+## Instruções de Instalaçãopara macOS
 
-### Step 1: Installing Gauge on macOS
+### Passo 1: Instalando o Gauge no macOS
 
-This section gives specific instructions on setting up Gauge in a macOS environment.
+Esta seção fornece instruções específicas sobre como configurar o Gauge em um ambiente macOS.
 
-1. Install brew if you haven’t already: Go to the [brew website](https://brew.sh/), and follow the directions there.
-2. Run the brew command to install Gauge
+1. Instale o brew se ainda não o tiver feito: Acesse o [site do brew](https://brew.sh/) e siga as instruções lá.
+2. Execute o comando brew para instalar o Gauge:
 
    ```bash
    > brew install gauge
    ```
 
-   if HomeBrew is working properly, you should see something similar to the following:
+   Se o HomeBrew estiver funcionando corretamente, você deverá ver algo semelhante ao seguinte:
 
 ```bash
-==> Fetching gauge
-==> Downloading https://ghcr.io/v2/homebrew/core/gauge/manifests/1.4.3
+==> Buscando gauge
+==> Baixando https://ghcr.io/v2/homebrew/core/gauge/manifests/1.4.3
 ######################################################################## 100.0%
-==> Downloading https://ghcr.io/v2/homebrew/core/gauge/blobs/sha256:05117bb3c0b2efeafe41e817cd3ad86307c1d2ea7e0e835655c4b51ab2472893
-==> Downloading from https://pkg-containers.githubusercontent.com/ghcr1/blobs/sha256:05117bb3c0b2efeafe41e817cd3ad86307c1d2ea7e0e835655c4b51ab2472893?se=2022-12-13T12%3A35%3A00Z&sig=I78SuuwNgSMFoBTT
+==> Baixando https://ghcr.io/v2/homebrew/core/gauge/blobs/sha256:05117bb3c0b2efeafe41e817cd3ad86307c1d2ea7e0e835655c4b51ab2472893
+==> Baixando de https://pkg-containers.githubusercontent.com/ghcr1/blobs/sha256:05117bb3c0b2efeafe41e817cd3ad86307c1d2ea7e0e835655c4b51ab2472893?se=2022-12-13T12%3A35%3A00Z&sig=I78SuuwNgSMFoBTT
 ######################################################################## 100.0%
-==> Pouring gauge--1.4.3.ventura.bottle.tar.gz
-    /usr/local/Cellar/gauge/1.4.3: 6 files, 18.9MB
+==> Despejando gauge--1.4.3.ventura.bottle.tar.gz
+    /usr/local/Cellar/gauge/1.4.3: 6 arquivos, 18.9MB
 ```
 
-### Step 2 : Installing Gauge extension for Visual Studio Code
+### Passo 2: Instalando a extensão Gauge para Visual Studio Code
 
-Follow the steps to add the Gauge Visual Studio Code plugin from the IDE
+Siga os passos para adicionar o plugin Gauge Visual Studio Code a partir do IDE:
 
-1. Install the following [Gauge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=getgauge.gauge).
+1. Instale a seguinte [extensão Gauge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=getgauge.gauge).
 
-### Post-Installation Troubleshooting
+### Solução de Problemas Pós-Instalação
 
-If, when you run your first gauge spec you receive the error of missing python packages, open the command line terminal window and run this command:
+Se, ao executar sua primeira especificação do Gauge, você receber o erro de pacotes Python ausentes, abra a janela do terminal de linha de comando e execute este comando:
 
 ```bash
 python.exe -m pip install getgauge==0.3.7 --user

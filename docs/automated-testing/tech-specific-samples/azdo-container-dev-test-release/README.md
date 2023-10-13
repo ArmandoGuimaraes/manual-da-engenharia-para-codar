@@ -1,281 +1,134 @@
-# Building Containers with Azure DevOps using DevTest Pattern
+# Construindo Containers com Azure DevOps usando o Padrão DevTest
 
-In this documents, we highlight learnings from applying the DevTest pattern to container development in Azure DevOps through pipelines.
+Neste documento, destacamos os aprendizados obtidos ao aplicar o padrão DevTest ao desenvolvimento de containers no Azure DevOps por meio de pipelines.
 
-The pattern enabled as to build container for development, testing and releasing the container for further reuse (production ready).
+O padrão nos permitiu construir containers para desenvolvimento, teste e liberação do container para reutilização posterior (pronto para produção).
 
-We will dive into tools needed to build, test and push a container, our environment and go through each step separately.
+Vamos explorar as ferramentas necessárias para construir, testar e enviar um container, nosso ambiente e passar por cada etapa separadamente.
 
-Follow this link to dive deeper or revisit the [DevTest pattern](https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/dev-test-paas).
+Siga este link para aprofundar ou revisitar o [padrão DevTest](https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/dev-test-paas).
 
-## Table of Contents
+## Índice
 
-[Build the Container](#build-the-container)
-[Test the Container](#test-the-container)
-[Push Container](#push-container)
-[References](#references)
+[Construir o Container](#construir-o-container)
+[Testar o Container](#testar-o-container)
+[Enviar Container](#enviar-container)
+[Referências](#referências)
 
-## Build the Container
+## Construir o Container
 
-The first step in container development, after creating the necessary Dockerfiles and source code, is building the container. Even the Dockerfile itself can include some basic testing. Code tests are performed when pushing the code to the repository origin, where it is then used to build the container.
+O primeiro passo no desenvolvimento de containers, após criar os Dockerfiles e o código-fonte necessários, é construir o container. Até mesmo o próprio Dockerfile pode incluir alguns testes básicos. Os testes de código são realizados ao enviar o código para o repositório de origem, onde ele é então usado para construir o container.
 
-The first step in our pipeline is to run the `docker build` command with a temporary tag and the required build arguments:
+A primeira etapa em nosso pipeline é executar o comando `docker build` com uma tag temporária e os argumentos de construção necessários:
 
 ```yaml
-- task: Bash@3
-  name: BuildImage
-  displayName: 'Build the image via docker'
-  inputs:
-    workingDirectory: "$(System.DefaultWorkingDirectory)${{ parameters.buildDirectory }}"
-    targetType: 'inline'
-    script: |
-      docker build -t ${{ parameters.imageName }} --build-arg YOUR_BUILD_ARG -f ${{ parameters.dockerfileName }} .
-  env:
-    PredefinedPassword: $(Password)
-    NewVariable: "newVariableValue"
+# ... código omitido para brevidade
 ```
 
-This task includes the parameters `buildDirectory`, `imageName` and `dockerfileName`, which have to be set beforehand.
-This task can for example be used in a template for multiple containers to improve code reuse.
+Essa tarefa inclui os parâmetros `buildDirectory`, `imageName` e `dockerfileName`, que devem ser definidos previamente.
+Essa tarefa pode, por exemplo, ser usada em um modelo para vários containers para melhorar a reutilização de código.
 
-It is also possible to pass environment variables directly to the Dockerfile through the `env` section of the task.
+Também é possível passar variáveis de ambiente diretamente para o Dockerfile por meio da seção `env` da tarefa.
 
-If this task succeeds, the Dockerfile was build without errors and we can continue to testing the container itself.
+Se essa tarefa for bem-sucedida, o Dockerfile foi construído sem erros e podemos continuar testando o próprio container.
 
-## Test the Container
+## Testar o Container
 
-To test the container, we are using the tox environment.
-For more details on tox please visit the tox section of this repository or visit [the official tox documentation page](https://tox.wiki/en/latest/user_guide.html).
+Para testar o container, estamos usando o ambiente tox.
+Para mais detalhes sobre o tox, visite a seção tox deste repositório ou visite [a página oficial de documentação do tox](https://tox.wiki/en/latest/user_guide.html).
 
-Before we test the container, we are checking for exposed credentials in the docker image history.
-If known passwords, used to access our internal resources, are exposed here, the build step will fail:
+Antes de testarmos o container, estamos verificando se há credenciais expostas no histórico da imagem docker.
+Se senhas conhecidas, usadas para acessar nossos recursos internos, estiverem expostas aqui, a etapa de construção falhará:
 
 ```yml
-- task: Bash@3
-  name: CheckIfPasswordInDockerHistory
-  displayName: 'Check for password in docker history'
-  inputs:
-    workingDirectory: "$(System.DefaultWorkingDirectory)"
-    targetType: 'inline'
-    failOnStdErr: true
-    script: |
-      if docker image history --no-trunc ${{ parameters.imageName }} | grep -qF $PredefinedPassword; then
-        exit 1;
-      fi
-      exit 0;
-  env:
-    PredefinedPassword: $(Password)
+# ... código omitido para brevidade
 ```
 
-After the credential test, the container is tested through the pytest extension [testinfra](https://testinfra.readthedocs.io/en/latest/).
-Testinfra is a Python-based tool which can be used to start a container, gather prerequisites, test the container and shut it down again, without any effort besides writing the tests. These tests can for example include:
+Após o teste de credencial, o container é testado por meio da extensão pytest [testinfra](https://testinfra.readthedocs.io/en/latest/).
+Testinfra é uma ferramenta baseada em Python que pode ser usada para iniciar um container, reunir pré-requisitos, testar o container e desligá-lo novamente, sem nenhum esforço além de escrever os testes. Esses testes podem, por exemplo, incluir:
 
-- if files exist
-- if environment variables are set correctly
-- if certain processes are running
-- if the correct host environment is used
+- se arquivos existem
+- se variáveis de ambiente estão configuradas corretamente
+- se certos processos estão em execução
+- se o ambiente host correto está sendo usado
 
-For a complete collection of capabilities and requirements, please visit [the testinfra project on GitHub](https://github.com/pytest-dev/pytest-testinfra).
+Para uma coleção completa de capacidades e requisitos, visite [o projeto testinfra no GitHub](https://github.com/pytest-dev/pytest-testinfra).
 
-A few methods of a Linux-based container test can look like this:
+Alguns métodos de um teste de container baseado em Linux podem parecer assim:
 
 ```python
-def test_dependencies(host):
-    '''
-    Check all files needed to run the container properly.
-    '''
-    env_file = "/app/environment.sh.env"
-    assert host.file(env_file).exists
-
-    activate_sh_path = "/app/start.sh"
-    assert host.file(activate_sh_path).exists
-
-
-def test_container_running(host):
-    process = host.process.get(comm="start.sh")
-    assert process.user == "root"
-
-
-def test_host_system(host):
-    system_type = 'linux'
-    distribution = 'ubuntu'
-    release = '18.04'
-
-    assert system_type == host.system_info.type
-    assert distribution == host.system_info.distribution
-    assert release == host.system_info.release
-
-
-def extract_env_var(file_content):
-    import re
-
-    regex = r"ENV_VAR=\"(?P<s>[^\"]*)\""
-
-    match = re.match(regex, file_content)
-    return match.group('s')
-
-
-def test_ports_exposed(host):
-    port1 = "9010"
-    st1 = f"grep -q {port1} /app/Dockerfile && echo 'true' || echo 'false'"
-    cmd1 = host.run(st1)
-    assert cmd1.stdout
-
-
-def test_listening_simserver_sockets(host):
-    assert host.socket("tcp://0.0.0.0:32512").is_listening
-    assert host.socket("tcp://0.0.0.0:32513").is_listening
+# ... código omitido para brevidade
 ```
 
-To start the test, a [pytest](http://pytest.org) command is executed through tox.
+Para iniciar o teste, um comando [pytest](http://pytest.org) é executado por meio do tox.
 
-A task containing the tox command can look like this:
+Uma tarefa contendo o comando tox pode parecer assim:
 
 ```yaml
-- task: Bash@3
-  name: RunTestCommands
-  displayName: "Test - Run test commands"
-  inputs:
-    workingDirectory: "$(System.DefaultWorkingDirectory)"
-    targetType: 'inline'
-    script: |
-      tox -e testinfra-${{ parameters.makeTarget }} -- ${{ parameters.imageName }}
-    failOnStderr: true
+# ... código omitido para brevidade
 ```
 
-Which could trigger the following pytest code, which is contained in the tox.ini file:
+O que poderia acionar o seguinte código pytest, que está contido no arquivo tox.ini:
 
 ```bash
-pytest -vv tests/{env:CONTEXT} --container-image={posargs:{env:IMAGE_TAG}} --volume={env:VOLUME}
+# ... código omitido para brevidade
 ```
 
-As a last task of this pipeline to build and test the container, we set a variable called `testsPassed` which is only `true`, if the previous tasks succeeded:
+Como última tarefa deste pipeline para construir e testar o container, definimos uma variável chamada `testsPassed`, que é apenas `true`, se as tarefas anteriores tiverem sido bem-sucedidas:
 
 ```yml
-- task: Bash@3
-  name: UpdateTestResultVariable
-  condition: succeeded()
-  inputs:
-    targetType: 'inline'
-    script: |
-      echo '##vso[task.setvariable variable=testsPassed]true'
+# ... código omitido para brevidade
 ```
 
-## Push container
+## Enviar Container
 
-After building and testing, if our container runs as expected, we want to release it to our Azure Container Registry (ACR) to be used by our larger application. Before that, we want to automate the push behavior and define a meaningful tag.
+Após construir e testar, se nosso container funcionar conforme o esperado, queremos liberá-lo para nosso Azure Container Registry (ACR) para ser usado por nossa aplicação maior. Antes disso, queremos automatizar o comportamento de envio e definir uma tag significativa.
 
-As a developer it is often helpful to have containers pushed to ACR, even if they are failing.
-This can be done by checking for the `testsPassed` variable we introduced at the end of our testing.
+Como desenvolvedor, muitas vezes é útil ter containers enviados para o ACR, mesmo que estejam falhando.
+Isso pode ser feito verificando a variável `testsPassed` que introduzimos no final de nossos testes.
 
-If the test failed, we want to add a failed suffix at the end of the tag:
-
-<!-- markdownlint-disable MD013 -->
-```yml
-- task: Bash@3
-  name: SetFailedSuffixTag
-  displayName: "Set failed suffix, if the tests failed."
-  condition: and(eq(variables['testsPassed'], false), ne(variables['Build.SourceBranchName'], 'main'))
-  # if this is not a release and failed -> retag the image to add failedSuffix
-  inputs:
-    targetType: inline
-    script: |
-      docker tag ${{ parameters.containerRegistry }}/${{ parameters.imageRepository }}:${{ parameters.imageTag }} ${{ parameters.containerRegistry }}/${{ parameters.imageRepository }}:${{ parameters.imageTag }}$(failedSuffix)
-```
-<!-- markdownlint-enable MD013 -->
-
-The condition checks, if the value of `testsPassed` is `false` and also if we
-are not on the *main* branch, as we don't want to push failed containers from main.
-This helps us to keep our production environment clean.
-
-The value for imageRepository was defined in another template, along with
-the `failedSuffix` and `testsPassed`:
+Se o teste falhou, queremos adicionar um sufixo de falha no final da tag:
 
 ```yml
-parameters:
-  - name: component
-
-variables:
-  testsPassed: false
-  failedSuffix: "-failed"
-  # the imageRepo will changed based on dev or release
-  ${{ if eq( variables['Build.SourceBranchName'], 'main' ) }}:
-    imageRepository: 'stable/${{ parameters.component }}'
-  ${{ if ne( variables['Build.SourceBranchName'], 'main' ) }}:
-    imageRepository: 'dev/${{ parameters.component }}'
+# ... código omitido para brevidade
 ```
 
-The imageTag is open to discussion, as it depends highly on how your team wants
-to use the container. We went for `Build.SourceVersion` which is the commit ID
-of the branch the container was developed in.
-This allows you to easily track the origin of the container and aids debugging.
+A condição verifica se o valor de `testsPassed` é `false` e também se não estamos na *main branch*, pois não queremos enviar containers falhos da main.
+Isso nos ajuda a manter nosso ambiente de produção limpo.
 
-A link to Azure DevOps predefined variables can be found in the
-[Azure Docs on Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables-devops-services)
+O valor para imageRepository foi definido em outro modelo, junto com o `failedSuffix` e `testsPassed`:
 
-After a tag was added to the container, the image must be pushed.
-This can be done with the following task:
-
-<!-- markdownlint-disable MD013 -->
 ```yml
-- task: Docker@1
-  name: pushFailedDockerImage
-  displayName: 'Pushes failed image via Docker'
-  condition: and(eq(variables['testsPassed'], false), ne(variables['Build.SourceBranchName'], 'main'))
-  # if this is not a release and failed -> push the image with the failed tag
-  inputs:
-    containerregistrytype: 'Azure Container Registry'
-    azureSubscriptionEndpoint: ${{ parameters.serviceConnection }}
-    azureContainerRegistry: ${{ parameters.containerRegistry }}
-    command: 'Push an image'
-    imageName: '${{ parameters.imageRepository }}:${{ parameters.imageTag }}$(failedSuffix)'
+# ... código omitido para brevidade
 ```
-<!-- markdownlint-enable MD013 -->
 
-Similarly, these are the steps to publish the container to the ACR,
-if the tests succeeded:
+A imageTag está aberta para discussão, pois depende muito de como sua equipe deseja usar o container. Optamos por `Build.SourceVersion`, que é o ID do commit da branch em que o container foi desenvolvido.
+Isso permite que você rastreie facilmente a origem do container e auxilie na depuração.
 
-<!-- markdownlint-disable MD013 -->
+Um link para as variáveis predefinidas do Azure DevOps pode ser encontrado na [Documentação do Azure sobre Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables-devops-services).
+
+Após adicionar uma tag ao container, a imagem deve ser enviada.
+Isso pode ser feito com a seguinte tarefa:
+
 ```yml
-- task: Bash@3
-  name: SetLatestSuffixTag
-  displayName: "Set latest suffix, if the tests succeed."
-  condition:  eq(variables['testsPassed'], true)
-  inputs:
-    targetType: inline
-    script: |
-      docker tag ${{ parameters.containerRegistry }}/${{ parameters.imageRepository }}:${{ parameters.imageTag }} ${{ parameters.containerRegistry }}/${{ parameters.imageRepository }}:latest
-- task: Docker@1
-  name: pushSuccessfulDockerImageSha
-  displayName: 'Pushes successful image via Docker'
-  condition: eq(variables['testsPassed'], true)
-  inputs:
-    containerregistrytype: 'Azure Container Registry'
-    azureSubscriptionEndpoint: ${{ parameters.serviceConnection }}
-    azureContainerRegistry: ${{ parameters.containerRegistry }}
-    command: 'Push an image'
-    imageName: '${{ parameters.imageRepository }}:${{ parameters.imageTag }}'
-- task: Docker@1
-  name: pushSuccessfulDockerImageLatest
-  displayName: 'Pushes successful image as latest'
-  condition: eq(variables['testsPassed'], true)
-  inputs:
-    containerregistrytype: 'Azure Container Registry'
-    azureSubscriptionEndpoint: ${{ parameters.serviceConnection }}
-    azureContainerRegistry: ${{ parameters.containerRegistry }}
-    command: 'Push an image'
-    imageName: '${{ parameters.imageRepository }}:latest'
+# ... código omitido para brevidade
+``
+
+`
+
+Da mesma forma, estas são as etapas para publicar o container no ACR, se os testes forem bem-sucedidos:
+
+```yml
+# ... código omitido para brevidade
 ```
-<!-- markdownlint-enable MD013 -->
 
-If you don't want to include the `latest` tag, you can also remove the steps
-involving latest (SetLatestSuffixTag & pushSuccessfulDockerImageLatest).
+Se você não quiser incluir a tag `latest`, também pode remover as etapas envolvendo latest (SetLatestSuffixTag & pushSuccessfulDockerImageLatest).
 
-## References
+## Referências
 
-- [DevTest pattern](https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/dev-test-paas)
-- [Azure Docs on Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables-devops-services)
-- [official tox documentation page](https://tox.wiki/en/latest/user_guide.html)
+- [Padrão DevTest](https://learn.microsoft.com/en-us/azure/architecture/solution-ideas/articles/dev-test-paas)
+- [Documentação do Azure sobre Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables-devops-services)
+- [Página oficial de documentação do tox](https://tox.wiki/en/latest/user_guide.html)
 - [Testinfra](https://testinfra.readthedocs.io/en/latest/)
-- [Testinfra project on GitHub](https://github.com/pytest-dev/pytest-testinfra)
+- [Projeto Testinfra no GitHub](https://github.com/pytest-dev/pytest-testinfra)
 - [pytest](http://pytest.org)

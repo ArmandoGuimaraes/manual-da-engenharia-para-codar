@@ -19,7 +19,7 @@
     
     
       
-        <title>Shadow Testing - Manual da Engenharia para Codar</title>
+        <title>Teste de Sombra (Shadow Testing) - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#shadow-testing" class="md-skip">
+        <a href="#teste-de-sombra-shadow-testing" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Shadow Testing
+              Teste de Sombra (Shadow Testing)
             
           </span>
         </div>
@@ -7138,36 +7138,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#when-to-use" class="md-nav__link">
-    When to use
+  <a href="#quando-usar" class="md-nav__link">
+    Quando Usar
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#applicable-to" class="md-nav__link">
-    Applicable to
+  <a href="#aplicavel-a" class="md-nav__link">
+    Aplicável a
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#shadow-testing-frameworks-and-tools" class="md-nav__link">
-    Shadow Testing Frameworks and Tools
+  <a href="#frameworks-e-ferramentas-de-teste-de-sombra" class="md-nav__link">
+    Frameworks e Ferramentas de Teste de Sombra
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    Conclusion
+  <a href="#conclusao" class="md-nav__link">
+    Conclusão
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
+  <a href="#referencias" class="md-nav__link">
+    Referências
   </a>
   
 </li>
@@ -7186,49 +7186,36 @@
                 
 
 
-<h1 id="shadow-testing">Shadow Testing</h1>
-<p>Shadow testing is one approach to reduce risks before going to production. Shadow testing is also known as "Shadow Deployment" or "Shadowing Traffic" and similarities with "Dark launching".</p>
-<h2 id="when-to-use">When to use</h2>
-<p>Shadow Testing reduces risks when you consider replacing the current environment (V-Current) with candidate environment with new feature (V-Next). This approach is monitoring and capturing differences between two environments then compare and reduces all risks before you introduce a new feature/release.</p>
-<p>In our test cases, code coverage is very important however sometimes providing code coverage can be tricky to replicate real-life combinations and possibilities. In this approach, to test V-Next environment we have side by side deployment, we're replicating the same traffic with V-Current environment and directing same traffic to V-Next environment, the only difference is we don't return any response from V-Next environment to users, but we collect those responses to compare with V-Current responses.</p>
-<p><img alt="Shadow Testing Overview" src="images/shadow-testing.png" /></p>
-<p>Referencing back to one of the Principles of Chaos Engineering, mentions importance of sampling real traffic like below:</p>
-<blockquote>
-<p>Systems behave differently depending on environment and traffic patterns. Since the behavior of utilization can change at any time, sampling real traffic is the only way to reliably capture the request path. To guarantee both authenticity of the way in which the system is exercised and relevance to the current deployed system, Chaos strongly prefers to experiment directly on production traffic.</p>
-</blockquote>
-<p>With this Shadow Testing approach we're leveraging real customer behavior in V-Next environment with sampling real traffic and mitigating the risks which users may face on production. At the same time we're testing V-Next environment infrastructure for scaling with real sampled traffic. V-Next should scale with the same way V-Current does. We're testing actual behavior of the product and this cause zero impact to production to test new features since traffic is replicated to V-next environment.</p>
-<p>There are some similarities with <a href="https://martinfowler.com/bliki/DarkLaunching.html">Dark Launching</a>, Dark Launching proposes to integrate new feature into production code, but users can't use the feature. On the backend you can test your feature and improve the performance until it's acceptable. It is also similar to <a href="https://martinfowler.com/bliki/FeatureToggle.html">Feature Toggles</a> which provides you with an ability to enable/disable your new feature in production on a UI level. With this approach your new feature will be visible to users, and you can collect feedback. Using Dark Launching with Feature Toggles can be very useful for introducing a new feature.</p>
-<h2 id="applicable-to">Applicable to</h2>
+<h1 id="teste-de-sombra-shadow-testing">Teste de Sombra (Shadow Testing)</h1>
+<p>O Teste de Sombra é uma abordagem para reduzir riscos antes de ir para a produção. Também conhecido como "Implantação Sombra" ou "Sombreamento de Tráfego", tem semelhanças com o "Lançamento Escuro" (Dark Launching).</p>
+<h2 id="quando-usar">Quando Usar</h2>
+<p>O Teste de Sombra reduz riscos quando você considera substituir o ambiente atual (V-Atual) por um ambiente candidato com um novo recurso (V-Próximo). Essa abordagem envolve monitorar e capturar diferenças entre os dois ambientes e, em seguida, compará-los para reduzir todos os riscos antes de introduzir um novo recurso/lançamento.</p>
+<p><img alt="Visão Geral do Teste de Sombra" src="images/shadow-testing.png" /></p>
+<h2 id="aplicavel-a">Aplicável a</h2>
 <ul>
-<li><strong>Production deployments</strong>: V-Next in Shadow testing always working separately and not effecting production. Users are not effected with this test.</li>
-<li><strong>Infrastructure</strong>: Shadow testing replicating the same traffic, in test environment you can have the same traffic on the production. It helps to produce real life test scenarios</li>
-<li><strong>Handling Scale</strong>: All traffic is replicated, and you have a chance to see how your system scaling.</li>
+<li><strong>Implantações de Produção</strong>: O V-Próximo no Teste de Sombra sempre funciona separadamente e não afeta a produção. Os usuários não são afetados por esse teste.</li>
+<li><strong>Infraestrutura</strong>: O Teste de Sombra replica o mesmo tráfego, então no ambiente de teste você pode ter o mesmo tráfego que na produção. Isso ajuda a produzir cenários de teste da vida real.</li>
+<li><strong>Manuseio de Escala</strong>: Todo o tráfego é replicado, e você tem a chance de ver como seu sistema está escalando.</li>
 </ul>
-<h2 id="shadow-testing-frameworks-and-tools">Shadow Testing Frameworks and Tools</h2>
-<p>There are some tools to implement shadow testing. The main purpose of these tools is to compare responses of V-Current and V-Next then find the differences.</p>
+<h2 id="frameworks-e-ferramentas-de-teste-de-sombra">Frameworks e Ferramentas de Teste de Sombra</h2>
+<p>Existem algumas ferramentas para implementar o teste de sombra. O principal objetivo dessas ferramentas é comparar as respostas do V-Atual e do V-Próximo e encontrar as diferenças.</p>
 <ul>
 <li><a href="https://github.com/opendiffy/diffy">Diffy</a></li>
 <li><a href="https://www.envoyproxy.io">Envoy</a></li>
 <li><a href="https://github.com/facebook/mcrouter">McRouter</a></li>
 <li><a href="https://github.com/github/scientist">Scientist</a></li>
 </ul>
-<p>One of the most popular tools is <a href="https://github.com/opendiffy/diffy">Diffy</a>. It was created and used at Twitter. Now the original author and a former Twitter employee maintains their own version of this project, called <a href="https://github.com/opendiffy/diffy">Opendiffy</a>. Twitter announced this tool on their engineering blog as "<a href="https://blog.twitter.com/engineering/en_us/a/2015/diffy-testing-services-without-writing-tests.html">Testing services without writing tests</a>".</p>
-<p>As of today Diffy is used in production by Twitter, Airbnb, Baidu and Bytedance companies. Diffy explains the shadow testing feature like this:</p>
-<blockquote>
-<p>Diffy finds potential bugs in your service using running instances of your new code, and your old code side by side. Diffy behaves as a proxy and multicasts whatever requests it receives to each of the running instances. It then compares the responses, and reports any regressions that may surface from those comparisons. The premise for Diffy is that if two implementations of the service return “similar” responses for a sufficiently large and diverse set of requests, then the two implementations can be treated as equivalent, and the newer implementation is regression-free.</p>
-</blockquote>
-<p><img alt="Diffy Shadow Testing Architecture" src="images/diffy-shadow-testing.png" /></p>
-<p>Diffy architecture</p>
-<h2 id="conclusion">Conclusion</h2>
-<p>Shadow Testing is a useful approach to reduce risks when you consider replacing the current environment with candidate environment using new feature(s). Shadow testing replicates traffic of the production to candidate environment for testing, so you get same production use case scenarios in the test environment. You can compare differences on both environments and validate your candidate environment to be ready for releasing.</p>
-<p>Some advantages of shadow testing are:</p>
+<p>Um dos mais populares é o <a href="https://github.com/opendiffy/diffy">Diffy</a>. Ele foi criado e usado no Twitter. Hoje, o autor original e um ex-funcionário do Twitter mantêm sua própria versão deste projeto, chamada <a href="https://github.com/opendiffy/diffy">Opendiffy</a>.</p>
+<p><img alt="Arquitetura do Diffy para Teste de Sombra" src="images/diffy-shadow-testing.png" /></p>
+<h2 id="conclusao">Conclusão</h2>
+<p>O Teste de Sombra é uma abordagem útil para reduzir riscos quando você considera substituir o ambiente atual com um ambiente candidato usando novos recursos. Algumas vantagens do teste de sombra incluem:</p>
 <ul>
-<li>Zero impact to production environment</li>
-<li>No need to generate test scenarios and test data</li>
-<li>We can test real-life scenarios with real-life data.</li>
-<li>We can simulate scale with replicated production traffic.</li>
+<li>Impacto zero no ambiente de produção.</li>
+<li>Não é necessário gerar cenários de teste e dados de teste.</li>
+<li>Podemos testar cenários da vida real com dados da vida real.</li>
+<li>Podemos simular a escala com tráfego de produção replicado.</li>
 </ul>
-<h2 id="references">References</h2>
+<h2 id="referencias">Referências</h2>
 <ul>
 <li><a href="https://martinfowler.com/bliki/DarkLaunching.html">Martin Fowler - Dark Launching</a></li>
 <li><a href="https://martinfowler.com/bliki/FeatureToggle.html">Martin Fowler - Feature Toggle</a></li>
@@ -7240,7 +7227,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 25, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 13, 2023</span>
       
     
   </small>

@@ -1,58 +1,58 @@
-# Insert Test Technique Name Here
+# Nome da Técnica de Teste Aqui
 
-Put a 2-3 sentence overview about the test technique here.
+Insira uma visão geral de 2-3 frases sobre a técnica de teste aqui.
 
-## When To Use
+## Quando Usar
 
-### Problem Addressed
+### Problema Abordado
 
-Describing the problem that this test type addresses, this should focus on the motivation behind the test type/technique to help the reader correlate this technique to their problem.
+Descrevendo o problema que este tipo de teste aborda, isso deve focar na motivação por trás do tipo/técnica de teste para ajudar o leitor a correlacionar esta técnica ao seu problema.
 
-### When to Avoid
+### Quando Evitar
 
-Describe when NOT to use, if applicable.
+Descreva quando NÃO usar, se aplicável.
 
-### ROI Tipping Point
+### Ponto de Inflexão do ROI
 
-How much is enough?  For example, some opine that unit test ROI drops significantly at 80% block coverage and when the codebase is well-exercised by real traffic in production.
+Quanto é suficiente? Por exemplo, alguns opinam que o ROI do teste unitário cai significativamente com 80% de cobertura de bloco e quando a base de código é bem exercitada por tráfego real em produção.
 
-### Applicable to
+### Aplicável a
 
-- [ ] Local dev 'desktop'
-- [ ] Build pipelines
-- [ ] Non-production deployments
-- [ ] Production deployments
-  
-## NOTE: If there is great (clear, succinct) documentation for the technique on the web, supply a pointer and skip the rest of this template.  No need to re-type content
+- [ ] Desenvolvimento local 'desktop'
+- [ ] Pipelines de construção
+- [ ] Implantações não produtivas
+- [ ] Implantações em produção
 
-## How to Use
+## NOTA: Se houver uma ótima documentação (clara, sucinta) para a técnica na web, forneça um ponteiro e pule o resto deste modelo. Não há necessidade de reescrever o conteúdo.
 
-### Architecture
+## Como Usar
 
-Describe the components of the technique and how they interact with each other and the subject of the test technique.  Add a simple diagram of how the technique's parts are organized, if helpful to illustrate.
+### Arquitetura
 
-### Pre-requisites
+Descreva os componentes da técnica e como eles interagem entre si e com o assunto da técnica de teste. Adicione um diagrama simples de como as partes da técnica estão organizadas, se isso ajudar a ilustrar.
 
-Anything required in advance?
+### Pré-requisitos
 
-### High-level Step-by-step
+Alguma coisa é necessária antecipadamente?
+
+### Passo a Passo de Alto Nível
 
 1.
 1.
 1.
 
-## Best Practices and Advice
+## Melhores Práticas e Conselhos
 
-Describe what good testing looks like for this technique, best practices, pitfalls.
+Descreva como é um bom teste para esta técnica, melhores práticas, armadilhas.
 
-### Anti patterns
+### Antipadrões
 
-e.g. unit tests should never require off-box or even out-of-process dependencies.  Are there similar things to avoid when applying this technique?
+Por exemplo, testes unitários nunca devem exigir dependências fora da caixa ou mesmo fora do processo. Existem coisas semelhantes a evitar ao aplicar esta técnica?
 
-## Frameworks, Tools, Templates
+## Frameworks, Ferramentas, Modelos
 
-Describe known good (i.e. actually used and known to provide good results) frameworks, tools, templates, their pros and cons, with links.
+Descreva frameworks, ferramentas e modelos conhecidos como bons (ou seja, realmente usados e conhecidos por fornecer bons resultados), seus prós e contras, com links.
 
-## Resources
+## Recursos
 
-Provide links to further readings about this technique to dive deeper.
+Forneça links para leituras adicionais sobre esta técnica para aprofundar o conhecimento.

@@ -1,32 +1,32 @@
-# Evidence and Measures
+# Evidências e Medidas
 
-## Evidence
+## Evidências
 
-Many of the code quality assurance items can be automated or enforced by policies in modern version control and work item tracking systems. Verification of the policies on the main branch in [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/) (AzDO) or [GitHub](https://github.com/), for example, may be sufficient evidence that a project team is conducting code reviews.
+Muitos dos itens de garantia de qualidade de código podem ser automatizados ou aplicados por meio de políticas em sistemas modernos de controle de versão e rastreamento de itens de trabalho. A verificação das políticas na branch principal no [Azure DevOps](https://azure.microsoft.com/pt-br/services/devops/) (AzDO) ou no [GitHub](https://github.com/), por exemplo, pode ser evidência suficiente de que uma equipe de projeto está conduzindo revisões de código.
 
-* [ ] The main branches in all repositories have branch policies. - [Configure branch policies](../tools.md#Configuring Branch Policies)
-* [ ] All builds produced out of project repositories include appropriate linters, run unit tests.
-* [ ] Every bug work item should include a link to the pull request that introduced it, once the error has been diagnosed. This helps with learning.
-* [ ] Each bug work item should include a note on how the bug might (or might not have) been caught in a code review.
-* [ ] The project team regularly updates their code review checklists to reflect common issues they have encountered.
-* [ ] Dev Leads should review a sample of pull requests and/or be co-reviewers with other developers to help everyone improve their skills as code reviewers.
+* [ ] Todas as branches principais em todos os repositórios têm políticas de branch. - [Configurar políticas de branch](../tools.md#Configuring Branch Policies)
+* [ ] Todas as compilações geradas a partir dos repositórios do projeto incluem linters apropriados e executam testes unitários.
+* [ ] Cada item de trabalho de correção de bug deve incluir um link para o pull request que o introduziu, assim que o erro for diagnosticado. Isso ajuda na aprendizagem.
+* [ ] Cada item de trabalho de correção de bug deve incluir uma observação sobre como o bug poderia (ou não) ter sido detectado em uma revisão de código.
+* [ ] A equipe do projeto atualiza regularmente suas listas de verificação de revisão de código para refletir problemas comuns que eles encontraram.
+* [ ] Os líderes de desenvolvimento devem revisar uma amostra de pull requests e/ou ser co-revisores com outros desenvolvedores para ajudar todos a melhorar suas habilidades como revisores de código.
 
-## Measures
+## Medidas
 
-The team can collect metrics of code reviews to measure their efficiency. Some useful metrics include:
+A equipe pode coletar métricas de revisões de código para medir sua eficiência. Algumas métricas úteis incluem:
 
-* Defect Removal Efficiency (DRE) - a measure of the development team's ability to remove defects prior to release
-* Time metrics:
-  * Time used preparing for code inspection sessions
-  * Time used in review sessions
-* Lines of code (LOC) inspected per time unit/meeting
+* Eficiência na Remoção de Defeitos (DRE) - uma medida da capacidade da equipe de desenvolvimento de remover defeitos antes do lançamento.
+* Métricas de tempo:
+  * Tempo gasto preparando-se para sessões de inspeção de código.
+  * Tempo gasto em sessões de revisão.
+* Linhas de código (LOC) inspecionadas por unidade de tempo/reunião.
 
-It is a perfectly reasonable solution to track these metrics manually e.g. in an Excel sheet. It is also possible to utilize the features of project management platforms - for example, AzDO enables dashboards for metrics including [tracking bugs](https://learn.microsoft.com/en-us/azure/devops/boards/backlogs/manage-bugs?view=azure-devops&tabs=new-web-form). You may find ready-made plugins for various platforms - see [GitHub Marketplace](https://github.com/marketplace) for instance - or you can choose to implement these features yourself.
+É uma solução perfeitamente razoável rastrear essas métricas manualmente, por exemplo, em uma planilha do Excel. Também é possível utilizar os recursos de plataformas de gerenciamento de projetos - por exemplo, o AzDO permite painéis de métricas, incluindo [rastreamento de bugs](https://learn.microsoft.com/pt-br/azure/devops/boards/backlogs/manage-bugs?view=azure-devops&tabs=new-web-form). Você pode encontrar plugins prontos para várias plataformas - consulte o [GitHub Marketplace](https://github.com/marketplace), por exemplo - ou optar por implementar esses recursos por conta própria.
 
-Remember that since defects removed thanks to reviews is far less costly compared to finding them in production, the cost of doing code reviews is actually negative!
+Lembre-se de que, uma vez que defeitos removidos graças a revisões são muito menos custosos em comparação com a detecção deles em produção, o custo das revisões de código é, na verdade, negativo!
 
-For more information, see links under [resources](#resources).
+Para obter mais informações, consulte os links na seção de [recursos](#resources).
 
-## Resources
+## Recursos
 
-* [A Guide to Code Inspections](http://www.ganssle.com/inspections.pdf)
+* [Um Guia para Inspeções de Código](http://www.ganssle.com/inspections.pdf)

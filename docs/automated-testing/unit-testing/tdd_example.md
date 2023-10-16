@@ -1,15 +1,8 @@
-# Test-Driven Development Example
+# Exemplo de Desenvolvimento Orientado por Testes (TDD)
 
-With this method, rather than writing all your tests up front, you write one test at a time and then switch to write the
-system code that would make that test pass. It's important to write the bare minimum of code necessary even if it is not
-actually "correct". Once the test passes you can refactor the code to make it maybe make more sense, but again the logic
-should be simple. As you write more tests, the logic gets more and more complex, but you can continue to make the
-minimal changes to the system code with confidence because all code that was written is covered.
+Com este método, em vez de escrever todos os seus testes de uma vez, você escreve um teste de cada vez e, em seguida, muda para escrever o código do sistema que faria esse teste passar. É importante escrever o mínimo de código necessário, mesmo que ele não seja tecnicamente "correto". Uma vez que o teste passa, você pode refatorar o código para talvez torná-lo mais sensato, mas novamente a lógica deve ser simples. À medida que você escreve mais testes, a lógica fica cada vez mais complexa, mas você pode continuar a fazer as mudanças mínimas no código do sistema com confiança, porque todo o código que foi escrito está coberto.
 
-As an example, let's assume we are trying to write a new function that validates a string is a valid password format.
-The password format should be a string larger than 8 characters containing at least one number. We start with the
-simplest possible test; one of the easiest ways to do this is to first write tests that validate inputs into the
-function:
+Como exemplo, vamos supor que estamos tentando escrever uma nova função que valida se uma string é um formato de senha válido. O formato da senha deve ser uma string maior que 8 caracteres contendo pelo menos um número. Começamos com o teste mais simples possível; uma das maneiras mais fáceis de fazer isso é escrever primeiro testes que validem as entradas na função:
 
 ```csharp
 // Tests.cs
@@ -33,9 +26,7 @@ public class MyClass
 }
 ```
 
-If we run this code, the test will fail as no exception was thrown since our code in `ValidateString` is just a stub.
-This is ok! This is the "Red" part of Red-Green-Refactor. Now we want to move onto the "Green" part - making the minimal
-change required to make this test pass:
+Se executarmos este código, o teste falhará, pois nenhuma exceção foi lançada, já que nosso código em `ValidateString` é apenas um stub. Isso está ok! Esta é a parte "Vermelha" do ciclo Vermelho-Verde-Refatorar. Agora queremos passar para a parte "Verde" - fazer a mudança mínima necessária para fazer este teste passar:
 
 ```csharp
 // MyClass.cs
@@ -48,12 +39,9 @@ public class MyClass
 }
 ```
 
-Our tests pass, but this function doesn't really work, it will always throw the exception. That's ok! As we
-continue to write tests we will slowly add the logic for this function, and it will build on itself, all while
-guaranteeing our tests continue to pass.
+Nossos testes passam, mas esta função realmente não funciona, ela sempre lançará a exceção. Tudo bem! À medida que continuamos a escrever testes, vamos adicionando lentamente a lógica para esta função, e ela se construirá sobre si mesma, garantindo que nossos testes continuem a passar.
 
-We will skip the "Refactor" stage at this point because there isn't anything to refactor. Next let's add a test that
-checks that the function returns false if the password is less than size 8:
+Vamos pular a etapa "Refatorar" neste momento porque não há nada para refatorar. Em seguida, vamos adicionar um teste que verifica se a função retorna falso se a senha tiver menos de 8 caracteres:
 
 ```csharp
 [Fact]
@@ -64,8 +52,7 @@ public void ValidatePassword_SmallSize_ReturnsFalse()
 }
 ```
 
-This test will pass as it still only throws an `ArgumentNullException`, but again, that is an expected failure. Fixing
-our function should see it pass:
+Este teste passará, pois ainda só lança uma `ArgumentNullException`, mas novamente, isso é uma falha esperada. Corrigindo nossa função, ela deverá passar:
 
 ```csharp
 public bool ValidatePassword(string input)
@@ -79,16 +66,11 @@ public bool ValidatePassword(string input)
 }
 ```
 
-Finally, some code that looks real! Note how it wasn't the test that checked for null that had us add the `if` statement
-for the null-check, but rather the subsequent test which unlocked a whole new branch. By adding that if statement, we
-made the bare minimum change necessary in order to get **both** tests to pass, but we still have work to do.
+Finalmente, algum código que parece real! Note como não foi o teste que verificou o valor nulo que nos fez adicionar a instrução `if` para a verificação de nulo, mas sim o teste subsequente que desbloqueou um novo ramo. Ao adicionar essa instrução `if`, fizemos a mudança mínima necessária para fazer **ambos** os testes passarem, mas ainda temos trabalho a fazer.
 
-In general, working in the order of adding a negative test first before adding a positive test will ensure that both
-cases get covered by the code in a way that can get tests. Red-Green-Refactor makes that process super easy by requiring
-the bare minimum change - since we only want to make the bare minimum changes, we just simply return false here, knowing
-full well that we will be adding logic later that will expand on this.
+Em geral, trabalhar na ordem de adicionar um teste negativo primeiro antes de adicionar um teste positivo garantirá que ambos os casos sejam cobertos pelo código de uma forma que possa ser testada. O ciclo Vermelho-Verde-Refatorar torna esse processo super fácil, exigindo a mudança mínima - já que só queremos fazer as mudanças mínimas, simplesmente retornamos falso aqui, sabendo muito bem que estaremos adicionando lógica mais tarde que se expandirá sobre isso.
 
-Speaking of which, let's add the positive test now:
+Falando nisso, vamos adicionar o teste positivo agora:
 
 ```csharp
 [Fact]
@@ -99,14 +81,9 @@ public void ValidatePassword_RightSize_ReturnsTrue()
 }
 ```
 
-Again, this test will fail at the start. One thing to note here if that its important that we try and make our tests
-resilient to future changes. When we write the code under test, we act very naively, only trying to make the current
-tests we have pass; when you write tests though, you want to ensure that everything you are doing is a valid case in the
-future. In this case, we could have written the input string as `abcdefgh` and when we eventually write the function it
-would pass, but later when we add tests that validate the function has the rest of the proper inputs it would fail
-incorrectly.
+Novamente, este teste falhará no início. Uma coisa a notar aqui é que é importante tentarmos tornar nossos testes resilientes a mudanças futuras. Quando escrevemos o código sob teste, agimos de forma muito ingênua, apenas tentando fazer os testes atuais que temos passar; quando você escreve testes, você quer garantir que tudo o que está fazendo é um caso válido no futuro. Neste caso, poderíamos ter escrito a string de entrada como `abcdefgh` e, quando eventualmente escrevêssemos a função, ela passaria, mas mais tarde, quando adicionássemos testes que validassem que a função tem o resto das entradas adequadas, ela falharia incorretamente.
 
-Anyways, the next code change is:
+De qualquer forma, a próxima mudança de código é:
 
 ```csharp
 public bool ValidatePassword(string input)
@@ -124,9 +101,7 @@ public bool ValidatePassword(string input)
 }
 ```
 
-Here we now have a passing test! However, the logic doesn't actually make much sense. We did the bare minimum
-change which was adding a new condition that passed for longer strings, but thinking forward we know this
-won't work as soon as we add additional validations. So let's use our first "Refactor" step in the Red-Green-Refactor flow!
+Aqui agora temos um teste que passa! No entanto, a lógica realmente não faz muito sentido. Fizemos a mudança mínima, que foi adicionar uma nova condição que passou para strings mais longas, mas pensando para frente, sabemos que isso não funcionará assim que adicionarmos validações adicionais. Então, vamos usar nosso primeiro passo de "Refatorar" no fluxo Vermelho-Verde-Refatorar!
 
 ```csharp
 public bool ValidatePassword(string input)
@@ -144,24 +119,22 @@ public bool ValidatePassword(string input)
 }
 ```
 
-That looks better. Note how from a functional perspective, inverting the if-statement does not change what the function returns.
-This is an important part of the refactor flow, maintaining the logic by doing provably safe refactors, usually through the use of tooling and automated refactors from
-your IDE.
+Isso parece melhor. Note como, do ponto de vista funcional, inverter a instrução `if` não muda o que a função retorna. Esta é uma parte importante do fluxo de refatoração, mantendo a lógica fazendo refatorações comprovadamente seguras, geralmente através do uso de ferramentas e refatorações automatizadas do seu IDE.
 
-Finally, we have one last requirement for our `ValidatePassword` method and that is that it needs to check that there is
-a number in the password. Let's again start with the negative test and validate that with a string with the valid length
-that the function returns `false` if we do not pass in a number:
+Finalmente, temos um último requisito para o nosso método `ValidatePassword` e é que ele precisa verificar se há um número na senha. Vamos começar novamente com o teste negativo e validar que, com uma string com o comprimento válido, a função retorna `false` se não passarmos um número:
 
 ```csharp
 [Fact]
 public void ValidatePassword_ValidLength_ReturnsFalse()
 {
     var s = new MyClass();
-    Assert.False(s.ValidatePassword("abcdefghij"));
+    Assert
+
+.False(s.ValidatePassword("abcdefghij"));
 }
 ```
 
-Of course the test fails as it is only checking length requirements. Let's fix the method to check for numbers:
+Claro que o teste falha, pois ele está apenas verificando os requisitos de comprimento. Vamos corrigir o método para verificar os números:
 
 ```csharp
 public bool ValidatePassword(string input)
@@ -184,8 +157,7 @@ public bool ValidatePassword(string input)
 }
 ```
 
-Here we use a handy LINQ method to check if any of the `char`s in the `string` are a digit, and if not, return false.
-Tests now pass, and we can refactor. For readability, why not combine the `if` statements:
+Aqui usamos um método LINQ útil para verificar se algum dos `char`s na `string` é um dígito, e se não for, retornamos falso. Os testes agora passam, e podemos refatorar. Para melhorar a legibilidade, por que não combinar as instruções `if`:
 
 ```csharp
 public bool ValidatePassword(string input)
@@ -205,12 +177,8 @@ public bool ValidatePassword(string input)
 }
 ```
 
-As we refactor this code, we feel 100% confident in the changes we made as we have 100% test coverage which tests both
-positive and negative scenarios. In this case we actually already have a method that tests the positive case, so our function is done!
+Ao refatorar esse código, nos sentimos 100% confiantes nas mudanças que fizemos, pois temos 100% de cobertura de testes que testam tanto cenários positivos quanto negativos. Neste caso, já temos um método que testa o caso positivo, então nossa função está pronta!
 
-Now that our code is completely tested we can make all sorts of changes and still have confidence that it works. For
-example, if we wanted to change the implementation of the method to use regex, all of our tests would still pass and
-still be valid.
+Agora que nosso código está completamente testado, podemos fazer todo tipo de mudanças e ainda ter confiança de que ele funciona. Por exemplo, se quiséssemos mudar a implementação do método para usar regex, todos os nossos testes ainda passariam e ainda seriam válidos.
 
-That is it! We finished writing our function, we have 100% test coverage, and if we had done something a little more
-complex, we are guaranteed that whatever we designed is already testable since the tests were written first!
+É isso aí! Terminamos de escrever nossa função, temos 100% de cobertura de testes e, se tivéssemos feito algo um pouco mais complexo, teríamos a garantia de que o que projetamos já é testável, pois os testes foram escritos primeiro!

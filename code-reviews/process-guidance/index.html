@@ -19,7 +19,7 @@
     
     
       
-        <title>Process Guidance - Manual da Engenharia para Codar</title>
+        <title>Orientação do Processo - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#process-guidance" class="md-skip">
+        <a href="#orientacao-do-processo" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Process Guidance
+              Orientação do Processo
             
           </span>
         </div>
@@ -7138,36 +7138,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#general-guidance" class="md-nav__link">
-    General Guidance
+  <a href="#orientacoes-gerais" class="md-nav__link">
+    Orientações Gerais
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#measuring-code-review-process" class="md-nav__link">
-    Measuring code review process
+  <a href="#medindo-o-processo-de-revisao-de-codigo" class="md-nav__link">
+    Medindo o Processo de Revisão de Código
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-reviews-shouldnt-include-too-many-lines-of-code" class="md-nav__link">
-    Code reviews shouldn't include too many lines of code
+  <a href="#as-revisoes-de-codigo-nao-devem-incluir-muito-codigo" class="md-nav__link">
+    As revisões de código não devem incluir muito código
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#automate-whenever-reasonable" class="md-nav__link">
-    Automate whenever reasonable
+  <a href="#automatize-sempre-que-for-razoavel" class="md-nav__link">
+    Automatize sempre que for razoável
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#role-specific-guidance" class="md-nav__link">
-    Role specific guidance
+  <a href="#orientacoes-especificas-por-funcao" class="md-nav__link">
+    Orientações Específicas por Função
   </a>
   
 </li>
@@ -7186,34 +7186,34 @@
                 
 
 
-<h1 id="process-guidance">Process Guidance</h1>
-<h2 id="general-guidance">General Guidance</h2>
-<p>Code reviews should be part of the software engineering team process regardless of the development model. Furthermore, the team should learn to execute reviews in a timely manner. <a href="../pull-requests/">Pull requests (PRs)</a> left hanging can cause additional merge problems and go stale resulting in lost work. Qualified PRs are expected to reflect well-defined, concise tasks, and thus be compact in content. Reviewing a single task should then take relatively little time to complete.</p>
-<p>To ensure that the code review process is healthy, inclusive and meets the goals stated above, consider following these guidelines:</p>
+<h1 id="orientacao-do-processo">Orientação do Processo</h1>
+<h2 id="orientacoes-gerais">Orientações Gerais</h2>
+<p>As revisões de código devem fazer parte do processo da equipe de engenharia de software, independentemente do modelo de desenvolvimento. Além disso, a equipe deve aprender a realizar revisões de forma oportuna. <a href="../pull-requests/">Pull requests (PRs)</a> deixados pendentes podem causar problemas adicionais de mesclagem e ficarem desatualizados, resultando em trabalho perdido. PRs qualificados devem refletir tarefas bem definidas e concisas, sendo, portanto, compactos em conteúdo. A revisão de uma única tarefa deve levar relativamente pouco tempo para ser concluída.</p>
+<p>Para garantir que o processo de revisão de código seja saudável, inclusivo e atenda aos objetivos mencionados acima, considere seguir estas diretrizes:</p>
 <ul>
-<li>Establish a <a href="https://en.wikipedia.org/wiki/Service-level_agreement">service-level agreement (SLA)</a> for code reviews and add it to your teams working agreement.</li>
-<li>Although modern DevOps environments incorporate tools for managing PRs, it can be useful to label tasks pending for review or to have a dedicated place for them on the task board - <a href="../tools/#task-boards">Customize AzDO task boards</a></li>
-<li>In the daily standup meeting check tasks pending for review and make sure they have reviewers assigned.</li>
-<li>Junior teams and teams new to the process can consider creating separate tasks for reviews together with the tasks themselves.</li>
-<li>Utilize tools to streamline the review process - <a href="../tools/">Code review tools</a></li>
-<li>Foster inclusive code reviews - <a href="../inclusion-in-code-review/">Inclusion in Code Review</a></li>
+<li>Estabeleça um <a href="https://pt.wikipedia.org/wiki/Acordo_de_n%C3%ADvel_de_servi%C3%A7o">acordo de nível de serviço (SLA)</a> para revisões de código e inclua-o no acordo de trabalho de sua equipe.</li>
+<li>Embora os ambientes modernos de DevOps incorporem ferramentas para gerenciar PRs, pode ser útil rotular tarefas pendentes de revisão ou ter um local dedicado para elas no quadro de tarefas - <a href="../tools/#task-boards">Personalize os quadros de tarefas do AzDO</a></li>
+<li>Na reunião diária de standup, verifique as tarefas pendentes de revisão e certifique-se de que possuam revisores atribuídos.</li>
+<li>Equipes juniores e equipes novas no processo podem considerar criar tarefas separadas para revisões junto com as próprias tarefas.</li>
+<li>Utilize ferramentas para simplificar o processo de revisão - <a href="../tools/">Ferramentas de revisão de código</a></li>
+<li>Promova revisões de código inclusivas - <a href="../inclusion-in-code-review/">Inclusão na Revisão de Código</a></li>
 </ul>
-<h2 id="measuring-code-review-process">Measuring code review process</h2>
-<p>If the team is finding that code reviews are taking a significant time to merge, and it is becoming a blocker, consider the following additional recommendations:</p>
+<h2 id="medindo-o-processo-de-revisao-de-codigo">Medindo o Processo de Revisão de Código</h2>
+<p>Se a equipe perceber que as revisões de código estão demorando muito para serem mescladas e estão se tornando um obstáculo, considere as seguintes recomendações adicionais:</p>
 <ol>
-<li>Measure the average time it takes to merge a PR per sprint cycle.</li>
-<li>Review during retrospective how the time to merge can be improved and prioritized.</li>
-<li>Assess the time to merge across sprints to see if the process is improving.</li>
-<li>Ping required approvers directly as a reminder.</li>
+<li>Meça o tempo médio necessário para mesclar um PR por ciclo de sprint.</li>
+<li>Revise durante a retrospectiva como o tempo para mesclar pode ser melhorado e priorizado.</li>
+<li>Avalie o tempo para mesclar ao longo dos sprints para ver se o processo está melhorando.</li>
+<li>Lembre os aprovadores necessários diretamente como lembrete.</li>
 </ol>
-<h2 id="code-reviews-shouldnt-include-too-many-lines-of-code">Code reviews shouldn't include too many lines of code</h2>
-<p>It's easy to say a developer can review few hundred lines of code, but when the code surpasses certain amount of lines, the effectiveness of defects discovery will decrease and there is a lesser chance of doing a good review. It's not a matter of setting a code line limit, but rather using common sense. More code there is to review, the higher chances there are letting a bug sneak through. See <a href="../pull-requests/#size-guidance">PR size guidance</a>.</p>
-<h2 id="automate-whenever-reasonable">Automate whenever reasonable</h2>
-<p>Use automation (linting, code analysis etc.) to avoid the need for "<a href="https://en.wikipedia.org/wiki/Nitpicking">nits</a>" and allow the reviewer to focus more on the functional aspects of the PR. By configuring automated builds, tests and checks (something achievable in the <a href="../../continuous-integration/">CI process</a>), teams can save human reviewers some time and let them focus in areas like design and functionality for proper evaluation. This will ensure higher chances of success as the team is focusing on the things that matter.</p>
-<h2 id="role-specific-guidance">Role specific guidance</h2>
+<h2 id="as-revisoes-de-codigo-nao-devem-incluir-muito-codigo">As revisões de código não devem incluir muito código</h2>
+<p>É fácil dizer que um desenvolvedor pode revisar algumas centenas de linhas de código, mas quando o código ultrapassa uma certa quantidade de linhas, a eficácia na descoberta de defeitos diminuirá, e há menos chances de fazer uma boa revisão. Não se trata de estabelecer um limite de linhas de código, mas sim de usar o bom senso. Quanto mais código houver para revisar, maiores são as chances de deixar um erro passar despercebido. Consulte <a href="../pull-requests/#size-guidance">Orientação de Tamanho de PR</a>.</p>
+<h2 id="automatize-sempre-que-for-razoavel">Automatize sempre que for razoável</h2>
+<p>Use automação (linting, análise de código etc.) para evitar a necessidade de "<a href="https://pt.wikipedia.org/wiki/Nitpicking">nits</a>" e permita que o revisor se concentre mais nos aspectos funcionais do PR. Configurando compilações automatizadas, testes e verificações (algo alcançável no <a href="../../continuous-integration/">processo de CI</a>), as equipes podem economizar tempo dos revisores humanos e permitir que eles se concentrem em áreas como design e funcionalidade para uma avaliação adequada. Isso garantirá maiores chances de sucesso, pois a equipe está se concentrando no que realmente importa.</p>
+<h2 id="orientacoes-especificas-por-funcao">Orientações Específicas por Função</h2>
 <ul>
-<li><a href="author-guidance/">Author Guidance</a></li>
-<li><a href="reviewer-guidance/">Reviewer Guidance</a></li>
+<li><a href="author-guidance/">Orientações para o Autor</a></li>
+<li><a href="reviewer-guidance/">Orientações para o Revisor</a></li>
 </ul>
 
   <hr>
@@ -7221,7 +7221,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 21, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 16, 2023</span>
       
     
   </small>

@@ -2149,36 +2149,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#general-process" class="md-nav__link">
-    General Process
+  <a href="#processo-geral" class="md-nav__link">
+    Processo Geral
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#size-guidance" class="md-nav__link">
-    Size Guidance
+  <a href="#orientacao-de-tamanho" class="md-nav__link">
+    Orientação de Tamanho
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    Best Practices
+  <a href="#melhores-praticas" class="md-nav__link">
+    Melhores Práticas
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pull-request-description" class="md-nav__link">
-    Pull Request Description
+  <a href="#descricao-da-pull-request" class="md-nav__link">
+    Descrição da Pull Request
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    Resources
+  <a href="#recursos" class="md-nav__link">
+    Recursos
   </a>
   
 </li>
@@ -7205,36 +7205,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#general-process" class="md-nav__link">
-    General Process
+  <a href="#processo-geral" class="md-nav__link">
+    Processo Geral
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#size-guidance" class="md-nav__link">
-    Size Guidance
+  <a href="#orientacao-de-tamanho" class="md-nav__link">
+    Orientação de Tamanho
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    Best Practices
+  <a href="#melhores-praticas" class="md-nav__link">
+    Melhores Práticas
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pull-request-description" class="md-nav__link">
-    Pull Request Description
+  <a href="#descricao-da-pull-request" class="md-nav__link">
+    Descrição da Pull Request
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    Resources
+  <a href="#recursos" class="md-nav__link">
+    Recursos
   </a>
   
 </li>
@@ -7254,89 +7254,90 @@
 
 
 <h1 id="pull-requests">Pull Requests</h1>
-<p>Changes to any main codebase - main branch in Git repository, for example - must be done using pull requests (PR).</p>
-<p>Pull requests enable:</p>
+<p>As alterações em qualquer código principal - como o ramo principal em um repositório Git, por exemplo - devem ser feitas usando pull requests (PR).</p>
+<p>As pull requests possibilitam:</p>
 <ul>
-<li>Code inspection - see <a href="../">Code Reviews</a></li>
-<li>Running automated qualification of the code<ul>
-<li>Linters</li>
-<li>Compilation</li>
-<li>Unit tests</li>
-<li>Integration tests etc.</li>
+<li>Inspeção de código - veja <a href="../">Revisões de Código</a></li>
+<li>Execução de qualificação automatizada do código<ul>
+<li>Linters (verificadores de código)</li>
+<li>Compilação</li>
+<li>Testes unitários</li>
+<li>Testes de integração, etc.</li>
 </ul>
 </li>
 </ul>
-<p>The requirements of pull requests can and should be enforced by policies, which can be set in the most modern version control and work item tracking systems. See <a href="../evidence-and-measures/">Evidence and Measures section</a> for more information.</p>
-<h2 id="general-process">General Process</h2>
+<p>Os requisitos das pull requests podem e devem ser aplicados por políticas, que podem ser configuradas nos sistemas mais modernos de controle de versão e rastreamento de itens de trabalho. Consulte a seção <a href="../evidence-and-measures/">Evidência e Medidas</a> para mais informações.</p>
+<h2 id="processo-geral">Processo Geral</h2>
 <ol>
-<li>Implement changes based on the well-defined description and acceptance criteria of the task at hand</li>
-<li>Then, before creating a new pull request:
-    * Make sure the code conforms with the agreed coding conventions
-        * This can be partially automated using linters
-    * Ensure the code compiles and runs without errors or warnings
-    * Write and/or update tests to cover the changes and make sure all new and existing tests pass
-    * Write and/or update the documentation to match the changes</li>
-<li>Once convinced the criteria above are met, create and submit a new pull request adhering to the <a href="../pull-request-template/pull-request-template/">pull request template</a></li>
-<li>Follow the <a href="../process-guidance/">code review</a> process to merge the changes to the main codebase</li>
+<li>Implemente as alterações com base na descrição bem definida e nos critérios de aceitação da tarefa em questão.</li>
+<li>Em seguida, antes de criar uma nova pull request:
+    * Certifique-se de que o código esteja em conformidade com as convenções de codificação acordadas
+        * Isso pode ser parcialmente automatizado usando linters (verificadores de código)
+    * Garanta que o código compile e execute sem erros ou avisos
+    * Escreva e/ou atualize os testes para abranger as alterações e certifique-se de que todos os testes novos e existentes passem
+    * Escreva e/ou atualize a documentação para corresponder às alterações</li>
+<li>Uma vez convencido de que os critérios acima estão atendidos, crie e envie uma nova pull request seguindo o <a href="../pull-request-template/pull-request-template/">modelo de pull request</a></li>
+<li>Siga o processo de <a href="../process-guidance/">revisão de código</a> para mesclar as alterações no código principal</li>
 </ol>
-<p>The following diagram illustrates this approach.</p>
+<p>O diagrama a seguir ilustra essa abordagem.</p>
 <div class="highlight"><pre><span></span><code>sequenceDiagram
-New branch-&gt;&gt;+Pull request: New PR creation
-Pull request-&gt;&gt;+Code review: Review process
-Code review-&gt;&gt;+Pull request: Code updates
-Pull request-&gt;&gt;+New branch: Merge Pull Request
-Pull request--&gt;&gt;-New branch: Delete branch
-Pull request -&gt;&gt;+ Main branch: Merge after completion
-New branch-&gt;&gt;+Main branch: Goal of the Pull request
+New branch-&gt;&gt;+Pull request: Criação de nova PR
+Pull request-&gt;&gt;+Code review: Processo de revisão
+Code review-&gt;&gt;+Pull request: Atualizações de código
+Pull request-&gt;&gt;+New branch: Mesclar Pull Request
+Pull request--&gt;&gt;-New branch: Excluir ramo
+Pull request -&gt;&gt;+ Main branch: Mesclar após a conclusão
+New branch-&gt;&gt;+Main branch: Objetivo da Pull request
 </code></pre></div>
-<h2 id="size-guidance">Size Guidance</h2>
-<p>We should always aim to keep pull requests small. Small PRs have multiple advantages:</p>
+<h2 id="orientacao-de-tamanho">Orientação de Tamanho</h2>
+<p>Devemos sempre procurar manter as pull requests pequenas. PRs pequenas têm várias vantagens:</p>
 <ul>
-<li>They are easier to review; a clear benefit for the reviewers.</li>
-<li>They are easier to deploy; this is aligned with the strategy of release fast and release often.</li>
-<li>Minimizes possible conflicts and stale PRs.</li>
+<li>São mais fáceis de revisar; um benefício claro para os revisores.</li>
+<li>São mais fáceis de implantar; isso está alinhado com a estratégia de lançar rápido e lançar com frequência.</li>
+<li>Minimiza possíveis conflitos e PRs não atualizadas.</li>
 </ul>
-<p>However, we should keep PRs focused - for example around a functional feature, optimization or code readability and avoid having PRs that include code that is without context or loosely coupled. There is no right size, but keep in mind that a code review is a collaborative process, a big PRs could be difficult and therefore slower to review. We should always strive to have as small PRs as possible that still add value.</p>
-<h2 id="best-practices">Best Practices</h2>
-<p>Beyond the size, remember that every PR should:</p>
+<p>No entanto, devemos manter as PRs focadas - por exemplo, em torno de uma funcionalidade funcional, otimização ou legibilidade de código, e evitar PRs que incluam código sem contexto ou frouxamente acoplado. Não há um tamanho certo, mas tenha em mente que uma revisão de código é um processo colaborativo, e PRs grandes podem ser difíceis e, portanto, mais lentas de revisar. Devemos sempre nos esforçar para ter PRs o mais pequenas possível que ainda agreguem valor.</p>
+<h2 id="melhores-praticas">Melhores Práticas</h2>
+<p>Além do tamanho, lembre-se de que toda PR deve:</p>
 <ul>
-<li>be consistent,</li>
-<li>not break the build, and</li>
-<li>include related tests as part of the PR.</li>
+<li>ser consistente,</li>
+<li>não quebrar a compilação e</li>
+<li>incluir testes relacionados como parte da PR.</li>
 </ul>
-<p>Be consistent means that all the changes included on the PR should aim to solve one goal (ex. one user story) and be intrinsically related. Think of this as the Single-responsibility principle in terms of the whole project, the PR should have only one <em>reason to change</em> the project.</p>
-<p>Start small, it is easier to create a small PR from the start than to break up a bigger one.</p>
-<p>These are some strategies to keep PRs small depending on the "cause" of the inevitability, you could break the PR into self-container changes which still add value, release features that are hidden (see feature flag, feature toggling or canary releases) or break the PR into different layers (for example using design patterns like MVC or Observer/Subject). No matter the strategy.</p>
-<h2 id="pull-request-description">Pull Request Description</h2>
-<p>Well written PR descriptions helps maintain a clean, well-structured change history. While every team need not conform to the same specification, it is important that the convention is agreed upon at the start of the project.</p>
-<p>One popular specification for open-source projects and others is the <a href="https://www.conventionalcommits.org/en/v1.0.0-beta.2/">Conventional Commits specification</a>, which is structured as:</p>
-<div class="highlight"><pre><span></span><code>&lt;type&gt;[optional scope]: &lt;description&gt;
+<p>Ser consistente significa que todas as alterações incluídas na PR devem visar resolver um objetivo (por exemplo, uma história de usuário) e estar intrinsecamente relacionadas. Pense nisso como o princípio de única responsabilidade em termos do projeto como um todo, a PR deve ter apenas uma <em>razão para alterar</em> o projeto.</p>
+<p>Comece pequeno, é mais fácil criar uma PR pequena desde o início do que dividir uma maior.</p>
+<p>Aqui estão algumas estratégias para manter as PRs pequenas, dependendo da "causa" da inevitabilidade: você pode dividir a PR em alterações autocontidas que ainda agreguem valor, lançar recursos ocultos (consulte feature flag, feature toggling ou lançamentos canários) ou dividir a PR em diferentes camadas (por exemplo, usando padrões de design como MVC ou Observer/Subject). Não importa a estratégia.</p>
+<h2 id="descricao-da-pull-request">Descrição da Pull Request</h2>
+<p>Descrições de PR bem escritas ajudam a manter um histórico de alterações limpo e bem estruturado. Embora cada equipe não precise aderir à mesma especificação, é importante que a convenção seja acordada no início do projeto.</p>
+<p>Uma especificação popular para projetos de código aberto e outros é a <a href="https://www.conventionalcommits.org/en/v1.0.0-beta.2/">Conventional Commits specification</a>, que é estruturada como:</p>
+<div class="highlight"><pre><span></span><code>&lt;tipo&gt;[escopo opcional]: &lt;descrição&gt;
 
-[optional body]
+[corpo opcional]
 
-[optional footer]
+[rodapé opcional]
 </code></pre></div>
-<p>The <code>&lt;type&gt;</code> in this message can be selected from a list of types defined by the team, but many projects use the <a href="https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#type">list of commit types from the Angular open-source project</a>. It should be clear that <code>scope</code>, <code>body</code> and <code>footer</code> elements are <strong>optional</strong>, but having a required <code>type</code> and short description enables the features mentioned above.</p>
-<p>See also <a href="../pull-request-template/pull-request-template/">Pull Request Template</a></p>
-<h2 id="resources">Resources</h2>
+<p>O <code>&lt;tipo&gt;</code> nesta mensagem pode ser selecionado em uma lista de tipos definidos pela equipe, mas muitos projetos usam a <a href="https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#type">lista de tipos de commit do projeto open-source Angular</a>. Deve ficar claro que os elementos <code>escopo</code>, <code>corpo</code> e <code>rodapé</code> são <strong>opcionais</strong>, mas ter um <code>tipo</code> obrigatório e uma breve descrição permite as funcionalidades mencionadas acima.</p>
+<p>Veja também <a href="../pull-request-template/pull-request-template/">Modelo de Pull Request</a></p>
+<h2 id="recursos">Recursos</h2>
 <ul>
-<li><a href="https://www.pullrequest.com/blog/writing-a-great-pull-request-description">Writing a great pull request description</a></li>
-<li><a href="https://learn.microsoft.com/en-us/azure/devops/repos/git/pull-requests?view=azure-devops">Review code with pull requests (Azure DevOps)</a></li>
-<li><a href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests">Collaborating with issues and pull requests (GitHub)</a></li>
-<li><a href="https://google.github.io/eng-practices/review/developer/small-cls.html">Google approach to PR size</a></li>
+<li><a href="https://www.pullrequest.com/blog/writing-a-great-pull-request-description">Escrevendo uma ótima descrição de pull request</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/devops/repos/git/pull-requests?view=azure-devops">Revisando código com pull requests (Azure DevOps)</a></li>
+<li><a href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests">Colaboração com problemas e pull requests (GitHub)</a></li>
+<li><a href="https://google.github.io/eng-practices/review/developer/small-cls.html">Abordagem do Google para o tamanho de PR</a></li>
 <li><a href="https://www.martinfowler.com/articles/feature-toggles.html">Feature Flags</a></li>
-<li><a href="https://launchdarkly.com/blog/secret-to-facebooks-hacker-engineering-culture/">Facebook approach to hidden features</a></li>
-<li><a href="https://learn.microsoft.com/azure/architecture/framework/devops/release-engineering-cd#stage-your-workloads">Azure approach to canary releases</a></li>
-<li><a href="https://www.conventionalcommits.org/en/v1.0.0-beta.2/">Conventional Commits specification</a></li>
-<li><a href="https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#type">Angular Commit types</a></li>
+<li><a href="https://launchdarkly.com/blog/secret-to-facebooks-hacker-engineering-culture/">Abordagem do Facebook para recursos ocultos</a></li>
+<li><a href="https://learn.microsoft.com/azure/architecture/framework/devops/release-engineering-cd#stage-your-workloads">Abordagem da Azure para lançamentos canários</a></li>
+<li>[Especificação Conventional</li>
 </ul>
+<p>Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/)
+* <a href="https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#type">Tipos de Commit do Angular</a></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 15, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 16, 2023</span>
       
     
   </small>

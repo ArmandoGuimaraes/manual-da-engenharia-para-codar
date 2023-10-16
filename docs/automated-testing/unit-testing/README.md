@@ -1,230 +1,162 @@
-# Unit Testing
+# Teste de Unidade
 
-Unit testing is a fundamental tool in every developer's toolbox. Unit tests not only help us test our code, they
-encourage good design practices, reduce the chances of bugs reaching production, and can even serve as examples or
-documentation on how code functions. Properly written unit tests can also improve developer efficiency.
+O teste de unidade é uma ferramenta fundamental no conjunto de ferramentas de todo desenvolvedor. Testes de unidade não apenas nos ajudam a testar nosso código, mas também incentivam boas práticas de design, reduzem as chances de bugs chegarem à produção e podem até servir como exemplos ou documentação sobre como o código funciona. Testes de unidade bem escritos também podem melhorar a eficiência do desenvolvedor.
 
-Unit testing also is one of the most commonly misunderstood forms of testing. Unit testing refers to a very specific
-type of testing; a unit test should be:
+O teste de unidade também é uma das formas mais comumente mal compreendidas de teste. Teste de unidade se refere a um tipo muito específico de teste; um teste de unidade deve ser:
 
-- **Provably reliable** - should be 100% reliable so failures indicate a bug in the code
-- **Fast** - should run in milliseconds, a whole unit testing suite shouldn't take longer than a couple seconds
-- **Isolated** - removing all external dependencies ensures reliability and speed
+- **Comprovadamente confiável** - deve ser 100% confiável para que falhas indiquem um bug no código
+- **Rápido** - deve ser executado em milissegundos, uma suíte completa de teste de unidade não deve demorar mais do que alguns segundos
+- **Isolado** - remover todas as dependências externas garante confiabilidade e velocidade
 
-## Why Unit Testing
+## Por que Teste de Unidade
 
-It is no secret that writing unit tests is hard, and even harder to write well. Writing unit tests also increases the
-development time for every feature. So why should we write them?
+Não é segredo que escrever testes de unidade é difícil e ainda mais difícil escrevê-los bem. Escrever testes de unidade também aumenta o tempo de desenvolvimento para cada funcionalidade. Então, por que devemos escrevê-los?
 
-Unit tests
+Testes de unidade:
 
-- reduce costs by catching bugs earlier and preventing regressions
-- increase developer confidence in changes
-- speed up the developer inner loop
-- act as documentation as code
+- reduzem custos ao detectar bugs mais cedo e evitar regressões
+- aumentam a confiança do desenvolvedor nas mudanças
+- aceleram o ciclo interno do desenvolvedor
+- atuam como documentação como código
 
-For more details, see all the [detailed descriptions of the points above](./why-unit-tests.md).
+Para mais detalhes, veja todas as [descrições detalhadas dos pontos acima](./why-unit-tests.md).
 
-## Unit Testing Design Blocks
+## Blocos de Design de Teste de Unidade
 
-Unit testing is the lowest level of testing and as such generally has few components and dependencies.
+O teste de unidade é o nível mais baixo de teste e, como tal, geralmente tem poucos componentes e dependências.
 
-The **system under test** (abbreviated SUT) is the "unit" we are testing. Generally these are methods or functions, but
-depending on the language these could be different. In general, you want the unit to be as small as possible though.
+O **sistema sob teste** (abreviado como SUT) é a "unidade" que estamos testando. Geralmente, são métodos ou funções, mas dependendo da linguagem, esses podem ser diferentes. Em geral, você quer que a unidade seja o menor possível.
 
-Most languages also have a wide suite of **unit testing frameworks** and test runners. These test frameworks have
-a wide range of functionality, but the base functionality should be a way to organize your tests and run them quickly.
+A maioria das linguagens também possui uma ampla suíte de **frameworks de teste de unidade** e executores de teste. Esses frameworks de teste têm uma ampla gama de funcionalidades, mas a funcionalidade básica deve ser uma forma de organizar seus testes e executá-los rapidamente.
 
-Finally, there is your **unit test code**; unit test code is generally short and simple, preferring repetition to adding
-layers and complexity to the code.
+Finalmente, há o seu **código de teste de unidade**; o código de teste de unidade geralmente é curto e simples, preferindo repetição a adicionar camadas e complexidade ao código.
 
-## Applying the Unit Testing
+## Aplicando o Teste de Unidade
 
-Getting started with writing a unit test is much easier than some other test types since it should require next to no
-setup and is just code. Each [test framework](#test-frameworks) is different in how you organize and write your tests,
-but the general techniques and best practices of writing a unit test are universal.
+Começar a escrever um teste de unidade é muito mais fácil do que alguns outros tipos de teste, já que deve exigir quase nenhuma configuração e é apenas código. Cada [framework de teste](#test-frameworks) é diferente na forma como você organiza e escreve seus testes, mas as técnicas gerais e melhores práticas de escrita de um teste de unidade são universais.
 
-### Techniques
+### Técnicas
 
-These are some commonly used techniques that will help when authoring unit tests. For some examples, see the pages on
-using [abstraction and dependency injection to author a unit test](authoring_example.md), or how to do [test-driven development](tdd_example.md).
+Essas são algumas técnicas comumente usadas que ajudarão na autoria de testes de unidade. Para alguns exemplos, veja as páginas sobre o uso de [abstração e injeção de dependência para criar um teste de unidade](authoring_example.md) ou como fazer [desenvolvimento orientado por testes](tdd_example.md).
 
-Note that some of these techniques are more specific to strongly typed, object-oriented languages. Functional languages
-and scripting languages have similar techniques that may look different, but these terms are commonly used in all unit
-testing examples.
+Observe que algumas dessas técnicas são mais específicas para linguagens fortemente tipadas e orientadas a objetos. Linguagens funcionais e linguagens de script têm técnicas semelhantes que podem parecer diferentes, mas esses termos são comumente usados em todos os exemplos de teste de unidade.
 
-#### Abstraction
+#### Abstração
 
-Abstraction is when we take an exact implementation detail, and we generalize it into a concept instead. This technique
-can be used in creating testable design and is used often especially in object-oriented languages. For unit tests,
-abstraction is commonly used to break a hard dependency and replace it with an abstraction. That abstraction then allows
-for greater flexibility in the code and allows for the a [mock or simulator](mocking.md) to be used in its place.
+A abstração é quando pegamos um detalhe de implementação exato e o generalizamos em um conceito. Essa técnica pode ser usada na criação de design testável e é usada com frequência, especialmente em linguagens orientadas a objetos. Para testes de unidade, a abstração é comumente usada para quebrar uma dependência rígida e substituí-la por uma abstração. Essa abstração permite então maior flexibilidade no código e permite que um [mock ou simulador](mocking.md) seja usado em seu lugar.
 
-One of the side effects of abstracting dependencies is that you may have an abstraction that has no test coverage. This
-is case where unit testing is not well-suited, you can not expect to unit test everything, things like dependencies will
-always be an uncovered case. This is why even if you have a robust unit testing suite, [integration or functional testing](../integration-testing/README.md)
-should still be used - without that, a change in the way the dependency functions would never be caught.
+Um dos efeitos colaterais da abstração de dependências é que você pode ter uma abstração que não tem cobertura de teste. Este é um caso em que o teste de unidade não é bem adequado, você não pode esperar testar tudo em unidade, coisas como dependências sempre serão um caso não coberto. É por isso que mesmo se você tiver uma suíte robusta de teste de unidade, [teste de integração ou teste funcional](../integration-testing/README.md) ainda deve ser usado - sem isso, uma mudança na forma como a dependência funciona nunca seria detectada.
 
-When building wrappers around third-party dependencies, it is best to keep the implementations with as little logic as
-possible, using a very simple [facade](https://en.wikipedia.org/wiki/Facade_pattern) that calls the dependency.
+Ao criar wrappers em torno de dependências de terceiros, é melhor manter as implementações com o mínimo de lógica possível, usando uma [fachada](https://en.wikipedia.org/wiki/Facade_pattern) muito simples que chama a dependência.
 
-An example of using abstraction can be found [here](authoring_example.md#abstraction).
+Um exemplo de uso de abstração pode ser encontrado [aqui](authoring_example.md#abstraction).
 
-#### Dependency Injection
+#### Injeção de Dependência
 
-[Dependency injection](https://en.wikipedia.org/wiki/Dependency_injection) is a technique which allows us to extract
-dependencies from our code. In a normal use-case of a dependant class, the dependency is constructed and used within the
-system under test. This creates a hard dependency between the two classes, which can make it particularly hard to test
-in isolation. Dependencies could be things like classes wrapping a REST API, or even something as simple as file access.
-By injecting the dependencies into our system rather than constructing them, we have "inverted control" of the
-dependency. You may see "Inversion of Control" and "Dependency Injection" used as separate terms, but it is very hard to
-have one and not the other, with some arguing that [Dependency Injection is a more specific way of saying inversion of
-control](https://martinfowler.com/articles/injection.html#InversionOfControl). In certain languages such as C#, not using
-dependency injection can lead to code that is not unit testable since there is no way to inject mocked objects.
-Keeping testability in mind from the beginning and evaluating using dependency injection can save you from a time-intensive
-refactor later.
+[A injeção de dependência](https://en.wikipedia.org/wiki/Dependency_Injection) é uma técnica que nos permite extrair dependências do nosso código. Em um caso de uso normal de uma classe dependente, a dependência é construída e usada dentro do sistema sob teste. Isso cria uma dependência rígida entre as duas classes, o que pode torná-la particularmente difícil de testar isoladamente. Dependências podem ser coisas como classes que envolvem uma API REST ou até mesmo algo tão simples quanto o acesso a arquivos. Ao injetar as dependências em nosso sistema em vez de construí-las, "invertemos o controle" da dependência. Você pode ver "Inversão de Controle" e "Injeção de Dependência" usados como termos separados, mas é muito difícil ter um e não o outro, com alguns argumentando que [Injeção de Dependência é uma forma mais específica de dizer inversão de controle](https://martinfowler.com/articles/injection.html#InversionOfControl). Em certas linguagens como C#, não usar injeção de dependência pode levar a um código que não é testável em unidade, já que não há como injetar objetos simulados. Manter a testabilidade em mente desde o início e avaliar o uso da injeção de dependência
 
-One of the [downsides of dependency injection](https://en.wikipedia.org/wiki/Dependency_injection#Disadvantages) is that
-it can easily go overboard. While there are no longer hard dependencies, there is still coupling between the interfaces,
-and passing around every interface implementation into every class presents just as many downsides as not using
-Dependency Injection. Being intentional with what dependencies get injected to what classes, is key to developing a maintainable
-system.
+ pode poupar você de um refatoramento demorado mais tarde.
 
-Many languages include special Dependency Injection frameworks that take care of the boilerplate code and construction
-of the objects. Examples of this are [Spring](https://spring.io/) in Java or built into [ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1)
+Uma das [desvantagens da injeção de dependência](https://en.wikipedia.org/wiki/Dependency_Injection#Disadvantages) é que ela pode facilmente sair do controle. Embora não haja mais dependências rígidas, ainda há acoplamento entre as interfaces, e passar todas as implementações de interface para todas as classes apresenta tantas desvantagens quanto não usar Injeção de Dependência. Ser intencional com quais dependências são injetadas em quais classes é a chave para desenvolver um sistema sustentável.
 
-An example of using dependency injection can be found [here](authoring_example.md#dependency-injection).
+Muitas linguagens incluem frameworks especiais de Injeção de Dependência que cuidam do código de inicialização e construção dos objetos. Exemplos disso são [Spring](https://spring.io/) em Java ou embutido em [ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1).
 
-#### Test-Driven Development
+Um exemplo de uso de injeção de dependência pode ser encontrado [aqui](authoring_example.md#dependency-injection).
 
-Test-Driven Development (TDD) is less a technique in how your code is designed, but a technique for writing your
-code that will lead you to a testable design from the start. The basic premise of test-driven development is that you
-write your test code first and then write the system under test to match the test you just wrote. This way all the test
-design is done up front and by the time you finish writing your system code, you are already at 100% test pass rate and
-test coverage. It also guarantees testable design is built into the system since the test was written first!
+#### Desenvolvimento Orientado por Testes
 
-For more information on TDD and an example, see the page on [Test-Driven Development](./tdd_example.md)
+O Desenvolvimento Orientado por Testes (TDD) é menos uma técnica em como seu código é projetado, mas uma técnica para escrever seu código que o levará a um design testável desde o início. A premissa básica do desenvolvimento orientado por testes é que você escreve seu código de teste primeiro e depois escreve o sistema sob teste para corresponder ao teste que você acabou de escrever. Dessa forma, todo o design do teste é feito antecipadamente e, quando você termina de escrever seu código do sistema, já está com 100% de taxa de aprovação e cobertura de teste. Também garante que o design testável seja incorporado ao sistema, já que o teste foi escrito primeiro!
 
-### Best Practices
+Para mais informações sobre TDD e um exemplo, veja a página sobre [Desenvolvimento Orientado por Testes](./tdd_example.md).
 
-#### Arrange/Act/Assert
+### Melhores Práticas
 
-One common form of organizing your unit test code is called Arrange/Act/Assert. This divides up your unit test into 3
-different discrete sections:
+#### Organizar/Agir/Afirmar
 
-1. Arrange - Set up all the variables, mocks, interfaces, and state you will need to run the test
-2. Act - Run the system under test, passing in any of the above objects that were created
-3. Assert - Check that with the given state that the system acted appropriately.
+Uma forma comum de organizar seu código de teste de unidade é chamada de Organizar/Agir/Afirmar. Isso divide seu teste de unidade em 3 seções diferentes e discretas:
 
-Using this pattern to write tests makes them very readable and also familiar to future developers who would need to read
-your unit tests.
+1. Organizar - Configure todas as variáveis, mocks, interfaces e estados de que você precisará para executar o teste
+2. Agir - Execute o sistema sob teste, passando qualquer um dos objetos acima que foram criados
+3. Afirmar - Verifique que, com o estado dado, o sistema agiu adequadamente.
 
-##### Example
+Usar esse padrão para escrever testes torna-os muito legíveis e também familiares para futuros desenvolvedores que precisariam ler seus testes de unidade.
 
-Let's assume we have a class `MyObject` with a method `TrySomething` that interacts with an array of strings, but if the
-array has no elements, it will return false. We want to write a test that checks the case where array has no elements:
+##### Exemplo
+
+Vamos supor que temos uma classe `MeuObjeto` com um método `TentarAlgo` que interage com uma matriz de strings, mas se a matriz não tiver elementos, ele retornará falso. Queremos escrever um teste que verifica o caso em que a matriz não tem elementos:
 
 ```csharp
 [Fact]
-public void TrySomething_NoElements_ReturnsFalse()
+public void TentarAlgo_SemElementos_RetornaFalso()
 {
-    // Arrange
-    var elements = Array.Empty<string>();
-    var myObject = new MyObject();
+    // Organizar
+    var elementos = Array.Empty<string>();
+    var meuObjeto = new MeuObjeto();
 
-    // Act
-    var myReturn = myObject.TrySomething(elements);
+    // Agir
+    var meuRetorno = meuObjeto.TentarAlgo(elementos);
 
-    // Assert
-    Assert.False(myReturn);
+    // Afirmar
+    Assert.False(meuRetorno);
 }
 ```
 
-#### Keep tests small and test only one thing
+#### Mantenha os testes pequenos e teste apenas uma coisa
 
-Unit tests should be short and test only one thing. This makes it easy to diagnose when there was a failure without
-needing something like which line number the test failed at. When using [Arrange/Act/Assert](#arrangeactassert), think
-of it like testing just one thing in the "Act" phase.
+Os testes de unidade devem ser curtos e testar apenas uma coisa. Isso facilita o diagnóstico quando houve uma falha sem precisar de algo como o número da linha em que o teste falhou. Ao usar [Organizar/Agir/Afirmar](#organizaragirafirmar), pense nisso como testar apenas uma coisa na fase "Agir".
 
-There is some disagreement on whether testing one thing means "assert one thing" or "test one state, with
-multiple asserts if needed". Both have their advantages and disadvantages, but as with most technical disagreements
-there is no "right" answer. Consistency when writing your tests one way or the other is more important!
+Há algum desacordo sobre se testar uma coisa significa "afirmar uma coisa" ou "testar um estado, com várias afirmações, se necessário". Ambos têm suas vantagens e desvantagens, mas como na maioria dos desacordos técnicos, não há uma "resposta certa". A consistência ao escrever seus testes de uma forma ou de outra é mais importante!
 
-#### Using a standard naming convention for all unit tests
+#### Usando uma convenção de nomenclatura padrão para todos os testes de unidade
 
-Without having a set standard convention for unit test names, unit test names end up being either not descriptive
-enough, or duplicated across multiple different test classes. Establishing a standard is not only important for keeping
-your code consistent, but a good standard also improves the readability and debug-ability of a test. In this article,
-the convention used for all unit tests has been `UnitName_StateUnderTest_ExpectedResult`, but there are lots of other
-possible conventions as well, the important thing is to be consistent and descriptive. Having descriptive names such as
-the one above makes it trivial to find the test when there is a failure, and also already explains what the expectation
-of the test was and what state caused it to fail. This can be especially helpful when looking at failures in a CI/CD
-system where all you know is the name of the test that failed - instead now you know the name of the test and exactly
-why it failed (especially coupled with a test framework that logs helpful output on failures).
+Sem ter uma convenção padrão estabelecida para os nomes dos testes de unidade, os nomes dos testes de unidade acabam sendo ou não descritivos o suficiente ou duplicados em várias classes de teste diferentes. Estabelecer um padrão não é apenas importante para manter seu código consistente, mas um bom padrão também melhora a legibilidade e a capacidade de depuração de um teste. Neste artigo, a convenção usada para todos os testes de unidade foi `NomeDaUnidade_EstadoSobTeste_ResultadoEsperado`, mas há muitas outras convenções possíveis também, o importante é ser consistente e descritivo. Ter nomes descritivos como o acima torna trivial encontrar o teste quando há uma falha e também já explica qual era a expectativa do teste e qual estado fez com que ele falhasse. Isso pode ser especialmente útil ao olhar para falhas em um sistema de CI/CD onde tudo o que você sabe é o nome do teste que falhou - em vez disso, agora você sabe o nome do teste e exatamente por que ele falhou (especialmente acoplado com um framework de teste que registra saídas úteis em falhas).
 
-### Things to Avoid
+### Coisas a Evitar
 
-Some common pitfalls when writing a unit test that are important to avoid:
+Alguns problemas comuns ao escrever um teste de unidade que são importantes de evitar:
 
-- Sleeps - A sleep can be an indicator that perhaps something is making a request to a dependency that it should not be.
-  In general, if your code is flaky without the sleep, consider why it is failing and if you can remove the flakiness by
-  introducing a more reliable way to communicate potential state changes. Adding sleeps to your unit tests also breaks
-  one of our original tenets of unit testing: tests should be fast, as in order of milliseconds. If tests are taking on
-  the order of seconds, they become more cumbersome to run.
-- Reading from disk - It can be really tempting to the expected value of a function return in a file and read that file
-  to compare the results. This creates a dependency with the system drive, and it breaks our tenet of keeping our unit
-  tests isolated and 100% reliable. Any outside dependency such as file system access could potentially cause
-  intermittent failures. Additionally, this could be a sign that perhaps the test or unit under test is too complex and
-  should be simplified.
-- Calling third-party APIs - When you do not control a third-party library that you are calling into, it's impossible to
-  know for sure what that is doing, and it is best to abstract it out. Otherwise, you may be making REST calls or other
-  potential areas of failure without directly writing the code for it. This is also generally a sign that the design of
-  the system is not entirely testable. It is best to wrap third party API calls in interfaces or other structures so
-  that they do not get invoked in unit tests. For more information see the page on [mocking](mocking.md).
+- Sleeps - Um sleep pode ser um indicador de que talvez algo esteja fazendo uma solicitação a uma dependência que não deveria. Em geral, se seu código é instável sem o sleep, considere por que ele está falhando e se você pode remover a instabilidade introduzindo uma forma mais confiável de comunicar possíveis mudanças de estado. Adicionar sleeps aos seus testes de unidade também quebra um dos nossos princípios originais de teste de unidade: os testes devem ser rápidos, na ordem de milissegundos. Se os testes estão demorando na ordem de segundos, eles se tornam mais difíceis de executar.
+- Leitura do disco - Pode ser realmente tentador colocar o valor esperado de um retorno de função em um arquivo e ler esse arquivo para comparar os resultados. Isso cria uma dependência com o sistema de arquivos e quebra nosso princípio de manter nossos testes de unidade isolados e 100% confiáveis
 
-## Unit Testing Frameworks and Tools
+. Qualquer dependência externa, como acesso ao sistema de arquivos, pode potencialmente causar falhas intermitentes. Além disso, isso pode ser um sinal de que talvez o teste ou a unidade sob teste seja muito complexa e deva ser simplificada.
+- Chamadas de APIs de terceiros - Quando você não controla uma biblioteca de terceiros que está chamando, é impossível saber com certeza o que ela está fazendo, e é melhor abstrai-la. Caso contrário, você pode estar fazendo chamadas REST ou outras áreas potenciais de falha sem escrever diretamente o código para isso. Isso também é geralmente um sinal de que o design do sistema não é totalmente testável. É melhor envolver chamadas de API de terceiros em interfaces ou outras estruturas para que elas não sejam invocadas em testes de unidade. Para mais informações, consulte a página sobre [mocking](mocking.md).
 
-### Test Frameworks
+## Frameworks e Ferramentas de Teste de Unidade
 
-Unit test frameworks are constantly changing. For a full list of every unit testing framework [see the page on
-Wikipedia](https://en.wikipedia.org/wiki/List_of_unit_testing_frameworks). Frameworks have many features and
-should be picked based on which feature-set fits best for the particular project.
+### Frameworks de Teste
 
-### Mock Frameworks
+Os frameworks de teste de unidade estão em constante mudança. Para uma lista completa de todos os frameworks de teste de unidade [veja a página na Wikipedia](https://en.wikipedia.org/wiki/List_of_unit_testing_frameworks). Os frameworks têm muitos recursos e devem ser escolhidos com base em qual conjunto de recursos se encaixa melhor para o projeto em particular.
 
-Many projects start with both a unit test framework, and also add a mock framework. While mocking frameworks have their
-uses and sometimes can be a requirement, it should not be something that is added without considering the broader
-implications and risks associated with heavy usage of mocks.
+### Frameworks de Mock
 
-To see if mocking is right for your project, or if a mock-free approach is more appropriate, see the page on [mocking](mocking.md).
+Muitos projetos começam com um framework de teste de unidade e também adicionam um framework de mock. Embora os frameworks de mock tenham seus usos e às vezes possam ser um requisito, não deve ser algo que é adicionado sem considerar as implicações e riscos mais amplos associados ao uso pesado de mocks.
 
-### Tools
+Para ver se o uso de mocks é adequado para o seu projeto, ou se uma abordagem sem mocks é mais apropriada, consulte a página sobre [mocking](mocking.md).
 
-These tools allow for constant running of your unit tests with in-line code coverage, making the dev inner loop
-extremely fast and allows for easy TDD:
+### Ferramentas
+
+Essas ferramentas permitem a execução constante de seus testes de unidade com cobertura de código em linha, tornando o ciclo interno de desenvolvimento extremamente rápido e permitindo um fácil TDD:
 
 - [Visual Studio Live Unit Testing](https://learn.microsoft.com/en-us/visualstudio/test/live-unit-testing-intro?view=vs-2019)
 - [Wallaby.js](https://wallabyjs.com/)
-- [Infinitest](http://infinitest.github.io/) for Java
-- [PyCrunch](https://plugins.jetbrains.com/plugin/13264-pycrunch--live-testing) for Python
+- [Infinitest](http://infinitest.github.io/) para Java
+- [PyCrunch](https://plugins.jetbrains.com/plugin/13264-pycrunch--live-testing) para Python
 
-## Things to consider
+## Coisas a Considerar
 
-### Transferring responsibility to integration tests
+### Transferindo a responsabilidade para testes de integração
 
-In some situations it is worth considering to include the integration tests in the inner development loop to provide a sufficient code coverage to ensure the system is working properly. The prerequisite for this approach to be successful is to have integration tests being able to execute at a speed comparable to that of unit tests both locally and in a CI environment. Modern application frameworks like .NET or Spring Boot combined with the right mocking or stubbing approach for external dependencies offer excellent capabilities to enable such scenarios for testing.
+Em algumas situações, vale a pena considerar incluir os testes de integração no ciclo interno de desenvolvimento para fornecer uma cobertura de código suficiente para garantir que o sistema está funcionando corretamente. O pré-requisito para que essa abordagem seja bem-sucedida é ter testes de integração capazes de serem executados a uma velocidade comparável à dos testes de unidade, tanto localmente quanto em um ambiente de CI. Frameworks de aplicação modernos como .NET ou Spring Boot, combinados com a abordagem de mocking ou stubbing correta para dependências externas, oferecem excelentes capacidades para habilitar tais cenários para testes.
 
-Usually, integration tests only prove that independently developed modules connect together as designed. The test coverage of integration tests can be extended to verify the correct behavior of the system as well. The responsibility of providing a sufficient branch and line code coverage can be transferred from unit tests to integration tests.
-Instead of several unit tests needed to test a specific case of functionality of the system, one integration scenario is created that covers the entire flow. For example in case of an API, the received HTTP responses and their content are verified for each request in test. This covers both the integration between components of the API and the correctness of its business logic.
+Normalmente, os testes de integração apenas provam que os módulos desenvolvidos independentemente se conectam conforme projetado. A cobertura de teste dos testes de integração pode ser estendida para verificar o comportamento correto do sistema também. A responsabilidade de fornecer uma cobertura de código de ramo e linha suficiente pode ser transferida dos testes de unidade para os testes de integração.
+Em vez de vários testes de unidade necessários para testar um caso específico de funcionalidade do sistema, um cenário de integração é criado que cobre todo o fluxo. Por exemplo, no caso de uma API, as respostas HTTP recebidas e seu conteúdo são verificados para cada solicitação no teste. Isso cobre tanto a integração entre os componentes da API quanto a correção de sua lógica de negócios.
 
-With this approach efficient integration tests can be treated as an extension of unit testing, taking over the responsibility of validating happy/failure path scenarios. It has the advantage of testing the system as a black box without any knowledge of its internals. Code refactoring has no impact on tests. Common testing techniques as TDD can be applied at a higher level which results in a development process that is driven by acceptance tests. Depending on the project specifics unit tests still play an important role. They can be used to help dictate a testable design at a lower level or to test complex business logic and corner cases if necessary.
+Com essa abordagem, testes de integração eficientes podem ser tratados como uma extensão do teste de unidade, assumindo a responsabilidade de validar cenários de caminho feliz/falha. Ele tem a vantagem de testar o sistema como uma caixa preta, sem qualquer conhecimento de seus componentes internos. A refatoração de código não tem impacto nos testes. Técnicas comuns de teste como TDD podem ser aplicadas em um nível mais alto, resultando em um processo de desenvolvimento orientado por testes de aceitação. Dependendo das especificidades do projeto, os testes de unidade ainda desempenham um papel importante. Eles podem ser usados para ajudar a ditar um design testável em um nível mais baixo ou para testar lógica de negócios complexa e casos extremos, se necessário.
 
-## Conclusion
+## Conclusão
 
-Unit testing is extremely important, but it is also not the silver bullet; having proper unit tests is just a part of a
-well-tested system. However, writing proper unit tests will help with the design of your system as well as help catch
-regressions, bugs, and increase developer velocity.
+O teste de unidade é extremamente importante, mas também não é a bala de prata; ter testes de unidade adequados é apenas uma parte de um sistema bem testado. No entanto, escrever testes de unidade adequados ajudará no design do seu sistema, bem como ajudará a capturar regressões, bugs e aumentar a velocidade do desenvolvedor.
 
-## Resources
+## Recursos
 
-- [Unit Testing Best Practices](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices)
+- [Melhores Práticas de Teste de Unidade](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices)

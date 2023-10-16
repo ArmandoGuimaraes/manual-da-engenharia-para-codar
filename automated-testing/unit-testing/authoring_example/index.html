@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#abordagem-para-teste-de-unidade-no-codigo-de-exemplo" class="md-skip">
+        <a href="#exemplo-criando-um-teste-de-unidade" class="md-skip">
           Skip to content
         </a>
       
@@ -1935,57 +1935,58 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#abordagem-para-teste-de-unidade-no-codigo-de-exemplo" class="md-nav__link">
-    Abordagem para Teste de Unidade no Código de Exemplo
+  <a href="#exemplo-criando-um-teste-de-unidade" class="md-nav__link">
+    Exemplo: Criando um teste de unidade
   </a>
   
-    <nav class="md-nav" aria-label="Abordagem para Teste de Unidade no Código de Exemplo">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#abstracao" class="md-nav__link">
     Abstração
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#injecao-de-dependencia" class="md-nav__link">
     Injeção de Dependência
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#escrita-dos-primeiros-testes-de-unidade" class="md-nav__link">
-    Escrita dos Primeiros Testes de Unidade
+      
+        <li class="md-nav__item">
+  <a href="#escrevendo-nossos-primeiros-testes-de-unidade" class="md-nav__link">
+    Escrevendo nossos primeiros testes de unidade
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#correcao-do-bug" class="md-nav__link">
-    Correção do Bug
+      
+        <li class="md-nav__item">
+  <a href="#corrigindo-o-erro" class="md-nav__link">
+    Corrigindo o erro
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#codigo-nao-testavel" class="md-nav__link">
     Código Não Testável
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#design-testavel-e-melhorias-futuras" class="md-nav__link">
     Design Testável e Melhorias Futuras
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#conclusao" class="md-nav__link">
+    Conclusão
+  </a>
   
 </li>
       
@@ -7221,57 +7222,58 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#abordagem-para-teste-de-unidade-no-codigo-de-exemplo" class="md-nav__link">
-    Abordagem para Teste de Unidade no Código de Exemplo
+  <a href="#exemplo-criando-um-teste-de-unidade" class="md-nav__link">
+    Exemplo: Criando um teste de unidade
   </a>
   
-    <nav class="md-nav" aria-label="Abordagem para Teste de Unidade no Código de Exemplo">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#abstracao" class="md-nav__link">
     Abstração
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#injecao-de-dependencia" class="md-nav__link">
     Injeção de Dependência
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#escrita-dos-primeiros-testes-de-unidade" class="md-nav__link">
-    Escrita dos Primeiros Testes de Unidade
+      
+        <li class="md-nav__item">
+  <a href="#escrevendo-nossos-primeiros-testes-de-unidade" class="md-nav__link">
+    Escrevendo nossos primeiros testes de unidade
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#correcao-do-bug" class="md-nav__link">
-    Correção do Bug
+      
+        <li class="md-nav__item">
+  <a href="#corrigindo-o-erro" class="md-nav__link">
+    Corrigindo o erro
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#codigo-nao-testavel" class="md-nav__link">
     Código Não Testável
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#design-testavel-e-melhorias-futuras" class="md-nav__link">
     Design Testável e Melhorias Futuras
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#conclusao" class="md-nav__link">
+    Conclusão
+  </a>
   
 </li>
       
@@ -7291,20 +7293,249 @@
 
   <h1>Authoring example</h1>
 
-<h3 id="abordagem-para-teste-de-unidade-no-codigo-de-exemplo">Abordagem para Teste de Unidade no Código de Exemplo</h3>
-<p>O exemplo fornecido é uma excelente ilustração de como abordar o teste de unidade em um projeto de software orientado a objetos. Vou dividir a abordagem em várias partes para facilitar a compreensão.</p>
-<h4 id="abstracao">Abstração</h4>
-<p>O primeiro passo é abstrair as dependências para tornar o código mais testável. No exemplo, a classe <code>Configuration</code> depende do sistema de arquivos para ler um arquivo de configuração. Isso é abstraído para uma interface <code>IConfigurationReader</code>, e uma implementação concreta <code>FileConfigurationReader</code> é criada. Isso permite que outras implementações sejam injetadas, tornando o código mais flexível e testável.</p>
-<h4 id="injecao-de-dependencia">Injeção de Dependência</h4>
-<p>A injeção de dependência é usada para injetar a implementação correta de <code>IConfigurationReader</code> na classe <code>Configuration</code>. Isso é feito através do construtor, uma técnica conhecida como <a href="https://en.wikipedia.org/wiki/Dependency_injection#Constructor_injection">Injeção de Construtor</a>. Isso permite que a classe <code>Configuration</code> seja testada independentemente do sistema de arquivos ou de qualquer outra implementação de <code>IConfigurationReader</code>.</p>
-<h4 id="escrita-dos-primeiros-testes-de-unidade">Escrita dos Primeiros Testes de Unidade</h4>
-<p>Para escrever testes de unidade, uma implementação mock de <code>IConfigurationReader</code> é criada. Isso é feito para evitar a dependência do sistema de arquivos durante o teste. Vários cenários são testados, incluindo o cenário que causou o bug original.</p>
-<h4 id="correcao-do-bug">Correção do Bug</h4>
-<p>Depois que os testes de unidade são escritos, o próximo passo é corrigir o bug na classe <code>Configuration</code>. Isso é feito de forma que todos os testes de unidade passem, garantindo que o bug foi corrigido e que a classe funciona como esperado.</p>
-<h4 id="codigo-nao-testavel">Código Não Testável</h4>
-<p>O exemplo também aborda o fato de que nem todo código pode ser testado adequadamente. No caso, <code>FileConfigurationReader</code> é um exemplo de código que não pode ser testado adequadamente porque ele tem uma dependência direta no sistema de arquivos. No entanto, ele é mantido o mais simples possível para minimizar os riscos.</p>
-<h4 id="design-testavel-e-melhorias-futuras">Design Testável e Melhorias Futuras</h4>
-<p>O design testável não apenas facilita a escrita de testes de unidade, mas também torna o código mais flexível e fácil de manter. No exemplo, a abstração e a injeção de dependência tornam mais fácil adicionar novas formas de ler a configuração no futuro, como através de uma API web.</p>
+<p>Claro, vou traduzir o conteúdo fornecido conforme suas instruções.</p>
+<h3 id="exemplo-criando-um-teste-de-unidade">Exemplo: Criando um teste de unidade</h3>
+<p>Para ilustrar algumas técnicas de teste de unidade para uma linguagem orientada a objetos, vamos começar com um exemplo de algum código para o qual desejamos adicionar testes de unidade. Neste exemplo, temos uma classe de configuração que contém todas as opções de inicialização para um aplicativo que estamos desenvolvendo. Normalmente, ela lê de um arquivo <code>.config</code>, mas estamos enfrentando três problemas com a implementação atual:</p>
+<ol>
+<li>Há um erro na classe Configuration, e não temos testes de unidade, pois ela depende da leitura de um arquivo de configuração.</li>
+<li>Não podemos testar nenhuma parte do código que depende da classe Configuration lendo um arquivo de configuração.</li>
+<li>No futuro, queremos permitir que a configuração seja salva na nuvem e acessada via API REST.</li>
+</ol>
+<p>O erro que estamos tentando corrigir é que, se houver várias linhas vazias no arquivo de configuração, uma exceção IndexOutOfRangeException é lançada. Nossa classe atualmente se parece com isto:</p>
+<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System.IO</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Linq</span><span class="p">;</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Configuration</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Propriedades públicas de getter do objeto de configuração</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">MyProperty</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Initialize</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">configContents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">File</span><span class="p">.</span><span class="n">ReadAllLines</span><span class="p">(</span><span class="s">&quot;.config&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// A configuração está no formato: chave=valor</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configContents</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">l</span><span class="p">.</span><span class="n">Split</span><span class="p">(</span><span class="sc">&#39;=&#39;</span><span class="p">))</span>
+<span class="w">                                   </span><span class="p">.</span><span class="n">ToDictionary</span><span class="p">(</span><span class="n">kv</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">kv</span><span class="p">[</span><span class="m">0</span><span class="p">],</span><span class="w"> </span><span class="n">kv</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">kv</span><span class="p">[</span><span class="m">1</span><span class="p">]);</span>
+
+<span class="w">        </span><span class="c1">// Atribuir todas as propriedades aqui</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">MyProperty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">&quot;myproperty&quot;</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="abstracao">Abstração</h3>
+<p>Em nosso exemplo, temos uma única dependência: o sistema de arquivos. Em vez de apenas abstrair completamente o sistema de arquivos, vamos pensar sobre por que precisamos do sistema de arquivos e abstrair o <em>conceito</em> em vez da implementação. Neste caso, estamos usando a classe <code>File</code> para ler o arquivo de configuração e o conteúdo da configuração. O conceito de abstração aqui é alguma forma de leitor de configuração que retorna cada linha da configuração em uma matriz de strings. Poderíamos chamá-lo de <code>ConfigurationReader</code>, e ele tem um único método, <code>Read</code>, que retorna o conteúdo.</p>
+<p>Ao criar abstrações, pode ser uma boa prática criar uma interface para essa abstração, em linguagens que a suportam. No exemplo com C#, podemos criar uma interface <code>IConfigurationReader</code>, e em vez de apenas termos uma classe <code>ConfigurationReader</code>, podemos ser mais específicos e nomeá-la <code>FileConfigurationReader</code> para indicar que ela lê do sistema de arquivos:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// IConfigurationReader.cs</span>
+<span class="k">public</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">IConfigurationReader</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="nf">Read</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// FileConfigurationReader.cs</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">FileConfigurationReader</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IConfigurationReader</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="nf">Read</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">File</span><span class="p">.</span><span class="n">ReadAllLines</span><span class="p">(</span><span class="s">&quot;.config&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Agora que a dependência do arquivo foi abstraída, precisamos atualizar o método Initialize da nossa classe Configuration para usar a nova abstração em vez de chamar <code>File.ReadAllLines</code> diretamente:</p>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Initialize</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">configContents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileConfigurationReader</span><span class="p">().</span><span class="n">Read</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// A configuração está no formato: chave=valor</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configContents</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">l</span><span class="p">.</span><span class="n">Split</span><span class="p">(</span><span class="sc">&#39;=&#39;</span><span class="p">))</span>
+<span class="w">                               </span><span class="p">.</span><span class="n">ToDictionary</span><span class="p">(</span><span class="n">kv</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">kv</span><span class="p">[</span><span class="m">0</span><span class="p">],</span><span class="w"> </span><span class="n">kv</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">kv</span><span class="p">[</span><span class="m">1</span><span class="p">]);</span>
+
+<span class="w">    </span><span class="c1">// Atribuir todas as propriedades aqui</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="n">MyProperty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">&quot;myproperty&quot;</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Como você pode ver, ainda temos uma dependência no sistema de arquivos, mas essa dependência foi abstraída. Precisaremos usar outras técnicas para quebrar completamente a dependência.</p>
+<h3 id="injecao-de-dependencia">Injeção de Dependência</h3>
+<p>Na seção anterior, abstraímos o acesso ao arquivo em um <code>FileConfigurationReader</code>, mas ainda tínhamos uma dependência no sistema de arquivos em nossa função. Podemos usar a injeção de dependência para injetar o leitor certo em nossa classe <code>Configuration</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System.IO</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Linq</span><span class="p">;</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Configuration</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">IConfigurationReader</span><span class="w"> </span><span class="n">configReader</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Propriedades públicas de getter do objeto de configuração</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">MyProperty</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Configuration</span><span class="p">(</span><span class="n">IConfigurationReader</span><span class="w"> </span><span class="n">reader</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">configReader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reader</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Initialize</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">configContents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configReader</span><span class="p">.</span><span class="n">Read</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// A configuração está no formato: chave=valor</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configContents</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">l</span><span class="p">.</span><span class="n">Split</span><span class="p">(</span><span class="sc">&#39;=&#39;</span><span class="p">))</span>
+<span class="w">                                   </span><span class="p">.</span><span class="n">ToDictionary</span><span class="p">(</span><span class="n">kv</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">kv</span><span class="p">[</span><span class="m">0</span><span class="p">],</span><span class="w"> </span><span class="n">kv</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">kv</span><span class="p">[</span><span class="m">1</span><span class="p">]);</span>
+
+<span class="w">        </span><span class="c1">// Atribuir todas as propriedades aqui</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">MyProperty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">&quot;myproperty&quot;</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Acima, foi usada uma técnica chamada <a href="https://en.wikipedia.org/wiki/Dependency_injection#Constructor_injection">Injeção de Construtor</a>. Isso usa o construtor do objeto para definir quais serão nossas dependências, o que significa que qualquer objeto que cria o objeto <code>Configuration</code> controlará qual leitor precisa ser passado. Este é um exemplo de "inversão de controle", anteriormente o objeto <code>Configuration</code> controlava a dependência, mas em vez disso, empurramos o controle para qualquer componente que cria este objeto.</p>
+<p>Note que injetamos a interface <code>IConfigurationReader</code> e não a classe concreta. Isso é o que nos permite quebrar a dependência; enquanto originalmente tínhamos uma dependência codificada na classe <code>File</code>, agora dependemos apenas de um objeto que implementa <code>IConfigurationReader</code>.</p>
+<h3 id="escrevendo-nossos-primeiros-testes-de-unidade">Escrevendo nossos primeiros testes de unidade</h3>
+<p>Começamos essa aventura porque temos um erro na classe <code>Configuration</code> que não foi detectado porque não temos testes de unidade. Vamos escrever alguns testes de unidade que nos dão cobertura total da classe <code>Configuration</code>, incluindo um teste que testa o cenário descrito pelo erro (se houver várias linhas vazias no arquivo de configuração, uma exceção IndexOutOfRangeException está sendo lançada).</p>
+<p>No entanto, ainda temos um problema, temos apenas uma única implementação de <code>IConfigurationReader</code>, e ela usa o sistema de arquivos, o que significa que qualquer teste de unidade que escrevermos ainda terá uma dependência no sistema de arquivos! Felizmente, como usamos a injeção de dependência, tudo o que precisamos fazer é criar uma implementação de <code>IConfigurationReader</code> que não dependa do sistema de arquivos. Poderíamos criar um mock aqui, mas em vez disso, vamos criar uma implementação concreta da interface que simplesmente retorna a matriz de strings passada</p>
+<ul>
+<li>podemos chamá-la de <code>PassThroughConfigurationReader</code> (para mais detalhes sobre por que essa abordagem pode ser melhor do que a criação de mocks, consulte a página sobre <a href="../mocking/">mocking</a>)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PassThroughConfigurationReader</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IConfigurationReader</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">contents</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">PassThroughConfigurationReader</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">contents</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">contents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">contents</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="nf">Read</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">contents</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Esta simples classe será usada em nossos testes de unidade, para que possamos criar diferentes estados sem exigir muito acesso ao arquivo. Agora que temos isso no lugar, podemos prosseguir e escrever nossos testes de unidade, começando com os testes que descrevem o comportamento atual:</p>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ConfigurationTests</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Initialize_EmptyConfig_Throws</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PassThroughConfigurationReader</span><span class="p">(</span><span class="n">Array</span><span class="p">.</span><span class="n">Empty</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">());</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Configuration</span><span class="p">(</span><span class="n">reader</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Throws</span><span class="o">&lt;</span><span class="n">KeyNotFoundException</span><span class="o">&gt;</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">config</span><span class="p">.</span><span class="n">Initialize</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Initialize_CorrectFormat_SetsProperty</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PassThroughConfigurationReader</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s">&quot;myproperty=myvalue&quot;</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Configuration</span><span class="p">(</span><span class="n">reader</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">config</span><span class="p">.</span><span class="n">Initialize</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">&quot;myvalue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">config</span><span class="p">.</span><span class="n">MyProperty</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="corrigindo-o-erro">Corrigindo o erro</h3>
+<p>Todos os nossos testes atuais passam e nos dão 100% de cobertura, no entanto, como evidenciado pelo erro, devemos não estar cobrindo todas as entradas e saídas possíveis. No caso do erro, várias linhas vazias causariam um problema. Além disso, <code>KeyNotFoundException</code> não é uma exceção muito amigável e é um detalhe de implementação, não algo que faz sentido ao projetar a API de Configuração. Vamos adicionar mais alguns testes e alinhar os testes com o que pensamos que a classe <code>Configuration</code> deve se comportar:</p>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ConfigurationTests</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Initialize_EmptyConfig_Throws</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PassThroughConfigurationReader</span><span class="p">(</span><span class="n">Array</span><span class="p">.</span><span class="n">Empty</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">());</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Configuration</span><span class="p">(</span><span class="n">reader</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Throws</span><span class="o">&lt;</span><span class="n">InvalidOperationException</span><span class="o">&gt;</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">config</span><span class="p">.</span><span class="n">Initialize</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Initialize_MalformedLine_Throws</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PassThroughConfigurationReader</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s">&quot;myproperty&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Configuration</span><span class="p">(</span><span class="n">reader</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Throws</span><span class="o">&lt;</span><span class="n">InvalidOperationException</span><span class="o">&gt;</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">config</span><span class="p">.</span><span class="n">Initialize</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Initialize_MultipleEqualSigns_PropertyContainsNoEquals</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PassThroughConfigurationReader</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s">&quot;myproperty=myval1=myval2&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Configuration</span><span class="p">(</span><span class="n">reader</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">config</span><span class="p">.</span><span class="n">Initialize</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">&quot;myval1=myval2&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">config</span><span class="p">.</span><span class="n">MyProperty</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Initialize_WithBlankLines_Ignores</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PassThroughConfigurationReader</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s">&quot;myproperty=myvalue&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">,</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Configuration</span><span class="p">(</span><span class="n">reader</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">config</span><span class="p">.</span><span class="n">Initialize</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">&quot;myvalue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">config</span><span class="p">.</span><span class="n">MyProperty</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">[Fact]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Initialize_CorrectFormat_SetsProperty</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PassThroughConfigurationReader</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s">&quot;myproperty=myvalue&quot;</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Configuration</span><span class="p">(</span><span class="n">reader</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">config</span><span class="p">.</span><span class="n">Initialize</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">&quot;myvalue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">config</span><span class="p">.</span><span class="n">MyProperty</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Agora temos 4 testes falhando e 1 teste passando, mas estabelecemos firmemente através do uso desses testes como esperamos que os chamadores usem a classe Configuration e o que é e não é permitido como entradas. Agora só precisamos corrigir a classe <code>Configuration</code> para que nossos testes passem:</p>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Initialize</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">configContents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configReader</span><span class="p">.</span><span class="n">Read</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">configContents</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">InvalidOperationException</span><span class="p">(</span><span class="s">&quot;Configuração vazia&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// A configuração está no formato: chave=valor</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configContents</span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrWhiteSpace</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
+<span class="w">                               </span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">                               </span><span class="p">{</span>
+<span class="w">                                   </span><span class="kt">var</span><span class="w"> </span><span class="n">splitLine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="p">.</span><span class="n">Split</span><span class="p">(</span><span class="sc">&#39;=&#39;</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">);</span>
+<span class="w">                                   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">splitLine</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+<span class="w">                                   </span><span class="p">{</span>
+<span class="w">                                       </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">InvalidOperationException</span><span class="p">(</span><span class="s">&quot;Linha malformada&quot;</span><span class="p">);</span>
+<span class="w">                                   </span><span class="p">}</span>
+<span class="w">                                   </span><span class="k">return</span><span class="w"> </span><span class="n">splitLine</span><span class="p">;</span>
+<span class="w">                               </span><span class="p">})</span>
+<span class="w">                               </span><span class="p">.</span><span class="n">ToDictionary</span><span class="p">(</span><span class="n">kv</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">kv</span><span class="p">[</span><span class="m">0</span><span class="p">],</span><span class="w"> </span><span class="n">kv</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">kv</span><span class="p">[</span><span class="m">1</span><span class="p">]);</span>
+
+<span class="w">    </span><span class="c1">// Atribuir todas as propriedades aqui</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="n">MyProperty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">&quot;myproperty&quot;</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Agora todos os nossos testes passam! Corrigimos nosso erro, adicionamos testes de unidade à classe <code>Configuration</code> e temos muito mais confiança em mudanças futuras.</p>
+<h3 id="codigo-nao-testavel">Código Não Testável</h3>
+<p>Como descrito na <a href="../#abstraction">seção de abstração</a>, nem todo código pode ser devidamente testado por unidade. Em nosso caso, temos uma única classe que tem 0% de cobertura de teste: <code>FileConfigurationReader</code>. Isso é esperado; neste caso, mantivemos o <code>FileConfigurationReader</code> o mais leve possível, sem lógica adicional além de chamar a dependência de terceiros. <code>FileConfigurationReader</code> é um exemplo do <a href="https://en.wikipedia.org/wiki/Facade_pattern">padrão de design de fachada</a>.</p>
+<h3 id="design-testavel-e-melhorias-futuras">Design Testável e Melhorias Futuras</h3>
+<p>Um dos nossos problemas originais descritos neste exemplo é que, no futuro, esperamos carregar a configuração a partir de uma API web. Ao fazer todo o trabalho de abstrair a forma como carregamos o texto de configuração e quebrar a dependência no sistema de arquivos, já fizemos todo o trabalho árduo para habilitar esse cenário futuro! Tudo o que precisa ser feito a seguir é criar uma implementação <code>WebApiConfigurationReader</code> e usá-la para construir o objeto <code>Configuration</code>, e ele deve funcionar.</p>
+<p>Esse é um dos benefícios do design testável, no processo de escrever nossos testes de forma segura, um efeito colateral disso é que já temos nossas dependências que podem mudar abstraídas e exigirão mudanças mínimas para implementar.</p>
+<p>Outro benefício adicional é que temos várias possibilidades abertas por esse design testável. Por exemplo, agora podemos ter uma configuração em cascata usando todas as 3 implementações <code>IConfigurationReader</code>, incluindo a que escrevemos apenas para nossos testes! Podemos primeiro verificar se o acesso à Internet está disponível e, se estiver, usar <code>WebApiConfigurationReader</code>. Se não houver internet disponível, podemos recorrer ao arquivo de configuração local no sistema atual usando <code>FileConfigurationReader</code>. Se por algum motivo o arquivo de configuração não existir, podemos usar o `PassThrough</p>
+<p>ConfigurationReader` para fornecer um conjunto de configurações padrão.</p>
+<h3 id="conclusao">Conclusão</h3>
+<p>Espero que este exemplo tenha demonstrado como o design testável pode ser benéfico para o desenvolvimento de software. Não apenas nos dá a capacidade de escrever testes de unidade, mas também nos dá a capacidade de escrever código mais modular e flexível.</p>
 
   <hr>
 <div class="md-source-file">

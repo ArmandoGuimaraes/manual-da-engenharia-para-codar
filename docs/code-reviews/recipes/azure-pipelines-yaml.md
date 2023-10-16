@@ -1,81 +1,82 @@
-# YAML(Azure Pipelines) Code Reviews
+# Revisão de Código YAML (Azure Pipelines)
 
-## Style Guide
+## Guia de Estilo
 
-Developers should follow the [YAML schema reference](https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema%2Cparameter-schema).
+Os desenvolvedores devem seguir a [referência do esquema YAML](https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema%2Cparameter-schema).
 
-## Code Analysis / Linting
+## Análise de Código / Linting
 
-The most popular YAML linter is [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) extension. This extension provides YAML validation, document outlining, auto-completion, hover support and formatter features.
+O linter YAML mais popular é a extensão [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml). Esta extensão fornece validação YAML, destaque de documentos, auto-completar, suporte de hover e recursos de formatação.
 
-## VS Code Extensions
+## Extensões do VS Code
 
-There is an [Azure Pipelines for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azure-devops.azure-pipelines) extension to add syntax highlighting and autocompletion for Azure Pipelines YAML to VS Code. It also helps you set up continuous build and deployment for Azure WebApps without leaving VS Code.
+Existe uma extensão [Azure Pipelines para o VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azure-devops.azure-pipelines) para adicionar realce de sintaxe e autocompletar para o YAML das Pipelines do Azure no VS Code. Ele também ajuda a configurar compilação e implantação contínuas para aplicativos da Web do Azure sem sair do VS Code.
 
-## YAML in Azure Pipelines Overview
+## Visão Geral do YAML nas Pipelines do Azure
 
-When the pipeline is triggered, before running the pipeline, there are a few phases such as [Queue Time, Compile Time and Runtime](https://adamtheautomator.com/azure-devops-variables/#Pipeline_Execution_Phases) where variables are interpreted by their [runtime expression syntax](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#runtime-expression-syntax).
+Quando a pipeline é acionada, antes de executar a pipeline, existem algumas fases, como [Tempo de Fila, Tempo de Compilação e Tempo de Execução](https://adamtheautomator.com/azure-devops-variables/#Pipeline_Execution_Phases), onde as variáveis são interpretadas pelo [sintaxe de expressão em tempo de execução](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#runtime-expression-syntax).
 
-When the pipeline is triggered, all nested YAML files are expanded to run in Azure Pipelines. This checklist contains some tips and tricks for reviewing all nested YAML files.
+Quando a pipeline é acionada, todos os arquivos YAML aninhados são expandidos para serem executados nas Pipelines do Azure. Esta lista de verificação contém algumas dicas para revisar todos os arquivos YAML aninhados.
 
-These documents may be useful when reviewing YAML files:
+Estes documentos podem ser úteis ao revisar os arquivos YAML:
 
-- [Azure Pipelines YAML documentation](https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema).
-- [Pipeline run sequence](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/runs?view=azure-devops)
-- [Key concepts for new Azure Pipelines](https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops)
+- [Documentação YAML das Pipelines do Azure](https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema).
+- [Sequência de execução da pipeline](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/runs?view=azure-devops)
+- [Principais conceitos para as novas Pipelines do Azure](https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops)
 
-**Key concepts overview**
-![Azure Pipelines key concepts](images/key-concepts-overview.png)
+**Visão geral dos principais conceitos das Pipelines do Azure**
+![Conceitos-chave das Pipelines do Azure](images/key-concepts-overview.png)
 
-- A trigger tells a Pipeline to run.
-- A pipeline is made up of one or more stages. A pipeline can deploy to one or more environments.
-- A stage is a way of organizing jobs in a pipeline and each stage can have one or more jobs.
-- Each job runs on one agent. A job can also be agentless.
-- Each agent runs a job that contains one or more steps.
-- A step can be a task or script and is the smallest building block of a pipeline.
-- A task is a pre-packaged script that performs an action, such as invoking a REST API or publishing a build artifact.
-- An artifact is a collection of files or packages published by a run.
+- Um acionador diz a uma Pipeline para ser executada.
+- Uma pipeline é composta por um ou mais estágios. Uma pipeline pode ser implantada em um ou mais ambientes.
+- Um estágio é uma maneira de organizar trabalhos em uma pipeline e cada estágio pode ter um ou mais trabalhos.
+- Cada trabalho é executado em um agente. Um trabalho também pode ser sem agente.
+- Cada agente executa um trabalho que contém uma ou mais etapas.
+- Uma etapa pode ser uma tarefa ou um script e é a menor unidade de construção de uma pipeline.
+- Uma tarefa é um script pré-empacotado que realiza uma ação, como invocar uma API REST ou publicar um artefato de compilação.
+- Um artefato é uma coleção de arquivos ou pacotes publicados por uma execução.
 
-## Code Review Checklist
+## Lista de Verificação de Revisão de Código
 
-In addition to the [Code Review Checklist](../process-guidance/reviewer-guidance.md) you should also look for these Azure Pipelines YAML specific code review items.
+Além da [Lista de Verificação de Revisão de Código](../process-guidance/reviewer-guidance.md), você também deve procurar por itens específicos da revisão de código YAML das Pipelines do Azure.
 
-### Pipeline Structure
+### Estrutura da Pipeline
 
-- [ ] The steps are well understood and components are easily identifiable. Ensure that there is a proper description `displayName:` for every step in the pipeline.
-- [ ] Steps/stages of the pipeline are checked in Azure Pipelines to have more understanding of components.
-- [ ] In case you have complex nested YAML files, The pipeline in Azure Pipelines is edited to find trigger root file.
-- [ ] All the template file references are visited to ensure a small change does not cause breaking changes, changing one file may affect multiple pipelines
-- [ ] Long inline scripts in YAML file are moved into script files
+- [ ] Os passos são bem compreendidos e os componentes são facilmente identificáveis. Certifique-se de que há uma descrição adequada `displayName:` para cada etapa na pipeline.
+- [ ] Etapas/estágios da pipeline são verificados nas Pipelines do Azure para ter uma compreensão maior dos componentes.
+- [ ] No caso de ter arquivos YAML aninhados complexos, a pipeline nas Pipelines do Azure é editada para encontrar o arquivo raiz do acionador.
+- [ ] Todas as referências de arquivos de modelo são visitadas para garantir que uma pequena alteração não cause alterações quebradas, alterar um arquivo pode afetar várias pipelines
+- [ ] Scripts longos incorporados no arquivo YAML são movidos para arquivos de script
 
-### YAML Structure
+### Estrutura YAML
 
-- [ ] Re-usable components are split into separate YAML templates.
-- [ ] Variables are separated per environment stored in templates or variable groups.
-- [ ] Variable value changes in `Queue Time`, `Compile Time` and `Runtime` are considered.
-- [ ] Variable syntax values used with `Macro Syntax`, `Template Expression Syntax` and `Runtime Expression Syntax` are considered.
-- [ ] Variables can change during the pipeline, Parameters cannot.
-- [ ] Unused variables/parameters are removed in pipeline.
-- [ ] Does the pipeline meet with stage/job `Conditions` criteria?
+- [ ] Componentes reutilizáveis são divididos em modelos YAML separados.
+- [ ] Variáveis são separadas por ambiente armazenadas em modelos ou grupos de variáveis.
+- [ ] Mudanças de valor de variável em `Tempo de Fila`, `Tempo de Compilação` e `Tempo de Execução` são consideradas.
+- [ ] Valores de sintaxe de variável usados com `Sintaxe de Macro`, `Sintaxe de Expressão de Modelo` e `Sintaxe de Expressão em Tempo de Execução` são considerados.
+- [ ] Variáveis não utilizadas/parâmetros são removidos na pipeline.
+- [ ] A pipeline atende aos critérios de `Condições` do estágio/trabalho?
 
-### Permission Check & Security
+### Verificação de Permissão e Segurança
 
-- [ ] Secret values shouldn't be printed in pipeline, `issecret` is used for printing secrets for debugging
-- [ ] If pipeline is using variable groups in Library, ensure pipeline has access to the variable groups created.
-- [ ] If pipeline has a remote task in other repo/organization, does it have access?
-- [ ] If pipeline is trying to access a secure file, does it have the permission?
-- [ ] If pipeline requires approval for environment deployments, Who is the approver?
-- [ ] Does it need to keep secrets and manage them, did you consider using Azure KeyVault?
+- [ ] Valores secretos não devem ser impressos na pipeline, `issecret` é usado para imprimir segredos para depuração.
+- [ ] Se a pipeline estiver usando grupos de variáveis na Biblioteca, verifique se a pipeline tem acesso aos grupos de variáveis criados.
+- [ ] Se a pipeline tiver uma tarefa remota em outro repositório/organização, ela tem acesso?
+- [ ] Se a pipeline estiver tentando acessar um arquivo seguro, ela tem permissão?
+- [ ] Se a pipeline exigir aprovação para implantações em ambientes, quem é o aprovador?
+- [ ] É necessário manter segredos e gerenciá-los, você considerou o uso do Azure KeyVault?
 
-### Troubleshooting Tips
+### Dicas de Solução de Problemas
 
-- Consider Variable Syntax with [Runtime Expressions](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#runtime-expression-syntax) in the pipeline. Here is a nice sample to understand [Expansion of variables](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#expansion-of-variables).
+- Considere a Sintaxe de Variável com [Expressões em Tempo de Execução](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#runtime-expression-syntax) na pipeline. Aqui está um bom exemplo para entender a [Expansão de variáveis](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#expansion-of-variables).
 
-- When we assign variable like below it won't set during initialize time, it'll assign during runtime, then we can retrieve some errors based on when template runs.
+- Quando atribuímos uma variável como abaixo, ela não será definida durante o tempo de inicialização, será atribuída durante a execução, e então podemos recuperar alguns er
+
+ros com base no momento em que o modelo é executado.
 
   ```yaml
   - task: AzureWebApp@1
-    displayName: 'Deploy Azure Web App : $(webAppName)'
+    displayName: 'Implantar Azure Web App : $(webAppName)'
     inputs:
       azureSubscription: '$(azureServiceConnectionId)'
       appName: '$(webAppName)'
@@ -83,11 +84,11 @@ In addition to the [Code Review Checklist](../process-guidance/reviewer-guidance
       startUpCommand: 'gunicorn --bind=0.0.0.0 --workers=4 app:app'
   ```
 
-  Error:
+  Erro:
 
-  ![authorization issue due to initialize time](images/authorization_issue_due_to_initialize_time.png)
+  ![Problema de autorização devido ao tempo de inicialização](images/authorization_issue_due_to_initialize_time.png)
 
-  After passing these variables as parameter, it loads values properly.
+  Após passar essas variáveis como parâmetro, ela carrega os valores corretamente.
 
   ```yaml
     - template: steps-deployment.yaml
@@ -98,7 +99,7 @@ In addition to the [Code Review Checklist](../process-guidance/reviewer-guidance
 
   ```yaml
   - task: AzureWebApp@1
-    displayName: 'Deploy Azure Web App :${{ parameters.webAppName }}'
+    displayName: 'Implantar Azure Web App :${{ parameters.webAppName }}'
     inputs:
       azureSubscription: '${{ parameters.azureServiceConnectionId }}'
       appName: '${{ parameters.webAppName }}'
@@ -106,7 +107,7 @@ In addition to the [Code Review Checklist](../process-guidance/reviewer-guidance
       startUpCommand: 'gunicorn --bind=0.0.0.0 --workers=4 app:app'
   ```
 
-- Use `issecret` for printing secrets for debugging
+- Use `issecret` para imprimir segredos para depuração
 
   ```bash
   echo "##vso[task.setvariable variable=token;issecret=true]${token}"

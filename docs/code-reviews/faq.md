@@ -1,48 +1,48 @@
-# FAQ
+# Perguntas Frequentes (FAQ)
 
-This is a list of questions / frequently occurring issues when working with code reviews and answers how you can possibly tackle them.
+Esta é uma lista de perguntas / problemas frequentemente encontrados ao trabalhar com revisões de código e respostas sobre como você pode possivelmente abordá-los.
 
-## What makes a code review different from a PR?
+## O que torna uma revisão de código diferente de um PR?
 
-A pull request (PR) is a way to notify a task is finished and ready to be merged into the main working branch (source of truth). A code review is having someone go over the code in a PR and validate it before it is merged, but, in general, code reviews can take place outside PRs too.
+Um pull request (PR) é uma forma de notificar que uma tarefa está concluída e pronta para ser mesclada no branch principal de trabalho (fonte da verdade). Uma revisão de código é ter alguém examinando o código em um PR e validando-o antes de ser mesclado, mas, em geral, revisões de código também podem ocorrer fora dos PRs.
 
-| Code Review | Pull Request |
+| Revisão de Código | Pull Request |
 --- | ---
-| Source code focused | Intended to enhance and enable code reviews. Includes both source code but can have a broader scope (e.g., docs, integration tests, compiles) |
-| Intended for **early feedback** before submitting a PR | Not intended for **early feedback**. Created when author is ready to merge |
-| Usually a synchronous review with faster feedback cycles (draft PRs as an exception). Examples: scheduled meetings, over-the-shoulder review, pair programming | Usually a tool assisted asynchronous review but can be elevated to a synchronous meeting when needed |
+| Focado no código-fonte | Destinado a aprimorar e habilitar revisões de código. Inclui tanto o código-fonte quanto pode ter um escopo mais amplo (por exemplo, documentação, testes de integração, compilações) |
+| Destinado para **feedback antecipado** antes de enviar um PR | Não destinado para **feedback antecipado**. Criado quando o autor está pronto para mesclar |
+| Geralmente uma revisão síncrona com ciclos de feedback mais rápidos (PRs em rascunho como exceção). Exemplos: reuniões agendadas, revisão presencial, programação em pares | Geralmente uma revisão assíncrona auxiliada por ferramentas, mas pode ser elevada para uma reunião síncrona quando necessário |
 
-## Why do we need code reviews?
+## Por que precisamos de revisões de código?
 
-Our peer code reviews are structured around best practices, to find specific kinds of errors. Much like you would still run a linter over mobbed code, you would still ask someone to make the last pass to make sure the code conforms to expected standards and avoids common pitfalls.
+Nossas revisões de código entre pares são estruturadas em torno das melhores práticas, para encontrar tipos específicos de erros. Assim como você ainda executaria um linter em código mobado, você ainda pediria a alguém para fazer a última verificação para garantir que o código esteja em conformidade com os padrões esperados e evite armadilhas comuns.
 
-## PRs are too large, how can we fix this?
+## Os PRs são muito grandes, como podemos corrigir isso?
 
-Make sure you size the work items into small clear chunks, so the reviewer will be able to understand the code on their own. The team is instructed to commit early, before the full product backlog item / user story is complete, but rather when an individual item is done. If the work would result in an incomplete feature, make sure it can be turned off, until the full feature is delivered.
-More information can be found in [Pull Requests - Size Guidance](./pull-requests.md#size-guidance).
+Certifique-se de dimensionar os itens de trabalho em pedaços pequenos e claros, para que a pessoa revisora possa entender o código por conta própria. A equipe é instruída a fazer commits antecipadamente, antes que o item completo do backlog do produto / história do usuário esteja completo, mas sim quando um item individual está concluído. Se o trabalho resultaria em um recurso incompleto, certifique-se de que ele possa ser desativado até que o recurso completo seja entregue.
+Mais informações podem ser encontradas em [Pull Requests - Orientações de Tamanho](./pull-requests.md#size-guidance).
 
-## How can we expedite code reviews?
+## Como podemos acelerar as revisões de código?
 
-Slow code reviews might cause delays in delivering features and cause frustration amongst team members.
+Revisões de código lentas podem causar atrasos na entrega de recursos e causar frustração entre os membros da equipe.
 
-### Possible actions you can take
+### Ações possíveis que você pode tomar
 
-- Add a rule for PR turnaround time to your work agreement.
-- Set up a slot after the standup to go through pending PRs and assign the ones that are inactive.
-- Dedicate a PR review manager who will be responsible to keep things flowing by assigning or notifying people when PR got stale.
-- Use tools to better indicate stale reviews - [Customize ADO - Task Boards](tools.md#task-boards).
+- Adicione uma regra para o tempo de resposta do PR ao seu acordo de trabalho.
+- Reserve um espaço após o standup para analisar os PRs pendentes e atribuir aqueles que estão inativos.
+- Dedique um gerente de revisão de PR que será responsável por manter as coisas fluindo, atribuindo ou notificando pessoas quando o PR ficou obsoleto.
+- Use ferramentas para indicar melhor revisões obsoletas - [Personalizar ADO - Quadros de Tarefas](tools.md#task-boards).
 
-## Which tools can I use to review a complex PR?
+## Quais ferramentas posso usar para revisar um PR complexo?
 
-Checkout the [Tools](./tools.md) for help on how to perform reviews out of Visual Studio or Visual Studio Code.
+Consulte a seção [Ferramentas](./tools.md) para obter ajuda sobre como realizar revisões fora do Visual Studio ou Visual Studio Code.
 
-## How can we enforce code review policies?
+## Como podemos impor políticas de revisão de código?
 
-[By configuring Branch Policies](tools.md#Configuring Branch Policies), you can easily enforce code reviews rules.
+[Ao configurar Políticas de Branch](tools.md#Configuring Branch Policies), você pode facilmente impor regras de revisões de código.
 
-## We pair or mob. How should this reflect in our code reviews?
+## Nós fazemos programação em pares ou em grupo. Como isso deve se refletir em nossas revisões de código?
 
-There are two ways to perform a code review:
+Existem duas formas de realizar uma revisão de código:
 
-1. Pair - Someone outside the pair should perform the code review. One of the other major benefits of code reviews is spreading knowledge about the code base to other members of the team that don't usually work in the part of the codebase under review.
-2. Mob - A member of the mob who spent less (or no) time at the keyboard should perform the code review.
+1. Par - Alguém de fora do par deve realizar a revisão de código. Um dos outros grandes benefícios das revisões de código é disseminar o conhecimento sobre a base de código para outros membros da equipe que normalmente não trabalham na parte da base de código em revisão.
+2. Grupo - Um membro do grupo que passou menos (ou nenhum) tempo no teclado deve realizar a revisão de código.

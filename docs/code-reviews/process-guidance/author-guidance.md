@@ -1,35 +1,35 @@
-# Author Guidance
+# Orientações para o Autor
 
-## Properly describe your pull request (PR)
+## Descreva adequadamente o seu pull request (PR)
 
-- Give the PR a descriptive title, so that other members can easily (in one short sentence) understand what a PR is about.
-- Every PR should have a proper description, that shows the reviewer what has been changed and why.
+- Dê ao PR um título descritivo, para que outros membros possam entender facilmente (em uma frase curta) sobre o que se trata o PR.
+- Todo PR deve ter uma descrição adequada que mostre ao revisor o que foi alterado e por quê.
 
-## Add relevant reviewers
+## Adicione revisores relevantes
 
-- Add one or more reviewers (depending on your project's guidelines) to the PR. Ideally, you would add at least someone who has expertise and is familiar with the project, or the language used
-- Adding someone less familiar with the project or the language can aid in verifying the changes are understandable, easy to read, and increases the expertise within the team
-- In ISE code-with projects with a customer team, it is important to include reviewers from both organizations for knowledge transfer - [Customize Reviewers Policy](../tools.md#reviewer-policies)
+- Adicione um ou mais revisores (dependendo das diretrizes do seu projeto) ao PR. Idealmente, você adicionaria pelo menos alguém que tenha expertise e esteja familiarizado com o projeto ou a linguagem utilizada.
+- Adicionar alguém menos familiarizado com o projeto ou a linguagem pode ajudar a verificar se as alterações são compreensíveis, fáceis de ler e aumenta a expertise dentro da equipe.
+- Nos projetos code-with da ISE com uma equipe de cliente, é importante incluir revisores de ambas as organizações para transferência de conhecimento - [Personalize a Política de Revisores](../tools.md#reviewer-policies)
 
-## Be open to receive feedback
+## Esteja aberto para receber feedback
 
-Discuss design/code logic and address all comments as follows:
+Discuta o design/lógica do código e aborde todos os comentários da seguinte forma:
 
-- Resolve a comment, if the requested change has been made.
-- Mark the comment as "won't fix", if you are not going to make the requested changes and provide a clear reasoning
-  - If the requested change is within the scope of the task, "I'll do it later" is not an acceptable reason!
-  - If the requested change is out of scope, create a new work item (task or bug) for it
-- If you don't understand a comment, ask questions in the review itself as opposed to a private chat
-- If a thread gets bloated without a conclusion, have a meeting with the reviewer (call them or knock on door)
+- Resolva um comentário se a alteração solicitada foi feita.
+- Marque o comentário como "não vou corrigir" se você não pretende fazer as alterações solicitadas e forneça um raciocínio claro.
+  - Se a alteração solicitada estiver dentro do escopo da tarefa, "farei mais tarde" não é uma razão aceitável!
+  - Se a alteração solicitada estiver fora do escopo, crie um novo item de trabalho (tarefa ou bug) para ela.
+- Se você não entender um comentário, faça perguntas na própria revisão em vez de iniciar um chat privado.
+- Se uma discussão se estender sem uma conclusão, agende uma reunião com o revisor (ligue para eles ou bata à porta).
 
-## Use checklists
+## Use listas de verificação
 
-When creating a PR, it is a good idea to add a checklist of objectives of the PR in the description. This helps the reviewers to focus on the key areas of the code changes.
+Ao criar um PR, é uma boa ideia adicionar uma lista de verificação dos objetivos do PR na descrição. Isso ajuda os revisores a se concentrarem nas áreas-chave das alterações de código.
 
-## Link a task to your PR
+## Vincule uma tarefa ao seu PR
 
-Link the corresponding work items/tasks to the PR. There is no need to duplicate information between the work item and the PR, but if some details are missing in either one, together they provide more context to the reviewer.
+Vincule os itens de trabalho/tarefas correspondentes ao PR. Não é necessário duplicar informações entre o item de trabalho e o PR, mas se alguns detalhes estiverem faltando em um deles, juntos eles fornecem mais contexto ao revisor.
 
-## Code should have annotations before the review
+## O código deve ter anotações antes da revisão
 
-If you can't avoid large PRs, include explanations of the changes in order to make it easier for the reviewer to review the code, with clear comments the reviewer can identify the goal of every code block.
+Se você não puder evitar PRs grandes, inclua explicações das alterações para facilitar a revisão do código. Com comentários claros, o revisor pode identificar o objetivo de cada bloco de código.

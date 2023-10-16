@@ -1,42 +1,23 @@
-# Why Unit Tests
+# Por que Testes Unitários
 
-It is no secret that writing unit tests is hard, and even harder to write well. Writing unit tests also increases the
-development time for every feature. So why should we bother writing them?
+Não é segredo que escrever testes unitários é difícil e ainda mais difícil escrevê-los bem. Escrever testes unitários também aumenta o tempo de desenvolvimento para cada funcionalidade. Então, por que deveríamos nos dar ao trabalho de escrevê-los?
 
-## Reduce costs
+## Reduzir Custos
 
-There is no question that the later a bug is found, the more expensive it is to fix; especially so if the bug makes it
-into production. A [2008 research study by IBM](ftp://ftp.software.ibm.com/software/rational/info/do-more/RAW14109USEN.pdf)
-estimates that a bug caught in production could cost 6 times as much as if it was caught during implementation.
+Não há dúvida de que quanto mais tarde um bug é encontrado, mais caro é para corrigi-lo; especialmente se o bug chegar à produção. Um [estudo de pesquisa de 2008 da IBM](ftp://ftp.software.ibm.com/software/rational/info/do-more/RAW14109USEN.pdf) estima que um bug capturado em produção pode custar 6 vezes mais do que se fosse capturado durante a implementação.
 
-## Increase Developer Confidence
+## Aumentar a Confiança do Desenvolvedor
 
-Many changes that developers make are not big features or something that requires an entire testing suite. A strong unit
-test suite helps increase the confidence of the developer that their change is not going to cause any downstream bugs.
-Having unit tests also helps with making safe, mechanical refactors that are provably safe; using things like
-refactoring tools to do mechanical refactoring and running unit tests that cover the refactored code should be enough to
-increase confidence in the commit.
+Muitas mudanças que os desenvolvedores fazem não são grandes funcionalidades ou algo que requer uma suíte de testes inteira. Uma suíte de testes unitários robusta ajuda a aumentar a confiança do desenvolvedor de que sua mudança não causará bugs a jusante. Ter testes unitários também ajuda a fazer refatorações seguras e mecânicas que são comprovadamente seguras; usando coisas como ferramentas de refatoração para fazer refatoração mecânica e executar testes unitários que cobrem o código refatorado deve ser suficiente para aumentar a confiança no commit.
 
-## Speed up development
+## Acelerar o Desenvolvimento
 
-Unit tests take time to write, but they also speed up development? While this may seem like an oxymoron, it is one of
-the strengths of a unit testing suite - over time it continues to grow and evolve until the tests become an essential
-part of the developer workflow.
+Testes unitários levam tempo para escrever, mas também aceleram o desenvolvimento? Embora isso possa parecer um paradoxo, é uma das forças de uma suíte de testes unitários - com o tempo ela continua a crescer e evoluir até que os testes se tornem uma parte essencial do fluxo de trabalho do desenvolvedor.
 
-If the only testing available to a developer is a long-running system test, integration tests that require a deployment,
-or manual testing, it will increase the amount of time taken to write a feature. These types of tests should be a part of
-the "Outer loop"; tests that may take some time to run and validate more than just the code you are writing. Usually
-these types of outer loop tests get run at the PR stage or even later during merges into branches.
+Se o único teste disponível para um desenvolvedor é um teste de sistema de longa duração, testes de integração que requerem uma implantação ou testes manuais, isso aumentará a quantidade de tempo necessária para escrever uma funcionalidade. Esses tipos de testes devem fazer parte do "Loop Externo"; testes que podem levar algum tempo para serem executados e validar mais do que apenas o código que você está escrevendo. Geralmente, esses tipos de testes de loop externo são executados na etapa de PR ou até mesmo mais tarde durante as mesclagens em branches.
 
-The Developer Inner Loop is the process that developers go through as they are authoring code. This varies from
-developer to developer and language to language but typically is something like code -> build -> run -> repeat. When
-unit tests are inserted into the inner loop, developers can get early feedback and results from the code they are
-writing. Since unit tests execute really quickly, running tests shouldn't be seen as a barrier to entry for this loop.
-Tooling such as [Visual Studio Live Unit Testing](https://learn.microsoft.com/en-us/visualstudio/test/live-unit-testing-start?view=vs-2019)
-also help to shorten the inner loop even more.
+O Loop Interno do Desenvolvedor é o processo pelo qual os desenvolvedores passam enquanto estão escrevendo código. Isso varia de desenvolvedor para desenvolvedor e de linguagem para linguagem, mas normalmente é algo como código -> construir -> executar -> repetir. Quando testes unitários são inseridos no loop interno, os desenvolvedores podem obter feedback e resultados antecipados do código que estão escrevendo. Como os testes unitários são executados muito rapidamente, executar testes não deve ser visto como uma barreira de entrada para este loop. Ferramentas como [Visual Studio Live Unit Testing](https://learn.microsoft.com/en-us/visualstudio/test/live-unit-testing-start?view=vs-2019) também ajudam a encurtar ainda mais o loop interno.
 
-## Documentation as code
+## Documentação como Código
 
-Writing unit tests is a great way to show how the units of code you are writing are supposed to be used. In some ways,
-unit tests are better than any documentation or samples because they are (or at least should be) executed with every
-build so there is confidence that they are not out of date. Unit tests also should be so simple that they are easy to follow.
+Escrever testes unitários é uma ótima maneira de mostrar como as unidades de código que você está escrevendo devem ser usadas. De certa forma, os testes unitários são melhores do que qualquer documentação ou amostras porque eles são (ou pelo menos deveriam ser) executados a cada construção, então há confiança de que eles não estão desatualizados. Testes unitários também devem ser tão simples que sejam fáceis de seguir.

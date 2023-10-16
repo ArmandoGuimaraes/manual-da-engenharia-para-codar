@@ -1,63 +1,63 @@
-# [Work Item ID](./link-to-the-work-item)
+# [Nro do Ticket do Jira](./link-para-o-item-de-trabalho)
 
-For more information about how to contribute to this repo, visit this [page](https://github.com/microsoft/code-with-engineering-playbook/blob/main/CONTRIBUTING.md)
+Para obter mais informações sobre como contribuir para este repositório, visite esta [página](https://github.com/microsoft/code-with-engineering-playbook/blob/main/CONTRIBUTING.md).
 
-## Description
-
----
-
-> Should include a concise description of the changes (bug or feature), it's impact, along with a summary of the solution
-
-## Steps to Reproduce Bug and Validate Solution
-
----
-> Only applicable if the work is to address a bug. Please remove this section if the work is for a feature or story
-> Provide details on the environment the bug is found, and detailed steps to recreate the bug.
-> This should be detailed enough for a team member to confirm that the bug no longer occurs
-
-## PR Checklist
+## Descrição
 
 ---
 
-> Use the check-list below to ensure your branch is ready for PR.  If the item is not applicable, leave it blank.
+> Deve incluir uma descrição concisa das alterações (bug ou recurso), seu impacto, juntamente com um resumo da solução.
 
-- [ ] I have updated the documentation accordingly.
-- [ ] I have added tests to cover my changes.
-- [ ] All new and existing tests passed.
-- [ ] My code follows the code style of this project.
-- [ ] I ran the lint checks which produced no new errors nor warnings for my changes.
-- [ ] I have checked to ensure there aren't other open Pull Requests for the same update/change.
+## Passos para Reproduzir o Bug e Validar a Solução
 
-## Does this introduce a breaking change?
+---
+> Somente aplicável se o trabalho for para corrigir um bug. Por favor, remova esta seção se o trabalho for para um recurso ou história.
+> Forneça detalhes sobre o ambiente em que o bug foi encontrado e os passos detalhados para reproduzir o bug.
+> Isso deve ser detalhado o suficiente para que um membro da equipe possa confirmar que o bug não ocorre mais.
+
+## Lista de Verificação do PR
 
 ---
 
-- [ ] Yes
-- [ ] No
+> Use a lista de verificação abaixo para garantir que seu branch esteja pronto para PR. Se o item não se aplicar, deixe-o em branco.
 
-> If this introduces a breaking change, please describe the impact and migration path for existing applications below.
+- [ ] Atualizei a documentação de acordo.
+- [ ] Adicionei testes para cobrir minhas alterações.
+- [ ] Todos os testes novos e existentes passaram.
+- [ ] Meu código segue o estilo de código deste projeto.
+- [ ] Executei as verificações de lint que não produziram novos erros nem avisos para minhas alterações.
+- [ ] Verifiquei se não há outros Pull Requests abertos para a mesma atualização/alteração.
 
-## Testing
-
----
-
-> - Instructions for testing and validation of your code:
->   - What OS was used for testing.
->   - Which test sets were used.
->   - Description of test scenarios that you have tried.
-
-## Any relevant logs or outputs
+## Isso introduz uma alteração que quebra a compatibilidade?
 
 ---
 
-> - Use this section to attach pictures that demonstrates your changes working / healthy
-> - If you are printing something show a screenshot
-> - When you want to share long logs upload to:
->  `(StorageAccount)/pr-support/attachments/(PR Number)/(yourFiles) using [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/)` or [portal.azure.com](https://portal.azure.com) and insert the link here.
+- [ ] Sim
+- [ ] Não
 
-## Other information or known dependencies
+> Se isso introduzir uma alteração que quebra a compatibilidade, descreva o impacto e o caminho de migração para aplicativos existentes abaixo.
+
+## Testes
 
 ---
 
-> - Any other information or known dependencies that is important to this PR.
-> - TODO that are to be done after this PR.
+> - Instruções para teste e validação do seu código:
+>   - Qual sistema operacional foi usado para testar.
+>   - Quais conjuntos de testes foram usados.
+>   - Descrição dos cenários de teste que você experimentou.
+
+## Registros ou saídas relevantes
+
+---
+
+> - Use esta seção para anexar imagens que demonstrem seu código funcionando/funcionando corretamente.
+> - Se você estiver imprimindo algo, mostre uma captura de tela.
+> - Quando quiser compartilhar registros longos, faça o upload para:
+>   `(ContaDeArmazenamento)/pr-support/anexos/(NúmeroDoPR)/(seusArquivos)` usando o [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) ou [portal.azure.com](https://portal.azure.com) e insira o link aqui.
+
+## Outras informações ou dependências conhecidas
+
+---
+
+> - Qualquer outra informação ou dependências conhecidas que sejam importantes para este PR.
+> - Tarefas a fazer após este PR.

@@ -19,7 +19,7 @@
     
     
       
-        <title>Evidence and Measures - Manual da Engenharia para Codar</title>
+        <title>Evidências e Medidas - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#evidence-and-measures" class="md-skip">
+        <a href="#evidencias-e-medidas" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Evidence and Measures
+              Evidências e Medidas
             
           </span>
         </div>
@@ -7138,22 +7138,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#evidence" class="md-nav__link">
-    Evidence
+  <a href="#evidencias" class="md-nav__link">
+    Evidências
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#measures" class="md-nav__link">
-    Measures
+  <a href="#medidas" class="md-nav__link">
+    Medidas
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    Resources
+  <a href="#recursos" class="md-nav__link">
+    Recursos
   </a>
   
 </li>
@@ -7172,34 +7172,34 @@
                 
 
 
-<h1 id="evidence-and-measures">Evidence and Measures</h1>
-<h2 id="evidence">Evidence</h2>
-<p>Many of the code quality assurance items can be automated or enforced by policies in modern version control and work item tracking systems. Verification of the policies on the main branch in <a href="https://azure.microsoft.com/en-us/services/devops/">Azure DevOps</a> (AzDO) or <a href="https://github.com/">GitHub</a>, for example, may be sufficient evidence that a project team is conducting code reviews.</p>
+<h1 id="evidencias-e-medidas">Evidências e Medidas</h1>
+<h2 id="evidencias">Evidências</h2>
+<p>Muitos dos itens de garantia de qualidade de código podem ser automatizados ou aplicados por meio de políticas em sistemas modernos de controle de versão e rastreamento de itens de trabalho. A verificação das políticas na branch principal no <a href="https://azure.microsoft.com/pt-br/services/devops/">Azure DevOps</a> (AzDO) ou no <a href="https://github.com/">GitHub</a>, por exemplo, pode ser evidência suficiente de que uma equipe de projeto está conduzindo revisões de código.</p>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox" disabled/> The main branches in all repositories have branch policies. - <a href="../tools/#Configuring Branch Policies">Configure branch policies</a></li>
-<li class="task-list-item"><input type="checkbox" disabled/> All builds produced out of project repositories include appropriate linters, run unit tests.</li>
-<li class="task-list-item"><input type="checkbox" disabled/> Every bug work item should include a link to the pull request that introduced it, once the error has been diagnosed. This helps with learning.</li>
-<li class="task-list-item"><input type="checkbox" disabled/> Each bug work item should include a note on how the bug might (or might not have) been caught in a code review.</li>
-<li class="task-list-item"><input type="checkbox" disabled/> The project team regularly updates their code review checklists to reflect common issues they have encountered.</li>
-<li class="task-list-item"><input type="checkbox" disabled/> Dev Leads should review a sample of pull requests and/or be co-reviewers with other developers to help everyone improve their skills as code reviewers.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Todas as branches principais em todos os repositórios têm políticas de branch. - <a href="../tools/#Configuring Branch Policies">Configurar políticas de branch</a></li>
+<li class="task-list-item"><input type="checkbox" disabled/> Todas as compilações geradas a partir dos repositórios do projeto incluem linters apropriados e executam testes unitários.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Cada item de trabalho de correção de bug deve incluir um link para o pull request que o introduziu, assim que o erro for diagnosticado. Isso ajuda na aprendizagem.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Cada item de trabalho de correção de bug deve incluir uma observação sobre como o bug poderia (ou não) ter sido detectado em uma revisão de código.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> A equipe do projeto atualiza regularmente suas listas de verificação de revisão de código para refletir problemas comuns que eles encontraram.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Os líderes de desenvolvimento devem revisar uma amostra de pull requests e/ou ser co-revisores com outros desenvolvedores para ajudar todos a melhorar suas habilidades como revisores de código.</li>
 </ul>
-<h2 id="measures">Measures</h2>
-<p>The team can collect metrics of code reviews to measure their efficiency. Some useful metrics include:</p>
+<h2 id="medidas">Medidas</h2>
+<p>A equipe pode coletar métricas de revisões de código para medir sua eficiência. Algumas métricas úteis incluem:</p>
 <ul>
-<li>Defect Removal Efficiency (DRE) - a measure of the development team's ability to remove defects prior to release</li>
-<li>Time metrics:<ul>
-<li>Time used preparing for code inspection sessions</li>
-<li>Time used in review sessions</li>
+<li>Eficiência na Remoção de Defeitos (DRE) - uma medida da capacidade da equipe de desenvolvimento de remover defeitos antes do lançamento.</li>
+<li>Métricas de tempo:<ul>
+<li>Tempo gasto preparando-se para sessões de inspeção de código.</li>
+<li>Tempo gasto em sessões de revisão.</li>
 </ul>
 </li>
-<li>Lines of code (LOC) inspected per time unit/meeting</li>
+<li>Linhas de código (LOC) inspecionadas por unidade de tempo/reunião.</li>
 </ul>
-<p>It is a perfectly reasonable solution to track these metrics manually e.g. in an Excel sheet. It is also possible to utilize the features of project management platforms - for example, AzDO enables dashboards for metrics including <a href="https://learn.microsoft.com/en-us/azure/devops/boards/backlogs/manage-bugs?view=azure-devops&amp;tabs=new-web-form">tracking bugs</a>. You may find ready-made plugins for various platforms - see <a href="https://github.com/marketplace">GitHub Marketplace</a> for instance - or you can choose to implement these features yourself.</p>
-<p>Remember that since defects removed thanks to reviews is far less costly compared to finding them in production, the cost of doing code reviews is actually negative!</p>
-<p>For more information, see links under <a href="#resources">resources</a>.</p>
-<h2 id="resources">Resources</h2>
+<p>É uma solução perfeitamente razoável rastrear essas métricas manualmente, por exemplo, em uma planilha do Excel. Também é possível utilizar os recursos de plataformas de gerenciamento de projetos - por exemplo, o AzDO permite painéis de métricas, incluindo <a href="https://learn.microsoft.com/pt-br/azure/devops/boards/backlogs/manage-bugs?view=azure-devops&amp;tabs=new-web-form">rastreamento de bugs</a>. Você pode encontrar plugins prontos para várias plataformas - consulte o <a href="https://github.com/marketplace">GitHub Marketplace</a>, por exemplo - ou optar por implementar esses recursos por conta própria.</p>
+<p>Lembre-se de que, uma vez que defeitos removidos graças a revisões são muito menos custosos em comparação com a detecção deles em produção, o custo das revisões de código é, na verdade, negativo!</p>
+<p>Para obter mais informações, consulte os links na seção de <a href="#resources">recursos</a>.</p>
+<h2 id="recursos">Recursos</h2>
 <ul>
-<li><a href="http://www.ganssle.com/inspections.pdf">A Guide to Code Inspections</a></li>
+<li><a href="http://www.ganssle.com/inspections.pdf">Um Guia para Inspeções de Código</a></li>
 </ul>
 
   <hr>
@@ -7207,7 +7207,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 3, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 16, 2023</span>
       
     
   </small>

@@ -1,5 +1,3 @@
-Claro, vou traduzir o conteúdo fornecido conforme suas instruções.
-
 ### Exemplo: Criando um teste de unidade
 
 Para ilustrar algumas técnicas de teste de unidade para uma linguagem orientada a objetos, vamos começar com um exemplo de algum código para o qual desejamos adicionar testes de unidade. Neste exemplo, temos uma classe de configuração que contém todas as opções de inicialização para um aplicativo que estamos desenvolvendo. Normalmente, ela lê de um arquivo `.config`, mas estamos enfrentando três problemas com a implementação atual:

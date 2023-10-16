@@ -19,7 +19,7 @@
     
     
       
-        <title>Bash Code Reviews - Manual da Engenharia para Codar</title>
+        <title>Revisão de Código em Bash - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bash-code-reviews" class="md-skip">
+        <a href="#revisao-de-codigo-em-bash" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Bash Code Reviews
+              Revisão de Código em Bash
             
           </span>
         </div>
@@ -2400,12 +2400,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Bash Code Reviews
+          Revisão de Código em Bash
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Bash Code Reviews
+        Revisão de Código em Bash
       </a>
       
         
@@ -2424,25 +2424,25 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#style-guide" class="md-nav__link">
-    Style Guide
+  <a href="#guia-de-estilo" class="md-nav__link">
+    Guia de Estilo
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-analysis-linting" class="md-nav__link">
-    Code Analysis / Linting
+  <a href="#analise-de-codigo-linting" class="md-nav__link">
+    Análise de Código / Linting
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-setup" class="md-nav__link">
-    Project Setup
+  <a href="#configuracao-do-projeto" class="md-nav__link">
+    Configuração do Projeto
   </a>
   
-    <nav class="md-nav" aria-label="Project Setup">
+    <nav class="md-nav" aria-label="Configuração do Projeto">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2454,15 +2454,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#install-shellcheck-on-your-machine" class="md-nav__link">
-    Install shellcheck on your machine
+  <a href="#instale-o-shellcheck-em-sua-maquina" class="md-nav__link">
+    Instale o shellcheck em sua máquina
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#install-shellcheck-on-vscode" class="md-nav__link">
-    Install shellcheck on vscode
+  <a href="#instale-o-shellcheck-no-vscode" class="md-nav__link">
+    Instale o shellcheck no vscode
   </a>
   
 </li>
@@ -2478,11 +2478,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#automatic-code-formatting" class="md-nav__link">
-    Automatic Code Formatting
+  <a href="#formatacao-automatica-de-codigo" class="md-nav__link">
+    Formatação Automática de Código
   </a>
   
-    <nav class="md-nav" aria-label="Automatic Code Formatting">
+    <nav class="md-nav" aria-label="Formatação Automática de Código">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2494,15 +2494,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#install-shfmtrequires-go-113-or-later-on-your-machine" class="md-nav__link">
-    Install shfmt(Requires Go 1.13 or later) on your machine
+  <a href="#instale-o-shfmt-requer-go-113-ou-posterior-em-sua-maquina" class="md-nav__link">
+    Instale o shfmt (requer Go 1.13 ou posterior) em sua máquina
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#install-shell-format-on-vscode" class="md-nav__link">
-    Install shell-format on vscode
+  <a href="#instale-o-shell-format-no-vscode" class="md-nav__link">
+    Instale o shell-format no vscode
   </a>
   
 </li>
@@ -2518,37 +2518,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#build-validation" class="md-nav__link">
-    Build Validation
+  <a href="#validacao-de-build" class="md-nav__link">
+    Validação de Build
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pre-commit-hooks" class="md-nav__link">
-    Pre-Commit Hooks
+  <a href="#hooks-pre-commit" class="md-nav__link">
+    Hooks Pré-Commit
   </a>
   
-    <nav class="md-nav" aria-label="Pre-Commit Hooks">
+    <nav class="md-nav" aria-label="Hooks Pré-Commit">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-1-install-pre-commit" class="md-nav__link">
-    Step 1- Install pre-commit
+  <a href="#etapa-1-instalar-o-pre-commit" class="md-nav__link">
+    Etapa 1 - Instalar o pre-commit
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-2-add-shellcheck-and-shfmt" class="md-nav__link">
-    Step 2- Add shellcheck and shfmt
+  <a href="#etapa-2-adicione-o-shellcheck-e-o-shfmt" class="md-nav__link">
+    Etapa 2 - Adicione o shellcheck e o shfmt
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3" class="md-nav__link">
-    Step 3
+  <a href="#etapa-3" class="md-nav__link">
+    Etapa 3
   </a>
   
 </li>
@@ -2559,15 +2559,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    Dependencies
+  <a href="#dependencias" class="md-nav__link">
+    Dependências
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-review-checklist" class="md-nav__link">
-    Code Review Checklist
+  <a href="#checklist-de-revisao-de-codigo" class="md-nav__link">
+    Checklist de Revisão de Código
   </a>
   
 </li>
@@ -7321,25 +7321,25 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#style-guide" class="md-nav__link">
-    Style Guide
+  <a href="#guia-de-estilo" class="md-nav__link">
+    Guia de Estilo
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-analysis-linting" class="md-nav__link">
-    Code Analysis / Linting
+  <a href="#analise-de-codigo-linting" class="md-nav__link">
+    Análise de Código / Linting
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-setup" class="md-nav__link">
-    Project Setup
+  <a href="#configuracao-do-projeto" class="md-nav__link">
+    Configuração do Projeto
   </a>
   
-    <nav class="md-nav" aria-label="Project Setup">
+    <nav class="md-nav" aria-label="Configuração do Projeto">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -7351,15 +7351,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#install-shellcheck-on-your-machine" class="md-nav__link">
-    Install shellcheck on your machine
+  <a href="#instale-o-shellcheck-em-sua-maquina" class="md-nav__link">
+    Instale o shellcheck em sua máquina
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#install-shellcheck-on-vscode" class="md-nav__link">
-    Install shellcheck on vscode
+  <a href="#instale-o-shellcheck-no-vscode" class="md-nav__link">
+    Instale o shellcheck no vscode
   </a>
   
 </li>
@@ -7375,11 +7375,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#automatic-code-formatting" class="md-nav__link">
-    Automatic Code Formatting
+  <a href="#formatacao-automatica-de-codigo" class="md-nav__link">
+    Formatação Automática de Código
   </a>
   
-    <nav class="md-nav" aria-label="Automatic Code Formatting">
+    <nav class="md-nav" aria-label="Formatação Automática de Código">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -7391,15 +7391,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#install-shfmtrequires-go-113-or-later-on-your-machine" class="md-nav__link">
-    Install shfmt(Requires Go 1.13 or later) on your machine
+  <a href="#instale-o-shfmt-requer-go-113-ou-posterior-em-sua-maquina" class="md-nav__link">
+    Instale o shfmt (requer Go 1.13 ou posterior) em sua máquina
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#install-shell-format-on-vscode" class="md-nav__link">
-    Install shell-format on vscode
+  <a href="#instale-o-shell-format-no-vscode" class="md-nav__link">
+    Instale o shell-format no vscode
   </a>
   
 </li>
@@ -7415,37 +7415,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#build-validation" class="md-nav__link">
-    Build Validation
+  <a href="#validacao-de-build" class="md-nav__link">
+    Validação de Build
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pre-commit-hooks" class="md-nav__link">
-    Pre-Commit Hooks
+  <a href="#hooks-pre-commit" class="md-nav__link">
+    Hooks Pré-Commit
   </a>
   
-    <nav class="md-nav" aria-label="Pre-Commit Hooks">
+    <nav class="md-nav" aria-label="Hooks Pré-Commit">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-1-install-pre-commit" class="md-nav__link">
-    Step 1- Install pre-commit
+  <a href="#etapa-1-instalar-o-pre-commit" class="md-nav__link">
+    Etapa 1 - Instalar o pre-commit
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-2-add-shellcheck-and-shfmt" class="md-nav__link">
-    Step 2- Add shellcheck and shfmt
+  <a href="#etapa-2-adicione-o-shellcheck-e-o-shfmt" class="md-nav__link">
+    Etapa 2 - Adicione o shellcheck e o shfmt
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3" class="md-nav__link">
-    Step 3
+  <a href="#etapa-3" class="md-nav__link">
+    Etapa 3
   </a>
   
 </li>
@@ -7456,15 +7456,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    Dependencies
+  <a href="#dependencias" class="md-nav__link">
+    Dependências
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-review-checklist" class="md-nav__link">
-    Code Review Checklist
+  <a href="#checklist-de-revisao-de-codigo" class="md-nav__link">
+    Checklist de Revisão de Código
   </a>
   
 </li>
@@ -7483,63 +7483,63 @@
                 
 
 
-<h1 id="bash-code-reviews">Bash Code Reviews</h1>
-<h2 id="style-guide">Style Guide</h2>
-<p>Developers should follow <a href="https://google.github.io/styleguide/shell.xml">Google's Bash Style Guide</a>.</p>
-<h2 id="code-analysis-linting">Code Analysis / Linting</h2>
-<p>Projects must check bash code with <a href="https://github.com/koalaman/shellcheck">shellcheck</a> as part of the <a href="../../../continuous-integration/">CI process</a>.
-Apart from linting, <a href="https://github.com/mvdan/sh">shfmt</a> can be used to automatically format shell scripts. There are few vscode code extensions which are based on shfmt like shell-format which can be used to automatically format shell scripts.</p>
-<h2 id="project-setup">Project Setup</h2>
+<h1 id="revisao-de-codigo-em-bash">Revisão de Código em Bash</h1>
+<h2 id="guia-de-estilo">Guia de Estilo</h2>
+<p>Os desenvolvedores devem seguir o <a href="https://google.github.io/styleguide/shell.xml">Guia de Estilo Bash do Google</a>.</p>
+<h2 id="analise-de-codigo-linting">Análise de Código / Linting</h2>
+<p>Projetos devem verificar o código Bash com o <a href="https://github.com/koalaman/shellcheck">shellcheck</a> como parte do <a href="../../../continuous-integration/">processo de CI</a>.
+Além do linting, <a href="https://github.com/mvdan/sh">shfmt</a> pode ser usado para formatar automaticamente scripts shell. Existem algumas extensões de código do vscode baseadas no shfmt, como shell-format, que podem ser usadas para formatar automaticamente scripts shell.</p>
+<h2 id="configuracao-do-projeto">Configuração do Projeto</h2>
 <h3 id="vscode-shellcheck">vscode-shellcheck</h3>
-<p>Shellcheck extension should be used in VS Code, it provides static code analysis capabilities and auto fixing linting issues. To use vscode-shellcheck in vscode do the following:</p>
-<h4 id="install-shellcheck-on-your-machine">Install shellcheck on your machine</h4>
-<p>For macOS</p>
+<p>A extensão Shellcheck deve ser usada no VS Code, ela fornece capacidades de análise de código estático e correção automática de problemas de linting. Para usar o vscode-shellcheck no VS Code, faça o seguinte:</p>
+<h4 id="instale-o-shellcheck-em-sua-maquina">Instale o shellcheck em sua máquina</h4>
+<p>Para macOS</p>
 <div class="highlight"><pre><span></span><code>brew<span class="w"> </span>install<span class="w"> </span>shellcheck
 </code></pre></div>
-<p>For Ubuntu:</p>
+<p>Para Ubuntu:</p>
 <div class="highlight"><pre><span></span><code>apt-get<span class="w"> </span>install<span class="w"> </span>shellcheck
 </code></pre></div>
-<h4 id="install-shellcheck-on-vscode">Install shellcheck on vscode</h4>
-<p>Find the vscode-shellcheck extension in vscode and install it.</p>
-<h2 id="automatic-code-formatting">Automatic Code Formatting</h2>
+<h4 id="instale-o-shellcheck-no-vscode">Instale o shellcheck no vscode</h4>
+<p>Encontre a extensão vscode-shellcheck no vscode e instale-a.</p>
+<h2 id="formatacao-automatica-de-codigo">Formatação Automática de Código</h2>
 <h3 id="shell-format">shell-format</h3>
-<p>shell-format extension does automatic formatting of your bash scripts, docker files and several configuration files. It is dependent on shfmt which can enforce google style guide checks for bash.
-To use shell-format in vscode do the following:</p>
-<h4 id="install-shfmtrequires-go-113-or-later-on-your-machine">Install shfmt(Requires Go 1.13 or later) on your machine</h4>
+<p>A extensão shell-format faz a formatação automática de seus scripts bash, arquivos Docker e vários arquivos de configuração. Ela depende do shfmt, que pode aplicar verificações do guia de estilo do Google para bash.
+Para usar o shell-format no vscode, siga os passos abaixo:</p>
+<h4 id="instale-o-shfmt-requer-go-113-ou-posterior-em-sua-maquina">Instale o shfmt (requer Go 1.13 ou posterior) em sua máquina</h4>
 <div class="highlight"><pre><span></span><code><span class="nv">GO111MODULE</span><span class="o">=</span>on<span class="w"> </span>go<span class="w"> </span>get<span class="w"> </span>mvdan.cc/sh/v3/cmd/shfmt
 </code></pre></div>
-<h4 id="install-shell-format-on-vscode">Install shell-format on vscode</h4>
-<p>Find the shell-format extension in vscode and install it.</p>
-<h2 id="build-validation">Build Validation</h2>
-<p>To automate this process in Azure DevOps you can add the following snippet to you <code>azure-pipelines.yaml</code> file. This will lint any scripts in the <code>./scripts/</code> folder.</p>
+<h4 id="instale-o-shell-format-no-vscode">Instale o shell-format no vscode</h4>
+<p>Encontre a extensão shell-format no vscode e instale-a.</p>
+<h2 id="validacao-de-build">Validação de Build</h2>
+<p>Para automatizar esse processo no Azure DevOps, você pode adicionar o seguinte trecho ao seu arquivo <code>azure-pipelines.yaml</code>. Isso fará a verificação de linting em qualquer script na pasta <code>./scripts/</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">bash</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">    </span><span class="no">echo &quot;This checks for formatting and common bash errors. See wiki for error details and ignore options: https://github.com/koalaman/shellcheck/wiki/SC1000&quot;</span>
+<span class="w">    </span><span class="no">echo &quot;Isso verifica a formatação e erros comuns do Bash. Consulte o wiki para detalhes sobre erros e opções de ignorar: https://github.com/koalaman/shellcheck/wiki/SC1000&quot;</span>
 <span class="w">    </span><span class="no">export scversion=&quot;stable&quot;</span>
 <span class="w">    </span><span class="no">wget -qO- &quot;https://github.com/koalaman/shellcheck/releases/download/${scversion?}/shellcheck-${scversion?}.linux.x86_64.tar.xz&quot; | tar -xJv</span>
 <span class="w">    </span><span class="no">sudo mv &quot;shellcheck-${scversion}/shellcheck&quot; /usr/bin/</span>
 <span class="w">    </span><span class="no">rm -r &quot;shellcheck-${scversion}&quot;</span>
 <span class="w">    </span><span class="no">shellcheck ./scripts/*.sh</span>
-<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Validate</span><span class="nv"> </span><span class="s">Scripts:</span><span class="nv"> </span><span class="s">Shellcheck&quot;</span>
+<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Validar</span><span class="nv"> </span><span class="s">Scripts:</span><span class="nv"> </span><span class="s">Shellcheck&quot;</span>
 </code></pre></div>
-<p>Also, your shell scripts can be formatted in your build pipeline by using the <code>shfmt</code> tool. To integrate <code>shfmt</code> in your build pipeline do the following:</p>
+<p>Além disso, seus scripts shell podem ser formatados em sua pipeline de build usando a ferramenta <code>shfmt</code>. Para integrar o <code>shfmt</code> em sua pipeline de build, faça o seguinte:</p>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">bash</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">    </span><span class="no">echo &quot;This step does auto formatting of shell scripts&quot;</span>
+<span class="w">    </span><span class="no">echo &quot;Esta etapa faz a formatação automática de scripts shell&quot;</span>
 <span class="w">    </span><span class="no">shfmt -l -w ./scripts/*.sh</span>
-<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Format</span><span class="nv"> </span><span class="s">Scripts:</span><span class="nv"> </span><span class="s">shfmt&quot;</span>
+<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Formatar</span><span class="nv"> </span><span class="s">Scripts:</span><span class="nv"> </span><span class="s">shfmt&quot;</span>
 </code></pre></div>
-<p>Unit testing using <a href="https://github.com/kward/shunit2">shunit2</a> can also be added to the build pipeline, using the following block:</p>
+<p>A realização de testes unitários usando <a href="https://github.com/kward/shunit2">shunit2</a> também pode ser adicionada à pipeline de build, usando o seguinte bloco:</p>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">bash</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">    </span><span class="no">echo &quot;This step unit tests shell scripts by using shunit2&quot;</span>
+<span class="w">    </span><span class="no">echo &quot;Esta etapa realiza testes unitários em scripts shell usando shunit2&quot;</span>
 <span class="w">    </span><span class="no">./shunit2</span>
-<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Format</span><span class="nv"> </span><span class="s">Scripts:</span><span class="nv"> </span><span class="s">shfmt&quot;</span>
+<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Formatar</span><span class="nv"> </span><span class="s">Scripts:</span><span class="nv"> </span><span class="s">shfmt&quot;</span>
 </code></pre></div>
-<h2 id="pre-commit-hooks">Pre-Commit Hooks</h2>
-<p>All developers should run shellcheck and shfmt as pre-commit hooks.</p>
-<h3 id="step-1-install-pre-commit">Step 1- Install pre-commit</h3>
-<p>Run <code>pip install pre-commit</code> to install pre-commit.
-Alternatively you can run <code>brew install pre-commit</code> if you are using homebrew.</p>
-<h3 id="step-2-add-shellcheck-and-shfmt">Step 2- Add shellcheck and shfmt</h3>
-<p>Add .pre-commit-config.yaml file to root of the go project. Run shfmt on pre-commit by adding it to .pre-commit-config.yaml file like below.</p>
+<h2 id="hooks-pre-commit">Hooks Pré-Commit</h2>
+<p>Todos os desenvolvedores devem executar o shellcheck e o shfmt como hooks pré-commit.</p>
+<h3 id="etapa-1-instalar-o-pre-commit">Etapa 1 - Instalar o pre-commit</h3>
+<p>Execute <code>pip install pre-commit</code> para instalar o pre-commit.
+Alternativamente, você pode executar <code>brew install pre-commit</code> se estiver usando o Homebrew.</p>
+<h3 id="etapa-2-adicione-o-shellcheck-e-o-shfmt">Etapa 2 - Adicione o shellcheck e o shfmt</h3>
+<p>Adicione o arquivo .pre-commit-config.yaml à raiz do projeto em Go. Execute o shfmt no pré-commit adicionando-o ao arquivo .pre-commit-config.yaml como abaixo.</p>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">git://github.com/pecigonzalo/pre-commit-fmt</span>
 <span class="w">    </span><span class="nt">sha</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">master</span>
 <span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
@@ -7552,27 +7552,27 @@ Alternatively you can run <code>brew install pre-commit</code> if you are using 
 <span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shellcheck</span>
 </code></pre></div>
-<h3 id="step-3">Step 3</h3>
-<p>Run <code>$ pre-commit install</code> to set up the git hook scripts</p>
-<h2 id="dependencies">Dependencies</h2>
-<p>Bash scripts are often used to 'glue together' other systems and tools. As such, Bash scripts can often have numerous and/or complicated dependencies. Consider using Docker containers to ensure that scripts are executed in a portable and reproducible environment that is guaranteed to contain all the correct dependencies. To ensure that dockerized scripts are nevertheless easy to execute, consider making the use of Docker transparent to the script's caller by wrapping the script in a 'bootstrap' which checks whether the script is running in Docker and re-executes itself in Docker if it's not the case. This provides the best of both worlds: easy script execution and consistent environments.</p>
+<h3 id="etapa-3">Etapa 3</h3>
+<p>Execute <code>$ pre-commit install</code> para configurar os scripts de hook do git.</p>
+<h2 id="dependencias">Dependências</h2>
+<p>Scripts Bash são frequentemente usados para 'ligar' outros sistemas e ferramentas. Portanto, os scripts Bash podem ter muitas e/ou complicadas dependências. Considere usar contêineres Docker para garantir que os scripts sejam executados em um ambiente portátil e reproduzível que contenha todas as dependências corretas. Para garantir que os scripts com Docker sejam fáceis de executar, considere tornar o uso do Docker transparente para quem chama o script, envolvendo o script em um 'bootstrap' que verifica se o script está sendo executado no Docker e o reexecuta em Docker se não for o caso. Isso proporciona o melhor dos dois mundos: execução fácil de script e ambientes consistentes.</p>
 <div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">DOCKER</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">  </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>my_script<span class="w"> </span>-f<span class="w"> </span>my_script.Dockerfile<span class="w"> </span>.<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
 <span class="w">  </span>docker<span class="w"> </span>run<span class="w"> </span>-e<span class="w"> </span><span class="nv">DOCKER</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>my_script<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
 <span class="w">  </span><span class="nb">exit</span><span class="w"> </span><span class="nv">$?</span>
 <span class="k">fi</span>
 
-<span class="c1"># ... implementation of my_script here can assume that all of its dependencies exist since it&#39;s always running in Docker ...</span>
+<span class="c1"># ... implementação do my_script aqui pode assumir que todas as suas dependências existem, pois ele sempre está sendo executado no Docker ...</span>
 </code></pre></div>
-<h2 id="code-review-checklist">Code Review Checklist</h2>
-<p>In addition to the <a href="../../process-guidance/reviewer-guidance/">Code Review Checklist</a> you should also look for these bash specific code review items</p>
+<h2 id="checklist-de-revisao-de-codigo">Checklist de Revisão de Código</h2>
+<p>Além do <a href="../../process-guidance/reviewer-guidance/">Checklist de Revisão de Código</a>, você também deve verificar esses itens específicos de revisão de código em Bash</p>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox" disabled/> Does this code use <a href="https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html">Built-in Shell</a> Options like set -o, set -e, set -u for execution control of shell scripts ?</li>
-<li class="task-list-item"><input type="checkbox" disabled/> Is the code modularized? Shell scripts can be modularized like python modules. Portions of bash scripts should be sourced in complex bash projects.</li>
-<li class="task-list-item"><input type="checkbox" disabled/> Are all exceptions handled correctly? Exceptions should be handled correctly using exit codes or trapping signals.</li>
-<li class="task-list-item"><input type="checkbox" disabled/> Does the code pass all linting checks as per shellcheck and unit tests as per shunit2 ?</li>
-<li class="task-list-item"><input type="checkbox" disabled/> Does the code uses relative paths or absolute paths? Relative paths should be avoided as they are prone to environment attacks. If relative path is needed, check that the <code>PATH</code> variable is set.</li>
-<li class="task-list-item"><input type="checkbox" disabled/> Does the code take credentials as user input? Are the credentials masked or encrypted in the script?</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Esse código usa <a href="https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html">Opções Internas do Shell</a> como set -o, set -e, set -u para controle de execução de scripts shell?</li>
+<li class="task-list-item"><input type="checkbox" disabled/> O código está modularizado? Scripts shell podem ser modularizados como módulos Python. Partes de scripts Bash devem ser importadas em projetos Bash complexos.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Todas as exceções são tratadas corretamente? Exceções devem ser tratadas corretamente usando códigos de saída ou capturando sinais.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> O código passa em todas as verificações de linting conforme shellcheck e em todos os testes unitários conforme shunit2?</li>
+<li class="task-list-item"><input type="checkbox" disabled/> O código usa caminhos relativos ou caminhos absolutos? Caminhos relativos devem ser evitados, pois são vulneráveis a ataques de ambiente. Se for necessário um caminho relativo, verifique se a variável <code>PATH</code> está definida.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> O código aceita credenciais como entrada do usuário? As credenciais estão ocultas ou criptografadas no script?</li>
 </ul>
 
   <hr>
@@ -7580,7 +7580,7 @@ Alternatively you can run <code>brew install pre-commit</code> if you are using 
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 16, 2023</span>
       
     
   </small>

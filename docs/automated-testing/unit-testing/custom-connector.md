@@ -1,18 +1,18 @@
-# Custom Connector Testing
+# Teste de Conector Personalizado
 
-When developing Custom Connectors to put data into the Power Platform there are some strategies you can follow:
+Ao desenvolver Conectores Personalizados para inserir dados na Power Platform, existem algumas estratégias que você pode seguir:
 
-## Unit Testing
+## Teste de Unidade
 
-There are several verifications one can do while developing custom connectors in order to be sure the code is working properly.
+Há várias verificações que podem ser feitas durante o desenvolvimento de conectores personalizados para ter certeza de que o código está funcionando corretamente.
 
-There are two main ones:
+Existem duas principais:
 
-- Validating the OpenAPI schema which the connector is defined.
-- Validating if the schema also have all the information necessary for the certified connector process.
+- Validar o esquema OpenAPI no qual o conector é definido.
+- Validar se o esquema também possui todas as informações necessárias para o processo de conector certificado.
 
-(the later one is optional, but necessary in case you want to publish it as a certified connector).
+(o último é opcional, mas necessário caso você queira publicá-lo como um conector certificado).
 
-There are several tool to help validate the OpenAPI schema, a list of them are available in this [link](https://openapi.tools/#description-validators). A suggested tool would be [swagger-cli](https://github.com/APIDevTools/swagger-cli).
+Existem várias ferramentas para ajudar a validar o esquema OpenAPI, uma lista delas está disponível neste [link](https://openapi.tools/#description-validators). Uma ferramenta sugerida seria o [swagger-cli](https://github.com/APIDevTools/swagger-cli).
 
-On the other hand, to validate if the custom connector you are building is correct to become a certified connector, use the [paconn-cli](https://github.com/microsoft/PowerPlatformConnectors/tree/dev/tools/paconn-cli), since it has a validate command that shows missing information from the custom connector definition.
+Por outro lado, para validar se o conector personalizado que você está construindo está correto para se tornar um conector certificado, use o [paconn-cli](https://github.com/microsoft/PowerPlatformConnectors/tree/dev/tools/paconn-cli), uma vez que ele possui um comando de validação que mostra informações ausentes na definição do conector personalizado.

@@ -1,100 +1,100 @@
-# Bash Code Reviews
+# Revisão de Código em Bash
 
-## Style Guide
+## Guia de Estilo
 
-Developers should follow [Google's Bash Style Guide](https://google.github.io/styleguide/shell.xml).
+Os desenvolvedores devem seguir o [Guia de Estilo Bash do Google](https://google.github.io/styleguide/shell.xml).
 
-## Code Analysis / Linting
+## Análise de Código / Linting
 
-Projects must check bash code with [shellcheck](https://github.com/koalaman/shellcheck) as part of the [CI process](../../continuous-integration/README.md).
-Apart from linting, [shfmt](https://github.com/mvdan/sh) can be used to automatically format shell scripts. There are few vscode code extensions which are based on shfmt like shell-format which can be used to automatically format shell scripts.
+Projetos devem verificar o código Bash com o [shellcheck](https://github.com/koalaman/shellcheck) como parte do [processo de CI](../../continuous-integration/README.md).
+Além do linting, [shfmt](https://github.com/mvdan/sh) pode ser usado para formatar automaticamente scripts shell. Existem algumas extensões de código do vscode baseadas no shfmt, como shell-format, que podem ser usadas para formatar automaticamente scripts shell.
 
-## Project Setup
+## Configuração do Projeto
 
 ### vscode-shellcheck
 
-Shellcheck extension should be used in VS Code, it provides static code analysis capabilities and auto fixing linting issues. To use vscode-shellcheck in vscode do the following:
+A extensão Shellcheck deve ser usada no VS Code, ela fornece capacidades de análise de código estático e correção automática de problemas de linting. Para usar o vscode-shellcheck no VS Code, faça o seguinte:
 
-#### Install shellcheck on your machine
+#### Instale o shellcheck em sua máquina
 
-For macOS
+Para macOS
 
 ```bash
 brew install shellcheck
 ```
 
-For Ubuntu:
+Para Ubuntu:
 
 ```bash
 apt-get install shellcheck
 ```
 
-#### Install shellcheck on vscode
+#### Instale o shellcheck no vscode
 
-Find the vscode-shellcheck extension in vscode and install it.
+Encontre a extensão vscode-shellcheck no vscode e instale-a.
 
-## Automatic Code Formatting
+## Formatação Automática de Código
 
 ### shell-format
 
-shell-format extension does automatic formatting of your bash scripts, docker files and several configuration files. It is dependent on shfmt which can enforce google style guide checks for bash.
-To use shell-format in vscode do the following:
+A extensão shell-format faz a formatação automática de seus scripts bash, arquivos Docker e vários arquivos de configuração. Ela depende do shfmt, que pode aplicar verificações do guia de estilo do Google para bash.
+Para usar o shell-format no vscode, siga os passos abaixo:
 
-#### Install shfmt(Requires Go 1.13 or later) on your machine
+#### Instale o shfmt (requer Go 1.13 ou posterior) em sua máquina
 
 ```bash
 GO111MODULE=on go get mvdan.cc/sh/v3/cmd/shfmt
 ```
 
-#### Install shell-format on vscode
+#### Instale o shell-format no vscode
 
-Find the shell-format extension in vscode and install it.
+Encontre a extensão shell-format no vscode e instale-a.
 
-## Build Validation
+## Validação de Build
 
-To automate this process in Azure DevOps you can add the following snippet to you `azure-pipelines.yaml` file. This will lint any scripts in the `./scripts/` folder.
+Para automatizar esse processo no Azure DevOps, você pode adicionar o seguinte trecho ao seu arquivo `azure-pipelines.yaml`. Isso fará a verificação de linting em qualquer script na pasta `./scripts/`.
 
 ```yaml
 - bash: |
-    echo "This checks for formatting and common bash errors. See wiki for error details and ignore options: https://github.com/koalaman/shellcheck/wiki/SC1000"
+    echo "Isso verifica a formatação e erros comuns do Bash. Consulte o wiki para detalhes sobre erros e opções de ignorar: https://github.com/koalaman/shellcheck/wiki/SC1000"
     export scversion="stable"
     wget -qO- "https://github.com/koalaman/shellcheck/releases/download/${scversion?}/shellcheck-${scversion?}.linux.x86_64.tar.xz" | tar -xJv
     sudo mv "shellcheck-${scversion}/shellcheck" /usr/bin/
     rm -r "shellcheck-${scversion}"
     shellcheck ./scripts/*.sh
-  displayName: "Validate Scripts: Shellcheck"
+  displayName: "Validar Scripts: Shellcheck"
 ```
 
-Also, your shell scripts can be formatted in your build pipeline by using the `shfmt` tool. To integrate `shfmt` in your build pipeline do the following:
+Além disso, seus scripts shell podem ser formatados em sua pipeline de build usando a ferramenta `shfmt`. Para integrar o `shfmt` em sua pipeline de build, faça o seguinte:
 
 ```yaml
 - bash: |
-    echo "This step does auto formatting of shell scripts"
+    echo "Esta etapa faz a formatação automática de scripts shell"
     shfmt -l -w ./scripts/*.sh
-  displayName: "Format Scripts: shfmt"
+  displayName: "Formatar Scripts: shfmt"
 ```
 
-Unit testing using [shunit2](https://github.com/kward/shunit2) can also be added to the build pipeline, using the following block:
+A realização de testes unitários usando [shunit2](https://github.com/kward/shunit2) também pode ser adicionada à pipeline de build, usando o seguinte bloco:
 
 ```yaml
 - bash: |
-    echo "This step unit tests shell scripts by using shunit2"
+    echo "Esta etapa realiza testes unitários em scripts shell usando shunit2"
     ./shunit2
-  displayName: "Format Scripts: shfmt"
+  displayName: "Formatar Scripts: shfmt"
 ```
 
-## Pre-Commit Hooks
+## Hooks Pré-Commit
 
-All developers should run shellcheck and shfmt as pre-commit hooks.
+Todos os desenvolvedores devem executar o shellcheck e o shfmt como hooks pré-commit.
 
-### Step 1- Install pre-commit
+### Etapa 1 - Instalar o pre-commit
 
-Run `pip install pre-commit` to install pre-commit.
-Alternatively you can run `brew install pre-commit` if you are using homebrew.
+Execute `pip install pre-commit` para instalar o pre-commit.
+Alternativamente, você pode executar `brew install pre-commit` se estiver usando o Homebrew.
 
-### Step 2- Add shellcheck and shfmt
+### Etapa 2 - Adicione o shellcheck e o shfmt
 
-Add .pre-commit-config.yaml file to root of the go project. Run shfmt on pre-commit by adding it to .pre-commit-config.yaml file like below.
+Adicione o arquivo .pre-commit-config.yaml à raiz do projeto em Go. Execute o shfmt no pré-commit adicionando-o ao arquivo .pre-commit-config.yaml como abaixo.
 
 ```yaml
 -   repo: git://github.com/pecigonzalo/pre-commit-fmt
@@ -106,19 +106,21 @@ Add .pre-commit-config.yaml file to root of the go project. Run shfmt on pre-com
 ```
 
 ```yaml
+
+
 -   repo: https://github.com/shellcheck-py/shellcheck-py
     rev: v0.7.1.1
     hooks:
     -   id: shellcheck
 ```
 
-### Step 3
+### Etapa 3
 
-Run `$ pre-commit install` to set up the git hook scripts
+Execute `$ pre-commit install` para configurar os scripts de hook do git.
 
-## Dependencies
+## Dependências
 
-Bash scripts are often used to 'glue together' other systems and tools. As such, Bash scripts can often have numerous and/or complicated dependencies. Consider using Docker containers to ensure that scripts are executed in a portable and reproducible environment that is guaranteed to contain all the correct dependencies. To ensure that dockerized scripts are nevertheless easy to execute, consider making the use of Docker transparent to the script's caller by wrapping the script in a 'bootstrap' which checks whether the script is running in Docker and re-executes itself in Docker if it's not the case. This provides the best of both worlds: easy script execution and consistent environments.
+Scripts Bash são frequentemente usados para 'ligar' outros sistemas e ferramentas. Portanto, os scripts Bash podem ter muitas e/ou complicadas dependências. Considere usar contêineres Docker para garantir que os scripts sejam executados em um ambiente portátil e reproduzível que contenha todas as dependências corretas. Para garantir que os scripts com Docker sejam fáceis de executar, considere tornar o uso do Docker transparente para quem chama o script, envolvendo o script em um 'bootstrap' que verifica se o script está sendo executado no Docker e o reexecuta em Docker se não for o caso. Isso proporciona o melhor dos dois mundos: execução fácil de script e ambientes consistentes.
 
 ```bash
 if [[ "${DOCKER}" != "true" ]]; then
@@ -127,16 +129,16 @@ if [[ "${DOCKER}" != "true" ]]; then
   exit $?
 fi
 
-# ... implementation of my_script here can assume that all of its dependencies exist since it's always running in Docker ...
+# ... implementação do my_script aqui pode assumir que todas as suas dependências existem, pois ele sempre está sendo executado no Docker ...
 ```
 
-## Code Review Checklist
+## Checklist de Revisão de Código
 
-In addition to the [Code Review Checklist](../process-guidance/reviewer-guidance.md) you should also look for these bash specific code review items
+Além do [Checklist de Revisão de Código](../process-guidance/reviewer-guidance.md), você também deve verificar esses itens específicos de revisão de código em Bash
 
-* [ ] Does this code use [Built-in Shell](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html) Options like set -o, set -e, set -u for execution control of shell scripts ?
-* [ ] Is the code modularized? Shell scripts can be modularized like python modules. Portions of bash scripts should be sourced in complex bash projects.
-* [ ] Are all exceptions handled correctly? Exceptions should be handled correctly using exit codes or trapping signals.
-* [ ] Does the code pass all linting checks as per shellcheck and unit tests as per shunit2 ?
-* [ ] Does the code uses relative paths or absolute paths? Relative paths should be avoided as they are prone to environment attacks. If relative path is needed, check that the `PATH` variable is set.
-* [ ] Does the code take credentials as user input? Are the credentials masked or encrypted in the script?
+* [ ] Esse código usa [Opções Internas do Shell](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html) como set -o, set -e, set -u para controle de execução de scripts shell?
+* [ ] O código está modularizado? Scripts shell podem ser modularizados como módulos Python. Partes de scripts Bash devem ser importadas em projetos Bash complexos.
+* [ ] Todas as exceções são tratadas corretamente? Exceções devem ser tratadas corretamente usando códigos de saída ou capturando sinais.
+* [ ] O código passa em todas as verificações de linting conforme shellcheck e em todos os testes unitários conforme shunit2?
+* [ ] O código usa caminhos relativos ou caminhos absolutos? Caminhos relativos devem ser evitados, pois são vulneráveis a ataques de ambiente. Se for necessário um caminho relativo, verifique se a variável `PATH` está definida.
+* [ ] O código aceita credenciais como entrada do usuário? As credenciais estão ocultas ou criptografadas no script?

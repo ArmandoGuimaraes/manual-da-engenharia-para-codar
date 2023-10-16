@@ -1,17 +1,17 @@
-# Code Reviews
+# Revisões de Código
 
-Developers working on projects should conduct peer code reviews on every pull request (or check-in to a shared branch).
+Desenvolvedores trabalhando em projetos devem realizar revisões de código entre pares em cada pull request (ou check-in em um branch compartilhado).
 
-## Goals
+## Objetivos
 
-Code review is a way to have a conversation about the code where participants will:
+A revisão de código é uma forma de ter uma conversa sobre o código onde os participantes irão:
 
-- **Improve code quality** by identifying and removing defects before they can be introduced into shared code branches.
-- **Learn and grow** by having others review the code, we get exposed to unfamiliar design patterns or languages among other topics, and even break some bad habits.
-- **Shared understanding** between the developers over the project's code.
+- **Melhorar a qualidade do código** identificando e removendo defeitos antes que eles possam ser introduzidos em branches de código compartilhados.
+- **Aprender e crescer** ao ter outras pessoas revisando o código, somos expostos a padrões de design ou linguagens desconhecidas, entre outros tópicos, e até mesmo quebramos alguns maus hábitos.
+- **Entendimento compartilhado** entre os desenvolvedores sobre o código do projeto.
 
-## Resources
+## Recursos
 
-- [Code review tools](tools.md)
-- [Google's Engineering Practices documentation: How to do a code review](https://google.github.io/eng-practices/review/reviewer/)
-- [Best Kept Secrets of Peer Code Review](https://static1.smartbear.co/smartbear/media/pdfs/best-kept-secrets-of-peer-code-review_redirected.pdf)
+- [Ferramentas de revisão de código](tools.md)
+- [Documentação de Práticas de Engenharia do Google: Como fazer uma revisão de código](https://google.github.io/eng-practices/review/reviewer/)
+- [Segredos Melhor Guardados da Revisão de Código entre Pares](https://static1.smartbear.co/smartbear/media/pdfs/best-kept-secrets-of-peer-code-review_redirected.pdf)

@@ -1,71 +1,65 @@
-# Secrets Management
+# Gerenciamento de Segredos
 
-Secrets Management refers to the way in which we protect configuration settings and other sensitive data which, if
-made public, would allow unauthorized access to resources. Examples of secrets are usernames, passwords, api keys, SAS
-tokens etc.
+O Gerenciamento de Segredos se refere à maneira como protegemos configurações e outros dados sensíveis que, se tornados públicos, permitiriam o acesso não autorizado a recursos. Exemplos de segredos incluem nomes de usuário, senhas, chaves de API, tokens SAS, etc.
 
-We should assume any repo we work on may go public at any time and protect our secrets, even if
-the repo is initially private.
+Devemos assumir que qualquer repositório em que trabalhamos pode se tornar público a qualquer momento e proteger nossos segredos, mesmo que o repositório seja inicialmente privado.
 
-## General Approach
+## Abordagem Geral
 
-The general approach is to keep secrets in separate configuration files that are not checked in
-to the repo. Add the files to the [.gitignore](https://git-scm.com/docs/gitignore) to prevent that they're checked in.
+A abordagem geral é manter segredos em arquivos de configuração separados que não são incluídos no repositório. Adicione os arquivos ao [.gitignore](https://git-scm.com/docs/gitignore) para evitar que eles sejam incluídos.
 
-Each developer maintains their own local version of the file or, if required, circulate them via private channels e.g. a Teams chat.
+Cada desenvolvedor mantém sua própria versão local do arquivo ou, se necessário, os distribui por canais privados, como um chat no Teams.
 
-In a production system, assuming Azure, create the secrets in the environment of the running process. We can do this by manually editing the 'Applications Settings' section of the resource, but a script using
-the Azure CLI to do the same is a useful time-saving utility. See [az webapp config appsettings](https://learn.microsoft.com/en-us/cli/azure/webapp/config/appsettings?view=azure-cli-latest) for more details.
+Em um sistema de produção, assumindo o uso do Azure, crie os segredos no ambiente em que o processo está em execução. Isso pode ser feito editando manualmente a seção 'Configurações de Aplicativos' do recurso, mas um script usando o Azure CLI para fazer o mesmo é uma ferramenta útil que economiza tempo. Consulte [az webapp config appsettings](https://learn.microsoft.com/en-us/cli/azure/webapp/config/appsettings?view=azure-cli-latest) para obter mais detalhes.
 
-It's best practice to maintain separate secrets configurations for each environment that you run. e.g. dev, test, prod, local etc
+É uma boa prática manter configurações de segredos separadas para cada ambiente que você utiliza, como desenvolvimento, teste, produção, local, etc.
 
-The [secrets-per-branch recipe](./../azure-devops/secret-management-per-branch.md) describes a simple way to manage separate secrets configurations for each environment.
+A [receita de segredos por ramificação](./../azure-devops/secret-management-per-branch.md) descreve uma maneira simples de gerenciar configurações de segredos separadas para cada ambiente.
 
-> Note: even if the secret was only pushed to a feature branch and never merged, it's still a part of the git history. Follow [these instructions](https://help.github.com/en/github/authenticating-to-github/removing-sensitive-data-from-a-repository) to remove any sensitive data and/or regenerate any keys and other sensitive information added to the repo. If a key or secret made it into the code base, rotate the key/secret so that it's no longer active
+> Observação: mesmo que o segredo tenha sido apenas enviado para uma ramificação de recurso e nunca mesclado, ele ainda faz parte do histórico do git. Siga [essas instruções](https://help.github.com/en/github/authenticating-to-github/removing-sensitive-data-from-a-repository) para remover quaisquer dados sensíveis e/ou regenerar quaisquer chaves e outras informações sensíveis adicionadas ao repositório. Se uma chave ou segredo foi incluído no código-base, faça a rotação da chave/segredo para que ele não esteja mais ativo.
 
-## Keeping Secrets Secret
+## Mantendo os Segredos em Sigilo
 
-The care taken to protect our secrets applies both to how we get and store them, but also to how we use them.
+O cuidado em proteger nossos segredos se aplica tanto à forma como os obtemos e armazenamos quanto à forma como os utilizamos.
 
-- **Don't log secrets**
-- Don't put them in reporting
-- Don't send them to other applications, as part of URLs, forms, or in any other way other than to make a request to the service that requires that secret
+- **Não registre segredos**
+- Não os inclua em relatórios
+- Não os envie para outras aplicações, como parte de URLs, formulários ou de qualquer outra forma, exceto para fazer uma solicitação ao serviço que requer esse segredo
 
-## Enhanced-Security Applications
+## Aplicações com Segurança Reforçada
 
-The techniques outlined below provide *good* security and a common pattern for a wide range of languages. They rely on
-the fact that Azure keeps application settings (the environment) encrypted until your app runs.
+As técnicas descritas abaixo fornecem *boa* segurança e um padrão comum para uma ampla gama de linguagens. Elas dependem do fato de que o Azure mantém as configurações de aplicativos (o ambiente) criptografadas até que seu aplicativo seja executado.
 
-They do *not* prevent secrets from existing in plaintext in memory at runtime. In particular, for garbage collected languages those values may exist for longer than the lifetime of the variable, and may be visible when debugging a memory dump of the process.
+Elas *não* impedem que os segredos existam em texto simples na memória em tempo de execução. Em particular, para linguagens com coleta de lixo, esses valores podem existir por mais tempo do que a vida útil da variável e podem ser visíveis durante a depuração de um despejo de memória do processo.
 
-> If you are working on an application with enhanced security requirements you should consider using additional techniques to maintain encryption on secrets throughout the application lifetime.
+> Se você estiver trabalhando em um aplicativo com requisitos de segurança mais rigorosos, deve considerar o uso de técnicas adicionais para manter a criptografia dos segredos durante toda a vida útil do aplicativo.
 
-Always rotate encryption keys on a regular basis.
+Sempre faça a rotação das chaves de criptografia regularmente.
 
-## Techniques for Secrets Management
+## Técnicas para o Gerenciamento de Segredos
 
-These techniques make the loading of secrets  transparent to the developer.
+Essas técnicas tornam o carregamento de segredos transparente para o desenvolvedor.
 
 ### C#/.NET
 
-#### Modern .NET Solution
+#### Solução Moderna .NET
 
-For .NET SDK (version 2.0 or higher) we have `dotnet secrets`, a tool provided by the .NET SDK that allows you to manage and protect sensitive information, such as API keys, connection strings, and other secrets, during development. The secrets are stored securely on your machine and can be accessed by your .NET applications.
+Para o SDK .NET (versão 2.0 ou superior), temos o `dotnet secrets`, uma ferramenta fornecida pelo SDK .NET que permite gerenciar e proteger informações sensíveis, como chaves de API, strings de conexão e outros segredos, durante o desenvolvimento. Os segredos são armazenados com segurança em sua máquina e podem ser acessados por suas aplicações .NET.
 
 ```shell
-# Initialize dotnet secret 
+# Inicialize o dotnet secret 
 dotnet user-secrets init
 
-# Adding secret
-# dotnet user-secrets set <KEY> <VALUE>
-dotnet user-secrets set ExternalServiceApiKey my-api-key-12345
+# Adicione um segredo
+# dotnet user-secrets set <CHAVE> <VALOR>
+dotnet user-secrets set ExternalServiceApiKey minha-api-key-12345
 
-# Update Secret
-dotnet user-secrets set ExternalServiceApiKey updated-api-key-67890
+# Atualize o segredo
+dotnet user-secrets set ExternalServiceApiKey api-key-atualizada-67890
 
 ```
 
-To access the secrets;
+Para acessar os segredos:
 
 ```csharp
 using Microsoft.Extensions.Configuration;
@@ -78,19 +72,19 @@ var externalServiceApiKey = configuration["ExternalServiceApiKey"];
 
 ```
 
-##### Deployment Considerations
+##### Considerações de Implantação
 
-When deploying your application to production, it's essential to ensure that your secrets are securely managed. Here are some deployment-related implications:
+Ao implantar sua aplicação em produção, é essencial garantir que seus segredos sejam gerenciados com segurança. Aqui estão algumas implicações relacionadas à implantação:
 
-- Remove Development Secrets: Before deploying to production, remove any development secrets from your application configuration. You can use environment variables or a more secure secret management solution like Azure Key Vault or AWS Secrets Manager in production.
+- Remova Segredos de Desenvolvimento: Antes de implantar em produção, remova quaisquer segredos de desenvolvimento da configuração de sua aplicação. Você pode usar variáveis de ambiente ou uma solução de gerenciamento de segredos mais segura, como o Azure Key Vault ou o AWS Secrets Manager em produção.
 
-- Secure Deployment: Ensure that your production server is secure, and access to secrets is controlled. Never store secrets directly in source code or configuration files.
+- Implantação Segura: Garanta que seu servidor de produção seja seguro e que o acesso aos segredos seja controlado. Nunca armazene segredos diretamente no código-fonte ou em arquivos de configuração.
 
-- Key Rotation: Consider implementing a secret rotation policy to regularly update your secrets in production.
+- Rotação de Chaves: Considere implementar uma política de rotação de segredos para atualizar regularmente seus segredos em produção.
 
-#### .NET Framework Solution
+#### Solução .NET Framework
 
-Use the [`file`](https://learn.microsoft.com/en-us/dotnet/framework/configure-apps/file-schema/appsettings/appsettings-element-for-configuration) attribute of the appSettings element to load secrets from a local file.
+Use o atributo [`file`](https://learn.microsoft.com/en-us/dotnet/framework/configure-apps/file-schema/appsettings/appsettings-element-for-configuration) do elemento appSettings para carregar segredos de um arquivo local.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -105,7 +99,9 @@ Use the [`file`](https://learn.microsoft.com/en-us/dotnet/framework/configure-ap
 </configuration>
 ```
 
-Access secrets:
+Acesso
+
+ aos segredos:
 
 ```C#
 static void Main(string[] args)
@@ -114,49 +110,47 @@ static void Main(string[] args)
 }
 ```
 
-When running in Azure, ConfigurationManager will load these settings from the process environment. We don't need to upload secrets files to the server or change any code.
+Quando em execução no Azure, o ConfigurationManager carregará essas configurações do ambiente do processo. Não é necessário fazer upload de arquivos de segredos para o servidor nem alterar o código.
 
 ### Node
 
-Store secrets in environment variables or in a `.env` file
+Armazene segredos em variáveis de ambiente ou em um arquivo `.env`
 
 ```bash
 $ cat .env
 MY_SECRET=mySecret
 ```
 
-Use the [dotenv](https://www.npmjs.com/package/dotenv) package to load and access environment variables
+Use o pacote [dotenv](https://www.npmjs.com/package/dotenv) para carregar e acessar variáveis de ambiente
 
 ```node
 require('dotenv').config()
-let mySecret = process.env("MY_SECRET")
+let mySecret = process.env.MY_SECRET
 ```
 
 ### Python
 
-Store secrets in environment variables or in a `.env` file
+Armazene segredos em variáveis de ambiente ou em um arquivo `.env`
 
 ```bash
 $ cat .env
 MY_SECRET=mySecret
 ```
 
-Use the [dotenv](https://pypi.org/project/python-dotenv/) package to load and access environment variables
+Use o pacote [dotenv](https://pypi.org/project/python-dotenv/) para carregar e acessar variáveis de ambiente
 
 ```Python
 import os
 from dotenv import load_dotenv
 
-
 load_dotenv()
 my_secret = os.getenv('MY_SECRET')
 ```
 
-Another good library for reading environment variables is `environs`
+Outra boa biblioteca para ler variáveis de ambiente é `environs`
 
 ```Python
 from environs import Env
-
 
 env = Env()
 env.read_env()
@@ -165,15 +159,15 @@ my_secret = os.environ["MY_SECRET"]
 
 ### Databricks
 
-Databricks has the option of using dbutils as a secure way to retrieve credentials and not reveal them within the notebooks running on Databricks
+O Databricks oferece a opção de usar o `dbutils` como uma maneira segura de recuperar credenciais e não revelá-las nos notebooks em execução no Databricks
 
-The following steps lay out a clear pathway to creating new secrets and then utilizing them within a notebook on Databricks:
+Os seguintes passos descrevem claramente como criar novos segredos e utilizá-los em um notebook no Databricks:
 
-1. [Install and configure the Databricks CLI](https://docs.databricks.com/user-guide/dev-tools/databricks-cli.html#set-up-the-cli) on your local machine
-2. [Get the Databricks personal access token](https://docs.databricks.com/api/latest/authentication.html#token-management)
-3. [Create a scope for the secrets](https://learn.microsoft.com/azure/databricks/security/secrets/secret-scopes)
-4. [Create secrets](https://learn.microsoft.com/azure/databricks/security/secrets/)
+1. [Instale e configure o Databricks CLI](https://docs.databricks.com/user-guide/dev-tools/databricks-cli.html#set-up-the-cli) em sua máquina local
+2. [Obtenha o token de acesso pessoal do Databricks](https://docs.databricks.com/api/latest/authentication.html#token-management)
+3. [Crie um escopo para os segredos](https://learn.microsoft.com/azure/databricks/security/secrets/secret-scopes)
+4. [Crie segredos](https://learn.microsoft.com/azure/databricks/security/secrets/)
 
-### Validation
+### Validação
 
-Automated credential scanning can be performed on the code regardless of the programming language. Read more about it [here](../../continuous-integration/dev-sec-ops/secret-management/credential_scanning.md)
+A verificação automatizada de credenciais pode ser realizada no código, independentemente da linguagem de programação utilizada. Saiba mais sobre isso [aqui](../../continuous-integration/dev-sec-ops/secret-management/credential_scanning.md)

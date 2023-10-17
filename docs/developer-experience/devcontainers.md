@@ -1,39 +1,39 @@
-# Dev Containers: Getting Started
+# Dev Containers: Iniciando
 
-If you are a developer and have experience with Visual Studio Code (VS Code) or Docker, then it's probably time you look at [development containers](https://code.visualstudio.com/docs/remote/containers) (dev containers). This readme is intended to assist developers in the decision-making process needed to build dev containers. The guidance provided should be especially helpful if you are experiencing VS Code dev containers for the first time.
+Se você é um desenvolvedor com experiência no Visual Studio Code (VS Code) ou Docker, provavelmente é hora de dar uma olhada nos [containers de desenvolvimento](https://code.visualstudio.com/docs/remote/containers) (dev containers). Este guia destina-se a ajudar os desenvolvedores no processo de tomada de decisão necessário para criar dev containers. A orientação fornecida deve ser especialmente útil se você estiver experimentando os dev containers do VS Code pela primeira vez.
 
-> **Note:** This guide is not about setting up a Docker file for deploying a running Python program for CI/CD.
+> **Observação:** Este guia não trata da configuração de um arquivo Docker para implantar um programa Python em execução para CI/CD.
 
-## Prerequisites
+## Pré-requisitos
 
-- Experience with VS Code
-- Experience with Docker
+- Experiência com o VS Code
+- Experiência com o Docker
 
-## What are dev containers?
+## O que são dev containers?
 
-Development containers are a VS Code feature that allows developers to package a local development tool stack into the internals of a Docker container while also bringing the VS Code UI experience with them. Have you ever set a breakpoint inside a Docker container? Maybe not. Dev containers make that possible. This is all made possible through a VS Code extension called the [Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) that works together with Docker to spin-up a VS Code Server within a Docker container. The VS Code UI component remains local, but your working files are volume mounted into the container. The diagram below, taken directly from the [official VS Code docs](https://code.visualstudio.com/docs/remote/containers), illustrates this:
+Os containers de desenvolvimento são um recurso do VS Code que permite aos desenvolvedores empacotar uma pilha de ferramentas de desenvolvimento local dentro de um contêiner Docker, ao mesmo tempo em que trazem a experiência da interface de usuário do VS Code com eles. Você já configurou um ponto de interrupção dentro de um contêiner Docker? Talvez não. Os dev containers tornam isso possível. Isso é feito por meio de uma extensão do VS Code chamada [Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) que trabalha em conjunto com o Docker para iniciar um servidor do VS Code dentro de um contêiner Docker. O componente de interface de usuário do VS Code permanece local, mas seus arquivos de trabalho são montados no contêiner. O diagrama abaixo, retirado diretamente da [documentação oficial do VS Code](https://code.visualstudio.com/docs/remote/containers), ilustra isso:
 
-![image](https://user-images.githubusercontent.com/10041279/93239062-e1b9a480-f747-11ea-94fb-3d50b14fd9b1.png)
+![imagem](https://user-images.githubusercontent.com/10041279/93239062-e1b9a480-f747-11ea-94fb-3d50b14fd9b1.png)
 
-If the above diagram is not clear, a basic analogy that might help you intuitively understand dev containers is to think of them as a union between Docker's interactive mode (`docker exec -it 987654e0ff32`), and the VS Code UI experience that you are used to.
+Se o diagrama acima não estiver claro, uma analogia básica que pode ajudá-lo a entender intuitivamente os dev containers é pensar neles como uma união entre o modo interativo do Docker (`docker exec -it 987654e0ff32`) e a experiência da interface de usuário do VS Code com a qual você está acostumado.
 
-To set yourself up for the dev container experience described above, use your VS Code's Extension Marketplace to install the [Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack).
+Para se configurar para a experiência do dev container descrita acima, use o Mercado de Extensões do VS Code para instalar o [Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack).
 
-## How can dev containers improve project collaboration?
+## Como os dev containers podem melhorar a colaboração em projetos?
 
-VS Code dev containers have improved project collaboration between developers on recent team projects by addressing two very specific problems:
+Os dev containers do VS Code melhoraram a colaboração em projetos recentes da equipe, abordando dois problemas muito específicos:
 
-- Inconsistent local developer experiences within a team.
-- Slow onboarding of developers joining a project.
+- Experiências locais de desenvolvimento inconsistentes dentro de uma equipe.
+- Onboarding lento de desenvolvedores que estão ingressando em um projeto.
 
-The problems listed above were addressed by configuring and then sharing a dev container definition. Dev containers are defined by their base image, and the artifacts that support that base image. The base image and the artifacts that come with it live in the .devcontainer directory. This directory is where configuration begins. A central artifact to the dev container definition is a configuration file called `devcontainer.json`. This file orchestrates the artifacts needed to support the base image and the dev container lifecycle. Installation of the [Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) is required to enable this orchestration within a project repo.
+Os problemas listados acima foram resolvidos configurando e compartilhando uma definição de dev container. Os dev containers são definidos por sua imagem base e os artefatos que suportam essa imagem base. A imagem base e os artefatos que a acompanham ficam no diretório .devcontainer. Este diretório é onde a configuração começa. Um artefato central para a definição do dev container é um arquivo de configuração chamado `devcontainer.json`. Este arquivo orquestra os artefatos necessários para dar suporte à imagem base do dev container e ao ciclo de vida do dev container. A instalação do [Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) é necessária para habilitar essa orquestração dentro de um repositório de projeto.
 
-All developers on the team are expected to share and use the dev container definition (.devcontainer directory) in order to spin-up a container. This definition provides consistent tooling for locally developing an application across a team.
+Espera-se que todos os desenvolvedores da equipe compartilhem e usem a definição de dev container (.diretório .devcontainer) para criar um contêiner. Essa definição fornece ferramentas consistentes para desenvolver localmente uma aplicação em toda a equipe.
 
-The code snippets below demonstrate the common location of a .devcontainer directory and devcontainer.json file within a project repository. They also highlight the correct way to reference a Docker file.
+Os trechos de código abaixo demonstram a localização comum de um diretório .devcontainer e do arquivo devcontainer.json dentro de um repositório de projeto. Eles também destacam a maneira correta de fazer referência a um arquivo Docker.
 
 ```bash
-$ tree vs-code-remote-try-python  # main repo directory
+$ tree vs-code-remote-try-python  # diretório principal do repositório
 └───.devcontainers
         ├───Dockerfile
         ├───devcontainer.json
@@ -46,20 +46,20 @@ $ tree vs-code-remote-try-python  # main repo directory
     "build": {
         "dockerfile": "Dockerfile",
         "context": "..",
-        // Update 'VARIANT' to pick a Python version: 3, 3.6, 3.7, 3.8
+        // Atualize 'VARIANT' para escolher uma versão do Python: 3, 3.6, 3.7, 3.8
         "args": {"VARIANT": "3.8"}
     },
 }
 ```
 
-For a list of devcontainer.json configuration properties, visit VS Code documentation on [dev container properties](https://code.visualstudio.com/docs/remote/devcontainerjson-reference).
+Para obter uma lista das propriedades de configuração do devcontainer.json, visite a documentação do VS Code sobre [propriedades de contêineres de desenvolvimento](https://code.visualstudio.com/docs/remote/devcontainerjson-reference).
 
-## How do I decide which dev container is right for my use case?
+## Como decidir qual dev container é o certo para o meu caso de uso?
 
-Fortunately, VS Code has a repo gallery of platform specific folders that host dev container definitions (.devcontainer directories) to make getting started with dev containers easier. The code snippet below shows a list of gallery folders that come directly from the [VS Code dev container gallery repo](https://github.com/microsoft/vscode-dev-containers/tree/master/containers):
+Felizmente, o VS Code possui uma galeria de pastas específicas da plataforma que hospedam definições de dev container (.diretórios .devcontainer) para facilitar o início com dev containers. O trecho de código abaixo mostra uma lista de pastas de galeria que vêm diretamente do [repositório de galeria de dev containers do VS Code](https://github.com/microsoft/vscode-dev-containers/tree/master/containers):
 
 ```bash
-$ tree vs-code-dev-containers  # main repo directory
+$ tree vs-code-dev-containers  # diretório principal do repositório
 └───containers
         ├───dotnetcore
         |   └───.devcontainers # dev container
@@ -70,13 +70,15 @@ $ tree vs-code-dev-containers  # main repo directory
         └───....
 ```
 
-Here are the final high-level steps it takes to build a dev container:
+Aqui estão as etapas gerais finais para criar um dev container:
 
-1. Decide which platform you'd like to build a local development tool stack around.
-2. Browse the VS Code provided dev container gallery of project folders that target your platform and choose the most appropriate one.
-3. Inspect the dev container definitions (.devcontainer directory) of a project for the base image, and the artifacts that support that base image.
-4. Use what you've discovered to begin setting up the dev container as it is, extending it or building your own from scratch.
+1. Decida qual plataforma você deseja usar para criar uma pilha de ferramentas de desenvolvimento local.
+2. Navegue pela galeria de dev containers fornecida pelo VS Code de pastas de projetos que visam sua plataforma e escolha a mais apropriada.
+3. Inspecione as definições de dev container (.diretório .devcontainer) de um projeto quanto à imagem base e aos artefatos que a suportam.
+4. Use o que você descobriu para começar a configurar o dev container como ele é, estendê-lo ou construir o seu próprio do zero.
 
-## Going further
+## Indo mais fundo
 
-There are use cases where you would want to go further in configuring your Dev Container. [More details here](going-further.md)
+Existem
+
+ casos de uso em que você gostaria de ir mais fundo na configuração do seu Dev Container. [Mais detalhes aqui](going-further.md)

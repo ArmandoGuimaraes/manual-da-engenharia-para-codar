@@ -19,7 +19,7 @@
     
     
       
-        <title>Secrets Management - Manual da Engenharia para Codar</title>
+        <title>Gerenciamento de Segredos - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#secrets-management" class="md-skip">
+        <a href="#gerenciamento-de-segredos" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Secrets Management
+              Gerenciamento de Segredos
             
           </span>
         </div>
@@ -7138,32 +7138,32 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#general-approach" class="md-nav__link">
-    General Approach
+  <a href="#abordagem-geral" class="md-nav__link">
+    Abordagem Geral
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#keeping-secrets-secret" class="md-nav__link">
-    Keeping Secrets Secret
+  <a href="#mantendo-os-segredos-em-sigilo" class="md-nav__link">
+    Mantendo os Segredos em Sigilo
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#enhanced-security-applications" class="md-nav__link">
-    Enhanced-Security Applications
+  <a href="#aplicacoes-com-seguranca-reforcada" class="md-nav__link">
+    Aplicações com Segurança Reforçada
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#techniques-for-secrets-management" class="md-nav__link">
-    Techniques for Secrets Management
+  <a href="#tecnicas-para-o-gerenciamento-de-segredos" class="md-nav__link">
+    Técnicas para o Gerenciamento de Segredos
   </a>
   
-    <nav class="md-nav" aria-label="Techniques for Secrets Management">
+    <nav class="md-nav" aria-label="Técnicas para o Gerenciamento de Segredos">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -7175,16 +7175,16 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#modern-net-solution" class="md-nav__link">
-    Modern .NET Solution
+  <a href="#solucao-moderna-net" class="md-nav__link">
+    Solução Moderna .NET
   </a>
   
-    <nav class="md-nav" aria-label="Modern .NET Solution">
+    <nav class="md-nav" aria-label="Solução Moderna .NET">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#deployment-considerations" class="md-nav__link">
-    Deployment Considerations
+  <a href="#consideracoes-de-implantacao" class="md-nav__link">
+    Considerações de Implantação
   </a>
   
 </li>
@@ -7195,8 +7195,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#net-framework-solution" class="md-nav__link">
-    .NET Framework Solution
+  <a href="#solucao-net-framework" class="md-nav__link">
+    Solução .NET Framework
   </a>
   
 </li>
@@ -7228,8 +7228,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#validation" class="md-nav__link">
-    Validation
+  <a href="#validacao" class="md-nav__link">
+    Validação
   </a>
   
 </li>
@@ -7253,54 +7253,48 @@
                 
 
 
-<h1 id="secrets-management">Secrets Management</h1>
-<p>Secrets Management refers to the way in which we protect configuration settings and other sensitive data which, if
-made public, would allow unauthorized access to resources. Examples of secrets are usernames, passwords, api keys, SAS
-tokens etc.</p>
-<p>We should assume any repo we work on may go public at any time and protect our secrets, even if
-the repo is initially private.</p>
-<h2 id="general-approach">General Approach</h2>
-<p>The general approach is to keep secrets in separate configuration files that are not checked in
-to the repo. Add the files to the <a href="https://git-scm.com/docs/gitignore">.gitignore</a> to prevent that they're checked in.</p>
-<p>Each developer maintains their own local version of the file or, if required, circulate them via private channels e.g. a Teams chat.</p>
-<p>In a production system, assuming Azure, create the secrets in the environment of the running process. We can do this by manually editing the 'Applications Settings' section of the resource, but a script using
-the Azure CLI to do the same is a useful time-saving utility. See <a href="https://learn.microsoft.com/en-us/cli/azure/webapp/config/appsettings?view=azure-cli-latest">az webapp config appsettings</a> for more details.</p>
-<p>It's best practice to maintain separate secrets configurations for each environment that you run. e.g. dev, test, prod, local etc</p>
-<p>The <a href="../azure-devops/secret-management-per-branch/">secrets-per-branch recipe</a> describes a simple way to manage separate secrets configurations for each environment.</p>
+<h1 id="gerenciamento-de-segredos">Gerenciamento de Segredos</h1>
+<p>O Gerenciamento de Segredos se refere à maneira como protegemos configurações e outros dados sensíveis que, se tornados públicos, permitiriam o acesso não autorizado a recursos. Exemplos de segredos incluem nomes de usuário, senhas, chaves de API, tokens SAS, etc.</p>
+<p>Devemos assumir que qualquer repositório em que trabalhamos pode se tornar público a qualquer momento e proteger nossos segredos, mesmo que o repositório seja inicialmente privado.</p>
+<h2 id="abordagem-geral">Abordagem Geral</h2>
+<p>A abordagem geral é manter segredos em arquivos de configuração separados que não são incluídos no repositório. Adicione os arquivos ao <a href="https://git-scm.com/docs/gitignore">.gitignore</a> para evitar que eles sejam incluídos.</p>
+<p>Cada desenvolvedor mantém sua própria versão local do arquivo ou, se necessário, os distribui por canais privados, como um chat no Teams.</p>
+<p>Em um sistema de produção, assumindo o uso do Azure, crie os segredos no ambiente em que o processo está em execução. Isso pode ser feito editando manualmente a seção 'Configurações de Aplicativos' do recurso, mas um script usando o Azure CLI para fazer o mesmo é uma ferramenta útil que economiza tempo. Consulte <a href="https://learn.microsoft.com/en-us/cli/azure/webapp/config/appsettings?view=azure-cli-latest">az webapp config appsettings</a> para obter mais detalhes.</p>
+<p>É uma boa prática manter configurações de segredos separadas para cada ambiente que você utiliza, como desenvolvimento, teste, produção, local, etc.</p>
+<p>A <a href="../azure-devops/secret-management-per-branch/">receita de segredos por ramificação</a> descreve uma maneira simples de gerenciar configurações de segredos separadas para cada ambiente.</p>
 <blockquote>
-<p>Note: even if the secret was only pushed to a feature branch and never merged, it's still a part of the git history. Follow <a href="https://help.github.com/en/github/authenticating-to-github/removing-sensitive-data-from-a-repository">these instructions</a> to remove any sensitive data and/or regenerate any keys and other sensitive information added to the repo. If a key or secret made it into the code base, rotate the key/secret so that it's no longer active</p>
+<p>Observação: mesmo que o segredo tenha sido apenas enviado para uma ramificação de recurso e nunca mesclado, ele ainda faz parte do histórico do git. Siga <a href="https://help.github.com/en/github/authenticating-to-github/removing-sensitive-data-from-a-repository">essas instruções</a> para remover quaisquer dados sensíveis e/ou regenerar quaisquer chaves e outras informações sensíveis adicionadas ao repositório. Se uma chave ou segredo foi incluído no código-base, faça a rotação da chave/segredo para que ele não esteja mais ativo.</p>
 </blockquote>
-<h2 id="keeping-secrets-secret">Keeping Secrets Secret</h2>
-<p>The care taken to protect our secrets applies both to how we get and store them, but also to how we use them.</p>
+<h2 id="mantendo-os-segredos-em-sigilo">Mantendo os Segredos em Sigilo</h2>
+<p>O cuidado em proteger nossos segredos se aplica tanto à forma como os obtemos e armazenamos quanto à forma como os utilizamos.</p>
 <ul>
-<li><strong>Don't log secrets</strong></li>
-<li>Don't put them in reporting</li>
-<li>Don't send them to other applications, as part of URLs, forms, or in any other way other than to make a request to the service that requires that secret</li>
+<li><strong>Não registre segredos</strong></li>
+<li>Não os inclua em relatórios</li>
+<li>Não os envie para outras aplicações, como parte de URLs, formulários ou de qualquer outra forma, exceto para fazer uma solicitação ao serviço que requer esse segredo</li>
 </ul>
-<h2 id="enhanced-security-applications">Enhanced-Security Applications</h2>
-<p>The techniques outlined below provide <em>good</em> security and a common pattern for a wide range of languages. They rely on
-the fact that Azure keeps application settings (the environment) encrypted until your app runs.</p>
-<p>They do <em>not</em> prevent secrets from existing in plaintext in memory at runtime. In particular, for garbage collected languages those values may exist for longer than the lifetime of the variable, and may be visible when debugging a memory dump of the process.</p>
+<h2 id="aplicacoes-com-seguranca-reforcada">Aplicações com Segurança Reforçada</h2>
+<p>As técnicas descritas abaixo fornecem <em>boa</em> segurança e um padrão comum para uma ampla gama de linguagens. Elas dependem do fato de que o Azure mantém as configurações de aplicativos (o ambiente) criptografadas até que seu aplicativo seja executado.</p>
+<p>Elas <em>não</em> impedem que os segredos existam em texto simples na memória em tempo de execução. Em particular, para linguagens com coleta de lixo, esses valores podem existir por mais tempo do que a vida útil da variável e podem ser visíveis durante a depuração de um despejo de memória do processo.</p>
 <blockquote>
-<p>If you are working on an application with enhanced security requirements you should consider using additional techniques to maintain encryption on secrets throughout the application lifetime.</p>
+<p>Se você estiver trabalhando em um aplicativo com requisitos de segurança mais rigorosos, deve considerar o uso de técnicas adicionais para manter a criptografia dos segredos durante toda a vida útil do aplicativo.</p>
 </blockquote>
-<p>Always rotate encryption keys on a regular basis.</p>
-<h2 id="techniques-for-secrets-management">Techniques for Secrets Management</h2>
-<p>These techniques make the loading of secrets  transparent to the developer.</p>
+<p>Sempre faça a rotação das chaves de criptografia regularmente.</p>
+<h2 id="tecnicas-para-o-gerenciamento-de-segredos">Técnicas para o Gerenciamento de Segredos</h2>
+<p>Essas técnicas tornam o carregamento de segredos transparente para o desenvolvedor.</p>
 <h3 id="cnet">C#/.NET</h3>
-<h4 id="modern-net-solution">Modern .NET Solution</h4>
-<p>For .NET SDK (version 2.0 or higher) we have <code>dotnet secrets</code>, a tool provided by the .NET SDK that allows you to manage and protect sensitive information, such as API keys, connection strings, and other secrets, during development. The secrets are stored securely on your machine and can be accessed by your .NET applications.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Initialize dotnet secret </span>
+<h4 id="solucao-moderna-net">Solução Moderna .NET</h4>
+<p>Para o SDK .NET (versão 2.0 ou superior), temos o <code>dotnet secrets</code>, uma ferramenta fornecida pelo SDK .NET que permite gerenciar e proteger informações sensíveis, como chaves de API, strings de conexão e outros segredos, durante o desenvolvimento. Os segredos são armazenados com segurança em sua máquina e podem ser acessados por suas aplicações .NET.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Inicialize o dotnet secret </span>
 dotnet<span class="w"> </span>user-secrets<span class="w"> </span>init
 
-<span class="c1"># Adding secret</span>
-<span class="c1"># dotnet user-secrets set &lt;KEY&gt; &lt;VALUE&gt;</span>
-dotnet<span class="w"> </span>user-secrets<span class="w"> </span><span class="nb">set</span><span class="w"> </span>ExternalServiceApiKey<span class="w"> </span>my-api-key-12345
+<span class="c1"># Adicione um segredo</span>
+<span class="c1"># dotnet user-secrets set &lt;CHAVE&gt; &lt;VALOR&gt;</span>
+dotnet<span class="w"> </span>user-secrets<span class="w"> </span><span class="nb">set</span><span class="w"> </span>ExternalServiceApiKey<span class="w"> </span>minha-api-key-12345
 
-<span class="c1"># Update Secret</span>
-dotnet<span class="w"> </span>user-secrets<span class="w"> </span><span class="nb">set</span><span class="w"> </span>ExternalServiceApiKey<span class="w"> </span>updated-api-key-67890
+<span class="c1"># Atualize o segredo</span>
+dotnet<span class="w"> </span>user-secrets<span class="w"> </span><span class="nb">set</span><span class="w"> </span>ExternalServiceApiKey<span class="w"> </span>api-key-atualizada-67890
 </code></pre></div>
-<p>To access the secrets;</p>
+<p>Para acessar os segredos:</p>
 <div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration</span><span class="p">;</span>
 
 <span class="kt">var</span><span class="w"> </span><span class="n">builder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ConfigurationBuilder</span><span class="p">()</span>
@@ -7309,19 +7303,19 @@ dotnet<span class="w"> </span>user-secrets<span class="w"> </span><span class="n
 <span class="kt">var</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">builder</span><span class="p">.</span><span class="n">Build</span><span class="p">();</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">externalServiceApiKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configuration</span><span class="p">[</span><span class="s">&quot;ExternalServiceApiKey&quot;</span><span class="p">];</span>
 </code></pre></div>
-<h5 id="deployment-considerations">Deployment Considerations</h5>
-<p>When deploying your application to production, it's essential to ensure that your secrets are securely managed. Here are some deployment-related implications:</p>
+<h5 id="consideracoes-de-implantacao">Considerações de Implantação</h5>
+<p>Ao implantar sua aplicação em produção, é essencial garantir que seus segredos sejam gerenciados com segurança. Aqui estão algumas implicações relacionadas à implantação:</p>
 <ul>
-<li>Remove Development Secrets: Before deploying to production, remove any development secrets from your application configuration. You can use environment variables or a more secure secret management solution like Azure Key Vault or AWS Secrets Manager in production.</li>
+<li>Remova Segredos de Desenvolvimento: Antes de implantar em produção, remova quaisquer segredos de desenvolvimento da configuração de sua aplicação. Você pode usar variáveis de ambiente ou uma solução de gerenciamento de segredos mais segura, como o Azure Key Vault ou o AWS Secrets Manager em produção.</li>
 </ul>
 <ul>
-<li>Secure Deployment: Ensure that your production server is secure, and access to secrets is controlled. Never store secrets directly in source code or configuration files.</li>
+<li>Implantação Segura: Garanta que seu servidor de produção seja seguro e que o acesso aos segredos seja controlado. Nunca armazene segredos diretamente no código-fonte ou em arquivos de configuração.</li>
 </ul>
 <ul>
-<li>Key Rotation: Consider implementing a secret rotation policy to regularly update your secrets in production.</li>
+<li>Rotação de Chaves: Considere implementar uma política de rotação de segredos para atualizar regularmente seus segredos em produção.</li>
 </ul>
-<h4 id="net-framework-solution">.NET Framework Solution</h4>
-<p>Use the <a href="https://learn.microsoft.com/en-us/dotnet/framework/configure-apps/file-schema/appsettings/appsettings-element-for-configuration"><code>file</code></a> attribute of the appSettings element to load secrets from a local file.</p>
+<h4 id="solucao-net-framework">Solução .NET Framework</h4>
+<p>Use o atributo <a href="https://learn.microsoft.com/en-us/dotnet/framework/configure-apps/file-schema/appsettings/appsettings-element-for-configuration"><code>file</code></a> do elemento appSettings para carregar segredos de um arquivo local.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 <span class="nt">&lt;configuration&gt;</span>
 <span class="w">  </span><span class="nt">&lt;appSettings</span><span class="w"> </span><span class="na">file=</span><span class="s">&quot;..\..\secrets.config&quot;</span><span class="nt">&gt;</span>
@@ -7333,61 +7327,60 @@ dotnet<span class="w"> </span>user-secrets<span class="w"> </span><span class="n
 <span class="w">  </span>…
 <span class="nt">&lt;/configuration&gt;</span>
 </code></pre></div>
-<p>Access secrets:</p>
+<p>Acesso</p>
+<p>aos segredos:</p>
 <div class="highlight"><pre><span></span><code><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">mySecret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Configuration</span><span class="p">.</span><span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">&quot;mySecret&quot;</span><span class="p">];</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>When running in Azure, ConfigurationManager will load these settings from the process environment. We don't need to upload secrets files to the server or change any code.</p>
+<p>Quando em execução no Azure, o ConfigurationManager carregará essas configurações do ambiente do processo. Não é necessário fazer upload de arquivos de segredos para o servidor nem alterar o código.</p>
 <h3 id="node">Node</h3>
-<p>Store secrets in environment variables or in a <code>.env</code> file</p>
+<p>Armazene segredos em variáveis de ambiente ou em um arquivo <code>.env</code></p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>.env
 <span class="nv">MY_SECRET</span><span class="o">=</span>mySecret
 </code></pre></div>
-<p>Use the <a href="https://www.npmjs.com/package/dotenv">dotenv</a> package to load and access environment variables</p>
+<p>Use o pacote <a href="https://www.npmjs.com/package/dotenv">dotenv</a> para carregar e acessar variáveis de ambiente</p>
 <div class="highlight"><pre><span></span><code>require(&#39;dotenv&#39;).config()
-let mySecret = process.env(&quot;MY_SECRET&quot;)
+let mySecret = process.env.MY_SECRET
 </code></pre></div>
 <h3 id="python">Python</h3>
-<p>Store secrets in environment variables or in a <code>.env</code> file</p>
+<p>Armazene segredos em variáveis de ambiente ou em um arquivo <code>.env</code></p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>.env
 <span class="nv">MY_SECRET</span><span class="o">=</span>mySecret
 </code></pre></div>
-<p>Use the <a href="https://pypi.org/project/python-dotenv/">dotenv</a> package to load and access environment variables</p>
+<p>Use o pacote <a href="https://pypi.org/project/python-dotenv/">dotenv</a> para carregar e acessar variáveis de ambiente</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
-
 
 <span class="n">load_dotenv</span><span class="p">()</span>
 <span class="n">my_secret</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;MY_SECRET&#39;</span><span class="p">)</span>
 </code></pre></div>
-<p>Another good library for reading environment variables is <code>environs</code></p>
+<p>Outra boa biblioteca para ler variáveis de ambiente é <code>environs</code></p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">environs</span> <span class="kn">import</span> <span class="n">Env</span>
-
 
 <span class="n">env</span> <span class="o">=</span> <span class="n">Env</span><span class="p">()</span>
 <span class="n">env</span><span class="o">.</span><span class="n">read_env</span><span class="p">()</span>
 <span class="n">my_secret</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;MY_SECRET&quot;</span><span class="p">]</span>
 </code></pre></div>
 <h3 id="databricks">Databricks</h3>
-<p>Databricks has the option of using dbutils as a secure way to retrieve credentials and not reveal them within the notebooks running on Databricks</p>
-<p>The following steps lay out a clear pathway to creating new secrets and then utilizing them within a notebook on Databricks:</p>
+<p>O Databricks oferece a opção de usar o <code>dbutils</code> como uma maneira segura de recuperar credenciais e não revelá-las nos notebooks em execução no Databricks</p>
+<p>Os seguintes passos descrevem claramente como criar novos segredos e utilizá-los em um notebook no Databricks:</p>
 <ol>
-<li><a href="https://docs.databricks.com/user-guide/dev-tools/databricks-cli.html#set-up-the-cli">Install and configure the Databricks CLI</a> on your local machine</li>
-<li><a href="https://docs.databricks.com/api/latest/authentication.html#token-management">Get the Databricks personal access token</a></li>
-<li><a href="https://learn.microsoft.com/azure/databricks/security/secrets/secret-scopes">Create a scope for the secrets</a></li>
-<li><a href="https://learn.microsoft.com/azure/databricks/security/secrets/">Create secrets</a></li>
+<li><a href="https://docs.databricks.com/user-guide/dev-tools/databricks-cli.html#set-up-the-cli">Instale e configure o Databricks CLI</a> em sua máquina local</li>
+<li><a href="https://docs.databricks.com/api/latest/authentication.html#token-management">Obtenha o token de acesso pessoal do Databricks</a></li>
+<li><a href="https://learn.microsoft.com/azure/databricks/security/secrets/secret-scopes">Crie um escopo para os segredos</a></li>
+<li><a href="https://learn.microsoft.com/azure/databricks/security/secrets/">Crie segredos</a></li>
 </ol>
-<h3 id="validation">Validation</h3>
-<p>Automated credential scanning can be performed on the code regardless of the programming language. Read more about it <a href="../../continuous-integration/dev-sec-ops/secret-management/credential_scanning/">here</a></p>
+<h3 id="validacao">Validação</h3>
+<p>A verificação automatizada de credenciais pode ser realizada no código, independentemente da linguagem de programação utilizada. Saiba mais sobre isso <a href="../../continuous-integration/dev-sec-ops/secret-management/credential_scanning/">aqui</a></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 20, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
       
     
   </small>

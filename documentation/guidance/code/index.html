@@ -19,7 +19,7 @@
     
     
       
-        <title>Code - Manual da Engenharia para Codar</title>
+        <title>Código - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#code" class="md-skip">
+        <a href="#codigo" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Code
+              Código
             
           </span>
         </div>
@@ -5384,12 +5384,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Code
+          Código
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Code
+        Código
       </a>
       
         
@@ -5408,15 +5408,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#implementation-comments" class="md-nav__link">
-    Implementation comments
+  <a href="#comentarios-de-implementacao" class="md-nav__link">
+    Comentários de Implementação
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentation-comments" class="md-nav__link">
-    Documentation comments
+  <a href="#comentarios-de-documentacao" class="md-nav__link">
+    Comentários de Documentação
   </a>
   
 </li>
@@ -5437,7 +5437,7 @@
   
     <li class="md-nav__item">
       <a href="../engineering-feedback/" class="md-nav__link">
-        Engineering Feedback
+        Feedback de Engenharia
       </a>
     </li>
   
@@ -7186,15 +7186,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#implementation-comments" class="md-nav__link">
-    Implementation comments
+  <a href="#comentarios-de-implementacao" class="md-nav__link">
+    Comentários de Implementação
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentation-comments" class="md-nav__link">
-    Documentation comments
+  <a href="#comentarios-de-documentacao" class="md-nav__link">
+    Comentários de Documentação
   </a>
   
 </li>
@@ -7213,85 +7213,85 @@
                 
 
 
-<h1 id="code">Code</h1>
-<p>You might have heard more than once that <strong>you should write self-documenting code</strong>. This doesn't mean that you should never comment your code.</p>
-<p>There are two types of code comments, implementation comments and documentation comments.</p>
-<h2 id="implementation-comments">Implementation comments</h2>
-<p>They are used for internal documentation, and are intended for anyone who may need to maintain the code in the future, including your future self.</p>
-<p>There can be single line and multi-line comments (e.g., <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/lexical-structure#comments">C# Comments</a>). Comments are human-readable and not executed, thus ignored by the compiler. So you could potentially add as many as you want.</p>
-<p>Now, the use of these comments is often considered a code smell. If you need to clarify your code, that may mean the code is too complex. So you should work towards the removal of the clarification by making the code simpler, easier to read, and understand. Still, these comments can be useful to give overviews of the code, or provide additional context information that is not available in the code itself.</p>
-<p>Examples of useful comments:</p>
+<h1 id="codigo">Código</h1>
+<p>Você provavelmente já ouviu mais de uma vez que <strong>você deve escrever código autoexplicativo</strong>. Isso não significa que você nunca deve comentar seu código.</p>
+<p>Existem dois tipos de comentários de código: comentários de implementação e comentários de documentação.</p>
+<h2 id="comentarios-de-implementacao">Comentários de Implementação</h2>
+<p>Eles são usados para documentação interna e destinam-se a qualquer pessoa que possa precisar manter o código no futuro, incluindo você mesmo.</p>
+<p>Existem comentários de linha única e comentários de várias linhas (por exemplo, <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/lexical-structure#comments">Comentários em C#</a>). Comentários são legíveis por humanos e não são executados, portanto, ignorados pelo compilador. Portanto, você pode potencialmente adicionar quantos desejar.</p>
+<p>Agora, o uso desses comentários geralmente é considerado um indício de código problemático. Se você precisa esclarecer seu código, isso pode significar que o código está muito complexo. Portanto, você deve trabalhar para remover a necessidade de esclarecimento tornando o código mais simples, mais fácil de ler e entender. Ainda assim, esses comentários podem ser úteis para fornecer uma visão geral do código ou fornecer informações adicionais de contexto que não estão disponíveis no código em si.</p>
+<p>Exemplos de comentários úteis:</p>
 <ul>
-<li>Single line comment in C# that explains <strong>why</strong> that piece of code is there (from a private method in <a href="https://github.com/dotnet/runtime/blob/main/src/libraries/System.Text.Json/src/System/Text/Json/Serialization/JsonSerializer.Read.String.cs">System.Text.Json.JsonSerializer</a>):</li>
+<li>Comentário de linha única em C# que explica <strong>por que</strong> aquele trecho de código está ali (de um método privado em <a href="https://github.com/dotnet/runtime/blob/main/src/libraries/System.Text.Json/src/System/Text/Json/Serialization/JsonSerializer.Read.String.cs">System.Text.Json.JsonSerializer</a>):</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="c1">// For performance, avoid obtaining actual byte count unless memory usage is higher than the threshold.</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Por questões de desempenho, evite obter a contagem real de bytes, a menos que o uso de memória seja maior que o limite.</span>
 <span class="n">Span</span><span class="o">&lt;</span><span class="kt">byte</span><span class="o">&gt;</span><span class="w"> </span><span class="n">utf8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">json</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">(</span><span class="n">ArrayPoolMaxSizeBeforeUsingNormalAlloc</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">JsonConstants</span><span class="p">.</span><span class="n">MaxExpansionFactorWhileTranscoding</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">...</span>
 </code></pre></div>
 <ul>
-<li>Multi-line comment in C# that provides <strong>additional context</strong> (from a private method in <a href="https://github.com/dotnet/runtime/blob/main/src/libraries/System.Text.Json/src/System/Text/Json/Reader/Utf8JsonReader.cs">System.Text.Json.Utf8JsonReader</a>):</li>
+<li>Comentário de várias linhas em C# que fornece <strong>contexto adicional</strong> (de um método privado em <a href="https://github.com/dotnet/runtime/blob/main/src/libraries/System.Text.Json/src/System/Text/Json/Reader/Utf8JsonReader.cs">System.Text.Json.Utf8JsonReader</a>):</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="c1">// Transcoding from UTF-16 to UTF-8 will change the length by somewhere between 1x and 3x.</span>
-<span class="c1">// Un-escaping the token value will at most shrink its length by 6x.</span>
-<span class="c1">// There is no point incurring the transcoding/un-escaping/comparing cost if:</span>
-<span class="c1">// - The token value is smaller than charTextLength</span>
-<span class="c1">// - The token value needs to be transcoded AND unescaped and it is more than 6x larger than charTextLength</span>
-<span class="c1">//      - For an ASCII UTF-16 characters, transcoding = 1x, escaping = 6x =&gt; 6x factor</span>
-<span class="c1">//      - For non-ASCII UTF-16 characters within the BMP, transcoding = 2-3x, but they are represented as a single escaped hex value, \uXXXX =&gt; 6x factor</span>
-<span class="c1">//      - For non-ASCII UTF-16 characters outside of the BMP, transcoding = 4x, but the surrogate pair (2 characters) are represented by 16 bytes \uXXXX\uXXXX =&gt; 6x factor</span>
-<span class="c1">// - The token value needs to be transcoded, but NOT escaped and it is more than 3x larger than charTextLength</span>
-<span class="c1">//      - For an ASCII UTF-16 characters, transcoding = 1x,</span>
-<span class="c1">//      - For non-ASCII UTF-16 characters within the BMP, transcoding = 2-3x,</span>
-<span class="c1">//      - For non-ASCII UTF-16 characters outside of the BMP, transcoding = 2x, (surrogate pairs - 2 characters transcode to 4 UTF-8 bytes)</span>
-
+<div class="highlight"><pre><span></span><code><span class="c1">// A transcodificação de UTF-16 para UTF-8 alterará o comprimento entre 1x e 3x.</span>
+<span class="c1">// O desescape do valor do token reduzirá seu comprimento no máximo em 6x.</span>
+<span class="c1">// Não faz sentido incorrer no custo de transcodificação/desescape/comparação se:</span>
+<span class="c1">// - O valor do token for menor que charTextLength</span>
+<span class="c1">// - O valor do token precisa ser transcodificado E desescapado e for mais de 6x maior que charTextLength</span>
+<span class="c1">//      - Para caracteres UTF-16 ASCII, a transcodificação = 1x, o desescape = 6x =&gt; fator 6x</span>
+<span class="c1">//      - Para caracteres UTF-16 não ASCII dentro do BMP, a transcodificação = 2-3x, mas são representados como um único valor hexadecimal escapado, \uXXXX =&gt; fator 6x</span>
+<span class="c1">//      - Para caracteres UTF-16 não ASCII fora do BMP, a transcodificação = 4x, mas o par suplementar (2 caracteres) é representado por 16 bytes \uXXXX\uXXXX =&gt; fator 6x</span>
+<span class="c1">// - O valor do token precisa ser transcodificado, mas NÃO desescapado e for mais de 3x maior que charTextLength</span>
+<span class="c1">//      - Para caracteres UTF-16 ASCII, a transcodificação = 1x,</span>
+<span class="c1">//      - Para caracteres UTF-16 não ASCII dentro do BMP, a transcodificação = 2-3x,</span>
+<span class="c1">//      - Para caracteres UTF-16 não ASCII fora do BMP, a transcodificação = 2x, (pares suplementares - 2 caracteres transcodem para 4 bytes UTF-8)</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sourceLength</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">charTextLength</span>
 <span class="w">    </span><span class="o">||</span><span class="w"> </span><span class="n">sourceLength</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">_stringHasEscaping</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">JsonConstants</span><span class="p">.</span><span class="n">MaxExpansionFactorWhileEscaping</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">JsonConstants</span><span class="p">.</span><span class="n">MaxExpansionFactorWhileTranscoding</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">charTextLength</span><span class="p">)</span>
 <span class="p">{</span>
 </code></pre></div>
-<h2 id="documentation-comments">Documentation comments</h2>
-<p>Doc comments are a special kind of comment, added above the definition of any user-defined type or member, and are intended for anyone who may need to use those types or members in their own code.</p>
-<p>If, for example, you are building a library or framework, doc comments can be used to generate their documentation. This documentation should serve as API specification, and/or programming guide.</p>
-<p>Doc comments won't be included by the compiler in the final executable, as with single and multi-line comments.</p>
-<p>Example of a doc comment in C# (from Deserialize method in <a href="https://github.com/dotnet/runtime/blob/main/src/libraries/System.Text.Json/src/System/Text/Json/Serialization/JsonSerializer.Read.String.cs">System.Text.Json.JsonSerializer</a>):</p>
+<h2 id="comentarios-de-documentacao">Comentários de Documentação</h2>
+<p>Comentários de documentação (doc comments) são um tipo especial de comentário, adicionados acima da definição de qualquer tipo ou membro definido pelo usuário, e destinam-se a qualquer pessoa que possa precisar usar esses tipos ou membros em seu próprio código.</p>
+<p>Se, por exemplo, você está construindo uma biblioteca ou framework, os comentários de documentação podem ser usados para gerar a documentação deles. Essa documentação deve servir como especificação de API e/ou guia de programação.</p>
+<p>Os comentários de documentação não serão incluídos pelo compilador no executável final, assim como os comentários de linha única e de várias linhas.</p>
+<p>Exemplo de um comentário de documentação em C# (do método Deserialize em <a href="https://github.com/dotnet/runtime/blob/main/src/libraries/System.Text.Json/src/System/Text/Json/Serialization/JsonSerializer.Read.String.cs">System.Text.Json.JsonSerializer</a>):</p>
 <div class="highlight"><pre><span></span><code><span class="c1">/// &lt;summary&gt;</span>
-<span class="c1">/// Parse the text representing a single JSON value into a &lt;typeparamref name=&quot;TValue&quot;/&gt;.</span>
+<span class="c1">/// Analisa o texto que representa um único valor JSON em um &lt;typeparamref name=&quot;TValue&quot;/&gt;.</span>
 <span class="c1">/// &lt;/summary&gt;</span>
-<span class="c1">/// &lt;returns&gt;A &lt;typeparamref name=&quot;TValue&quot;/&gt; representation of the JSON value.&lt;/returns&gt;</span>
-<span class="c1">/// &lt;param name=&quot;json&quot;&gt;JSON text to parse.&lt;/param&gt;</span>
-<span class="c1">/// &lt;param name=&quot;options&quot;&gt;Options to control the behavior during parsing.&lt;/param&gt;</span>
+<span class="c1">/// &lt;returns&gt;Uma representação de &lt;typeparamref name=&quot;TValue&quot;/&gt; do valor JSON.&lt;/returns&gt;</span>
+<span class="c1">/// &lt;param name=&quot;json&quot;&gt;Texto JSON para análise.&lt;/param&gt;</span>
+<span class="c1">/// &lt;param name=&quot;options&quot;&gt;Opções para controlar o comportamento durante a análise.&lt;/param&gt;</span>
 <span class="c1">/// &lt;exception cref=&quot;System.ArgumentNullException&quot;&gt;</span>
-<span class="c1">/// &lt;paramref name=&quot;json&quot;/&gt; is &lt;see langword=&quot;null&quot;/&gt;.</span>
+<span class="c1">/// &lt;paramref name=&quot;json&quot;/&gt; é &lt;see langword=&quot;null&quot;/&gt;.</span>
 <span class="c1">/// &lt;/exception&gt;</span>
 <span class="c1">/// &lt;exception cref=&quot;JsonException&quot;&gt;</span>
-<span class="c1">/// The JSON is invalid.</span>
+<span class="c1">/// O JSON é inválido.</span>
 <span class="c1">///</span>
-<span class="c1">/// -or-</span>
+<span class="c1">/// -ou-</span>
 <span class="c1">///</span>
-<span class="c1">/// &lt;typeparamref name=&quot;TValue&quot; /&gt; is not compatible with the JSON.</span>
+<span class="c1">/// &lt;typeparamref name=&quot;TValue&quot; /&gt; não é compatível com o JSON.</span>
 <span class="c1">///</span>
-<span class="c1">/// -or-</span>
+<span class="c1">/// -ou-</span>
 <span class="c1">///</span>
-<span class="c1">/// There is remaining data in the string beyond a single JSON value.&lt;/exception&gt;</span>
+<span class="c1">/// Há dados remanescentes na string além de um único valor JSON.&lt;/exception&gt;</span>
 <span class="c1">/// &lt;exception cref=&quot;NotSupportedException&quot;&gt;</span>
-<span class="c1">/// There is no compatible &lt;see cref=&quot;System.Text.Json.Serialization.JsonConverter&quot;/&gt;</span>
-<span class="c1">/// for &lt;typeparamref name=&quot;TValue&quot;/&gt; or its serializable members.</span>
+<span class="c1">/// Não há um &lt;see cref=&quot;System.Text.Json.Serialization.JsonConverter&quot;/&gt;</span>
+<span class="c1">/// compatível com &lt;typeparamref name=&quot;TValue&quot;/&gt; ou seus membros serializáveis.</span>
 <span class="c1">/// &lt;/exception&gt;</span>
-<span class="c1">/// &lt;remarks&gt;Using a &lt;see cref=&quot;string&quot;/&gt; is not as efficient as using the</span>
-<span class="c1">/// UTF-8 methods since the implementation natively uses UTF-8.</span>
+<span class="c1">/// &lt;remarks&gt;Usar uma &lt;see cref=&quot;string&quot;/&gt; não é tão eficiente quanto usar os</span>
+<span class="c1">/// métodos UTF-8, pois a implementação usa nativamente UTF-8.</span>
 <span class="c1">/// &lt;/remarks&gt;</span>
 <span class="na">[RequiresUnreferencedCode(SerializationUnreferencedCodeMessage)]</span>
 <span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">TValue</span><span class="o">?</span><span class="w"> </span><span class="n">Deserialize</span><span class="o">&lt;</span><span class="n">TValue</span><span class="o">&gt;</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">json</span><span class="p">,</span><span class="w"> </span><span class="n">JsonSerializerOptions</span><span class="o">?</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
 <span class="p">{</span>
 </code></pre></div>
-<p>In <strong>C#</strong>, doc comments can be processed by the compiler to generate XML documentation files. These files can be distributed alongside your libraries so that Visual Studio and other IDEs can use IntelliSense to show quick information about types or members. Additionally, these files can be run through tools like <a href="https://dotnet.github.io/docfx/">DocFx</a> to generate API reference websites.</p>
-<p>More information:</p>
+<p>Em <strong>C#</strong>, os comentários de documentação podem ser processados pelo compilador para gerar arquivos de documentação XML. Esses arquivos podem ser distribuídos junto com suas bibliotecas para que o Visual Studio e outras IDEs possam usar o IntelliSense para mostrar informações rá</p>
+<p>pidas sobre tipos ou membros. Além disso, esses arquivos podem ser processados por ferramentas como <a href="https://dotnet.github.io/docfx/">DocFx</a> para gerar sites de referência de API.</p>
+<p>Mais informações:</p>
 <ul>
-<li><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/xmldoc/recommended-tags">Recommended XML tags for C# documentation comments</a>.</li>
+<li><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/xmldoc/recommended-tags">Tags XML recomendadas para comentários de documentação em C#</a>.</li>
 </ul>
-<p>In other languages, you may require external tools. For example, <strong>Java</strong> doc comments can be processed by Javadoc tool to generate HTML documentation files.</p>
-<p>More information:</p>
+<p>Em outras linguagens, você pode precisar de ferramentas externas. Por exemplo, os comentários de documentação <strong>Java</strong> podem ser processados pela ferramenta Javadoc para gerar arquivos de documentação HTML.</p>
+<p>Mais informações:</p>
 <ul>
-<li><a href="https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html">How to Write Doc Comments for the Javadoc Tool</a></li>
-<li><a href="https://www.oracle.com/java/technologies/javase/javadoc-tool.html#javadocdocuments">Javadoc Tool</a></li>
+<li><a href="https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html">Como Escrever Comentários de Documentação para a Ferramenta Javadoc</a></li>
+<li><a href="https://www.oracle.com/java/technologies/javase/javadoc-tool.html#javadocdocuments">Ferramenta Javadoc</a></li>
 </ul>
 
   <hr>
@@ -7299,7 +7299,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 15, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
       
     
   </small>
@@ -7333,13 +7333,13 @@
       
       
         
-        <a href="../engineering-feedback/" class="md-footer__link md-footer__link--next" aria-label="Next: Engineering Feedback" rel="next">
+        <a href="../engineering-feedback/" class="md-footer__link md-footer__link--next" aria-label="Next: Feedback de Engenharia" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Engineering Feedback
+              Feedback de Engenharia
             </div>
           </div>
           <div class="md-footer__button md-icon">

@@ -1,30 +1,29 @@
-# Preferred Diagram Tooling
+# Ferramentas de Diagramação Preferidas
 
-At each stage in the engagement process, diagrams are a key part of the design review.
-The preferred tooling for creating and maintaining diagrams is to choose **one** of the following:
+Em cada etapa do processo de engajamento, os diagramas desempenham um papel fundamental na revisão de design. A ferramenta preferida para criar e manter diagramas é escolher **uma** das seguintes opções:
 
 - Microsoft Visio
 - Microsoft PowerPoint
-- The `.drawio.png` (or `.drawio`) format from [diagrams.net](http://diagrams.net) (formerly [draw.io](http://draw.io))
+- O formato `.drawio.png` (ou `.drawio`) do [diagrams.net](http://diagrams.net) (anteriormente [draw.io](http://draw.io))
 
-In all cases, we recommend storing the exported PNG images from these diagrams in the repo along with the source files so they can easily be referenced in documentation and more easily reviewed during PRs. The `.drawio.png` format stores both at once.
+Em todos os casos, recomendamos armazenar as imagens PNG exportadas desses diagramas no repositório, juntamente com os arquivos de origem, para que possam ser facilmente referenciadas na documentação e revisadas mais facilmente durante os PRs. O formato `.drawio.png` armazena ambos ao mesmo tempo.
 
 ## Microsoft Visio
 
-It contains a lot of shapes out of the box, including Azure icons, the desktop app exists on PC, and there's a great Web app. Most diagrams in the Azure Architecture Center are Visio diagrams.
+Ele contém muitas formas prontas para uso, incluindo ícones do Azure, o aplicativo desktop está disponível para PC, e existe um ótimo aplicativo web. A maioria dos diagramas no Azure Architecture Center são diagramas do Visio.
 
 ## Microsoft PowerPoint
 
-Diagrams can be easily reused in presentations, a PowerPoint license is pretty common, the desktop app exists on PC and on the Mac, and there's a great Web app.
+Os diagramas podem ser facilmente reutilizados em apresentações, uma licença do PowerPoint é bastante comum, o aplicativo desktop está disponível para PC e para Mac, e existe um ótimo aplicativo web.
 
 ## `.drawio.png`
 
-There are different desktop, web apps and VS Code extensions.
-This tooling can be used like Visio or LucidChart, without the licensing/remote storage concerns.
-Furthermore, Diagrams.net has a collection of Azure/Office/Microsoft icons, as well as other well-known tech, so it is not only useful for swimlanes and flow diagrams, but also for architecture diagrams.
+Existem diferentes aplicativos de desktop, web e extensões do VS Code.
+Esta ferramenta pode ser usada como o Visio ou LucidChart, sem as preocupações de licenciamento/armazenamento remoto.
+Além disso, o Diagrams.net possui uma coleção de ícones do Azure/Office/Microsoft, além de outros techs conhecidos, portanto, não é apenas útil para swimlanes e fluxogramas, mas também para diagramas de arquitetura.
 
-`.drawio.png` should be preferred over the `.drawio` format.
-The `.drawio.png` format uses the metadata layer within the PNG file-format to hide SVG vector graphics representation, then renders the .png when saving.
-This clever use of both the meta layer and image layer allows anyone to further edit the PNG file.
-It also renders like a normal PNG in browsers and other viewers, making it easy to transfer and embed.
-Furthermore, it can be edited within VSCode very easily using the [Draw.io Integration VSCode Extension](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio).
+`.drawio.png` deve ser preferido sobre o formato `.drawio`.
+O formato `.drawio.png` utiliza a camada de metadados dentro do formato de arquivo PNG para ocultar a representação gráfica vetorial SVG e, em seguida, renderiza o .png ao salvar.
+Essa utilização inteligente tanto da camada de metadados quanto da camada de imagem permite que qualquer pessoa edite ainda mais o arquivo PNG.
+Além disso, ele é renderizado como um PNG normal em navegadores e outros visualizadores, tornando-o fácil de transferir e incorporar.
+Além disso, pode ser editado facilmente no VSCode usando a [Extensão do VSCode Draw.io Integration](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio).

@@ -1,8 +1,8 @@
-# Decision Log
+# Registro de Decisões
 
-This document is used to track key decisions that are made during the course of the project.
-This can be used at a later stage to understand why decisions were made and by whom.
+Este documento é usado para rastrear as principais decisões tomadas durante o curso do projeto.
+Isso pode ser usado em um estágio posterior para entender por que as decisões foram tomadas e por quem.
 
-| **Decision**                                 | **Date**                    | **Alternatives Considered**                | **Reasoning**                                                 | **Detailed doc**                              | **Made By**             | **Work Required**                           |
-|----------------------------------------------|-----------------------------|--------------------------------------------|---------------------------------------------------------------|-----------------------------------------------|-------------------------|---------------------------------------------|
-| A one-sentence summary of the decision made. | Date the decision was made. | A list of the other approaches considered. | A two to three sentence summary of why the decision was made. | A link to the ADR with the format [Title] DR. | Who made this decision? | A link to the work item for the linked ADR. |
+| **Decisão**                                   | **Data**                     | **Alternativas Consideradas**               | **Justificativa**                                             | **Documento Detalhado**                        | **Tomada Por**           | **Trabalho Requerido**                       |
+|-----------------------------------------------|------------------------------|--------------------------------------------|---------------------------------------------------------------|-----------------------------------------------|--------------------------|---------------------------------------------|
+| Um resumo de uma sentença da decisão tomada.   | Data em que a decisão foi tomada. | Uma lista das outras abordagens consideradas. | Um resumo de duas a três frases sobre por que a decisão foi tomada. | Um link para o ADR no formato [Título] DR.  | Quem tomou essa decisão?  | Um link para o item de trabalho para o ADR vinculado. |

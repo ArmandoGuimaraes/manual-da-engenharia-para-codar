@@ -1,34 +1,34 @@
-# Dev Containers: Going further
+# Expandindo as Possibilidades com Dev Containers
 
-Dev Containers allow developers to share a common working environment, ensuring that the runtime and all dependencies versions are consistent for all developers.
+Os Dev Containers permitem que os desenvolvedores compartilhem um ambiente de trabalho comum, garantindo que as versões de tempo de execução e todas as dependências sejam consistentes para todos os desenvolvedores.
 
-Dev containers also allow us to:
+Os Dev Containers também nos permitem:
 
-1. Leverage existing tools to enhance the Dev Containers with more features,
-2. Provide custom tools (such as scripts) for other developers.
+1. Utilizar ferramentas existentes para aprimorar os Dev Containers com mais recursos.
+2. Fornecer ferramentas personalizadas (como scripts) para outros desenvolvedores.
 
-## Existing tools
+## Ferramentas Existentes
 
-In the development phase, you will most probably need to use tools not installed by default in your Dev Container. For instance, if your project's target is to be deployed on Azure, you will need [Azure-cli](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) and maybe [Terraform](https://www.terraform.io/) for resources and application deployment. You can find such Dev Containers in the [VS Code dev container gallery repo](https://github.com/microsoft/vscode-dev-containers/tree/master/containers).
+Durante a fase de desenvolvimento, você provavelmente precisará usar ferramentas que não estão instaladas por padrão em seu Dev Container. Por exemplo, se o alvo do seu projeto for implantado no Azure, você precisará do [Azure-cli](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) e talvez do [Terraform](https://www.terraform.io/) para implantação de recursos e aplicativos. Você pode encontrar esses Dev Containers no [repositório de galeria de Dev Containers do VS Code](https://github.com/microsoft/vscode-dev-containers/tree/master/containers).
 
-Some other tools may be:
+Algumas outras ferramentas podem ser:
 
-* Linters for [markdown](https://github.com/DavidAnson/markdownlint) files,
-* Linters for [bash](https://www.shellcheck.net/) scripts,
-* Etc...
+- Linters para arquivos [markdown](https://github.com/DavidAnson/markdownlint).
+- Linters para scripts [bash](https://www.shellcheck.net/).
+- Etc...
 
-Linting files that are not *the source code* can ensure a common format with common rules for each developer. These checks should be also run in a [Continuous Integration Pipeline](https://learn.microsoft.com/azure/devops/pipelines/architectures/devops-pipelines-baseline-architecture), but it is a good practice to run them prior opening a [Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
+A verificação de arquivos que não são *o código-fonte* pode garantir um formato comum com regras comuns para cada desenvolvedor. Essas verificações também devem ser executadas em um [Pipeline de Integração Contínua](https://learn.microsoft.com/azure/devops/pipelines/architectures/devops-pipelines-baseline-architecture), mas é uma boa prática executá-las antes de abrir uma [Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
-## Limitation of custom tools
+## Limitação de Ferramentas Personalizadas
 
-If you decide to include [Azure-cli](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) in your Dev Container, developers will be able to run commands against their tenant. However, to make the developers' lives easier, we could go further by letting them prefill their connection information, such as the `tenant ID` and the `subscription ID` in a secure and persistent way (do not forget that your Dev Container, being a [Docker](https://www.docker.com/) container, might get deleted, or the image could be rebuilt, hence, all customization *inside* will be lost).
+Se você decidir incluir o [Azure-cli](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) em seu Dev Container, os desenvolvedores poderão executar comandos em seu ambiente. No entanto, para facilitar a vida dos desenvolvedores, podemos ir além, permitindo que eles preencham suas informações de conexão, como o `ID do locatário` e o `ID da assinatura`, de forma segura e persistente (não se esqueça de que seu Dev Container, sendo um contêiner [Docker](https://www.docker.com/), pode ser excluído ou a imagem pode ser reconstruída, o que resultaria na perda de todas as personalizações *internas*).
 
-One way to achieve this is to leverage environment variables, with untracked `.env` file part of the solution being injected in the Dev Container.
+Uma maneira de fazer isso é usar variáveis de ambiente, com um arquivo `.env` não rastreado que faz parte da solução e é injetado no Dev Container.
 
-Consider the following files structure:
+Considere a seguinte estrutura de arquivos:
 
 ```bash
-My Application  # main repo directory
+Minha Aplicação  # diretório principal do repositório
 └───.devcontainer
 |       ├───Dockerfile
 |       ├───devcontainer.json
@@ -37,16 +37,16 @@ My Application  # main repo directory
 |       ├───.env-sample
 ```
 
-The file `config/.env-sample` is a tracked file where anyone can find environment variables to set (with no values, obviously):
+O arquivo `config/.env-sample` é um arquivo rastreado onde qualquer pessoa pode encontrar variáveis de ambiente a serem definidas (sem valores, obviamente):
 
 ```bash
 TENANT_ID=
 SUBSCRIPTION_ID=
 ```
 
-Then, each developer who clones the repository can create the file `config/.env` and fills it in with the appropriate values.
+Em seguida, cada desenvolvedor que clona o repositório pode criar o arquivo `config/.env` e preenchê-lo com os valores apropriados.
 
-In order now to inject the `.env` file into the container, you can update the file `devcontainer.json` with the following:
+Para injetar o arquivo `.env` no contêiner, você pode atualizar o arquivo `devcontainer.json` da seguinte forma:
 
 ```json
 {
@@ -56,56 +56,57 @@ In order now to inject the `.env` file into the container, you can update the fi
 }
 ```
 
-As soon as the Dev Container is started, these environment variables are sent to the container.
+Assim que o Dev Container for iniciado, essas variáveis de ambiente serão enviadas para o contêiner.
 
-Another approach would be to use Docker Compose, a little bit more complex, and probably *too much* for just environment variables. Using Docker Compose can unlock other settings such as custom dns, ports forwarding or multiple containers.
+Outra abordagem seria usar o Docker Compose, um pouco mais complexo e provavelmente *demais* apenas para variáveis de ambiente. Usar o Docker Compose pode desbloquear outras configurações, como DNS personalizado, encaminhamento de portas ou múltiplos contêineres.
 
-To achieve this, you need to add a file `.devcontainer/docker-compose.yml` with the following:
+Para fazer isso, você precisa adicionar um arquivo `.devcontainer/docker-compose.yml` com o seguinte conteúdo:
 
 ```yaml
 version: '3'
 services:
-  my-workspace:
+  meu-ambiente:
     env_file: ../config/.env
     build:
       context: .
       dockerfile: Dockerfile
-    command: sleep infinity
 ```
 
-To use the `docker-compose.yml` file instead of `Dockerfile`, we need to adjust `devcontainer.json` with:
+Para usar o arquivo `docker-compose.yml` em vez do `Dockerfile`, você precisa ajustar o `devcontainer.json` da seguinte maneira:
 
 ```json
 {
-    "name": "My Application",
+    "name": "Minha Aplicação",
     "dockerComposeFile": ["docker-compose.yml"],
-    "service": "my-workspace"
+    "service": "meu-ambiente"
     ...
 }
 ```
 
-This approach can be applied for many other tools by preparing what would be required. The idea is to simplify developers' lives and new developers joining the project.
+Essa abordagem pode ser aplicada a muitas outras ferramentas, preparando o que seria necessário. A ideia é simplificar a vida dos desenvolvedores e dos novos desenvolvedores que estão ingressando no projeto.
 
-## Custom tools
+## Ferramentas Personalizadas
 
-While working on a project, any developer might end up writing a script to automate a task. This script can be in `bash`, `python` or whatever scripting language they are comfortable with.
+Enquanto trabalha em um projeto, qualquer desenvolvedor pode acabar escrevendo um script para automatizar uma tarefa. Este script pode ser em `bash`, `python` ou qualquer linguagem de script com a qual eles se sintam confortáveis.
 
-Let's say you want to ensure that all markdown files written are validated against specific rules you have set up. As we have seen above, you can include the tool [markdownlint](https://github.com/DavidAnson/markdownlint) in your Dev Container . Having the tool installed does not mean developer will know how to use it!
+Digamos que você queira garantir que todos os arquivos markdown escritos sejam validados de acordo com regras específicas que você configurou. Como vimos acima, você pode incluir a ferramenta [markdownlint](https://github.com/DavidAnson/markdownlint) em seu Dev Container. Ter a ferramenta instalada não significa que o desenvolvedor saberá como usá-la!
 
-Consider the following solution structure:
+Considere a seguinte estrutura da solução:
 
 ```bash
-My Application  # main repo directory
+Minha Aplicação  # diretório principal do repositório
 └───.devcontainer
 |       ├───Dockerfile
 |       ├───docker-compose.yml
 |       ├───devcontainer.json
 └───scripts
-|       ├───check-markdown.sh
+|
+
+       ├───check-markdown.sh
 └───.markdownlint.json
 ```
 
-The file `.devcontainer/Dockerfile` installs [markdownlint](https://github.com/DavidAnson/markdownlint)
+O arquivo `.devcontainer/Dockerfile` instala o [markdownlint](https://github.com/DavidAnson/markdownlint):
 
 ```dockerfile
 ...
@@ -113,63 +114,63 @@ RUN apt-get update \
     && export DEBIAN_FRONTEND=noninteractive \
     && apt-get install -y nodejs npm
 
-# Add NodeJS tools
+# Adicionar ferramentas NodeJS
 RUN npm install -g markdownlint-cli
 ...
 ```
 
-The file `.markdownlint.json` contains the rules you want to validate in your markdown files (please refer to the [markdownlint site](https://github.com/DavidAnson/markdownlint) for details).
+O arquivo `.markdownlint.json` contém as regras que você deseja validar em seus arquivos markdown (consulte o site do [markdownlint](https://github.com/DavidAnson/markdownlint) para obter detalhes).
 
-And finally, the script `scripts/check-markdown.sh` contains the following code to execute `markdownlint`:
+E, finalmente, o script `scripts/check-markdown.sh` contém o seguinte código para executar o `markdownlint`:
 
 ```bash
-# Get the repository root
+# Obter a raiz do repositório
 repoRoot="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." >/dev/null 2>&1 && pwd )"
 
-# Execute markdownlint for the entire solution
+# Executar o markdownlint para toda a solução
 markdownlint -c "${repoRoot}"/.markdownlint.json
 ```
 
-When the Dev Container is loaded, any developer can now run this script in their terminal:
+Quando o Dev Container é carregado, qualquer desenvolvedor pode executar este script em seu terminal:
 
 ```bash
 /> ./scripts/check-markdown.sh
 ```
 
-This is a small use case, there are unlimited other possibilities to capitalize on work done by developers to save time.
+Este é um pequeno exemplo de uso, existem inúmeras outras possibilidades para capitalizar o trabalho feito pelos desenvolvedores para economizar tempo.
 
-## Other considerations
+## Outras Considerações
 
-### Platform architecture
+### Arquitetura da Plataforma
 
-When installing tooling, you also need to ensure that you know what host computers developers are using. All Intel based computers, whether they are running Windows, Linux or MacOs will have the same behavior.
-However, the latest Mac architecture (Apple M1/Silicon) being ARM64, means that the behavior is not the same when building Dev Containers.
+Ao instalar ferramentas, você também precisa garantir que sabe qual a arquitetura dos computadores dos desenvolvedores. Todos os computadores baseados em Intel, independentemente de estarem rodando Windows, Linux ou macOS, terão o mesmo comportamento.
+No entanto, a arquitetura mais recente da Apple (Apple M1/Silicon) sendo ARM64, significa que o comportamento não é o mesmo ao criar Dev Containers.
 
-For instance, if you want to install [Azure-cli](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) in your Dev Container, you won't be able to do it the same way you do it for Intel based machines. On Intel based computers you can install the `deb` package. However, this package is not available on ARM architecture. The only way to install [Azure-cli](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) on Linux ARM is via the Python installer `pip`.
+Por exemplo, se você deseja instalar o [Azure-cli](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) em seu Dev Container, não poderá fazê-lo da mesma forma que faria em máquinas Intel. Em computadores Intel, você pode instalar o pacote `deb`. No entanto, esse pacote não está disponível na arquitetura ARM. A única maneira de instalar o [Azure-cli](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) no Linux ARM é usando o instalador Python `pip`.
 
-To achieve this you need to check the architecture of the host building the Dev Container, either in the Dockerfile, or by calling an external bash script to install remaining tools not having a universal version.
+Para fazer isso, você precisa verificar a arquitetura do host que está criando o Dev Container, seja no Dockerfile ou chamando um script bash externo para instalar as ferramentas restantes que não possuem uma versão universal.
 
-Here is a snippet to call from the Dockerfile:
+Aqui está um trecho para chamar do Dockerfile:
 
 ```bash
-# If Intel based, then use the deb file
+# Se for baseado em Intel, use o arquivo deb
 if [[ `dpkg --print-architecture` == "amd64" ]]; then
     sudo curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash;
 else
-# arm based, install pip (and gcc) then azure-cli
+# Baseado em ARM, instale pip (e gcc) e, em seguida, azure-cli
     sudo apt-get -y install gcc
     python3 -m pip install --upgrade pip
     python3 -m pip install azure-cli
 fi
 ```
 
-### Reuse of credentials for GitHub
+### Reutilização de Credenciais para o GitHub
 
-If you develop inside a Dev Container, you will also want to share your GitHub credentials between your host and the Dev Container. Doing so, you would avoid copying your ssh keys back and forth (if you are using ssh to access your repositories).
+Se você desenvolve dentro de um Dev Container, também desejará compartilhar suas credenciais do GitHub entre seu host e o Dev Container. Fazendo isso, você evitaria copiar suas chaves SSH de um lado para o outro (se estiver usando SSH para acessar seus repositórios).
 
-One approach would be to mount your local `~/.ssh` folder into your Dev Container. You can either use the `mounts` option of the `devcontainer.json`, or use Docker Compose
+Uma abordagem seria montar sua pasta local `~/.ssh` em seu Dev Container. Você pode usar a opção `mounts` do `devcontainer.json` ou usar o Docker Compose.
 
-* Using `mounts`:
+- Usando `mounts`:
 
 ```json
 {
@@ -179,14 +180,14 @@ One approach would be to mount your local `~/.ssh` folder into your Dev Containe
 }
 ```
 
-As you can see, `${localEnv:HOME}` returns the host `home` folder, and it maps it to the container `home` folder.
+Como você pode ver, `${localEnv:HOME}` retorna a pasta `home` do host e a mapeia para a pasta do contêiner.
 
-* Using Docker Compose:
+- Usando Docker Compose:
 
 ```yaml
 version: '3'
 services:
-  my-worspace:
+  meu-ambiente:
     env_file: ../configs/.env
     build:
       context: .
@@ -196,36 +197,38 @@ services:
     command: sleep infinity
 ```
 
-Please note that using Docker Compose requires to edit the `devcontainer.json` file as we have seen above.
+Observe que o uso do Docker Compose requer a edição do arquivo `devcontainer.json`, conforme vimos acima.
 
-You can now access GitHub using the same credentials as your host machine, without worrying of persistence.
+Agora você pode acessar o GitHub usando as mesmas credenciais do seu host, sem se preocupar com a persistência.
 
-### Allow some customization
+### Permitir Alguma Customização
 
-As a final note, it is also interesting to leave developers some flexibility in their environment for customization.
+Como nota final, também é interessante deixar aos desenvolvedores alguma flexibilidade em seu ambiente para personalização.
 
-For instance, one might want to add aliases to their environment. However, changing the `~/.bashrc` file in the Dev Container is not a good approach as the container might be destroyed. There are numerous ways to set persistence, here is one approach.
+Por exemplo, alguém pode querer adicionar aliases ao seu ambiente. No entanto, alterar o arquivo `~/.bashrc` no Dev Container não é uma abordagem boa, pois o contêiner pode ser destruído. Existem várias maneiras de definir a persistência. Aqui está uma abordagem.
 
-Consider the following solution structure:
+Considere a seguinte estrutura do projeto:
 
 ```bash
-My Application  # main repo directory
+Minha Aplicação  # diretório principal do repositório
 └───.devcontainer
 |       ├───Dockerfile
-|       ├───docker-compose.yml
+|       ├───docker
+
+-compose.yml
 |       ├───devcontainer.json
 └───me
 |       ├───bashrc_extension
 ```
 
-The folder `me` is untracked in the repository, leaving developers the flexibility to add personal resources. One of these resources can be a `.bashrc` extension containing customization. For instance:
+A pasta `me` não está rastreada no repositório, deixando aos desenvolvedores a flexibilidade de adicionar recursos pessoais. Um desses recursos pode ser uma extensão `.bashrc` contendo personalizações. Por exemplo:
 
 ```bash
-# Sample alias
+# Exemplo de alias
 alias gaa="git add --all"
 ```
 
-We can now adapt our `Dockerfile` to load these changes when the Docker image is built (and of course, do nothing if there is no file):
+Agora podemos adaptar nosso `Dockerfile` para carregar essas alterações quando a imagem Docker é criada (e, é claro, não fazer nada se não houver nenhum arquivo):
 
 ```dockerfile
 ...

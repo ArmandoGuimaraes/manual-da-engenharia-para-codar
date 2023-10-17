@@ -1,4 +1,4 @@
-# Design (Designação)
+# Design
 
 Projetar software de forma eficaz é desafiador.
 

@@ -1,124 +1,124 @@
-# Sequence Diagrams
+# Diagramas de Sequência
 
-## Purpose
+## Propósito
 
-This document is intended to provide a baseline understanding for what, why, and how to incorporate Sequence Diagrams
-as part of an engagement. Regarding the **how**, the section at the bottom will provide tools and plugins to streamline as much as possible when generating Sequence Diagrams through VSCode.
+Este documento tem como objetivo fornecer uma compreensão básica do que são, por que são usados e como incorporar Diagramas de Sequência como parte de um envolvimento. Quanto ao **como**, a seção na parte inferior fornecerá ferramentas e complementos para simplificar o máximo possível a geração de Diagramas de Sequência por meio do VSCode.
 
-[Wikipedia](https://en.wikipedia.org/wiki/Sequence_diagram) defines UML Sequence Diagrams responsible to:
+A [Wikipedia](https://en.wikipedia.org/wiki/Sequence_diagram) define os Diagramas de Sequência UML como responsáveis por:
 
- > _depict the objects involved in the scenario and the sequence of messages exchanged between the objects needed to carry out the functionality of the scenario_
+ > _representar os objetos envolvidos no cenário e a sequência de mensagens trocadas entre os objetos necessários para realizar a funcionalidade do cenário_
 
-What is a **scenario**? It can be:
+O que é um **cenário**? Pode ser:
 
-- an actual user persona performing an action
-- a system specific trigger (time based, condition based) that results in an action to occur
+- uma persona de usuário real realizando uma ação
+- um gatilho específico do sistema (com base no tempo, com base em condições) que resulta em uma ação a ser realizada
 
-What is a **message** in this context? It can be:
+O que é uma **mensagem** nesse contexto? Pode ser:
 
-- a synchronous or asynchronous request
-- a transfer of any form of data between any objects
+- uma solicitação síncrona ou assíncrona
+- uma transferência de qualquer forma de dados entre quaisquer objetos
 
-What is an **object** in this context? It can be:
+O que é um **objeto** nesse contexto? Pode ser:
 
-- any specific user persona
-- any service
-- any data store
-- a system (black box composed of unknown services, data stores or other components)
-- an abstract sub-scenario (in order to minimize high complexity of a scenario)
+- qualquer persona de usuário específica
+- qualquer serviço
+- qualquer armazenamento de dados
+- um sistema (caixa preta composta de serviços desconhecidos, armazenamentos de dados ou outros componentes)
+- um subcenário abstrato (para minimizar a alta complexidade de um cenário)
 
-## Essential Takeaways
+## Principais Pontos
 
-A Sequence Diagram should:
+Um Diagrama de Sequência deve:
 
-- start with a **scenario**
-- indicate which **object** or "actor" initiated that scenario
-- have the scenario clearly indicate what the "end" state is, even if it doesn't necessarily end back with the object that initiated the scenario
+- começar com um **cenário**
+- indicar qual **objeto** ou "ator" iniciou esse cenário
+- ter o cenário indicando claramente qual é o estado "final", mesmo que não termine necessariamente com o objeto que iniciou o cenário
 
-It is okay for a single Sequence Diagram to have many different scenarios if they have some related context that merits them being grouped.
+É aceitável que um único Diagrama de Sequência tenha muitos cenários diferentes se tiverem algum contexto relacionado que justifique que eles sejam agrupados.
 
-Another important thing to keep in mind, is that the **objects** involved in a Sequence Diagram should refer to existing Components from a [Component Diagram](./componentDiagrams.md).
+Outro ponto importante a ter em mente é que os **objetos** envolvidos em um Diagrama de Sequência devem se referir aos Componentes existentes de um [Diagrama de Componentes](./componentDiagrams.md).
 
-There are 2 areas where complexity can result in an overly "crowded" Sequence Diagram, making it costly to maintain. They are:
+Existem duas áreas em que a complexidade pode resultar em um Diagrama de Sequência excessivamente "lotado", tornando-o caro de manter. São elas:
 
-1. Large number of objects / components involved in a particular scenario
-2. Capturing all the possible "failure" situations that a scenario may encounter
+1. Grande número de objetos/componentes envolvidos em um cenário específico.
+2. Captura de todas as possíveis situações de "falha" que um cenário pode encontrar.
 
-### Large Number of Objects
+### Grande Número de Objetos
 
-A Sequence Diagram typically starts with an end user persona performing an action, and then shows all the various components and request/data transfers that are involved in that scenario. However, more often than not, the complete end-to-end flow for that scenario may be too complex in order to capture within a single Sequence Diagram.
+Um Diagrama de Sequência normalmente começa com uma persona de usuário final realizando uma ação e, em seguida, mostra todos os vários componentes e transferências de solicitações/dados envolvidos nesse cenário. No entanto, na maioria das vezes, o fluxo completo de ponta a ponta para esse cenário pode ser muito complexo para ser capturado em um único Diagrama de Sequência.
 
-When this level of complexity occurs, consider creating separate **sub-scenario Sequence Diagrams**, and using it as an object in a particular Sequence Diagram. Examples for this are "Authentication" or "Authorization". Almost all user persona scenarios will have several objects/components involved in either of these sub-scenarios, but it is not necessary to include them in every Sequence Diagram
-once the sub-scenarios have a stand-alone Sequence Diagram created.
+Quando esse nível de complexidade ocorrer, considere criar Diagramas de Sequência separados para **subcenários** e usá-los como objetos em um Diagrama de Sequência específico. Exemplos disso são "Autenticação" ou "Autorização". Quase todos os cenários de persona de usuário terão vários objetos/componentes envolvidos em um desses subcenários, mas não é necessário incluí-los em todos os Diagramas de Sequência
+quando os subcenários têm um Diagrama de Sequência autônomo criado.
 
-Be sure that when using this approach of sub-scenarios to give it a name that encapsulates what the sub-scenarios is performing, and to determine the appropriate "actor" and "action" that initiates the sub-scenarios.
+Certifique-se de que, ao usar essa abordagem de subcenários, eles tenham um nome que encapsule o que o subcenário está realizando e determine o "ator" apropriado e a "ação" que inicia o subcenário.
 
-The combination and story telling between these **end user Sequence Diagrams** and the **sub-scenarios Sequence Diagrams** can greatly improve readability by distributing the level of complexity across multiple diagrams and take advantage of reusability of common sub-scenarios.
+A combinação e narração de histórias entre esses **Diagramas de Sequência de usuários finais** e **Diagramas de Sequência de subcenários** podem melhorar significativamente a legibilidade, distribuindo o nível de complexidade em vários diagramas e aproveitando a reutilização de subcenários comuns.
 
-### Handling Large Number of Failure Situations
+### Lidando com um Grande Número de Situações de Falha
 
-Another factor of high complexity is the possible failure situations that a particular scenario may encounter. Each object / component involved in the scenario could have several different "failure" situations, which could result in a very crowded and messy Sequence Diagram.
+Outro fator de alta complexidade são as possíveis situações de falha que um cenário específico pode encontrar. Cada objeto/componente envolvido em um cenário pode ter várias situações de "falha" diferentes, o que pode resultar em um Diagrama de Sequência muito confuso.
 
-In order to make it realistic to manage all these scenarios, try to:
+Para tornar realista a gestão de todas essas situações, tente:
 
-- Identify the most common failure situations that an "actor" may face as part of a scenario. Capturing these in a sequence diagram and documenting the other scenarios without having to manage them in a diagram will accomplish the goal of awareness
-- "Bubble up" and "abstract" all the vast number of failure situations that can occur downstream in the system, and depict how the object / component closest to the "actor" handles all these failures and informs the "actor" of them
+- Identificar as situações de "falha" mais comuns que um "ator" pode enfrentar como parte de um cenário. Capturar essas em um Diagrama de Sequência e documentar os outros cenários sem a necessidade de gerenciá-los em um diagrama alcançará o objetivo de conscientização.
+- "Agrupe" e "abstraia" todas as inúmeras situações de falha que podem ocorrer mais abaixo no sistema e represente como o objeto/componente mais próximo do "ator" lida com todas essas falhas e informa o "ator" sobre elas.
 
-## When to Create?
+## Quando Criar?
 
-Because Sequence Diagrams represent a detailed overview of the **behavior** of the system, outlining the various messages/requests sent within the system, it is recommended to begin the creation of these diagrams from the beginning of an engagement. While updating it as the various communications between Components are introduced into the system. The risks of not creating Sequence Diagrams
-early on are that:
+Como os Diagramas de Sequência representam uma visão detalhada do **comportamento** do sistema, delineando as várias mensagens/solicitações enviadas dentro do sistema, é recomendável começar a criar esses diagramas desde o início de um envolvimento. Atualize-os à medida que as várias comunicações entre Componentes são introduzidas no sistema. Os riscos de não criar Diagramas de Sequência
+no início são:
 
-- the team will not create any because of it being perceived more as a "chore" instead of adding value
-- the team will be unable to gain insights in time, from visualizing the various messages and requests sent between Components, in order to perform any potential refactoring
-- the team or other necessary stakeholders won't have a complete understanding of the request/message/data flow within the system
+- a equipe não criará nenhum porque será percebido mais como uma "tarefa" do que como um valor agregado
+- a equipe será incapaz de obter insights a tempo, visualizando as várias mensagens e solicitações enviadas entre Componentes, a fim de realizar qualquer refatoração potencial
+- a equipe ou outras partes interessadas necessárias não terão uma compreensão completa do fluxo de solicitação/mensagem/dados dentro do sistema
 
-Because of the inherent granularity of the system, the Sequence Diagrams won't have to be updated as often as [Class Diagrams](./classDiagrams.md), but may require more maintenance than [Component Diagrams](./componentDiagrams.md). Things that might merit updating a Sequence Diagram could be:
+Devido à granularidade inerente do sistema, os Diagramas de Sequência não precisarão ser atualizados com a mesma frequência que os [Diagramas de Classes](./classDiagrams.md), mas podem exigir mais manutenção do que os [Diagramas de Componentes](./componentDiagrams.md). Coisas que podem justificar a atualização de um Diagrama de Sequência incluem:
 
-- A new request/message/data being sent across Components involved in a scenario
-- A change to one or several Components involved in a Sequence Diagram. Such as splitting a component into multiple ones, or consolidating many Components into a single one
-- The introduction of a new Use Case or scenario that the system now supports
+- Uma nova solicitação/mensagem/dado sendo enviado entre Componentes envolvidos em um cenário
+- Uma alteração em um ou vários Componentes envolvidos em um Diagrama
 
-## Examples
+ de Sequência, como dividir um componente em vários ou consolidar muitos Componentes em um único
+- A introdução de um novo Caso de Uso ou cenário que o sistema agora suporta
 
-Place Order Scenario:
+## Exemplos
 
-- A "Member" user persona places an order, which can be composed of many "order items"
-- The "Member" user persona can be either of type "VIP" or "Ordinary"
-- Depending on the "Member type", each "order item" will be shipped using either a Courier or via Mail
-- If the "Member" user persona selected the option to be informed once all "order items" have been shipped, then the system will send a notification
+Cenário de Colocação de Pedido:
+
+- Uma persona de usuário "Membro" realiza um pedido, que pode ser composto por muitos "itens de pedido"
+- A persona de usuário "Membro" pode ser do tipo "VIP" ou "Comum"
+- Dependendo do "tipo de membro", cada "item de pedido" será enviado por meio de um Correio ou por Correio
+- Se a persona de usuário "Membro" selecionou a opção de ser informada assim que todos os "itens de pedido" forem enviados, então o sistema enviará uma notificação
 
 ![image](./Images/placeOrderScenario.png)
 
-Facebook User Authentication Scenario:
+Cenário de Autenticação de Usuário no Facebook:
 
-- A user persona uses a Web Browser to interact with an "application" which tries to access a specific "Facebook resource"
-- The "Facebook Authorization Server" is involved in order to have the user to authenticate with Facebook
-- The user persona then receives a "permission form" in order to authorize the "application" access to the "Facebook resource"
-- If the "application" was not authorized, then the "application" returns back an error
-- If the "application" was authorized, then the "application" retrieves an "access token" from the "Facebook Authorization Server" and uses it to securely access the "Facebook resource" from the "Facebook Content Server". Once the content is obtained, the "application" sends it to the Web Browser
+- Uma persona de usuário usa um Navegador Web para interagir com um "aplicativo", que tenta acessar um "recurso do Facebook" específico
+- O "Servidor de Autorização do Facebook" é envolvido para fazer com que o usuário se autentique no Facebook
+- A persona de usuário então recebe um "formulário de permissão" para autorizar o "aplicativo" a acessar o "recurso do Facebook"
+- Se o "aplicativo" não for autorizado, ele retorna um erro
+- Se o "aplicativo" for autorizado, ele obtém um "token de acesso" do "Servidor de Autorização do Facebook" e o usa para acessar com segurança o "recurso do Facebook" do "Servidor de Conteúdo do Facebook". Uma vez obtido o conteúdo, o "aplicativo" o envia de volta para o Navegador Web
 
 ![image](./Images/facebookUserAuthentication.png)
 
-## Versioning
+## Versionamento
 
-Because Sequence Diagrams are more expensive to maintain, it's recommended to "publish" an image of the generated diagram often, whenever a new "use case" or "scenario" is identified as part of the system behavior or requirements.
+Como os Diagramas de Sequência são mais caros de manter, é recomendável "publicar" uma imagem do diagrama gerado com frequência, sempre que um novo "caso de uso" ou "cenário" for identificado como parte do comportamento ou requisitos do sistema.
 
-The most important element to these diagrams is to ensure that the latest version is **accurate**. If the latest diagram shows a sequence of communication between components that are no longer valid, then the diagram causes more harm than good.
+O elemento mais importante desses diagramas é garantir que a versão mais recente seja **precisa**. Se o diagrama mais recente mostrar uma sequência de comunicação entre componentes que não são mais válidos, o diagrama causará mais prejuízo do que benefício.
 
-The below approach can be used to assist the team on how often to update the published version of the diagram:
+A abordagem abaixo pode ser usada para ajudar a equipe a determinar com que frequência atualizar a versão publicada do diagrama:
 
-- At the beginning of the engagement, publishing an "envisioned" version of the Sequence Diagram will provide a common visual to all engineers when working on the different parts of the solution (focusing on the data flow and request flow)
-- Throughout the engagement, update the published diagram periodically. Ideally whenever a new "use case" or "scenario" is identified, or when a Component is introduced or removed in the system, or when a change in data/request flow is made in the system
+- No início do envolvimento, a publicação de uma versão "imaginada" do Diagrama de Sequência fornecerá uma visão comum a todos os engenheiros ao trabalharem nas diferentes partes da solução (focando no fluxo de dados e fluxo de solicitação)
+- Ao longo do envolvimento, atualize o diagrama publicado periodicamente. Idealmente, sempre que um novo "caso de uso" ou "cenário" for identificado, ou quando um Componente for introduzido ou removido no sistema, ou quando uma mudança no fluxo de dados/solicitação for feita no sistema
 
-Depending on the tool being used, automatic versioning might be performed whenever an update to the Diagram is performed. If not, it is recommended to capture distinct versions whenever there is a particular customer need to have a snapshot of the project at a particular point in time. The hard requirement is that the latest diagram should be published and everyone should know how to access it as
-the customer hand-off approaches.
+Dependendo da ferramenta utilizada, o versionamento automático pode ser realizado sempre que uma atualização no Diagrama for feita. Caso contrário, é recomendável capturar versões distintas sempre que houver uma necessidade específica do cliente de ter um instantâneo do projeto em um determinado momento. O requisito fundamental é que o diagrama mais recente seja publicado e todos saibam como acessá-lo quando a entrega ao cliente se aproximar.
 
-## Resources
+## Recursos
 
 - [Wikipedia](https://en.wikipedia.org/wiki/Sequence_diagram)
 - [Visual Paradigm](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-sequence-diagram/)
-- VS Code Plugins:
-  - [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) - requires a generator from code to PlantUML syntax to generate diagrams
-    - [PlantUML Syntax](https://plantuml.com/sequence-diagram)
-    - [Drawing manually](https://towardsdatascience.com/drawing-a-uml-diagram-in-the-vs-code-53c2e67deffe)
+- Complementos para o VS Code:
+  - [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) - requer um gerador de código para a sintaxe PlantUML para gerar diagramas
+    - [Sintaxe PlantUML](https://plantuml.com/sequence-diagram)
+    - [Desenho manual](https://towardsdatascience.com/drawing-a-uml-diagram-in-the-vs-code-53c2e67deffe)

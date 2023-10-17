@@ -1,56 +1,56 @@
-# Data Exploration
+# Exploração de Dados
 
-After [envisioning](./ml-problem-formulation-envisioning.md), and typically as part of the [ML feasibility study](./ml-feasibility-study.md), the next step is to confirm resource access and then dive deep into the available data through data exploration workshops.
+Após a [concepção](./ml-formulacao-problema-concepcao.md) e tipicamente como parte do [estudo de viabilidade de ML](./ml-estudo-viabilidade.md), o próximo passo é confirmar o acesso aos recursos e, em seguida, mergulhar profundamente nos dados disponíveis por meio de workshops de exploração de dados.
 
-## Purpose of the Data Exploration Workshop
+## Objetivo do Workshop de Exploração de Dados
 
-The purpose of the data exploration workshop is as follows:
+O objetivo do workshop de exploração de dados é o seguinte:
 
-1. Ensure the team can access the data and compute resources that are necessary for the ML feasibility study
+1. Garantir que a equipe tenha acesso aos dados e recursos computacionais necessários para o estudo de viabilidade de ML.
 
-2. Ensure that the data provided is of quality and is relevant to the ML solution  
+2. Certificar-se de que os dados fornecidos têm qualidade e são relevantes para a solução de ML.
 
-3. Make sure that the project team has a good understanding of the data
+3. Certificar-se de que a equipe do projeto tenha um bom entendimento dos dados.
 
-4. Make sure that the SMEs (Subject Matter Experts) needed are present for Data Exploration Workshop
+4. Certificar-se de que os SMEs (Especialistas em Assunto) necessários estejam presentes no Workshop de Exploração de Dados.
 
-5. List people needed for the data exploration workshop
+5. Listar as pessoas necessárias para o workshop de exploração de dados.
 
-## Accessing Resources
+## Acesso a Recursos
 
-Prior to diving into data exploration workshops, it is important to confirm that you have access to the necessary resources (including data).
+Antes de iniciar os workshops de exploração de dados, é importante confirmar que você tem acesso aos recursos necessários (incluindo dados).
 
-Below is an **example** list of questions to consider before starting a data exploration workshop.
+Abaixo está uma lista de **exemplo** de perguntas a serem consideradas antes de iniciar um workshop de exploração de dados.
 
-1. What are the requirements for an account to be set up in order for the team to access data and compute resources?
-2. Are there security requirements around accessing resources (Subscriptions, Azure Resources, project management, etc.) such as VPN, 2FA, jump boxes, etc.?
-3. Data access:
-    * Is it on-prem or on Azure already?
-    * If it is on-prem, can we move the needed data to Azure under the appropriate subscription? Who has permission to move the data?
-    * Is the data access approved from a legal/compliance perspective?
-4. Computation:
-    * Is a VPN needed for the project team to access these computation nodes (Virtual Machines, Databricks clusters, etc) from their work PCs/Macs?
-    * Any restrictions on accessing the source data system from these computation nodes?
-    * If we want to create some compute resources, who has permissions to do so?
-5. Source code repository:
-    * Do you have any preference on source code repository location?
-6. Backlog management and work planning:
-    * Do you have any preference on backlog management and work planning, such as Azure DevOps, Jira or anything else?
-    * If an existing system, are special accounts / system setups required to access?
-7. Programming Language:
-    * Is Python/PySpark a preferred language?
-    * Is there any internal approval processes for the Python/PySpark libraries we want to use for this engagement?
+1. Quais são os requisitos para a criação de uma conta para que a equipe possa acessar dados e recursos computacionais?
+2. Existem requisitos de segurança para acessar recursos (assinaturas, Recursos Azure, gerenciamento de projetos, etc.), como VPN, autenticação de dois fatores (2FA), jump boxes, etc.?
+3. Acesso aos dados:
+    * Está localizado localmente ou já está no Azure?
+    * Se estiver localizado localmente, podemos mover os dados necessários para o Azure sob a assinatura apropriada? Quem tem permissão para mover os dados?
+    * O acesso aos dados é aprovado do ponto de vista legal e de conformidade?
+4. Computação:
+    * É necessário uma VPN para a equipe do projeto acessar esses nós de computação (Máquinas Virtuais, clusters Databricks, etc.) de seus PCs/Macs de trabalho?
+    * Alguma restrição para acessar o sistema de dados de origem a partir desses nós de computação?
+    * Se quisermos criar recursos de computação, quem tem permissão para fazê-lo?
+5. Repositório de código-fonte:
+    * Você tem alguma preferência quanto à localização do repositório de código-fonte?
+6. Gerenciamento de backlog e planejamento de trabalho:
+    * Você tem alguma preferência quanto ao gerenciamento de backlog e planejamento de trabalho, como Azure DevOps, Jira ou qualquer outra coisa?
+    * Se for um sistema existente, são necessárias contas especiais/configurações de sistema para acessar?
+7. Linguagem de programação:
+    * Python/PySpark é a linguagem preferida?
+    * Existem processos de aprovação interna para as bibliotecas Python/PySpark que desejamos usar neste projeto?
 
-## Data Exploration Workshop
+## Workshop de Exploração de Dados
 
-Key objectives of the exploration workshops include the following:
+Os principais objetivos dos workshops de exploração incluem o seguinte:
 
-1. Understand and document the features, location, and availability of the data.
-2. What order of magnitude is the current data (e.g., GB, TB)? Is this all relevant?
-3. How does the organization decide when to collect additional data or purchase external data? Are there any examples of this?
-4. Understand the quality of the data. Is there already a data validation strategy in place?
-5. What data has been used so far to analyze recent data-driven projects? What has been found to be most useful? What was not useful? How was this judged?
-6. What additional internal data may provide insights useful for data-driven decision-making for proposed projects? What external data could be useful?
-7. What are the possible constraints or challenges in accessing or incorporating this data?
-8. How was the data collected? Are there any obvious biases due to how the data was collected?
-9. What changes to data collection, coding, integration, etc has occurred in the last 2 years that may impact the interpretation or availability of the collected data
+1. Compreender e documentar as características, localização e disponibilidade dos dados.
+2. Qual é a ordem de grandeza dos dados atuais (por exemplo, GB, TB)? Isso é relevante?
+3. Como a organização decide quando coletar dados adicionais ou adquirir dados externos? Existem exemplos disso?
+4. Compreender a qualidade dos dados. Já existe uma estratégia de validação de dados em vigor?
+5. Que dados foram usados até agora para analisar projetos recentes baseados em dados? O que se mostrou mais útil? O que não foi útil? Como isso foi avaliado?
+6. Que dados internos adicionais podem fornecer insights úteis para a tomada de decisões baseada em dados para projetos propostos? Quais dados externos podem ser úteis?
+7. Quais são as possíveis restrições ou desafios no acesso ou incorporação desses dados?
+8. Como os dados foram coletados? Existem viéses óbvios devido à forma como os dados foram coletados?
+9. Que mudanças na coleta de dados, codificação, integração, etc., ocorreram nos últimos 2 anos que podem afetar a interpretação ou disponibilidade dos dados coletados?

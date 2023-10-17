@@ -1,10 +1,10 @@
-# Secrets rotation of environment variables and mounted secrets in pods
+# Rotação de Segredos de Variáveis de Ambiente e Segredos Montados em Pods
 
-This document covers some ways you can do secret rotation with environment variables and mounted secrets in Kubernetes pods
+Este documento aborda algumas maneiras de realizar a rotação de segredos com variáveis de ambiente e segredos montados em pods do Kubernetes.
 
-## Mapping Secrets via secretKeyRef with environment variables
+## Mapeamento de Segredos via secretKeyRef com Variáveis de Ambiente
 
-If we map a K8s native secret via a `secretKeyRef` into an environment variable and we rotate keys the environment variable is not updated even though the K8s native secret has been updated. We need to restart the Pod so changes get populated. [Reloader](https://github.com/stakater/Reloader) solves this issue with a K8S controller.
+Se mapearmos um segredo nativo do Kubernetes via `secretKeyRef` em uma variável de ambiente e rotacionarmos as chaves, a variável de ambiente não é atualizada, mesmo que o segredo nativo do Kubernetes tenha sido atualizado. Precisamos reiniciar o Pod para que as alterações sejam populadas. O [Reloader](https://github.com/stakater/Reloader) resolve esse problema com um controlador do Kubernetes.
 
 ```yaml
 ...
@@ -17,9 +17,9 @@ If we map a K8s native secret via a `secretKeyRef` into an environment variable 
 ...
 ```
 
-## Mapping Secrets via volumeMounts (ESO way)
+## Mapeamento de Segredos via volumeMounts (Abordagem do ESO)
 
-If we map a K8s native secret via a volume mount and we rotate keys the file gets updated. The application needs to then be able pick up the changes without a restart (requiring most likely custom logic in the application to support this). Then no restart of the application is required.
+Se mapearmos um segredo nativo do Kubernetes via um volume mount e rotacionarmos as chaves, o arquivo é atualizado. A aplicação precisa ser capaz de captar as alterações sem a necessidade de reiniciar (provavelmente exigindo lógica personalizada na aplicação para oferecer suporte a isso). Nesse caso, não é necessária a reinicialização da aplicação.
 
 ```yaml
 ...
@@ -34,9 +34,9 @@ If we map a K8s native secret via a volume mount and we rotate keys the file get
 ...
 ```
 
-## Mapping Secrets via volumeMounts (AKVP SSCSID way)
+## Mapeamento de Segredos via volumeMounts (Abordagem do AKVP SSCSID)
 
-SSCSID focuses on mounting external secrets into the CSI. Thus if we rotate keys the file gets updated. The application needs to then be able pick up the changes without a restart (requiring most likely custom logic in the application to support this). Then no restart of the application is required.
+O SSCSID concentra-se em montar segredos externos no CSI. Portanto, se rotacionarmos as chaves, o arquivo é atualizado. A aplicação precisa ser capaz de captar as alterações sem a necessidade de reiniciar (provavelmente exigindo lógica personalizada na aplicação para oferecer suporte a isso). Nesse caso, não é necessária a reinicialização da aplicação.
 
 ```yaml
 ...

@@ -1,34 +1,33 @@
-# Design
+# Design (Designação)
 
-Designing software well is hard.
+Projetar software de forma eficaz é desafiador.
 
-ISE has collected a number of practices which we find help in the design process.
-This covers not only technical design of software, but also architecture design and non-functional requirements gathering for new projects.
+A ISE coletou uma série de práticas que consideramos úteis no processo de design. Isso abrange não apenas o design técnico de software, mas também o design de arquitetura e a coleta de requisitos não funcionais para novos projetos.
 
-## Goals
+## Objetivos (Metas)
 
-- Provide recommendations for how to design software for maintainability, ease of extension, adherence to best practices, and sustainability.
-- Reference or define process or checklists to help ensure well-designed software.
-- Collate and point to reference sources (guides, repos, articles) that can help shortcut the learning process.
+- Fornecer recomendações sobre como projetar software para manutenibilidade, facilidade de extensão, conformidade com as melhores práticas e sustentabilidade.
+- Referenciar ou definir processos ou listas de verificação para ajudar a garantir software bem projetado.
+- Consolidar e apontar para fontes de referência (guias, repositórios, artigos) que podem acelerar o processo de aprendizado.
 
-## Sections
+## Seções (Seções)
 
-- [Diagram Types](diagram-types/README.md)
-- [Design Patterns](design-patterns/README.md)
-- [Design Reviews](design-reviews/README.md)
-- [Non-Functional Requirements Guidance](design-patterns/non-functional-requirements-capture-guide.md)
-- [Sustainable Software Engineering](sustainability/readme.md)
+- [Tipos de Diagrama](diagram-types/README.md)
+- [Padrões de Design](design-patterns/README.md)
+- [Revisões de Design](design-reviews/README.md)
+- [Orientação de Requisitos Não Funcionais](design-patterns/non-functional-requirements-capture-guide.md)
+- [Engenharia de Software Sustentável](sustainability/readme.md)
 
-## Recipes
+## Receitas (Receitas)
 
-- [Design Recipes](design-reviews/recipes/README.md)
+- [Receitas de Design](design-reviews/recipes/README.md)
 
-## Code Examples
+## Exemplos de Código (Exemplos de Código)
 
-- Folder Structure
-  - [Folder Structure For Python Repository](https://github.com/microsoft/cookiecutter_template_for_python)
-- Project Templates
+- Estrutura de Pasta
+  - [Estrutura de Pasta para Repositório Python](https://github.com/microsoft/cookiecutter_template_for_python)
+- Modelos de Projeto
   - Rust
-    - [Actix Web, Diesel ORM, Test Containers, Onion Architecture](https://github.com/microsoft/cookiecutter-rust-actix-clean-architecture)
+    - [Atix Web, Diesel ORM, Test Containers, Arquitetura de Cebola](https://github.com/microsoft/cookiecutter-rust-actix-clean-architecture)
   - Python
-    - [Flask, SQLAlchemy ORM, Test Containers, Onion Architecture](https://github.com/microsoft/cookiecutter-python-flask-clean-architecture)
+    - [Flask, SQLAlchemy ORM, Test Containers, Arquitetura de Cebola](https://github.com/microsoft/cookiecutter-python-flask-clean-architecture)

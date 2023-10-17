@@ -1,63 +1,63 @@
-# Markdown Code Reviews
+# Revisões de Código em Markdown
 
-## Style Guide
+## Guia de Estilo
 
-Developers should treat documentation like other source code and follow the same rules and checklists when reviewing documentation as code.
+Os desenvolvedores devem tratar a documentação como qualquer outro código fonte e seguir as mesmas regras e listas de verificação ao revisar a documentação como código.
 
-Documentation should both use good Markdown syntax to ensure it's properly parsed, and follow good [writing style guidelines](#writing-style-guidelines) to ensure the document is easy to read and understand.
+A documentação deve utilizar uma boa sintaxe Markdown para garantir que seja interpretada corretamente e seguir boas [diretrizes de estilo de escrita](#diretrizes-de-estilo-de-escrita) para garantir que o documento seja fácil de ler e entender.
 
 ## Markdown
 
-Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents. Created by John Gruber in 2004, Markdown is now one of the world’s most popular markup languages.
+Markdown é uma linguagem de marcação leve que você pode usar para adicionar elementos de formatação a documentos de texto simples. Criado por John Gruber em 2004, o Markdown agora é uma das linguagens de marcação mais populares do mundo.
 
-Using Markdown is different from using a WYSIWYG editor. In an application like Microsoft Word, you click buttons to format words and phrases, and the changes are visible immediately. Markdown isn’t like that. When you create a Markdown-formatted file, you add Markdown syntax to the text to indicate which words and phrases should look different.
+Usar o Markdown é diferente de usar um editor WYSIWYG. Em um aplicativo como o Microsoft Word, você clica em botões para formatar palavras e frases, e as alterações são visíveis imediatamente. O Markdown não é assim. Quando você cria um arquivo formatado em Markdown, você adiciona a sintaxe do Markdown ao texto para indicar quais palavras e frases devem parecer diferentes.
 
-You can find more information and full documentation [here](https://www.markdownguide.org/).
+Você pode encontrar mais informações e documentação completa [aqui](https://www.markdownguide.org/).
 
 ## Linters
 
-Markdown has specific way of being formatted. It is important to respect this formatting, otherwise some interpreters which are strict won't properly display the document. Linters are often used to help developers properly create documents by both verifying proper Markdown syntax, grammar and proper English language.
+O Markdown tem uma maneira específica de ser formatado. É importante respeitar essa formatação, caso contrário, alguns interpretadores que são rigorosos podem não exibir corretamente o documento. Os linters são frequentemente usados para ajudar os desenvolvedores a criar documentos adequadamente, verificando tanto a sintaxe correta do Markdown quanto a gramática e o uso adequado do idioma inglês.
 
-A good setup includes a markdown linter used during editing and PR build verification, and a grammar linter used while editing the document. The following are a list of linters that could be used in this setup.
+Uma boa configuração inclui um linter de Markdown usado durante a edição e verificação de build de PR, e um linter de gramática usado durante a edição do documento. A seguir, estão listados alguns linters que podem ser usados nessa configuração.
 
 ### markdownlint
 
-[`markdownlint`](https://github.com/markdownlint/markdownlint) is a linter for markdown that verifies Markdown syntax, and also enforces rules that make the text more readable. [Markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli) is an easy-to-use CLI based on Markdownlint.
+[`markdownlint`](https://github.com/markdownlint/markdownlint) é um linter para Markdown que verifica a sintaxe do Markdown e também impõe regras que tornam o texto mais legível. [Markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli) é uma CLI fácil de usar baseada no Markdownlint.
 
-It's available as a [ruby gem](https://github.com/markdownlint/markdownlint), an [npm package](https://github.com/DavidAnson/markdownlint), a [Node.js CLI](https://github.com/igorshubovych/markdownlint-cli) and a [VS Code extension](https://github.com/DavidAnson/vscode-markdownlint). The VS Code extension [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) also catches all markdownlint errors.
+Está disponível como um [gem Ruby](https://github.com/markdownlint/markdownlint), um [pacote npm](https://github.com/DavidAnson/markdownlint), uma [CLI Node.js](https://github.com/igorshubovych/markdownlint-cli) e uma [extensão do VS Code](https://github.com/DavidAnson/vscode-markdownlint). A extensão do VS Code [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) também captura todos os erros do markdownlint.
 
-Installing the Node.js CLI
+Instalando a CLI Node.js
 
 ```bash
 npm install -g markdownlint-cli
 ```
 
-Running markdownlint on a Node.js project
+Executando o markdownlint em um projeto Node.js
 
 ```bash
 markdownlint **/*.md --ignore node_modules
 ```
 
-Fixing errors automatically
+Corrigindo erros automaticamente
 
 ```bash
 markdownlint **/*.md --ignore node_modules --fix
 ```
 
-A comprehensive list of markdownlint rules is available [here](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md).
+Uma lista completa de regras do markdownlint está disponível [aqui](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md).
 
 ### proselint
 
-[`proselint`](http://proselint.com/) is a command line utility that lints the text contents of the document.  It checks for jargon, spelling errors, redundancy, corporate speak and other language related issues.
+[`proselint`](http://proselint.com/) é um utilitário de linha de comando que verifica o conteúdo de texto do documento. Ele verifica jargões, erros de ortografia, redundância, linguagem corporativa e outros problemas relacionados ao idioma.
 
-It's available both as a [python package](https://github.com/amperser/proselint/#checks) and a [node package](https://www.npmjs.com/package/proselint).
+Está disponível como um [pacote Python](https://github.com/amperser/proselint/#checks) e um [pacote Node](https://www.npmjs.com/package/proselint).
 
 ```bash
 pip install proselint
 npm install -g proselint
 ```
 
-Run proselint
+Execute o proselint
 
 ```bash
 proselint document.md
@@ -65,42 +65,42 @@ proselint document.md
 
 ### write-good
 
-[`write-good`](https://github.com/btford/write-good) is a linter for English text that helps writing better documentation.
+[`write-good`](https://github.com/btford/write-good) é um linter para texto em inglês que ajuda a escrever uma documentação melhor.
 
 ```bash
 npm install -g write-good
 ```
 
-Run write-good
+Execute o write-good
 
 ```bash
 write-good *.md
 ```
 
-Run write-good without installing it
+Execute o write-good sem instalá-lo
 
 ```bash
 npx write-good *.md
 ```
 
-Write Good is also available as an [extension for VS Code](https://marketplace.visualstudio.com/items?itemName=travisthetechie.write-good-linter)
+O Write Good também está disponível como uma [extensão para o VS Code](https://marketplace.visualstudio.com/items?itemName=travisthetechie.write-good-linter)
 
-## VS Code Extensions
+## Extensões do VS Code
 
-### Write Good Linter
+### Extensão Write Good Linter
 
-The [`Write Good Linter Extension`](https://marketplace.visualstudio.com/items?itemName=travisthetechie.write-good-linter) integrates with VS Code to give grammar and language advice while editing the document.
+A [`Extensão Write Good Linter`](https://marketplace.visualstudio.com/items?itemName=travisthetechie.write-good-linter) integra-se ao VS Code para fornecer dicas de gramática e linguagem durante a edição do documento.
 
-### markdownlint extension
+### Extensão markdownlint
 
-The [`markdownlint extension`](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) examines the Markdown documents, showing warnings for rule violations while editing.
+A [`Extensão markdownlint`](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) examina os documentos Markdown, exibindo avisos para violações de regras durante a edição.
 
-## Build Validation
+## Validação de Build
 
-### Linting
+### Lintagem
 
-To automate linting with `markdownlint` for PR validation in GitHub actions,
-you can either use linters aggregator as we do with [MegaLinter in this repository](https://github.com/microsoft/code-with-engineering-playbook/blob/main/.github/workflows/mega-linter.yml) or use the following YAML.
+Para automatizar a lintagem com o `markdownlint` para validação de PR em ações do GitHub,
+você pode usar um agregador de linters, como fazemos com o [MegaLinter neste repositório](https://github.com/microsoft/code-with-engineering-playbook/blob/main/.github/workflows/mega-linter.yml), ou usar o seguinte YAML.
 
 ```yaml
 name: Markdownlint
@@ -120,19 +120,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js
+    - name: Use o Node.js
       uses: actions/setup-node@v1
       with:
         node-version: 12.x
-    - name: Run Markdownlint
+    - name: Execute o Markdownlint
       run: |
         npm i -g markdownlint-cli
         markdownlint "**/*.md" --ignore node_modules
 ```
 
-### Checking Links
+### Verificação de Links
 
-To automate link check in your markdown files add `markdown-link-check` action to your validation pipeline:
+Para automatizar a verificação de links em seus arquivos Markdown, adicione a ação `markdown-link-check` ao seu pipeline de validação:
 
 ```yaml
   markdown-link-check:
@@ -142,91 +142,93 @@ To automate link check in your markdown files add `markdown-link-check` action t
     - uses: gaurav-nelson/github-action-markdown-link-check@v1
 ```
 
-More information about `markdown-link-check` action options can be found at [`markdown-link-check` home page](https://github.com/gaurav-nelson/github-action-markdown-link-check)
+Mais informações sobre as opções da ação `markdown-link-check` podem ser encontradas na [página principal do `markdown-link-check`](https://github.com/gaurav-nelson/github-action-markdown-link-check).
 
-## Code Review Checklist
+## Checklist de Revisão de Código
 
-In addition to the [Code Review Checklist](../process-guidance/reviewer-guidance.md) you should also look for these documentation specific code review items
+Além do [Checklist de
 
-- [ ] Is the document easy to read and understand and does it follow [good writing guidelines](#writing-style-guidelines)?
-- [ ] Is there a single source of truth or is content repeated in more than one document?
-- [ ] Is the documentation up to date with the code?
-- [ ] Is the documentation technically, and ethically correct?
+ Revisão de Código](../process-guidance/reviewer-guidance.md), você também deve procurar por itens específicos de revisão de código de documentação:
 
-## Writing Style Guidelines
+- [ ] O documento é fácil de ler e entender e segue as [boas diretrizes de escrita](#diretrizes-de-estilo-de-escrita)?
+- [ ] Existe uma única fonte de verdade ou o conteúdo é repetido em mais de um documento?
+- [ ] A documentação está atualizada com o código?
+- [ ] A documentação é tecnicamente e eticamente correta?
 
-The following are some examples of writing style guidelines.
+## Diretrizes de Estilo de Escrita
 
-Agree in your team which guidelines you should apply to your project documentation.
-Save your guidelines together with your documentation, so they are easy to refer back to.
+A seguir, alguns exemplos de diretrizes de estilo de escrita.
 
-### Wording
+Concordem em sua equipe quais diretrizes vocês devem aplicar à documentação do projeto.
+Salve suas diretrizes juntamente com sua documentação, para que seja fácil consultá-las.
 
-- Use inclusive language, and avoid jargon and uncommon words. The docs should be easy to understand
-- Be clear and concise, stick to the goal of the document
-- Use active voice
-- Spell check and grammar check the text
-- Always follow chronological order
-- Visit [Plain English](https://plainenglish.co.uk/how-to-write-in-plain-english.html) for tips on how to write documentation that is easy to understand.
+### Redação
 
-### Document Organization
+- Use linguagem inclusiva e evite jargões e palavras incomuns. A documentação deve ser fácil de entender.
+- Seja claro e conciso, siga o objetivo do documento.
+- Use voz ativa.
+- Verifique a ortografia e a gramática do texto.
+- Siga sempre a ordem cronológica.
+- Visite [Plain English](https://plainenglish.co.uk/how-to-write-in-plain-english.html) para dicas sobre como escrever documentação fácil de entender.
 
-- Organize documents by topic rather than type, this makes it easier to find the documentation
-- Each folder should have a top-level README.md and any other documents within that folder should link directly or indirectly from that README.md
-- Document names with more than one word should use underscores instead of spaces, for example `machine_learning_pipeline_design.md`. The same applies to images
+### Organização do Documento
 
-### Headings
+- Organize os documentos por tópico em vez de tipo, isso facilita a localização da documentação.
+- Cada pasta deve ter um README.md de nível superior e qualquer outro documento dentro dessa pasta deve ter links diretos ou indiretos a partir desse README.md.
+- Nomes de documentos com mais de uma palavra devem usar sublinhados em vez de espaços, por exemplo, `machine_learning_pipeline_design.md`. O mesmo se aplica às imagens.
 
-- Start with a H1 (single # in markdown) and respect the order H1 > H2 > H3 etc
-- Follow each heading with text before proceeding with the next heading
-- Avoid putting numbers in headings. Numbers shift, and can create outdated titles
-- Avoid using symbols and special characters in headers, this causes problems with anchor links
-- Avoid links in headers
+### Cabeçalhos
+
+- Comece com um H1 (um único # em Markdown) e respeite a ordem H1 > H2 > H3 etc.
+- Siga cada cabeçalho com texto antes de prosseguir para o próximo cabeçalho.
+- Evite colocar números nos cabeçalhos. Números mudam e podem criar títulos desatualizados.
+- Evite usar símbolos e caracteres especiais em cabeçalhos, isso causa problemas com links de âncora.
+- Evite links em cabeçalhos.
 
 ### Links
 
-- Avoid duplication of content, instead link to the `single source of truth`
-- Link but don't summarize. Summarizing content on another page leads to the content living in two places
-- Use meaningful anchor texts, e.g. instead of writing `Follow the instructions [here](../recipes/markdown.md)` write `Follow the [Markdown guidelines](../recipes/markdown.md)`
-- Make sure links to Microsoft docs do not contain the language marker `/en-us/` or `/fr-fr/`, as this is automatically determined by the site itself.
+- Evite duplicação de conteúdo, em vez disso, faça um link para a `única fonte de verdade`.
+- Faça link, mas não resuma. Resumir o conteúdo em outra página faz com que o conteúdo exista em dois lugares.
+- Use textos de âncora significativos, por exemplo, em vez de escrever `Siga as instruções [aqui](../recipes/markdown.md)`, escreva `Siga as [diretrizes do Markdown](../recipes/markdown.md)`.
+- Certifique-se de que os links para a documentação da Microsoft não contenham o marcador de idioma `/en-us/` ou `/fr-fr/`, pois isso é determinado automaticamente pelo próprio site.
 
-### Lists
+### Listas
 
-- List items should start with capital letters if possible
-- Use ordered lists when the items describe a sequence to follow, otherwise use unordered lists
-- For ordered lists, prefix each item with `1.` When rendered, the list items will appear with sequential numbering. This avoids number-gaps in list
-- Do not add commas `,` or semicolons `;` to the end of list items, and avoid periods `.` unless the list item represents a complete sentence
+- Itens de lista devem começar com letras maiúsculas, se possível.
+- Use listas ordenadas quando os itens descrevem uma sequência a seguir, caso contrário, use listas não ordenadas.
+- Para listas ordenadas, prefixe cada item com `1.`. Quando renderizado, os itens da lista aparecerão com numeração sequencial. Isso evita lacunas de números na lista.
+- Não adicione vírgulas `,` ou ponto e vírgulas `;` no final dos itens da lista e evite pontos `.` a menos que o item da lista represente uma frase completa.
 
-### Images
+### Imagens
 
-- Place images in a separate directory named `img`
-- Name images appropriately, avoiding generic names like `screenshot.png`
-- Avoid adding large images or videos to source control, link to an external location instead
+- Coloque as imagens em um diretório separado chamado `img`.
+- Nomeie as imagens apropriadamente, evitando nomes genéricos como `screenshot.png`.
+- Evite adicionar imagens ou vídeos grandes ao controle de origem, faça um link para um local externo.
 
-### Emphasis and special sections
+### Ênfase e seções especiais
 
-- Use **bold** or _italic_ to emphasize
-  > For sections that everyone reading this document needs to be aware of, use blocks
-- Use `backticks` for code, a single backtick for inline code like `pip install flake8` and 3 backticks for code blocks followed by the language for syntax highlighting
+- Use **negrito** ou _itálico_ para enfatizar.
+  > Para seções que todos que leem este documento precisam estar cientes, use blocos.
+- Use `crases` para código, uma crase simples para código inline como `pip install flake8` e 3 crases para blocos de código seguidos pelo idioma para destacar a sintaxe.
 
   ```python
   def add(num1: int, num2: int):
     return num1 + num2
   ```
 
-- Use check boxes for task lists
+- Use caixas de seleção para listas de tarefas.
   - [ ] Item 1
   - [ ] Item 2
   - [x] Item 3
-- Add a References section to the end of the document with links to external references
-- Prefer tables to lists for comparisons and reports to make research and results more readable
+- Adicione uma seção de Referências ao final do documento com links para referências externas.
+- Prefira tabelas a listas para comparações e relatórios para tornar a pesquisa e os resultados mais legíveis.
 
-  | Option   | Pros      | Cons      |
+  | Opção    | Prós      | Contras   |
   |----------|-----------|-----------|
-  | Option 1 | Some pros | Some cons |
-  | Option 2 | Some pros | Some cons |
+  | Opção 1  | Alguns prós | Alguns contras |
+  | Opção 2  | Alguns prós | Alguns contras |
 
-### General
+### Geral
 
-- Always use Markdown syntax, don't mix with HTML
-- Make sure the extension of the files is `.md` - if the extension is missing, a linter might ignore the files
+- Sempre use a sintaxe Markdown, não misture com HTML.
+- Certifique-se de que a extensão dos arquivos seja `.md`. Se a extensão estiver faltando, um linter pode ignorar os arquivos.

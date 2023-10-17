@@ -19,7 +19,7 @@
     
     
       
-        <title>Inclusive Linting - Manual da Engenharia para Codar</title>
+        <title>Inclusão de Linting - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#inclusive-linting" class="md-skip">
+        <a href="#inclusao-de-linting" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Inclusive Linting
+              Inclusão de Linting
             
           </span>
         </div>
@@ -7136,29 +7136,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-to-lint-for" class="md-nav__link">
-    What to Lint for
+  <a href="#o-que-verificar-com-o-linter" class="md-nav__link">
+    O que verificar com o Linter
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-started-with-an-inclusive-linter" class="md-nav__link">
-    Getting Started with an Inclusive Linter
+  <a href="#como-comecar-com-um-inclusive-linter" class="md-nav__link">
+    Como Começar com um Inclusive Linter
   </a>
-  
-    <nav class="md-nav" aria-label="Getting Started with an Inclusive Linter">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#woke" class="md-nav__link">
-    [woke]
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -7176,32 +7163,32 @@
                 
 
 
-<h1 id="inclusive-linting">Inclusive Linting</h1>
-<p>As software professionals we should strive to promote an inclusive work environment, which naturally extends to the code and documentation we write. It's important to keep the use of inclusive language consistent across an entire project or repository.</p>
-<p>To achieve this, we recommend using a text file analysis tool such as an inclusive linter and including this as a step in your CI pipelines.</p>
-<h2 id="what-to-lint-for">What to Lint for</h2>
-<p>The primary goal of an inclusive linter is to flag any occurrences of non-inclusive language within source code (and optionally suggest some alternatives). Non-inclusive words or phrases in a project can be found anywhere from comments and documentation to variable names.</p>
-<p>An inclusive linter may include its own dictionary of "default" non-inclusive words and phrases to run against as a good starting point. These tools can also be customizable, oftentimes offering the ability to omit some terms and/or add your own.</p>
-<p>The ability to add additional terms to your linter has the added benefit of enabling linting of sensitive language on top of inclusive linting. This can prevent things such as customer names or other non-public information from making it into your git history, for instance.</p>
-<h2 id="getting-started-with-an-inclusive-linter">Getting Started with an Inclusive Linter</h2>
-<h3 id="woke">[<code>woke</code>]</h3>
-<p>One inclusive linter we recommend is <code>woke</code>. It is a language-agnostic CLI tool that detects non-inclusive language in your source code and recommends alternatives. While <code>woke</code> automatically applies a <a href="https://github.com/get-woke/woke/blob/main/pkg/rule/default.yaml">default ruleset</a> with non-inclusive terms to lint for, you can also apply a custom rule config (via a yaml file) with additional terms to lint for. See [<code>example.yaml</code>] for an example of adding custom rules.</p>
-<p>Running the tool locally on a file or directory is relatively straightforward:</p>
+<h1 id="inclusao-de-linting">Inclusão de Linting</h1>
+<p>Como profissionais de software, devemos nos esforçar para promover um ambiente de trabalho inclusivo, o que naturalmente se estende ao código e à documentação que escrevemos. É importante manter o uso de linguagem inclusiva consistente em todo o projeto ou repositório.</p>
+<p>Para alcançar isso, recomendamos o uso de uma ferramenta de análise de texto, como um linter inclusivo, e incluí-lo como uma etapa em seus pipelines de Integração Contínua (CI).</p>
+<h3 id="o-que-verificar-com-o-linter">O que verificar com o Linter</h3>
+<p>O objetivo principal de um inclusive linter é identificar qualquer ocorrência de linguagem não inclusiva no código-fonte (e opcionalmente sugerir algumas alternativas). Palavras ou frases não inclusivas em um projeto podem ser encontradas em qualquer lugar, desde comentários e documentação até nomes de variáveis.</p>
+<p>Um inclusive linter pode incluir seu próprio dicionário de palavras e frases não inclusivas "padrão" para verificar como um bom ponto de partida. Essas ferramentas também podem ser personalizáveis, oferecendo frequentemente a capacidade de omitir alguns termos e/ou adicionar os seus próprios.</p>
+<p>A capacidade de adicionar termos adicionais ao seu linter tem o benefício adicional de permitir a verificação de linguagem sensível, além da verificação inclusiva. Isso pode evitar que coisas como nomes de clientes ou outras informações não públicas entrem em seu histórico do Git, por exemplo.</p>
+<h3 id="como-comecar-com-um-inclusive-linter">Como Começar com um Inclusive Linter</h3>
+<p><strong><a href="https://github.com/get-woke/woke"><code>woke</code></a></strong></p>
+<p>Um inclusive linter que recomendamos é o <strong><code>woke</code></strong>. É uma ferramenta CLI agnóstica a linguagens que detecta linguagem não inclusiva em seu código-fonte e sugere alternativas. Embora o <strong><code>woke</code></strong> aplique automaticamente um <a href="https://github.com/get-woke/woke/blob/main/pkg/rule/default.yaml">conjunto de regras padrão</a> com termos não inclusivos para verificar, você também pode aplicar uma configuração de regra personalizada (por meio de um arquivo YAML) com termos adicionais para verificar. Veja <a href="https://github.com/get-woke/woke/blob/main/example.yaml"><code>example.yaml</code></a> para um exemplo de adição de regras personalizadas.</p>
+<p>Executar a ferramenta localmente em um arquivo ou diretório é relativamente simples:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>woke<span class="w"> </span>test.txt
 
-test.txt:2:2-6:<span class="w"> </span><span class="sb">`</span>guys<span class="sb">`</span><span class="w"> </span>may<span class="w"> </span>be<span class="w"> </span>insensitive,<span class="w"> </span>use<span class="w"> </span><span class="sb">`</span>folks<span class="sb">`</span>,<span class="w"> </span><span class="sb">`</span>people<span class="sb">`</span><span class="w"> </span>instead<span class="w"> </span><span class="o">(</span>warning<span class="o">)</span>
+test.txt:2:2-6:<span class="w"> </span><span class="sb">`</span>guys<span class="sb">`</span><span class="w"> </span>pode<span class="w"> </span>ser<span class="w"> </span>insensível,<span class="w"> </span>use<span class="w"> </span><span class="sb">`</span>pessoas<span class="sb">`</span>,<span class="w"> </span><span class="sb">`</span>indivíduos<span class="sb">`</span><span class="w"> </span>em<span class="w"> </span>vez<span class="w"> </span>disso<span class="w"> </span><span class="o">(</span>aviso<span class="o">)</span>
 *<span class="w"> </span>guys
 <span class="w">  </span>^
 </code></pre></div>
-<p><code>woke</code> can be run locally on your machine or CI/CD system via CLI and is also available as a two GitHub Actions:</p>
+<p><strong><code>woke</code></strong> pode ser executado localmente em sua máquina ou sistema CI/CD por meio da CLI e também está disponível como duas ações no GitHub:</p>
 <ul>
-<li><a href="https://github.com/marketplace/actions/run-woke">Run woke</a></li>
-<li><a href="https://github.com/marketplace/actions/run-woke-with-reviewdog">Run woke with Reviewdog</a></li>
+<li><a href="https://github.com/marketplace/actions/run-woke">Executar woke</a></li>
+<li><a href="https://github.com/marketplace/actions/run-woke-with-reviewdog">Executar woke com o Reviewdog</a></li>
 </ul>
-<p>To use the standard "Run woke" GitHub Action with the default ruleset in a CI pipeline:</p>
+<p>Para usar a ação padrão "Run woke" do GitHub com o conjunto de regras padrão em um pipeline de CI:</p>
 <ol>
 <li>
-<p>Add the <code>woke</code> action as a step in your project's CI pipeline yaml:</p>
+<p>Adicione a ação <strong><code>woke</code></strong> como uma etapa no arquivo YAML do pipeline de CI do seu projeto:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ci</span>
 <span class="nt">on</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pull_request</span>
@@ -7216,23 +7203,23 @@ test.txt:2:2-6:<span class="w"> </span><span class="sb">`</span>guys<span class=
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">woke</span>
 <span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">get-woke/woke-action@v0</span>
 <span class="w">        </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">          </span><span class="c1"># Cause the check to fail on any broke rules</span>
+<span class="w">          </span><span class="c1"># Faz com que a verificação falhe em qualquer regra quebrada</span>
 <span class="w">          </span><span class="nt">fail-on-error</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </li>
 <li>
-<p>Run your pipeline</p>
+<p>Execute seu pipeline</p>
 </li>
-<li>View the output in the "Actions" tab in the main repository view</li>
+<li>Veja a saída na guia "Ações" na visualização principal do repositório</li>
 </ol>
-<p>For more information about additional configuration and usage, see the official <a href="https://docs.getwoke.tech/">docs</a>.</p>
+<p>Para obter mais informações sobre configuração adicional e uso, consulte a <a href="https://docs.getwoke.tech/">documentação oficial</a>.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 20, 2021</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
       
     
   </small>

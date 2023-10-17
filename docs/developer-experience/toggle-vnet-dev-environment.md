@@ -1,37 +1,37 @@
-# Toggle VNet on and off for production and development environment
+# Alternativa para mudar a VNet para ambiente de produção e desenvolvimento
 
-## Problem Statement
+## Declaração do Problema
 
-When deploying resources on Azure in a secure environment, resources are usually created behind a Private Network (VNet), without public access and with private endpoints to consume resources. This is the recommended approach for pre-production or production environments.
+Ao implantar recursos no Azure em um ambiente seguro, os recursos geralmente são criados atrás de uma Rede Privada (VNet), sem acesso público e com pontos de extremidade privados para consumir recursos. Essa é a abordagem recomendada para ambientes de pré-produção ou produção.
 
-Accessing protected resources from a local machine implies one of the following options:
+Acessar recursos protegidos a partir de uma máquina local implica em uma das seguintes opções:
 
-- Use a VPN
-- Use a **jump box**
-  - With SSH activated (less secure)
-  - [With Bastion (recommended approach)](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/connect-to-environments-privately#about-azure-bastion-host-and-jumpboxes)
+- Usar uma VPN
+- Usar um **jump box**
+  - Com SSH ativado (menos seguro)
+  - [Com Bastion (abordagem recomendada)](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/connect-to-environments-privately#about-azure-bastion-host-and-jumpboxes)
 
-However, a developer may want to deploy a test environment (in a non-production subscription) for their tests during development phase, without the complexity of networking.
+No entanto, um desenvolvedor pode desejar implantar um ambiente de teste (em uma assinatura não de produção) para seus testes durante a fase de desenvolvimento, sem a complexidade de redes.
 
-In addition, infrastructure code should not be duplicated: it has to be the same whether resources are deployed in a production like environment or in development environment.
+Além disso, o código de infraestrutura não deve ser duplicado: ele deve ser o mesmo, quer os recursos sejam implantados em um ambiente semelhante ao de produção ou em um ambiente de desenvolvimento.
 
-## Option
+## Opção
 
-The idea is to offer, **via a single boolean variable**, the option to deploy resources behind a VNet or not using one infrastructure code base. Securing resources behind a VNet usually implies that public accesses are disabled and private endpoints are created. This is something to have in mind because, as a developer, public access must be activated in order to connect to this environment.
+A ideia é oferecer, **por meio de uma única variável booleana**, a opção de implantar recursos atrás de uma VNet ou não, usando um único código de infraestrutura. Proteger recursos atrás de uma VNet geralmente implica que acessos públicos são desativados e pontos de extremidade privados são criados. Isso é algo a se ter em mente porque, como desenvolvedor, o acesso público deve ser ativado para se conectar a esse ambiente.
 
-The deployment pipeline will set these resources behind a VNet and will secure them by removing public accesses. Developers will be able to run the same deployment script, specifying that resources will not be behind a VNet nor have public accesses disabled.
+O pipeline de implantação definirá esses recursos atrás de uma VNet e os protegerá removendo os acessos públicos. Os desenvolvedores poderão executar o mesmo script de implantação, especificando que os recursos não estarão atrás de uma VNet e não terão os acessos públicos desabilitados.
 
-Let's consider the following use case: we want to deploy a VNet, a subnet, a storage account with no public access and a private endpoint for the table.
+Considere o seguinte caso de uso: queremos implantar uma VNet, uma sub-rede, uma conta de armazenamento sem acesso público e um ponto de extremidade privado para a tabela.
 
-The *magic* variable that will help toggling security will be called `behind_vnet`, of type boolean.
+A variável "mágica" que ajudará a alternar a segurança será chamada de `behind_vnet`, do tipo booleano.
 
-Let's implement this use case using `Terraform`.
+Vamos implementar esse caso de uso usando o `Terraform`.
 
-> The code below does not contain everything, the purpose is to show the pattern and not how to deploy these resources. For more information on Terraform, please refer to the [official documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs).
+> O código abaixo não contém tudo, o objetivo é mostrar o padrão e não como implantar esses recursos. Para obter mais informações sobre o Terraform, consulte a [documentação oficial](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs).
 
-There is no `if` *per se* in Terraform to define whether a specific resource should be deployed or not based on a variable value. However, we can use the [`count`](https://developer.hashicorp.com/terraform/language/meta-arguments/count) meta-argument. The strength of this meta-argument is if its value is `0`, the block is skipped.
+Não existe um `if` *per se* no Terraform para definir se um recurso específico deve ser implantado ou não com base no valor de uma variável. No entanto, podemos usar o argumento meta [`count`](https://developer.hashicorp.com/terraform/language/meta-arguments/count). A força desse argumento meta é que, se seu valor for `0`, o bloco será ignorado.
 
-Here is below the code snippets for this deployment:
+Aqui estão trechos de código para essa implantação:
 
 - variables.tf
 
@@ -93,40 +93,42 @@ Here is below the code snippets for this deployment:
     }
     ```
 
-If we run
+Se executarmos
 
 ```bash
 terraform apply -var behind_vnet=true
 ```
 
-then all the resources above will be deployed, and it is what we want on a pre-production or production environment. The instruction `count = var.behind_vnet ? 1 : 0` will set `count` with the value `1`, therefore blocks will be executed.
+então todos os recursos acima serão implantados, e é o que queremos em um ambiente semelhante ao de produção ou de pré-produção. A instrução `count = var.behind_vnet ? 1 : 0` definirá `count` com o valor `1`, portanto, os blocos serão executados.
 
-However, if we run
+No entanto, se executarmos
 
 ```bash
-terraform apply -var behind_vnet=false
+terraform
+
+ apply -var behind_vnet=false
 ```
 
-the `azurerm_virtual_network` and `azurerm_private_endpoint` resources will be skipped (because `count` will be `0`). The resource `azurerm_storage_account` will be created, with minor differences in some properties: for instance, here, `public_network_access_enabled` will be set to `true` (and this is the goal for a developer to be able to access resources created).
+os recursos `azurerm_virtual_network` e `azurerm_private_endpoint` serão ignorados (porque `count` será `0`). O recurso `azurerm_storage_account` será criado, com pequenas diferenças em algumas propriedades: por exemplo, aqui, `public_network_access_enabled` será definido como `true` (e este é o objetivo para um desenvolvedor poder acessar recursos criados).
 
-The same pattern can be applied over and over for the entire infrastructure code.
+O mesmo padrão pode ser aplicado repetidamente para todo o código de infraestrutura.
 
-## Conclusion
+## Conclusão
 
-With this approach, the same infrastructure code base can be used to target a production like environment with secured resources behind a VNet with no public accesses and also a more permissive development environment.
+Com essa abordagem, a mesma base de código de infraestrutura pode ser usada para direcionar um ambiente semelhante ao de produção com recursos seguros atrás de uma VNet sem acessos públicos e também um ambiente de desenvolvimento mais permissivo.
 
-However, there are a couple of trade-offs with this approach:
+No entanto, há algumas compensações com essa abordagem:
 
-- if a resource has the `count` argument, it needs to be treated as a list, and not a single item. In the example above, if there is a need to reference the resource `azurerm_virtual_network` later in the code,
+- Se um recurso tiver o argumento `count`, ele precisará ser tratado como uma lista e não como um único item. No exemplo acima, se houver a necessidade de fazer referência ao recurso `azurerm_virtual_network` posteriormente no código,
 
     ```terraform
     azurerm_virtual_network.vnet.id
     ```
 
-    will not work. The following must be used
+    não funcionará. O seguinte deve ser usado
 
     ```terraform
-    azurerm_virtual_network.vnet[0].id # First (and only) item of the collection
+    azurerm_virtual_network.vnet[0].id # Primeiro (e único) item da coleção
     ```
 
-- The meta-argument `count` cannot be used with `for_each` for a whole block. That means that the use of loops to deploy multiple endpoints for instance will not work. Each private endpoints will need to be deployed individually.
+- O argumento meta `count` não pode ser usado com `for_each` para um bloco inteiro. Isso significa que o uso de loops para implantar vários pontos de extremidade, por exemplo, não funcionará. Cada ponto de extremidade privado precisará ser implantado individualmente.

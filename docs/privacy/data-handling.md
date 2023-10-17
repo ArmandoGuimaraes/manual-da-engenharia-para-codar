@@ -1,115 +1,102 @@
-# Privacy and Data
+# Privacidade e Dados
 
-## Goal
+## Objetivo
 
-The goal of this section is to briefly describe best practices in privacy fundamentals for data heavy projects or portions of a project that may contain data.
+O objetivo desta seção é descrever brevemente as melhores práticas nos fundamentos de privacidade para projetos de dados ou partes de um projeto que possam conter dados.
 
-**What it is not**: This document is not a checklist for how customers or readers should handle data in their environment, and does not override Microsoft's or the customers' policies for data handling, data protection and information security.
+**O que não é**: Este documento não é uma lista de verificação para como os clientes ou leitores devem lidar com dados em seu ambiente e não substitui as políticas da Microsoft ou dos clientes para o tratamento de dados, proteção de dados e segurança da informação.
 
-## Introduction
+## Introdução
 
-Microsoft runs on trust. Our customers trust ISE to adhere to the highest standards when handling their data.
-Protecting our customers' data is a joint responsibility between Microsoft and the customers;
-both have the responsibility to help projects follow the guidelines outlined on this page.
+A Microsoft baseia-se na confiança. Nossos clientes confiam na ISE para aderir aos mais altos padrões ao lidar com seus dados. Proteger os dados de nossos clientes é uma responsabilidade conjunta entre a Microsoft e os clientes; ambos têm a responsabilidade de ajudar os projetos a seguir as diretrizes descritas nesta página.
 
-Developers working on ISE projects should implement best practices and guidance on handling data throughout the project phases. This page is not meant to suggest how customers should handle data in their environment. **It does not override**:
+Os desenvolvedores que trabalham em projetos da ISE devem implementar as melhores práticas e orientações sobre o manuseio de dados ao longo das fases do projeto. Esta página não tem a intenção de sugerir como os clientes devem lidar com dados em seu ambiente. **Ela não substitui**:
 
-- [Microsoft's Information Security Policy](https://aka.ms/CTRMSsecppext)
-- [Limited Data Protection Addendum](https://aka.ms/mpsldpa)
-- [Professional Services Data Protection Addendum](https://www.microsoft.com/licensing/docs/view/Microsoft-Products-and-Services-Data-Protection-Addendum-DPA)
+- [Política de Segurança da Informação da Microsoft](https://aka.ms/CTRMSsecppext)
+- [Adendo de Proteção de Dados Limitados](https://aka.ms/mpsldpa)
+- [Adendo de Proteção de Dados de Serviços Profissionais](https://www.microsoft.com/licensing/docs/view/Microsoft-Products-and-Services-Data-Protection-Addendum-DPA)
 
-## 5 W's of data handling
+## Os 5 W's do tratamento de dados
 
-When working on an engagement it is important to address the following 5 **W**'s:
+Ao trabalhar em um projeto, é importante abordar os seguintes 5 **W**:
 
-- **Who** – gets access to and with whom will we share the data and/or models developed with the data?
+- **Quem** - tem acesso aos dados e com quem compartilharemos os dados e/ou modelos desenvolvidos com esses dados?
 
-- **What** – data is shared with us and under what expectations and understanding.
-Customers need to be explicit about how the data they share applies to the overarching effort.
-The understanding shouldn't be vague and we shouldn't have access to broad set of data if not necessary.
+- **O que** - dados são compartilhados conosco e com quais expectativas e entendimento.
+Os clientes precisam ser explícitos sobre como os dados que compartilham se aplicam ao esforço geral.
+O entendimento não deve ser vago, e não devemos ter acesso a um amplo conjunto de dados se isso não for necessário.
 
-- **Where** – will the data be stored and what legal jurisdiction will preside over that data.
-This is particularly important in countries like Germany, where different privacy laws apply
-but also important when it comes to responding to legal subpoenas for the data.
+- **Onde** - os dados serão armazenados e sob que jurisdição legal esses dados estarão sujeitos.
+Isso é especialmente importante em países como a Alemanha, onde diferentes leis de privacidade se aplicam, mas também é importante quando se trata de responder a intimações legais para os dados.
 
-- **When** – will the access to data be provided and for how long?
-It is important to not leave straggling access to data once the engagement is completed, and define a priori the data retention policies.
+- **Quando** - o acesso aos dados será fornecido e por quanto tempo?
+É importante não deixar o acesso aos dados indefinidamente após o término do projeto e definir antecipadamente as políticas de retenção de dados.
 
-- **Why** – have you given access to the data?
-This is particularly important to clarify the purpose and any restrictions on usage beyond the intended purpose.
+- **Por que** - você deu acesso aos dados?
+Isso é particularmente importante para esclarecer o propósito e quaisquer restrições de uso além do propósito pretendido.
 
-Please use the above guidelines to ensure the data is used only for intended purposes and thereby gain trust.
-It is important to be aware of data handling best practices and ensure the required clarity is provided to adhere to the above 5Ws.
+Por favor, use as diretrizes acima para garantir que os dados sejam usados apenas para os fins pretendidos e, assim, conquistar a confiança. É importante estar ciente das melhores práticas de tratamento de dados e garantir a clareza necessária para aderir aos 5 W's acima.
 
-## Handling data in ISE engagements
+## Tratamento de dados em engajamentos da ISE
 
-Data should never leave customer-controlled environments and contractors and/or other members in the engagement
-should never have access to complete customer data sets but use limited customer data sets using the following prioritized approaches:
+Os dados nunca devem sair dos ambientes controlados pelo cliente, e contratados ou outros membros no engajamento nunca devem ter acesso a conjuntos completos de dados do cliente, mas devem usar conjuntos de dados limitados do cliente usando as abordagens priorizadas a seguir:
 
-1. Contractors or engagement partners do not work directly with production data, data will be copied before processing per the guidelines below.
-1. Always apply [data minimization](https://www.forbes.com/sites/bernardmarr/2016/03/16/why-data-minimization-is-an-important-concept-in-the-age-of-big-data/#3fb711e91da4)
-principles to minimize the blast radius of errors, only work with the minimal data set required to achieve the goals.
-1. Generate synthetic data to support engagement work. If synthetic data is not possible to achieve project goals,
-request anonymized data in which the likelihood that unique individuals can be re-identified is minimal.
-1. Select a suitably diverse, limited data set, again,
-follow the Principles of Data Minimization and attempt to work with the fewest rows possible to achieve the goals.
+1. Contratados ou parceiros de engajamento não trabalham diretamente com dados de produção, os dados serão copiados antes do processamento de acordo com as diretrizes abaixo.
+1. Sempre aplique os princípios de [minimização de dados](https://www.forbes.com/sites/bernardmarr/2016/03/16/why-data-minimization-is-an-important-concept-in-the-age-of-big-data/#3fb711e91da4) para minimizar o alcance de erros, trabalhe apenas com o conjunto de dados mínimo necessário para alcançar os objetivos.
+1. Gere dados sintéticos para dar suporte ao trabalho do engajamento. Se dados sintéticos não forem possíveis para alcançar os objetivos do projeto, solicite dados anonimizados nos quais a probabilidade de identificar indivíduos únicos seja mínima.
+1. Selecione um conjunto de dados limitado e adequado, mais uma vez, siga os Princípios de Minimização de Dados e tente trabalhar com o menor número possível de linhas para alcançar os objetivos.
 
-Before work begins on data, ensure OS patches are up to date and permissions are properly set with no open internet access.
+Antes de começar a trabalhar com dados, certifique-se de que os patches do sistema operacional estejam atualizados e as permissões estejam corretamente definidas sem acesso aberto à internet.
 
-Developers working on ISE projects will work with our customers to define the data needed for each engagement.
+Os desenvolvedores que trabalham em projetos da ISE trabalharão com nossos clientes para definir os dados necessários para cada engajamento.
 
-If there is a need to access production data,
-ISE needs to review the need with their lead and work with the customer to put audits in place verifying what data was accessed.
+Se houver necessidade de acessar dados de produção,
+a ISE precisa revisar a necessidade com seu líder e trabalhar com o cliente para colocar auditorias em vigor para verificar quais dados foram acessados.
 
-Production data must only be shared with approved members of the engagement team and must not be processed/transferred outside of the customer controlled environment.
+Os dados de produção só devem ser compartilhados com membros aprovados da equipe de engajamento e não devem ser processados/transmitidos fora do ambiente controlado pelo cliente.
 
-Customers should provide ISE with a copy of the requested data in a location managed by the customer.
-The customer should consider turning any logging capabilities on so they can clearly identify who has access and what they do with that access.
-ISE should notify the customer when they are done with the data and suggest the customer destroy copies of the data if they are no longer needed.
+Os clientes devem fornecer à ISE uma cópia dos dados solicitados em um local gerenciado pelo cliente.
+O cliente deve considerar ativar qualquer capacidade de registro para que possam identificar claramente quem tem acesso e o que é feito com esse acesso.
+A ISE deve notificar o cliente quando terminar com os dados e sugerir que o cliente destrua as cópias dos dados se não forem mais necessárias.
 
-### Our guiding principles when handling data in an engagement
+### Nossos princípios orientadores ao lidar com dados em um engajamento
 
-- Never directly access production data.
-- Explicitly state the intended purpose of data that can be used for engagement.
-- Only share copies of the production data with the approved members of the engagement team.
-- The entire team should work together to ensure that there are no dead copies of data. When the data is no longer needed,
-the team should promptly work to clean up engagement copies of data.
-- Do not send any copies of the production data outside the customer-controlled environment.
-- Only use the minimal subset of the data needed for the purpose of the engagement.
+- Nunca acesse diretamente dados de produção.
+- Declare explicitamente o propósito pretendido dos dados que podem ser usados no engajamento.
+- Compartilhe apenas cópias dos dados de produção com os membros aprovados da equipe de engajamento.
+- Toda a equipe deve trabalhar em conjunto para garantir que não haja cópias inativas de dados. Quando os dados não forem mais necessários,
+a equipe deve trabalhar prontamente para limpar as cópias de dados do engajamento.
+- Não envie cópias dos dados de produção fora do ambiente controlado pelo cliente.
+- Use apenas o subconjunto mínimo de dados necessário para o propósito do engajamento.
 
-### Questions to consider when working with data
+### Perguntas a considerar ao trabalhar com dados
 
-- What data do we need?
-- What is the legal basis for processing this data?
-- If we are the processor based on contract obligation what is our responsibility listed in the contract?
-- Does the contract need to be amended?
-- How can we contain data proliferation?
-- What security controls are in place to protect this data?
-- What is the data breech protocol?
-- How does this data benefit the data subject?
-- What is the lifespan of this data?
-- Do we need to keep this data linked to a data subject?
-- Can we turn this data into Not in a Position to Identify (NPI) data to be used later on?
-- How is the system architected so data subject rights can be fulfilled? (ex manually, automated)
-- If personal data is involved have engaged privacy and legal teams for this project?
+- Que dados precisamos
 
-## Summary
+?
+- Qual é a base legal para o processamento desses dados?
+- Se somos o processador com base na obrigação contratual, qual é nossa responsabilidade listada no contrato?
+- O contrato precisa ser alterado?
+- Como podemos conter a proliferação de dados?
+- Quais controles de segurança estão em vigor para proteger esses dados?
+- Qual é o protocolo de violação de dados?
+- Como esses dados beneficiam o titular dos dados?
+- Qual é a vida útil desses dados?
+- Precisamos manter esses dados vinculados a um titular de dados?
+- Podemos transformar esses dados em dados Não em Posição de Identificar (NPI) para uso posterior?
+- Como o sistema está arquitetado para que os direitos do titular dos dados possam ser cumpridos? (por exemplo, manualmente, automaticamente)
+- Se dados pessoais estiverem envolvidos, envolveu as equipes de privacidade e jurídica para este projeto?
 
-It is important to only pull in data that is needed for the problem at hand,
-when this is put in practice we find that we only maintain data that is adequate,
-relevant and limited to what is necessary in relation to the purposes for which they are processed.
-This is particularly important for personal data. Once you have personal data there are many rules and regulations that apply,
-some examples of these might be HIPPA, GDPR, CCPA.
-The customer should be aware of and surface any applicable regulations that apply to their data.
-Furthermore the [seven principles of privacy by design](https://privacy.ucsc.edu/resources/privacy-by-design---foundational-principles.pdf)
-should be reviewed and considered when handling any type of sensitive data.
+## Resumo
 
-## Resources
+É importante apenas trazer dados que são necessários para o problema em questão, quando isso é colocado em prática, descobrimos que só mantemos dados adequados, relevantes e limitados ao que é necessário em relação aos fins para os quais são processados. Isso é particularmente importante para dados pessoais. Uma vez que você tenha dados pessoais, muitas regras e regulamentos se aplicam, alguns exemplos desses podem ser HIPAA, GDPR, CCPA. O cliente deve estar ciente e destacar quais regulamentos se aplicam aos seus dados. Além disso, os [sete princípios do design de privacidade](https://privacy.ucsc.edu/resources/privacy-by-design---foundational-principles.pdf) devem ser revisados e considerados ao lidar com qualquer tipo de dado sensível.
 
-- [Microsoft Trust Center](https://www.microsoft.com/en-us/trust-center/privacy)
-- [Tools for responsible AI - Protect](https://www.microsoft.com/en-us/ai/responsible-ai-resources?activetab=pivot1:primaryr5)
-- [Data Protection Resources](https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_AuditedControls)
-- [FAQ and White Papers](https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_AuditedControls)
-- [Microsoft Compliance Offerings](https://learn.microsoft.com/en-us/compliance/regulatory/offering-home?view=o365-worldwide)
-- [Accountability Readiness Checklists](https://learn.microsoft.com/en-us/compliance/regulatory/gdpr-arc?view=o365-worldwide#gdpr-compliance-controls)
-- [Privacy by Design The 7 Foundational Principles](https://privacy.ucsc.edu/resources/privacy-by-design---foundational-principles.pdf)
+## Recursos
+
+- [Centro de Confiança da Microsoft](https://www.microsoft.com/en-us/trust-center/privacy)
+- [Ferramentas para IA responsável - Proteção](https://www.microsoft.com/en-us/ai/responsible-ai-resources?activetab=pivot1:primaryr5)
+- [Recursos de Proteção de Dados](https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_AuditedControls)
+- [FAQ e White Papers](https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_AuditedControls)
+- [Ofertas de Conformidade da Microsoft](https://learn.microsoft.com/en-us/compliance/regulatory/offering-home?view=o365-worldwide)
+- [Listas de Verificação de Prontidão para Responsabilidade](https://learn.microsoft.com/en-us/compliance/regulatory/gdpr-arc?view=o365-worldwide#gdpr-compliance-controls)
+- [Privacidade por Design: Os 7 Princípios Fundamentais](https://privacy.ucsc.edu/resources/privacy-by-design---foundational-principles.pdf)

@@ -1,114 +1,115 @@
-# Proposed ML Process
+# Processo Proposto de Aprendizado de Máquina (ML)
 
-## Introduction
+## Introdução
 
-The objective of this document is to provide guidance to produce machine learning (ML) applications that are based on code, data and models that can be reproduced and reliably released to production environments.
-When developing ML applications, we consider the following approaches:
+O objetivo deste documento é fornecer orientações para produzir aplicações de aprendizado de máquina (ML) baseadas em código, dados e modelos que podem ser reproduzidos e lançados de forma confiável em ambientes de produção. Ao desenvolver aplicações de ML, consideramos as seguintes abordagens:
 
-* Best practices in ML engineering:
+* Melhores práticas em engenharia de ML:
 
-  * The ML application development should use engineering fundamentals to ensure high quality software deliverables.
-  * The ML application should be reliability released into production, leveraging automation as much as possible.
-  * The ML application can be deployed into production at any time. This makes the decision about when to release it a business decision rather than a technical one.
+  * O desenvolvimento de aplicações de ML deve usar fundamentos de engenharia para garantir entregáveis de software de alta qualidade.
+  * A aplicação de ML deve ser lançada com confiabilidade na produção, aproveitando a automação o máximo possível.
+  * A aplicação de ML pode ser implantada na produção a qualquer momento. Isso torna a decisão de quando lançá-la uma decisão de negócios, em vez de uma decisão técnica.
 
-* Best practices in ML research:
+* Melhores práticas em pesquisa de ML:
 
-  * All artifacts, specifically data, code and ML models, should be versioned and managed using standard tools and workflows, in order to facilitate continuous research and development.
-  * While the model outputs can be non-deterministic and hard to reproduce, the process of releasing ML software into production should be reproducible.
-  * Responsible AI aspects are carefully analyzed and addressed.
+  * Todos os artefatos, especialmente dados, código e modelos de ML, devem ser versionados e gerenciados usando ferramentas e fluxos de trabalho padrão, a fim de facilitar a pesquisa e desenvolvimento contínuos.
+  * Enquanto as saídas do modelo podem ser não determinísticas e difíceis de reproduzir, o processo de lançar software de ML na produção deve ser reproduzível.
+  * Aspectos de IA responsável são cuidadosamente analisados e abordados.
 
-* Cross-functional team:
+* Equipe multidisciplinar:
 
-  * A cross-functional team consisting of different skill sets in data science, data engineering, development, operations, and industry domain specialists is required.
+  * É necessária uma equipe multidisciplinar composta por diferentes conjuntos de habilidades em ciência de dados, engenharia de dados, desenvolvimento, operações e especialistas em domínio da indústria.
 
-## ML process
+## Processo de ML
 
-The proposed ML development process consists of:
+O processo de desenvolvimento de ML proposto consiste em:
 
-1. Data and problem understanding
-2. Responsible AI assessment
-3. Feasibility study
-4. Baseline model experimentation
-5. Model evaluation and experimentation
-6. Model operationalization
-    * Unit and Integration testing
-    * Deployment
-    * Monitoring and Observability
+1. Compreensão dos dados e do problema
+2. Avaliação de IA responsável
+3. Estudo de viabilidade
+4. Experimentação com modelo de linha de base
+5. Avaliação e experimentação do modelo
+6. Operacionalização do modelo
+    * Testes de unidade e integração
+    * Implantação
+    * Monitoramento e Observabilidade
 
-### Version control
+### Controle de versão
 
-* During all stages of the process, it is suggested that artifacts should be version-controlled. Typically, the process is iterative and versioned artifacts can assist in traceability and reviewing. See more [here](ml-experimentation.md#source-control-and-folder-or-package-structure).
+* Durante todas as etapas do processo, sugere-se que os artefatos sejam controlados por versão. Tipicamente, o processo é iterativo e artefatos versionados podem ajudar na rastreabilidade e revisão. Veja mais [aqui](ml-experimentation.md#controle-de-fonte-e-estrutura-de-pasta-ou-pacote).
 
-### Understanding the problem
+### Compreensão do problema
 
-* Define the business problem for the ML project:
-  * Agree on the success criteria with the customer.
-  * Identify potential data sources and determine the availability of these sources.
-  * Define performance evaluation metrics on ground truth data
-* Conduct a [Responsible AI assessment](responsible-ai.md) to ensure development and deployment of the ML solution in a responsible manner.
-* Conduct a feasibility study to assess whether the business problem is feasible to solve satisfactorily using ML with the available data. The objective of the feasibility study is to mitigate potential over-investment by ensuring sufficient evidence that ML is possible and would be the best solution. The study also provides initial indications of what the ML solution should look like. This ensures quality solutions supported by thorough consideration and evidence. Refer to [feasibility study](ml-feasibility-study.md).
-* Exploratory data analysis is performed and discussed with the team
+* Defina o problema de negócios para o projeto de ML:
+  * Concordar com os critérios de sucesso com o cliente.
+  * Identificar fontes de dados potenciais e determinar a disponibilidade dessas fontes.
+  * Definir métricas de avaliação de desempenho nos dados de referência.
+* Realize uma [avaliação de IA responsável](responsible-ai.md) para garantir o desenvolvimento e implantação da solução de ML de maneira responsável.
+* Realize um estudo de viabilidade para avaliar se o problema de negócios é viável de ser resolvido de forma satisfatória usando ML com os dados disponíveis. O objetivo do estudo de viabilidade é mitigar o potencial superinvestimento, garantindo evidências suficientes de que o ML é possível e seria a melhor solução. O estudo também fornece indicações iniciais de como a solução de ML deve ser. Isso garante soluções de qualidade com base em consideração e evidência rigorosas. Consulte [estudo de viabilidade](ml-feasibility-study.md).
+* A análise exploratória de dados é realizada e discutida com a equipe.
 
-* **Typical output**:
+* **Saída típica**:
 
-  * Data exploration source code (Jupyter notebooks/scripts) and slides/docs
-  * Initial ML model code (Jupyter notebook or scripts)
-  * Initial solution architecture with initial data engineering requirements
-  * Data dictionary (if not yet available)
-  * List of assumptions
+  * Código-fonte da exploração de dados (notebooks Jupyter/scripts) e slides/documentação
+  * Código inicial do modelo de ML (notebook Jupyter ou scripts)
+  * Arquitetura inicial da solução com requisitos iniciais de engenharia de dados
+  * Dicionário de dados (se ainda não estiver disponível)
+  * Lista de suposições
 
-### Baseline Model Experimentation
+### Experimentação com Modelo de Linha de Base
 
-* Data preparation: creating data source connectors, determining storage services to be used and potential versioning of raw datasets.
-* Feature engineering: create new features from raw source data to increase the predictive power of the learning algorithm. The features should capture additional information that is not apparent in the original feature set.
-* Split data into training, validation and test sets: creating training, validation, and test datasets with ground truth to develop ML models. This would entail joining or merging various feature engineered datasets. The training dataset is used to train the model to find the patterns between its features and labels (ground truth). The validation dataset is used to assess the model architecture, and the test data is used to confirm the prediction quality of the model.
-* Initial code to create access data sources, transform raw data into features and model training as well as scoring.
-* During this phase, experiment code (Jupyter notebooks or scripts) and accompanying utility code should be version-controlled using tools such as ADO (Azure DevOps).
+* Preparação de dados: criação de conectores de fonte de dados, determinação de serviços de armazenamento a serem usados e versionamento potencial de conjuntos de dados brutos.
+* Engenharia de recursos: criação de novos recursos a partir de dados brutos para aumentar o poder preditivo do algoritmo de aprendizado. Os recursos devem capturar informações adicionais que não são aparentes no conjunto de recursos original.
+* Divisão de dados em conjuntos de treinamento, validação e teste: criação de conjuntos de dados de treinamento, validação e teste com dados de referência para desenvolver modelos de ML. Isso envolveria a junção ou fusão de vários conjuntos de dados de engenharia de recursos. O conjunto de treinamento é usado para treinar o modelo para encontrar os padrões entre seus recursos e rótulos (dados de referência). O conjunto de validação é usado para avaliar a arquitetura do modelo, e os dados de teste são usados para confirmar a qualidade das previsões do modelo.
+* Código inicial para acessar fontes de dados, transformar dados brutos em recursos e treinar modelos, bem como código de pontuação de modelo.
+* Durante esta fase, o código de experimentação (notebooks Jupyter ou scripts) e o código de utilidade correspondente devem ser controlados por versão usando ferramentas como o ADO (Azure DevOps).
 
-* **Typical output**: Rough Jupyter notebooks or scripts in Python or R, initial results from baseline model.
+* **Saída típica**: Notebooks Jupyter ou scripts em Python ou R, resultados iniciais do modelo de linha de base.
 
-For more information on experimentation, refer to the [experimentation](ml-experimentation.md) section.
+Para obter mais informações sobre experimentação, consulte a seção de [experimentação](ml-experimentation.md).
 
-### Model Evaluation
+### Avaliação do Modelo
 
-* Compare the effectiveness of different algorithms on the given problem.
+* Compare a eficácia de diferentes algoritmos no problema dado.
 
-* **Typical output**:
-  * Evaluation flow is [fully set up](ml-experimentation.md#model-evaluation).
-  * Reproducible experiments for the different approaches experimented with.
+* **Saída típica**:
+  * O fluxo de avaliação está [totalmente configurado](ml-experimentation.md#avaliação-de-modelo).
+  * Experimentos reproduzíveis para as diferentes abordagens testadas.
 
-### Model Operationalization
+### Operacionalização do Modelo
 
-* Taking "experimental" code and preparing it, so it can be deployed. This includes data pre-processing, featurization code, training model code (if required to be trained using CI/CD) and model inference code.
+* Transformar o código "experimental" para que possa ser implantado. Isso inclui pré-processamento de dados, código de featurização, código de treinamento de modelo (se necessário treinar usando CI/CD) e código de inferência de modelo.
 
-* **Typical output**:
-  * Production-grade code (Preferably in the form of a package) for:
-    * Data preprocessing / post processing
-    * Serving a model
-    * Training a model
-  * CI/CD scripts.
-  * Reproducibility steps for the model in production.
-  * See more [here](ml-model-checklist.md).
+* **Saída típica**:
+  * Código de produção (preferencialmente na forma de um pacote) para:
+    * Pré-processamento / pós-processamento de dados
 
-#### Unit and Integration Testing
 
-* Ensuring that production code behaves in the way we expect it to, and that its results match those we saw during the Model Evaluation and Experimentation phases.
-* Refer to [ML testing](ml-testing.md) post for further details.
-* **Typical output**: Test suite with unit and end-to-end tests is created and completes successfully.
+    * Servir um modelo
+    * Treinar um modelo
+  * Scripts de CI/CD.
+  * Etapas de reprodutibilidade para o modelo em produção.
+  * Veja mais [aqui](ml-model-checklist.md).
 
-#### Deployment
+#### Testes de Unidade e Integração
 
-* [Responsible AI](responsible-ai.md) considerations such as bias and fairness analysis. Additionally, explainability/interpretability of the model should also be considered.
-* It is recommended for a human-in-the-loop to verify the model and manually approve deployment to production.
-* Getting the model into production where it can start adding value by serving predictions. Typical artifacts are APIs for accessing the model and integrating the model to the solution architecture.
-* Additionally, certain scenarios may require training the model periodically in production.
-* Reproducibility steps of the production model are available.
-* **Typical output**: [model readiness checklist](ml-model-checklist.md) is completed.
+* Garantir que o código de produção se comporte da maneira que esperamos e que seus resultados correspondam aos que vimos durante as fases de Avaliação e Experimentação do Modelo.
+* Consulte o [teste de ML](ml-testing.md) para obter mais detalhes.
+* **Saída típica**: Conjunto de testes com testes de unidade e testes de ponta a ponta criados e concluídos com sucesso.
 
-#### Monitoring and Observability
+#### Implantação
 
-* This is the final phase, where we ensure our model is doing what we expect it to in production.
-* Read more about [ML observability](../observability/ml-observability.md).
-* Read more about [Azure ML's offerings around ML models production monitoring](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-enable-data-collection).
-* It is recommended to consider incorporating data drift monitoring process in the production solution. This will assist in detecting potential changes in new datasets presented for inference that may significantly impact model performance. For more info on detecting data drift with Azure ML see the Microsoft docs article on [how to monitor datasets](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-monitor-datasets).
-* **Typical output**: Logging and monitoring scripts and tools set up, permissions for users to access monitoring tools.
+* Considerações de [IA responsável](responsible-ai.md), como análise de viés e equidade. Além disso, a explicabilidade/interpretabilidade do modelo também deve ser considerada.
+* É recomendável que um ser humano participe do processo de verificação do modelo e aprove a implantação para produção.
+* Colocar o modelo em produção, onde ele pode começar a adicionar valor servindo previsões. Artefatos típicos são APIs para acessar o modelo e integrar o modelo à arquitetura da solução.
+* Além disso, determinados cenários podem exigir o treinamento periódico do modelo em produção.
+* Etapas de reprodutibilidade do modelo em produção estão disponíveis.
+* **Saída típica**: Lista de verificação de preparação do modelo [model readiness checklist](ml-model-checklist.md) está concluída.
+
+#### Monitoramento e Observabilidade
+
+* Esta é a fase final, onde garantimos que nosso modelo esteja fazendo o que esperamos na produção.
+* Saiba mais sobre a [observabilidade de ML](../observability/ml-observability.md).
+* Saiba mais sobre as ofertas de ML da Azure em torno do monitoramento de modelos de ML em produção [aqui](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-enable-data-collection).
+* É recomendável considerar a incorporação do processo de monitoramento de deriva de dados na solução de produção. Isso ajudará a detectar possíveis mudanças nos novos conjuntos de dados apresentados para inferência que podem impactar significativamente o desempenho do modelo. Para obter mais informações sobre como detectar a deriva de dados com o Azure ML, consulte o artigo da Microsoft sobre [como monitorar conjuntos de dados](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-monitor-datasets).
+* **Saída típica**: Scripts e ferramentas de registro e monitoramento configurados, permissões para que os usuários acessem ferramentas de monitoramento.

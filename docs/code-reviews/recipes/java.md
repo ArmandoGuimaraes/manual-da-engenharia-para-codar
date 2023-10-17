@@ -1,26 +1,26 @@
-# Java Code Reviews
+# Revisões de Código em Java
 
-## Java Style Guide
+## Guia de Estilo Java
 
-Developers should follow the [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html).
+Os desenvolvedores devem seguir o [Guia de Estilo Java do Google](https://google.github.io/styleguide/javaguide.html).
 
-## Code Analysis / Linting
+## Análise de Código / Verificação de Estilo
 
-We strongly believe that consistent style increases readability and maintainability of a code base. Hence, we are recommending analyzers to enforce consistency and style rules.
+Acreditamos firmemente que um estilo consistente aumenta a legibilidade e a manutenção de uma base de código. Portanto, recomendamos o uso de analisadores para impor regras de estilo e consistência.
 
-We make use of [Checkstyle](https://github.com/checkstyle/checkstyle) using the [same configuration used in the Azure Java SDK](https://github.com/Azure/azure-sdk-for-java/blob/master/eng/code-quality-reports/src/main/resources/checkstyle/checkstyle.xml).
+Fazemos uso do [Checkstyle](https://github.com/checkstyle/checkstyle) usando a [mesma configuração usada no Azure Java SDK](https://github.com/Azure/azure-sdk-for-java/blob/master/eng/code-quality-reports/src/main/resources/checkstyle/checkstyle.xml).
 
-[FindBugs](http://findbugs.sourceforge.net/) and [PMD](https://pmd.github.io/) are also commonly used.
+[FindBugs](http://findbugs.sourceforge.net/) e [PMD](https://pmd.github.io/) também são comumente usados.
 
-## Automatic Code Formatting
+## Formatação Automática de Código
 
-Eclipse, and other Java IDEs, support automatic code formatting.  If using Maven, some developers also make use of the [formatter-maven-plugin](https://github.com/revelc/formatter-maven-plugin).
+O Eclipse e outros IDEs Java oferecem suporte para formatação automática de código. Se estiver usando o Maven, alguns desenvolvedores também fazem uso do [formatter-maven-plugin](https://github.com/revelc/formatter-maven-plugin).
 
-## Build Validation
+## Validação de Build
 
-It's important to enforce your code style and rules in the CI to avoid any team members merging code that does not comply with standards into your git repo.  If building using Azure DevOps, Azure DevOps support [Maven](https://learn.microsoft.com/azure/devops/pipelines/tasks/build/maven?view=azure-devops) and [Gradle](https://learn.microsoft.com/azure/devops/pipelines/tasks/build/gradle?view=azure-devops) build tasks using [PMD](https://pmd.github.io/), [Checkstyle](https://checkstyle.sourceforge.io/), and [FindBugs](http://findbugs.sourceforge.net/) code analysis tools as part of every build.
+É importante impor o estilo de código e as regras na integração contínua (CI) para evitar que os membros da equipe façam merge de código que não esteja em conformidade com os padrões em seu repositório Git. Se estiver construindo usando o Azure DevOps, o Azure DevOps oferece suporte para tarefas de build do [Maven](https://learn.microsoft.com/azure/devops/pipelines/tasks/build/maven?view=azure-devops) e [Gradle](https://learn.microsoft.com/azure/devops/pipelines/tasks/build/gradle?view=azure-devops) usando ferramentas de análise de código [PMD](https://pmd.github.io/), [Checkstyle](https://checkstyle.sourceforge.io/) e [FindBugs](http://findbugs.sourceforge.net/) como parte de cada build.
 
-Here is an example yaml for a Maven build task with all three analysis tools enabled:
+Aqui está um exemplo de YAML para uma tarefa de build Maven com todas as três ferramentas de análise habilitadas:
 
 ```yaml
     - task: Maven@3
@@ -32,7 +32,7 @@ Here is an example yaml for a Maven build task with all three analysis tools ena
         findBugsRunAnalysis: true
 ```
 
-Here is an example yaml for a Gradle build task with all three analysis tools enabled:
+Aqui está um exemplo de YAML para uma tarefa de build Gradle com todas as três ferramentas de análise habilitadas:
 
 ```yaml
     - task: Gradle@2
@@ -43,13 +43,13 @@ Here is an example yaml for a Gradle build task with all three analysis tools en
         pmdRunAnalysis: true
 ```
 
-## Code Review Checklist
+## Checklist de Revisão de Código
 
-In addition to the [Code Review Checklist](../process-guidance/reviewer-guidance.md) you should also look for these Java specific code review items
+Além do [Checklist de Revisão de Código](../process-guidance/reviewer-guidance.md), você também deve procurar por itens específicos de revisão de código em Java:
 
-* [ ] Does the project use Lambda to make code cleaner?
-* [ ] Is dependency injection (DI) used?  Is it setup correctly?
-* [ ] If the code uses Spring Boot, are you using @Inject instead of @Autowire?
-* [ ] Does the code handle exceptions correctly?
-* [ ] Is the [Azul Zulu OpenJDK](https://learn.microsoft.com/en-us/java/azure/jdk/java-jdk-install?view=azure-java-stable) being used?
-* [ ] Is a build automation and package management tool (Gradle or Maven) being used?
+* [ ] O projeto utiliza Lambdas para tornar o código mais limpo?
+* [ ] A injeção de dependência (DI) é usada? Está configurada corretamente?
+* [ ] Se o código usa o Spring Boot, você está usando @Inject em vez de @Autowire?
+* [ ] O código lida com exceções corretamente?
+* [ ] O [Azul Zulu OpenJDK](https://learn.microsoft.com/en-us/java/azure/jdk/java-jdk-install?view=azure-java-stable) está sendo usado?
+* [ ] Uma ferramenta de automação de build e gerenciamento de pacotes (Gradle ou Maven) está sendo usada?

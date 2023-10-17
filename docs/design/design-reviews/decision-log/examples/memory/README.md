@@ -1,7 +1,7 @@
 # Memory
 
-These examples were taken from the Memory project, an internal tool for tracking an individual's accomplishments.
+Esses exemplos foram retirados do projeto Memory, uma ferramenta interna para acompanhar as realizações de um indivíduo.
 
-The main example here is the [Decision Log](Decision-Log.md).
-Since this log was used from the start, the decisions are mostly based on technology choices made in the start of the project.
-All line items have a link out to the trade studies done for each technology choice.
+O exemplo principal aqui é o [Registro de Decisões](Decision-Log.md).
+Como este registro foi usado desde o início, as decisões são principalmente baseadas nas escolhas de tecnologia feitas no início do projeto.
+Todos os itens da lista têm um link para os estudos de trade feitos para cada escolha de tecnologia.

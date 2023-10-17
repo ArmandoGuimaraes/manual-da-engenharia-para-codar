@@ -1,54 +1,54 @@
-# ML Fundamentals Checklist
+# Checklist de Fundamentos de ML
 
-This checklist helps ensure that our ML projects meet our ML Fundamentals. The items below are not sequential, but rather organized by different parts of an ML project.
+Este checklist ajuda a garantir que nossos projetos de ML atendam aos nossos Fundamentos de ML. Os itens abaixo não são sequenciais, mas sim organizados por diferentes partes de um projeto de ML.
 
-## Data Quality and Governance
+## Qualidade e Governança dos Dados
 
-- [ ] There is access to data.
-- [ ] Labels exist for dataset of interest.
-- [ ] Data quality evaluation.
-- [ ] Able to track data lineage.
-- [ ] Understanding of where the data is coming from and any policies related to data access.
-- [ ] Gather Security and Compliance requirements.
+- [ ] Há acesso aos dados.
+- [ ] Existem rótulos para o conjunto de dados de interesse.
+- [ ] Avaliação da qualidade dos dados.
+- [ ] É possível rastrear a linhagem dos dados.
+- [ ] Compreensão de onde os dados estão vindo e de quais políticas estão relacionadas ao acesso aos dados.
+- [ ] Coleta de requisitos de segurança e conformidade.
 
-## Feasibility Study
+## Estudo de Viabilidade
 
-- [ ] A feasibility study was performed to assess if the data supports the proposed tasks.
-- [ ] Rigorous Exploratory data analysis was performed (including analysis of data distribution).
-- [ ] Hypotheses were tested producing sufficient evidence to either support or reject that an ML approach is feasible to solve the problem.
-- [ ] ROI estimation and risk analysis was performed for the project.
-- [ ] ML outputs/assets can be integrated within the production system.
-- [ ] Recommendations on how to proceed have been documented.
+- [ ] Um estudo de viabilidade foi realizado para avaliar se os dados suportam as tarefas propostas.
+- [ ] Foi realizada uma análise rigorosa dos dados exploratórios (incluindo análise da distribuição dos dados).
+- [ ] Hipóteses foram testadas, produzindo evidências suficientes para apoiar ou rejeitar que uma abordagem de ML seja viável para resolver o problema.
+- [ ] Foi realizada uma estimativa de ROI (Retorno sobre o Investimento) e análise de risco para o projeto.
+- [ ] Os resultados/saídas de ML podem ser integrados ao sistema de produção.
+- [ ] As recomendações sobre como proceder foram documentadas.
 
-## Evaluation and Metrics
+## Avaliação e Métricas
 
-- [ ] Clear definition of how performance will be measured.
-- [ ] The evaluation metrics are somewhat connected to the success criteria.
-- [ ] The metrics can be calculated with the datasets available.
-- [ ] Evaluation flow can be applied to all versions of the model.
-- [ ] Evaluation code is unit-tested and reviewed by all team members.
-- [ ] Evaluation flow facilitates further results and error analysis.
+- [ ] Definição clara de como o desempenho será medido.
+- [ ] As métricas de avaliação estão de alguma forma conectadas aos critérios de sucesso.
+- [ ] As métricas podem ser calculadas com os conjuntos de dados disponíveis.
+- [ ] O fluxo de avaliação pode ser aplicado a todas as versões do modelo.
+- [ ] O código de avaliação é testado unitariamente e revisado por todos os membros da equipe.
+- [ ] O fluxo de avaliação facilita análises adicionais de resultados e erros.
 
-## Model Baseline
+## Baseline do Modelo
 
-- [ ] Well-defined baseline model exists and its performance is calculated. ([More details on well defined baselines](ml-model-checklist.md#is-there-a-well-defined-baseline-is-the-model-performing-better-than-the-baseline))
-- [ ] The performance of other ML models can be compared with the model baseline.
+- [ ] Existe um modelo de baseline bem definido e seu desempenho é calculado. ([Mais detalhes sobre baselines bem definidos](ml-model-checklist.md#is-there-a-well-defined-baseline-is-the-model-performing-better-than-the-baseline))
+- [ ] O desempenho de outros modelos de ML pode ser comparado com o modelo de baseline.
 
-## Experimentation setup
+## Configuração de Experimentação
 
-- [ ] Well-defined train/test dataset with labels.
-- [ ] Reproducible and logged experiments in an environment accessible by all data scientists to quickly iterate.
-- [ ] Defined experiments/hypothesis to test.
-- [ ] Results of experiments are documented.
-- [ ] Model hyper parameters are tuned systematically.
-- [ ] Same performance evaluation metrics and consistent datasets are used when comparing candidate models.
+- [ ] Conjunto de dados de treinamento/teste bem definido com rótulos.
+- [ ] Experimentos reprodutíveis e registrados em um ambiente acessível por todos os cientistas de dados para iterações rápidas.
+- [ ] Experimentos/hipóteses definidas para testar.
+- [ ] Os resultados dos experimentos são documentados.
+- [ ] Hiperparâmetros do modelo são ajustados sistematicamente.
+- [ ] São usadas as mesmas métricas de avaliação de desempenho e conjuntos de dados consistentes ao comparar modelos candidatos.
 
-## Production
+## Produção
 
-- [ ] [Model readiness checklist](ml-model-checklist.md) reviewed.
-- [ ] Model reviews were performed (covering model debugging, reviews of training and evaluation approaches, model performance).
-- [ ] Data pipeline for inferencing, including an end-to-end tests.
-- [ ] SLAs requirements for models are gathered and documented.
-- [ ] Monitoring of data feeds and model output.
-- [ ] Ensure consistent schema is used across the system with expected input/output defined for each component of the pipelines (data processing as well as models).
-- [ ] [Responsible AI](responsible-ai.md) reviewed.
+- [ ] Revisão da [lista de verificação de prontidão do modelo](ml-model-checklist.md).
+- [ ] Foram realizadas revisões do modelo (cobrindo depuração do modelo, revisões das abordagens de treinamento e avaliação, desempenho do modelo).
+- [ ] Pipeline de dados para inferência, incluindo testes de ponta a ponta.
+- [ ] Requisitos de SLAs (Acordos de Nível de Serviço) para os modelos são coletados e documentados.
+- [ ] Monitoramento dos feeds de dados e saída do modelo.
+- [ ] Garantir que um esquema consistente seja usado em todo o sistema, com entrada/saída esperada definida para cada componente dos pipelines (processamento de dados, bem como modelos).
+- [ ] Revisão de [IA Responsável](responsible-ai.md).

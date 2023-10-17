@@ -1,35 +1,35 @@
-# Diagram Types
+# Tipos de Diagramas
 
-Creating and maintaining diagrams is a challenge for any team. Common reasons across these challenges include:
+Criar e manter diagramas é um desafio para qualquer equipe. Motivos comuns para esses desafios incluem:
 
-- Not leveraging tools to assist in generating diagrams
-- Uncertainty on what to include in a diagram and when to create one
+- Não aproveitar ferramentas para ajudar na geração de diagramas.
+- Incerteza sobre o que incluir em um diagrama e quando criá-lo.
 
-Overcoming these challenges and effectively using design diagrams can amplify a team's ability to execute throughout the entire Software Development Lifecycle, from the design phase when proposing various designs to leveraging it as documentation as part of the maintenance phase.
+Superar esses desafios e usar efetivamente diagramas de design pode ampliar a capacidade de uma equipe de executar ao longo de todo o Ciclo de Desenvolvimento de Software, desde a fase de design ao propor vários designs até usá-los como documentação na fase de manutenção.
 
-This section will share sample tools for diagram generation, provide a high level overview of the different types of diagrams and provide examples of some of these types.
+Esta seção compartilhará ferramentas de exemplo para geração de diagramas, fornecerá uma visão geral de alto nível dos diferentes tipos de diagramas e dará exemplos de alguns desses tipos.
 
-There are two primary classes of diagrams:
+Existem duas classes principais de diagramas:
 
-- Structural
-- Behavior
+- Estruturais
+- Comportamentais
 
-Within each of these classes, there are many types of diagrams, each intended to convey specific types of information. When different types of diagrams are effectively used in a solution, system, or repository, one can deliver a cohesive and incrementally detailed design.
+Dentro de cada uma dessas classes, existem muitos tipos de diagramas, cada um destinado a transmitir tipos específicos de informações. Quando diferentes tipos de diagramas são usados efetivamente em uma solução, sistema ou repositório, é possível fornecer um design coeso e incrementalmente detalhado.
 
-## Sample Design Diagrams
+## Diagramas de Design de Exemplo
 
-This section contains educational material and examples for the following design diagrams:
+Esta seção contém material educacional e exemplos dos seguintes diagramas de design:
 
-- [Class Diagrams](DesignDiagramsTemplates/classDiagrams.md) - Useful to document the structural design of a codebase's relationship between classes, and their corresponding methods
-- [Component Diagrams](DesignDiagramsTemplates/componentDiagrams.md) - Useful to document a high level structural overview of all the components and their direct "touch points" with other Components
-- [Sequence Diagrams](DesignDiagramsTemplates/sequenceDiagrams.md) - Useful to document a behavior overview of the system, capturing the various "use cases" or "actions" that triggers the system to perform some business logic
-- [Deployment Diagram](DesignDiagramsTemplates/deploymentDiagrams.md) - Useful in order to document the networking and hosting environments where the system will operate in
+- [Diagramas de Classes](DesignDiagramsTemplates/classDiagrams.md) - Úteis para documentar o design estrutural de um código, a relação entre classes e seus métodos correspondentes.
+- [Diagramas de Componentes](DesignDiagramsTemplates/componentDiagrams.md) - Úteis para documentar uma visão geral estrutural de alto nível de todos os componentes e seus "pontos de contato" diretos com outros componentes.
+- [Diagramas de Sequência](DesignDiagramsTemplates/sequenceDiagrams.md) - Úteis para documentar uma visão geral do comportamento do sistema, capturando os vários "casos de uso" ou "ações" que acionam o sistema a realizar alguma lógica de negócios.
+- [Diagrama de Implantação](DesignDiagramsTemplates/deploymentDiagrams.md) - Útil para documentar os ambientes de rede e hospedagem nos quais o sistema irá operar.
 
-## Supplemental Resources
+## Recursos Suplementares
 
-Each of the above types of diagrams will provide specific resources related to its type. Below are the generic resources:
+Cada um dos tipos de diagramas acima fornecerá recursos específicos relacionados ao seu tipo. Abaixo estão os recursos genéricos:
 
-- [Visual Paradigm UML Structural vs Behavior Diagrams](https://www.visual-paradigm.com/cn/guide/uml-unified-modeling-language/uml-)
-- [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) - requires a generator from code to PlantUML syntax to generate diagrams
-  - [C# to PlantUML](https://marketplace.visualstudio.com/items?itemName=pierre3.csharp-to-plantuml)
-  - [Drawing manually](https://towardsdatascience.com/drawing-a-uml-diagram-in-the-vs-code-53c2e67deffe)
+- [Diagramas UML Estruturais vs. Comportamentais do Visual Paradigm](https://www.visual-paradigm.com/cn/guide/uml-unified-modeling-language/uml-)
+- [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) - requer um gerador de código para a sintaxe PlantUML para gerar diagramas
+  - [C# para PlantUML](https://marketplace.visualstudio.com/items?itemName=pierre3.csharp-to-plantuml)
+  - [Desenhar manualmente](https://towardsdatascience.com/drawing-a-uml-diagram-in-the-vs-code-53c2e67deffe)

@@ -1,38 +1,37 @@
-# Separating client apps from the services they consume during development
+# Separando aplicativos cliente dos serviços que consomem durante o desenvolvimento
 
-Client Apps typically rely on remote services to power their apps.
-However, development schedules between the client app and the services don't always fully align. For a high velocity inner dev loop, client app development must be decoupled from the backend services while still allowing the app to "invoke" the services for local testing.
+Os aplicativos cliente normalmente dependem de serviços remotos para alimentar seus aplicativos. No entanto, os cronogramas de desenvolvimento entre o aplicativo cliente e os serviços nem sempre se alinham completamente. Para um ciclo de desenvolvimento interno de alta velocidade, o desenvolvimento do aplicativo cliente deve ser desacoplado dos serviços backend, permitindo ainda que o aplicativo "chame" os serviços para testes locais.
 
-## Options
+## Opções
 
-Several options exist to decouple client app development from the backend services. The options range from embedding mock implementation of the services into the application, others rely on simplified versions of the services.
+Existem várias opções para desacoplar o desenvolvimento do aplicativo cliente dos serviços backend. As opções variam desde a incorporação de implementações fictícias dos serviços na aplicação até o uso de versões simplificadas dos serviços.
 
-This document lists several options and discusses trade-offs.
+Este documento lista várias opções e discute as compensações.
 
-### Embedded Mocks
+### Mocks Incorporados
 
-An embedded mock solution includes classes that implement the service interfaces locally. Interfaces and data classes, also called models or data transfer objects or DTOs, are often generated from the services' API specs using tools like nswag ([RicoSuter/NSwag: The Swagger/OpenAPI toolchain for .NET, ASP.NET Core and TypeScript. (github.com)](https://github.com/RicoSuter/NSwag)) or autorest ([Azure/autorest: OpenAPI (f.k.a Swagger) Specification code generator. Supports C#, PowerShell, Go, Java, Node.js, TypeScript, Python, Ruby (github.com)](https://github.com/Azure/AutoRest)).
+Uma solução de mock incorporada inclui classes que implementam as interfaces de serviço localmente. As interfaces e classes de dados, também chamadas de modelos ou objetos de transferência de dados (DTOs), muitas vezes são geradas a partir das especificações da API dos serviços usando ferramentas como nswag ([RicoSuter/NSwag: The Swagger/OpenAPI toolchain for .NET, ASP.NET Core and TypeScript. (github.com)](https://github.com/RicoSuter/NSwag)) ou autorest ([Azure/autorest: OpenAPI (f.k.a Swagger) Specification code generator. Supports C#, PowerShell, Go, Java, Node.js, TypeScript, Python, Ruby (github.com)](https://github.com/Azure/AutoRest)).
 
-A simple service implementation can return a static response. For RESTful services, the JSON responses for the stubs can be stored as application resources or simply as static strings.
+Uma implementação simples do serviço pode retornar uma resposta estática. Para serviços RESTful, as respostas JSON para os stubs podem ser armazenadas como recursos da aplicação ou simplesmente como strings estáticas.
 
 ```cs
 public Task<UserProfile> GetUserAsync(long userId, CancellationToken cancellationToken)
 {
-    PetProfile result = Newtonsoft.Json.JsonConvert.DeserializeObject<UserProfile>(
+    UserProfile result = Newtonsoft.Json.JsonConvert.DeserializeObject<UserProfile>(
         MockUserProfile.UserProfile, new Newtonsoft.Json.JsonSerializerSettings());
 
     return Task.FromResult(result);
 }
 ```
 
-More sophisticated can randomly return errors to test the app's resiliency code paths.
+Implementações mais sofisticadas podem retornar erros aleatórios para testar os caminhos de código de resiliência do aplicativo.
 
-Mocks can be activated via conditional compilation or dynamically via app configuration. In either case, it is recommended to ensure that mocks, service responses and externalized configurations are not included in the final release to avoid confusing behavior and inclusion of potential vulnerabilities.
+Os mocks podem ser ativados por meio de compilação condicional ou dinamicamente por meio da configuração do aplicativo. Em ambos os casos, é recomendável garantir que mocks, respostas de serviço e configurações externalizadas não sejam incluídos na versão final para evitar comportamentos confusos e inclusão de vulnerabilidades potenciais.
 
-#### Sample: Registering Mocks via Dependency Injection
+#### Exemplo: Registrando Mocks via Injeção de Dependência
 
-Dependency Injection Containers like Unity ([Unity Container Introduction \| Unity Container](http://unitycontainer.org/articles/introduction.html)) make
-it easy to switch between mock services and real service client implementations. Since both implement the same interface, implementations can be registered with the Unity container.
+Contêineres de Injeção de Dependência como o Unity ([Unity Container Introduction \| Unity Container](http://unitycontainer.org/articles/introduction.html)) tornam
+fácil alternar entre serviços fictícios e implementações reais de cliente de serviço. Como ambos implementam a mesma interface, as implementações podem ser registradas com o contêiner Unity.
 
 ```cs
 public static void Bootstrap(IUnityContainer container)
@@ -47,9 +46,9 @@ public static void Bootstrap(IUnityContainer container)
 }
 ```
 
-#### Consuming mocks via Dependency Injection
+#### Consumindo mocks via Injeção de Dependência
 
-The code consuming the interfaces will not notice the difference.
+O código que consome as interfaces não perceberá a diferença.
 
 ```cs
 public class UserPageModel
@@ -65,42 +64,44 @@ public class UserPageModel
 }
 ```
 
-### Local Services
+### Serviços Locais
 
-The approach with Locally Running Services is to replace the call in the client from pointing to the actual endpoint (whether dev, QA, prod, etc.) to a local endpoint.
+A abordagem com Serviços Executados Localmente é substituir a chamada no cliente que aponta para o ponto de extremidade real (seja desenvolvimento, QA, produção, etc.) por um ponto de extremidade local.
 
-This approach also enables injecting traffic capture and shaping proxies like Postman ([Postman API Platform \| Sign Up for Free](https://www.postman.com/)) or Fiddler ([Fiddler \| Web Debugging Proxy and Troubleshooting Solutions (telerik.com)](https://www.telerik.com/fiddler)).
+Essa abordagem também permite injetar proxies de captura de tráfego e modelagem como o Postman ([Postman API Platform \| Sign Up for Free](https://www.postman.com/)) ou o Fiddler ([Fiddler \| Web Debugging Proxy and Troubleshooting Solutions (telerik.com)](https://www.telerik.com/fiddler)).
 
-The advantage of this approach is that the APIs are decoupled from the client and can be independently updated/modified (e.g. changing response codes, changing data) without requiring changes to the client. This helps to unlock new development scenarios and provides flexibility during the development phase.
+A vantagem dessa abordagem é que as APIs são desacopladas do cliente e podem ser atualizadas/modificadas independentemente (por exemplo, alterando códigos de resposta, alterando dados) sem exigir alterações no cliente. Isso ajuda a desbloquear novos cenários de desenvolvimento e oferece flexibilidade durante a fase de desenvolvimento.
 
-The challenge with this approach is that it does require setup, configuration, and running of the services locally. There are tools that help to simplify that process (e.g. [JsonServer](https://www.npmjs.com/package/json-server), [Postman Mock Server](https://learning.postman.com/docs/designing-and-developing-your-api/mocking-data/setting-up-mock/)).
+O desafio com essa abordagem é que ela requer configuração e execução dos
 
-#### High-Fidelity Local Services
+ serviços localmente. Existem ferramentas que ajudam a simplificar esse processo (por exemplo, [JsonServer](https://www.npmjs.com/package/json-server), [Postman Mock Server](https://learning.postman.com/docs/designing-and-developing-your-api/mocking-data/setting-up-mock/)).
 
-A local service stub implements the expected APIs. Just like the embedded mock, it can be generated based on existing API contracts (e.g. OpenAPI).
+#### Serviços Locais de Alta Fidelidade
 
-A high-fidelity approach packages the real services together with simplified data in docker containers that can be run locally using docker-compose before the client app is started for local debugging and testing. To enable running services fully local the "local version" substitutes dependent cloud services with local alternatives, e.g. file storage instead of blobs, locally running SQL Server instead of SQL AzureDB.
+Um stub de serviço local implementa as APIs esperadas. Assim como o mock incorporado, ele pode ser gerado com base nos contratos de API existentes (por exemplo, OpenAPI).
 
-This approach also enables full fidelity integration testing without spinning up distributed deployments.
+Uma abordagem de alta fidelidade empacota os serviços reais juntamente com dados simplificados em contêineres Docker que podem ser executados localmente usando docker-compose antes que o aplicativo cliente seja iniciado para depuração e testes locais. Para permitir a execução de serviços completamente locais, a "versão local" substitui serviços em nuvem dependentes por alternativas locais, como armazenamento de arquivos em vez de blobs, SQL Server em execução localmente em vez de SQL AzureDB.
 
-### Stub / Fake Services
+Essa abordagem também permite testes de integração de alta fidelidade sem iniciar implantações distribuídas.
 
-Lower fidelity approaches run stub services, that could be generated from API specs, or run fake servers like JsonServer ([JsonServer.io: A fake json server API Service for prototyping and testing.](https://www.jsonserver.io/)) or Postman. All these services would respond with predetermined and configured JSON messages.
+### Stub / Serviços Falsos
 
-## How to decide
+Abordagens de menor fidelidade executam serviços de stub, que podem ser gerados a partir das especificações da API, ou executam servidores fictícios como JsonServer ([JsonServer.io: A fake json server API Service for prototyping and testing.](https://www.jsonserver.io/)) ou Postman. Todos esses serviços responderiam com mensagens JSON predefinidas e configuradas.
 
-|                | Pros                                   | Cons                        | Example when developing for:    | Example When not to Use                       |
+## Como decidir
+
+|                | Prós                                   | Contras                        | Exemplo ao desenvolver para:    | Exemplo de quando não usar                       |
 |----------------|----------------------------------------|-----------------------------|---------------------------------|-----------------------------------------------|
-| Embedded Mocks | Simplifies the F5 developer experience | Tightly coupled with Client | More static type data scenarios | Testing  (e.g. unit tests, integration tests) |
-|| No external dependencies to manage | Hard coded data | Initial integration with services |
-| | | Mocking via Dependency Injection can be a non-trivial effort | | |
-| High-Fidelity Local Services | Loosely Coupled from Client | Extra tooling required i.e. local infrastructure overhead | URL Routes | When API contract are not available |
-| | Easier to independently modify response | Extra setup and configuration of services | | |
-| | Independent updates to services | | | |
-| | Can utilize HTTP traffic | | | |
-| | Easier to replace with real services at a later time | | | |
-| Stub/Fake Services | Loosely coupled from client | Extra tooling required i.e. local infrastructure overhead | Response Codes | When API Contracts available |
-| | Easier to independently modify response | Extra setup and configuration of services | Complex/variable data scenarios | When API Contracts are note available |
-| | Independent updates to services | Might not provide full fidelity of expected API | | |
-| | Can utilize HTTP traffic | | | |
-| | Easier to replace with real services at a later time | | | |
+| Mocks Incorporados | Simplifica a experiência do desenvolvedor F5 | Fortemente acoplado ao Cliente | Cenários de dados de tipo mais estático | Testes (por exemplo, testes unitários, testes de integração) |
+|| Sem dependências externas para gerenciar | Dados codificados | Integração inicial com serviços |
+| | | Mocking via Injeção de Dependência pode ser um esforço não trivial | | |
+| Serviços Locais de Alta Fidelidade | Desacoplado do Cliente | Requer ferramentas extras, ou seja, sobrecarga de infraestrutura local | Rotas URL | Quando os contratos da API não estão disponíveis |
+| | Mais fácil modificar independentemente a resposta | Configuração extra e configuração de serviços | | |
+| | Atualizações independentes dos serviços | | | |
+| | Pode utilizar o tráfego HTTP | | | |
+| | Mais fácil substituir por serviços reais posteriormente | | | |
+| Serviços de Stub/Fake | Desacoplado do cliente | Requer ferramentas extras, ou seja, sobrecarga de infraestrutura local | Códigos de resposta | Quando os contratos da API estão disponíveis |
+| | Mais fácil modificar independentemente a resposta | Configuração extra e configuração de serviços | Cenários de dados complexos/variáveis | Quando os contratos da API não estão disponíveis |
+| | Atualizações independentes dos serviços | Pode não fornecer a fidelidade completa da API esperada | | |
+| | Pode utilizar o tráfego HTTP | | | |
+| | Mais fácil substituir por serviços reais posteriormente | | | |

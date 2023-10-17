@@ -1,33 +1,32 @@
-# Terraform Code Reviews
+# Revisão de Código em Terraform
 
-## Style Guide
+## Guia de Estilo
 
-Developers should follow the [terraform style guide](https://github.com/jonbrouse/terraform-style-guide/blob/master/README.md).
+Os desenvolvedores devem seguir o [guia de estilo do Terraform](https://github.com/jonbrouse/terraform-style-guide/blob/master/README.md).
 
-Projects should check Terraform scripts with automated tools.
+Projetos devem verificar os scripts do Terraform com ferramentas automatizadas.
 
-## Code Analysis / Linting
+## Análise de Código / Linting
 
 ### TFLint
 
-[`TFLint`](https://github.com/terraform-linters/tflint) is a Terraform linter focused on possible errors, best practices, etc. Once TFLint installed in the environment, it can be invoked using the VS Code [`terraform extension`](https://marketplace.visualstudio.com/items?itemName=mauve.terraform).
+O [`TFLint`](https://github.com/terraform-linters/tflint) é um linter do Terraform focado em possíveis erros, melhores práticas, etc. Uma vez instalado o TFLint no ambiente, ele pode ser invocado usando a extensão do VS Code [`terraform`](https://marketplace.visualstudio.com/items?itemName=mauve.terraform).
 
-## VS Code Extensions
+## Extensões do VS Code
 
-The following VS Code extensions are widely used.
+As seguintes extensões do VS Code são amplamente utilizadas.
 
-### [`Terraform extension`](https://marketplace.visualstudio.com/items?itemName=mauve.terraform)
+### [`Extensão Terraform`](https://marketplace.visualstudio.com/items?itemName=mauve.terraform)
 
-This extension provides syntax highlighting, linting, formatting and validation capabilities.
+Esta extensão fornece realce de sintaxe, lintagem, formatação e capacidades de validação.
 
-### [`Azure Terraform extension`](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureterraform)
+### [`Extensão Azure Terraform`](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureterraform)
 
-This extension provides Terraform command support, resource graph visualization and CloudShell integration inside VS Code.
+Esta extensão oferece suporte aos comandos do Terraform, visualização de gráfico de recursos e integração com o CloudShell dentro do VS Code.
 
-## Build Validation
+## Validação de Build
 
-Ensure you enforce the style guides during build. The following example script can be used to install terraform, and a linter that
-then checks for formatting and common errors.
+Certifique-se de aplicar os guias de estilo durante a construção. O seguinte script de exemplo pode ser usado para instalar o Terraform e um linter que verifica a formatação e erros comuns.
 
 ```shell
 #! /bin/bash
@@ -39,23 +38,23 @@ cd "$SCRIPT_DIR"
 TF_VERSION=0.12.4
 TF_LINT_VERSION=0.9.1
 
-echo -e "\n\n>>> Installing Terraform 0.12"
-# Install terraform tooling for linting terraform
+echo -e "\n\n>>> Instalando Terraform 0.12"
+# Instale as ferramentas do Terraform para a verificação de formatação
 wget -q https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_linux_amd64.zip -O /tmp/terraform.zip
 sudo unzip -q -o -d /usr/local/bin/ /tmp/terraform.zip
 
 echo ""
-echo -e "\n\n>>> Install tflint (3rd party)"
+echo -e "\n\n>>> Instalando o TFLint (terceiros)"
 wget -q https://github.com/wata727/tflint/releases/download/v${TF_LINT_VERSION}/tflint_linux_amd64.zip -O /tmp/tflint.zip
 sudo unzip -q -o -d /usr/local/bin/ /tmp/tflint.zip
 
-echo -e "\n\n>>> Terraform version"
+echo -e "\n\n>>> Versão do Terraform"
 terraform -version
 
-echo -e "\n\n>>> Terraform Format (if this fails use 'terraform fmt -recursive' command to resolve"
+echo -e "\n\n>>> Formato do Terraform (se falhar, use o comando 'terraform fmt -recursive' para resolver"
 terraform fmt -recursive -diff -check
 
-echo -e "\n\n>>> tflint"
+echo -e "\n\n>>> TFLint"
 tflint
 
 echo -e "\n\n>>> Terraform init"
@@ -65,55 +64,54 @@ echo -e "\n\n>>> Terraform validate"
 terraform validate
 ```
 
-## Code Review Checklist
+## Lista de Verificação de Revisão de Código
 
-In addition to the [Code Review Checklist](../process-guidance/reviewer-guidance.md) you should also look for these Terraform specific code review items
+Além da [Lista de Verificação de Revisão de Código](../process-guidance/reviewer-guidance.md), você também deve procurar por esses itens específicos de revisão de código do Terraform.
 
-### Providers
+### Provedores
 
-* [ ] Are all providers used in the terraform scripts [versioned](https://www.terraform.io/language/providers/requirements#best-practices-for-provider-versions) to prevent breaking changes in the future?
+* [ ] Todos os provedores usados nos scripts do Terraform estão [versionados](https://www.terraform.io/language/providers/requirements#best-practices-for-provider-versions) para evitar alterações quebradas no futuro?
 
-### Repository Organization
+### Organização do Repositório
 
-* [ ] The code split into reusable modules?
-* [ ] Modules are split into separate `.tf` files where appropriate?
-* [ ] The repository contains a `README.md` describing the architecture provisioned?
-* [ ] If Terraform code is mixed with application source code, the Terraform code isolated into a dedicated folder?
+* [ ] O código foi dividido em módulos reutilizáveis?
+* [ ] Os módulos foram divididos em arquivos `.tf` separados quando apropriado?
+* [ ] O repositório contém um `README.md` descrevendo a arquitetura provisionada?
+* [ ] Se o código do Terraform está misturado com o código-fonte da aplicação, o código do Terraform foi isolado em uma pasta dedicada?
 
-### Terraform state
+### Estado do Terraform
 
-* [ ] The Terraform project configured using Azure Storage as remote state backend?
-* [ ] The remote state backend storage account key stored a secure location (e.g. Azure Key Vault)?
-* [ ] The project is configured to use state files based on the environment, and the deployment pipeline is configured to supply the state file name dynamically?
+* [ ] O projeto do Terraform está configurado usando o Azure Storage como backend de estado remoto?
+* [ ] A chave do backend de estado remoto está armazenada em um local seguro (por exemplo, Azure Key Vault)?
+* [ ] O projeto está configurado para usar arquivos de estado com base no ambiente, e o pipeline de implantação está configurado para fornecer dinamicamente o nome do arquivo de estado?
 
-### Variables
+### Variáveis
 
-* [ ] If the infrastructure will be different depending on the environment (e.g. Dev, UAT, Production), the environment specific parameters are supplied via a `.tfvars` file?
-* [ ] All variables have `type` information. E.g. a `list(string)` or `string`.
-* [ ] All variables have a `description` stating the purpose of the variable and its usage.
-* [ ] `default` values are not supplied for variables which must be supplied by a user.
+* [ ] Se a infraestrutura será diferente dependendo do ambiente (por exemplo, Dev, UAT, Produção), os parâmetros específicos do ambiente são fornecidos por meio de um arquivo `.tfvars`?
+* [ ] Todas as variáveis têm informações de `type`. Por exemplo, `list(string)` ou `string`.
+* [ ] Todas as variáveis têm uma `description` que indica o propósito da variável e seu uso.
+* [ ] Valores `default` não são fornecidos para variáveis que devem ser fornecidas por um usuário.
 
-### Testing
+### Testes
 
-* [ ] Unit and integration tests covering the Terraform code exist (e.g. [`Terratest`](https://terratest.gruntwork.io/), [`terratest-abstraction`](https://github.com/microsoft/terratest-abstraction))?
+* [ ] Existem testes unitários e de integração que cobrem o código do Terraform (por exemplo, [`Terratest`](https://terratest.gruntwork.io/), [`terratest-abstraction`](https://github.com/microsoft/terratest-abstraction))?
 
-### Naming and code structure
+### Nomeação e Estrutura do Código
 
-* [ ] Resource definitions and data sources are used correctly in the Terraform scripts?
-  * **resource:** Indicates to Terraform that the current configuration is in charge of managing the life cycle of the object
-  * **data:** Indicates to Terraform that you only want to get a reference to the existing object, but don’t want to manage it as part of this configuration
-* [ ] The resource names start with their containing provider's name followed by an underscore? e.g. resource from the provider `postgresql` might be named as `postgresql_database`?
-* [ ] The `try` function is only used with simple attribute references and type conversion functions? Overuse of the `try` function to suppress errors will lead to a configuration that is hard to understand and maintain.
-* [ ] Explicit type conversion functions used to normalize types are only returned in module outputs? Explicit type conversions are rarely necessary in Terraform because it will convert types automatically where required.
-* [ ] The `Sensitive` property on schema set to `true` for the fields that contains sensitive information? This will prevent the field's values from showing up in CLI output.
+* [ ] As definições de recursos e fontes de dados são usadas corretamente nos scripts do Terraform?
+  * **resource:** Indica ao Terraform que a configuração atual é responsável por gerenciar o ciclo de vida do objeto.
+  * **data:** Indica ao Terraform que você só deseja obter uma referência ao objeto existente, mas não deseja gerenciá-lo como parte desta configuração.
+* [ ] Os nomes dos recursos começam com o nome do provedor que os contém, seguido de um sublinhado? Por exemplo, um recurso do provedor `postgresql` pode ser nomeado como `postgresql_database`?
+* [ ] A função `try` só é usada com referências de atributos simples e funções de conversão de tipo? O uso excessivo da função `try` para suprimir erros levará a uma configuração difícil de entender e manter.
+* [ ] As funções de conversão de tipo explícito usadas para normalizar tipos só são retornadas nas saídas do módulo? Conversões de tipo explícitas raramente são necessárias no Terraform, pois ele converterá tipos automaticamente quando necessário.
+* [ ] A propriedade `Sensitive` no esquema está definida como `true` para os campos que contêm informações confidenciais? Isso evitará que os valores do campo apareçam na saída da CLI.
 
-### General recommendations
+### Recomendações Gerais
 
-* Try avoiding nesting sub configuration within resources. Create a separate resource section for resources even though they can be declared as sub-element of a resource. For example, declaring subnets within virtual network vs declaring subnets as a separate resources compared to virtual network on Azure.
-* Never hard-code any value in configuration. Declare them in `locals` section if a variable is needed multiple times as a static value and are internal to the configuration.
-* The `name`s of the resources created on Azure should not be hard-coded or static. These names should be dynamic and user-provided using `variable` block. This is helpful especially in unit testing when multiple tests are running in parallel trying to create resources on Azure but need different names (few resources in Azure need to be named uniquely e.g. storage accounts).
-* It is a good practice to `output` the ID of resources created on Azure from configuration. This is especially helpful when adding dynamic blocks for sub-elements/child elements to the parent resource.
-* Use the `required_providers` block for establishing the dependency for providers along with pre-determined version.
-* Use the `terraform` block to declare the provider dependency with exact version and also the terraform CLI version needed for the configuration.
-* Validate the variable values supplied based on usage and type of variable. The validation can be done to variables by adding `validation` block.
-* Validate that the component SKUs are the right ones, e.g. standard vs premium.
+* Tente evitar o aninhamento de configurações secundárias dentro de recursos. Crie uma seção de recursos separada para recursos, mesmo que possam ser declarados como subelementos de um recurso. Por exemplo, declarar sub-redes dentro da rede virtual versus declarar sub-redes como recursos separados em comparação com a rede virtual no Azure.
+* Nunca codifique valores estáticos na configuração. Declare-os na seção `locals` se uma variável for necessária várias vezes como um valor estático e for interna à configuração.
+* Os `names` dos recursos criados no Azure não devem ser codificados ou estáticos. Esses nomes devem ser dinâmicos e fornecidos pelo usuário usando o bloco `variable`. Isso é útil especialmente nos testes de unidade quando vários testes são executados em paralelo tentando criar recursos no Azure, mas precisam de nomes diferentes (alguns recursos no Azure precisam ter nomes exclusivos, por exemplo, contas de armazenamento).
+* É uma boa prática `output` o ID dos recursos criados no Azure a partir da configuração. Isso é especialmente útil ao adicionar blocos dinâmicos para subelementos/elementos filhos ao recurso pai.
+* Use o bloco `required_providers` para estabelecer a dependência de provedores juntamente com a versão predefinida.
+* Use o bloco `terraform` para declarar a dependência do provedor com a versão exata e também a versão do terraform CLI necessária para a configuração.
+* Valide os valores das variáveis fornecidos com base no uso e no tipo da variável. A validação pode ser feita nas variáveis adicionando o bloco `validation`.

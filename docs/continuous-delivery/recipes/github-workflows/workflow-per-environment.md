@@ -1,22 +1,22 @@
-# GitHub Workflows
+# Fluxos de Trabalho no GitHub
 
-A workflow is a configurable automated process made up of one or more jobs where each of these jobs can be an action in GitHub. Currently, a YAML file format is supported for defining a workflow in GitHub.
+Um fluxo de trabalho é um processo automatizado configurável composto por um ou mais trabalhos, onde cada um desses trabalhos pode ser uma ação no GitHub. Atualmente, é suportado um formato de arquivo YAML para definir um fluxo de trabalho no GitHub.
 
-Additional information on GitHub actions and GitHub Workflows in the links posted in the [references](#references) section below.
+Informações adicionais sobre ações do GitHub e Fluxos de Trabalho no GitHub estão nos links postados na seção de [referências](#references) abaixo.
 
-## Workflow Per Environment
+## Fluxo de Trabalho por Ambiente
 
-The general approach is to have one pipeline, where the code is built, tested and deployed, and the artifact is then promoted to the next environment, eventually to be deployed into production.
+A abordagem geral é ter um pipeline, onde o código é construído, testado e implantado, e o artefato é então promovido para o próximo ambiente, eventualmente sendo implantado na produção.
 
-There are multiple ways in GitHub that an environment setup can be achieved. One way it can be done is to have one workflow for multiple environments, but the complexity increases as additional processes and jobs are added to a workflow, which does not mean it cannot be done for small pipelines. The plus point of having one workflow is that, when an artifact flows from one environment to another the state and environment values between the deployment environments can be passed easily.
+Existem várias maneiras no GitHub de configurar um ambiente. Uma maneira de fazer isso é ter um fluxo de trabalho para vários ambientes, mas a complexidade aumenta à medida que processos e trabalhos adicionais são adicionados a um fluxo de trabalho, o que não significa que não pode ser feito para pipelines pequenos. O ponto positivo de ter um único fluxo de trabalho é que, quando um artefato flui de um ambiente para outro, os valores de estado e ambiente entre os ambientes de implantação podem ser facilmente passados.
 
 ![Workflow-Designs-Dependent-Workflows](images/Workflow-Designs-Dependent-Workflows.png)
 
-One way to get around the complexity of a single workflow is to have separate workflows for different environments, making sure that only the artifacts created and validated are promoted from one environment to another, as well as, the workflow is small enough, to debug any issues seen in any of the workflows. In this case, the state and environment values need to be passed from one deployment environment to another. Multiple workflows also helps to keep the deployments to the environments independent thus reducing the time to deploy and find issues earlier than later in the process. Also, since the environments are independent of each other, any failures in deploying to one environment does not block deployments to other environments. One tradeoff in this method, is that with different workflows for each environment, the maintenance increases as the complexity of workflows increase over time.
+Uma maneira de contornar a complexidade de um único fluxo de trabalho é ter fluxos de trabalho separados para diferentes ambientes, garantindo que apenas os artefatos criados e validados sejam promovidos de um ambiente para outro, bem como que o fluxo de trabalho seja pequeno o suficiente para depurar problemas em qualquer um dos fluxos de trabalho. Nesse caso, os valores de estado e ambiente precisam ser passados de um ambiente de implantação para outro. Múltiplos fluxos de trabalho também ajudam a manter as implantações nos ambientes independentes, reduzindo assim o tempo para implantar e encontrar problemas mais cedo do que tarde no processo. Além disso, como os ambientes são independentes entre si, qualquer falha na implantação em um ambiente não bloqueia as implantações em outros ambientes. Um trade-off neste método é que, com diferentes fluxos de trabalho para cada ambiente, a manutenção aumenta à medida que a complexidade dos fluxos de trabalho aumenta ao longo do tempo.
 
 ![Workflow-Designs-Independent-Workflows](images/Workflow-Designs-Independent-Workflows.png)
 
-## References
+## Referências
 
-- [GitHub Actions](https://docs.github.com/en/actions)
-- [GitHub Workflows](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
+- [Ações do GitHub](https://docs.github.com/en/actions)
+- [Fluxos de Trabalho do GitHub](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)

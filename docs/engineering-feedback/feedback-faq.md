@@ -1,39 +1,39 @@
-# Engineering Feedback Frequently Asked Questions (F.A.Q.)
+# Perguntas Frequentes sobre Feedback de Engenharia (F.A.Q.)
 
-The questions below are common questions related to the feedback process. The answers are intended to help both Microsoft employees and customers.
+As perguntas a seguir são comuns em relação ao processo de feedback. As respostas destinam-se a ajudar tanto os funcionários da Microsoft quanto os clientes.
 
-## When should I submit feedback versus creating an issue on GitHub, UserVoice, or sending an email directly to a Microsoft employee?
+## Quando devo enviar feedback versus criar um problema no GitHub, UserVoice ou enviar um e-mail diretamente para um funcionário da Microsoft?
 
-It is appropriate to do both. As a customer or Microsoft employee, you are empowered to create an issue or submit feedback via the medium appropriate for service.
+É apropriado fazer ambos. Como cliente ou funcionário da Microsoft, você tem o poder de criar um problema ou enviar feedback através do meio apropriado para o serviço em questão.
 
-In addition to an issue on GitHub, feedback on UserVoice, or a personal email, Microsoft employees in [CSE](../ISE.md) should submit feedback via CSE Feedback.  In doing so, please reference the GitHub issue, UserVoice feedback, or email by including a link to the item or attaching the email.
+Além de criar um problema no GitHub, fornecer feedback no UserVoice ou enviar um e-mail pessoal, os funcionários da Microsoft na [CSE](../ISE.md) devem enviar feedback através do Feedback da CSE. Ao fazer isso, por favor, faça referência ao problema do GitHub, ao feedback do UserVoice ou ao e-mail, incluindo um link para o item ou anexando o e-mail.
 
-Submitting to ISE Feedback allows the ISE Feedback team to coalesce feedback across a wide range of sources, and thus create a unified case to submit to the appropriate Azure engineering team(s).
+O envio do Feedback da CSE permite que a equipe de Feedback da CSE consolide feedback de várias fontes e, assim, crie um caso unificado para enviar para as equipes de engenharia da Azure apropriadas.
 
-## How can a customer track the status of a specific feedback item?
+## Como um cliente pode acompanhar o status de um item de feedback específico?
 
-At this time, customers are not able to directly track the status of feedback submitted via ISE Feedback.  The ISE Feedback process is internal to Microsoft, and as such, available only to Microsoft employees.  Customers may request an update from their ISE engineering partner or Microsoft account representative(s).
+Atualmente, os clientes não podem acompanhar diretamente o status do feedback enviado via Feedback da CSE. O processo de Feedback da CSE é interno à Microsoft e, como tal, está disponível apenas para funcionários da Microsoft. Os clientes podem solicitar uma atualização de seu parceiro de engenharia da CSE ou representantes de contas da Microsoft.
 
-Customers can also submit their feedback directly via GitHub or UserVoice (as appropriate for the specific service), and inform their ISE engineering partner.  The ISE engineer should submit the feedback via the ISE Feedback process, and in doing so reference the previously created issue.  Customers can follow the GitHub or UserVoice item to be alerted on updates.
+Os clientes também podem enviar seu feedback diretamente via GitHub ou UserVoice (conforme apropriado para o serviço específico) e informar seu parceiro de engenharia da CSE. O engenheiro da CSE deve enviar o feedback através do processo de Feedback da CSE e, ao fazer isso, fazer referência ao problema previamente criado. Os clientes podem acompanhar o item do GitHub ou UserVoice para receber alertas sobre atualizações.
 
-## How can a Microsoft employee track the status of a specific feedback item?
+## Como um funcionário da Microsoft pode acompanhar o status de um item de feedback específico?
 
-The easiest way for a Microsoft employee within ISE to track a specific feedback item is to [follow the feedback (a work item)](https://learn.microsoft.com/azure/devops/boards/work-items/follow-work-items?view=azure-devops) in Azure DevOps.
+A maneira mais fácil para um funcionário da Microsoft dentro da CSE acompanhar um item de feedback específico é [seguir o feedback (um item de trabalho)](https://learn.microsoft.com/azure/devops/boards/work-items/follow-work-items?view=azure-devops) no Azure DevOps.
 
-## As a Microsoft employee within ISE, if I submit a feedback and move to another dev crew engagement, how would my customer get an update on that feedback?
+## Como funcionário da Microsoft na CSE, se eu enviar um feedback e depois me mudar para outro engajamento de desenvolvimento, como meu cliente pode obter uma atualização sobre esse feedback?
 
-If the feedback is also submitted via GitHub or UserVoice, the customer may elect to follow that item for publicly available updates.  The customer may also contact their Microsoft account representative to request an update.
+Se o feedback também for enviado via GitHub ou UserVoice, o cliente pode optar por seguir esse item para receber atualizações publicamente disponíveis. O cliente também pode entrar em contato com seu representante de contas da Microsoft para solicitar uma atualização.
 
-## As a Microsoft employee within ISE, what should I expect/do after submitting feedback via ISE Feedback?
+## Como funcionário da Microsoft na CSE, o que devo esperar/fazer após enviar feedback via Feedback da CSE?
 
-After submitting the feedback, it is recommended to [follow the feedback (a work item)](https://learn.microsoft.com/azure/devops/boards/work-items/follow-work-items?view=azure-devops) in Azure DevOps.  If you have configured Azure DevOps notifications to send an email on work item updates, you will receive an email when the feedback is updated.
+Após enviar o feedback, é recomendável [seguir o feedback (um item de trabalho)](https://learn.microsoft.com/azure/devops/boards/work-items/follow-work-items?view=azure-devops) no Azure DevOps. Se você configurou notificações do Azure DevOps para enviar um e-mail sobre atualizações de itens de trabalho, receberá um e-mail quando o feedback for atualizado.
 
-If more information about the feedback is needed, a member of the ISE Feedback team will contact you to gather more information.
+Se for necessário mais informações sobre o feedback, um membro da equipe de Feedback da CSE entrará em contato com você para obter mais informações.
 
-## How/when are feedback aggregated?
+## Como/quando o feedback é agregado?
 
-Members of the CSE Feedback team will make a best effort to triage and review new CSE Feedback items within two weeks of the original submission date.  
+Membros da equipe de Feedback da CSE farão o melhor esforço para triar e revisar novos itens de Feedback da CSE dentro de duas semanas a partir da data de envio original.
 
-If there is similarity across multiple feedback items, a member of the ISE Feedback team may decide to create a new feedback item which is an aggregate of similar items.  This is done to aid in the creation of a unified feedback item to present to the appropriate Microsoft engineering team.
+Se houver semelhança entre vários itens de feedback, um membro da equipe de Feedback da CSE pode decidir criar um novo item de feedback que seja uma agregação de itens semelhantes. Isso é feito para auxiliar na criação de um item de feedback unificado para apresentar à equipe de engenharia apropriada da Microsoft.
 
-On a monthly basis, the ISE Feedback team will review all feedback and generate a report consisting of the highest priority feedback.  The report is presented to appropriate ISE and Microsoft leadership teams.
+Mensalmente, a equipe de Feedback da CSE revisará todo o feedback e gerará um relatório com os feedbacks de mais alta prioridade. O relatório é apresentado às equipes de liderança adequadas da CSE e da Microsoft.

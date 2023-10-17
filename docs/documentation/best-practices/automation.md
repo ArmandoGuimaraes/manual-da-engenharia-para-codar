@@ -1,17 +1,17 @@
-# Replacing Documentation with Automation
+# Substituindo Documentação por Automação
 
-You can document how to set up your dev machine with the right version of the framework required to run the code, which extensions are useful to develop the application with your editor, or how to configure your editor to launch and debug the application. If it is possible, a better solution is to provide the means to automate tool installs, application startup, etc., instead.
+Você pode documentar como configurar sua máquina de desenvolvimento com a versão correta do framework necessária para executar o código, quais extensões são úteis para desenvolver a aplicação com seu editor ou como configurar seu editor para iniciar e depurar a aplicação. Se for possível, uma solução melhor é fornecer meios para automatizar a instalação de ferramentas, o início da aplicação, etc.
 
-Some examples are provided below:
+Alguns exemplos são fornecidos abaixo:
 
-## Dev containers in Visual Studio Code
+## Contêineres de Desenvolvimento no Visual Studio Code
 
-The [Visual Studio Code Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) lets you use a Docker container as a full-featured development environment. It allows you to open any folder inside (or mounted into) a container and take advantage of Visual Studio Code's full feature set.
+A extensão [Visual Studio Code Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) permite que você use um contêiner Docker como um ambiente de desenvolvimento completo. Isso permite que você abra qualquer pasta dentro (ou montada em) um contêiner e aproveite o conjunto completo de recursos do Visual Studio Code.
 
-Additional information: [Developing inside a Container](https://code.visualstudio.com/docs/remote/containers).
+Informações adicionais: [Desenvolvendo Dentro de um Contêiner](https://code.visualstudio.com/docs/remote/containers).
 
-## Launch configurations and Tasks in Visual Studio Code
+## Configurações de Inicialização e Tarefas no Visual Studio Code
 
-[Launch configurations](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations) allows you to configure and save debugging setup details.
+[Configurações de Inicialização](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations) permitem que você configure e salve detalhes de configuração de depuração.
 
-[Tasks](https://code.visualstudio.com/Docs/editor/tasks) can be configured to run scripts and start processes so that many of these existing tools can be used from within VS Code without having to enter a command line or write new code.
+[Tarefas](https://code.visualstudio.com/Docs/editor/tasks) podem ser configuradas para executar scripts e iniciar processos, de modo que muitas dessas ferramentas existentes podem ser usadas dentro do VS Code sem a necessidade de entrar em um terminal ou escrever novo código.

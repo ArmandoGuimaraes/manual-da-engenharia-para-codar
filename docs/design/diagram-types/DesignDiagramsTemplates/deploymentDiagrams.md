@@ -1,67 +1,66 @@
-# Deployment Diagrams
+# Diagramas de Implantação
 
-## Purpose
+## Propósito
 
-This document is intended to provide a baseline understanding for what, why, and how to incorporate Deployment Diagrams
-as part of your engagement.
+Este documento tem como objetivo fornecer uma compreensão básica do que são, por que são usados e como incorporar Diagramas de Implantação como parte de seu envolvimento.
 
-[Wikipedia](https://en.wikipedia.org/wiki/Deployment_diagram) defines UML Deployment Diagrams as:
+A [Wikipedia](https://en.wikipedia.org/wiki/Deployment_diagram) define os Diagramas de Implantação UML como:
 
- > _models the physical deployment of artifacts on nodes_
+ > _modela a implantação física de artefatos em nós_
 
-Deployment Diagrams are a type of a static structure because it focuses on the infrastructure and hosting where all aspects of the system reside in.
+Os Diagramas de Implantação são um tipo de estrutura estática porque se concentram na infraestrutura e hospedagem onde todos os aspectos do sistema residem.
 
-It is not supposed to inform about the data flow, the caller or callee responsibilities, the request flows, nor any other "behavior" related characteristics.
+Eles não têm a finalidade de informar sobre o fluxo de dados, as responsabilidades do chamador ou do chamado, os fluxos de solicitação ou quaisquer outras características relacionadas ao "comportamento".
 
-## Essential Takeaways
+## Principais Pontos
 
-The Deployment diagram should contain all Components identified in the [Component Diagram(s)](./componentDiagrams.md), but captured alongside the following elements:
+O diagrama de implantação deve conter todos os Componentes identificados nos [Diagramas de Componentes](./componentDiagrams.md), mas capturados juntamente com os seguintes elementos:
 
 - Firewalls
-- VNETs and subnets
-- Virtual machines
-- Cloud Services
-- Data Stores
-- Servers (Web, proxy)
-- Load Balancers
+- VNETs e sub-redes
+- Máquinas virtuais
+- Serviços em nuvem
+- Armazenamento de dados
+- Servidores (Web, proxy)
+- Balanceadores de carga
 
-This diagram should inform the audience:
+Este diagrama deve informar à audiência:
 
-- where things are hosted / running in
-- what network boundaries are involved in the system
+- onde as coisas estão hospedadas/em execução
+- quais são os limites de rede envolvidos no sistema
 
-## When to Create?
+## Quando Criar?
 
-Because Deployment Diagrams represent the final "hosting" architecture, it's recommended to create the "final envisioned" diagram from the beginning of an engagement. This allows the team to have a shared idea on what the team is working towards. Keep in mind that this might change if any non-functional requirement was not considered at the start of the engagement. This is okay, but
-requires creating the necessary Backlog Items and updating the Deployment diagram in order to capture these changes.
+Como os Diagramas de Implantação representam a arquitetura final de "hospedagem", é recomendável criar o diagrama "imaginado final" desde o início de um envolvimento. Isso permite que a equipe tenha uma ideia compartilhada do que a equipe está trabalhando para alcançar. Tenha em mente que isso pode mudar se algum requisito não funcional não foi considerado no início do envolvimento. Isso é aceitável, mas
+requer a criação dos itens de backlog necessários e a atualização do diagrama de implantação para capturar essas mudanças.
 
-It's also worthwhile to create and maintain a Deployment Diagram depicting the "current" state of the system. At times, it may be beneficial for there to be a Deployment Diagram per each environment (Dev, QA, Staging, Prod, etc...). However, this adds to the amount of maintenance required and should only be performed if there are substantial differences across environments.
+Também é válido criar e manter um Diagrama de Implantação que represente o estado "atual" do sistema. Às vezes, pode ser benéfico ter um Diagrama de Implantação para cada ambiente (Desenvolvimento, QA, Staging, Produção, etc...). No entanto, isso aumenta a quantidade de manutenção necessária e só deve ser realizado se houver diferenças substanciais entre os ambientes.
 
-The "current" Deployment diagram should be updated when:
+O Diagrama de Implantação "atual" deve ser atualizado quando:
 
-- A new element has been introduced or removed in the system (see the "Essential Takeaways" section for a list of possible elements)
+- Um novo elemento foi introduzido ou removido no sistema (consulte a seção "Principais Pontos" para uma lista de possíveis elementos)
 
-## Examples
+## Exemplos
 
-Below are some basic examples:
+Aqui estão alguns exemplos básicos:
 
 ![image](./Images/azureDeploymentDiagram.png)
 
 ![image](./Images/deploymentDiagram.png)
 
-## Versioning
+## Versionamento
 
-Because Deployment Diagrams will be changing periodically, it's recommended to "publish" an image of the generated diagram periodically. The frequency might vary as the engagement proceeds.
+Como os Diagramas de Implantação mudarão periodicamente, é recomendável "publicar" periodicamente uma imagem do diagrama gerado. A frequência pode variar à medida que o envolvimento avança.
 
-The below approach can be used to assist the team on how often to update the published version of the diagram:
+A abordagem abaixo pode ser usada para auxiliar a equipe a determinar com que frequência atualizar a versão publicada do diagrama:
 
-- At the beginning of the engagement, publishing an "envisioned" version of the Component Diagram will provide a common visual to all engineers when working on the different parts of the solution
-- Throughout the engagement, update the "actual / current" diagram (state represented from the "main" branch) periodically. Ideally whenever a new Component is introduced into the system, or whenever a new "touch point" occurs between Components.
+- No início do envolvimento, publicar uma versão "imaginada" do Diagrama de Componentes fornecerá uma visão comum a todos os engenheiros ao trabalharem nas diferentes partes da solução.
+- Ao longo do envolvimento, atualize o diagrama "atual" (estado representado do "ramo principal") periodicamente. Idealmente, sempre que um novo Componente for introduzido no sistema, ou sempre que um novo "ponto de contato" ocorrer entre Componentes.
 
-## Resources
+## Recursos
 
 - [Wikipedia](https://en.wikipedia.org/wiki/Deployment_diagram)
 - [Visual Paradigm](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-deployment-diagram/)
-  - [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) - requires a generator from code to PlantUML syntax to generate diagrams
-    - [PlantUML Syntax](https://plantuml.com/deployment-diagram)
-    - [Drawing manually](https://towardsdatascience.com/drawing-a-uml-diagram-in-the-vs-code-53c2e67deffe)
+  - [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) - requer um gerador de código para a sintaxe PlantUML para gerar diagramas
+    - [Sintaxe PlantUML](https://plantuml.com/deployment-diagram)
+    - [Desenhar manualmente](https://towardsdatascience.com/drawing-a-uml-diagram-in-the-vs-code-53c2e67deffe)

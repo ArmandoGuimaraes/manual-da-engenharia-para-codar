@@ -1,67 +1,63 @@
 # Copilots
 
-There are a number of AI tools that can improve the developer experience. This article will discuss tooling that is available as well as advice on when it might be appropriate to use such tooling.
+Existem diversas ferramentas de IA que podem aprimorar a experiência do desenvolvedor. Este artigo discutirá as ferramentas disponíveis, bem como conselhos sobre quando pode ser apropriado usar essas ferramentas.
 
 ## GitHub Copilot
 
-The current version of GitHub Copilot can provide code completion in many popular IDEs. For instance, the [VS Code extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) that can be installed from the VS Code Marketplace. It requires a GitHub account to use. For more information about what IDEs are supported, what languages are supported, cost, features, etc., please checkout out the information on [Copilot](https://github.com/features/copilot) and [Copilot for Business](https://resources.github.com/copilot-for-business/).
+A versão atual do GitHub Copilot pode fornecer conclusão de código em muitos IDEs populares. Por exemplo, a [extensão para o VS Code](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) que pode ser instalada no Marketplace do VS Code. Ela requer uma conta do GitHub para uso. Para obter mais informações sobre quais IDEs são suportados, quais idiomas são suportados, custos, recursos, etc., consulte as informações em [Copilot](https://github.com/features/copilot) e [Copilot for Business](https://resources.github.com/copilot-for-business/).
 
-Some example use-cases for GitHub Copilot include:
+Alguns exemplos de casos de uso para o GitHub Copilot incluem:
 
-- **Write Documentation**. For example, the above paragraph was written using Copilot.
+- **Escrever Documentação**. Por exemplo, o parágrafo acima foi escrito usando o Copilot.
 
-- **Write Unit Tests**. Given that setup and assertions are often consistent across unit tests, Copilot tends to be very accurate.
+- **Escrever Testes Unitários**. Dado que a configuração e asserções muitas vezes são consistentes em testes unitários, o Copilot tende a ser muito preciso.
 
-- **Unblock**. It is often hard start writing when staring at a blank page, Copilot can fill the space with something that may or may not be what you ultimately want to do, but it can help get you in the right head space.
+- **Desbloquear**. Muitas vezes é difícil começar a escrever quando se está olhando para uma página em branco. O Copilot pode preencher o espaço com algo que pode ou não ser exatamente o que você deseja fazer, mas pode ajudar a colocar você na mentalidade certa.
 
-If you want Copilot to write something useful for you, try writing a comment that describes what your code is going to do - it can often take it from there.
+Se você quiser que o Copilot escreva algo útil para você, tente escrever um comentário que descreva o que seu código vai fazer - muitas vezes ele pode continuar a partir daí.
 
 ## GitHub Copilot Labs
 
-Copilot has a [GitHub Copilot Labs extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-labs) that offers additional features that are not yet ready for prime-time. For VS Code, you can install it from the VS Code Marketplace. These features include:
+O Copilot possui uma [extensão GitHub Copilot Labs](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-labs) que oferece recursos adicionais que ainda não estão prontos para o uso principal. Para o VS Code, você pode instalá-lo no Marketplace do VS Code. Esses recursos incluem:
 
-- **Explain**. Copilot can explain what the code is doing in natural language.
+- **Explicar**. O Copilot pode explicar o que o código está fazendo em linguagem natural.
 
-- **Translate**. Copilot can translate code from one language to another.
+- **Traduzir**. O Copilot pode traduzir código de um idioma para outro.
 
-- **Brushes**. You can select code that Copilot then modifies inline based on a "brush" you select, for example, to make the code more readable, fix bugs, improve debugging, document, etc.
+- **Pincéis**. Você pode selecionar código que o Copilot modificará inline com base em um "pincel" que você selecionar, por exemplo, para tornar o código mais legível, corrigir bugs, melhorar a depuração, documentar, etc.
 
-- **Generate Tests**. Copilot can generate unit tests for your code. Though currently this is limited to JavaScript and TypeScript.
+- **Gerar Testes**. O Copilot pode gerar testes unitários para seu código. No entanto, atualmente isso está limitado ao JavaScript e TypeScript.
 
 ## GitHub Copilot X
 
-The next version of Copilot offers a number of new use-cases beyond code completion. These include:
+A próxima versão do Copilot oferece várias novas possibilidades além da conclusão de código. Estas incluem:
 
-- **Chat**. Rather than just providing code completion, Copilot will be able to have a conversation with you about what you want to do. It has context about the code you are working on and can provide suggestions based on that context. Beyond just writing code, consider using chat to:
+- **Chat**. Em vez de apenas fornecer conclusão de código, o Copilot poderá ter uma conversa com você sobre o que você deseja fazer. Ele tem contexto sobre o código em que você está trabalhando e pode fornecer sugestões com base nesse contexto. Além de apenas escrever código, considere usar o chat para:
 
-  - **Build SQL Indexes**. Given a query, ChatGPT can generate a SQL index that will improve the performance of the query.
+  - **Construir Índices SQL**. Dada uma consulta, o ChatGPT pode gerar um índice SQL que melhorará o desempenho da consulta.
 
-  - **Write Regular Expressions**. These are notoriously difficult to write, but ChatGPT can generate them for you if you give some sample input and describe what you want to extract.
+  - **Escrever Expressões Regulares**. Essas são notoriamente difíceis de escrever, mas o ChatGPT pode gerá-las para você se você fornecer alguma entrada de exemplo e descrever o que deseja extrair.
 
-  - **Improve and Validate**. If you are unsure of the implications of writing code a particular way, you can ask questions about it. For instance, you might ask if there is a way to write the code that is more performant or uses less memory. Once it gives you an opinion, you can ask it to provide documentation validating that assertion.
+  - **Melhorar e Validar**. Se você não tiver certeza das implicações de escrever código de uma determinada maneira, pode fazer perguntas a esse respeito. Por exemplo, você pode perguntar se há uma maneira de escrever o código que seja mais eficiente em termos de desempenho ou use menos memória. Uma vez que ele lhe der uma opinião, você pode pedir que ele forneça documentação que valide essa afirmação.
 
-- **Explain**. Copilot can explain what the code is doing in natural language.
+- **Explicar**. O Copilot pode explicar o que o código está fazendo em linguagem natural.
 
-- **Write Code**. Given prompting by the developer it can write code that you can one-click deploy into existing or new files.
+- **Escrever Código**. Dado um estímulo pelo desenvolvedor, ele pode escrever código que você pode implantar com um clique em arquivos existentes ou novos.
 
-- **Debug**. Copilot can analyze your code and propose solutions to fix bugs.
+- **Depurar**. O Copilot pode analisar seu código e propor soluções para corrigir bugs.
 
-It can do most of what Labs can do with "brushes" as "topics", but whereas Labs changes the code in your file, the chat functionality just shows what it would change in the window. However, there is also an "inline mode" for GitHub Copilot Chat that allows you to make changes to your code inline which does not have this same limitation.
+Ele pode fazer a maioria do que o Labs pode fazer com "pincéis" como "tópicos", mas enquanto o Labs altera o código no seu arquivo, a funcionalidade de chat simplesmente mostra o que ele mudaria na janela. No entanto, também existe um "modo inline" para o GitHub Copilot Chat que permite fazer alterações no seu código inline, o que não tem essa mesma limitação.
 
 ## ChatGPT / Bing Chat
 
-For coding, generic AI chat tools such as ChatGPT and Bing Chat are less useful, but they still have their place. GitHub Copilot will only answer "questions about coding" and it's interpretation of that rule can be a little restrictive. Some cases for using ChatGPT or Bing Chat include:
+Para programação, ferramentas genéricas de chat de IA, como ChatGPT e Bing Chat, são menos úteis, mas ainda têm seu lugar. O GitHub Copilot responderá apenas a "perguntas sobre programação" e sua interpretação dessa regra pode ser um pouco restritiva. Alguns casos de uso para usar ChatGPT ou Bing Chat incluem:
 
-- **Write Documentation**. Copilot can write documentation, but using ChatGPT or Bing Chat, you can expand your documentation to include business information, use-cases, additional context, etc.
+- **Escrever Documentação**. O Copilot pode escrever documentação, mas usando o ChatGPT ou o Bing Chat, você pode expandir sua documentação para incluir informações comerciais, casos de uso, contexto adicional, etc.
 
-- **Change Perspective**. ChatGPT can impersonate a persona or even a system and answer questions from that perspective. For example, you can ask it to explain what a particular piece of code does from the perspective of a user. You might have ChatGPT imagine it is a database administrator and ask it to explain how to improve a particular query.
+- **Mudar de Perspectiva**. O ChatGPT pode assumir a identidade de uma persona ou até mesmo de um sistema e responder a perguntas a partir dessa perspectiva. Por exemplo, você pode pedir para explicar o que um determinado trecho de código faz da perspectiva de um usuário. Você pode pedir para o ChatGPT imaginar que é um administrador de banco de dados e perguntar como melhorar uma consulta específica.
 
-When using Bing Chat, experiment with modes, sometimes changing to Creative Mode can give the results you need.
+Ao usar o Bing Chat, experimente com os modos, às vezes mudar para o Modo Criativo pode fornecer os resultados de que você precisa.
 
-## Prompt Engineering
+## Engenharia de Estímulo
 
-Chat AI tools are only as good as the prompts you give them. The quality and appropriateness of the output can vary greatly depending on the prompt. In addition, many of these tools restrict the number of prompts you can send in a given amount of time. To learn more about prompt engineering, you might review some open source documentation [here](https://github.com/brexhq/prompt-engineering).
-
-## Considerations
-
-It is important when using AI tools to understand how the data (including private or commercial code) might be used by the system. Read more about how GitHub Copilot handles your data and code [here](https://resources.github.com/copilot-for-business/).
+As ferramentas de IA de chat são tão boas quanto os estímulos que você lhes dá. A qualidade e a adequação da saída podem variar muito dependendo do estímulo. Além disso, muitas dessas ferramentas limitam o número de estímulos que você pode enviar em um determinado período de tempo. Para saber mais sobre engenharia de estímulos, você pode revisar a documentação de código aberto [aqui](https://github.com/brex

@@ -19,7 +19,7 @@
     
     
       
-        <title>How to Sync a Wiki between Repositories - Manual da Engenharia para Codar</title>
+        <title>Como Sincronizar uma Wiki entre Repositórios - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-sync-a-wiki-between-repositories" class="md-skip">
+        <a href="#como-sincronizar-uma-wiki-entre-repositorios" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How to Sync a Wiki between Repositories
+              Como Sincronizar uma Wiki entre Repositórios
             
           </span>
         </div>
@@ -5539,7 +5539,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        How to Sync a Wiki between Repositories
+        Como Sincronizar uma Wiki entre Repositórios
       </a>
       
     </li>
@@ -7153,59 +7153,59 @@
                 
 
 
-<h1 id="how-to-sync-a-wiki-between-repositories">How to Sync a Wiki between Repositories</h1>
-<p>This is a quick guide to mirroring a Project Wiki to another repository.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Clone the wiki</span>
-git<span class="w"> </span>clone<span class="w"> </span>&lt;<span class="nb">source</span><span class="w"> </span>wiki<span class="w"> </span>repo<span class="w"> </span>url&gt;
+<h1 id="como-sincronizar-uma-wiki-entre-repositorios">Como Sincronizar uma Wiki entre Repositórios</h1>
+<p>Este é um guia rápido para espelhar uma Wiki de Projeto em outro repositório.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Clonar a wiki</span>
+git<span class="w"> </span>clone<span class="w"> </span>&lt;URL<span class="w"> </span><span class="k">do</span><span class="w"> </span>repositório<span class="w"> </span>da<span class="w"> </span>wiki<span class="w"> </span>de<span class="w"> </span>origem&gt;
 
-<span class="c1"># Add mirror repository as a remote</span>
-<span class="nb">cd</span><span class="w"> </span>&lt;<span class="nb">source</span><span class="w"> </span>wiki<span class="w"> </span>repo<span class="w"> </span>working<span class="w"> </span>folder&gt;
-git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>mirror<span class="w"> </span>&lt;mirror<span class="w"> </span>repo<span class="w"> </span>that<span class="w"> </span>must<span class="w"> </span>already<span class="w"> </span>exist&gt;
+<span class="c1"># Adicionar o repositório espelhado como um controle remoto</span>
+<span class="nb">cd</span><span class="w"> </span>&lt;pasta<span class="w"> </span>de<span class="w"> </span>trabalho<span class="w"> </span><span class="k">do</span><span class="w"> </span>repositório<span class="w"> </span>da<span class="w"> </span>wiki<span class="w"> </span>de<span class="w"> </span>origem&gt;
+git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>espelho<span class="w"> </span>&lt;URL<span class="w"> </span><span class="k">do</span><span class="w"> </span>repositório<span class="w"> </span>espelhado<span class="w"> </span>que<span class="w"> </span>deve<span class="w"> </span>existir<span class="w"> </span>previamente&gt;
 </code></pre></div>
-<p>Now each time you wish to sync run the following to get latest from the source wiki repo:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Get everything</span>
+<p>Agora, cada vez que você desejar sincronizar, execute o seguinte para obter as últimas atualizações do repositório da wiki de origem:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Obter tudo</span>
 git<span class="w"> </span>pull<span class="w"> </span>-v
 </code></pre></div>
 <blockquote>
-<p><strong>Warning</strong>: Check that the output of the pull shows "From source repo URL". If this shows the mirror repo url then you've forgotten to reset the tracking. Run <code>git branch -u origin/wikiMaster</code> then continue.</p>
+<p><strong>Aviso</strong>: Verifique se a saída do comando pull mostra "From URL do repositório de origem". Se isso mostrar a URL do repositório espelhado, você esqueceu de redefinir o rastreamento. Execute <code>git branch -u origin/wikiMaster</code> e depois continue.</p>
 </blockquote>
-<p>Then run this to push it to the mirror repo and reset the branch to track the source repo again:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Push all branches up to mirror remote</span>
-git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>mirror
+<p>Em seguida, execute o seguinte para enviá-lo para o repositório espelhado e redefinir o branch para rastrear o repositório de origem novamente:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Enviar todos os branches para o controle remoto espelhado</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>espelho
 
-<span class="c1"># Reset local to track source remote</span>
+<span class="c1"># Ressincronizar localmente com o repositório de origem</span>
 git<span class="w"> </span>branch<span class="w"> </span>-u<span class="w"> </span>origin/wikiMaster
 </code></pre></div>
-<p>Your output should look like this when run:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Git</span><span class="p">\</span><span class="n">MyProject</span><span class="p">.</span><span class="n">wiki</span><span class="p">&gt;</span> <span class="n">git</span> <span class="n">pull</span> <span class="n">-v</span>
+<p>A saída deve ser semelhante a esta quando executada:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Git</span><span class="p">\</span><span class="n">MinhaWikiProjeto</span><span class="p">&gt;</span> <span class="n">git</span> <span class="n">pull</span> <span class="n">-v</span>
 <span class="n">POST</span> <span class="n">git-upload-pack</span> <span class="p">(</span><span class="n">909</span> <span class="n">bytes</span><span class="p">)</span>
-<span class="n">remote</span><span class="p">:</span> <span class="n">Azure</span> <span class="n">Repos</span>
-<span class="n">remote</span><span class="p">:</span> <span class="n">Found</span> <span class="n">5</span> <span class="n">objects</span> <span class="n">to</span> <span class="n">send</span><span class="p">.</span> <span class="p">(</span><span class="n">0</span> <span class="n">ms</span><span class="p">)</span>
-<span class="n">Unpacking</span> <span class="n">objects</span><span class="p">:</span> <span class="n">100</span><span class="p">%</span> <span class="p">(</span><span class="n">5</span><span class="p">/</span><span class="n">5</span><span class="p">),</span> <span class="n">done</span><span class="p">.</span>
-<span class="n">From</span> <span class="n">https</span><span class="p">://.....</span>  <span class="n">wikiMaster</span> <span class="p">-&gt;</span> <span class="n">origin</span><span class="p">/</span><span class="n">wikiMaster</span>
-<span class="n">Updating</span> <span class="n">7412b94</span><span class="p">..</span><span class="n">a0f543b</span>
-<span class="n">Fast-forward</span>
+<span class="n">remote</span><span class="p">:</span> <span class="n">Repositórios</span> <span class="n">Azure</span>
+<span class="n">remote</span><span class="p">:</span> <span class="n">Encontrados</span> <span class="n">5</span> <span class="n">objetos</span> <span class="n">para</span> <span class="n">enviar</span><span class="p">.</span> <span class="p">(</span><span class="n">0</span> <span class="n">ms</span><span class="p">)</span>
+<span class="n">Descompactando</span> <span class="n">objetos</span><span class="p">:</span> <span class="n">100</span><span class="p">%</span> <span class="p">(</span><span class="n">5</span><span class="p">/</span><span class="n">5</span><span class="p">),</span> <span class="n">concluído</span><span class="p">.</span>
+<span class="n">De</span> <span class="n">https</span><span class="p">://.....</span>  <span class="n">wikiMaster</span> <span class="p">-&gt;</span> <span class="n">origin</span><span class="p">/</span><span class="n">wikiMaster</span>
+<span class="n">Atualizando</span> <span class="n">7412b94</span><span class="p">..</span><span class="n">a0f543b</span>
+<span class="n">Encaminhamento</span> <span class="n">rápido</span>
  <span class="p">.../</span><span class="n">dffffds</span><span class="p">.</span><span class="nb">md </span><span class="p">|</span> <span class="n">4</span> <span class="p">++++</span>
- <span class="n">1</span> <span class="n">file</span> <span class="n">changed</span><span class="p">,</span> <span class="n">4</span> <span class="n">insertions</span><span class="p">(+)</span>
+ <span class="n">1</span> <span class="n">arquivo</span> <span class="n">alterado</span><span class="p">,</span> <span class="n">4</span> <span class="n">inserções</span><span class="p">(+)</span>
 
 
-<span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Git</span><span class="p">\</span><span class="n">MyProject</span><span class="p">.</span><span class="n">wiki</span><span class="p">&gt;</span> <span class="n">git</span> <span class="n">push</span> <span class="n">-u</span> <span class="n">mirror</span>
-<span class="n">Enumerating</span> <span class="n">objects</span><span class="p">:</span> <span class="n">9</span><span class="p">,</span> <span class="n">done</span><span class="p">.</span>
-<span class="n">Counting</span> <span class="n">objects</span><span class="p">:</span> <span class="n">100</span><span class="p">%</span> <span class="p">(</span><span class="n">9</span><span class="p">/</span><span class="n">9</span><span class="p">),</span> <span class="n">done</span><span class="p">.</span>
-<span class="n">Delta</span> <span class="n">compression</span> <span class="n">using</span> <span class="n">up</span> <span class="n">to</span> <span class="n">8</span> <span class="n">threads</span>
-<span class="n">Compressing</span> <span class="n">objects</span><span class="p">:</span> <span class="n">100</span><span class="p">%</span> <span class="p">(</span><span class="n">5</span><span class="p">/</span><span class="n">5</span><span class="p">),</span> <span class="n">done</span><span class="p">.</span>
-<span class="n">Writing</span> <span class="n">objects</span><span class="p">:</span> <span class="n">100</span><span class="p">%</span> <span class="p">(</span><span class="n">5</span><span class="p">/</span><span class="n">5</span><span class="p">),</span> <span class="n">2</span><span class="p">.</span><span class="n">08</span> <span class="n">KiB</span> <span class="p">|</span> <span class="n">2</span><span class="p">.</span><span class="n">08</span> <span class="n">MiB</span><span class="p">/</span><span class="n">s</span><span class="p">,</span> <span class="n">done</span><span class="p">.</span>
-<span class="n">Total</span> <span class="n">5</span> <span class="p">(</span><span class="n">delta</span> <span class="n">4</span><span class="p">),</span> <span class="n">reused</span> <span class="n">0</span> <span class="p">(</span><span class="n">delta</span> <span class="n">0</span><span class="p">)</span>
-<span class="n">remote</span><span class="p">:</span> <span class="n">Analyzing</span> <span class="n">objects</span><span class="p">...</span> <span class="p">(</span><span class="n">5</span><span class="p">/</span><span class="n">5</span><span class="p">)</span> <span class="p">(</span><span class="n">6</span> <span class="n">ms</span><span class="p">)</span>
-<span class="n">remote</span><span class="p">:</span> <span class="n">Storing</span> <span class="n">packfile</span><span class="p">...</span> <span class="n">done</span> <span class="p">(</span><span class="n">48</span> <span class="n">ms</span><span class="p">)</span>
-<span class="n">remote</span><span class="p">:</span> <span class="n">Storing</span> <span class="n">index</span><span class="p">...</span> <span class="n">done</span> <span class="p">(</span><span class="n">59</span> <span class="n">ms</span><span class="p">)</span>
-<span class="n">To</span> <span class="n">https</span><span class="p">://......</span>
+<span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Git</span><span class="p">\</span><span class="n">MinhaWikiProjeto</span><span class="p">&gt;</span> <span class="n">git</span> <span class="n">push</span> <span class="n">-u</span> <span class="n">espelho</span>
+<span class="n">Enumerando</span> <span class="n">objetos</span><span class="p">:</span> <span class="n">9</span><span class="p">,</span> <span class="n">concluído</span><span class="p">.</span>
+<span class="n">Contando</span> <span class="n">objetos</span><span class="p">:</span> <span class="n">100</span><span class="p">%</span> <span class="p">(</span><span class="n">9</span><span class="p">/</span><span class="n">9</span><span class="p">),</span> <span class="n">concluído</span><span class="p">.</span>
+<span class="n">Compactação</span> <span class="n">de</span> <span class="n">objetos</span> <span class="n">usando</span> <span class="n">até</span> <span class="n">8</span> <span class="n">threads</span>
+<span class="n">Compactação</span> <span class="n">de</span> <span class="n">objetos</span><span class="p">:</span> <span class="n">100</span><span class="p">%</span> <span class="p">(</span><span class="n">5</span><span class="p">/</span><span class="n">5</span><span class="p">),</span> <span class="n">concluído</span><span class="p">.</span>
+<span class="n">Gravando</span> <span class="n">objetos</span><span class="p">:</span> <span class="n">100</span><span class="p">%</span> <span class="p">(</span><span class="n">5</span><span class="p">/</span><span class="n">5</span><span class="p">),</span> <span class="n">2</span><span class="p">.</span><span class="n">08</span> <span class="n">KiB</span> <span class="p">|</span> <span class="n">2</span><span class="p">.</span><span class="n">08</span> <span class="n">MiB</span><span class="p">/</span><span class="n">s</span><span class="p">,</span> <span class="n">concluído</span><span class="p">.</span>
+<span class="n">Total</span> <span class="n">5</span> <span class="p">(</span><span class="n">delta</span> <span class="n">4</span><span class="p">),</span> <span class="n">reutilizados</span> <span class="n">0</span> <span class="p">(</span><span class="n">delta</span> <span class="n">0</span><span class="p">)</span>
+<span class="n">remote</span><span class="p">:</span> <span class="n">Analisando</span> <span class="n">objetos</span><span class="p">...</span> <span class="p">(</span><span class="n">5</span><span class="p">/</span><span class="n">5</span><span class="p">)</span> <span class="p">(</span><span class="n">6</span> <span class="n">ms</span><span class="p">)</span>
+<span class="n">remote</span><span class="p">:</span> <span class="n">Armazenando</span> <span class="n">packfile</span><span class="p">...</span> <span class="n">concluído</span> <span class="p">(</span><span class="n">48</span> <span class="n">ms</span><span class="p">)</span>
+<span class="n">remote</span><span class="p">:</span> <span class="n">Armazenando</span> <span class="n">índice</span><span class="p">...</span> <span class="n">concluído</span> <span class="p">(</span><span class="n">59</span> <span class="n">ms</span><span class="p">)</span>
+<span class="n">Para</span> <span class="n">https</span><span class="p">://......</span>
    <span class="n">7412b94</span><span class="p">..</span><span class="n">a0f543b</span>  <span class="n">wikiMaster</span> <span class="p">-&gt;</span> <span class="n">wikiMaster</span>
-<span class="n">Branch</span> <span class="s1">&#39;wikiMaster&#39;</span> <span class="nb">set </span><span class="n">up</span> <span class="n">to</span> <span class="n">track</span> <span class="n">remote</span> <span class="n">branch</span> <span class="s1">&#39;wikiMaster&#39;</span> <span class="n">from</span> <span class="s1">&#39;mirror&#39;</span><span class="p">.</span>
+<span class="n">Branch</span> <span class="s1">&#39;wikiMaster&#39;</span> <span class="n">configurado</span> <span class="n">para</span> <span class="n">rastrear</span> <span class="n">o</span> <span class="n">branch</span> <span class="n">remoto</span> <span class="s1">&#39;wikiMaster&#39;</span> <span class="k">do</span> <span class="s1">&#39;espelho&#39;</span><span class="p">.</span>
 
 
-<span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Git</span><span class="p">\</span><span class="n">MyProject</span><span class="p">.</span><span class="n">wiki</span><span class="p">&gt;</span> <span class="n">git</span> <span class="n">branch</span> <span class="n">-u</span> <span class="n">origin</span><span class="p">/</span><span class="n">wikiMaster</span>
-<span class="n">Branch</span> <span class="s1">&#39;wikiMaster&#39;</span> <span class="nb">set </span><span class="n">up</span> <span class="n">to</span> <span class="n">track</span> <span class="n">remote</span> <span class="n">branch</span> <span class="s1">&#39;wikiMaster&#39;</span> <span class="n">from</span> <span class="s1">&#39;origin&#39;</span><span class="p">.</span>
+<span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Git</span><span class="p">\</span><span class="n">MinhaWikiProjeto</span><span class="p">&gt;</span> <span class="n">git</span> <span class="n">branch</span> <span class="n">-u</span> <span class="n">origin</span><span class="p">/</span><span class="n">wikiMaster</span>
+<span class="n">Branch</span> <span class="s1">&#39;wikiMaster&#39;</span> <span class="n">configurado</span> <span class="n">para</span> <span class="n">rastrear</span> <span class="n">o</span> <span class="n">branch</span> <span class="n">remoto</span> <span class="s1">&#39;wikiMaster&#39;</span> <span class="k">do</span> <span class="s1">&#39;origin&#39;</span><span class="p">.</span>
 </code></pre></div>
 
   <hr>
@@ -7213,7 +7213,7 @@ git<span class="w"> </span>branch<span class="w"> </span>-u<span class="w"> </sp
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 7, 2021</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
       
     
   </small>

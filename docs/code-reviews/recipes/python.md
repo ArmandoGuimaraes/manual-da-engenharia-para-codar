@@ -1,123 +1,123 @@
-# Python Code Reviews
+# Revisão de Código em Python
 
-## Style Guide
+## Guia de Estilo
 
-Developers should follow the [PEP8 style guide](https://pep8.org/) with [type hints](https://www.python.org/dev/peps/pep-0484/). The use of type hints throughout paired with linting and type hint checking avoids common errors that are tricky to debug.
+Os desenvolvedores devem seguir o [guia de estilo PEP8](https://pep8.org/) com [dicas de tipo](https://www.python.org/dev/peps/pep-0484/). O uso de dicas de tipo em conjunto com a lintagem e verificação de dicas de tipo evita erros comuns que são difíceis de depurar.
 
-Projects should check Python code with automated tools.
+Projetos devem verificar o código Python com ferramentas automatizadas.
 
-Linting should be added to build validation, and both linting and code formatting can be added to your pre-commit hooks and VS Code.
+A lintagem deve ser adicionada à validação de build, e tanto a lintagem quanto a formatação de código podem ser adicionadas aos seus ganchos de pré-compromisso e ao VS Code.
 
-## Code Analysis / Linting
+## Análise de Código / Lintagem
 
-The 2 most popular python linters are [Pylint](https://pypi.org/project/pylint/) and [Flake8](https://pypi.org/project/flake8/). Both check adherence to `PEP8` but vary a bit in what other rules they check. In general `Pylint` tends to be a bit more stringent and give more false positives but both are good options for linting python code.
+Os dois linters Python mais populares são o [Pylint](https://pypi.org/project/pylint/) e o [Flake8](https://pypi.org/project/flake8/). Ambos verificam a aderência ao `PEP8`, mas variam um pouco no que diz respeito a outras regras que verificam. Em geral, o `Pylint` tende a ser um pouco mais rigoroso e pode gerar mais falsos positivos, mas ambos são boas opções para a lintagem de código Python.
 
-Both `Pylint` and `Flake8` can be configured in VS Code using the VS Code `python extension`.
+Tanto o `Pylint` quanto o `Flake8` podem ser configurados no VS Code usando a extensão Python do VS Code.
 
 ### Flake8
 
-Flake8 is a simple and fast wrapper around [`Pyflakes`](https://github.com/PyCQA/pyflakes) (for detecting coding errors) and [`pycodestyle`](https://github.com/PyCQA/pycodestyle) (for pep8).
+O Flake8 é um wrapper simples e rápido em torno do [`Pyflakes`](https://github.com/PyCQA/pyflakes) (para detecção de erros de codificação) e [`pycodestyle`](https://github.com/PyCQA/pycodestyle) (para o `PEP8`).
 
-Install `Flake8`
+Instale o `Flake8`
 
 ```bash
 pip install flake8
 ```
 
-Add an extension for the [`pydocstyle`](https://github.com/PyCQA/pydocstyle) (for [doc strings](https://www.python.org/dev/peps/pep-0257/)) tool to flake8.
+Adicione uma extensão para a ferramenta [`pydocstyle`](https://github.com/PyCQA/pydocstyle) (para [strings de documentação](https://www.python.org/dev/peps/pep-0257/)) ao `Flake8`.
 
 ```bash
 pip install flake8-docstrings
 ```
 
-Add an extension for [`pep8-naming`](https://github.com/PyCQA/pep8-naming) (for [naming conventions](https://www.python.org/dev/peps/pep-0008/#naming-conventions) in pep8) tool to flake8.
+Adicione uma extensão para o [`pep8-naming`](https://github.com/PyCQA/pep8-naming) (para [convenções de nomenclatura](https://www.python.org/dev/peps/pep-0008/#naming-conventions) no `PEP8`) ao `Flake8`.
 
 ```bash
 pip install pep8-naming
 ```
 
-Run `Flake8`
+Execute o `Flake8`
 
 ```bash
-flake8 .    # lint the whole project
+flake8 .    # Lintagem do projeto inteiro
 ```
 
 ### Pylint
 
-Install `Pylint`
+Instale o `Pylint`
 
 ```bash
 pip install pylint
 ```
 
-Run `Pylint`
+Execute o `Pylint`
 
 ```bash
-pylint src  # lint the source directory
+pylint src  # Lintagem do diretório de código-fonte
 ```
 
-## Automatic Code Formatting
+## Formatação Automática de Código
 
 ### Black
 
-[`Black`](https://github.com/psf/black) is an unapologetic code formatting tool. It removes all need from `pycodestyle` nagging about formatting, so the team can focus on content vs style. It's not possible to configure black for your own style needs.
+O [`Black`](https://github.com/psf/black) é uma ferramenta de formatação de código sem desculpas. Ele remove todas as reclamações do `pycodestyle` sobre formatação, para que a equipe possa se concentrar no conteúdo em vez do estilo. Não é possível configurar o Black de acordo com suas próprias necessidades de estilo.
 
 ```bash
 pip install black
 ```
 
-Format python code
+Formate o código Python
 
 ```bash
-black [file/folder]
+black [arquivo/pasta]
 ```
 
 ### Autopep8
 
-[`Autopep8`](https://github.com/hhatto/autopep8) is more lenient and allows more configuration if you want less stringent formatting.
+O [`Autopep8`](https://github.com/hhatto/autopep8) é mais flexível e permite mais configuração se você deseja uma formatação menos rigorosa.
 
 ```bash
 pip install autopep8
 ```
 
-Format python code
+Formate o código Python
 
 ```bash
-autopep8 [file/folder] --in-place
+autopep8 [arquivo/pasta] --in-place
 ```
 
 ### yapf
 
-[yapf](https://github.com/google/yapf) Yet Another Python Formatter is a python formatter from Google based on ideas from gofmt.  This is also more configurable, and a good option for automatic code formatting.
+[yapf](https://github.com/google/yapf) Yet Another Python Formatter é um formatador Python da Google baseado em ideias do gofmt. Ele também é mais configurável e uma boa opção para formatação automática de código.
 
 ```bash
 pip install yapf
 ```
 
-Format python code
+Formate o código Python
 
 ```bash
-yapf [file/folder] --in-place
+yapf [arquivo/pasta] --in-place
 ```
 
-## VS Code Extensions
+## Extensões do VS Code
 
 ### Python
 
-The [`Python language extension`](https://marketplace.visualstudio.com/items?itemName=ms-python.python) is the base extension you should have installed for python development with VS Code. It enables intellisense, debugging, linting (with the above linters), testing with pytest or unittest, and code formatting with the formatters mentioned above.
+A [extensão da linguagem Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) é a extensão base que você deve ter instalada para desenvolvimento Python com o VS Code. Ela permite intellisense, depuração, lintagem (com os linters mencionados acima), testes com pytest ou unittest e formatação de código com os formatadores mencionados acima.
 
 ### Pyright
 
-The [`Pyright extension`](https://marketplace.visualstudio.com/items?itemName=ms-pyright.pyright) augments VS Code with static type checking when you use type hints
+A [extensão Pyright](https://marketplace.visualstudio.com/items?itemName=ms-pyright.pyright) aprimora o VS Code com verificação estática de tipos quando você usa dicas de tipo.
 
 ```python
-def add(first_value: int, second_value: int) -> int:
-    return first_value + second_value
+def add(primeiro_valor: int, segundo_valor: int) -> int:
+    return primeiro_valor + segundo_valor
 ```
 
-## Build validation
+## Validação de Build
 
-To automate linting with `flake8` and testing with `pytest` in Azure Devops you can add the following snippet to you `azure-pipelines.yaml` file.
+Para automatizar a lintagem com o `flake8` e os testes com o `pytest` no Azure Devops, você pode adicionar o seguinte trecho ao seu arquivo `azure-pipelines.yaml`.
 
 ```yaml
 trigger:
@@ -134,7 +134,7 @@ pool:
 
 jobs:
 - job: LintAndTest
-  displayName: Lint and Test
+  displayName: Lintagem e Teste
 
   steps:
 
@@ -142,81 +142,81 @@ jobs:
     lfs: true
 
   - task: UsePythonVersion@0
-    displayName: 'Set Python version to 3.6'
+    displayName: 'Definir a versão do Python para 3.6'
     inputs:
       versionSpec: '3.6'
 
   - script: pip3 install --user -r requirements.txt
-    displayName: 'Install dependencies'
+    displayName: 'Instalar dependências'
 
   - script: |
-      # Install Flake8
+      # Instalar o Flake8
       pip3 install --user flake8
-      # Install PyTest
+      # Instalar o PyTest
       pip3 install --user pytest
-    displayName: 'Install Flake8 and PyTest'
+    displayName: 'Instalar o Flake8 e o PyTest'
 
   - script: |
       python3 -m flake8
-    displayName: 'Run Flake8 linter'
+    displayName: 'Executar o linter Flake8'
 
   - script: |
-      # Run PyTest tester
+      # Executar o testador PyTest
       python3 -m pytest --junitxml=./test-results.xml
-    displayName: 'Run PyTest Tester'
+    displayName: 'Executar o testador PyTest'
 
   - task: PublishTestResults@2
-    displayName: 'Publish PyTest results'
+    displayName: 'Publicar resultados do PyTest'
     condition: succeededOrFailed()
     inputs:
       testResultsFiles: '**/test-*.xml'
-      testRunTitle: 'Publish test results for Python $(python.version)'
+      testRunTitle: 'Publicar resultados do teste para Python $(python.version)'
 ```
 
-To perform a PR validation on GitHub you can use a similar YAML configuration with [GitHub Actions](https://help.github.com/en/actions/language-and-framework-guides/using-python-with-github-actions)
+Para realizar uma validação de PR no GitHub, você pode usar uma configuração YAML semelhante com [GitHub Actions](https://help.github.com/en/actions/language-and-framework-guides/using-python-with-github-actions).
 
 ## Pre-commit hooks
 
-Pre-commit hooks allow you to format and lint code locally before submitting the pull request.
+Os Pre-commit hooks permitem que você formate e lint o código localmente antes de enviar a solicitação de pull.
 
-Adding pre-commit hooks for your python repository is easy using the pre-commit package
+Adicionar Pre-commit hookso para o seu repositório Python é fácil usando o pacote pre-commit.
 
-1. Install pre-commit and add to the requirements.txt
+1. Instale o pre-commit e adicione-o ao requirements.txt
 
-    ```bash
-    pip install pre-commit
-    ```
+```bash
+pip install pre-commit
+```
 
-2. Add a `.pre-commit-config.yaml` file in the root of the repository, with the desired pre-commit actions
+2. Adicione um arquivo `.pre-commit-config.yaml` na raiz do repositório, com as ações de pré-compromisso desejadas
 
-    ```yaml
-    repos:
-    -   repo: https://github.com/ambv/black
-        rev: stable
-        hooks:
-        - id: black
-        language_version: python3.6
-    -   repo: https://github.com/pre-commit/pre-commit-hooks
-        rev: v1.2.3
-        hooks:
-        - id: flake8
-    ```
+```yaml
+repos:
+-   repo: https://github.com/ambv/black
+    rev: stable
+    hooks:
+    - id: black
+    language_version: python3.6
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v1.2.3
+    hooks:
+    - id: flake8
+```
 
-3. Each individual developer that wants to set up pre-commit hooks can then run
+3. Cada desenvolvedor individual que deseja configurar ganchos de pré-compromisso pode então executar
 
-    ```bash
-    pre-commit install
-    ```
+```bash
+pre-commit install
+```
 
-At the next attempted commit any lint failures will block the commit.
+Na próxima tentativa de commit, quaisquer falhas de lint bloquearão o commit.
 
-> Note: Installing pre-commit hooks is voluntary and done by each developer individually. Thus, it's not a replacement for build validation on the server
+> Observação: A instalação de ganchos de pré-compromisso é voluntária e feita por cada desenvolvedor individualmente. Portanto, não substitui a validação de build no servidor.
 
-## Code Review Checklist
+## Lista de Verificação de Revisão de Código
 
-In addition to the [Code Review Checklist](../process-guidance/reviewer-guidance.md) you should also look for these python specific code review items
+Além da [Lista de Verificação de Revisão de Código](../process-guidance/reviewer-guidance.md), você também deve procurar por estes itens específicos de revisão de código em Python:
 
-* [ ] Are all new packages used included in requirements.txt
-* [ ] Does the code pass all lint checks?
-* [ ] Do functions use type hints, and are there any type hint errors?
-* [ ] Is the code readable and using pythonic constructs wherever possible.
+* [ ] Todos os novos pacotes usados estão incluídos no requirements.txt?
+* [ ] O código passa em todas as verificações de lint?
+* [ ] As funções usam dicas de tipo e há erros de dica de tipo?
+* [ ] O código é legível e utiliza construções pythonicas sempre que possível.

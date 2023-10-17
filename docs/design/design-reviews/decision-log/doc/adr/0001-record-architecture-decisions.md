@@ -1,19 +1,19 @@
-# 1. Record architecture decisions
+# 1. Registro de decisões de arquitetura
 
-Date: 2020-03-20
+Data: 20 de março de 2020
 
 ## Status
 
-Accepted
+Aceito
 
-## Context
+## Contexto
 
-We need to record the architectural decisions made on this project.
+Precisamos registrar as decisões arquitetônicas tomadas neste projeto.
 
-## Decision
+## Decisão
 
-We will use Architecture Decision Records, as [described by Michael Nygard](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions).
+Usaremos Registros de Decisões de Arquitetura, conforme [descrito por Michael Nygard](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions).
 
-## Consequences
+## Consequências
 
-See Michael Nygard's article, linked above. For a lightweight ADR tool set, see Nat Pryce's [adr-tools](https://github.com/npryce/adr-tools).
+Consulte o artigo de Michael Nygard, vinculado acima. Para uma ferramenta ADR leve, consulte [adr-tools](https://github.com/npryce/adr-tools) de Nat Pryce.

@@ -1,139 +1,138 @@
-# Envisioning and Problem Formulation
+# Visão e Formulação do Problema
 
-Before beginning a data science investigation, we need to define a problem statement which the data science team can explore; this problem statement can have a significant influence on whether the project is likely to be successful.
+Antes de iniciar uma investigação de ciência de dados, é necessário definir uma declaração de problema que a equipe de ciência de dados possa explorar; essa declaração de problema pode ter uma influência significativa na probabilidade de sucesso do projeto.
 
-## Envisioning goals
+## Metas de Visão
 
-The main goals of the envisioning process are:
+As principais metas do processo de visão são:
 
-* Establish a clear understanding of the problem domain and the underlying business objective
-* Define how a potential solution would be used and how its performance should be measured
-* Determine what data is available to solve the problem
-* Understand the capabilities and working practices of the data science team
-* Ensure all parties have the same understanding of the scope and next steps (e.g., onboarding, data exploration workshop)
+* Estabelecer uma compreensão clara do domínio do problema e do objetivo de negócio subjacente
+* Definir como uma solução potencial seria usada e como seu desempenho deve ser medido
+* Determinar quais dados estão disponíveis para resolver o problema
+* Compreender as capacidades e práticas de trabalho da equipe de ciência de dados
+* Garantir que todas as partes tenham a mesma compreensão do escopo e dos próximos passos (por exemplo, integração, workshop de exploração de dados)
 
-The envisioning process usually entails a series of 'envisioning' sessions where the data science team work alongside subject-matter experts to formulate the problem in such a way that there is a shared understanding a shared understanding of the problem domain, a clear goal, and a predefined approach to evaluating a potential solution.
+O processo de visão geralmente envolve uma série de sessões de 'visão' onde a equipe de ciência de dados trabalha junto com especialistas no assunto para formular o problema de tal maneira que haja uma compreensão compartilhada do domínio do problema, um objetivo claro e uma abordagem predefinida para avaliar uma solução potencial.
 
-## Understanding the problem domain
+## Compreensão do Domínio do Problema
 
-Generally, before defining a project scope for a data science investigation, we must first understand the problem domain:
+Geralmente, antes de definir o escopo de um projeto para uma investigação de ciência de dados, devemos primeiro compreender o domínio do problema:
 
-* What is the problem?
-* Why does the problem need to be solved?
-* Does this problem require a machine learning solution?
-* How would a potential solution be used?
+* Qual é o problema?
+* Por que o problema precisa ser resolvido?
+* Este problema requer uma solução de aprendizado de máquina?
+* Como uma solução potencial seria usada?
 
-However, establishing this understanding can prove difficult, especially for those unfamiliar with the problem domain. To ease this process, we can approach problems in a structured way by taking the following steps:  
+No entanto, estabelecer essa compreensão pode ser difícil, especialmente para aqueles que não estão familiarizados com o domínio do problema. Para facilitar esse processo, podemos abordar problemas de maneira estruturada, seguindo as etapas a seguir:
 
-* Identify a measurable problem and define this in business terms. The objective should be clear, and we should have a good understanding of the factors that we can control - that can be used as inputs - and how they affect the objective. Be as specific as possible.
-* Decide how the performance of a solution should be measured and identify whether this is possible within the restrictions of this problem. Make sure it aligns with the business objective and that you have identified the data required to evaluate the solution. Note that the data required to evaluate a solution may differ from the data needed to create a solution.
-* Thinking about the solution as a black box, detail the function that a solution to this problem should perform to fulfil the objective and verify that the relevant data is available to solve the problem.
-  * One way of approaching this is by thinking about how a subject-matter expert could solve the problem manually, and the data that would be required; if a human subject-matter expert is unable to solve the problem given the available data, this is indicative that additional information is required and/or more data needs to be collected.
-* Based on the available data, define specific hypothesis statements - which can be proved
-or disproved - to guide the exploration of the data science team. Where possible, each hypothesis statement should have a clearly defined success criteria (e.g., *with an accuracy of over 60%*), however, this is not always possible - especially for projects where no solution to the problem currently exists. In these cases, the measure of success could be based on a subject-matter expert verifying that the results meet their expectations.
-* Document all the above information, to ensure alignment between stakeholders and establish a clear understanding of the problem to be solved. Try to ensure that as much relevant domain knowledge is captured as possible, and that the features present in available data - and the way that the data was collected - are clearly explained, such that they can be understood by a non-subject matter expert.
+* Identifique um problema mensurável e defina-o em termos de negócios. O objetivo deve ser claro, e devemos ter uma boa compreensão dos fatores que podemos controlar - que podem ser usados como entradas - e como eles afetam o objetivo. Seja o mais específico possível.
+* Decida como o desempenho de uma solução será medido e identifique se isso é possível dentro das restrições desse problema. Certifique-se de que esteja alinhado com o objetivo de negócios e que você identificou os dados necessários para avaliar a solução. Observe que os dados necessários para avaliar uma solução podem ser diferentes dos dados necessários para criar uma solução.
+* Pensando na solução como uma caixa preta, detalhe a função que uma solução para este problema deve desempenhar para cumprir o objetivo e verifique se os dados relevantes estão disponíveis para resolver o problema.
+   * Uma maneira de abordar isso é pensar em como um especialista no assunto poderia resolver o problema manualmente e nos dados necessários; se um especialista humano no assunto não conseguir resolver o problema com os dados disponíveis, isso indica que informações adicionais são necessárias e/ou mais dados precisam ser coletados.
+* Com base nos dados disponíveis, defina declarações de hipóteses específicas - que podem ser comprovadas ou refutadas - para orientar a exploração da equipe de ciência de dados. Sempre que possível, cada declaração de hipótese deve ter critérios de sucesso claramente definidos (por exemplo, *com uma precisão superior a 60%*), no entanto, isso nem sempre é possível - especialmente para projetos em que atualmente não existe solução para o problema. Nesses casos, a medida de sucesso pode ser baseada na verificação de um especialista no assunto de que os resultados atendem às suas expectativas.
+* Documente todas as informações acima para garantir alinhamento entre as partes interessadas e estabelecer uma compreensão clara do problema a ser resolvido. Tente garantir que o máximo de conhecimento de domínio relevante seja capturado e que as características presentes nos dados disponíveis - e a maneira como os dados foram coletados - sejam claramente explicadas, de modo que possam ser entendidas por um não especialista no assunto.
 
-Once an understanding of the problem domain has been established, it may be necessary to break down the overall problem into smaller, meaningful chunks of work to maintain team focus and ensure a realistic project scope within the given time frame.
+Depois que uma compreensão do domínio do problema for estabelecida, pode ser necessário decompor o problema geral em partes menores e significativas para manter o foco da equipe e garantir um escopo de projeto realista dentro do prazo estabelecido.
 
-## Listening to the end user
+## Ouvindo o Usuário Final
 
-These problems are complex and require understanding from a variety of perspectives. It is not uncommon for the stakeholders to not be the end user of the solution framework. In these cases, listening to the actual end users is critical to the success of the project.
+Esses problemas são complexos e requerem compreensão de uma variedade de perspectivas. Não é incomum que as partes interessadas não sejam os usuários finais do framework de solução. Nesses casos, ouvir os usuários finais reais é fundamental para o sucesso do projeto.
 
-The following questions can help guide discussion in understanding the stakeholders' perspectives:
+As seguintes perguntas podem ajudar a orientar a discussão na compreensão das perspectivas das partes interessadas:
 
-* Who is the end user?
-* What is the current practice related to the business problem?
-* What's the performance of the current solution?
-* What are their pain points?
-* What is their toughest problem?
-* What is the state of the data used to build the solution?
-* How does the end user or SME envision the solution?
+* Quem é o usuário final?
+* Qual é a prática atual relacionada ao problema de negócios?
+* Qual é o desempenho da solução atual?
+* Quais são seus pontos problemáticos?
+* Qual é o problema mais difícil deles?
+* Qual é o estado dos dados usados para construir a solução?
+* Como o usuário final ou o SME (Especialista no Assunto) enxerga a solução?
 
-## Envisioning Guidance
+## Orientações para a Visão
 
-During envisioning sessions, the following may prove useful for guiding the discussion. Many of these points are taken directly, or adapted from, [[1]](#references) and [[2]](#references).
+Durante as sessões de visão, o seguinte pode ser útil para orientar a discussão. Muitos desses pontos são retirados diretamente, ou adaptados de, [[1]](#references) e [[2]](#references).
 
-### Problem Framing
+### Formulação do Problema
 
-1. Define the objective in business terms.
-2. How will the solution be used?
-3. What are the current solutions/workarounds (if any)? What work has been done in this area so far? Does this solution need to fit into an existing system?
-4. How should performance be measured?
-5. Is the performance measure aligned with the business objective?
-6. What would be the minimum performance needed to reach the business objective?
-7. Are there any known constraints around non-functional requirements that would have to be taken into account? (e.g., computation times)
-8. Frame this problem (supervised/unsupervised, online/offline, etc.)
-9. Is human expertise available?
-10. How would you solve the problem manually?
-11. Are there any restrictions on the type of approaches which can be used? (e.g., does the solution need to be completely explainable?)
-12. List the assumptions you or others have made so far. Verify these assumptions if possible.
-13. Define some initial hypothesis statements to be explored.
-14. Highlight and discuss any responsible AI concerns if appropriate.
+1. Defina o objetivo em termos de negócios.
+2. Como a solução será usada?
+3. Quais são as soluções atuais/truques (se houver)? Que trabalho foi feito nessa área até agora? Essa solução precisa se encaixar em um sistema existente?
+4. Como o desempenho deve ser medido?
+5. A medida de desempenho está alinhada com o objetivo de negócios?
+6. Qual seria o desempenho mínimo necessário para atingir o objetivo de negócios?
+7. Existem restrições conhecidas em relação a requisitos não funcionais que precisariam ser considerados? (por exemplo, tempos de computação)
+8. Estruture esse problema (supervisionado/não supervisionado, online/offline, etc.)
+9. Existe experiência humana disponível?
+10. Como você resolveria o problema manualmente?
+11. Existem restrições quanto ao tipo de abordagens que podem ser usadas? (por exemplo, a solução precisa ser completamente explicável?)
+12. Liste as suposições que você ou outros fizeram até agora. Verifique essas suposições, se possível.
+13. Defina algumas declarações de hipóteses iniciais a serem exploradas.
+14. Destaque e discuta quaisquer preocupações de AI responsável, se apropriado.
 
-### Workflow
+### Fluxo de Trabalho
 
-1. What data science skills exist in the organization?
-2. How many data scientists/engineers would be available to work on this project? In what capacity would these resources be available (full-time, part-time, etc.)?
-3. What does the team's current workflow practices look like? Do they work on the cloud/on-prem? In notebooks/IDE? Is version control used?
-4. How are data, experiments and models currently tracked?
-5. Does the team employ an Agile methodology? How is work tracked?
-6. Are there any ML solutions currently running in production? Who is responsible for maintaining these solutions?
-7. Who would be responsible for maintaining a solution produced during this project?
-8. Are there any restrictions on tooling that must/cannot be used?
+1. Quais habilidades de ciência de dados existem na organização?
+2. Quantos cientistas/engenheiros de dados estariam disponíveis para trabalhar neste projeto? Em que capacidade esses recursos estariam disponíveis (tempo integral, meio período, etc.)?
+3. Como são as práticas atuais de fluxo de trabalho da equipe? Eles trabalham na nuvem/local? Em cadernos/IDE? O controle de versão é usado?
+4. Como os dados, experimentos e modelos são rastreados atualmente?
+5. A equipe utiliza uma metodologia Ágil? Como o trabalho é rastreado?
+6. Existem atualmente soluções de ML em produção? Quem é responsável por manter essas soluções?
+7. Quem seria responsável por manter uma solução produzida durante este projeto?
+8. Existem restrições quanto às ferramentas que devem/não devem ser usadas?
 
-## Example - a recommendation engine problem
+## Exemplo - um problema de mecanismo de recomendação
 
-To illustrate how the above process can be applied to a tangible problem domain, as an example, consider that we are looking at implementing a recommendation engine for a clothing retailer. This example was, in part, inspired by [[3]](#references).
+Para ilustrar como o processo acima pode ser aplicado a um domínio de problema tangível, considere, como exemplo, que estamos olhando para implementar um mecanismo de recomendação para uma loja de roupas. Este exemplo foi, em parte, inspirado em [[3]](#references).
 
-Often, the objective may be simply presented, in a form such as "to improve sales". However, whilst this is ultimately the main goal, we would benefit from being more specific here. Suppose that we were to deploy a solution in November and then observed a December sales surge; how would we be able to distinguish how much of this was as a result of the new recommendation engine, as opposed to the fact that December is a peak buying season?
+Frequentemente, o objetivo pode ser apresentado de forma simples, como "aumentar as vendas". No entanto, embora este seja o principal objetivo, podemos nos beneficiar sendo mais específicos aqui. Suponha que implantamos uma solução em novembro e observamos um aumento nas vendas em dezembro; como poderíamos distinguir quanto disso se deve ao novo mecanismo de recomendação, em oposição ao fato de dezembro ser uma temporada de compras de pico?
 
-A better objective, in this case, would be "to drive additional sales by presenting the customer with items that they *would not otherwise have purchased without the recommendation*". Here, the inputs that we can control are the choice of items that are presented to each customer, and the order in which they are displayed; considering factors such as how frequently these should change, seasonality, etc.
+Um objetivo melhor, neste caso, seria "aumentar as vendas adicionais, apresentando ao cliente itens que eles *não teriam comprado sem a recomendação*". Aqui, os inputs que podemos controlar são a escolha dos itens apresentados a cada cliente e a ordem em que são exibidos, considerando fatores como com que frequência devem ser alterados, sazonalidade, etc.
 
-The data required to evaluate a potential solution in this case would be which recommendations resulted in new sales, and an estimation of a customer's likeliness to purchase a specific item without a recommendation. Note that, whilst this data could also be used to build a recommendation engine, it is unlikely that this data will be available before a recommendation system has been implemented, so it is likely that we will have to use an alternate data source to build the model.
+Os dados necessários para avaliar uma solução potencial neste caso seriam quais recomendações resultaram em novas vendas e uma estimativa da probabilidade de um cliente comprar um item específico sem uma recomendação. Observe que, embora esses dados também possam ser usados para construir um mecanismo de recomendação, é improvável que esses dados estejam disponíveis antes que um sistema de recomendação tenha sido implementado. Portanto, é provável que tenhamos que usar uma fonte de dados alternativa para construir o modelo.
 
-We can get an initial idea of how to approach a solution to this problem by considering how it would be solved by a subject-matter expert. Thinking of how a personal stylist may provide a recommendation, they are likely to recommend items based on one or more of the following:
+Podemos ter uma ideia inicial de como abordar uma solução para esse problema considerando como ele seria resolvido por um especialista no assunto. Pensando em como um estilista pessoal pode fazer uma recomendação, é provável que eles recomendem itens com base em um ou mais dos seguintes critérios:
 
-* generally popular items
-* items similar to those liked/purchased by the customer
-* items that were liked/purchased by similar customers
-* items which are complementary to those owned by the customer
+* itens geralmente populares
+* itens semelhantes aos que o cliente gosta/compra
+* itens que foram gostados/comprados por clientes semelhantes
+* itens que são complementares aos que o cliente possui
 
-Whilst this list is by no means exhaustive, it provides a good indication of the data that is likely to be useful to us:
+Embora esta lista não seja exaustiva, ela fornece uma boa indicação dos dados que provavelmente serão úteis para nós:
 
-* item sales data
-* customer purchase histories
-* customer demographics
-* item descriptions and tags
-* previous outfits, or sets, which have been curated by the stylist
+* dados de vendas de itens
+* históricos de compra do cliente
+* dados demográficos do cliente
+* descrições e tags de itens
+* conjuntos de itens anteriormente montados ou conjuntos que foram criados pelo estilista
 
-We would then be able to use this data to explore:
+Então, poderíamos usar esses dados para explorar:
 
-* a method of measuring similarity between items
-* a method of measuring similarity between customers
-* a method of measuring how complementary items are relative to one another
+* um método para medir a semelhança entre itens
+* um método para medir a semelhança entre clientes
+* um método para medir como os itens são complementares uns aos outros
 
-which can be used to create and rank recommendations. Depending on the project scope, and available data, one or more of these areas could be selected to create hypotheses to be explored by the data science team. Some examples of such hypothesis statements could be:
+que podem ser usados para criar e classificar recomendações. Dependendo do escopo do projeto e dos dados disponíveis, uma ou mais dessas áreas podem ser selecionadas para criar hipóteses a serem exploradas pela equipe de ciência de dados. Alguns exemplos de hipóteses podem ser:
 
-* From the descriptions of each item, we can determine a measure of similarity between different items to a degree of accuracy which is specified by a stylist.
-* Based on the behavior of customers with similar purchasing histories, we are able to predict certain items that a customer is likely to purchase; with a certainty which is greater than random choice.
-* Using sets of items which have previously been sold together, we can formulate rules around the features which determine whether items are complementary or not which can be verified by a stylist.
+* A partir das descrições de cada item, podemos determinar uma medida de semelhança entre diferentes itens com um grau de precisão especificado por um estilista.
+* Com base no comportamento de clientes com históricos de compra semelhantes, somos capazes de prever quais itens um cliente provavelmente comprará; com uma certeza maior do que a escolha aleatória.
+* Usando conjuntos de itens que foram vendidos juntos anteriormente, podemos formular regras em torno das características que determinam se os itens são complementares ou não, o que pode ser verificado por um estilista.
 
-## Next Steps
+## Próximos Passos
 
-To ensure clarity and alignment, it is useful to summarize the envisioning stage findings focusing on proposed detailed scenarios, assumptions and agreed decisions as well next steps.
+Para garantir clareza e alinhamento, é útil resumir as descobertas da etapa de concepção, concentrando-se em cenários detalhados propostos, suposições e decisões acordadas, bem como próximos passos.
 
-We suggest confirming that you have access to all necessary resources (including data) as a next step before proceeding with data exploration workshops.
+Sugerimos confirmar que você tem acesso a todos os recursos necessários (incluindo dados) como próximo passo antes de prosseguir com as oficinas de exploração de dados.
 
-Below are the links to the exit document template and to some questions which may be helpful in confirming resource access.
+Aqui estão os links para o modelo de documento de saída e algumas perguntas que podem ser úteis para confirmar o acesso aos recursos.
 
-* [Summary of Scope Exit Document Template](./ml-envisioning-summary-template.md)
-* [List of Resource Access Questions](./ml-data-exploration.md)
-* [List of Data Exploration Workshop Questions](./ml-data-exploration.md)
+* [Modelo de Documento de Saída de Escopo Resumido](./ml-envisioning-summary-template.md)
+* [Lista de Perguntas de Acesso a Recursos](./ml-data-exploration.md)
+* [Lista de Perguntas da Oficina de Exploração de Dados](./ml-data-exploration.md)
 
-## References
+## Referências
 
-Many of the ideas presented here - and much more - were inspired by, and can be found in the following resources; all of which are highly recommended.
+Muitas das ideias apresentadas aqui - e muito mais - foram inspiradas por e podem ser encontradas nos seguintes recursos, todos altamente recomendados.
 
-1. [Aurélien Géron's Machine learning project checklist](https://github.com/ageron/handson-ml/blob/master/ml-project-checklist.md)
-2. [Fast.ai's Data project checklist](https://www.fast.ai/2020/01/07/data-questionnaire)
-3. [Designing great data products. Jeremy Howard, Margit Zwemer and Mike Loukides](https://www.oreilly.com/radar/drivetrain-approach-data-products/)
+1. [Lista de Verificação de Projetos de Aprendizado de Máquina de Aurélien Géron](https://github.com/ageron/handson-ml/blob/master/ml-project-checklist.md)
+2. [Lista de Verificação de Projetos de Dados da Fast.ai](https://www.fast.ai/2020/01/07/data-questionnaire)
+3. [Designing great data products. Jeremy Howard, Margit Zwemer e Mike Loukides](https://www.oreilly.com/radar/drivetrain-approach-data-products/)

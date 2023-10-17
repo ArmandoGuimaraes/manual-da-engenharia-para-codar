@@ -1,25 +1,25 @@
-# Sharing Common Variables / Naming Conventions Between Terraform Modules
+# Compartilhando Variáveis Comuns / Convenções de Nomenclatura Entre Módulos do Terraform
 
-## What are we trying to solve?
+## O que estamos tentando resolver?
 
-When deploying infrastructure using code, it's common practice to split the code into different modules that are responsible for the deployment of a part or a component of the infrastructure. In Terraform, this can be done by using [modules](https://www.terraform.io/language/modules/develop).
+Ao implantar infraestrutura por meio de código, é prática comum dividir o código em diferentes módulos responsáveis pela implantação de uma parte ou componente da infraestrutura. No Terraform, isso pode ser feito usando [módulos](https://www.terraform.io/language/modules/develop).
 
-In this case, it is useful to be able to share some common variables as well as centralize naming conventions of the different resources, to ensure it will be easy to refactor when it has to change, despite the dependencies that exist between modules.
+Neste caso, é útil ser capaz de compartilhar algumas variáveis comuns, bem como centralizar as convenções de nomenclatura dos diferentes recursos, para garantir que seja fácil refatorar quando necessário, apesar das dependências entre módulos.
 
-For example, let's consider 2 modules:
+Por exemplo, considere 2 módulos:
 
-- Network module, responsible for deploying Virtual Network, Subnets, NSGs and Private DNS Zones
-- Azure Kubernetes Service module responsible for deploying AKS cluster
+- Módulo de rede, responsável pela implantação de Rede Virtual, Sub-redes, Grupos de Segurança de Rede (NSGs) e Zonas DNS Privadas
+- Módulo Azure Kubernetes Service responsável pela implantação do cluster AKS
 
-There are dependencies between these modules, like the Kubernetes cluster that will be deployed into the virtual network from the Network module. To do that, it must reference the name of the virtual network, as well as the resource group it is deployed in. And ideally, we would like these dependencies to be loosely coupled, as much as possible, to keep agility in how the modules are deployed and keep independent lifecycle.
+Existem dependências entre esses módulos, como o cluster Kubernetes que será implantado na rede virtual do Módulo de Rede. Para fazer isso, ele deve fazer referência ao nome da rede virtual, bem como ao grupo de recursos no qual está implantado. E idealmente, gostaríamos que essas dependências fossem fracamente acopladas, o máximo possível, para manter a agilidade na forma como os módulos são implantados e manter o ciclo de vida independente.
 
-This page explains a way to solve this with Terraform.
+Esta página explica uma maneira de resolver isso com o Terraform.
 
-## How to do it?
+## Como fazer isso?
 
-### Context
+### Contexto
 
-Let's consider the following structure for our modules:
+Vamos considerar a seguinte estrutura para nossos módulos:
 
 ```console
 modules
@@ -33,12 +33,12 @@ modules
 │   └── variables.tf
 ```
 
-Now, assume that you deploy a virtual network for the development environment, with the following properties:
+Agora, suponha que você implanta uma rede virtual para o ambiente de desenvolvimento, com as seguintes propriedades:
 
-- name: vnet-dev
-- resource group: rg-dev-network
+- Nome: vnet-dev
+- Grupo de recursos: rg-dev-network
 
-Then at some point, you need to inject these values into the Kubernetes module, to get a reference to it through a data source, for example:
+Em algum momento, você precisa injetar esses valores no módulo Kubernetes, para obter uma referência a ele por meio de uma fonte de dados, por exemplo:
 
 ```hcl
 data "azurem_virtual_network" "vnet" {
@@ -47,19 +47,19 @@ data "azurem_virtual_network" "vnet" {
 }
 ```
 
-In the snippet above, the virtual network name and resource group are defined through variable. This is great, but if this changes in the future, then the values of these variables must change too. In every module they are used.
+No trecho acima, o nome da rede virtual e o grupo de recursos são definidos por meio de variáveis. Isso é ótimo, mas se isso mudar no futuro, os valores dessas variáveis também devem ser alterados. Em todos os módulos em que são usados.
 
-Being able to manage naming in a central place will make sure the code can easily be refactored in the future, without updating all modules.
+Ser capaz de gerenciar a nomenclatura em um local central garantirá que o código possa ser facilmente refatorado no futuro, sem atualizar todos os módulos.
 
-### About Terraform variables
+### Sobre Variáveis do Terraform
 
-In Terraform, every [input variable](https://www.terraform.io/language/values/variables) must be defined at the configuration (or module) level, using the `variable` block. By convention, this is often done in a `variables.tf` file, in the module. This file contains variable declaration and default values. Values can be set using variables configuration files (.tfvars), environment variables or CLI arg when using the terraform `plan` or `apply` commands.
+No Terraform, cada [variável de entrada](https://www.terraform.io/language/values/variables) deve ser definida no nível de configuração (ou módulo), usando o bloco `variable`. Por convenção, isso é frequentemente feito em um arquivo `variables.tf`, no módulo. Este arquivo contém a declaração de variáveis e seus valores padrão. Valores podem ser definidos usando arquivos de configuração de variáveis (.tfvars), variáveis de ambiente ou argumentos CLI ao usar os comandos `terraform plan` ou `terraform apply`.
 
-One of the limitation of the variables declaration is that it's not possible to compose variables, [locals](https://www.terraform.io/language/values/locals) or Terraform [built-in functions](https://www.terraform.io/language/functions) are used for that.
+Uma das limitações da declaração de variáveis é que não é possível compor variáveis, [locals](https://www.terraform.io/language/values/locals) ou [funções incorporadas do Terraform](https://www.terraform.io/language/functions) são usadas para isso.
 
-### Common Terraform module
+### Módulo Comum do Terraform
 
-One way to bypass this limitations is to introduce a "common" module, that will not deploy any resources, but just compute / calculate and output the resource names and shared variables, and be used by all other modules, as a dependency.
+Uma maneira de contornar essas limitações é introduzir um módulo "comum" que não implantará recursos, mas apenas calculará/solucionará e produzirá os nomes de recursos e variáveis compartilhadas e será usado por todos os outros módulos, como uma dependência.
 
 ```console
 modules
@@ -80,21 +80,21 @@ modules
 
 ```hcl
 variable "environment_name" {
-  type = string
-  description = "The name of the environment."
+  type        = string
+  description = "O nome do ambiente."
 }
 
 variable "location" {
-  type = string
-  description = "The Azure region where the resources will be created. Default is westeurope."
-  default = "westeurope"
+  type        = string
+  description = "A região do Azure onde os recursos serão criados. O padrão é oeste da Europa."
+  default     = "westeurope"
 }
 ```
 
 *output.tf:*
 
 ```hcl
-# Shared variables
+# Variáveis compartilhadas
 output "location" {
   value = var.location
 }
@@ -103,8 +103,7 @@ output "subscription" {
   value = var.subscription
 }
 
-# Virtual Network Naming
-
+# Nomenclatura de Rede Virtual
 output "vnet_rg_name" {
   value = "rg-network-${var.environment_name}"
 }
@@ -113,8 +112,7 @@ output "vnet_name" {
   value = "vnet-${var.environment_name}"
 }
 
-# AKS Naming
-
+# Nomenclatura do AKS
 output "aks_rg_name" {
   value = "rg-aks-${var.environment_name}"
 }
@@ -124,12 +122,12 @@ output "aks_name" {
 }
 ```
 
-Now, if you execute the Terraform apply for the common module, you get all the shared/common variables in outputs:
+Agora, se você executar o `terraform apply` para o módulo comum, você obterá todas as variáveis comuns compartilhadas nas saídas:
 
 ```console
 $ terraform plan -var environment_name="dev" -var subscription="$(az account show --query id -o tsv)"
 
-Changes to Outputs:
+Mudanças nas Saídas:
   + aks_name     = "aks-dev"
   + aks_rg_name  = "rg-aks-dev"
   + location     = "westeurope"
@@ -137,12 +135,12 @@ Changes to Outputs:
   + vnet_name    = "vnet-dev"
   + vnet_rg_name = "rg-network-dev"
 
-You can apply this plan to save these new output values to the Terraform state, without changing any real infrastructure.
+Você pode aplicar este plano para salvar esses novos valores de saída no estado do Terraform, sem alterar nenhuma infraestrutura real.
 ```
 
-### Use the common Terraform module
+### Usando o Módulo Comum do Terraform
 
-Using the common Terraform module in any other module is super easy. For example, this is what you can do in the Azure Kubernetes module `main.tf` file:
+Usar o módulo comum do Terraform em qualquer outro módulo é muito fácil. Por exemplo, isso é o que você pode fazer no arquivo `main.tf` do módulo Azure Kubernetes:
 
 ```hcl
 module "common" {
@@ -153,7 +151,9 @@ module "common" {
 
 data "azurerm_subnet" "aks_subnet" {
   name                 = "AksSubnet"
-  virtual_network_name = module.common.vnet_name
+  virtual_network
+
+_name = module.common.vnet_name
   resource_group_name  = module.common.vnet_rg_name
 }
 
@@ -175,53 +175,53 @@ resource "azurerm_kubernetes_cluster" "aks" {
 }
 ```
 
-Then, you can execute the `terraform plan` and `terraform apply` commands to deploy!
+Em seguida, você pode executar os comandos `terraform plan` e `terraform apply` para implantar!
 
 ```console
 terraform plan -var environment_name="dev" -var subscription="$(az account show --query id -o tsv)"
 data.azurerm_subnet.aks_subnet: Reading...
 data.azurerm_subnet.aks_subnet: Read complete after 1s [id=/subscriptions/01010101-1010-0101-1010-010101010101/resourceGroups/rg-network-dev/providers/Microsoft.Network/virtualNetworks/vnet-dev/subnets/AksSubnet]
 
-Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
-  + create
+O Terraform usou os provedores selecionados para gerar o seguinte plano de execução. As ações de recursos são indicadas pelos seguintes símbolos:
+  + criar
 
-Terraform will perform the following actions:
+O Terraform executará as seguintes ações:
 
-  # azurerm_kubernetes_cluster.aks will be created
+  # azurerm_kubernetes_cluster.aks será criado
   + resource "azurerm_kubernetes_cluster" "aks" {
       + dns_prefix                          = "aks-dev"
-      + fqdn                                = (known after apply)
-      + id                                  = (known after apply)
-      + kube_admin_config                   = (known after apply)
-      + kube_admin_config_raw               = (sensitive value)
-      + kube_config                         = (known after apply)
-      + kube_config_raw                     = (sensitive value)
-      + kubernetes_version                  = (known after apply)
+      + fqdn                                = (conhecido após a aplicação)
+      + id                                  = (conhecido após a aplicação)
+      + kube_admin_config                   = (conhecido após a aplicação)
+      + kube_admin_config_raw               = (valor sensível)
+      + kube_config                         = (conhecido após a aplicação)
+      + kube_config_raw                     = (valor sensível)
+      + kubernetes_version                  = (conhecido após a aplicação)
       + location                            = "westeurope"
       + name                                = "aks-dev"
-      + node_resource_group                 = (known after apply)
-      + portal_fqdn                         = (known after apply)
-      + private_cluster_enabled             = (known after apply)
+      + node_resource_group                 = (conhecido após a aplicação)
+      + portal_fqdn                         = (conhecido após a aplicação)
+      + private_cluster_enabled             = (conhecido após a aplicação)
       + private_cluster_public_fqdn_enabled = false
-      + private_dns_zone_id                 = (known after apply)
-      + private_fqdn                        = (known after apply)
-      + private_link_enabled                = (known after apply)
+      + private_dns_zone_id                 = (conhecido após a aplicação)
+      + private_fqdn                        = (conhecido após a aplicação)
+      + private_link_enabled                = (conhecido após a aplicação)
       + public_network_access_enabled       = true
       + resource_group_name                 = "rg-aks-dev"
       + sku_tier                            = "Free"
 
-      [...] truncated
+      [...] truncado
 
       + default_node_pool {
-          + kubelet_disk_type    = (known after apply)
-          + max_pods             = (known after apply)
+          + kubelet_disk_type    = (conhecido após a aplicação)
+          + max_pods             = (conhecido após a aplicação)
           + name                 = "default"
-          + node_count           = (known after apply)
-          + node_labels          = (known after apply)
-          + orchestrator_version = (known after apply)
-          + os_disk_size_gb      = (known after apply)
+          + node_count           = (conhecido após a aplicação)
+          + node_labels          = (conhecido após a aplicação)
+          + orchestrator_version = (conhecido após a aplicação)
+          + os_disk_size_gb      = (conhecido após a aplicação)
           + os_disk_type         = "Managed"
-          + os_sku               = (known after apply)
+          + os_sku               = (conhecido após a aplicação)
           + type                 = "VirtualMachineScaleSets"
           + ultra_ssd_enabled    = false
           + vm_size              = "Standard_DS2_v2"
@@ -229,18 +229,18 @@ Terraform will perform the following actions:
         }
 
       + identity {
-          + principal_id = (known after apply)
-          + tenant_id    = (known after apply)
+          + principal_id = (conhecido após a aplicação)
+          + tenant_id    = (conhecido após a aplicação)
           + type         = "SystemAssigned"
         }
 
-      [...] truncated
+      [...] truncado
     }
 
-Plan: 1 to add, 0 to change, 0 to destroy.
+Plano: 1 para adicionar, 0 para alterar, 0 para destruir.
 ```
 
-Note: the usage of a common module is also valid if you decide to deploy all your modules in the same operation from a main Terraform configuration file, like:
+Observação: o uso de um módulo comum também é válido se você decidir implantar todos os seus módulos na mesma operação a partir de um arquivo de configuração principal do Terraform, como:
 
 ```hcl
 module "common" {
@@ -262,11 +262,11 @@ module "kubernetes" {
 }
 ```
 
-### Centralize input variables definitions
+### Centralizando as Definições de Variáveis de Entrada
 
-In case you chose to define variables values directly in the source control (e.g. gitops scenario) using [variables definitions files](https://www.terraform.io/language/values/variables#variable-definitions-tfvars-files) (`.tfvars`), having a common module will also help to not have to duplicate the common variables definitions in all modules. Indeed, it is possible to have a global file that is defined once, at the common module level, and merge it with a module-specific variables definitions files at Terraform `plan` or `apply` time.
+No caso de você optar por definir os valores das variáveis diretamente no controle de origem (por exemplo, cenário gitops) usando [arquivos de definição de variáveis](https://www.terraform.io/language/values/variables#variable-definitions-tfvars-files) (`.tfvars`), ter um módulo comum também ajudará a não duplicar as definições de variáveis comuns em todos os módulos. Na verdade, é possível ter um arquivo global que seja definido uma vez, no nível do módulo comum, e mesclá-lo com arquivos de definições de variáveis específicas do módulo no momento do `plan` ou `apply` do Terraform.
 
-Let's consider the following structure:
+Considere a seguinte estrutura:
 
 ```console
 modules
@@ -289,16 +289,18 @@ modules
 │   └── variables.tf
 ```
 
-The common module as well as all other modules contain variables files for `dev` and `prod` environment. `tfvars` files from the common module will define all the global variables that will be shared with other modules (like subscription, environment name, etc.) and `.tfvars` files of each module will define only the module-specific values.
+O módulo comum, assim como todos os outros módulos, contém arquivos de variáveis para os ambientes `dev` e `prod`. Os arquivos `tfvars` do módulo comum definirão todas as variáveis globais que serão compartilhadas com outros módulos (como assinatura, nome do ambiente, etc.), e os arquivos `.tfvars` de cada módulo definirão apenas os valores específicos do módulo.
 
-Then, it's possible to merge these files when running the `terraform apply` or `terraform plan` command, using the following syntax:
+Em seguida, é possível mesclar esses arquivos ao executar os comandos `terraform apply` ou `terraform plan`, usando a seguinte sintaxe:
 
 ```bash
-terraform plan -var-file=<(cat ../common/dev.tfvars ./dev.tfvars)
+terraform plan -var-file=<(cat ../common/dev.tfvars ./dev.tf
+
+vars)
 ```
 
-*Note: using this, it is really important to ensure that you have not the same variable names in both files, otherwise that will generate an error.*
+*Observação: ao usar isso, é realmente importante garantir que você não tenha os mesmos nomes de variáveis em ambos os arquivos, caso contrário, isso gerará um erro.*
 
-## Conclusion
+## Conclusão
 
-By having a common module that owns shared variables as well as naming convention, it is now easier to refactor your Terraform configuration code base. Imagine that for some reason you need change the pattern that is used for the virtual network name: you change it in the common module output files, and just have to re-apply all modules!
+Ao ter um módulo comum que possua variáveis compartilhadas, bem como convenções de nomenclatura, agora é mais fácil refatorar o código de configuração do Terraform. Imagine que, por algum motivo, você precisa alterar o padrão usado para o nome da rede virtual: você o altera nos arquivos de saída do módulo comum e só precisa reaplicar todos os módulos!

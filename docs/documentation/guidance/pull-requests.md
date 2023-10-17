@@ -1,11 +1,11 @@
 # Pull Requests
 
-When we create [Pull Requests](../../code-reviews/pull-requests.md), we must ensure they are properly documented:
+Quando criamos [Pull Requests](../../code-reviews/pull-requests.md), devemos garantir que eles estejam devidamente documentados:
 
-- Title and Description
-  - [Pull Request Description](../../code-reviews/pull-requests.md#pull-request-description)
-  - [Pull Request Template](../../code-reviews/pull-request-template/pull-request-template.md)
-- Linked worked items
-- Comments
-  - As an author, [address all comments](../../code-reviews/process-guidance/author-guidance.md#be-open-to-receive-feedback)
-  - As a reviewer, [make comments clear](../../code-reviews/process-guidance/reviewer-guidance.md)
+- Título e Descrição
+  - [Descrição do Pull Request](../../code-reviews/pull-requests.md#pull-request-description)
+  - [Modelo de Pull Request](../../code-reviews/pull-request-template/pull-request-template.md)
+- Itens de trabalho vinculados
+- Comentários
+  - Como autor, [responda a todos os comentários](../../code-reviews/process-guidance/author-guidance.md#be-open-to-receive-feedback)
+  - Como revisor, [faça comentários claros](../../code-reviews/process-guidance/reviewer-guidance.md)

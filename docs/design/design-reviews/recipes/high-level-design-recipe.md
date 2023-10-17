@@ -1,25 +1,25 @@
-# High Level / Game Plan Design Recipe
+# Receita de Design de Alto Nível / Plano de Jogo
 
-## Why is this valuable?
+## Por que isso é valioso?
 
-Design at macroscopic level shows the interactions between systems and services that will be used to accomplish the project. It is intended to ensure there is high level understanding of the plan for what to build, which off-the-shelf components will be used, and which external components will need to interact with the deliverable.
+O design em nível macroscópico mostra as interações entre sistemas e serviços que serão usados para realizar o projeto. Ele tem o objetivo de garantir que haja um entendimento em alto nível do plano do que será construído, quais componentes prontos serão usados e quais componentes externos precisarão interagir com o entregável.
 
-## Things to keep in mind
+## Coisas a ter em mente
 
-* As with all other aspects of the project, design reviews must provide a friendly and safe environment so that any team member feels comfortable proposing a design for review and can use the opportunity to grow and learn from the constructive / non-judgemental feedback from peers and subject-matter experts (see [Team Agreements](../../../agile-development/advanced-topics/team-agreements/README.md)).
-* Attempt to illustrate different personas involved in the use cases and how/which boxes are their entry points.
-* Prefer pictures over paragraphs. The diagrams aren't intended to generate code, so they should be fairly high level.
-  * Artifacts should indicate the direction of calls (are they outbound, inbound, or bidirectional?) and call out system boundaries where ports might need to be opened or additional infrastructure work may be needed to allow calls to be made.
-  * Sequence diagrams are helpful to show the flow of calls among components + systems.
-  * Generic box diagrams depicting data flow or call origination/destination are useful. However, the title should clearly define what the arrows show indicate. In most cases, a diagram will show either data flow or call directions but not both.
-  * Visualize the contrasting aspects of the system/diagram for ease of communication. e.g. differing technologies employed, modified vs. untouched components, or internet vs. local cloud components. Colors, grouping boxes, and iconography can be used for differentiating.
-  * Prefer ease-of-understanding for communicating ideas over strict UML correctness.
-* Design reviews should be lightweight and should not feel like an additional process overhead.
+* Assim como em todos os outros aspectos do projeto, as revisões de design devem proporcionar um ambiente amigável e seguro para que qualquer membro da equipe se sinta à vontade para propor um design para revisão e possa aproveitar a oportunidade para crescer e aprender com o feedback construtivo / não julgamental de colegas e especialistas no assunto (consulte [Acordos da Equipe](../../../agile-development/advanced-topics/team-agreements/README.md)).
+* Tente ilustrar diferentes personas envolvidas nos casos de uso e como/quais caixas são seus pontos de entrada.
+* Prefira imagens a parágrafos. Os diagramas não se destinam a gerar código, portanto, eles devem ser bastante abstratos.
+  * Os artefatos devem indicar a direção das chamadas (são de saída, entrada ou bidirecionais?) e destacar os limites do sistema, onde as portas podem precisar ser abertas ou pode ser necessário trabalho de infraestrutura adicional para permitir que as chamadas sejam feitas.
+  * Diagramas de sequência são úteis para mostrar o fluxo de chamadas entre componentes + sistemas.
+  * Diagramas de caixa genéricos que representam o fluxo de dados ou a origem/destino das chamadas são úteis. No entanto, o título deve definir claramente o que as setas indicam. Na maioria dos casos, um diagrama mostrará o fluxo de dados ou as direções das chamadas, mas não ambos.
+  * Visualize os aspectos contrastantes do sistema/diagrama para facilitar a comunicação. Por exemplo, tecnologias diferentes empregadas, componentes modificados vs. intocados ou componentes de nuvem local vs. internet. Cores, caixas de agrupamento e iconografia podem ser usadas para diferenciação.
+  * Prefira facilidade de entendimento para comunicar ideias em vez de estrita correção UML.
+* As revisões de design devem ser leves e não devem parecer uma sobrecarga adicional no processo.
 
-## Examples
+## Exemplos
 
-![Sequence Diagram](images/high-level-sequence-diagram.png)
+![Diagrama de Sequência](images/high-level-sequence-diagram.png)
 
-![Call Flow Diagram](images/high-level-box-diagram.png)
+![Diagrama de Fluxo de Chamadas](images/high-level-box-diagram.png)
 
-![System Diagram](images/high-level-system-diagram.png)
+![Diagrama de Sistema](images/high-level-system-diagram.png)

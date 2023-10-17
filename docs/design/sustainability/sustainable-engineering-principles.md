@@ -1,45 +1,45 @@
-# Sustainable Principles
+# Princípios Sustentáveis
 
-The following principle overviews provide the foundations supporting specific actions in the [Sustainable Engineering Checklist](./readme.md#sustainable-engineering-checklist). More details about each principle can be found by following the links in the headings or visiting the [Principles of Green Software Engineering website](https://principles.green/).
+As visões gerais dos princípios a seguir fornecem as bases que apoiam ações específicas no [Checklist de Engenharia Sustentável](./readme.md#sustainable-engineering-checklist). Mais detalhes sobre cada princípio podem ser encontrados seguindo os links nos cabeçalhos ou visitando o [site Princípios de Engenharia de Software Verde](https://principles.green/).
 
-## [Electricity Consumption](https://principles.green/principles/electricity/)
+## [Consumo de Eletricidade](https://principles.green/principles/electricity/)
 
-Most electricity is still produced through the burning of fossil fuels and is responsible for 49% of the carbon emitted into the atmosphere.
+A maior parte da eletricidade ainda é produzida pela queima de combustíveis fósseis e é responsável por 49% do carbono emitido na atmosfera.
 
-Software consumes electricity in its execution. Running hardware consumes electricity even at zero percent utilization.  Some of the best ways we can reduce electricity consumption and the subsequent emissions of carbon pollution is to make our applications more energy efficient when they are running and limit idle hardware.
+O software consome eletricidade em sua execução. A operação de hardware consome eletricidade mesmo com utilização de zero por cento. Algumas das melhores maneiras de reduzir o consumo de eletricidade e as emissões subsequentes de poluição por carbono são tornar nossas aplicações mais eficientes em termos de energia quando estão em execução e limitar o hardware ocioso.
 
-## [Energy Proportionality](https://principles.green/principles/energy-proportionality/)
+## [Proporcionalidade Energética](https://principles.green/principles/energy-proportionality/)
 
-![Illustrative graph showing a computer at 0% utilization draws 100 Watts, at 50% utilization it draws 180 Watts and at 100% utilization it draws 200 Watts. The relationship between power consumption and utilization is not linear and it does not cross the origin.](https://principles.green/assets/images/principles/energy-proportionality-1.png?v=e5febc24f5d4d4930ad43de3686aa856)
+![Gráfico ilustrativo mostrando que um computador com 0% de utilização consome 100 watts, com 50% de utilização consome 180 watts e com 100% de utilização consome 200 watts. A relação entre consumo de energia e utilização não é linear e não cruza a origem.](https://principles.green/assets/images/principles/energy-proportionality-1.png?v=e5febc24f5d4d4930ad43de3686aa856)
 
-The relationship between power and utilization is not proportional.
+A relação entre energia e utilização não é proporcional.
 
-The more you utilize a computer, the more efficient it becomes at converting electricity to useful computing operations. Running your work on as few servers as possible with the highest utilization rate maximizes their energy efficiency.
+Quanto mais você utiliza um computador, mais eficiente ele se torna na conversão de eletricidade em operações de computação úteis. Executar seu trabalho em o máximo possível de servidores com a taxa de utilização mais alta maximiza sua eficiência energética.
 
-An idle computer, even running at zero percent utilization, still draws electricity.
+Um computador ocioso, mesmo funcionando com zero por cento de utilização, ainda consome eletricidade.
 
-## [Embodied Carbon](https://principles.green/principles/embodied-carbon/)
+## [Carbono Embutido](https://principles.green/principles/embodied-carbon/)
 
-Embodied carbon (otherwise referred to as "Embedded Carbon") is the amount of carbon pollution emitted during the creation and disposal of a device. When calculating the total carbon pollution for the computers running your software, account for both the carbon pollution to run the computer and the embodied carbon of the computer. Therefore a great way to reduce embodied carbon is to prevent the need for new devices to be manufactured by extending the usefulness of existing ones.
+O carbono embutido (também referido como "Carbono Incorporado") é a quantidade de poluição por carbono emitida durante a criação e disposição de um dispositivo. Ao calcular a poluição total por carbono dos computadores que executam seu software, leve em consideração tanto a poluição por carbono para operar o computador quanto o carbono embutido do computador. Portanto, uma ótima maneira de reduzir o carbono embutido é evitar a necessidade de fabricar novos dispositivos, estendendo a utilidade dos existentes.
 
-## [Demand Shaping](https://principles.green/principles/demand-shaping/)
+## [Moldagem da Demanda](https://principles.green/principles/demand-shaping/)
 
-Demand shaping is a strategy of shaping our demand for resources so it matches the existing supply.
+A moldagem da demanda é uma estratégia de moldar nossa demanda por recursos para que ela corresponda à oferta existente.
 
-If supply is high, increase the demand by doing more in your applications. If the supply is low, decrease demand.  This means doing less in your applications or delaying work until supply is higher.
+Se a oferta for alta, aumente a demanda fazendo mais em suas aplicações. Se a oferta for baixa, diminua a demanda. Isso significa fazer menos em suas aplicações ou adiar o trabalho até que a oferta seja maior.
 
-## [Networking](https://principles.green/principles/networking/)
+## [Rede](https://principles.green/principles/networking/)
 
-A network is a series of switches, routers, and servers. All the computers and network equipment in a network consume electricity and have [embedded carbon](#embodied-carbon). The internet is a global network of devices typically run off the standard local grid energy mix.
+Uma rede é uma série de switches, roteadores e servidores. Todos os computadores e equipamentos de rede em uma rede consomem eletricidade e têm [carbono embutido](#embodied-carbon). A internet é uma rede global de dispositivos normalmente alimentados pela mistura padrão de energia da rede local.
 
-When you send data across the internet, you are sending that data through many devices in the network, each one of those devices consuming electricity. As a result, any data you send or receive over the internet emits carbon.
+Quando você envia dados pela internet, está enviando esses dados por muitos dispositivos na rede, cada um desses dispositivos consome eletricidade. Como resultado, qualquer dado que você envia ou recebe pela internet emite carbono.
 
-The amount of carbon emitted to send data depends on many factors including:
+A quantidade de carbono emitida ao enviar dados depende de muitos fatores, incluindo:
 
-- Distance the data travels
-- Number of hops between network devices
-- Energy efficiency of the network devices
-- Carbon intensity of energy used by each device at the time the data is transmitted.
-- Network protocol used to coordinate data transmission - e.g. multiplex, header compression, TLS/Quic
+- Distância que os dados percorrem
+- Número de saltos entre dispositivos de rede
+- Eficiência energética dos dispositivos de rede
+- Intensidade de carbono da energia usada por cada dispositivo no momento em que os dados são transmitidos.
+- Protocolo de rede usado para coordenar a transmissão de dados - por exemplo, multiplexação, compressão de cabeçalho, TLS/Quic
 
-[Recent networking studies - Cloud Carbon Footprint](https://www.cloudcarbonfootprint.org/docs/methodology/#appendix-iv-recent-networking-studies)
+[Estudos recentes de redes - Cloud Carbon Footprint](https://www.cloudcarbonfootprint.org/docs/methodology/#appendix-iv-recent-networking-studies)

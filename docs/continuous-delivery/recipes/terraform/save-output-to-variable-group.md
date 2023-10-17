@@ -1,57 +1,57 @@
-# Save terraform output to a variable group (Azure DevOps)
+# Salvar saída do Terraform em um grupo de variáveis (Azure DevOps)
 
-This recipe applies only to [terraform](https://www.terraform.io/) usage with Azure DevOps. It assumes your familiar with terraform commands and Azure Pipelines.
+Esta receita se aplica apenas ao uso do [Terraform](https://www.terraform.io/) com o Azure DevOps. Ela pressupõe que você está familiarizado com os comandos do Terraform e com os pipelines do Azure.
 
-## Context
+## Contexto
 
-When [terraform](https://www.terraform.io/) is used to automate the provisioning of the infrastructure, an [Azure Pipeline](https://learn.microsoft.com/en-us/azure/devops/pipelines/?view=azure-devops) is generally dedicated to apply terraform configuration files. It will create, update, delete Azure resources to provision your infrastructure changes.
+Quando o [Terraform](https://www.terraform.io/) é usado para automatizar o provisionamento da infraestrutura, geralmente é dedicado um [Pipeline do Azure](https://learn.microsoft.com/pt-br/azure/devops/pipelines/?view=azure-devops) para aplicar os arquivos de configuração do Terraform. Isso criará, atualizará, excluirá recursos do Azure para provisionar as alterações em sua infraestrutura.
 
-Once files are applied, some [Output Values](https://developer.hashicorp.com/terraform/language/values/outputs) (for instance resource group name, app service name) can be referenced and outputted by terraform. These values must be generally retrieved afterwards, used as input variables for the deployment of services happening in separate pipelines.
+Depois que os arquivos são aplicados, algumas [Valores de Saída](https://developer.hashicorp.com/terraform/language/values/outputs) (por exemplo, nome do grupo de recursos, nome do serviço de aplicativo) podem ser referenciados e retornados pelo Terraform. Esses valores geralmente precisam ser recuperados posteriormente e usados como variáveis de entrada para a implantação de serviços em pipelines separados.
 
 ```tf
 output "core_resource_group_name" {
-  description = "The resource group name"
+  description = "O nome do grupo de recursos"
   value       = module.core.resource_group_name
 }
 
 output "core_key_vault_name" {
-  description = "The key vault name."
+  description = "O nome do Key Vault."
   value       = module.core.key_vault_name
 }
 
 output "core_key_vault_url" {
-  description = "The key vault url."
+  description = "A URL do Key Vault."
   value       = module.core.key_vault_url
 }
 ```
 
-The purpose of this recipe is to answer the following statement: How to make terraform output values available across multiple pipelines ?
+O objetivo desta receita é responder à seguinte declaração: Como tornar os valores de saída do Terraform disponíveis em vários pipelines?
 
-## Solution
+## Solução
 
-One suggested solution is to store outputted values in the Library with a [Variable Group](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=yaml). Variable groups is a convenient way store values you might want to be passed into a YAML pipeline. In addition, all assets defined in the Library share a common security model. You can control who can define new items in a library, and who can use an existing item.
+Uma solução sugerida é armazenar os valores de saída na Biblioteca com um [Grupo de Variáveis](https://learn.microsoft.com/pt-br/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=yaml). Grupos de variáveis são uma maneira conveniente de armazenar valores que você deseja passar para um pipeline YAML. Além disso, todos os ativos definidos na Biblioteca compartilham um modelo de segurança comum. Você pode controlar quem pode definir novos itens em uma biblioteca e quem pode usar um item existente.
 
-For this purpose, we are using the following commands:
+Para esse fim, estamos usando os seguintes comandos:
 
-- [terraform output](https://developer.hashicorp.com/terraform/cli/commands/output) to extract the value of an output variable from the state file (provided by [Terraform CLI](https://developer.hashicorp.com/terraform/cli))
-- [az pipelines variable-group](https://learn.microsoft.com/en-us/cli/azure/pipelines/variable-group?view=azure-cli-latest) to manage variable groups (provided by [Azure DevOps CLI](https://learn.microsoft.com/en-us/azure/devops/cli/?view=azure-devops))
+- [terraform output](https://developer.hashicorp.com/terraform/cli/commands/output) para extrair o valor de uma variável de saída do arquivo de estado (fornecido pelo [Terraform CLI](https://developer.hashicorp.com/terraform/cli))
+- [az pipelines variable-group](https://learn.microsoft.com/pt-br/cli/azure/pipelines/variable-group?view=azure-cli-latest) para gerenciar grupos de variáveis (fornecido pelo [Azure DevOps CLI](https://learn.microsoft.com/pt-br/azure/devops/cli/?view=azure-devops))
 
-You can use the following script once `terraform apply` is completed to create/update the variable group.
+Você pode usar o seguinte script após a conclusão do `terraform apply` para criar/atualizar o grupo de variáveis.
 
 ### Script (update-variablegroup.sh)
 
-#### Parameters
+#### Parâmetros
 
-| Name                | Description                                 |
-|---------------------|---------------------------------------------|
-| DEVOPS_ORGANIZATION | The URI of the Azure DevOps organization.   |
-| DEVOPS_PROJECT      | The name or id of the Azure DevOps project. |
-| GROUP_NAME          | The name of the variable group targeted.    |
+| Nome                | Descrição                                        |
+|---------------------|--------------------------------------------------|
+| DEVOPS_ORGANIZATION | A URI da organização do Azure DevOps.            |
+| DEVOPS_PROJECT      | O nome ou ID do projeto do Azure DevOps.         |
+| GROUP_NAME          | O nome do grupo de variáveis alvo.               |
 
-Implementation choices:
+Escolhas de implementação:
 
-- If a variable group already exists, a valid option could be to delete and rebuild the group from scratch. However, as authorization could have been updated at the group level, we prefer to avoid this option. The script remove instead all variables in the targeted group and add them back with latest values. Permissions are not impacted.
-- A variable group cannot be empty. It must contains at least one variable. A temporary uuid value is created to mitigate this issue, and removed once variables are updated.
+- Se um grupo de variáveis já existe, uma opção válida pode ser excluí-lo e reconstruir o grupo do zero. No entanto, como a autorização pode ter sido atualizada no nível do grupo, preferimos evitar essa opção. O script remove todos os valores das variáveis no grupo alvo e os adiciona novamente com os valores mais recentes. As permissões não são afetadas.
+- Um grupo de variáveis não pode estar vazio. Ele deve conter pelo menos uma variável. Um valor temporário UUID é criado para mitigar esse problema e é removido assim que as variáveis são atualizadas.
 
 ```bash
 #!/bin/bash
@@ -62,30 +62,30 @@ export DEVOPS_ORGANIZATION=$1
 export DEVOPS_PROJECT=$2
 export GROUP_NAME=$3
 
-# configure the azure devops cli
+# Configurar o CLI do Azure DevOps
 az devops configure --defaults organization=${DEVOPS_ORGANIZATION} project=${DEVOPS_PROJECT} --use-git-aliases true
 
-# get the variable group id (if already exists)
+# Obter o ID do grupo de variáveis (se já existir)
 group_id=$(az pipelines variable-group list --group-name ${GROUP_NAME} --query '[0].id' -o json)
 
 if [ -z "${group_id}" ]; then
-    # create a new variable group
+    # Criar um novo grupo de variáveis
     tf_output=$(terraform output -json | jq -r 'to_entries[] | "\(.key)=\(.value.value)"')
     az pipelines variable-group create --name ${GROUP_NAME} --variables ${tf_output} --authorize true
 else
-    # get existing variables
+    # Obter variáveis existentes
     var_list=$(az pipelines variable-group variable list --group-id ${group_id})
 
-    # add temporary uuid variable (a variable group cannot be empty)
+    # Adicionar variável UUID temporária (um grupo de variáveis não pode estar vazio)
     uuid=$(cat /proc/sys/kernel/random/uuid)
     az pipelines variable-group variable create --group-id ${group_id} --name ${uuid}
 
-    # delete existing variables
+    # Excluir variáveis existentes
     for row in $(echo ${var_list} | jq -r 'to_entries[] | "\(.key)"'); do
         az pipelines variable-group variable delete --group-id ${group_id} --name ${row} --yes
     done
 
-    # create variables with latest values (from terraform)
+    # Criar variáveis com os valores mais recentes (do Terraform)
     for row in $(terraform output -json | jq -c 'to_entries[]'); do
         _jq()
         {
@@ -95,20 +95,22 @@ else
         az pipelines variable-group variable create --group-id ${group_id} --name $(_jq '.key') --value $(_jq '.value.value') --secret $(_jq '.value.sensitive') 
     done
 
-    # delete temporary uuid variable
+    # Excluir variável UUID temporária
     az pipelines variable-group variable delete --group-id ${group_id} --name ${uuid} --yes
 fi
 ```
 
-## Authenticate with Azure DevOps
+## Autenticação no Azure DevOps
 
-Most commands used in previous script interact with Azure DevOps and do require authentication. You can authenticate using the `System.AccessToken` security token used by the running pipeline, by assigning it to an environment variable named `AZURE_DEVOPS_EXT_PAT`, as shown in the following example (see [Azure DevOps CLI in Azure Pipeline YAML](https://learn.microsoft.com/en-us/azure/devops/cli/azure-devops-cli-in-yaml?view=azure-devops#authenticate-with-azure-devops) for additional information).
+A maioria dos comandos usados no script anterior interage com o Azure DevOps e requer autenticação. Você pode autenticar usando o token de segurança `System.AccessToken` usado pelo pipeline em execução, atribuindo-o a uma variável de ambiente chamada `AZURE_DEVOPS_EXT_PAT`, como mostrado no exemplo a seguir (consulte [Azure DevOps CLI in Azure Pipeline YAML](https://learn.microsoft.com/pt-br/azure/devops/cli/azure-devops-cli-in-yaml?view=azure-devops#authenticate-with-azure-devops) para obter informações adicionais).
 
-In addition, you can notice we are also using [predefined variables](https://learn.microsoft.com/en-us/azure/devops/pipelines/build/variables) to target the Azure DevOps organization and project (respectively `System.TeamFoundationCollectionUri` and `System.TeamProjectId`).
+
+
+Além disso, você pode notar que também estamos usando [variáveis predefinidas](https://learn.microsoft.com/pt-br/azure/devops/pipelines/build/variables) para direcionar a organização e o projeto do Azure DevOps (respectivamente `System.TeamFoundationCollectionUri` e `System.TeamProjectId`).
 
 ```yaml
   - task: Bash@3
-    displayName: 'Update variable group using terraform outputs'
+    displayName: 'Atualizar grupo de variáveis usando saídas do Terraform'
     inputs:
       targetType: filePath
       arguments: $(System.TeamFoundationCollectionUri) $(System.TeamProjectId) "Platform-VG"
@@ -118,23 +120,23 @@ In addition, you can notice we are also using [predefined variables](https://lea
       AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
 ```
 
-| System variables                                                                                                                                                            | Description                                                                 |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
-| [System.AccessToken](https://learn.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#systemaccesstoken)                                | Special variable that carries the security token used by the running build. |
-| [System.TeamFoundationCollectionUri](https://learn.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#system-variables-devops-services) | The URI of the Azure DevOps organization.                                   |
-| [System.TeamProjectId](https://learn.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#system-variables-devops-services)               | The ID of the project that this build belongs to.                           |
+| Variáveis do sistema                                                                                                                                                      | Descrição                                                                                                        |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| [System.AccessToken](https://learn.microsoft.com/pt-br/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#systemaccesstoken)                              | Variável especial que carrega o token de segurança usado pela compilação em execução.                           |
+| [System.TeamFoundationCollectionUri](https://learn.microsoft.com/pt-br/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#system-variables-devops-services) | A URI da organização do Azure DevOps.                                                                           |
+| [System.TeamProjectId](https://learn.microsoft.com/pt-br/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#system-variables-devops-services)             | O ID do projeto ao qual esta compilação pertence.                                                               |
 
-## Library security
+## Segurança da Biblioteca
 
-Roles are defined for Library items, and membership of these roles governs the operations you can perform on those items.
+Funções são definidas para os itens da Biblioteca, e a associação a essas funções governa as operações que você pode executar nesses itens.
 
-| Role for library item | Description                                                                                                                                                                                                                                                                                                               |
-|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Reader                | Can view the item.                                                                                                                                                                                                                                                                                                        |
-| User                  | Can use the item when authoring build or release pipelines. For example, you must be a 'User' for a variable group to use it in a release pipeline.                                                                                                                                                                       |
-| Administrator         | Can also manage membership of all other roles for the item. The user who created an item gets automatically added to the Administrator role for that item. By default, the following groups get added to the Administrator role of the library: Build Administrators, Release Administrators, and Project Administrators. |
-| Creator               | Can create new items in the library, but this role doesn't include Reader or User permissions. The Creator role can't manage permissions for other users.                                                                                                                                                                 |
+| Função para item da biblioteca | Descrição                                                                                                                                                                                                                                                                                                           |
+|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Leitor                        | Pode visualizar o item.                                                                                                                                                                                                                                                                                                                                                            |
+| Usuário                       | Pode usar o item ao criar pipelines de compilação ou liberação. Por exemplo, você deve ser um 'Usuário' de um grupo de variáveis para usá-lo em um pipeline de liberação.                                                                                                                                                                                                       |
+| Administrador                  | Também pode gerenciar a associação de todas as outras funções para o item. O usuário que criou um item é automaticamente adicionado à função de Administrador desse item. Por padrão, os seguintes grupos são adicionados à função de Administrador da biblioteca: Administradores de Compilação, Administradores de Liberação e Administradores de Projeto. |
+| Criador                        | Pode criar novos itens na biblioteca, mas essa função não inclui permissões de Leitura ou Usuário. A função de Criador não pode gerenciar permissões para outros usuários.                                                                                                                                                                                                      |
 
-When using `System.AccessToken`, service account `<ProjectName> Build Service` identity will be used to access the Library.
+Ao usar `System.AccessToken`, a identidade da conta de serviço `<NomeDoProjeto> Build Service` será usada para acessar a Biblioteca.
 
-Please ensure in `Pipelines > Library > Security` section that this service account has `Administrator` role at the `Library` or `Variable Group` level to create/update/delete variables (see. [Library of assets](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/?view=azure-devops) for additional information)).
+Certifique-se de que, na seção `Pipelines > Biblioteca > Segurança`, esta conta de serviço tenha a função de `Administrador` no nível da `Biblioteca` ou do `Grupo de Variáveis` para criar/atualizar/excluir variáveis (consulte [Biblioteca de ativos](https://learn.microsoft.com/pt-br/azure/devops/pipelines/library/?view=azure-devops) para informações adicionais).

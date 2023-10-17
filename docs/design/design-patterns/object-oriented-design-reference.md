@@ -1,10 +1,8 @@
-# Object-Oriented Design Reference
+# Referência de Design Orientado a Objetos
 
-When writing software for large projects, the hardest part is often communication and maintenance.
-Following proven design patterns can optimize for maintenance, readability, and ease of extension.
-In particular, object-oriented design patterns are well-established in the industry.
+Ao escrever software para projetos de grande porte, a parte mais desafiadora geralmente é a comunicação e a manutenção. Seguir padrões de design comprovados pode otimizar a manutenção, a legibilidade e a facilidade de extensão. Em particular, os padrões de design orientado a objetos são amplamente reconhecidos na indústria.
 
-Please refer to the following resources to create strong object-oriented designs:
+Por favor, consulte os seguintes recursos para criar designs orientados a objetos robustos:
 
-* [Design Patterns Wikipedia](https://en.wikipedia.org/wiki/Design_Patterns)
-* [Object Oriented Design Website](https://www.oodesign.com/)
+* [Wikipedia de Padrões de Design](https://pt.wikipedia.org/wiki/Padr%C3%A3o_de_projeto_de_software)
+* [Site de Design Orientado a Objetos](https://www.oodesign.com.br/)

@@ -19,7 +19,7 @@
     
     
       
-        <title>How to create a static website for your documentation based on mkdocs and mkdocs-material - Manual da Engenharia para Codar</title>
+        <title>Como criar um site estático para a sua documentação com base no MkDocs e MkDocs-Material - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-create-a-static-website-for-your-documentation-based-on-mkdocs-and-mkdocs-material" class="md-skip">
+        <a href="#como-criar-um-site-estatico-para-a-sua-documentacao-com-base-no-mkdocs-e-mkdocs-material" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How to create a static website for your documentation based on mkdocs and mkdocs-material
+              Como criar um site estático para a sua documentação com base no MkDocs e MkDocs-Material
             
           </span>
         </div>
@@ -5525,12 +5525,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          How to create a static website for your documentation based on mkdocs and mkdocs-material
+          Como criar um site estático para a sua documentação com base no MkDocs e MkDocs-Material
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        How to create a static website for your documentation based on mkdocs and mkdocs-material
+        Como criar um site estático para a sua documentação com base no MkDocs e MkDocs-Material
       </a>
       
         
@@ -5549,8 +5549,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#additional-links" class="md-nav__link">
-    Additional links
+  <a href="#links-adicionais" class="md-nav__link">
+    Links adicionais
   </a>
   
 </li>
@@ -7179,8 +7179,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#additional-links" class="md-nav__link">
-    Additional links
+  <a href="#links-adicionais" class="md-nav__link">
+    Links adicionais
   </a>
   
 </li>
@@ -7199,32 +7199,32 @@
                 
 
 
-<h1 id="how-to-create-a-static-website-for-your-documentation-based-on-mkdocs-and-mkdocs-material">How to create a static website for your documentation based on mkdocs and mkdocs-material</h1>
-<p><a href="https://www.mkdocs.org/">MkDocs</a> is a tool built to create static websites from raw markdown files. Other alternatives include <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a>, and <a href="https://jekyllrb.com/">Jekyll</a>.</p>
-<p>We used MkDocs to create <a href="https://microsoft.github.io/code-with-engineering-playbook/">ISE Code-With Engineering Playbook</a> static website from the contents in <a href="https://github.com/microsoft/code-with-engineering-playbook">the GitHub repository</a>. Then we deployed it to <a href="https://pages.github.com/">GitHub Pages</a>.</p>
-<p>We found MkDocs to be a good choice since:</p>
+<h1 id="como-criar-um-site-estatico-para-a-sua-documentacao-com-base-no-mkdocs-e-mkdocs-material">Como criar um site estático para a sua documentação com base no MkDocs e MkDocs-Material</h1>
+<p><a href="https://www.mkdocs.org/">MkDocs</a> é uma ferramenta desenvolvida para criar sites estáticos a partir de arquivos markdown brutos. Outras alternativas incluem <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> e <a href="https://jekyllrb.com/">Jekyll</a>.</p>
+<p>Utilizamos o MkDocs para criar o site estático do <a href="https://microsoft.github.io/code-with-engineering-manual/">ISE Code-With Engineering Playbook</a> a partir do conteúdo no <a href="https://github.com/microsoft/code-with-engineering-manual">repositório do GitHub</a>. Em seguida, o implantamos no <a href="https://pages.github.com/">GitHub Pages</a>.</p>
+<p>Optamos pelo MkDocs por várias razões:</p>
 <ol>
-<li>It's easy to set up and looks great even with the vanilla version.</li>
-<li>It works well with markdown, which is what we already have in the Playbook.</li>
-<li>It uses a Python stack which is friendly to many contributors of this Playbook.</li>
+<li>É fácil de configurar e tem uma ótima aparência mesmo na versão padrão.</li>
+<li>Funciona bem com markdown, que é o formato que já usamos no Manual.</li>
+<li>Usa uma pilha Python, o que é amigável para muitos colaboradores do Manual.</li>
 </ol>
-<p>For comparison, Sphinx mainly generates docs from restructured-text (rst) format, and Jekyll is written in Ruby.</p>
-<p>To setup an MkDocs website, the main assets needed are:</p>
+<p>Para efeito de comparação, o Sphinx gera principalmente documentações a partir do formato restructured-text (rst), e o Jekyll é escrito em Ruby.</p>
+<p>Para configurar um site MkDocs, os principais recursos necessários são:</p>
 <ol>
-<li>An <code>mkdocs.yaml</code> file, similar to the one we have <a href="https://github.com/microsoft/code-with-engineering-playbook/blob/main/mkdocs.yml">in the Playbook</a>. This is the configuration file that defines the appearance of the website, the navigation, the plugins used and more.</li>
-<li>A folder named <code>docs</code> (the default value for the directory) that contains the documentation source files.</li>
-<li>A <a href="https://docs.github.com/actions/learn-github-actions/understanding-github-actions">GitHub Action</a> for automatically generating the website (e.g. on every commit to main), similar to <a href="https://github.com/microsoft/code-with-engineering-playbook/blob/main/.github/workflows/mkdocs.yml">this one from the Playbook</a>.</li>
-<li>A list of plugins used during the build phase of the website. We specified ours <a href="https://github.com/microsoft/code-with-engineering-playbook/blob/main/requirements-docs.txt">here</a>. And these are the plugins we've used:<p>- <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a>: Material design appearance and user experience.
-  - <a href="https://facelessuser.github.io/pymdown-extensions/">pymdown-extensions</a>: Improves the appearance of markdown based content.
-  - <a href="https://github.com/radude/mdx_truly_sane_lists">mdx_truly_sane_lists</a>: For defining the indent level for lists without having to refactor the entire documentation we already had in the Playbook.</p>
+<li>Um arquivo <code>mkdocs.yaml</code>, semelhante ao que temos <a href="https://github.com/microsoft/code-with-engineering-manual/blob/main/mkdocs.yml">no Manual</a>. Este é o arquivo de configuração que define a aparência do site, a navegação, os plugins utilizados e muito mais.</li>
+<li>Uma pasta chamada <code>docs</code> (o valor padrão para o diretório) que contém os arquivos de origem da documentação.</li>
+<li>Uma <a href="https://docs.github.com/actions/learn-github-actions/understanding-github-actions">Ação do GitHub</a> para gerar automaticamente o site (por exemplo, a cada commit na branch principal), semelhante a <a href="https://github.com/microsoft/code-with-engineering-manual/blob/main/.github/workflows/mkdocs.yml">esta do Manual</a>.</li>
+<li>Uma lista de plugins usados durante a fase de construção do site. Especificamos os nossos <a href="https://github.com/microsoft/code-with-engineering-manual/blob/main/requirements-docs.txt">aqui</a>. E estes são os plugins que utilizamos:<p>- <a href="https://squidfunk.github.io/mkdocs-material/">Material para MkDocs</a>: Aparência e experiência de usuário baseadas no Material Design.
+  - <a href="https://facelessuser.github.io/pymdown-extensions/">pymdown-extensions</a>: Melhora a aparência do conteúdo baseado em markdown.
+  - <a href="https://github.com/radude/mdx_truly_sane_lists">mdx_truly_sane_lists</a>: Para definir o nível de recuo das listas sem precisar refatorar toda a documentação que já tínhamos no Manual.</p>
 </li>
 </ol>
-<p>Setting up locally is very easy. See <a href="https://www.mkdocs.org/getting-started/">Getting Started with MkDocs</a> for details.</p>
-<p>For publishing the website, there's a <a href="https://www.mkdocs.org/user-guide/deploying-your-docs/">good integration with GitHub for storing the website as a GitHub Page</a>.</p>
-<h2 id="additional-links">Additional links</h2>
+<p>A configuração local é muito fácil. Consulte <a href="https://www.mkdocs.org/getting-started/">Começando com o MkDocs</a> para obter detalhes.</p>
+<p>Para publicar o site, há uma <a href="https://www.mkdocs.org/user-guide/deploying-your-docs/">integração fácil com o GitHub para armazenar o site como uma Página do GitHub</a>.</p>
+<h2 id="links-adicionais">Links adicionais</h2>
 <ul>
-<li><a href="https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins">MkDocs Plugins</a></li>
-<li><a href="https://chrieke.medium.com/the-best-mkdocs-plugins-and-customizations-fc820eb19759">The best MkDocs plugins and customizations</a></li>
+<li><a href="https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins">Plugins do MkDocs</a></li>
+<li><a href="https://chrieke.medium.com/the-best-mkdocs-plugins-and-customizations-fc820eb19759">Os melhores plugins e personalizações do MkDocs</a></li>
 </ul>
 
   <hr>
@@ -7232,7 +7232,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
       
     
   </small>

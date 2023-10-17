@@ -1,75 +1,72 @@
-# Executing pipelines locally
+# Executando pipelines localmente
 
-## Abstract
+## Resumo
 
-Having the ability to execute pipeline activities locally has been identified as an opportunity to promote positive developer experience.
-In this document we will explore a solution which will allow us to have the local CI experience to be as similar as possible to the remote process in the CI server.
+A capacidade de executar atividades de pipeline localmente foi identificada como uma oportunidade para promover uma experiência positiva para desenvolvedores. Neste documento, exploraremos uma solução que nos permitirá ter a experiência local de CI o mais semelhante possível ao processo remoto no servidor de CI.
 
-Using the suggested method will allow us to:
+Usar o método sugerido nos permitirá:
 
-- Build
-- Lint
-- Unit test
-- E2E test
-- Run Solution
-- Be OS and environment agnostic.
+- Construir
+- Lintar
+- Testar unitariamente
+- Testar E2E (End-to-End)
+- Executar a solução
+- Ser agnóstico em relação ao sistema operacional e ao ambiente.
 
-## Enter Docker Compose
+## Usando o Docker Compose
 
-[Docker Compose](https://docs.docker.com/compose/) allows you to build push or run multi-container Docker applications.
+O [Docker Compose](https://docs.docker.com/compose/) permite construir, publicar ou executar aplicativos Docker com vários contêineres.
 
-### Method of work
+### Método de trabalho
 
-1. Dockerize your application(s), including a build step if possible.
-2. Add a step in your docker file to execute unit tests.
-3. Add a step in the docker file for linting.
-4. Create a new dockerfile, possibly in a different folder, which executes end-to-end tests against the cluster. Make sure the default endpoints are configurable (This will become handy in your remote CI server, where you will be able to test against a live environment, if you choose to).
-5. Create a docker-compose file which allows you to choose which of the services to run. The default will run all applications and tests, and an optional parameter can run specific services, for example only the application without the tests.
+1. Crie imagens Docker para suas aplicações, incluindo uma etapa de compilação, se possível.
+2. Adicione uma etapa em seu Dockerfile para executar testes unitários.
+3. Adicione uma etapa no Dockerfile para a verificação de estilo (linting).
+4. Crie um novo Dockerfile, possivelmente em uma pasta diferente, que execute testes de ponta a ponta (E2E) contra o cluster. Certifique-se de que os pontos de extremidade padrão sejam configuráveis (isso será útil em seu servidor de CI remoto, onde você poderá testar em um ambiente ao vivo, se desejar).
+5. Crie um arquivo docker-compose que permita escolher quais dos serviços executar. O padrão executará todas as aplicações e testes, e um parâmetro opcional pode executar serviços específicos, por exemplo, apenas a aplicação sem os testes.
 
-### Prerequisites
+### Pré-requisitos
 
 1. [Docker](https://www.docker.com/products/docker-desktop)
-2. Optional: if you clone the sample app, you need to have [dotnet core](https://dotnet.microsoft.com/download) installed.
+2. Opcional: se você clonar o aplicativo de exemplo, precisará ter o [dotnet core](https://dotnet.microsoft.com/download) instalado.
 
-### Step by step with examples
+### Passo a passo com exemplos
 
-For this tutorial we are going to use a [sample dotnet core api application](https://github.com/itye-msft/cse-engagement-template).
-Here is the docker file for the sample app:
+Para este tutorial, vamos usar um [aplicativo de exemplo .NET Core API](https://github.com/itye-msft/cse-engagement-template). Aqui está o Dockerfile para o aplicativo de exemplo:
 
 ```sh
 # https://hub.docker.com/_/microsoft-dotnet
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /app
 
-# copy csproj and restore as distinct layers
+# copia o csproj e restaura em camadas distintas
 COPY ./ ./
 RUN dotnet restore
 
 RUN dotnet test
 
-# copy everything else and build app
+# copia tudo o mais e constrói a aplicação
 COPY SampleApp/. ./
 RUN dotnet publish -c release -o out --no-restore
 
-# final stage/image
+# estágio/fase final/imagem
 FROM mcr.microsoft.com/dotnet/aspnet:5.0
 WORKDIR /app
 COPY --from=build /app/out .
 ENTRYPOINT ["dotnet", "SampleNetApi.dll"]
 ```
 
-This script restores all dependencies, builds and runs tests. The dotnet app includes `stylecop` which fails the build in case of linting issues.
+Este script restaura todas as dependências, constrói e executa os testes. O aplicativo .NET Core inclui o `stylecop`, que falha na compilação em caso de problemas de linting.
 
-Next we will also create a dockerfile to perform an end-to-end test. Usually this will look like a set of scripts, or a dedicated app which performs actual HTTP calls to a running application.
-For the sake of simplicity the dockerfile itself will run a simple curl command:
+A seguir, criaremos um Dockerfile para executar um teste de ponta a ponta. Normalmente, isso se parecerá com um conjunto de scripts ou um aplicativo dedicado que faz chamadas HTTP reais para uma aplicação em execução. Para simplificar, o próprio Dockerfile executará um comando curl simples:
 
 ```sh
 FROM alpine:3.7
 RUN apk --no-cache add curl
-ENTRYPOINT ["curl","0.0.0.0:8080/weatherforecast"]
+ENTRYPOINT ["curl", "0.0.0.0:8080/weatherforecast"]
 ```
 
-Now we are ready to combine both of the dockerfiles in a docker-compose script:
+Agora estamos prontos para combinar ambos os Dockerfiles em um script docker-compose:
 
 ```sh
 version: '3'
@@ -86,24 +83,21 @@ services:
       context: ./E2E
 ```
 
-The docker-compose script will launch the 2 dockerfiles, and it will build them if they were not built before.
-The following command will run docker compose:
+O script docker-compose lançará os 2 Dockerfiles e os construirá se ainda não tiverem sido construídos. O comando a seguir executará o docker-compose:
 
 ```sh
 docker-compose up --build -d
 ```
 
-Once the images are up, you can make calls to the service. The e2e image will perform the set of e2e tests.
-If you want to skip the tests, you can simply tell compose to run a specific service by appending the name of the service, as follows:
+Assim que as imagens estiverem ativas, você poderá fazer chamadas para o serviço. A imagem de teste de ponta a ponta executará o conjunto de testes de ponta a ponta. Se você quiser pular os testes, pode simplesmente dizer ao compose para executar um serviço específico, conforme a seguir:
 
 ```sh
 docker-compose up --build -d app
 ```
 
-Now you have a local script which builds and tests you application.
-The next step would be make your CI run the docker-compose script.
+Agora você tem um script local que constrói e testa sua aplicação. O próximo passo seria fazer com que seu CI execute o script docker-compose.
 
-Here is an example of a yaml file used by Azure DevOps pipelines:
+Aqui está um exemplo de um arquivo yaml usado pelas pipelines do Azure DevOps:
 
 ```sh
 trigger:
@@ -128,6 +122,4 @@ steps:
   displayName: 'dotnet build $(buildConfiguration)'
 ```
 
-In this script the first step is docker-compose, which uses the same file we created the previous steps.
-The next steps, do the same using scripts, and are here for comparison.
-By the end of this step, your CI effectively runs the same build and test commands you run locally.
+Neste script, o primeiro passo é docker-compose, que usa o mesmo arquivo que criamos nos passos anteriores. Os próximos passos fazem a mesma coisa usando scripts, e estão aqui para fins de comparação. No final deste passo, seu CI efetivamente executa os mesmos comandos de construção e teste que você executa localmente.

@@ -1,56 +1,56 @@
-# Go Code Reviews
+# Revisões de Código em Go
 
-## Style Guide
+## Guia de Estilo
 
-Developers should follow the [Effective Go](https://golang.org/doc/effective_go.html) Style Guide.
+Os desenvolvedores devem seguir o [Guia de Estilo Effective Go](https://golang.org/doc/effective_go.html).
 
-## Code Analysis / Linting
+## Análise de Código / Verificação de Estilo
 
-### Project Setup
+### Configuração do Projeto
 
-Below is the project setup that you would like to have in your VS Code.
+Abaixo está a configuração do projeto que você gostaria de ter em seu Visual Studio Code.
 
-#### vscode-go extension
+#### Extensão vscode-go
 
-Using the Go extension for Visual Studio Code, you get language features like IntelliSense, code navigation, symbol search, bracket matching, snippets, etc. This extension includes rich language support for go in VS Code.
+Usando a extensão Go para o Visual Studio Code, você obtém recursos de linguagem como IntelliSense, navegação de código, pesquisa de símbolos, correspondência de colchetes, snippets, etc. Esta extensão inclui suporte de linguagem avançado para Go no VS Code.
 
 #### go vet
 
-`go vet` is a static analysis tool that checks for common go errors, such as incorrect use of range loop variables or misaligned printf arguments. Go code should be able to build with no `go vet` errors. This will be part of vscode-go extension.
+`go vet` é uma ferramenta de análise estática que verifica erros comuns em Go, como uso incorreto de variáveis de loop range ou argumentos printf desalinhados. O código Go deve ser capaz de ser compilado sem erros do `go vet`. Isso fará parte da extensão vscode-go.
 
 #### golint
 
-**:exclamation: NOTICE: The golint library is deprecated and archived.**
+**:exclamation: AVISO: A biblioteca golint está descontinuada e arquivada.**
 
-The linter revive (below) might be a suitable replacement.
+O linter revive (abaixo) pode ser uma substituição adequada.
 
-[golint](https://github.com/golang/lint) can be an effective tool for finding many issues, but it errors on the side of false positives. It is best used by developers when working on code, not as part of an automated build process. This is the default linter which is set up as part of the vscode-go extension.
+[golint](https://github.com/golang/lint) pode ser uma ferramenta eficaz para encontrar muitos problemas, mas pode gerar falsos positivos. É melhor usado por desenvolvedores ao trabalhar no código, não como parte de um processo de build automatizado. Este é o linter padrão que está configurado como parte da extensão vscode-go.
 
 #### revive
 
-[Revive](https://revive.run/) is a linter for go, it provides a framework for development of custom rules, and lets you define a strict preset for enhancing your development & code review processes.
+[Revive](https://revive.run/) é um linter para Go, que fornece um framework para o desenvolvimento de regras personalizadas e permite que você defina um conjunto rígido para melhorar seus processos de desenvolvimento e revisão de código.
 
-## Automatic Code Formatting
+## Formatação Automática de Código
 
 ### gofmt
 
-`gofmt` is the automated code format style guide for Go. This is part of the vs-code extension, and it is enabled by default to run on save of every file.
+`gofmt` é o guia de estilo de formatação de código automatizado para Go. Isso faz parte da extensão vs-code e é ativado por padrão para rodar sempre que um arquivo é salvo.
 
-## Aggregator
+## Agregador
 
 ### golangci-lint
 
-[golangci-lint](https://github.com/golangci/golangci-lint/) is the replacement for the now deprecated `gometalinter`. It is 2-7x faster than `gometalinter` [along with a host of other benefits](https://github.com/golangci/golangci-lint/#comparison).
+[golangci-lint](https://github.com/golangci/golangci-lint/) é a substituição do agora descontinuado `gometalinter`. Ele é de 2 a 7 vezes mais rápido que `gometalinter` [juntamente com uma série de outros benefícios](https://github.com/golangci/golangci-lint/#comparison).
 
-golangci-lint is a powerful, customizable aggregator of linters. By default, several are enabled but not all. A full list of linters and their usages can be found [here](https://github.com/golangci/awesome-go-linters).
+golangci-lint é um agregador poderoso e personalizável de linters. Por padrão, vários estão habilitados, mas nem todos. Uma lista completa de linters e seus usos pode ser encontrada [aqui](https://github.com/golangci/awesome-go-linters).
 
-It will allow you to configure each linter and choose which ones you would like to enable in your project.
+Ele permitirá que você configure cada linter e escolha quais deseja habilitar em seu projeto.
 
-One awesome feature of `golangci-lint` is that is can be easily introduced to an existing large codebase using the `--new-from-rev COMMITID`. With this setting only newly introduced issues are flagged, allowing a team to improve new code without having to fix all historic issues in a large codebase. This provides a great path to improving code-reviews on existing solutions. golangci-lint can also be setup as the default linter in VS Code.
+Uma característica incrível do `golangci-lint` é que ele pode ser facilmente introduzido em um código legado existente usando `--new-from-rev COMMITID`. Com essa configuração, apenas novos problemas são sinalizados, permitindo que uma equipe melhore o novo código sem precisar corrigir todos os problemas históricos em um código legado grande. O golangci-lint também pode ser configurado como o linter padrão no VS Code.
 
-Installation options for golangci-lint are present at [golangci-lint](https://github.com/golangci/golangci-lint#binary).
+Opções de instalação para golangci-lint estão presentes em [golangci-lint](https://github.com/golangci/golangci-lint#binary).
 
-To use golangci-lint with VS Code, use the below recommended settings:
+Para usar golangci-lint com o VS Code, use as configurações recomendadas abaixo:
 
 ```json
 "go.lintTool":"golangci-lint",
@@ -59,18 +59,18 @@ To use golangci-lint with VS Code, use the below recommended settings:
    ]
 ```
 
-## Pre-Commit Hooks
+## Hooks Pré-Commit
 
-All developers should run `gofmt` in a pre-commit hook to ensure standard formatting.
+Todos os desenvolvedores devem executar `gofmt` em um hook pré-commit para garantir a formatação padrão.
 
-### Step 1- Install pre-commit
+### Passo 1 - Instalar pre-commit
 
-Run `pip install pre-commit` to install pre-commit.
-Alternatively you can run `brew install pre-commit` if you are using homebrew.
+Execute `pip install pre-commit` para instalar o pre-commit.
+Alternativamente, você pode executar `brew install pre-commit` se estiver usando o Homebrew.
 
-### Step 2- Add go-fmt in pre-commit
+### Passo 2 - Adicionar go-fmt no pré-commit
 
-Add .pre-commit-config.yaml file to root of the go project. Run go-fmt on pre-commit by adding it to .pre-commit-config.yaml file like below.
+Adicione o arquivo .pre-commit-config.yaml à raiz do projeto Go. Execute go-fmt no pré-commit adicionando-o ao arquivo .pre-commit-config.yaml como abaixo.
 
 ```yaml
 - repo: git://github.com/dnephin/pre-commit-golang
@@ -79,41 +79,41 @@ Add .pre-commit-config.yaml file to root of the go project. Run go-fmt on pre-co
     - id: go-fmt
 ```
 
-### Step 3
+### Passo 3
 
-Run `$ pre-commit install` to set up the git hook scripts
+Execute `$ pre-commit install` para configurar os scripts de hook do Git.
 
-## Build Validation
+## Validação de Build
 
-`gofmt` should be run as a part of every build to enforce the common standard.
+`gofmt` deve ser executado como parte de cada build para impor o padrão comum.
 
-To automate this process in Azure DevOps you can add the following snippet to your `azure-pipelines.yaml` file. This will format any scripts in the `./scripts/` folder.
+Para automatizar esse processo no Azure DevOps, você pode adicionar o trecho a seguir ao seu arquivo `azure-pipelines.yaml`. Isso formatará os scripts na pasta `./scripts/`.
 
 ```yaml
 - script: go fmt
   workingDirectory: $(System.DefaultWorkingDirectory)/scripts
-  displayName: "Run code formatting"
+  displayName: "Executar formatação de código"
 ```
 
-`govet` should be run as a part of every build to check code linting.
+`govet` deve ser executado como parte de cada build para verificar a verificação de código.
 
-To automate this process in Azure DevOps you can add the following snippet to your `azure-pipelines.yaml` file. This will check linting of any scripts in the `./scripts/` folder.
+Para automatizar esse processo no Azure DevOps, você pode adicionar o trecho a seguir ao seu arquivo `azure-pipelines.yaml`. Isso verificará a verificação de linting de qualquer script na pasta `./scripts/`.
 
 ```yaml
 - script: go vet
   workingDirectory: $(System.DefaultWorkingDirectory)/scripts
-  displayName: "Run code linting"
+  displayName: "Executar verificação de código"
 ```
 
-Alternatively you can use golangci-lint as a step in the pipeline to do multiple enabled validations(including go vet and go fmt) of golangci-lint.
+Alternativamente, você pode usar o golangci-lint como uma etapa no pipeline para realizar várias validações habilitadas (incluindo go vet e go fmt) do golangci-lint.
 
 ```yaml
 - script: golangci-lint run --enable gofmt --fix
   workingDirectory: $(System.DefaultWorkingDirectory)/scripts
-  displayName: "Run code linting"
+  displayName: "Executar verificação de código"
 ```
 
-## Sample Build Validation Pipeline in Azure DevOps
+## Exemplo de Pipeline de Validação de Build no Azure DevOps
 
 ```yaml
 trigger: master
@@ -136,16 +136,18 @@ steps:
 
 - script: go fmt
   workingDirectory: $(System.DefaultWorkingDirectory)/scripts
-  displayName: "Run code formatting"
+  displayName: "Executar formatação de código"
 
 - script: go vet
   workingDirectory: $(System.DefaultWorkingDirectory)/scripts
-  displayName: 'Run go vet'
+  displayName: 'Executar go vet'
 
 - task: Go@0
   inputs:
     command: 'build'
-    workingDirectory: '$(System.DefaultWorkingDirectory)'
+    workingDirectory: '$(System.DefaultWorking
+
+Directory)'
 
 - task: CopyFiles@2
   inputs:
@@ -155,17 +157,17 @@ steps:
      artifactName: drop
 ```
 
-## Code Review Checklist
+## Checklist de Revisão de Código
 
-The Go language team maintains a list of common [Code Review Comments](https://github.com/golang/go/wiki/CodeReviewComments) for go that form the basis for a solid checklist for a team working in Go that should be followed in addition to the [ISE Code Review Checklist](../process-guidance/reviewer-guidance.md)
+A equipe de linguagem Go mantém uma lista de [Comentários de Revisão de Código Comuns](https://github.com/golang/go/wiki/CodeReviewComments) para Go que formam a base para um sólido checklist para uma equipe que trabalha em Go, que deve ser seguido além do [Checklist de Revisão de Código ISE](../process-guidance/reviewer-guidance.md)
 
-* [ ] Does this code [handle errors](https://golang.org/doc/effective_go.html#errors) correctly? This includes not throwing away errors with `_` assignments and returning errors, instead of [in-band error values](https://github.com/golang/go/wiki/CodeReviewComments#in-band-errors)?
-* [ ] Does this code follow Go standards for method [receiver types](https://github.com/golang/go/wiki/CodeReviewComments#receiver-type)?
-* [ ] Does this code [pass values](https://github.com/golang/go/wiki/CodeReviewComments#pass-values) when it should?
-* [ ] Are interfaces in this code defined in the [correct packages](https://github.com/golang/go/wiki/CodeReviewComments#interfaces)?
-* [ ] Do go-routines in this code have [clear lifetimes](https://github.com/golang/go/wiki/CodeReviewComments#goroutine-lifetimes)?
-* [ ] Is parallelism in this code handled via go-routines and channels with [synchronous methods](https://github.com/golang/go/wiki/CodeReviewComments#synchronous-functions)?
-* [ ] Does this code have meaningful [Doc Comments](https://github.com/golang/go/wiki/CodeReviewComments#doc-comments)?
-* [ ] Does this code have meaningful [Package Comments](https://github.com/golang/go/wiki/CodeReviewComments#package-comments)?
-* [ ] Does this code use [Contexts](https://github.com/golang/go/wiki/CodeReviewComments#contexts) correctly?
-* [ ] Do unit tests fail with [meaningful messages](https://github.com/golang/go/wiki/CodeReviewComments#useful-test-failures)?
+* [ ] Este código [trata erros](https://golang.org/doc/effective_go.html#errors) corretamente? Isso inclui não descartar erros com atribuições `_` e retornar erros, em vez de [valores de erro no próprio canal](https://github.com/golang/go/wiki/CodeReviewComments#in-band-errors)?
+* [ ] Este código segue os padrões Go para tipos de receptor de método [receiver types](https://github.com/golang/go/wiki/CodeReviewComments#receiver-type)?
+* [ ] Este código [passa valores](https://github.com/golang/go/wiki/CodeReviewComments#pass-values) quando necessário?
+* [ ] As interfaces neste código são definidas nos [pacotes corretos](https://github.com/golang/go/wiki/CodeReviewComments#interfaces)?
+* [ ] As go-routines neste código têm [lifetimes claros](https://github.com/golang/go/wiki/CodeReviewComments#goroutine-lifetimes)?
+* [ ] O paralelismo neste código é tratado por meio de go-routines e canais com [métodos síncronos](https://github.com/golang/go/wiki/CodeReviewComments#synchronous-functions)?
+* [ ] Este código possui [Comentários de Documentação](https://github.com/golang/go/wiki/CodeReviewComments#doc-comments) significativos?
+* [ ] Este código possui [Comentários de Pacote](https://github.com/golang/go/wiki/CodeReviewComments#package-comments) significativos?
+* [ ] Este código usa [Contextos](https://github.com/golang/go/wiki/CodeReviewComments#contexts) corretamente?
+* [ ] Os testes unitários falham com [mensagens significativas](https://github.com/golang/go/wiki/CodeReviewComments#useful-test-failures)?

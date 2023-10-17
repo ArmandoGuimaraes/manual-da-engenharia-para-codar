@@ -1,7 +1,7 @@
-# Integration with Teams/Slack
+# Integração com Teams/Slack
 
-Monitor your Azure repositories and receive notifications in your channel whenever code is pushed/checked in and whenever a pull request (PR) is created, updated, or a merge is attempted.
+Monitore seus repositórios do Azure e receba notificações em seu canal sempre que código for enviado/verificado e sempre que uma solicitação de pull request (PR) for criada, atualizada ou uma mesclagem for tentada.
 
-- [Azure Repos with Microsoft Teams](https://learn.microsoft.com/en-us/azure/devops/repos/integrations/repos-teams?view=azure-devops)
+- [Repositórios do Azure com o Microsoft Teams](https://learn.microsoft.com/pt-br/azure/devops/repos/integrations/repos-teams?view=azure-devops)
 
-- [Azure Repos with Slack](https://learn.microsoft.com/en-us/azure/devops/repos/integrations/repos-slack?view=azure-devops)
+- [Repositórios do Azure com o Slack](https://learn.microsoft.com/pt-br/azure/devops/repos/integrations/repos-slack?view=azure-devops)

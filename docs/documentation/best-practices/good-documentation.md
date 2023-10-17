@@ -1,5 +1,5 @@
-# Creating Good Documentation
+# Criando Boa Documentação
 
-Review the [Documentation Review Checklist](../../code-reviews/recipes/markdown.md#code-review-checklist) for advice on how to write good documentation.
+Analise a [Lista de Verificação de Revisão de Documentação](../../code-reviews/recipes/markdown.md#code-review-checklist) para obter orientações sobre como escrever boa documentação.
 
-Good documentation should follow good writing guidelines: [Writing Style Guidelines](../../code-reviews/recipes/markdown.md#writing-style-guidelines).
+Uma boa documentação deve seguir diretrizes de escrita adequadas: [Diretrizes de Estilo de Escrita](../../code-reviews/recipes/markdown.md#writing-style-guidelines).

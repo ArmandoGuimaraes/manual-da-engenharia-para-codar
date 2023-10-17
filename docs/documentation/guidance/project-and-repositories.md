@@ -1,64 +1,64 @@
-# Projects and Repositories
+# Projetos e Repositórios
 
-Every source code repository should include documentation that is specific to it (e.g., in a Wiki within the repository), while the project itself should include general documentation that is common to all its associated repositories (e.g., in a Wiki within the backlog management tool).
+Cada repositório de código-fonte deve incluir documentação específica para ele (por exemplo, em uma Wiki dentro do repositório), enquanto o projeto em si deve incluir documentação geral que seja comum a todos os seus repositórios associados (por exemplo, em uma Wiki dentro da ferramenta de gerenciamento de backlog).
 
-## Documentation specific to a repository
+## Documentação específica para um repositório
 
-- Introduction
-- Getting started
-  - Onboarding
-  - Setup: programming language, frameworks, platforms, tools, etc.
-  - Sandbox environment
-  - Working agreement
-  - Contributing guide
-- Structure: folders, projects, etc.
-- How to compile, test, build, deploy the solution/each project
-  - Different OS versions
-  - Command line + editors/IDEs
-- [Design Decision Logs](../../design/design-reviews/decision-log/README.md)
-  - [Architecture Decision Record (ADRs)](../../design/design-reviews/decision-log/README.md#architecture-decision-record-(ADR))
-  - [Trade Studies](../../design/design-reviews/trade-studies/README.md)
+- Introdução
+- Primeiros passos
+  - Integração
+  - Configuração: linguagem de programação, frameworks, plataformas, ferramentas, etc.
+  - Ambiente de teste
+  - Acordo de trabalho
+  - Guia de contribuição
+- Estrutura: pastas, projetos, etc.
+- Como compilar, testar, construir, implantar a solução/cada projeto
+  - Diferentes versões do sistema operacional
+  - Linha de comando + editores/IDEs
+- [Logs de Decisão de Design](../../design/design-reviews/decision-log/README.md)
+  - [Registro de Decisões de Arquitetura (ADRs)](../../design/design-reviews/decision-log/README.md#architecture-decision-record-(ADR))
+  - [Estudos de Trade](../../design/design-reviews/trade-studies/README.md)
 
-Some sections in the documentation of the repository might point to the project’s documentation (e.g., Onboarding, Working Agreement, Contributing Guide).
+Algumas seções na documentação do repositório podem apontar para a documentação do projeto (por exemplo, Integração, Acordo de Trabalho, Guia de Contribuição).
 
-## Common documentation to all repositories
+## Documentação comum a todos os repositórios
 
-- Introduction
-  - Project
-  - Stakeholders
-  - Definitions
-  - Requirements
-- [Onboarding](../../developer-experience/onboarding-guide-template.md)
-- Repository guide
-  - Production, Spikes
-- [Team agreements](../../agile-development/advanced-topics/team-agreements/README.md)
-  - [Team Manifesto](../../agile-development/advanced-topics/team-agreements/team-manifesto.md)
-    - Short summary of expectations around the technical way of working and supported mindset in the team.
-    - E.g., ownership, respect, collaboration, transparency.
-  - [Working Agreement](../../agile-development/advanced-topics/team-agreements/working-agreements.md)
-    - How we work together as a team and what our expectations and principles are.
-    - E.g., communication, work-life balance, scrum rhythm, backlog management, code management.
-  - [Definition of Done](../../agile-development/advanced-topics/team-agreements/definition-of-done.md)
-    - List of tasks that must be completed to close a user story, a sprint, or a milestone.
-  - [Definition of Ready](../../agile-development/advanced-topics/team-agreements/definition-of-ready.md)
-    - How complete a user story should be in order to be selected as candidate for estimation in the sprint planning.
-- Contributing Guide
-  - Repo structure
-  - Design documents
-  - [Branching and branch name strategy](../../source-control/naming-branches.md)
-  - [Merge and commit history strategy](../../source-control/merge-strategies.md)
+- Introdução
+  - Projeto
+  - Partes interessadas
+  - Definições
+  - Requisitos
+- [Integração](../../developer-experience/onboarding-guide-template.md)
+- Guia do repositório
+  - Produção, Spikes
+- [Acordos da equipe](../../agile-development/advanced-topics/team-agreements/README.md)
+  - [Manifesto da Equipe](../../agile-development/advanced-topics/team-agreements/team-manifesto.md)
+    - Resumo breve das expectativas em torno da forma técnica de trabalhar e da mentalidade apoiada na equipe.
+    - Por exemplo, propriedade, respeito, colaboração, transparência.
+  - [Acordo de Trabalho](../../agile-development/advanced-topics/team-agreements/working-agreements.md)
+    - Como trabalhamos juntos como equipe e quais são nossas expectativas e princípios.
+    - Por exemplo, comunicação, equilíbrio entre trabalho e vida, ritmo scrum, gerenciamento de backlog, gerenciamento de código.
+  - [Definição de Pronto](../../agile-development/advanced-topics/team-agreements/definition-of-done.md)
+    - Lista de tarefas que devem ser concluídas para encerrar uma história de usuário, um sprint ou uma etapa.
+  - [Definição de Pronto para Estimar](../../agile-development/advanced-topics/team-agreements/definition-of-ready.md)
+    - Quão completa uma história de usuário deve estar para ser selecionada como candidata para estimativa no planejamento do sprint.
+- Guia de Contribuição
+  - Estrutura do repositório
+  - Documentos de design
+  - [Estratégia de Nomenclatura de Branches](../../source-control/naming-branches.md)
+  - [Estratégia de Histórico de Merge e Commit](../../source-control/merge-strategies.md)
   - [Pull Requests](./pull-requests.md)
-  - [Code Review Process](../../code-reviews/README.md)
-  - [Code Review Checklist](../../code-reviews/process-guidance/reviewer-guidance.md)
-    - [Language Specific Checklists](../../code-reviews/recipes/README.md)
-- [Project Design](../../design/design-reviews/README.md)
-  - [High Level / Game Plan](../../design/design-reviews/recipes/high-level-design-recipe.md)
-  - [Milestone / Epic Design Review](../../design/design-reviews/recipes/milestone-epic-design-review-recipe.md)
-- [Design Review Recipes](../../design/design-reviews/README.md#Recipes)
-  - [Milestone / Epic Design Review Template](../../design/design-reviews/recipes/milestone-epic-design-review-template.md)
-  - [Feature / Story Design Review Template](../../design/design-reviews/recipes/feature-story-design-review-template.md)
-  - [Task Design Review Template](../../design/design-reviews/recipes/task-design-review-template.md)
-  - [Decision Log Template](../../design/design-reviews/decision-log/doc/decision-log.md)
-  - [Architecture Decision Record (ADR) Template](../../design/design-reviews/decision-log/README.md#architecture-decision-record-(ADR)) ([Example 1](../../design/design-reviews/decision-log/doc/adr/0001-record-architecture-decisions.md),
-    [Example 2](../../design/design-reviews/decision-log/doc/adr/0002-app-level-logging.md))
-  - [Trade Study Template](../../design/design-reviews/trade-studies/template.md)
+  - [Processo de Revisão de Código](../../code-reviews/README.md)
+  - [Lista de Verificação de Revisão de Código](../../code-reviews/process-guidance/reviewer-guidance.md)
+    - [Listas de Verificação Específicas de Idioma](../../code-reviews/recipes/README.md)
+- [Design do Projeto](../../design/design-reviews/README.md)
+  - [Design de Alto Nível / Plano de Jogo](../../design/design-reviews/recipes/high-level-design-recipe.md)
+  - [Revisão de Design de Marco / Épico](../../design/design-reviews/recipes/milestone-epic-design-review-recipe.md)
+- [Receitas de Revisão de Design](../../design/design-reviews/README.md#Receitas)
+  - [Modelo de Revisão de Design de Marco / Épico](../../design/design-reviews/recipes/milestone-epic-design-review-template.md)
+  - [Modelo de Revisão de Design de Recurso / História](../../design/design-reviews/recipes/feature-story-design-review-template.md)
+  - [Modelo de Revisão de Design de Tarefa](../../design/design-reviews/recipes/task-design-review-template.md)
+  - [Modelo de Registro de Decisão](../../design/design-reviews/decision-log/doc/decision-log.md)
+  - [Modelo de Registro de Decisão de Arquitetura (ADR)](../../design/design-reviews/decision-log/README.md#architecture-decision-record-(ADR)) ([Exemplo 1](../../design/design-reviews/decision-log/doc/adr/0001-record-architecture-decisions.md),
+    [Exemplo 2](../../design/design-reviews/decision-log/doc/adr/0002-app-level-logging.md))
+  - [Modelo de Estudo de Trade](../../design/design-reviews/trade-studies/template.md)

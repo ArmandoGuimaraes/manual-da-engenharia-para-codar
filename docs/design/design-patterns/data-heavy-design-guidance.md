@@ -1,93 +1,95 @@
-# Data and DataOps Fundamentals
+# Fundamentos de Dados e DataOps
 
-Most projects involve some type of data storage, data processing and data ops. For these projects, as with all projects, we follow the general guidelines laid out in other sections around security, testing, observability, CI/CD etc.
+A maioria dos projetos envolve algum tipo de armazenamento de dados, processamento de dados e DataOps. Para esses projetos, assim como para todos os projetos, seguimos as diretrizes gerais apresentadas em outras seções sobre segurança, testes, observabilidade, CI/CD etc.
 
-## Goal
+## Objetivo
 
-The goal of this section is to briefly describe how to apply the fundamentals to data heavy projects or portions of the project.
+O objetivo desta seção é descrever brevemente como aplicar os fundamentos a projetos de dados pesados ou a partes do projeto.
 
-## Isolation
+## Isolamento
 
-Please be cautious of which [isolation levels](https://en.wikipedia.org/wiki/Isolation_(database_systems)) you are using. Even with a database that offers serializability, it is possible that within a transaction or connection you are leveraging a lower isolation level than the database offers. In particular, read uncommitted (or eventual consistency), can have a lot of unpredictable side effects and introduce bugs that are difficult to reason about. Eventually consistent systems should be treated as a last resort for achieving your scalability requirements; batching, sharding, and caching are all recommended solutions to increase your scalability. If none of these options are tenable, consider evaluating the "New SQL" databases like CockroachDB or TiDB, before leveraging an option that relies on eventual consistency.
+Por favor, tenha cuidado com os [níveis de isolamento](https://en.wikipedia.org/wiki/Isolation_(database_systems)) que você está usando. Mesmo com um banco de dados que oferece serializabilidade, é possível que, dentro de uma transação ou conexão, você esteja usando um nível de isolamento mais baixo do que o banco de dados oferece. Em particular, a leitura não confirmada (ou consistência eventual) pode ter muitos efeitos colaterais imprevisíveis e introduzir bugs difíceis de entender. Sistemas eventualmente consistentes devem ser tratados como último recurso para atender aos requisitos de escalabilidade; o uso de lotes, fragmentação e armazenamento em cache são todas soluções recomendadas para aumentar a escalabilidade. Se nenhuma dessas opções for viável, considere avaliar os bancos de dados "New SQL" como CockroachDB ou TiDB, antes de utilizar uma opção que dependa da consistência eventual.
 
-There are other levels of isolation, outside the isolation levels mentioned in the link above. Some of these have nuances different from the 4 main levels, and can be difficult to compare. Snapshot Isolation, strict serializability, "read your own writes", monotonic reads, bounded staleness, causal consistency, and linearizability are all other terms you can look into to learn more on the subject.
+Existem outros níveis de isolamento, fora dos níveis de isolamento mencionados no link acima. Alguns deles têm nuances diferentes dos 4 principais níveis e podem ser difíceis de comparar. Isolamento de Snapshot, serialização estrita, "ler o próprio escrito", leituras monotônicas, staleness limitada, consistência causal e linearização são todos outros termos que você pode explorar para aprender mais sobre o assunto.
 
-## Concurrency Control
+## Controle de Concorrência
 
-Your systems should (almost) always leverage some form of concurrency control, to ensure correctness amongst competing requests and to prevent data races. The 2 forms of concurrency control are **pessimistic** and **optimistic**.
+Seus sistemas devem (quase sempre) aproveitar alguma forma de controle de concorrência, para garantir a correção entre solicitações concorrentes e evitar corridas de dados. As duas formas de controle de concorrência são **pessimista** e **otimista**.
 
-A **pessimistic** transaction involves a first request to "lock the data", and a second request to write the data. In between these requests, no other requests touching that data will succeed. See [2 Phase Locking](https://en.wikipedia.org/wiki/Two-phase_locking) (also often known as 2 Phase Commit) for more info.
+Uma transação **pessimista** envolve uma primeira solicitação para "bloquear os dados" e uma segunda solicitação para escrever os dados. Entre essas solicitações, nenhuma outra solicitação que acesse esses dados terá sucesso. Consulte [2 Phase Locking](https://en.wikipedia.org/wiki/Two-phase_locking) (também conhecido como 2 Phase Commit) para obter mais informações.
 
-The (more) recommended approach is **optimistic** concurrency, where a user can read the object at a specific version, and update the object if and only if it hasn't changed. This is typically done via the [Etag Header](https://en.wikipedia.org/wiki/HTTP_ETag).
+A abordagem (mais) recomendada é a concorrência **otimista**, onde um usuário pode ler o objeto em uma versão específica e atualizar o objeto apenas se ele não tiver sido alterado. Isso é normalmente feito via [Cabeçalho Etag](https://en.wikipedia.org/wiki/HTTP_ETag).
 
-A simple way to accomplish this on the database side is to increment a version number on each update. This can be done in a single executed statement as:
+Uma maneira simples de fazer isso no lado do banco de dados é incrementar um número de versão em cada atualização. Isso pode ser feito em uma única instrução executada da seguinte forma:
 
-> WARNING: the below will not work when using an isolation level at or lower than read uncommitted (eventual consistency).
+> AVISO: o código abaixo não funcionará quando estiver usando um nível de isolamento igual ou inferior ao "read uncommitted" (consistência eventual).
 
 ```SQL
--- Please treat this as pseudo code, and adjust as necessary.
+-- Trate isso como código fictício e ajuste conforme necessário.
 
-UPDATE <table_name>
-SET field1 = value1, ..., fieldN = valueN, version = $new_version
-WHERE ID = $id AND version = $version
+UPDATE <nome_da_tabela>
+SET campo1 = valor1, ..., campoN = valorN, versao = $nova_versao
+WHERE ID = $id AND versao = $versao
 ```
 
-## Data Tiering (Data Quality)
+## Camadas de Dados (Qualidade de Dados)
 
-Develop a common understanding of the quality of your datasets so that everyone understands the quality of the data, and expected use cases and limitations.
+Desenvolva um entendimento comum da qualidade de seus conjuntos de dados, para que todos entendam a qualidade dos dados, os casos de uso esperados e as limitações.
 
-A common data quality model is `Bronze`, `Silver`, `Gold`
+Um modelo comum de qualidade de dados é `Bronze`, `Silver`, `Gold`
 
-- **Bronze:** This is a landing area for your raw datasets with none or minimal data transformations applied, and therefore are optimized for writes / ingestion. Treat these datasets as an immutable, append only store.
-- **Silver:** These are cleansed, semi-processed datasets. These conform to a known schema and predefined data invariants and might have further data augmentation applied. These are typically used by data scientists.
-- **Gold:** These are highly processed, highly read-optimized datasets primarily for consumption of business users. Typically, these are structured in your standard fact and dimension tables.
+- **Bronze:** Esta é uma área de desembarque para seus conjuntos de dados brutos com pouca ou nenhuma transformação de dados aplicada, e, portanto, são otimizados para gravações / ingestão. Trate esses conjuntos de dados como um armazenamento imutável, apenas para anexar.
+- **Silver:** São conjuntos de dados limpos e semi-processados. Eles se conformam a um esquema conhecido e a invariantes de dados predefinidos e podem ter mais augmentação de dados aplicada. Normalmente, são usados por cientistas de dados.
+- **Gold:** São conjuntos de dados altamente processados e altamente otimizados para leitura, principalmente para o consumo de usuários de negócios. Normalmente, são estruturados em suas tabelas padrão de fatos e dimensões.
 
-Divide your data lake into three major areas containing your Bronze, Silver and Gold datasets.
+Divida seu data lake em três grandes áreas contendo seus conjuntos de dados Bronze, Silver e Gold.
 
-> Note: Additional storage areas for malformed data, intermediate (sandbox) data, and libraries/packages/binaries are also useful when designing your storage organization.
+> Nota: Áreas de armazenamento adicionais para dados malformados, dados intermediários (sandbox) e bibliotecas/pacotes/binários também são úteis ao projetar a organização do armazenamento.
 
-## Data Validation
+## Validação de Dados
 
-Validate data early in your pipeline
+Valide os dados no início do seu pipeline
 
-- Add data validation between the Bronze and Silver datasets. By validating early in your pipeline, you can ensure all datasets conform to a specific schema and known data invariants. This can also potentially prevent data pipeline failures in case of unexpected changes to the input data.
-- Data that does not pass this validation stage can be rerouted to a record store dedicated for malformed data for diagnostic purposes.
-- It may be tempting to add validation prior to landing in the Bronze area of your data lake. This is generally not recommended. Bronze datasets are there to ensure you have as close of a copy of the source system data. This can be used to replay the data pipeline for both testing (i.e. testing data validation logic) and data recovery purposes (i.e. data corruption is introduced due to a bug in the data transformation code and thus the pipeline needs to be replayed).
+- Adicione validação de dados entre os conjuntos de dados Bronze e Silver. Validando no início do seu pipeline, você pode garantir que todos os conjuntos de dados estejam em conformidade com um esquema específico e invariantes de dados conhecidos. Isso também pode potencialmente evitar falhas no pipeline de dados em caso de alterações inesperadas nos dados de entrada.
+- Os dados que não passam por esta etapa de validação podem ser encaminhados para um registro dedicado de dados malformados para fins de diagnóstico.
+- Pode ser tentador adicionar validação antes de desembarcar na área Bronze do seu data lake. Isso geralmente não é recomendado. Os conjuntos de dados Bronze existem para garantir que você tenha uma cópia o mais próxima possível dos dados do sistema de origem. Isso pode ser usado para repetir o pipeline de dados tanto para testes (ou seja, testar a lógica de validação de dados) quanto para fins de recuperação de dados (ou seja, a corrupção de dados é introduzida devido a um erro no código de transformação de dados e, portanto, o pipeline precisa ser repetido).
 
-## Idempotent Data Pipelines
+## Pipelines de Dados Idempotentes
 
-Make your data pipelines re-playable and idempotent
+Torne seus pipelines de dados reutilizáveis e idempotentes
 
-- Silver and Gold datasets can get corrupted due to a number of reasons such as unintended bugs, unexpected input data changes, and more. By making data pipelines re-playable and idempotent, you can recover from this state through deployment of code fixes, and re-playing the data pipelines.
-- Idempotency also ensures data-duplication is mitigated when replaying your data pipelines.
+- Conjuntos de dados Silver e Gold podem ser corrompidos por vários motivos, como bugs não intencionais, alterações inesperadas nos dados de entrada e outros. Ao tornar os pipelines de dados reutilizáveis
 
-## Testing
+ e idempotentes, você pode se recuperar desse estado por meio da implantação de correções de código e repetição dos pipelines de dados.
+- A idempotência também garante que a duplicação de dados seja mitigada ao repetir seus pipelines de dados.
 
-Ensure data transformation code is testable
+## Testes
 
-- Abstracting away data transformation code from data access code is key to ensuring unit tests can be written against data transformation logic. An example of this is moving transformation code from notebooks into packages.
-- While it is possible to run tests against notebooks, by extracting the code into packages, you increase the developer productivity by increasing the speed of the feedback cycle.
+Garanta que o código de transformação de dados seja testável
 
-## CI/CD, Source Control and Code Reviews
+- Abstrair o código de transformação de dados do código de acesso aos dados é fundamental para garantir que testes unitários possam ser escritos contra a lógica de transformação de dados. Um exemplo disso é mover o código de transformação de dados de cadernos para pacotes.
+- Embora seja possível executar testes em cadernos, ao extrair o código para pacotes, você aumenta a produtividade do desenvolvedor, aumentando a velocidade do ciclo de feedback.
 
-- All artifacts needed to build the data pipeline from scratch should be in source control. This included infrastructure-as-code artifacts, database objects (schema definitions, functions, stored procedures etc.), reference/application data, data pipeline definitions and data validation and transformation logic.
-- Any new artifacts (code) introduced to the repository should be code reviewed, both automatically (linting, credential scanning etc.) and peer reviewed.
-- There should be a safe, repeatable process (CI/CD) to move the changes through dev, test and finally production.
+## CI/CD, Controle de Origem e Revisões de Código
 
-## Security and Configuration
+- Todos os artefatos necessários para construir o pipeline de dados do zero devem estar sob controle de origem. Isso inclui artefatos de infraestrutura como código, objetos de banco de dados (definições de esquema, funções, procedimentos armazenados etc.), dados de referência/aplicação, definições de pipeline de dados e lógica de validação e transformação de dados.
+- Quaisquer novos artefatos (código) introduzidos no repositório devem passar por revisões de código, tanto automáticas (verificação de lint, verificação de credenciais etc.) quanto revisões por pares.
+- Deve haver um processo seguro e repetível (CI/CD) para mover as alterações por meio de desenvolvimento, teste e, finalmente, produção.
 
-- Maintain a central, secure location for sensitive configuration such as database connection strings that can be accessed by the appropriate services within the specific environment.
-- On Azure this is typically solved through securing secrets in a Key Vault per environment, then having the relevant services query KeyVault for the configuration
+## Segurança e Configuração
 
-## Observability
+- Mantenha um local central e seguro para configurações sensíveis, como strings de conexão de banco de dados, que podem ser acessadas pelos serviços apropriados dentro do ambiente específico.
+- No Azure, isso geralmente é resolvido por meio da segurança de segredos em um Key Vault por ambiente e, em seguida, os serviços relevantes consultam o KeyVault para obter a configuração.
 
-Monitor infrastructure, pipelines and data
+## Observabilidade
 
-- A proper monitoring solution should be in-place to ensure failures are identified, diagnosed and addressed in a timely manner. Aside from the base infrastructure and pipeline runs, data should also be monitored. A common area that should have data monitoring is the malformed record store.
+Monitore infraestrutura, pipelines e dados
 
-## End to End and Azure Technology Samples
+- Uma solução de monitoramento adequada deve estar em vigor para garantir que as falhas sejam identificadas, diagnosticadas e abordadas de forma oportuna. Além da infraestrutura base e das execuções de pipelines, os dados também devem ser monitorados. Uma área comum que deve ter monitoramento de dados é o registro de dados malformados.
 
-The [DataOps for the Modern Data Warehouse repo](https://github.com/Azure-Samples/modern-data-warehouse-dataops) contains both end-to-end and technology specific samples on how to implement DataOps on Azure.
+## Amostras de Tecnologia de Ponta a Ponta e Azure
+
+O repositório [DataOps for the Modern Data Warehouse](https://github.com/Azure-Samples/modern-data-warehouse-dataops) contém amostras de tecnologia específicas e de ponta a ponta sobre como implementar o DataOps no Azure.
 
 ![CI/CD](images/CI_CD_process.png?raw=true "CI/CD")
-Image: CI/CD for Data pipelines on Azure - from DataOps for the Modern Data Warehouse repo
+Imagem: CI/CD para pipelines de dados no Azure - do repositório DataOps para o Modern Data Warehouse

@@ -1,37 +1,37 @@
-# Responsible AI in ISE
+# IA Responsável na ISE
 
-## Microsoft's Responsible AI principles
+## Princípios de IA Responsável da Microsoft
 
-Every ML project in ISE goes through a Responsible AI (RAI) assessment to ensure that it upholds Microsoft's [6 Responsible AI principles](https://www.microsoft.com/en-us/ai/responsible-ai):
+Todo projeto de ML na ISE passa por uma avaliação de IA Responsável (RAI) para garantir que ele cumpra os [6 princípios de IA Responsável da Microsoft](https://www.microsoft.com/en-us/ai/responsible-ai):
 
-- Fairness
-- Reliability & Safety
-- Privacy & Security
-- Inclusiveness
-- Transparency
-- Accountability
+- Equidade
+- Confiabilidade e Segurança
+- Privacidade e Segurança
+- Inclusão
+- Transparência
+- Responsabilidade
 
-Every project goes through the RAI process, whether we are building a new ML model from scratch, or putting an existing model in production.
+Todo projeto passa pelo processo de RAI, seja para construir um novo modelo de ML do zero ou colocar um modelo existente em produção.
 
-## ISE's Responsible AI process
+## Processo de IA Responsável da ISE
 
-The process begins as soon as we start a prospective project. We start to complete a Responsible AI review document, and an impact assessment, which provides a structured way to explore topics such as:
+O processo começa assim que iniciamos um projeto prospectivo. Começamos preenchendo um documento de revisão de IA Responsável e uma avaliação de impacto, que oferece uma maneira estruturada de explorar tópicos como:
 
-- Can the problem be addressed with a non-technical (e.g. social) solution?
-- Can the problem be solved without AI? Would simpler technology suffice?
-- Will the team have access to domain experts (e.g. doctors, refugees) in the field where the AI is applicable?
-- Who are the stakeholders in this project? Who does the AI impact? Are there any vulnerable groups affected?
-- What are the possible benefits and harms to each stakeholder?
-- How can the technology be misused, and what can go wrong?
-- Has the team analyzed the input data properly to make sure that the training data is suitable for machine learning?
-- Is the training data an accurate representation of data that will be used as input in production?
-- Is there a good representation of all users?
-- Is there a fall-back mechanism (a human in the loop, or a way to revert decisions based on the model)?
-- Does data used by the model for training or scoring contain PII? What measures have been taken to remove sensitive data?
-- Does the model impact consequential decisions, like blocking people from getting jobs, loans, health care etc. or in the cases where it may, have appropriate ethical considerations been discussed?
-- Have measures for re-training been considered?
-- How can we address any concerns that arise, and how can we mitigate risk?
+- O problema pode ser resolvido com uma solução não técnica (por exemplo, social)?
+- O problema pode ser resolvido sem IA? Tecnologia mais simples seria suficiente?
+- A equipe terá acesso a especialistas no domínio (por exemplo, médicos, refugiados) na área onde a IA é aplicável?
+- Quem são as partes interessadas neste projeto? Quem é impactado pela IA? Existem grupos vulneráveis afetados?
+- Quais são os possíveis benefícios e danos para cada parte interessada?
+- Como a tecnologia pode ser mal utilizada e o que pode dar errado?
+- A equipe analisou adequadamente os dados de entrada para garantir que os dados de treinamento sejam adequados para aprendizado de máquina?
+- Os dados de treinamento representam com precisão os dados que serão usados como entrada na produção?
+- Existe uma boa representação de todos os usuários?
+- Existe um mecanismo de fallback (um humano na sequência ou uma maneira de reverter decisões com base no modelo)?
+- Os dados usados pelo modelo para treinamento ou pontuação contêm informações pessoais identificáveis (PII)? Quais medidas foram tomadas para remover dados sensíveis?
+- O modelo impacta decisões consequentes, como impedir que as pessoas obtenham empregos, empréstimos, assistência médica etc., ou nos casos em que isso pode ocorrer, considerações éticas apropriadas foram discutidas?
+- Medidas de re-treinamento foram consideradas?
+- Como podemos abordar quaisquer preocupações que surjam e como podemos mitigar riscos?
 
-At this point we research available [tools and resources](https://www.microsoft.com/en-us/ai/responsible-ai-resources), such as [InterpretML](https://interpret.ml/) or [Fairlearn](https://github.com/fairlearn/fairlearn), that we may use on the project. We may change the project scope or re-define the [ML problem definition](ml-problem-formulation-envisioning.md) if necessary.
+Neste ponto, pesquisamos [ferramentas e recursos disponíveis](https://www.microsoft.com/en-us/ai/responsible-ai-resources), como [InterpretML](https://interpret.ml/) ou [Fairlearn](https://github.com/fairlearn/fairlearn), que podemos usar no projeto. Podemos alterar o escopo do projeto ou redefinir a [definição do problema de ML](ml-problem-formulation-envisioning.md) se necessário.
 
-The Responsible AI review documents remain living documents that we re-visit and update throughout project development, through the [feasibility study](ml-feasibility-study.md), as the model is developed and prepared for production, and new information unfolds. The documents can be used and expanded once the model is deployed, and monitored in production.
+Os documentos de revisão de IA Responsável permanecem documentos vivos que revisamos e atualizamos durante o desenvolvimento do projeto, por meio do [estudo de viabilidade](ml-feasibility-study.md), à medida que o modelo é desenvolvido e preparado para a produção, e à medida que novas informações surgem. Os documentos podem ser usados e expandidos assim que o modelo é implantado e monitorado em produção.

@@ -1,75 +1,75 @@
-# Async Design Reviews
+# Revisões de Design Assíncronas
 
-## Goals
+## Objetivos
 
-Allow team members to review designs as their work schedule allows.
+Permitir que os membros da equipe revisem os designs conforme a disponibilidade em suas agendas de trabalho.
 
-## Impact
+## Impacto
 
-This in turn results in the following benefits:
+Isso resulta nos seguintes benefícios:
 
-- **Higher Participation & Accessibility**. They do not need to be online and available at the same time as others to review.
-- **Reduced Time Constraint**. Reviewers can spend longer than the duration of a single meeting to think through the approach and provide feedback.
+- **Maior Participação e Acessibilidade**. Eles não precisam estar online e disponíveis ao mesmo tempo que outros para revisar.
+- **Menos Restrição de Tempo**. Os revisores podem gastar mais tempo do que a duração de uma única reunião para pensar na abordagem e fornecer feedback.
 
-## Measures
+## Medidas
 
-The metrics and/or KPIs used for design reviews overall would still apply. See [design reviews](../README.md#Measures) for measures guidance.
+As métricas e/ou KPIs usados para revisões de design em geral ainda se aplicariam. Consulte [revisões de design](../README.md#Measures) para orientações sobre medidas.
 
-## Participation
+## Participação
 
-The participation should be same as any design review. See [design reviews](../README.md#Participation) for participation guidance.
+A participação deve ser a mesma de qualquer revisão de design. Consulte [revisões de design](../README.md#Participation) para orientações sobre a participação.
 
-## Facilitation Guidance
+## Orientações para Facilitação
 
-The concept is to have the design follow the same workflow as any code changes to implement story or task. Rather than code however, the artifacts being added or changed are Markdown documents as well as any other supporting artifacts (prototypes, code samples, diagrams, etc).
+O conceito é fazer com que o design siga o mesmo fluxo de trabalho das mudanças de código para implementar uma história ou tarefa. Em vez de código, no entanto, os artefatos adicionados ou alterados são documentos Markdown, bem como quaisquer outros artefatos de suporte (protótipos, exemplos de código, diagramas, etc).
 
-### Prerequisites
+### Pré-requisitos
 
-#### Source Controlled Design Docs
+#### Documentos de Design Controlados por Origem
 
-Design documentation must live in a source control repository that supports pull requests (i.e. git). The following guidelines can be used to determine what repository houses the docs
+A documentação de design deve estar em um repositório de controle de origem que suporta pull requests (ou seja, git). As diretrizes a seguir podem ser usadas para determinar em qual repositório os documentos devem estar.
 
-1. Keeping docs in the same repo as the affected code allows for the docs to be updated atomically alongside code within the same pull request.
-2. If the documentation represents code that lives in many different repositories, it may make more sense to keep the docs in their own repository.
-3. Place the docs so that they do not trigger CI builds for the affected code (assuming the documentation was the only change). This can be done by placing them in an isolated directory should they live alongside the code they represent. See directory structure example below.
+1. Manter os documentos no mesmo repositório do código afetado permite que os documentos sejam atualizados atomicamente junto com o código no mesmo pull request.
+2. Se a documentação representar código que está em muitos repositórios diferentes, pode ser mais sensato manter os documentos em seu próprio repositório.
+3. Coloque os documentos de forma que eles não acionem compilações de CI para o código afetado (supondo que a documentação tenha sido a única alteração). Isso pode ser feito colocando-os em um diretório isolado, caso eles estejam junto com o código que representam. Veja o exemplo de estrutura de diretórios abaixo.
 
 ```text
 -root
   --src
-  --docs <-- exclude from ci build trigger
+  --docs <-- excluído do gatilho de compilação CI
     --design
 ```
 
-### Workflow
+### Fluxo de Trabalho
 
-1. The designer branches the repo with the documentation.
-2. The designer works on adding or updating documentation relevant to the design.
-3. The designer submits pull request and requests specific team members to review.
-4. Reviewers provide feedback to Designer who incorporates the feedback.
-5. (OPTIONAL) Design review meeting might be held to give deeper explanation of design to reviewers.
-6. Design is approved/accepted and merged to main branch.
+1. O designer cria um branch no repositório com a documentação.
+2. O designer trabalha na adição ou atualização da documentação relevante para o design.
+3. O designer envia uma solicitação de pull e solicita a revisão de membros específicos da equipe.
+4. Os revisores fornecem feedback ao designer, que incorpora o feedback.
+5. (OPCIONAL) Pode ser realizada uma reunião de revisão de design para fornecer uma explicação mais detalhada do design aos revisores.
+6. O design é aprovado/aceito e mesclado no branch principal.
 
-![Async Design Review Workflow](images/async-design-reviews-sequence.png)
+![Fluxo de Trabalho de Revisão de Design Assíncrona](images/async-design-reviews-sequence.png)
 
-### Tips for Faster Review Cycles
+### Dicas para Ciclos de Revisão Mais Rápidos
 
-To make sure a design is reviewed in a timely manner, it's important to directly request reviews from team members. If team members are assigned without asking, or if no one is assigned it's likely the design will sit for longer without review. Try the following actions:
+Para garantir que um design seja revisado em tempo hábil, é importante solicitar diretamente as revisões dos membros da equipe. Se os membros da equipe forem designados sem perguntar, ou se ninguém for designado, é provável que o design fique mais tempo sem revisão. Tente as seguintes ações:
 
-1. Make it the designer's responsibility to find reviewers for their design
-2. The designer should ask a team member directly (face-to-face conversation, async messaging, etc) if they are available to review. Only if they agree, then assign them as a reviewer.
-3. Indicate if the design is ready to be merged once approved.
+1. Faça com que seja responsabilidade do designer encontrar revisores para seu design.
+2. O designer deve perguntar diretamente a um membro da equipe (conversa face a face, mensagens assíncronas, etc.) se ele está disponível para revisar. Somente se concordar, então atribua-o como revisor.
+3. Indique se o design está pronto para ser mesclado após a aprovação.
 
-### Indicate Design Completeness
+### Indicar Completude do Design
 
-It helps the reviewer to understand if the design is ready to be accepted or if its still a work-in-progress. The level and type of feedback the reviewer provides will likely be different depending on its state. Try the following actions to indicate the design state
+Isso ajuda o revisor a entender se o design está pronto para ser aceito ou se ainda está em andamento. O nível e o tipo de feedback que o revisor fornece provavelmente serão diferentes, dependendo do estado do design. Tente as seguintes ações para indicar o estado do design:
 
-1. Mark the PR as a Draft. Some ALM tools support opening a pull request as a Draft such as Azure DevOps.
-2. Prefix the title with "DRAFT", "WIP", or "work-in-progress".
-3. Set the pull request to automatically merge after approvals and checks have passed. This can indicate to the reviewer the design is complete from the designer's perspective.
+1. Marque a PR como um Rascunho (Draft). Algumas ferramentas de ALM suportam a abertura de uma solicitação de pull como um Rascunho, como o Azure DevOps.
+2. Coloque um prefixo no título como "RASCUNHO", "EM ANDAMENTO" ou "trabalho em andamento".
+3. Configure a solicitação de pull para mesclar automaticamente após aprovações e verificações bem-sucedidas. Isso pode indicar ao revisor que o design está completo do ponto de vista do designer.
 
-### Practice Inclusive Behaviors
+### Praticar Comportamentos Inclusivos
 
-The designated reviewers are not the only team members that can provide feedback on the design. If other team members voluntarily committed time to providing feedback or asking questions, be sure to respond. Utilize face-to-face conversation (in person or virtual) to resolve feedback or questions from others as needed. This aids in building team cohesiveness in ensuring everyone understands and is willing to commit to a given design. **This practice demonstrates inclusive behavior**; which will promote trust and respect within the team.
+Os revisores designados não são os únicos membros da equipe que podem fornecer feedback sobre o design. Se outros membros da equipe voluntariamente dedicaram tempo para fornecer feedback ou fazer perguntas, certifique-se de responder. Utilize a conversa face a face (presencial ou virtual) para resolver feedback ou perguntas de outros conforme necessário. Isso ajuda a construir a coesão da equipe para garantir que todos entendam e estejam dispostos a se comprometer com um determinado design. **Essa prática demonstra um comportamento inclusivo**, o que promoverá confiança e respeito dentro da equipe.
 
-1. Respond to all PR comments **objectively and respectively** irrespective of the authors level, position, or title.
-2. After two round trips of question/response, resort to synchronous communication for resolution (i.e. virtual or physical face-to-face conversation).
+1. Responda a todos os comentários da PR de forma **objetiva e respeitosa**, independentemente do nível, posição ou título do autor.
+2. Após duas rodadas de perguntas/respostas, recorra à comunicação síncrona para a resolução (ou seja, conversa face a face virtual ou presencial).

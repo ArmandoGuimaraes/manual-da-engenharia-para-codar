@@ -19,7 +19,7 @@
     
     
       
-        <title>2. App-level Logging with Serilog and Application Insights - Manual da Engenharia para Codar</title>
+        <title>2. Registro de Log no Nível de Aplicativo com Serilog e Application Insights - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#2-app-level-logging-with-serilog-and-application-insights" class="md-skip">
+        <a href="#2-registro-de-log-no-nivel-de-aplicativo-com-serilog-e-application-insights" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2. App-level Logging with Serilog and Application Insights
+              2. Registro de Log no Nível de Aplicativo com Serilog e Application Insights
             
           </span>
         </div>
@@ -4201,12 +4201,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          2. App-level Logging with Serilog and Application Insights
+          2. Registro de Log no Nível de Aplicativo com Serilog e Application Insights
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        2. App-level Logging with Serilog and Application Insights
+        2. Registro de Log no Nível de Aplicativo com Serilog e Application Insights
       </a>
       
         
@@ -4232,22 +4232,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#context" class="md-nav__link">
-    Context
+  <a href="#contexto" class="md-nav__link">
+    Contexto
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#decision" class="md-nav__link">
-    Decision
+  <a href="#decisao" class="md-nav__link">
+    Decisão
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#consequences" class="md-nav__link">
-    Consequences
+  <a href="#consequencias" class="md-nav__link">
+    Consequências
   </a>
   
 </li>
@@ -7213,22 +7213,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#context" class="md-nav__link">
-    Context
+  <a href="#contexto" class="md-nav__link">
+    Contexto
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#decision" class="md-nav__link">
-    Decision
+  <a href="#decisao" class="md-nav__link">
+    Decisão
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#consequences" class="md-nav__link">
-    Consequences
+  <a href="#consequencias" class="md-nav__link">
+    Consequências
   </a>
   
 </li>
@@ -7247,24 +7247,24 @@
                 
 
 
-<h1 id="2-app-level-logging-with-serilog-and-application-insights">2. App-level Logging with Serilog and Application Insights</h1>
-<p>Date: 2020-04-08</p>
+<h1 id="2-registro-de-log-no-nivel-de-aplicativo-com-serilog-e-application-insights">2. Registro de Log no Nível de Aplicativo com Serilog e Application Insights</h1>
+<p>Data: 8 de abril de 2020</p>
 <h2 id="status">Status</h2>
-<p>Accepted</p>
-<h2 id="context">Context</h2>
-<p>Due to the microservices design of the platform, we need to ensure consistency of logging throughout each service so tracking of usage, performance, errors etc. can be performed end-to-end. A single logging/monitoring framework should be used where possible to achieve this, whilst allowing the flexibility for integration/export into other tools at a later stage. The developers should be equipped with a simple interface to log messages and metrics.</p>
-<h2 id="decision">Decision</h2>
-<p>We have agreed to utilize Serilog as the Dotnet Logging framework of choice at the application level, with integration into Log Analytics and Application Insights for analysis.</p>
-<h2 id="consequences">Consequences</h2>
-<p>Sampling will need to be configured in Application Insights so that it does not become overly-expensive when ingesting millions of messages, but also does not prevent capture of essential information.
-The team will need to only log what is agreed to be essential for monitoring as part of design reviews, to reduce noise and unnecessary levels of sampling.</p>
+<p>Aceito</p>
+<h2 id="contexto">Contexto</h2>
+<p>Devido ao design de microservices da plataforma, precisamos garantir a consistência do registro em cada serviço para que o rastreamento de uso, desempenho, erros, etc., possa ser realizado de ponta a ponta. Deve ser utilizado um único framework de registro/monitoramento sempre que possível para alcançar isso, permitindo ao mesmo tempo a flexibilidade para integração/exportação em outras ferramentas em um estágio posterior. Os desenvolvedores devem ter uma interface simples para registrar mensagens e métricas.</p>
+<h2 id="decisao">Decisão</h2>
+<p>Concordamos em utilizar o Serilog como o framework de registro preferido do Dotnet no nível da aplicação, com integração ao Log Analytics e Application Insights para análise.</p>
+<h2 id="consequencias">Consequências</h2>
+<p>Será necessário configurar a amostragem no Application Insights para que ele não se torne excessivamente caro ao receber milhões de mensagens, mas também não impeça a captura de informações essenciais.
+A equipe precisará registrar apenas o que foi acordado como essencial para monitoramento como parte das revisões de design, a fim de reduzir o ruído e os níveis desnecessários de amostragem.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 17, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
       
     
   </small>

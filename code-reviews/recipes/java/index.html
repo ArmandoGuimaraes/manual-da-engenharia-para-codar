@@ -19,7 +19,7 @@
     
     
       
-        <title>Java Code Reviews - Manual da Engenharia para Codar</title>
+        <title>Revisões de Código em Java - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#java-code-reviews" class="md-skip">
+        <a href="#revisoes-de-codigo-em-java" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Java Code Reviews
+              Revisões de Código em Java
             
           </span>
         </div>
@@ -2442,12 +2442,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Java Code Reviews
+          Revisões de Código em Java
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Java Code Reviews
+        Revisões de Código em Java
       </a>
       
         
@@ -2466,36 +2466,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#java-style-guide" class="md-nav__link">
-    Java Style Guide
+  <a href="#guia-de-estilo-java" class="md-nav__link">
+    Guia de Estilo Java
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-analysis-linting" class="md-nav__link">
-    Code Analysis / Linting
+  <a href="#analise-de-codigo-verificacao-de-estilo" class="md-nav__link">
+    Análise de Código / Verificação de Estilo
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#automatic-code-formatting" class="md-nav__link">
-    Automatic Code Formatting
+  <a href="#formatacao-automatica-de-codigo" class="md-nav__link">
+    Formatação Automática de Código
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#build-validation" class="md-nav__link">
-    Build Validation
+  <a href="#validacao-de-build" class="md-nav__link">
+    Validação de Build
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-review-checklist" class="md-nav__link">
-    Code Review Checklist
+  <a href="#checklist-de-revisao-de-codigo" class="md-nav__link">
+    Checklist de Revisão de Código
   </a>
   
 </li>
@@ -7207,36 +7207,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#java-style-guide" class="md-nav__link">
-    Java Style Guide
+  <a href="#guia-de-estilo-java" class="md-nav__link">
+    Guia de Estilo Java
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-analysis-linting" class="md-nav__link">
-    Code Analysis / Linting
+  <a href="#analise-de-codigo-verificacao-de-estilo" class="md-nav__link">
+    Análise de Código / Verificação de Estilo
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#automatic-code-formatting" class="md-nav__link">
-    Automatic Code Formatting
+  <a href="#formatacao-automatica-de-codigo" class="md-nav__link">
+    Formatação Automática de Código
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#build-validation" class="md-nav__link">
-    Build Validation
+  <a href="#validacao-de-build" class="md-nav__link">
+    Validação de Build
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-review-checklist" class="md-nav__link">
-    Code Review Checklist
+  <a href="#checklist-de-revisao-de-codigo" class="md-nav__link">
+    Checklist de Revisão de Código
   </a>
   
 </li>
@@ -7255,18 +7255,18 @@
                 
 
 
-<h1 id="java-code-reviews">Java Code Reviews</h1>
-<h2 id="java-style-guide">Java Style Guide</h2>
-<p>Developers should follow the <a href="https://google.github.io/styleguide/javaguide.html">Google Java Style Guide</a>.</p>
-<h2 id="code-analysis-linting">Code Analysis / Linting</h2>
-<p>We strongly believe that consistent style increases readability and maintainability of a code base. Hence, we are recommending analyzers to enforce consistency and style rules.</p>
-<p>We make use of <a href="https://github.com/checkstyle/checkstyle">Checkstyle</a> using the <a href="https://github.com/Azure/azure-sdk-for-java/blob/master/eng/code-quality-reports/src/main/resources/checkstyle/checkstyle.xml">same configuration used in the Azure Java SDK</a>.</p>
-<p><a href="http://findbugs.sourceforge.net/">FindBugs</a> and <a href="https://pmd.github.io/">PMD</a> are also commonly used.</p>
-<h2 id="automatic-code-formatting">Automatic Code Formatting</h2>
-<p>Eclipse, and other Java IDEs, support automatic code formatting.  If using Maven, some developers also make use of the <a href="https://github.com/revelc/formatter-maven-plugin">formatter-maven-plugin</a>.</p>
-<h2 id="build-validation">Build Validation</h2>
-<p>It's important to enforce your code style and rules in the CI to avoid any team members merging code that does not comply with standards into your git repo.  If building using Azure DevOps, Azure DevOps support <a href="https://learn.microsoft.com/azure/devops/pipelines/tasks/build/maven?view=azure-devops">Maven</a> and <a href="https://learn.microsoft.com/azure/devops/pipelines/tasks/build/gradle?view=azure-devops">Gradle</a> build tasks using <a href="https://pmd.github.io/">PMD</a>, <a href="https://checkstyle.sourceforge.io/">Checkstyle</a>, and <a href="http://findbugs.sourceforge.net/">FindBugs</a> code analysis tools as part of every build.</p>
-<p>Here is an example yaml for a Maven build task with all three analysis tools enabled:</p>
+<h1 id="revisoes-de-codigo-em-java">Revisões de Código em Java</h1>
+<h2 id="guia-de-estilo-java">Guia de Estilo Java</h2>
+<p>Os desenvolvedores devem seguir o <a href="https://google.github.io/styleguide/javaguide.html">Guia de Estilo Java do Google</a>.</p>
+<h2 id="analise-de-codigo-verificacao-de-estilo">Análise de Código / Verificação de Estilo</h2>
+<p>Acreditamos firmemente que um estilo consistente aumenta a legibilidade e a manutenção de uma base de código. Portanto, recomendamos o uso de analisadores para impor regras de estilo e consistência.</p>
+<p>Fazemos uso do <a href="https://github.com/checkstyle/checkstyle">Checkstyle</a> usando a <a href="https://github.com/Azure/azure-sdk-for-java/blob/master/eng/code-quality-reports/src/main/resources/checkstyle/checkstyle.xml">mesma configuração usada no Azure Java SDK</a>.</p>
+<p><a href="http://findbugs.sourceforge.net/">FindBugs</a> e <a href="https://pmd.github.io/">PMD</a> também são comumente usados.</p>
+<h2 id="formatacao-automatica-de-codigo">Formatação Automática de Código</h2>
+<p>O Eclipse e outros IDEs Java oferecem suporte para formatação automática de código. Se estiver usando o Maven, alguns desenvolvedores também fazem uso do <a href="https://github.com/revelc/formatter-maven-plugin">formatter-maven-plugin</a>.</p>
+<h2 id="validacao-de-build">Validação de Build</h2>
+<p>É importante impor o estilo de código e as regras na integração contínua (CI) para evitar que os membros da equipe façam merge de código que não esteja em conformidade com os padrões em seu repositório Git. Se estiver construindo usando o Azure DevOps, o Azure DevOps oferece suporte para tarefas de build do <a href="https://learn.microsoft.com/azure/devops/pipelines/tasks/build/maven?view=azure-devops">Maven</a> e <a href="https://learn.microsoft.com/azure/devops/pipelines/tasks/build/gradle?view=azure-devops">Gradle</a> usando ferramentas de análise de código <a href="https://pmd.github.io/">PMD</a>, <a href="https://checkstyle.sourceforge.io/">Checkstyle</a> e <a href="http://findbugs.sourceforge.net/">FindBugs</a> como parte de cada build.</p>
+<p>Aqui está um exemplo de YAML para uma tarefa de build Maven com todas as três ferramentas de análise habilitadas:</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Maven@3</span>
 <span class="w">    </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Maven</span><span class="nv"> </span><span class="s">pom.xml&#39;</span>
 <span class="w">    </span><span class="nt">inputs</span><span class="p">:</span>
@@ -7275,7 +7275,7 @@
 <span class="w">        </span><span class="nt">pmdRunAnalysis</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">        </span><span class="nt">findBugsRunAnalysis</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
-<p>Here is an example yaml for a Gradle build task with all three analysis tools enabled:</p>
+<p>Aqui está um exemplo de YAML para uma tarefa de build Gradle com todas as três ferramentas de análise habilitadas:</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gradle@2</span>
 <span class="w">    </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;gradlew</span><span class="nv"> </span><span class="s">build&#39;</span>
 <span class="w">    </span><span class="nt">inputs</span><span class="p">:</span>
@@ -7283,15 +7283,15 @@
 <span class="w">        </span><span class="nt">findBugsRunAnalysis</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">        </span><span class="nt">pmdRunAnalysis</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
-<h2 id="code-review-checklist">Code Review Checklist</h2>
-<p>In addition to the <a href="../../process-guidance/reviewer-guidance/">Code Review Checklist</a> you should also look for these Java specific code review items</p>
+<h2 id="checklist-de-revisao-de-codigo">Checklist de Revisão de Código</h2>
+<p>Além do <a href="../../process-guidance/reviewer-guidance/">Checklist de Revisão de Código</a>, você também deve procurar por itens específicos de revisão de código em Java:</p>
 <ul class="task-list">
-<li class="task-list-item"><input type="checkbox" disabled/> Does the project use Lambda to make code cleaner?</li>
-<li class="task-list-item"><input type="checkbox" disabled/> Is dependency injection (DI) used?  Is it setup correctly?</li>
-<li class="task-list-item"><input type="checkbox" disabled/> If the code uses Spring Boot, are you using @Inject instead of @Autowire?</li>
-<li class="task-list-item"><input type="checkbox" disabled/> Does the code handle exceptions correctly?</li>
-<li class="task-list-item"><input type="checkbox" disabled/> Is the <a href="https://learn.microsoft.com/en-us/java/azure/jdk/java-jdk-install?view=azure-java-stable">Azul Zulu OpenJDK</a> being used?</li>
-<li class="task-list-item"><input type="checkbox" disabled/> Is a build automation and package management tool (Gradle or Maven) being used?</li>
+<li class="task-list-item"><input type="checkbox" disabled/> O projeto utiliza Lambdas para tornar o código mais limpo?</li>
+<li class="task-list-item"><input type="checkbox" disabled/> A injeção de dependência (DI) é usada? Está configurada corretamente?</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Se o código usa o Spring Boot, você está usando @Inject em vez de @Autowire?</li>
+<li class="task-list-item"><input type="checkbox" disabled/> O código lida com exceções corretamente?</li>
+<li class="task-list-item"><input type="checkbox" disabled/> O <a href="https://learn.microsoft.com/en-us/java/azure/jdk/java-jdk-install?view=azure-java-stable">Azul Zulu OpenJDK</a> está sendo usado?</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Uma ferramenta de automação de build e gerenciamento de pacotes (Gradle ou Maven) está sendo usada?</li>
 </ul>
 
   <hr>
@@ -7299,7 +7299,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
       
     
   </small>

@@ -1,34 +1,34 @@
-# Onboarding Guide Template
+# Modelo de Guia de Integração
 
-When developing an onboarding document for a team, it should contain details of engagement scope, team processes, codebase, coding standards, team agreements, software requirements and setup details. The onboarding guide can be used as an index to project specific content if it already exists elsewhere. Allowing this guide to be utilized as a foundation with the links will help keep the guide concise and effective.
+Ao desenvolver um documento de integração para uma equipe, ele deve conter detalhes do escopo de envolvimento, processos da equipe, base de código, padrões de codificação, acordos da equipe, requisitos de software e detalhes de configuração. O guia de integração pode ser usado como um índice para o conteúdo específico do projeto, se já existir em outro lugar. Permitir que este guia seja utilizado como uma base com os links ajudará a manter o guia conciso e eficaz.
 
-## Overview and Goals
+## Visão Geral e Objetivos
 
-* List a few sentences explaining the high-level summary and the scope of the engagement.
-* Consider adding any additional background and context as needed.
-* Include the value proposition of the project, goals, what success looks like, and what the team is trying to achieve and why.
+* Liste algumas frases explicando o resumo de alto nível e o escopo do envolvimento.
+* Considere adicionar qualquer contexto e antecedentes adicionais conforme necessário.
+* Inclua a proposta de valor do projeto, objetivos, como se parece o sucesso e o que a equipe está tentando alcançar e por quê.
 
-## Contacts
+## Contatos
 
-* List a few of the main contacts for the team and project overall such as the Dev Lead and Product Owner.
-* Consider including the roles of these main contacts so that the team knows who to reach out to depending on the situation.
+* Liste alguns dos principais contatos para a equipe e o projeto como um todo, como o Líder de Desenvolvimento e o Proprietário do Produto.
+* Considere incluir as funções desses principais contatos para que a equipe saiba com quem entrar em contato dependendo da situação.
 
-## Team Agreement and Code of Conduct
+## Acordo da Equipe e Código de Conduta
 
-* Include the team's code of conduct or agreement that defines a set of expectation from each team member and how the team has agreed to operate.
-* Working Agreement Template - [working agreement](../agile-development/advanced-topics/team-agreements/working-agreements.md)
+* Inclua o código de conduta ou acordo da equipe que define um conjunto de expectativas de cada membro da equipe e como a equipe concordou em operar.
+* Modelo de Acordo de Trabalho - [acordo de trabalho](../desenvolvimento-ágil/tópicos-avançados/acordos-de-equipe/acordos-de-trabalho.md)
 
-## Dev Environment Setup
+## Configuração do Ambiente de Desenvolvimento
 
-* Consider adding steps to run the project end-to-end. This could be in form of a separate wiki page or document that can be linked here.
-* Include any software that needs to be downloaded and specify if a specific version of the software is needed.
+* Considere adicionar etapas para executar o projeto de ponta a ponta. Isso pode estar na forma de uma página wiki separada ou documento que pode ser vinculado aqui.
+* Inclua qualquer software que precisa ser baixado e especifique se é necessária uma versão específica do software.
 
-## Project Building Blocks
+## Blocos de Construção do Projeto
 
-* This can include a more in depth description with different areas of the project to help increase the project understanding.
-* It can include different sections on the various components of the project including deployment, e2e testing, repositories.
+* Isso pode incluir uma descrição mais detalhada com diferentes áreas do projeto para ajudar a aumentar o entendimento do projeto.
+* Pode incluir diferentes seções sobre os vários componentes do projeto, incluindo implantação, teste de ponta a ponta, repositórios.
 
-## Helpful Resources and Links
+## Recursos e Links Úteis
 
-* This can include any additional links to documents related to the project
-* It may include links to backlog items, work items, wiki pages or project history.
+* Isso pode incluir quaisquer links adicionais para documentos relacionados ao projeto.
+* Pode incluir links para itens do backlog, itens de trabalho, páginas de wiki ou histórico do projeto.

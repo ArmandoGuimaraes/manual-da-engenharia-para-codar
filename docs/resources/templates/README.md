@@ -1,17 +1,15 @@
-
 # project-xyz
 
-Description of the project
+Descrição do projeto
 
-## Deploying to Azure
+## Implantação no Azure
 
-## Getting started
+## Primeiros passos
 
-## Dependencies
+## Dependências
 
-## Run it locally
+## Execute localmente
 
-## Code of conduct
+## Código de conduta
 
-By participating in this project, you
-agree to abide by the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/)
+Ao participar deste projeto, você concorda em cumprir o [Código de Conduta de Código Aberto da Microsoft](https://opensource.microsoft.com/codeofconduct/)

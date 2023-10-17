@@ -52,7 +52,7 @@ Uma [divisão de seções](docs/SPRINT-STRUCTURE.md) de acordo com a estrutura d
 - [Entrega Contínua (CD)](docs/continuous-delivery/README.md)
 - [Integração Contínua (CI)](docs/continuous-integration/README.md)
 - [Design](docs/design/readme.md)
-- [Experiência do Desenvolvedor](docs/developer-experience/README.md)
+- [Developer Experience](docs/developer-experience/README.md)
 - [Documentação](docs/documentation/README.md)
 - [Feedback de Engenharia](docs/engineering-feedback/README.md)
 - [Observabilidade](docs/observability/README.md)

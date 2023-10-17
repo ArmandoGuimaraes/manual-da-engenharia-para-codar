@@ -19,7 +19,7 @@
     
     
       
-        <title>Fake Services Inner Dev Loop - Manual da Engenharia para Codar</title>
+        <title>Ciclo de Desenvolvimento Interno com Serviços Falsos - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fake-services-inner-dev-loop" class="md-skip">
+        <a href="#ciclo-de-desenvolvimento-interno-com-servicos-falsos" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Fake Services Inner Dev Loop
+              Ciclo de Desenvolvimento Interno com Serviços Falsos
             
           </span>
         </div>
@@ -5147,12 +5147,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Fake Services Inner Dev Loop
+          Ciclo de Desenvolvimento Interno com Serviços Falsos
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Fake Services Inner Dev Loop
+        Ciclo de Desenvolvimento Interno com Serviços Falsos
       </a>
       
         
@@ -5171,8 +5171,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    Introduction
+  <a href="#introducao" class="md-nav__link">
+    Introdução
   </a>
   
 </li>
@@ -5185,22 +5185,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tooling" class="md-nav__link">
-    Tooling
+  <a href="#ferramentas" class="md-nav__link">
+    Ferramentas
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
-    Setup
+  <a href="#configuracao" class="md-nav__link">
+    Configuração
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#run" class="md-nav__link">
-    Run
+  <a href="#execucao" class="md-nav__link">
+    Execução
   </a>
   
 </li>
@@ -7212,8 +7212,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    Introduction
+  <a href="#introducao" class="md-nav__link">
+    Introdução
   </a>
   
 </li>
@@ -7226,22 +7226,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tooling" class="md-nav__link">
-    Tooling
+  <a href="#ferramentas" class="md-nav__link">
+    Ferramentas
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
-    Setup
+  <a href="#configuracao" class="md-nav__link">
+    Configuração
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#run" class="md-nav__link">
-    Run
+  <a href="#execucao" class="md-nav__link">
+    Execução
   </a>
   
 </li>
@@ -7267,12 +7267,12 @@
                 
 
 
-<h1 id="fake-services-inner-dev-loop">Fake Services Inner Dev Loop</h1>
-<h2 id="introduction">Introduction</h2>
-<p>Consumers of remote services often find that their development cycle is not in sync with development of remote services, leaving developers of these consumers waiting for the remote services to "catch up". One approach to mitigate this issue and improve the inner dev loop is by decoupling and using Mock Services. Various Mock Service options are detailed <a href="../client-app-inner-loop/">here</a>.</p>
-<p>This document will focus on providing an example using the Fake Services approach.</p>
+<h1 id="ciclo-de-desenvolvimento-interno-com-servicos-falsos">Ciclo de Desenvolvimento Interno com Serviços Falsos</h1>
+<h2 id="introducao">Introdução</h2>
+<p>Os consumidores de serviços remotos muitas vezes encontram dificuldades em sincronizar seu ciclo de desenvolvimento com o desenvolvimento dos serviços remotos, deixando os desenvolvedores desses consumidores aguardando os serviços remotos "alcançarem" seus requisitos. Uma abordagem para mitigar esse problema e melhorar o ciclo de desenvolvimento interno é a desacoplagem e o uso de Serviços Falsos (Fake Services). Várias opções de Serviços Falsos são detalhadas <a href="../client-app-inner-loop/">aqui</a>.</p>
+<p>Este documento se concentrará em fornecer um exemplo usando a abordagem de Serviços Falsos.</p>
 <h2 id="api">API</h2>
-<p>For our example API, we will work against a <code>/User</code> endpoint and the properties for <code>User</code> will be:</p>
+<p>Para nosso exemplo de API, trabalharemos com um endpoint <code>/User</code> e as propriedades para <code>User</code> serão:</p>
 <ol>
 <li>id - int</li>
 <li>username - string</li>
@@ -7283,13 +7283,13 @@
 <li>phone - string</li>
 <li>userStatus - int</li>
 </ol>
-<h2 id="tooling">Tooling</h2>
-<p>For the Fake Service approach, we will be using <a href="https://github.com/typicode/json-server">Json-Server</a>. Json-Server is a tool that provides the ability to fully fake REST APIs and run the server locally. It is designed to spin up REST APIs with CRUD functionality with minimal setup. Json-Server requires NodeJS and is installed via NPM.</p>
+<h2 id="ferramentas">Ferramentas</h2>
+<p>Para a abordagem de Serviços Falsos, estaremos usando o <a href="https://github.com/typicode/json-server">Json-Server</a>. Json-Server é uma ferramenta que fornece a capacidade de simular completamente APIs REST e executar o servidor localmente. Ele é projetado para criar APIs REST com funcionalidade CRUD com configuração mínima. O Json-Server requer o NodeJS e é instalado via NPM.</p>
 <div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>json-server
 </code></pre></div>
-<h2 id="setup">Setup</h2>
-<p>In order to run Json-Server, it simply requires a source for data and will infer routes, etc. based on the data file. Note that additional customization can be performed for more advanced scenarios (e.g. custom routes). Details can be found <a href="https://github.com/typicode/json-server#add-custom-routes">here</a>.</p>
-<p>For our example, we will use the following data file, <code>db.json</code>:</p>
+<h2 id="configuracao">Configuração</h2>
+<p>Para executar o Json-Server, ele requer apenas uma fonte de dados e inferirá as rotas com base no arquivo de dados. Observe que personalizações adicionais podem ser feitas para cenários mais avançados (por exemplo, rotas personalizadas). Detalhes podem ser encontrados <a href="https://github.com/typicode/json-server#add-custom-routes">aqui</a>.</p>
+<p>Para nosso exemplo, usaremos o seguinte arquivo de dados, <code>db.json</code>:</p>
 <div class="highlight"><pre><span></span><code>{
   &quot;user&quot;: [
     {
@@ -7315,19 +7315,19 @@
   ]
 }
 </code></pre></div>
-<h2 id="run">Run</h2>
-<p>Running Json-Server can be performed by simply running:</p>
+<h2 id="execucao">Execução</h2>
+<p>A execução do Json-Server pode ser realizada simplesmente executando:</p>
 <div class="highlight"><pre><span></span><code>json-server<span class="w"> </span>--watch<span class="w"> </span>src/db.json
 </code></pre></div>
-<p>Once running, the User endpoint can be hit on the default localhost port: <code>http:/localhost:3000/user</code></p>
-<p>Note that Json-Server can be configured to use other ports using the following syntax:</p>
+<p>Uma vez em execução, o endpoint de Usuário pode ser acessado na porta localhost padrão: <code>http:/localhost:3000/user</code></p>
+<p>Observe que o Json-Server pode ser configurado para usar outras portas usando a seguinte sintaxe:</p>
 <div class="highlight"><pre><span></span><code>json-server<span class="w"> </span>--watch<span class="w"> </span>db.json<span class="w"> </span>--port<span class="w"> </span><span class="m">3004</span>
 </code></pre></div>
 <h2 id="endpoint">Endpoint</h2>
-<p>The endpoint can be tested by running curl against it and we can narrow down which user object to get back with the following command:</p>
+<p>O endpoint pode ser testado executando o comando curl contra ele, e podemos especificar qual objeto de usuário obter com o seguinte comando:</p>
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>http://localhost:3000/user/1
 </code></pre></div>
-<p>which, as expected, returns:</p>
+<p>o que, como esperado, retornará:</p>
 <div class="highlight"><pre><span></span><code>{
   &quot;id&quot;: 1,
   &quot;username&quot;: &quot;user2&quot;,
@@ -7345,7 +7345,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 17, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
       
     
   </small>

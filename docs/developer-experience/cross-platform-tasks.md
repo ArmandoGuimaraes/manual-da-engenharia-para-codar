@@ -1,31 +1,30 @@
-# Cross Platform Tasks
+# Tarefas de Plataforma Cruzada
 
-There are several options to alleviate cross-platform compatibility issues.
+Existem várias opções para aliviar problemas de compatibilidade entre plataformas cruzadas.
 
-- Running tasks in a container
-- Using the tasks-system in VS Code which provides options to allow commands to be executed specific to an operating system.
+- Execução de tarefas em um contêiner
+- Uso do sistema de tarefas no VS Code, que fornece opções para permitir que comandos sejam executados específicos para um sistema operacional.
 
-## Docker or Container based
+## Docker ou Baseado em Contêiner
 
-Using containers as development machines allows developers to get started with minimal setup and abstracts the development environment from the host OS by having it run in a container.
-DevContainers can also help in standardizing the local developer experience across the team.
+Usar contêineres como máquinas de desenvolvimento permite que os desenvolvedores comecem com uma configuração mínima e abstrai o ambiente de desenvolvimento do sistema operacional host, fazendo com que ele seja executado em um contêiner. DevContainers também podem ajudar a padronizar a experiência do desenvolvedor local em toda a equipe.
 
-The following are some good resources to get started with running tasks in DevContainers
+Aqui estão alguns bons recursos para começar a executar tarefas em DevContainers:
 
-- [Developing inside a container](https://code.visualstudio.com/docs/remote/containers).
-- [Tutorial on Development in Containers](https://code.visualstudio.com/docs/remote/containers-tutorial)
-- For samples projects and dev container templates see [VS Code Dev Containers Recipe](https://github.com/microsoft/vscode-dev-containers)
-- [Dev Containers Library](devcontainers.md)
+- [Desenvolvendo dentro de um contêiner](https://code.visualstudio.com/docs/remote/containers).
+- [Tutorial sobre Desenvolvimento em Contêineres](https://code.visualstudio.com/docs/remote/containers-tutorial)
+- Para projetos de exemplo e modelos de contêineres de desenvolvimento, consulte [Receitas de Contêineres de Desenvolvimento do VS Code](https://github.com/microsoft/vscode-dev-containers)
+- [Biblioteca de Contêineres de Desenvolvimento](devcontainers.md)
 
-## Tasks in VS Code
+## Tarefas no VS Code
 
-### Running Node.js
+### Executando o Node.js
 
-The example below offers insight into running Node.js executable as a command with tasks.json and how it can be treated differently on Windows and Linux.
+O exemplo abaixo oferece insights sobre como executar o executável Node.js como um comando com o arquivo tasks.json e como ele pode ser tratado de maneira diferente no Windows e no Linux.
 
 ```json
 {
-  "label": "Run Node",
+  "label": "Executar Node",
   "type": "process",
   "windows": {
     "command": "C:\\Program Files\\nodejs\\node.exe"
@@ -36,18 +35,18 @@ The example below offers insight into running Node.js executable as a command wi
 }
 ```
 
-In this example, to run Node.js, there is a specific windows command, and a specific linux command. This allows for platform specific properties. When these are defined, they will be used instead of the default properties when the command is executed on the Windows operating system or on Linux.
+Neste exemplo, para executar o Node.js, existe um comando específico para o Windows e um comando específico para o Linux. Isso permite propriedades específicas da plataforma. Quando essas são definidas, elas serão usadas em vez das propriedades padrão quando o comando for executado no sistema operacional Windows ou no Linux.
 
-### Custom Tasks
+### Tarefas Personalizadas
 
-Not all scripts or tasks can be auto-detected in the workspace. It may be necessary at times to defined your own custom tasks. In this example, we have a script to run in order to set up some environment correctly. The script is stored in a folder inside your workspace and named test.sh for Linux & macOS and test.cmd for Windows. With the tasks.json file, the execution of this script can be made possible with a custom task that defines what to do on different operating systems.
+Nem todos os scripts ou tarefas podem ser detectados automaticamente no espaço de trabalho. Às vezes, pode ser necessário definir suas próprias tarefas personalizadas. Neste exemplo, temos um script para executar a fim de configurar alguns ambientes corretamente. O script é armazenado em uma pasta dentro do seu espaço de trabalho e chamado de test.sh para Linux e macOS e test.cmd para Windows. Com o arquivo tasks.json, a execução deste script pode ser tornada possível com uma tarefa personalizada que define o que fazer em sistemas operacionais diferentes.
 
 ```json
 {
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Run tests",
+      "label": "Executar testes",
       "type": "shell",
       "command": "./scripts/test.sh",
       "windows": {
@@ -64,8 +63,8 @@ Not all scripts or tasks can be auto-detected in the workspace. It may be necess
 
 ```
 
-The command here is a shell command and tells the system to run either the test.sh or test.cmd. By default, it will run test.sh with that given path. This example here also defines Windows specific properties and tells it execute test.cmd instead of the default.
+O comando aqui é um comando de shell e diz ao sistema para executar test.sh ou test.cmd. Por padrão, ele executará test.sh com o caminho fornecido. Este exemplo aqui também define propriedades específicas do Windows e diz para executar test.cmd em vez do padrão.
 
-### References
+### Referências
 
-VS Code Docs - [operating system specific properties](https://vscode-docs.readthedocs.io/en/stable/editor/tasks/#operating-system-specific-properties)
+Documentação do VS Code - [propriedades específicas do sistema operacional](https://vscode-docs.readthedocs.io/en/stable/editor/tasks/#operating-system-specific-properties)

@@ -1,41 +1,41 @@
-# Network Architecture Guidance for Hybrid
+# Orientações de Arquitetura de Rede para Ambientes Híbridos
 
-The following are best practices around how to design and configure resources, used for Hybrid and Multi-Cloud environments.
+As seguintes são as melhores práticas sobre como projetar e configurar recursos usados em ambientes híbridos e multi-cloud.
 
-> **NOTE:** When working in an existing hybrid environment, it is important to understand any current patterns, and how they are used before making any changes.
+> **NOTA:** Ao trabalhar em um ambiente híbrido existente, é importante entender quaisquer padrões atuais e como eles são usados antes de fazer qualquer alteração.
 
-## Hub-and-spoke Topology
+## Topologia de Concentrador e Filial
 
-The hub-and-spoke topology doesn't change much when using cloud/hybrid if configured correctly, The main different is that the hub VNet is peering to the on-prem network via a ExpressRoute and that all traffic from Azure might exit via the ExpressRoute and the on-prem internet connection.
+A topologia de concentrador e filial não muda muito ao usar nuvem/híbrido se configurada corretamente. A principal diferença é que a VNet do concentrador está interconectada com a rede local por meio de um ExpressRoute e que todo o tráfego do Azure pode sair via ExpressRoute e a conexão com a Internet local.
 
-The generalized best practices are in  [Network Architecture Guidance for Azure#Hub and Spoke topology](network-architecture-guidance-for-azure.md#hub-and-spoke-topology)
+As melhores práticas gerais estão em [Orientações de Arquitetura de Rede para Azure#Topologia de Concentrador e Filial](network-architecture-guidance-for-azure.md#topologia-de-concentrador-e-filial)
 
-### IP Allocation
+### Alocação de IP
 
-When working with Hybrid deployment, take extra care when planning IP allocation as there is a much greater risk of overlapping network ranges.
+Ao trabalhar com implantações híbridas, tome cuidado extra ao planejar a alocação de IPs, pois existe um risco muito maior de sobreposição de intervalos de rede.
 
-The general best practices are available in the [Network Architecture Guidance for Azure#ip-allocation](network-architecture-guidance-for-azure.md#ip-allocation)
+As melhores práticas gerais estão disponíveis em [Orientações de Arquitetura de Rede para Azure#Alocação de IP](network-architecture-guidance-for-azure.md#ip-allocation)
 
-Read more about this in [Azure Best Practices Plan for IP Addressing](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing)
+Saiba mais sobre isso em [Melhores Práticas do Azure para Planejamento de Endereçamento IP](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing)
 
 ### ExpressRoute
 
-Environments using Express often tunnel all traffic from Azure via a private link (ExpressRoute) to an on-prem location. This imposes a few problems when working with PAAS offerings as not all of them connect via their respective private endpoint and instead use an external IP for outgoing connections, or some PAAS to PASS traffic occur internally in azure and won't function with disabled public networks.
+Ambientes que usam o ExpressRoute frequentemente direcionam todo o tráfego do Azure por meio de uma conexão privada (ExpressRoute) para um local local. Isso impõe alguns problemas ao trabalhar com ofertas de PAAS, pois nem todas elas se conectam por meio de seu respectivo ponto de extremidade privado e, em vez disso, usam um IP externo para conexões de saída, ou algum tráfego de PAAS para PAAS ocorre internamente no Azure e não funcionará com redes públicas desativadas.
 
-Two notable services here are data planes copies of storage accounts and a lot of the services not supporting private endpoints.
+Dois serviços notáveis aqui são cópias dos planos de dados de contas de armazenamento e muitos dos serviços não suportam pontos de extremidade privados.
 
-Choose the right ExpressRoute circuit: Select an appropriate SKU (Standard or Premium) and bandwidth based on your organization's requirements.
-Redundancy: Ensure redundancy by provisioning two ExpressRoute circuits in different peering locations.
-Monitoring: Use Azure Monitor and Network Performance Monitor (NPM) to monitor the health and performance of your ExpressRoute circuits.
+Escolha o circuito ExpressRoute certo: selecione um SKU (Padrão ou Premium) e largura de banda apropriados com base nos requisitos da sua organização.
+Redundância: garanta redundância provisionando dois circuitos ExpressRoute em locais de interconexão diferentes.
+Monitoramento: use o Azure Monitor e o Network Performance Monitor (NPM) para monitorar a saúde e o desempenho de seus circuitos ExpressRoute.
 
 ### DNS
 
-General best practices are available in [Network Architecture Guidance for Azure#dns](network-architecture-guidance-for-azure.md#dns)
+As melhores práticas gerais estão disponíveis em [Orientações de Arquitetura de Rede para Azure#DNS](network-architecture-guidance-for-azure.md#dns)
 
-When using Azure DNS in a hybrid or multi-cloud environment it is important to ensure a consistent DNS and forwarding configuration which ensures that records are automatically updated and that all DNS servers are aware of each other and know which server is the authoritative for the different records.
+Ao usar o Azure DNS em um ambiente híbrido ou multi-cloud, é importante garantir uma configuração de DNS e encaminhamento consistente que garanta que os registros sejam atualizados automaticamente e que todos os servidores DNS estejam cientes uns dos outros e saibam qual servidor é o autorizado para os diferentes registros.
 
-Read more about [Hybrid/Multi-Cloud DNS infrastructure](https://learn.microsoft.com/azure/architecture/hybrid/hybrid-dns-infra)
+Saiba mais sobre [Infraestrutura de DNS Híbrida/Multi-Cloud](https://learn.microsoft.com/azure/architecture/hybrid/hybrid-dns-infra)
 
-### Resource Allocation
+### Alocação de Recursos
 
-For resource allocation the best practices from [Cloud Resource Design Guidance](cloud-resource-design-guidance.md) should be followed.
+Para alocação de recursos, as melhores práticas do [Guia de Design de Recursos de Nuvem](cloud-resource-design-guidance.md) devem ser seguidas.

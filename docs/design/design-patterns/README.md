@@ -1,15 +1,13 @@
-# Design Patterns
+# Padrões de Design (Design Patterns)
 
-The design patterns section recommends patterns of software and architecture design.
-This section provides a curated list of commonly used patterns from trusted sources.
-Rather than duplicate or replace the cited sources, this section aims to compliment them with suggestions, guidance, and learnings based on firsthand experiences.
+A seção de padrões de design recomenda padrões de design de software e arquitetura. Esta seção fornece uma lista selecionada de padrões comumente usados de fontes confiáveis. Em vez de duplicar ou substituir as fontes citadas, esta seção tem como objetivo complementá-las com sugestões, orientações e aprendizados com base em experiências em primeira mão.
 
-## Subsections
+## Subseções
 
-* [Data Heavy Design Guidance](data-heavy-design-guidance.md)
-* [Object Oriented Design Reference](object-oriented-design-reference.md)
-* [Distributed System Design Reference](distributed-system-design-reference.md)
-* [REST API Design Guidance](rest-api-design-guidance.md)
-* [Cloud Resource Design Guidance](cloud-resource-design-guidance.md)
-* [Network Architecture Guidance for Azure](network-architecture-guidance-for-azure.md)
-* [Network Architecture Guidance for Hybrid](network-architecture-guidance-for-hybrid.md)
+* [Orientação para Design de Dados Pesados](data-heavy-design-guidance.md)
+* [Referência de Design Orientado a Objetos](object-oriented-design-reference.md)
+* [Referência para Design de Sistemas Distribuídos](distributed-system-design-reference.md)
+* [Orientação para Design de API REST](rest-api-design-guidance.md)
+* [Orientação para Design de Recursos de Nuvem](cloud-resource-design-guidance.md)
+* [Orientação para Arquitetura de Rede para Azure](network-architecture-guidance-for-azure.md)
+* [Orientação para Arquitetura de Rede Híbrida](network-architecture-guidance-for-hybrid.md)

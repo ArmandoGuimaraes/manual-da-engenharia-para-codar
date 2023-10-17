@@ -1,117 +1,117 @@
-# Generic Envisioning Summary
+# Resumo Genérico da Concepção
 
-## Purpose of this template
+## Propósito deste modelo
 
-This is an example of an envisioning summary completed after envisioning sessions have concluded. It summarizes the materials reviewed, application scenarios discussed and decided, and the next steps in the process.
+Este é um exemplo de um resumo de concepção concluído após as sessões de concepção. Ele resume os materiais revisados, os cenários de aplicação discutidos e decididos, e os próximos passos no processo.
 
-## Summary of Envisioning
+## Resumo da Concepção
 
-### Introduction
+### Introdução
 
-This document is to summarize what we have discussed in these envisioning sessions, and what we have decided to work on in this machine learning (ML) engagement. With this document, we hope that everyone can be on the same page regarding the scope of this ML engagement, and will ensure a successful start for the project.
+Este documento tem como objetivo resumir o que discutimos nessas sessões de concepção e o que decidimos trabalhar neste engajamento de aprendizado de máquina (ML). Com este documento, esperamos que todos estejam na mesma página em relação ao escopo deste engajamento de ML e garantirá um início bem-sucedido para o projeto.
 
-### Materials Shared with the team
+### Materiais Compartilhados com a Equipe
 
-**List materials shared with you here. The list below contains some examples. You will want to be more specific.**
+**Liste os materiais compartilhados com você aqui. A lista abaixo contém alguns exemplos. Você vai querer ser mais específico.**
 
-1. Business vision statement
+1. Declaração de visão de negócios
 
-2. Sample Data
+2. Amostra de dados
 
-3. Current problem statement
+3. Declaração de problema atual
 
-Also discuss:
+Também discuta:
 
-1. How the current solution is built and implemented
+1. Como a solução atual é construída e implementada
 
-2. Details about the current state of the systems and processes.
+2. Detalhes sobre o estado atual dos sistemas e processos.
 
-### Applications Scenarios that Can Help [People] Achieve [Task]
+### Cenários de Aplicação que Podem Ajudar [Pessoas] a Alcançar [Tarefa]
 
-The following application scenarios were discussed:
+Os seguintes cenários de aplicação foram discutidos:
 
-Scenario 1:  
+Cenário 1:
 
-Scenario 2:  
+Cenário 2:
 
-> **Add more scenarios as needed**
+> **Adicione mais cenários conforme necessário**
 
-For each scenario, provide an appropriately descriptive name and then follow up with more details.
+Para cada cenário, forneça um nome descritivo apropriado e siga com mais detalhes.
 
-For each scenario, discuss:
+Para cada cenário, discuta:
 
-1. What problem statement was discussed
+1. Qual declaração de problema foi discutida
 
-2. How we propose to solve the problem (there may be several proposals)
+2. Como propomos resolver o problema (pode haver várias propostas)
 
-3. Who would use the solution
+3. Quem usaria a solução
 
-4. What would it look like to use our solution? An example of how it would bring value to the end user.
+4. Como seria usar nossa solução? Um exemplo de como isso traria valor ao usuário final.
 
-### Selected Scenario for this ML Engagement
+### Cenário Selecionado para Este Engajamento de ML
 
-Which scenario was selected?
+Qual cenário foi selecionado?
 
-Why was this scenario prioritised over the others?
+Por que esse cenário foi priorizado em relação aos outros?
 
-Will other scenarios be considered in the future? When will we revisit them / what conditions need to be met to pursue them?
+Outros cenários serão considerados no futuro? Quando os revisaremos / que condições precisam ser atendidas para persegui-los?
 
-### More Details of the Scope for Selected Scenario  
+### Mais Detalhes do Escopo para o Cenário Selecionado
 
-1. What is in scope?
+1. O que está dentro do escopo?
 
-2. What data is available?
+2. Que dados estão disponíveis?
 
-3. Which performance metric to use?  
+3. Qual métrica de desempenho usar?
 
-4. Bar of performance metrics
+4. Barra de métricas de desempenho
 
-5. What are deliverables?
+5. Quais são os entregáveis?
 
-## What’s Next?
+## Próximos Passos
 
-### Legal documents to be signed
+### Documentos legais a serem assinados
 
-State documents and timeline
+Especifique os documentos e o cronograma.
 
-### Responsible AI Review  
+### Revisão de IA Responsável
 
-Plan when to conduct a responsible AI process. What are the prerequisites to start this process?
+Planeje quando realizar um processo de IA responsável. Quais são os pré-requisitos para iniciar este processo?
 
-### Data Exploration Workshop
+### Workshop de Exploração de Dados
 
-A data exploration workshop is planned for **DATE RANGE**. This data exploration workshops will be **X**-**Y** days, not including the time to gain access resources. The purpose of the data exploration workshop is as follows:
+Um workshop de exploração de dados está planejado para o **PERÍODO**. Este workshop de exploração de dados terá **X** a **Y** dias, excluindo o tempo para obter acesso aos recursos. O objetivo do workshop de exploração de dados é o seguinte:
 
-1. Ensure the team can access the data and compute resources that are necessary for the ML feasibility study
+1. Garantir que a equipe possa acessar os dados e recursos de computação necessários para o estudo de viabilidade de ML.
 
-2. Ensure that the data provided is of quality and is relevant to the ML solution  
+2. Certificar-se de que os dados fornecidos tenham qualidade e sejam relevantes para a solução de ML.
 
-3. Make sure that the project team has a good understanding of the data
+3. Certificar-se de que a equipe do projeto tenha um bom entendimento dos dados.
 
-4. Make sure that the SMEs (Subject Matter Experts) needed are present for Data Exploration Workshop
+4. Certificar-se de que os SMEs (Especialistas em Assunto) necessários estejam presentes no Workshop de Exploração de Dados.
 
-5. List people needed for the data exploration workshop
+5. Listar as pessoas necessárias para o workshop de exploração de dados.
 
-## ML Feasibility Study till [date]
+## Estudo de Viabilidade de ML até [data]
 
-### Objectives
+### Objetivos
 
-State what we expect to be the objective in the feasibility study  
+Declare o que esperamos ser o objetivo no estudo de viabilidade.
 
-### Timeline
+### Cronograma
 
-Give a possible timeline for the feasibility study  
+Dê um cronograma possível para o estudo de viabilidade.
 
-### Personnel needed
+### Pessoal necessário
 
-What sorts of people/roles are needed for the feasibility study?
+Que tipos de pessoas/papéis são necessários para o estudo de viabilidade?
 
-### What’s After ML Feasibility Study
+### O que Vem Depois do Estudo de Viabilidade de ML
 
-Detail here
+Detalhe aqui.
 
-### Summary of Timeline
+### Resumo do Cronograma
 
-Below is a high-level summary of the upcoming timeline:
+Abaixo está um resumo de alto nível do cronograma futuro:
 
-Discuss dates for the data exploration workshop, and feasibility study along with any to-do items such as starting responsible AI process, identifying engineering resources. We suggest using a concise bulleted list or a table to easily convey the information.
+Discuta datas para o workshop de exploração de dados e estudo de viabilidade, juntamente com quaisquer itens a fazer, como iniciar o processo de IA responsável, identificar recursos de engenharia. Sugerimos usar uma lista de marcadores concisa ou uma tabela para transmitir facilmente as informações.

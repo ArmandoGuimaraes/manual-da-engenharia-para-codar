@@ -1,122 +1,106 @@
-# Profiling Machine Learning and MLOps Code
+# Perfilagem de Código em Aprendizado de Máquina e MLOps
 
-Data Science projects, especially the ones that involve Deep Learning techniques, usually are resource intensive. One model training iteration might be multiple hours long. Although large data volumes processing genuinely takes time, minor bugs and suboptimal implementation of some functional pieces might cause extra resources consumption.
+Projetos de Ciência de Dados, especialmente aqueles que envolvem técnicas de Aprendizado Profundo, geralmente consomem muitos recursos. Uma iteração de treinamento de modelo pode levar várias horas. Embora o processamento de grandes volumes de dados realmente leve tempo, pequenos bugs e implementações subótimas de algumas partes funcionais podem causar um consumo extra de recursos.
 
-Profiling can be used to identify performance bottlenecks and see which functions are the costliest in the application code. Based on the outputs of the profiler, one can focus on largest and easiest-to-resolve inefficiencies and therefore achieve better code performance.
-Although profiling follows the same principles of any other software project, the purpose of this document is to provide profiling samples for the most common scenarios in MLOps/Data Science projects.
+A perfilagem pode ser usada para identificar gargalos de desempenho e ver quais funções são mais custosas no código do aplicativo. Com base nas saídas do perfilador, é possível se concentrar nas ineficiências mais significativas e fáceis de resolver, e, assim, alcançar um melhor desempenho do código.
+Embora a perfilagem siga os mesmos princípios de qualquer outro projeto de software, o objetivo deste documento é fornecer exemplos de perfilagem para os cenários mais comuns em projetos de MLOps / Ciência de Dados.
 
-Below are some common scenarios in MLOps/Data Science projects, along with suggestions on how to profile them.
+Abaixo estão alguns cenários comuns em projetos de MLOps / Ciência de Dados, juntamente com sugestões sobre como perfilá-los.
 
-- [Generic Python profiling](#generic-python-profiling)
-- [PyTorch model training profiling](#pytorch-model-training-profiling)
-- [Azure Machine Learning pipeline profiling](#azure-machine-learning-pipeline-profiling)
+- [Perfilagem genérica em Python](#perfilagem-genérica-em-python)
+- [Perfilagem de treinamento de modelo PyTorch](#perfilagem-de-treinamento-de-modelo-pytorch)
+- [Perfilagem de pipeline de Azure Machine Learning](#perfilagem-de-pipeline-de-azure-machine-learning)
 
-## Generic Python profiling
+## Perfilagem genérica em Python
 
-Usually an MLOps/Data Science solution contains plain Python code serving different purposes (e.g. data processing) along
-with specialized model training code. Although many Machine Learning frameworks provide their own profiler,
-sometimes it is also useful to profile the whole solution.
+Normalmente, uma solução de MLOps / Ciência de Dados contém código Python simples que atende a diferentes finalidades (por exemplo, processamento de dados), juntamente com código de treinamento de modelo especializado. Embora muitos frameworks de Aprendizado de Máquina forneçam seu próprio perfilador, às vezes também é útil perfilar toda a solução.
 
-There are two types of profilers: deterministic (all events are tracked, e.g. [cProfile](https://docs.python.org/3/library/profile.html)) and statistical (sampling with regular intervals, e.g., [py-spy](https://pypi.org/project/py-spy/)). The sample below shows an example of a deterministic profiler.
+Existem dois tipos de perfiladores: determinísticos (todos os eventos são rastreados, por exemplo, [cProfile](https://docs.python.org/3/library/profile.html)) e estatísticos (amostragem em intervalos regulares, por exemplo, [py-spy](https://pypi.org/project/py-spy/)). O exemplo abaixo mostra um exemplo de perfilador determinístico.
 
-There are many options of generic deterministic Python code profiling. One of the default options for profiling used to be a built-in
-[cProfile](https://docs.python.org/3/library/profile.html) profiler. Using *cProfile* one can easily profile
-either a Python script or just a chunk of code. This profiling tool produces a file that can be either
-visualized using open source tools or analyzed using `stats.Stats` class. The latter option requires setting up filtering
-and sorting parameters for better analysis experience.
+Existem muitas opções de perfilagem de código Python genérico determinístico. Uma das opções padrão de perfilagem é o profiler embutido [cProfile](https://docs.python.org/3/library/profile.html). Usando o *cProfile*, é possível perfilar facilmente um script Python ou apenas um trecho de código. Essa ferramenta de perfilagem produz um arquivo que pode ser visualizado usando ferramentas de código aberto ou analisado usando a classe `stats.Stats`. A última opção requer a configuração de parâmetros de filtragem e classificação para uma melhor experiência de análise.
 
-Below you can find an example of using *cProfile* to profile a chunk of code.
+Abaixo, você encontra um exemplo de uso do *cProfile* para perfilar um trecho de código.
 
 ```python
 import cProfile
 
-# Start profiling
+# Iniciar a perfilagem
 profiler = cProfile.Profile()
 profiler.enable()
 
-# -- YOUR CODE GOES HERE ---
+# -- SEU CÓDIGO AQUI ---
 
-# Stop profiling
+# Parar a perfilagem
 profiler.disable()
 
-# Write profiler results to an html file
-profiler.dump_stats("profiler_results.prof")
+# Escrever os resultados do perfilador em um arquivo HTML
+profiler.dump_stats("resultados_do_perfilador.prof")
 ```
 
-You can also run *cProfile* outside of the Python script using the following command:
+Você também pode executar o *cProfile* fora do script Python usando o seguinte comando:
 
 ```bash
-python -m cProfile [-o output_file] [-s sort_order] (-m module | myscript.py)
+python -m cProfile [-o arquivo_de_saida] [-s ordem_de_classificação] (-m módulo | meu_script.py)
 ```
 
-> Note: one epoch of model training is usually enough for profiling. There's no need to run more epochs and produce
-additional cost.
+> Observação: geralmente, uma época de treinamento de modelo é suficiente para a perfilagem. Não é necessário executar mais épocas e aumentar o custo.
 
-Refer to [The Python Profilers](https://docs.python.org/3/library/profile.html) for further details.  
+Consulte [The Python Profilers](https://docs.python.org/3/library/profile.html) para obter mais detalhes.
 
-## PyTorch model training profiling
+## Perfilagem de Treinamento de Modelo PyTorch
 
-PyTorch 1.8 includes an updated PyTorch
-[profiler](https://pytorch.org/blog/introducing-pytorch-profiler-the-new-and-improved-performance-tool/)
-that is supplied together with the PyTorch distribution and doesn't require any additional installation.
-Using *PyTorch profiler* one can record CPU side operations as well as CUDA kernel launches on GPU side.
-The profiler can visualize analysis results using TensorBoard plugin as well as provide suggestions
-on bottlenecks and potential code improvements.
+O PyTorch 1.8 inclui um [profiler PyTorch](https://pytorch.org/blog/introducing-pytorch-profiler-the-new-and-improved-performance-tool/) atualizado que é fornecido junto com a distribuição do PyTorch e não requer instalação adicional. Usando o *profiler PyTorch*, é possível registrar operações no lado da CPU, bem como lançamentos de kernel CUDA no lado da GPU. O profiler pode visualizar os resultados da análise usando o plugin TensorBoard e fornecer sugestões sobre gargalos e melhorias potenciais no código.
 
 ```python
- with torch.profiler.profile(
-    # Limit number of training steps included in profiling
+import torch
+
+with torch.profiler.profile(
+    # Limitar o número de etapas de treinamento incluídas na perfilagem
     schedule=torch.profiler.schedule(wait=1, warmup=1, active=3, repeat=2),
-    # Automatically saves profiling results to disk
+    # Salvar automaticamente os resultados da perfilagem no disco
     on_trace_ready=torch.profiler.tensorboard_trace_handler,
     with_stack=True
 ) as profiler:
     for step, data in enumerate(trainloader, 0):
-        # -- TRAINING STEP CODE GOES HERE ---
+        # -- O CÓDIGO DA ETAPA DE TREINAMENTO VAI AQUI ---
         profiler.step()
 ```
 
-The `tensorboard_trace_handler` can be used to generate result files for TensorBoard. Those can be visualized by installing TensorBoard.
-plugin and running TensorBoard on your log directory.
+O `tensorboard_trace_handler` pode ser usado para gerar arquivos de resultado para o TensorBoard. Eles podem ser visualizados instalando o plugin TensorBoard e executando o TensorBoard no diretório de log.
 
 ```bash
 pip install torch_tb_profiler
-tensorboard --logdir=<LOG_DIR_PATH>
-# Navigate to `http://localhost:6006/#pytorch_profiler`
+tensorboard --logdir=<Caminho do Diretório de Log>
+# Acesse `http://localhost:6006/#pytorch_profiler`
 ```
 
-> Note: make sure to provide the right parameters to the `torch.profiler.schedule`. Usually you would need several steps of training to be profiled rather than the whole epoch.
+> Nota: certifique-se de fornecer os parâmetros corretos para o `torch.profiler.schedule`. Geralmente, você desejará perfilar várias etapas de treinamento em vez de toda a época.
 
-More information on *PyTorch profiler*:
+Mais informações sobre o *profiler PyTorch*:
 
-- [PyTorch Profiler Recipe](https://pytorch.org/tutorials/recipes/recipes/profiler_recipe.html)
-- [Introducing PyTorch Profiler - the new and improved performance tool](https://pytorch.org/blog/introducing-pytorch-profiler-the-new-and-improved-performance-tool/)
+- [Receita do Profiler PyTorch](https://pytorch.org/tutorials/recipes/recipes/profiler_recipe.html)
+- [Apresentando o PyTorch Profiler - a nova e melhorada ferramenta de desempenho](https://pytorch.org/blog/introducing-pytorch-profiler-the-new-and-improved-performance-tool/)
 
-## Azure Machine Learning pipeline profiling
+## Perfilagem de Pipelines Azure Machine Learning
 
-In our projects we often use [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/)
-pipelines to train Machine Learning models. Most of the profilers can also be used in conjunction with Azure Machine Learning.
-For a profiler to be used with Azure Machine Learning, it should meet the following criteria:
+Em nossos projetos, frequentemente usamos [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/) pipelines para treinar modelos de Machine Learning. A maioria dos profilers também pode ser usada em conjunto com o Azure Machine Learning. Para um profiler ser usado com o Azure Machine Learning, ele deve atender aos seguintes critérios:
 
-- Turning the profiler on/off can be achieved by passing a parameter to the script ran by Azure Machine Learning
-- The profiler produces a file as an output
+- Ativar ou desativar o profiler deve ser possível passando um parâmetro para o script executado pelo Azure Machine Learning.
+- O profiler deve produzir um arquivo como saída.
 
-In general, a recipe for using profilers with Azure Machine Learning is the following:
+Em geral, o procedimento para usar profilers com o Azure Machine Learning é o seguinte:
 
-1. (Optional) If you're using profiling with an Azure Machine Learning pipeline, you might want to add `--profile`
-Boolean flag as a pipeline parameter
-2. Use one of the profilers described above or any other profiler that can produce a file as an output
-3. Inside of your Python script, create step output folder, e.g.:
+1. (Opcional) Se você estiver usando a perfilagem em um pipeline do Azure Machine Learning, pode adicionar uma flag booleana `--profile` como um parâmetro do pipeline.
+2. Use um dos profilers descritos acima ou qualquer outro profiler que possa produzir um arquivo como saída.
+3. Dentro do seu script Python, crie uma pasta de saída para os resultados do profiler, por exemplo:
 
     ```python
     output_dir = "./outputs/profiler_results"
     os.makedirs(output_dir, exist_ok=True)
     ```
 
-4. Run your training pipeline
-5. Once the pipeline is completed, navigate to Azure ML portal and open details of the step that contains training code.
-The results can be found in the `Outputs+logs` tab, under `outputs/profiler_results` folder.
-6. You might want to download the results and visualize it locally.
+4. Execute o seu pipeline de treinamento.
+5. Assim que o pipeline estiver concluído, acesse o portal do Azure ML e abra os detalhes da etapa que contém o código de treinamento. Os resultados podem ser encontrados na guia `Outputs+logs`, na pasta `outputs/profiler_results`.
+6. Você pode querer baixar os resultados e visualizá-los localmente.
 
-> Note: it's not recommended to run profilers simultaneously. Profiles also consume resources, therefore a simultaneous run
-might significantly affect the results.
+> Nota: não é recomendável executar profilers simultaneamente. Os perfis também consomem recursos, portanto, a execução simultânea pode afetar significativamente os resultados.

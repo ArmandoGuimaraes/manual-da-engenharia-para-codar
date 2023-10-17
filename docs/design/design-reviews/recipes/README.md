@@ -1,32 +1,32 @@
-# Design Review Recipes
+# Receitas para Revisão de Design
 
-Design reviews come in all shapes and sizes. There are also different items to consider when creating a design at different stages during an engagement
+As revisões de design podem variar em formato e tamanho. Também existem diferentes aspectos a considerar ao criar um design em diferentes estágios durante um projeto.
 
-## Design Review Process
+## Processo de Revisão de Design
 
-- [Incorporate design reviews throughout the lifetime of an engagement](./engagement-process.md)
+- [Incorpore revisões de design ao longo da vida útil de um projeto](./engagement-process.md)
 
-## Design Review Templates
+## Modelos de Revisão de Design
 
-### [Game Plan](./high-level-design-recipe.md)
+### [Plano de Jogo](./high-level-design-recipe.md)
 
-- The same template already in use today
-- High level architecture and design
-- Includes technologies, languages & products to complete engagement objective
+- O mesmo modelo já em uso hoje
+- Arquitetura e design de alto nível
+- Inclui tecnologias, linguagens e produtos para cumprir o objetivo do projeto
 
-### [Milestone / Epic Design Review](./milestone-epic-design-review-recipe.md)
+### [Revisão de Design de Marco/Épico](./milestone-epic-design-review-recipe.md)
 
-- Should be considered when an engagement contains multiple milestones or epics
-- Design should be more detailed than game plan
-- May require unique deployment, security and/or privacy characteristics from other milestones
+- Deve ser considerada quando um projeto contém vários marcos ou épicos
+- O design deve ser mais detalhado do que o plano de jogo
+- Pode exigir características de implantação, segurança e/ou privacidade exclusivas de outros marcos
 
-### [Feature/story design review](./feature-story-design-review-template.md)
+### [Revisão de Design de Funcionalidade/História](./feature-story-design-review-template.md)
 
-- Design for complex features or stories
-- Will reuse deployment, security and other characteristics defined within game plan or milestone
-- May require new libraries, OSS or patterns to accomplish goals
+- Design para funcionalidades ou histórias complexas
+- Reutilizará características de implantação, segurança e outras definidas no plano de jogo ou marco
+- Pode exigir novas bibliotecas, software de código aberto ou padrões para alcançar os objetivos
 
-### [Task design review](./task-design-review-template.md)
+### [Revisão de Design de Tarefa](./task-design-review-template.md)
 
-- Highly detailed design for a complex tasks with many unknowns
-- Will integrate into higher level feature/component designs
+- Design altamente detalhado para tarefas complexas com muitas incertezas
+- Integrará designs de nível superior de funcionalidade/componente

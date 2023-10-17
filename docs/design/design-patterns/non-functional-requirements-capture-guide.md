@@ -1,157 +1,156 @@
-# Non-Functional Requirements Capture
+# Captura de Requisitos Não Funcionais
 
-## Goals
+## Objetivos
 
-In software engineering projects, important characteristics of the system providing for necessary e.g., testability, reliability, scalability, observability, security, manageability are best considered as first-class citizens in the requirements gathering process.
-By defining these non-functional requirements in detail early in the engagement, they can be properly evaluated when the cost of their impact on subsequent design decisions is comparatively low.
+Em projetos de engenharia de software, características importantes do sistema, como testabilidade, confiabilidade, escalabilidade, observabilidade, segurança, gerenciabilidade, entre outras, devem ser consideradas como requisitos não funcionais de primeira classe no processo de levantamento de requisitos. Ao definir esses requisitos não funcionais em detalhes no início do projeto, eles podem ser adequadamente avaliados quando o custo de seu impacto nas decisões de design subsequentes é comparativamente baixo.
 
-To support the process of capturing a project's _comprehensive_ non-functional requirements, this document offers a taxonomy for non-functional requirements and provides a framework for their identification, exploration, assignment of customer stakeholders, and eventual codification into formal engineering requirements as input to subsequent solution design.
+Para apoiar o processo de captura de _requisitos não funcionais completos_ de um projeto, este documento oferece uma taxonomia para requisitos não funcionais e fornece um framework para sua identificação, exploração, atribuição aos stakeholders do cliente e, finalmente, codificação em requisitos de engenharia formais como entrada para o subsequente design da solução.
 
 ---
 
-## Areas of Investigation
+## Áreas de Investigação
 
-### [Enterprise Security](../../security/README.md)
+### [Segurança Empresarial](../../security/README.md)
 
-- Privacy
-  - PII
+- Privacidade
+  - PII (Informações Pessoalmente Identificáveis)
   - HIPAA
-- Encryption
-- Data mobility
-  - at rest
-  - in motion
-  - in process/memory
-- Key Management
-  - responsibility
-    - platform
-    - BYOK
-    - CMK
-- INFOSEC regulations/standards
-  - e.g., FIPS-140-2
-    - Level 2
-    - Level 3
-  - ISO 27000 series
-  - NIST
-  - Other
-- Network security
-  - Physical/Logical traffic boundaries/flow topology
-    - Azure <-- --> On-prem
-    - Public <-- --> Azure
+- Criptografia
+- Mobilidade de Dados
+  - em repouso
+  - em trânsito
+  - em processo/memória
+- Gerenciamento de Chaves
+  - responsabilidade
+    - plataforma
+    - BYOK (Traga sua própria chave)
+    - CMK (Chave de Gerenciamento de Cliente)
+- Regulamentações/normas de INFOSEC (Segurança da Informação)
+  - por exemplo, FIPS-140-2
+    - Nível 2
+    - Nível 3
+  - Série ISO 27000
+  - NIST (Instituto Nacional de Padrões e Tecnologia)
+  - Outros
+- Segurança de Rede
+  - Limites/fluxo de tráfego físico/lógico/topologia
+    - Azure <-- --> On-premises (Local)
+    - Público <-- --> Azure
     - VNET
-    - PIP
+    - PIP (Endereço IP Público)
     - Firewalls
-    - VPN
+    - VPN (Rede Virtual Privada)
     - ExpressRoute
-      - Topology
-      - Security
-  - Certificates
-    - Issuer
-      - CA
-      - Self-signed
-      - Rotation/expiry
-- INFOSEC Incident Response
-  - Process
-  - People
-  - Responsibilities
-  - Systems
-  - Legal/Regulatory/Compliance
+      - Topologia
+      - Segurança
+  - Certificados
+    - Emissor
+      - CA (Autoridade de Certificação)
+      - Autoassinado
+      - Rotação/expiração
+- Resposta a Incidentes de INFOSEC
+  - Processo
+  - Pessoas
+  - Responsabilidades
+  - Sistemas
+  - Jurídico/regulatório/conformidade
 
-### Enterprise AuthN/AuthZ
+### Autenticação e Autorização Empresariais
 
-- Users
-- Services
-- Authorities/directories
-- Mechanisms/handshakes
+- Usuários
+- Serviços
+- Autoridades/diretórios
+- Mecanismos/apertos de mãos (handshakes)
   - Active Directory
-  - SAML
+  - SAML (Linguagem de Marcação de Segurança)
   - OAuth
-  - Other
-- RBAC
-  - Perms inheritance model
+  - Outros
+- Controle de Acesso Baseado em Funções (RBAC - Role-Based Access Control)
+  - Modelo de herança de permissões
 
-### [Enterprise Monitoring/Operations](../../observability/README.md)
+### [Monitoramento/Operações Empresariais](../../observability/README.md)
 
-- Logging
-  - Operations
-  - Reporting
-  - Audit
-- Monitoring
-  - Diagnostics/Alerts
-  - Operations
-- HA/DR
-  - Redundancy
-  - Recovery/Mitigation
-- Practices
-  - Principle of least-privilege
-  - Principle of separation-of-responsibilities
+- Registro (Logging)
+  - Operações
+  - Relatórios
+  - Auditoria
+- Monitoramento
+  - Diagnóstico/Alertas
+  - Operações
+- Alta disponibilidade/Recuperação de Desastres
+  - Redundância
+  - Recuperação/Mitigação
+- Práticas
+  - Princípio do mínimo privilégio
+  - Princípio da separação de responsabilidades
 
-### Other standard Enterprise technologies/practices
+### Outras tecnologias/práticas empresariais padrão
 
-- Developer ecosystem
-  - Platform/OS
-    - Hardened
-    - Approved base images
-    - Image repository
-  - Tools, languages
-    - Approval process
-  - Code repositories
-    - Secrets management patterns
-      - Env var
-      - Config file(s)
-      - Secrets retrieval API
-  - Package manager source(s)
-    - Private
-    - Public
-    - Approved/Trusted
-  - CI/CD
-  - Artifact repositories
+- Ecossistema de Desenvolvedores
+  - Plataforma/Sistema Operacional
+    - Reforçado
+    - Imagens base aprovadas
+    - Repositório de imagens
+  - Ferramentas, linguagens
+    - Processo de aprovação
+  - Repositórios de código
+    - Padrões de gerenciamento de segredos
+      - Variáveis de ambiente
+      - Arquivo(s) de configuração
+      - API de recuperação de segredos
+  - Origens de gerenciadores de pacotes
+    - Privadas
+    - Públicas
+    - Aprovadas/Confiáveis
+  - CI/CD (Integração Contínua/Entrega Contínua)
+  - Repositórios de artefatos
 
-### Production ecosystem
+### Ecossistema de Produção
 
-- Platform/OS
-  - Hardened
-  - Approved base images
-  - Image repository
-- Deployment longevity/volatility
-  - Automation
-  - Reproducibility
-    - IaC
+- Plataforma/Sistema Operacional
+  - Reforçado
+  - Imagens base aprovadas
+  - Repositório de imagens
+- Longevidade/volatilidade da implantação
+  - Automação
+  - Reprodutibilidade
+    - IaC (Infraestrutura como Código)
     - Scripting
-    - Other
+    - Outros
 
-### Other areas/topics not addressed above (requires customer input to comprehensively enumerate)
-
----
-
-## Investigation Process
-
-1. Identify/brainstorm likely areas/topics requiring further investigation/definition
-1. Identify customer stakeholder(s) responsible for each identified area/topic
-1. Schedule debrief/requirements definition session(s) with each stakeholder
-   - as necessary to achieve sufficient understanding of the probable impact of each requirement to the project
-   - both current/initial milestone and long-term/road map
-1. Document requirements/dependencies identified and related design constraints
-1. Evaluate current/near-term planned milestone(s) through the lens of the identified requirements/constraints
-   - Categorize each requirement as affecting immediate/near-term milestone(s) or as applicable instead to the longer-term road map/subsequent milestones
-1. Adapt plans for current/near-term milestone(s) to accommodate immediate/near-term-categorized requirements
+### Outras áreas/tópicos não abordados acima (requer entrada do cliente para enumerar de forma abrangente)
 
 ---
 
-## Structure of Outline/Assignment of Responsible Stakeholder
+## Processo de Investigação
 
-In the following outline, assign name/email of 'responsible stakeholder' for each element after the appropriate level in the outline hierarchy. Assume inheritance model of responsibility assignment: stakeholder at any ancestor (parent) level is also responsible for descendent (child) elements unless overridden at the descendent level).
+1. Identifique/brainstorm áreas/tópicos prováveis que requerem investigação/definição adicional.
+1. Identifique os stakeholders do cliente responsáveis por cada área/tópico identificado.
+1. Ag
 
-e.g.,
+ende sessões de definição de requisitos/debrief com cada stakeholder conforme necessário para alcançar uma compreensão suficiente do impacto provável de cada requisito no projeto, tanto no marco atual/inicial quanto no roadmap de longo prazo.
+1. Documente os requisitos/dependências identificados e as restrições de design relacionadas.
+1. Avalie os marcos atuais/near-term planejados através da lente dos requisitos/constrangimentos identificados.
+   - Categorize cada requisito como afetando os marcos imediatos/near-termos ou como aplicável apenas ao roadmap de longo prazo/subsequentes marcos.
+1. Adapte os planos para os marcos atuais/near-termos para acomodar os requisitos categorizados como imediatos/near-termos.
 
-- Parent1 _[Susan/susan@domain.com]_
-  - child1
-  - child2 _[John/john@domain.com]_
-    - grandchild1
-  - child3
-- Parent2 _[Sam/sam@domain.com]_
-  - child1
-  - child2
+---
 
-In the preceding example, 'Susan' is responsible for `Parent1` and all of its descendants _except_ for `Parent1/child2` and `Parent1/child2/grandchild1` (for which 'John' is the stakeholder). 'Sam' is responsible for the entirety of `Parent2` and all of its descendants.
+## Estrutura do Esboço/Atribuição do Stakeholder Responsável
 
-This approach permits the retention of the logical hierarchy of elements themselves while also flexibly interleaving the 'stakeholder' identifications within the hierarchy of topics if/when they may need to diverge due to e.g., customer organizational nuances.
+No esboço a seguir, atribua o nome/email do 'stakeholder responsável' para cada elemento após o nível apropriado na hierarquia do esboço. Assuma o modelo de atribuição de responsabilidade por herança: o stakeholder em qualquer nível ancestral (pai) também é responsável pelos elementos descendentes (filhos), a menos que seja substituído no nível descendente.
+
+Exemplo:
+
+- Pai1 _[Susan/susan@dominio.com]_
+  - filho1
+  - filho2 _[John/john@dominio.com]_
+    - neto1
+  - filho3
+- Pai2 _[Sam/sam@dominio.com]_
+  - filho1
+  - filho2
+
+No exemplo anterior, 'Susan' é responsável por `Pai1` e todos os seus descendentes, _exceto_ por `Pai1/filho2` e `Pai1/filho2/neto1` (para os quais 'John' é o stakeholder). 'Sam' é responsável por `Pai2` e todos os seus descendentes.
+
+Essa abordagem permite a retenção da hierarquia lógica dos elementos em si, ao mesmo tempo em que intercala de forma flexível as identificações de 'stakeholder' dentro da hierarquia de tópicos, se e quando elas precisarem divergir devido a nuances organizacionais do cliente.

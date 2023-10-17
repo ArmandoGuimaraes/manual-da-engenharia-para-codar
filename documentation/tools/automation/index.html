@@ -19,7 +19,7 @@
     
     
       
-        <title>How to Automate Simple Checks - Manual da Engenharia para Codar</title>
+        <title>Como Automatizar Verificações Simples - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-automate-simple-checks" class="md-skip">
+        <a href="#como-automatizar-verificacoes-simples" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How to Automate Simple Checks
+              Como Automatizar Verificações Simples
             
           </span>
         </div>
@@ -5610,12 +5610,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          How to Automate Simple Checks
+          Como Automatizar Verificações Simples
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        How to Automate Simple Checks
+        Como Automatizar Verificações Simples
       </a>
       
         
@@ -5634,8 +5634,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#on-linting-rules" class="md-nav__link">
-    On linting rules
+  <a href="#sobre-as-regras-de-linting" class="md-nav__link">
+    Sobre as regras de linting
   </a>
   
 </li>
@@ -7179,8 +7179,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#on-linting-rules" class="md-nav__link">
-    On linting rules
+  <a href="#sobre-as-regras-de-linting" class="md-nav__link">
+    Sobre as regras de linting
   </a>
   
 </li>
@@ -7199,45 +7199,45 @@
                 
 
 
-<h1 id="how-to-automate-simple-checks">How to Automate Simple Checks</h1>
-<p>If you want to automate some checks on your Markdown documents, there are several tools that you could leverage. For example:</p>
+<h1 id="como-automatizar-verificacoes-simples">Como Automatizar Verificações Simples</h1>
+<p>Se você deseja automatizar algumas verificações em seus documentos Markdown, existem várias ferramentas que você pode utilizar. Por exemplo:</p>
 <ul>
-<li>Code Analysis / Linting<ul>
-<li><a href="../../../code-reviews/recipes/markdown/#markdownlint">markdownlint</a> to verify Markdown syntax and enforce rules that make the text more readable.</li>
-<li><a href="https://github.com/tcort/markdown-link-check">markdown-link-check</a> to extract links from markdown texts and check whether each link is alive (200 OK) or dead.</li>
-<li><a href="../../../code-reviews/recipes/markdown/#proselint">proselint</a> to check for jargon, spelling errors, redundancy, corporate speak and other language related issues.</li>
-<li><a href="../../../code-reviews/recipes/markdown/#write-good">write-good</a> to check English prose.</li>
-<li><a href="https://github.com/tmaier/docker-markdown-spellcheck">Docker image for node-markdown-spellcheck</a>, a lightweight docker image to spellcheck markdown files.</li>
-<li><a href="../../../continuous-integration/dev-sec-ops/static-code-analysis/static_code_analysis/">static code analysis</a></li>
+<li>Análise de Código / Linting<ul>
+<li><a href="../../../code-reviews/recipes/markdown/#markdownlint">markdownlint</a> para verificar a sintaxe do Markdown e aplicar regras que tornem o texto mais legível.</li>
+<li><a href="https://github.com/tcort/markdown-link-check">markdown-link-check</a> para extrair links de textos em Markdown e verificar se cada link está funcionando (200 OK) ou morto.</li>
+<li><a href="../../../code-reviews/recipes/markdown/#proselint">proselint</a> para verificar jargão, erros de ortografia, redundância, linguagem corporativa e outras questões relacionadas à linguagem.</li>
+<li><a href="../../../code-reviews/recipes/markdown/#write-good">write-good</a> para verificar a prosa em inglês.</li>
+<li><a href="https://github.com/tmaier/docker-markdown-spellcheck">Imagem Docker para node-markdown-spellcheck</a>, uma imagem Docker leve para verificar a ortografia de arquivos Markdown.</li>
+<li><a href="../../../continuous-integration/dev-sec-ops/static-code-analysis/static_code_analysis/">Análise de código estático</a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li><a href="../../../code-reviews/recipes/markdown/#vs-code-extensions">VS Code Extensions</a><ul>
-<li><a href="../../../code-reviews/recipes/markdown/#write-good-linter">Write Good Linter</a> to get grammar and language advice while editing a document.</li>
-<li><a href="../../../code-reviews/recipes/markdown/#markdownlint-extension">markdownlint</a> to examine Markdown documents and get warnings for rule violations while editing.</li>
+<li><a href="../../../code-reviews/recipes/markdown/#vs-code-extensions">Extensões do VS Code</a><ul>
+<li><a href="../../../code-reviews/recipes/markdown/#write-good-linter">Write Good Linter</a> para obter conselhos gramaticais e de linguagem enquanto edita um documento.</li>
+<li><a href="../../../code-reviews/recipes/markdown/#markdownlint-extension">markdownlint</a> para examinar documentos Markdown e obter avisos sobre violações de regras durante a edição.</li>
 </ul>
 </li>
 </ul>
 <ul>
-<li>Automation<ul>
-<li><a href="https://pre-commit.com/">pre-commit</a> to use Git hook scripts to identify simple issues before submitting our code or documentation for review.</li>
-<li>Check <a href="../../../code-reviews/recipes/markdown/#build-validation">Build validation</a> to automate linting for PRs.</li>
-<li>Check <a href="../../../continuous-integration/markdown-linting/">CI Pipeline for better documentation</a> for a sample pipeline with <code>markdownlint</code>, <code>markdown-link-check</code> and <code>write-good</code>.</li>
+<li>Automação<ul>
+<li><a href="https://pre-commit.com/">pre-commit</a> para usar scripts de hook do Git para identificar problemas simples antes de enviar nosso código ou documentação para revisão.</li>
+<li>Verifique <a href="../../../code-reviews/recipes/markdown/#build-validation">Validação de Build</a> para automatizar a verificação de PRs.</li>
+<li>Verifique <a href="../../../continuous-integration/markdown-linting/">Pipeline de CI para melhor documentação</a> para um exemplo de pipeline com <code>markdownlint</code>, <code>markdown-link-check</code> e <code>write-good</code>.</li>
 </ul>
 </li>
 </ul>
-<p>Sample output:</p>
-<p><img alt="docs-checks" src="../images/docs-checks.png" /></p>
-<h2 id="on-linting-rules">On linting rules</h2>
-<p>The team needs to be clear what linting rules are required and shouldn't be overridden with tooling or comments. The team should have consensus on when to override tooling rules.</p>
+<p>Exemplo de saída:</p>
+<p><img alt="verificações-de-documentos" src="../images/docs-checks.png" /></p>
+<h2 id="sobre-as-regras-de-linting">Sobre as regras de linting</h2>
+<p>A equipe precisa estar clara sobre quais regras de linting são necessárias e não devem ser substituídas por ferramentas ou comentários. A equipe deve chegar a um consenso sobre quando substituir as regras das ferramentas.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 3, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
       
     
   </small>

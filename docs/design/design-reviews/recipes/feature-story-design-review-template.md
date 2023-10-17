@@ -1,66 +1,66 @@
-# Your Feature or Story Design Title Here (prefix with DRAFT/WIP to indicate level of completeness)
+# Título do Design de Funcionalidade ou História Aqui (prefixado com DRAFT/WIP para indicar o nível de completude)
 
-> Does the feature re-use or extend existing patterns / interfaces that have already been established for the project?
-> Does the feature expose new patterns or interfaces that will establish a new standard for new future development?
+> A funcionalidade reutiliza ou estende padrões/interfaces já estabelecidos para o projeto?
+> A funcionalidade expõe novos padrões ou interfaces que estabelecerão um novo padrão para desenvolvimentos futuros?
 
-* [Feature/Story Name](http://link-to-feature-or-story-work-item)
-* Engagement: [Engagement]
-* Customer: [Customer]
-* Authors: [Author1, Author2, etc.]
+* [Nome da Funcionalidade/História](http://link-para-o-item-de-trabalho-da-funcionalidade-ou-história)
+* Engajamento: [Engajamento]
+* Cliente: [Cliente]
+* Autores: [Autor1, Autor2, etc.]
 
-## Overview/Problem Statement
+## Visão/Declaração do Problema
 
-* It can also be a link to the [work item](http://link-to-feature-or-story-work-item).
-* Describe the feature/story with a high-level summary.
-* Consider additional background and justification, for posterity and historical context.
-* List any assumptions that were made for this design.
+* Também pode ser um link para o [item de trabalho](http://link-para-o-item-de-trabalho-da-funcionalidade-ou-história).
+* Descreva a funcionalidade/história com um resumo de alto nível.
+* Considere informações adicionais e justificativas, para posteridade e contexto histórico.
+* Liste quaisquer suposições que foram feitas para este design.
 
-## Goals/In-Scope
+## Metas/Dentro do Escopo
 
-* List the goals that the feature/story will help us achieve that are most relevant for the design review discussion.
-* This should include acceptance criteria required to meet [definition of done](../../../agile-development/advanced-topics/team-agreements/definition-of-done.md).
+* Liste as metas que a funcionalidade/história ajudará a alcançar e que são mais relevantes para a discussão de revisão de design.
+* Isso deve incluir critérios de aceitação necessários para atender à [definição de pronto](../../../agile-development/advanced-topics/team-agreements/definition-of-done.md).
 
-## Non-goals / Out-of-Scope
+## Não-Metas/Fora do Escopo
 
-* List the non-goals for the feature/story.
-* This contains work that is beyond the scope of what the feature/component/service is intended for.
+* Liste as não-metas para a funcionalidade/história.
+* Isso inclui trabalhos que estão além do escopo do que a funcionalidade/componente/serviço se destina.
 
-## Proposed Design
+## Design Proposto
 
-* Briefly describe the high-level architecture for the feature/story.
-* Relevant diagrams (e.g. sequence, component, context, deployment) should be included here.
+* Descreva brevemente a arquitetura de alto nível para a funcionalidade/história.
+* Diagramas relevantes (por exemplo, de sequência, componente, contexto, implantação) devem ser incluídos aqui.
 
-## Technology
+## Tecnologia
 
-* Describe the relevant OS, Web server, presentation layer, persistence layer, caching, eventing/messaging/jobs, etc. – whatever is applicable to the overall technology solution and how are they going to be used.
-* Describe the usage of any libraries of OSS components.
-* Briefly list the languages(s) and platform(s) that comprise the stack.
+* Descreva o sistema operacional relevante, servidor da Web, camada de apresentação, camada de persistência, armazenamento em cache, eventos/mensagens/trabalhos, etc. - tudo o que for aplicável à solução tecnológica geral e como eles serão usados.
+* Descreva o uso de quaisquer bibliotecas ou componentes de código aberto (OSS).
+* Liste brevemente a(s) linguagem(ns) e plataforma(s) que compõem a pilha.
 
-## Non-Functional Requirements
+## Requisitos Não-Funcionais
 
-* What are the primary performance and scalability concerns for this feature/story?
-* Are there specific latency, availability, and RTO/RPO objectives that must be met?
-* Are there specific bottlenecks or potential problem areas? For example, are operations CPU or I/O (network, disk) bound?
-* How large are the data sets and how fast do they grow?
-* What is the expected usage pattern of the service? For example, will there be peaks and valleys of intense concurrent usage?
-* Are there specific cost constraints? (e.g. $ per transaction/device/user)
+* Quais são as principais preocupações de desempenho e escalabilidade para esta funcionalidade/história?
+* Existem objetivos específicos de latência, disponibilidade e RTO/RPO que devem ser atendidos?
+* Existem gargalos específicos ou áreas problemáticas potenciais? Por exemplo, as operações são limitadas por CPU ou I/O (rede, disco)?
+* Quão grandes são os conjuntos de dados e o quão rápido eles crescem?
+* Qual é o padrão de uso esperado do serviço? Por exemplo, haverá picos e vales de uso simultâneo intenso?
+* Existem restrições de custo específicas? (por exemplo, $ por transação/dispositivo/usuário)
 
-## Dependencies
+## Dependências
 
-* Does this feature/story need to be sequenced after another feature/story assigned to the same team and why?
-* Is the feature/story dependent on another team completing other work?
-* Will the team need to wait for that work to be completed or could the work proceed in parallel?
+* Essa funcionalidade/história precisa ser sequenciada após outra funcionalidade/história atribuída à mesma equipe e por quê?
+* A funcionalidade/história depende de outro trabalho que outra equipe está realizando?
+* A equipe precisará esperar que esse trabalho seja concluído ou o trabalho pode prosseguir em paralelo?
 
-## Risks & Mitigation
+## Riscos e Mitigações
 
-* Does the team need assistance from subject-matter experts?
-* What security and privacy concerns does this milestone/epic have?
-* Is all sensitive information and secrets treated in a safe and secure manner?
+* A equipe precisa de assistência de especialistas no assunto?
+* Quais são as preocupações de segurança e privacidade deste marco/épico?
+* Todas as informações confidenciais e segredos são tratados de maneira segura e protegida?
 
-## Open Questions
+## Perguntas em Aberto
 
-> List any open questions/concerns here.
+> Liste quaisquer perguntas ou preocupações em aberto aqui.
 
-## Additional References
+## Referências Adicionais
 
-> List any additional references here including links to backlog items, work items or other documents.
+> Liste quaisquer referências adicionais aqui, incluindo links para itens de backlog, itens de trabalho ou outros documentos.

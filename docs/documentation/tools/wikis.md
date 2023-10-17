@@ -1,19 +1,19 @@
 # Wikis
 
-Use a **team project wiki** to share information with other team members. When you provision a wiki from scratch, a new **Git repository** stores your [Markdown](./languages.md#markdown) files, images, attachments, and sequence of pages. This wiki supports **collaborative editing** of its content and structure.
+Use um **wiki de projeto em equipe** para compartilhar informações com outros membros da equipe. Quando você provisiona um wiki do zero, um novo **repositório Git** armazena seus arquivos [Markdown](./languages.md#markdown), imagens, anexos e sequência de páginas. Este wiki suporta a **edição colaborativa** de seu conteúdo e estrutura.
 
-In Azure DevOps, you have the following **options for maintaining wiki content**:
+No Azure DevOps, você tem as seguintes **opções para manter o conteúdo do wiki**:
 
-- Provision a wiki for your team project. This option supports only one wiki for the team project.
-- Publish Markdown files defined in a Git repository to a wiki. With this option, you can maintain several versioned wikis to support your content needs.
+- Provisionar um wiki para o projeto da sua equipe. Essa opção suporta apenas um wiki para o projeto da equipe.
+- Publicar arquivos Markdown definidos em um repositório Git em um wiki. Com essa opção, você pode manter vários wikis versionados para atender às suas necessidades de conteúdo.
 
-More information:
+Mais informações:
 
-- [About Wikis, READMEs, and Markdown](https://learn.microsoft.com/en-us/azure/devops/project/wiki/about-readme-wiki?view=azure-devops).
-- [Provisioned wikis vs. published code as a wiki](https://learn.microsoft.com/en-us/azure/devops/project/wiki/provisioned-vs-published-wiki?view=azure-devops).
-- [Create a Wiki for your project](https://learn.microsoft.com/en-us/azure/devops/project/wiki/wiki-create-repo?view=azure-devops&tabs=browser).
-- [Manage wikis](https://learn.microsoft.com/en-us/azure/devops/project/wiki/manage-wikis?view=azure-devops).
+- [Sobre Wikis, READMEs e Markdown](https://learn.microsoft.com/en-us/azure/devops/project/wiki/about-readme-wiki?view=azure-devops).
+- [Wikis provisionados vs. código publicado como um wiki](https://learn.microsoft.com/en-us/azure/devops/project/wiki/provisioned-vs-published-wiki?view=azure-devops).
+- [Crie um Wiki para seu projeto](https://learn.microsoft.com/en-us/azure/devops/project/wiki/wiki-create-repo?view=azure-devops&tabs=browser).
+- [Gerencie wikis](https://learn.microsoft.com/en-us/azure/devops/project/wiki/manage-wikis?view=azure-devops).
 
-## Wikis vs. digital notebooks (e.g., OneNote)
+## Wikis vs. cadernos digitais (por exemplo, OneNote)
 
-When you work on a project, you may decide to document relevant details or record important decisions about the project in a digital notebook. Tools like [OneNote](https://www.microsoft.com/en-us/microsoft-365/onenote/digital-note-taking-app) allows you to easily organize, navigate and search your notes. You can provide type, highlighting, or ink annotations to your notes. These notes can easily be shared and created together with others. Still, Wikis greatly facilitate the process of [establishing and managing documentation](../best-practices/establish-and-manage.md) by allowing us to source control the documentation.
+Quando você trabalha em um projeto, pode decidir documentar detalhes relevantes ou registrar decisões importantes sobre o projeto em um caderno digital. Ferramentas como o [OneNote](https://www.microsoft.com/en-us/microsoft-365/onenote/digital-note-taking-app) permitem que você organize, navegue e pesquise facilmente suas anotações. Você pode fornecer tipo, realce ou anotações de tinta às suas anotações. Essas notas podem ser facilmente compartilhadas e criadas em conjunto com outras pessoas. Ainda assim, os Wikis facilitam muito o processo de [estabelecer e gerenciar documentação](../best-practices/establish-and-manage.md) ao permitir que nós controlemos a origem da documentação.

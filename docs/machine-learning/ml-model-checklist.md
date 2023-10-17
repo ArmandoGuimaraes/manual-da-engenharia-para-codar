@@ -1,169 +1,175 @@
-# ML model production checklist
+# Lista de Verificação para Produção de Modelo de ML
 
-The purpose of this checklist is to make sure that:
+O objetivo desta lista de verificação é garantir que:
 
-- The team assessed if the model is ready for production before moving to the scoring process
-- The team has prepared a production plan for the model
+- A equipe avaliou se o modelo está pronto para a produção antes de avançar para o processo de pontuação.
+- A equipe preparou um plano de produção para o modelo.
 
-The checklist provides guidelines for creating this production plan. It should be used by teams/organizations that already built/trained an ML model and are now considering putting it into production.
+A lista de verificação fornece diretrizes para a criação deste plano de produção. Deve ser utilizada por equipes/organizações que já construíram/treinaram um modelo de ML e agora estão considerando colocá-lo em produção.
 
-## Checklist
+## Lista de Verificação
 
-Before putting an individual ML model into production, the following aspects should be considered:
+Antes de colocar um modelo de ML individual em produção, os seguintes aspectos devem ser considerados:
 
-- [ ] [Is there a well defined baseline? Is the model performing better than the baseline?](#is-there-a-well-defined-baseline-is-the-model-performing-better-than-the-baseline)
-- [ ] [Are machine learning performance metrics defined for both training and scoring?](#are-machine-learning-performance-metrics-defined-for-both-training-and-scoring)
-- [ ] [Is the model benchmarked?](#is-the-model-benchmarked)
-- [ ] [Can ground truth be obtained or inferred in production?](#can-ground-truth-be-obtained-or-inferred-in-production)
-- [ ] [Has the data distribution of training, testing and validation sets been analyzed?](#has-the-data-distribution-of-training-testing-and-validation-sets-been-analyzed)
-- [ ] [Have goals and hard limits for performance, speed of prediction and costs been established so they can be considered if trade-offs need to be made?](#have-goals-and-hard-limits-for-performance-speed-of-prediction-and-costs-been-established-so-they-can-be-considered-if-trade-offs-need-to-be-made)
-- [ ] [How will the model be integrated into other systems, and what impact will it have?](#how-will-the-model-be-integrated-into-other-systems-and-what-impact-will-it-have)
-- [ ] [How will incoming data quality be monitored?](#how-will-incoming-data-quality-be-monitored)
-- [ ] [How will drift in data characteristics be monitored?](#how-will-drift-in-data-characteristics-be-monitored)
-- [ ] [How will performance be monitored?](#how-will-performance-be-monitored)
-- [ ] [Have any ethical concerns been taken into account?](#have-any-ethical-concerns-been-taken-into-account)
+- [ ] [Existe uma linha de base bem definida? O modelo está se saindo melhor do que a linha de base?](#existe-uma-linha-de-base-bem-definida-o-modelo-está-se-saindo-melhor-do-que-a-linha-de-base)
+- [ ] [As métricas de desempenho de aprendizado de máquina estão definidas tanto para o treinamento quanto para a pontuação?](#as-métricas-de-desempenho-de-aprendizado-de-máquina-estão-definidas-tanto-para-o-treinamento-quanto-para-a-pontuação)
+- [ ] [O modelo foi comparado com outros modelos de referência?](#o-modelo-foi-comparado-com-outros-modelos-de-referência)
+- [ ] [É possível obter ou inferir a verdade fundamental na produção?](#é-possível-obter-ou-inferir-a-verdade-fundamental-na-produção)
+- [ ] [A distribuição dos dados nos conjuntos de treinamento, teste e validação foi analisada?](#a-distribuição-dos-dados-nos-conjuntos-de-treinamento-teste-e-validação-foi-analisada)
+- [ ] [Foram estabelecidos objetivos e limites rígidos para o desempenho, velocidade de previsão e custos, de modo que possam ser considerados se forem necessárias compensações?](#foram-estabelecidos-objetivos-e-limites-rígidos-para-o-desempenho-velocidade-de-previsão-e-custos-de-modo-que-possam-ser-considerados-se-forem-necessárias-compensações)
+- [ ] [Como o modelo será integrado a outros sistemas e qual será seu impacto?](#como-o-modelo-será-integrado-a-outros-sistemas-e-qual-será-seu-impacto)
+- [ ] [Como a qualidade dos dados de entrada será monitorada?](#como-a-qualidade-dos-dados-de-entrada-será-monitorada)
+- [ ] [Como será monitorada a variação nas características dos dados?](#como-será-monitorada-a-variação-nas-características-dos-dados)
+- [ ] [Como o desempenho será monitorado?](#como-o-desempenho-será-monitorado)
+- [ ] [Foram consideradas preocupações éticas?](#foram-consideradas-preocupações-éticas)
 
-Please note that there might be scenarios where it is not possible to check all the items on this checklist. However, it is advised to go through all items and make informed decisions based on your specific use case.
+Por favor, observe que pode haver cenários em que não seja possível verificar todos os itens desta lista de verificação. No entanto, é aconselhável passar por todos os itens e tomar decisões informadas com base em seu caso de uso específico.
 
-## Will your model performance be different in production than during training phase
+## A performance do seu modelo será diferente na produção do que na fase de treinamento
 
-Once deployed into production, the model might be performing much worse than expected. This poor performance could be a result of:
+Uma vez implantado na produção, o modelo pode apresentar um desempenho muito pior do que o esperado. Esse desempenho ruim pode ser resultado de:
 
-- The data to be scored in production is significantly different from the train and test datasets
-- The feature engineering steps are different or inconsistent in production compared to the training process
-- The performance measure is not consistent (for example your test set covers several months of data where the performance metric for production has been calculated for one month of data)
+- Os dados a serem pontuados na produção são significativamente diferentes dos conjuntos de treinamento e teste.
+- As etapas de engenharia de recursos são diferentes ou inconsistentes na produção em comparação com o processo de treinamento.
+- A medida de desempenho não é consistente (por exemplo, seu conjunto de testes abrange vários meses de dados, enquanto a métrica de desempenho para a produção foi calculada para um mês de dados).
 
-### Is there a well-defined baseline? Is the model performing better than the baseline?
+### Existe uma linha de base bem definida? O modelo está se saindo melhor do que a linha de base?
 
-A good way to think of a model baseline is the simplest model one can come up with: either a simple threshold, a random guess or a very basic linear model. This baseline is the reference point your model needs to outperform. A well-defined baseline is different for each problem type and there is no one size fits all approach.
+Uma boa maneira de pensar em uma linha de base para um modelo é o modelo mais simples que se pode imaginar: seja um limite simples, uma suposição aleatória ou um modelo linear muito básico. Esta linha de base é o ponto de referência que seu modelo precisa superar. Uma linha de base bem definida é diferente para cada tipo de problema e não há uma abordagem única para todos os casos.
 
-As an example, let's consider some common types of machine learning problems:
+Como exemplo, consideremos alguns tipos comuns de problemas de aprendizado de máquina:
 
-- **Classification**: Predicting between a positive and a negative class. Either the class with the most observations or a simple logistic regression model can be the baseline.
-- **Regression**: Predicting the house prices in a city. The average house price for the last year or last month, a simple linear regression model, or the previous median house price in a neighborhood could be the baseline.
-- **Image classification**: Building an image classifier to distinguish between cats and no cats in an image. If your classes are unbalanced: 70% cats and 30% no cats and if you always predict cats, your naive classifier has 70% accuracy and this can be your baseline. If your classes are balanced: 52% cats and 48% no cats, then a simple convolutional architecture can be the baseline (1 conv layer + 1 max pooling + 1 dense). Additionally, human accuracy at labelling can also be the baseline in an image classification scenario.
+- **Classificação**: Prever entre uma classe positiva e uma classe negativa. A classe com mais observações ou um modelo de regressão logística simples pode ser a linha de base.
+- **Regressão**: Prever os preços das casas em uma cidade. O preço médio das casas no último ano ou no último mês, um modelo de regressão linear simples ou o preço médio anterior das casas em um bairro podem ser a linha de base.
+- **Classificação de imagens**: Construir um classificador de imagens para distinguir entre gatos e não gatos em uma imagem. Se suas classes forem desequilibradas, por exemplo, 70% de gatos e 30% de não gatos, e se você sempre prever gatos, seu classificador ingênuo terá uma precisão de 70%, e isso pode ser sua linha de base. Se suas classes forem equilibradas, por exemplo, 52% de gatos e 48% de não gatos, então uma arquitetura convolucional simples pode ser a linha de base (1 camada convolucional + 1 max pooling + 1 densa). Além disso, a precisão humana na rotulação também pode ser a linha de base em um cenário de classificação de imagens.
 
-Some questions to ask when comparing to a baseline:
+Algumas perguntas a fazer ao comparar com uma linha de base:
 
-- How does your model compare to a random guess?
-- How does your model performance compare to applying a simple threshold?
-- How does your model compare with always predicting the most common value?
+- Como o seu modelo se compara a uma suposição aleatória?
+- Como o desempenho do seu modelo se compara à aplicação de um limite simples?
+- Como o seu modelo se compara com a previsão constante do valor mais comum?
 
-**Note**: In some cases, human parity might be too ambitious as a baseline, but this should be decided on a case by case basis. Human accuracy is one of the available options, but not the only one.
+**Nota**: Em alguns casos, a paridade humana pode ser muito ambiciosa como linha de base, mas isso deve ser decidido caso a caso. A precisão humana é uma das opções disponíveis, mas não a única.
 
-Resources:
+Recursos:
 
-- ["How To Get Baseline Results And Why They Matter" article](https://machinelearningmastery.com/how-to-get-baseline-results-and-why-they-matter/)
-- ["Always start with a stupid model, no exceptions." article](https://blog.insightdatascience.com/always-start-with-a-stupid-model-no-exceptions-3a22314b9aaa)
+- [Artigo "Como obter Resultados de Linha de Base e por que eles Importam"](https://machinelearningmastery.com/how-to-get-baseline-results-and-why-they-matter/)
+- [Artigo "Sempre comece com um modelo tolo, sem exceções"](https://blog.insightdatascience.com/always-start-with-a-stupid-model-no-exceptions-3a22314b9aaa)
 
-### Are machine learning performance metrics defined for both training and scoring?
+### As métricas de desempenho de aprendizado de máquina estão definidas tanto para o treinamento quanto para a pontuação?
 
-The methodology of translating the training metrics to scoring metrics should be well-defined and understood. Depending on the data type and model, the model metrics calculation might differ in production and in training. For example, the training procedure calculated metrics for a long period of time (a year, a decade) with different seasonal characteristics while the scoring procedure will calculate the metrics per a restricted time interval (for example a week, a month, a quarter). Well-defined ML performance metrics are essential in production so that a decrease or increase in model performance can be accurately detected.
+A metodologia de traduzir as métricas de treinamento para as métricas de pontuação deve ser bem definida e compreendida. Dependendo do tipo de dados e do modelo, o cálculo das métricas do modelo pode ser diferente na produção e no treinamento. Por exemplo, o procedimento de treinamento calculou métricas por um longo período de tempo (um ano, uma década) com diferentes características sazonais, enquanto o procedimento de pontuação calculará as métricas em um intervalo de tempo restrito (por exemplo, uma semana, um mês, um trimestre). Métricas de desempenho de ML bem definidas são essenciais na produção para que uma diminuição ou aumento no desempenho do modelo possa ser detectada com precisão.
 
-Things to consider:
+Coisas a serem consideradas:
 
-- In forecasting, if you change the period of assessing the performance, from one month to a year for example, then you might get a different result. For example, if your model is predicting sales of a product per day and the RMSE (Root Mean Squared Error) is very low for the first month the model is in production. As the model is live for longer, the RMSE is increasing, becoming 10x the RMSE for the first year compared to the first month.
-- In a classification scenario, the overall accuracy is good, but the model is performing poorly for some subgroups. For example, a classifier has an accuracy of 80% overall, but only 55% for the 20-30 age group. If this is a significant age group for the production data, then your accuracy might suffer greatly when in production.
-- In scene classification scenario, the model is trying to identify a specific scene in a video, and the model has been trained and tested (80-20 split) on 50000 segments where half are segments containing the scene and half of the segments do not contain the scene. The accuracy on the training set is 85% and 84% on the test set. However, when an entire video is scored, scores are obtained on all segments, and we expect few segments to contain the scene. The accuracy for an entire video is not comparable with the training/test set procedure in this case, hence different metrics should be considered.
-- If sampling techniques (over-sampling, under-sampling) are used to train model when classes are imbalanced, ensure the metrics used during training are comparable with the ones used in scoring.
-- If the number of samples used for training and testing is small, the performance metrics might change significantly as new data is scored.
+- No caso de previsão, se você alterar o período de avaliação do desempenho, de um mês para um ano, por exemplo, você pode obter um resultado diferente. Por exemplo, se seu modelo está prevendo as vendas de um produto por dia e o RMSE (Erro Quadrático Médio) é muito baixo no primeiro mês em que o modelo está em produção. Conforme o modelo fica ativo por mais tempo, o RMSE aumenta, tornando-se 10 vezes maior do que o RMSE do primeiro mês em comparação com o primeiro ano.
 
-### Is the model benchmarked?
+- Em um cenário de classificação, a precisão geral pode ser boa, mas o modelo pode estar se saindo mal para alguns subgrupos. Por exemplo, um classificador tem uma precisão de 80% no geral, mas apenas 55% para o grupo etário de 20-30 anos. Se este for um grupo etário significativo para os dados de produção, sua precisão pode sofrer consideravelmente quando estiver em produção.
 
-The trained model to be put into production is well benchmarked if machine learning performance metrics (such as accuracy, recall, RMSE or whatever is appropriate) are measured on the train and test set. Furthermore, the train and test set split should be well documented and reproducible.
+- Em um cenário de classificação de cena, o modelo tenta identificar uma cena específica em um vídeo, e o modelo foi treinado e testado (divisão de 80-20) em 50000 segmentos, onde metade dos segmentos contém a cena e metade não contém. A precisão no conjunto de treinamento é de 85% e 84% no conjunto de teste. No entanto, quando um vídeo inteiro é pontuado, as pontuações são obtidas em todos os segmentos, e esperamos que poucos segmentos contenham a cena. A precisão para um vídeo inteiro não é comparável ao procedimento de treinamento/teste neste caso, portanto, métricas diferentes devem ser consideradas.
 
-### Can ground truth be obtained or inferred in production?
+- Se técnicas de amostragem (sobreamostragem, subamostragem) forem usadas para treinar o modelo quando as classes estiverem desequilibradas, certifique-se de que as métricas usadas durante o treinamento sejam comparáveis com as usadas na pontuação.
 
-Without a reliable ground truth, the machine learning metrics cannot be calculated. It is important to identify if the ground truth can be obtained as the model is scoring new data by either manual or automatic means. If the ground truth cannot be obtained systematically, other proxies and methodology should be investigated in order to obtain some measure of model performance.
+- Se o número de amostras usadas para treinamento e teste for pequeno, as métricas de desempenho podem mudar significativamente à medida que novos dados são pontuados.
 
-One option is to use humans to manually label samples. One important aspect of human labelling is to take into account the human accuracy. If there are two different individuals labelling an image, the labels will likely be different for some samples. It is important to understand how the labels were obtained to assess the reliability of the ground truth (that is why we talk about human accuracy).
+### O modelo foi benchmarked?
 
-For clarity, let's consider the following examples (by no means an exhaustive list):
+O modelo treinado a ser colocado em produção está bem benchmarked se as métricas de desempenho de aprendizado de máquina (como precisão, recall, RMSE ou o que for apropriado) forem medidas no conjunto de treinamento e teste. Além disso, a divisão entre conjunto de treinamento e teste deve estar bem documentada e ser reproduzível.
 
-- **Forecasting**: Forecasting scenarios are an example of machine learning problems where the ground truth could be obtained in most cases even though a delay might occur. For example, for a model predicting the sales of ice cream in a local shop, the ground truth will be obtained as the sales are happening, but it might appear in the system at a later time than as the model prediction.
-- **Recommender systems**: For recommender system, obtaining the ground truth is a complex problem in most cases as there is no way of identifying the ideal recommendation. For a retail website for example, click/not click, buy/not buy or other user interaction with recommendation can be used as ground truth proxies.
-- **Object detection in images**: For an object detection model, as new images are scored, there are no new labels being generated automatically. One option to obtain the ground truth for the new images is to use people to manually label the images. Human labelling is costly, time-consuming and not 100% accurate, so in most cases, only a subset of images can be labelled. These samples can be chosen at random or by using active learning techniques of selecting the most informative unlabeled samples.
+### É possível obter ou inferir a verdade fundamental na produção?
 
-### Has the data distribution of training, testing and validation sets been analyzed?
+Sem uma verdade fundamental confiável, as métricas de aprendizado de máquina não podem ser calculadas. É importante identificar se a verdade fundamental pode ser obtida à medida que o modelo pontua novos dados por meio de meios manuais ou automáticos. Se a verdade fundamental não puder ser obtida de forma sistemática, outras proxies e metodologias devem ser investigadas para obter alguma medida do desempenho do modelo.
 
-The data distribution of your training, test and validation (if applicable) dataset (including labels) should be analyzed to ensure they all come from the same distribution. If this is not the case, some options to consider are: re-shuffling,  re-sampling, modifying the data, more samples need to be gathered or features removed from the dataset.
+Uma opção é usar seres humanos para rotular amostras manualmente. Um aspecto importante da rotulagem humana é levar em consideração a precisão humana. Se dois indivíduos diferentes rotularem uma imagem, é provável que os rótulos sejam diferentes para algumas amostras. É importante entender como os rótulos foram obtidos para avaliar a confiabilidade da verdade fundamental (daí falarmos sobre a precisão humana).
 
-Significant differences in the data distributions of the different datasets can greatly impact the performance of the model. Some potential questions to ask:
+Para maior clareza, consideremos os seguintes exemplos (de forma alguma uma lista exaustiva):
 
-- How much does the training and test data represent the end result?
-- Is the distribution of each individual feature consistent across all your datasets? (i.e. same representation of age groups, gender, race etc.)
-- Is there any data lineage information? Where did the data come from? How was the data collected? Can collection and labelling be automated?
+- **Previsão**: Cenários de previsão são exemplos de problemas de aprendizado de máquina em que a verdade fundamental pode ser obtida na maioria dos casos, mesmo que haja um atraso. Por exemplo, para um modelo que prevê as vendas de sorvete em uma loja local, a verdade fundamental será obtida à medida que as vendas acontecerem, mas pode aparecer no sistema em um momento posterior em relação à previsão do modelo.
 
-Resources:
+- **Sistemas de recomendação**: Para sistemas de recomendação, obter a verdade fundamental é um problema complexo na maioria dos casos, pois não há como identificar a recomendação ideal. Para um site de varejo, por exemplo, cliques/não cliques, compra/não compra ou outras interações do usuário com a recomendação podem ser usados como proxies da verdade fundamental.
 
-- ["Splitting into train, dev and test" tutorial](http://cs230.stanford.edu/blog/split/)
+- **Detecção de objetos em imagens**: Para um modelo de detecção de objetos, à medida que novas imagens são pontuadas, não há novos rótulos sendo gerados automaticamente. Uma opção para obter a verdade fundamental para as novas imagens é usar pessoas para rotular as imagens manualmente. A rotulagem humana é cara, demorada e não é 100% precisa, então na maioria dos casos, apenas um subconjunto das imagens pode ser rotulado. Essas amostras podem ser escolhidas aleatoriamente ou usando técnicas de aprendizado ativo para selecionar as amostras não rotuladas mais informativas.
 
-### Have goals and hard limits for performance, speed of prediction and costs been established, so they can be considered if trade-offs need to be made?
+### A distribuição de dados dos conjuntos de treinamento, teste e validação (se aplicável) foi analisada?
 
-Some machine learning models achieve high ML performance, but they are costly and time-consuming to run. In those cases, a less performant and cheaper model could be preferred. Hence, it is important to calculate the model performance metrics (accuracy, precision, recall, RMSE etc), but also to gather data on how expensive it will be to run the model and how long it will take to run. Once this data is gathered, an informed decision should be made on what model to productionize.
+A distribuição de dados dos seus conjuntos de treinamento, teste e validação (se aplicável) deve ser analisada para garantir que todos eles provenham da mesma distribuição. Se isso não for o caso, algumas opções a serem consideradas são: reembaralhar, reamostrar, modificar os dados, coletar mais amostras ou remover recursos do conjunto de dados.
 
-System metrics to consider:
+Diferenças significativas nas distribuições de dados dos diferentes conjuntos de dados podem afetar grandemente o desempenho do modelo. Algumas perguntas potenciais a fazer:
 
-- CPU/GPU/memory usage
-- Cost per prediction
-- Time taken to make a prediction
+- Quanto os dados de treinamento e teste representam o resultado final?
+- A distribuição de cada característica individual é consistente em todos os seus conjuntos de dados? (ou seja, a mesma representação de grupos etários, gênero, raça, etc.)
+- Existem informações sobre a origem dos dados? De onde vieram os dados? Como os dados foram coletados? A coleta e a rotulagem podem ser automatizadas?
 
-### How will the model be integrated into other systems, and what impact will it have?
+Recursos:
 
-Machine Learning models do not exist in isolation, but rather they are part of a much larger system. These systems could be old, proprietary systems or new systems being developed as a results of the creation a new machine learning model. In both of those cases, it is important to understand where the actual model is going to fit in, what output is expected from the model and how that output is going to be used by the larger system. Additionally, it is essential to decide if the model will be used for batch and/or real-time inference as production paths might differ.
+- [Tutorial "Dividindo em conjuntos de treinamento, desenvolvimento e teste"](http://cs230.stanford.edu/blog/split/)
 
-Possible questions to assess model impact:
+### Foram estabelecidos objetivos e limites rígidos para o desempenho, velocidade de previsão e custos, de modo que possam ser considerados se forem necessárias compensações?
 
-- Is there a human in the loop?
-- How is feedback collected through the system? (for example how do we know if a prediction is wrong)
-- Is there a fallback mechanism when things go wrong?
-- Is the system transparent that there is a model making a prediction and what data is used to make this prediction?
-- What is the cost of a wrong prediction?
+Alguns modelos de aprendizado de máquina alcançam alto desempenho de ML, mas são caros e demorados para serem executados. Nesses casos, um modelo menos performático e mais barato pode ser preferido. Portanto, é importante calcular as métricas de desempenho do modelo (precisão, precisão, recall, RMSE etc.), mas também coletar dados sobre o custo de execução do modelo e quanto tempo levará para executar. Uma vez que esses dados sejam reunidos, uma decisão informada deve ser tomada sobre qual modelo será colocado em produção.
 
-### How will incoming data quality be monitored?
+Métricas do sistema a serem consideradas:
 
-As data systems become increasingly complex in the mainstream, it is especially vital to employ data quality monitoring, alerting and rectification protocols. Following data validation best practices can prevent insidious issues from creeping into machine learning models that, at best, reduce the usefulness of the model, and at worst, introduce harm. Data validation, reduces the risk of data downtime (increasing headroom) and technical debt and supports long-term success of machine learning models and other applications that rely on the data.
+- Uso de CPU/GPU/memória
+- Custo por previsão
+- Tempo necessário para fazer uma previsão
 
-Data validation best practices include:
+### Como o modelo será integrado a outros sistemas e qual será o impacto?
 
-- Employing automated data quality testing processes at each stage of the data pipeline
-- Re-routing data that fails quality tests to a separate data store for diagnosis and resolution
-- Employing end-to-end data observability on data freshness, distribution, volume, schema and lineage
+Modelos de Aprendizado de Máquina não existem isoladamente, mas fazem parte de um sistema muito maior. Esses sistemas podem ser sistemas antigos e proprietários ou novos sistemas sendo desenvolvidos como resultado da criação de um novo modelo de aprendizado de máquina. Em ambos os casos, é importante entender onde o modelo real se encaixará, qual saída é esperada do modelo e como essa saída será usada pelo sistema maior. Além disso, é essencial decidir se o modelo será usado para inferência em lote e/ou em tempo real, pois os caminhos de produção podem ser diferentes.
 
-Note that data validation is distinct from data drift detection. Data validation detects errors in the data (ex. a datum is outside of the expected range), while data drift detection uncovers legitimate changes in the data that are truly representative of the phenomenon being modeled (ex. user preferences change). Data validation issues should trigger re-routing and rectification, while data drift should trigger adaptation or retraining of a model.
+Possíveis perguntas para avaliar o impacto do modelo:
 
-Resources:
+- Há um humano no loop?
+- Como o feedback é coletado por meio do sistema? (por exemplo, como sabemos se uma previsão está errada)
+- Existe um mecanismo de fallback quando as coisas dão errado?
+- O sistema é transparente de que há um modelo fazendo uma previsão e quais dados são usados para fazer essa previsão?
+- Qual é o custo de uma previsão errada?
 
-- ["Data Quality Fundamentals" by Moses et al.](https://www.oreilly.com/library/view/data-quality-fundamentals/9781098112035/)
+### Como a qualidade dos dados de entrada será monitorada?
 
-### How will drift in data characteristics be monitored?
+À medida que os sistemas de dados se tornam cada vez mais complexos no cenário atual, é especialmente vital empregar protocolos de monitoramento, alerta e correção de qualidade de dados. Seguir as melhores práticas de validação de dados pode prevenir problemas insidiosos que se infiltram nos modelos de aprendizado de máquina, reduzindo a utilidade do modelo na melhor das hipóteses e introduzindo riscos na pior das hipóteses. A validação de dados reduz o risco de interrupções nos dados (aumentando a folga) e dívidas técnicas, além de apoiar o sucesso a longo prazo de modelos de aprendizado de máquina e outras aplicações que dependem dos dados.
 
-Data drift detection uncovers legitimate changes in incoming data that are truly representative of the phenomenon being modeled,and are not erroneous (ex. user preferences change). It is imperative to understand if the new data in production will be significantly different from the data in the training phase. It is also important to check that the data distribution information can be obtained for any of the new data coming in. Drift monitoring can inform when changes are occurring and what their characteristics are (ex. abrupt vs gradual) and guide effective adaptation or retraining strategies to maintain performance.
+As melhores práticas de validação de dados incluem:
 
-Possible questions to ask:
+- Utilizar processos automatizados de teste de qualidade de dados em cada estágio do pipeline de dados.
+- Roteamento de dados que falham nos testes de qualidade para um armazenamento de dados separado para diagnóstico e resolução.
+- Utilização de observabilidade de dados de ponta a ponta quanto à atualidade, distribuição, volume, esquema e linhagem dos dados.
 
-- What are some examples of drift, or deviation from the norm, that have been experience in the past or that might be expected?
-- Is there a drift detection strategy in place? Does it align with expected types of changes?
-- Are there warnings when anomalies in input data are occurring?
-- Is there an adaptation strategy in place? Does it align with expected types of changes?
+Observe que a validação de dados é distinta da detecção de deriva de dados. A validação de dados detecta erros nos dados (por exemplo, um dado está fora da faixa esperada), enquanto a detecção de deriva de dados descobre mudanças legítimas nos dados que são verdadeiramente representativas do fenômeno em questão (por exemplo, as preferências do usuário mudam). Problemas de validação de dados devem acionar o roteamento e a correção, enquanto a deriva de dados deve acionar a adaptação ou o retrabalho de um modelo.
 
-Resources:
+Recursos:
 
-- ["Learning Under Concept Drift: A Review" by Lu at al.](https://arxiv.org/pdf/2004.05785.pdf)
-- [Understanding dataset shift](https://towardsdatascience.com/understanding-dataset-shift-f2a5a262a766)
+- ["Fundamentos da Qualidade de Dados" por Moses et al.](https://www.oreilly.com/library/view/data-quality-fundamentals/9781098112035/)
 
-### How will performance be monitored?
+### Como será monitorada a deriva nas características dos dados?
 
-It is important to define how the model will be monitored when it is in production and how that data is going to be used to make decisions. For example, when will a model need retraining as the performance has degraded and how to identify what are the underlying causes of this degradation could be part of this monitoring methodology.
+A detecção de deriva de dados descobre mudanças legítimas nos dados de entrada que são verdadeiramente representativas do fenômeno em questão e não são errôneas (por exemplo, mudança nas preferências do usuário). É imperativo entender se os novos dados em produção serão significativamente diferentes dos dados na fase de treinamento. Também é importante verificar se as informações de distribuição de dados podem ser obtidas para qualquer um dos novos dados que estão chegando. O monitoramento de deriva pode informar quando as mudanças estão ocorrendo e quais são suas características (por exemplo, abruptas vs. graduais) e guiar estratégias eficazes de adaptação ou retrabalho para manter o desempenho.
 
-Ideally, model monitoring should be done automatically. However, if this is not possible, then there should be a manual periodical check of the model performance.
+Possíveis perguntas a fazer:
 
-Model monitoring should lead to:
+- Quais são alguns exemplos de deriva, ou desvio da norma, que foram experimentados no passado ou que podem ser esperados?
+- Existe uma estratégia de detecção de deriva em vigor? Ela está alinhada com os tipos esperados de mudanças?
+- Existem avisos quando anomalias nos dados de entrada estão ocorrendo?
+- Existe uma estratégia de adaptação em vigor? Ela está alinhada com os tipos esperados de mudanças?
 
-- Ability to identify changes in model performance
-- Warnings when anomalies in model output are occurring
-- Retraining decisions and adaptation strategy
+Recursos:
 
-### Have any ethical concerns been taken into account?
+- ["Aprendizado sob Deriva de Conceito: Uma Revisão" por Lu et al.](https://arxiv.org/pdf/2004.05785.pdf)
+- [Compreendendo a mudança de conjunto de dados](https://towardsdatascience.com/understanding-dataset-shift-f2a5a262a766)
 
-Every ML project goes through the [Responsible AI](responsible-ai.md) process to ensure that it upholds Microsoft's [6 Responsible AI principles](https://www.microsoft.com/en-us/ai/responsible-ai).
+### Como o desempenho será monitorado?
+
+É importante definir como o modelo será monitorado quando estiver em produção e como esses dados serão usados para tomar decisões. Por exemplo, quando um modelo precisa ser re-treinado devido à degradação do desempenho e como identificar as causas subjacentes dessa degradação podem fazer parte dessa metodologia de monitoramento.
+
+Idealmente, o monitoramento do modelo deve ser feito automaticamente. No entanto, se isso não for possível, deve haver uma verificação manual periódica do desempenho do modelo.
+
+O monitoramento do modelo deve levar a:
+
+- Capacidade de identificar mudanças no desempenho do modelo.
+- Avisos quando anomalias na saída do modelo estão ocorrendo.
+- Decisões de re-treinamento e estratégia de adaptação.
+
+### Foram consideradas quaisquer preocupações éticas?
+
+Todos os projetos de Aprendizado de Máquina passam pelo processo de [AI Responsável](responsible-ai.md) para garantir que eles sigam os [6 princípios de AI Responsável da Microsoft](https://www.microsoft.com/en-us/ai/responsible-ai).

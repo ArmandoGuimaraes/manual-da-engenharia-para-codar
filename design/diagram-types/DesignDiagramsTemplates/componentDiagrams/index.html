@@ -19,7 +19,7 @@
     
     
       
-        <title>Component Diagrams - Manual da Engenharia para Codar</title>
+        <title>Diagramas de Componentes - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#component-diagrams" class="md-skip">
+        <a href="#diagramas-de-componentes" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Component Diagrams
+              Diagramas de Componentes
             
           </span>
         </div>
@@ -4874,12 +4874,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Component Diagrams
+          Diagramas de Componentes
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Component Diagrams
+        Diagramas de Componentes
       </a>
       
         
@@ -4898,43 +4898,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#purpose" class="md-nav__link">
-    Purpose
+  <a href="#proposito" class="md-nav__link">
+    Propósito
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#essential-takeaways" class="md-nav__link">
-    Essential Takeaways
+  <a href="#principais-pontos" class="md-nav__link">
+    Principais Pontos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-to-create" class="md-nav__link">
-    When to Create?
+  <a href="#quando-criar" class="md-nav__link">
+    Quando Criar?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    Examples
+  <a href="#exemplos" class="md-nav__link">
+    Exemplos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#versioning" class="md-nav__link">
-    Versioning
+  <a href="#versionamento" class="md-nav__link">
+    Versionamento
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    Resources
+  <a href="#recursos" class="md-nav__link">
+    Recursos
   </a>
   
 </li>
@@ -7216,43 +7216,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#purpose" class="md-nav__link">
-    Purpose
+  <a href="#proposito" class="md-nav__link">
+    Propósito
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#essential-takeaways" class="md-nav__link">
-    Essential Takeaways
+  <a href="#principais-pontos" class="md-nav__link">
+    Principais Pontos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-to-create" class="md-nav__link">
-    When to Create?
+  <a href="#quando-criar" class="md-nav__link">
+    Quando Criar?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    Examples
+  <a href="#exemplos" class="md-nav__link">
+    Exemplos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#versioning" class="md-nav__link">
-    Versioning
+  <a href="#versionamento" class="md-nav__link">
+    Versionamento
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    Resources
+  <a href="#recursos" class="md-nav__link">
+    Recursos
   </a>
   
 </li>
@@ -7271,74 +7271,68 @@
                 
 
 
-<h1 id="component-diagrams">Component Diagrams</h1>
-<h2 id="purpose">Purpose</h2>
-<p>This document is intended to provide a baseline understanding for what, why, and how to incorporate Component Diagrams
-as part of your engagement. Regarding the <strong>how</strong>, the section at the bottom will provide tools and plugins to streamline as much as possible when generating Component Diagrams through VSCode.</p>
-<p><a href="https://en.wikipedia.org/wiki/Component_diagram">Wikipedia</a> defines UML Component Diagrams as:</p>
+<h1 id="diagramas-de-componentes">Diagramas de Componentes</h1>
+<h2 id="proposito">Propósito</h2>
+<p>Este documento tem como objetivo fornecer uma compreensão básica do que são, por que são usados e como incorporar Diagramas de Componentes como parte de seu envolvimento. Em relação ao "como", a seção abaixo fornecerá ferramentas e plugins para otimizar o máximo possível a geração de Diagramas de Componentes por meio do VSCode.</p>
+<p>A <a href="https://en.wikipedia.org/wiki/Component_diagram">Wikipedia</a> define os Diagramas de Componentes UML como:</p>
 <blockquote>
-<p><em>a component diagram depicts how components are wired together to form larger components or software systems.</em></p>
+<p><em>um diagrama de componentes representa como os componentes são conectados para formar componentes maiores ou sistemas de software.</em></p>
 </blockquote>
-<p>Component Diagrams are a type of a static structure because it focuses on the responsibility and relationships between components as part of the overall system or solution.</p>
-<p>It is not supposed to inform about the data flow, the caller or callee responsibilities, the request flows, nor any other "behavior" related characteristics.</p>
-<p>...Hold on a second... what is a Component?</p>
-<p>A <a href="https://en.wikipedia.org/wiki/Component_(UML)">Component</a> is a runnable solution that performs a set of operations and can possibly be interfaced through a particular API. One can think of Components as a "stand alone" piece of software - think datastores, microservices, serverless functions, user interfaces, etc...</p>
-<h2 id="essential-takeaways">Essential Takeaways</h2>
-<p>The primary two takeaways from a Component Diagram should be:</p>
+<p>Os Diagramas de Componentes são um tipo de estrutura estática porque se concentram na responsabilidade e nas relações entre os componentes como parte do sistema ou solução geral.</p>
+<p>Eles não têm a finalidade de informar sobre o fluxo de dados, as responsabilidades do chamador ou do chamado, os fluxos de solicitação ou quaisquer outras características relacionadas ao "comportamento".</p>
+<p>...Espere um segundo... o que é um Componente?</p>
+<p>Um <a href="https://en.wikipedia.org/wiki/Component_(UML)">Componente</a> é uma solução executável que executa um conjunto de operações e pode ser acessado por meio de uma API específica. Pode-se pensar em Componentes como um pedaço de software "independente" - pense em repositórios de dados, microsserviços, funções serverless, interfaces de usuário, etc...</p>
+<h2 id="principais-pontos">Principais Pontos</h2>
+<p>Os dois principais pontos de um Diagrama de Componentes devem ser:</p>
 <ul>
-<li>A quick view of all the various components (User Interface, Service, Data Storage) involved in the system</li>
-<li>The immediate "touch points" that a particular Component has with other Components, including how that "touch point" is accomplished (HTTP, FTP, etc...)</li>
+<li>Uma visão rápida de todos os vários componentes (Interface de Usuário, Serviço, Armazenamento de Dados) envolvidos no sistema</li>
+<li>Os "pontos de contato" imediatos que um determinado Componente tem com outros Componentes, incluindo como esse "ponto de contato" é realizado (HTTP, FTP, etc...)</li>
 </ul>
-<p>Depending on the complexity of the system, a team might decide to create several Component Diagrams. Where there is one diagram per Component (depicting all it's immediate "touch points" with other Components).</p>
-<p>Or if a system is simple, the team might decide to create a single Component Diagram capturing all Components in the diagram.</p>
-<h2 id="when-to-create">When to Create?</h2>
-<p>Because Component Diagrams represent a high level overview of the entire system from a Component focus, it is recommended to begin the creation of this diagram from the beginning of an engagement, and update it as the various Components are identified, developed, and introduced into the system. Otherwise, if this is left till later, then there is risk that:</p>
+<p>Dependendo da complexidade do sistema, uma equipe pode decidir criar vários Diagramas de Componentes. Nesse caso, haveria um diagrama por Componente (representando todos os seus "pontos de contato" imediatos com outros Componentes).</p>
+<p>Ou, se o sistema for simples, a equipe pode optar por criar um único Diagrama de Componentes que englobe todos os Componentes do sistema.</p>
+<h2 id="quando-criar">Quando Criar?</h2>
+<p>Como os Diagramas de Componentes representam uma visão geral de alto nível de todo o sistema com foco nos Componentes, é recomendável começar a criação deste diagrama desde o início de um envolvimento e atualizá-lo à medida que os diferentes Componentes forem identificados, desenvolvidos e introduzidos no sistema. Caso contrário, se isso for deixado para mais tarde, há o risco de:</p>
 <ul>
-<li>the team won't be able to identify areas of improvement</li>
-<li>the team or other necessary stakeholders won't have a full understanding on how the system works as it is being developed</li>
+<li>a equipe não conseguir identificar áreas de melhoria</li>
+<li>a equipe ou outras partes interessadas necessárias não terem uma compreensão completa de como o sistema funciona à medida que ele é desenvolvido</li>
 </ul>
-<p>Because of the inherent granularity of the system, the Component Diagrams won't have to be updated as often as <a href="../classDiagrams/">Class Diagrams</a>. Things that might merit updating a Component Diagram could be:</p>
+<p>Devido à granularidade inerente do sistema, os Diagramas de Componentes não precisam ser atualizados com tanta frequência quanto os <a href="../classDiagrams/">Diagramas de Classes</a>. Coisas que podem justificar a atualização de um Diagrama de Componentes podem incluir:</p>
 <ul>
-<li>A deletion or addition of a new Component into the system</li>
-<li>A change to a system Component's interaction APIs</li>
-<li>A change to a system Component's immediate "touch points" with other Components</li>
+<li>Exclusão ou adição de um novo Componente no sistema</li>
+<li>Alteração das APIs de interação de um Componente do sistema</li>
+<li>Alteração dos "pontos de contato" imediatos de um Componente do sistema com outros Componentes</li>
 </ul>
-<p>Because Component Diagrams focuses on informing the various "touch points" between Components, it requires some upfront thought in order to determine what Components are needed and what interaction mechanisms are most effective per the system requirements. This amount of upfront thought should be approached in a <strong>pragmatic</strong> manner - as the design may evolve over time, and that is perfectly fine,
- as long as changes are influenced based on functional requirements and non-functional requirements.</p>
-<h2 id="examples">Examples</h2>
-<p>Below are some basic examples:</p>
+<p>Como os Diagramas de Componentes se concentram em informar os vários "pontos de contato" entre os Componentes, requer algum planejamento antecipado para determinar quais Componentes são necessários e quais mecanismos de interação são mais eficazes de acordo com os requisitos do sistema. Essa quantidade de planejamento antecipado deve ser abordada de maneira <strong>pragmática</strong> - pois o design pode evoluir ao longo do tempo, e isso é perfeitamente aceitável, desde que as alterações sejam influenciadas por requisitos funcionais e requisitos não funcionais.</p>
+<h2 id="exemplos">Exemplos</h2>
+<p>Aqui estão alguns exemplos básicos:</p>
 <p><img alt="image" src="../Images/ecommerceSite.png" /></p>
 <p><img alt="image" src="../Images/orderingSystem.png" /></p>
 <p><img alt="image" src="../Images/withPersistenceAndSecurity.png" /></p>
-<h2 id="versioning">Versioning</h2>
-<p>Because Component Diagrams will be changing periodically, it's recommended to "publish" an image of the generated diagram periodically. The frequency might vary as the engagement proceeds.</p>
-<p>The below approach can be used to assist the team on how often to update the published version of the diagram:</p>
+<h2 id="versionamento">Versionamento</h2>
+<p>Como os Diagramas de Componentes mudarão periodicamente, é recomendável "publicar" periodicamente uma imagem do diagrama gerado. A frequência pode variar à medida que o envolvimento avança.</p>
+<p>A abordagem abaixo pode ser usada para auxiliar a equipe a determinar com que frequência atualizar a versão publicada do diagrama:</p>
 <ul>
-<li>At the beginning of the engagement, publishing an "envisioned" version of the Component Diagram will provide a common visual to all engineers when working on the different parts of the solution</li>
-<li>Throughout the engagement, update the published diagram periodically. Ideally whenever a new Component is introduced into the system, or whenever a new "touch point" occurs between Components</li>
+<li>No início do envolvimento, publicar uma versão "imaginada" do Diagrama de Componentes fornecerá uma visão comum a todos os engenheiros ao trabalharem nas diferentes partes da solução.</li>
+<li>Ao longo do envolvimento, atualize o diagrama publicado periodicamente. Idealmente, sempre que um novo Componente for introduzido no sistema ou sempre que um novo "ponto de contato" ocorrer entre Componentes.</li>
 </ul>
-<p>Depending on the tool being used, automatic versioning might be performed whenever an update to the Diagram is performed. If not, it is recommended to capture distinct versions whenever there is a particular customer need to have a snapshot of the project at a particular point in time. The hard requirement is that the latest diagram should be published and everyone should know how to access it as
- the customer hand-off approaches.</p>
-<h2 id="resources">Resources</h2>
+<p>Dependendo da ferramenta utilizada, o versionamento automático pode ser realizado sempre que uma atualização no Diagrama for feita. Caso contrário, é recomendável capturar versões distintas sempre que houver uma necessidade específica do cliente de ter uma imagem do projeto em um ponto específico no tempo. O requisito fundamental é que o diagrama mais recente deve ser publicado e todos devem saber como acessá-lo à medida que a entrega ao cliente se aproxima.</p>
+<h2 id="recursos">Recursos</h2>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Component_diagram">Wikipedia</a></li>
-<li><a href="https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-component-diagram/#:~:text=UML%20Component%20diagrams%20are%20used%20in%20modeling%20the,model%20the%20static%20implementation%20view%20of%20a%20system.">Visual Paradigm</a></li>
-<li>VS Code Plugins:<ul>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml">PlantUML</a> - requires a generator from code to PlantUML syntax to generate diagrams<ul>
-<li><a href="https://plantuml.com/component-diagram">PlantUML Syntax</a></li>
-<li><a href="https://towardsdatascience.com/drawing-a-uml-diagram-in-the-vs-code-53c2e67deffe">Drawing manually</a></li>
+<li>[Wikipedia](https://en.wikipedia.org/wiki</li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
+<p>/Component_diagram)
+- <a href="https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-component-diagram/#:~:text=UML%20Component%20diagrams%20are%20used%20in%20modeling%20the,model%20the%20static%20implementation%20view%20of%20a%20system.">Visual Paradigm</a>
+- Plugins para o VS Code:
+  - <a href="https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml">PlantUML</a> - requer um gerador de código para a sintaxe PlantUML para gerar diagramas
+    - <a href="https://plantuml.com/component-diagram">Sintaxe PlantUML</a>
+    - <a href="https://towardsdatascience.com/drawing-a-uml-diagram-in-the-vs-code-53c2e67deffe">Desenhar manualmente</a></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 26, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
       
     
   </small>

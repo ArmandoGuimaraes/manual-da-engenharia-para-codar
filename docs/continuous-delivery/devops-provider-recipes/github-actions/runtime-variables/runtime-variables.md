@@ -1,57 +1,57 @@
-# Runtime Variables in GitHub Actions
+# Variáveis de Tempo de Execução no GitHub Actions
 
-## Objective
+## Objetivo
 
-While GitHub Actions is a popular choice for writing and running CI/CD pipelines, especially for open source projects hosted on GitHub, it lacks specific quality of life features found in other CI/CD environments. One key feature that GitHub Actions has not yet implemented is the ability to **mock and inject runtime variables** into a workflow, in order to test the pipeline itself.
+Embora o GitHub Actions seja uma escolha popular para escrever e executar pipelines de CI/CD, especialmente para projetos de código aberto hospedados no GitHub, ele carece de recursos específicos de qualidade de vida encontrados em outros ambientes de CI/CD. Um recurso-chave que o GitHub Actions ainda não implementou é a capacidade de **simular e injetar variáveis de tempo de execução** em um fluxo de trabalho, a fim de testar o pipeline em si.
 
-This provides a bridge between a pre-existing feature in Azure DevOps, and one that has not yet released inside GitHub Actions.
+Isso cria uma ponte entre um recurso existente no Azure DevOps e um recurso que ainda não foi lançado no GitHub Actions.
 
-## Target Audience
+## Público-Alvo
 
-This guide assumes that you are familiar with CI/CD, and understand the security implications of CI/CD pipelines. We also assume basic knowledge with GitHub Actions, including how to write and run a basic CI/CD pipeline, checkout repositories inside the action, use Marketplace Actions with version control, etc.
+Este guia assume que você está familiarizado com CI/CD e compreende as implicações de segurança das pipelines de CI/CD. Também pressupõe conhecimento básico do GitHub Actions, incluindo como escrever e executar uma pipeline de CI/CD básica, fazer checkout de repositórios dentro da ação, usar Ações do Marketplace com controle de versão, etc.
 
-We assume that you, as a CI/CD engineer, want to inject environment variables or environment flags into your pipelines and workflows in order to test them, and are using GitHub Actions to accomplish this.
+Assumimos que você, como engenheiro de CI/CD, deseja injetar variáveis de ambiente ou flags de ambiente em suas pipelines e fluxos de trabalho para testá-los e está usando o GitHub Actions para fazer isso.
 
-## Usage Scenario
+## Cenário de Uso
 
-Many integration or end-to-end workflows require specific environment variables that are only available at runtime. For example, a workflow might be doing the following:
+Muitos fluxos de trabalho de integração ou de ponta a ponta requerem variáveis de ambiente específicas que só estão disponíveis durante a execução. Por exemplo, um fluxo de trabalho pode estar fazendo o seguinte:
 
-![Workflow Diagram](images/workflow-diagram.png)
+![Diagrama do Fluxo de Trabalho](images/workflow-diagram.png)
 
-In this situation, testing the pipeline is extremely difficult without having to make external calls to the resource. In many cases, making external calls to the resource can be expensive or time-consuming, significantly slowing down inner loop development.
+Nessa situação, testar o pipeline é extremamente difícil sem a necessidade de fazer chamadas externas para o recurso. Em muitos casos, fazer chamadas externas ao recurso pode ser caro ou demorado, retardando significativamente o desenvolvimento em loop interno.
 
-Azure DevOps, as an example, offers a way to define pipeline variables on a manual trigger:
+O Azure DevOps, como exemplo, oferece uma maneira de definir variáveis de pipeline em um acionador manual:
 
-![AzDo Example](images/AzDoExample.PNG)
+![Exemplo do AzDo](images/AzDoExample.PNG)
 
-GitHub Actions does not do so yet.
+O GitHub Actions ainda não faz isso.
 
-## Solution
+## Solução
 
-To workaround this, the easiest solution is to add runtime variables to either commit messages or the PR Body, and `grep` for the variable. GitHub Actions provides `grep` functionality natively using a `contains` function, which is what we shall be specifically using.
+Para contornar isso, a solução mais simples é adicionar variáveis de tempo de execução às mensagens de commit ou ao corpo do PR e usar o `grep` para encontrar a variável. O GitHub Actions fornece a funcionalidade de `grep` nativamente usando uma função `contains`, que é o que estaremos usando especificamente.
 
-In scope:
+Dentro do escopo:
 
-- We will scope this to injecting a single environment variable into a pipeline, with a previously known key and value.
+- Vamos limitar isso à injeção de uma única variável de ambiente em uma pipeline, com uma chave e valor previamente conhecidos.
 
-Out of Scope:
+Fora do escopo:
 
-- While the solution is obviously extensible using shell scripting or any other means of creating variables, this solution serves well as the proof of the basic concept. No such scripting is provided in this guide.
-- Additionally, teams may wish to formalize this process using a PR Template that has an additional section for the variables being provided. This is not however included in this guide.
+- Embora a solução seja obviamente extensível usando scripts de shell ou qualquer outro meio de criar variáveis, essa solução serve bem como prova do conceito básico. Nenhum script desse tipo é fornecido neste guia.
+- Além disso, as equipes podem desejar formalizar esse processo usando um Modelo de PR que tenha uma seção adicional para as variáveis fornecidas. No entanto, isso não está incluído neste guia.
 
-> Security Warning:  
-> **This is NOT for injecting secrets** as the commit messages and PR body can be retrieved by a third party, are stored in `git log`, and can otherwise be read by a malicious individual using a variety of tools. Rather, this is for testing a workflow that needs simple variables to be injected into it, as above.  
-> **If you need to retrieve secrets or sensitive information**, use the [GitHub Action for Azure Key Vault](https://github.com/marketplace/actions/get-secrets-from-azure-key-vault) or some other similar secret storage and retrieval service.
+> Aviso de Segurança:  
+> **Isso NÃO é para injetar segredos**, pois as mensagens de commit e o corpo do PR podem ser recuperados por terceiros, são armazenados no `git log` e podem ser lidos por um indivíduo mal-intencionado usando várias ferramentas. Em vez disso, isso é para testar um fluxo de trabalho que precisa de variáveis simples para serem injetadas, conforme descrito acima.  
+> **Se você precisa recuperar segredos ou informações sensíveis**, use a [Ação do GitHub para o Azure Key Vault](https://github.com/marketplace/actions/get-secrets-from-azure-key-vault) ou algum outro serviço de armazenamento e recuperação de segredos semelhante.
 
-## Commit Message Variables
+## Variáveis de Mensagem de Commit
 
-How to inject a single variable into the environment for use, with a **specified key and value.** In this example, the key is `COMMIT_VAR` and the value is `[commit var]`.
+Como injetar uma única variável no ambiente para uso, com uma **chave e valor especificados**. Neste exemplo, a chave é `COMMIT_VAR` e o valor é `[commit var]`.
 
-Pre-requisites:
+Pré-requisitos:
 
-- Pipeline triggers are correctly set up to trigger on pushed commits (Here we will use `actions-test-branch` as the branch of choice)
+- Os acionadores da pipeline estão configurados corretamente para serem acionados por commits enviados (aqui usaremos `actions-test-branch` como a branch de escolha).
 
-Code Snippet:
+Trecho de Código:
 
 ```yaml
 on:
@@ -63,87 +63,89 @@ jobs:
   Echo-On-Commit:
     runs-on: ubuntu-latest
     steps:
-      - name: "Checkout Repository"
+      - name: "Checkout do Repositório"
         uses: actions/checkout@v2
 
-      - name: "Set flag from Commit"
+      - name: "Definir sinalizador a partir do Commit"
         env:
           COMMIT_VAR: ${{ contains(github.event.head_commit.message, '[commit var]') }}
         run: |
           if ${COMMIT_VAR} == true; then
             echo "flag=true" >> $GITHUB_ENV
-            echo "flag set to true"
+            echo "sinalizador definido como verdadeiro"
           else
             echo "flag=false" >> $GITHUB_ENV
-            echo "flag set to false"
+            echo "sinalizador definido como falso"
           fi
 
-      - name: "Use flag if true"
+      - name: "Usar sinalizador se verdadeiro"
         if: env.flag
-        run: echo "Flag is available and true"
+        run: echo "O sinalizador está disponível e é verdadeiro"
 ```
 
-Available as a .YAML [here](examples/commit-example.yaml).
+Disponível como um arquivo .YAML [aqui](examples/commit-example.yaml).
 
-Code Explanation:
+Explicação do Código:
 
-The first part of the code is setting up Push triggers on the working branch and checking out the repository, so we will not explore that in detail.
+A primeira parte do código configura os acionadores de Push na branch de trabalho e faz o checkout do repositório, então não exploraremos isso em detalhes.
 
 ```yaml
-- name: "Set flag from Commit"
+- name: "Definir sinalizador a partir do Commit"
   env:
     COMMIT_VAR: ${{ contains(github.event.head_commit.message, '[commit var]') }}
 ```
 
-This is a named step inside the only Job in our GitHub Actions pipeline. Here, we set an environment variable for the step: Any code or action that the step calls will now have the environment variable available.
+Esta é uma etapa nomeada dentro do único Job em nossa pipeline do GitHub Actions. Aqui, definimos uma variável de ambiente para a etapa: qualquer código ou ação que a etapa chamar agora terá a variável de ambiente disponível.
 
-`contains` is a GitHub Actions function that is available by default in all workflows. It returns a Boolean `true` or `false` value. In this situation, it checks to see if the commit message on the last push, accessed using `github.event.head_commit.message`. The `${{...}}` is necessary to use the GitHub Context and make the functions and `github.event` variables available for the command.
+`contains` é uma função do GitHub Actions que está disponível por padrão em todos os fluxos de trabalho. Ela retorna um valor booleano `true` ou `false`. Nesta situação, ela verifica se a mensagem de commit no último envio, acessada por `github.event.head_commit.message`, contém a string `${{...}}` é necessário para usar o Contexto do GitHub e tornar as funções e as variáveis `github.event` disponíveis para o comando.
 
 ```yaml
 run: |
   if ${COMMIT_VAR} == true; then
     echo "flag=true" >> $GITHUB_ENV
-    echo "flag set to true"
+    echo "sinalizador definido como verdadeiro"
   else
     echo "flag=false" >> $GITHUB_ENV
-    echo "flag set to false"
+    echo "sinalizador definido como
+
+ falso"
   fi
 ```
 
-The `run` command here checks to see if the `COMMIT_VAR` variable has been set to `true`, and if it has, it sets a secondary flag to true, and echoes this behavior. It does the same if the variable is `false`.
+O comando `run` aqui verifica se a variável `COMMIT_VAR` foi definida como `true` e, se for o caso, define uma segunda flag como verdadeira e faz um echo disso. Ele faz o mesmo se a variável for `false`.
 
-The specific reason to do this is to allow for the `flag` variable to be used in further steps instead of having to reuse the `COMMIT_VAR` in every step. Further, it allows for the flag to be used in the `if` step of an action, as in the next part of the snippet.
+A razão específica para fazer isso é permitir que a variável `flag` seja usada em etapas posteriores em vez de ter que reutilizar a `COMMIT_VAR` em cada etapa. Além disso, permite que a flag seja usada na etapa `if` de uma ação, como na próxima parte do trecho de código.
 
 ```yaml
-- name: "Use flag if true"
+- name: "Usar sinalizador se verdadeiro"
   if: env.flag
-  run: echo "Flag is available and true"
+  run: echo "O sinalizador está disponível e é verdadeiro"
 ```
 
-In this part of the snippet, the next step in the same job is now using the `flag` that was set in the previous step. This allows the user to:
+Nesta parte do trecho, a próxima etapa no mesmo job agora está usando o `flag` que foi definido na etapa anterior. Isso permite ao usuário:
 
-1. Reuse the flag instead of repeatedly accessing the GitHub Context
-2. Set the flag using multiple conditions, instead of just one. For example, a different step might ALSO set the flag to `true` or `false` for different reasons.
-3. Change the variable in exactly one place instead of having to change it in multiple places
+1. Reutilizar o sinalizador em vez de acessar repetidamente o Contexto do GitHub
+2. Definir o sinalizador usando várias condições, em vez de apenas uma. Por exemplo, uma etapa diferente também pode definir o sinalizador como `true` ou `false` por diferentes motivos.
+3. Alterar a variável em um único local em vez de ter que alterá-la em vários lugares
 
-Shorter Alternative:
+Alternativa mais curta:
 
-The "Set flag from commit" step can be simplified to the following in order to make the code much shorter, although not necessarily more readable:
+A etapa "Definir sinalizador a partir do Commit" pode ser simplificada da seguinte forma para tornar o código muito mais curto, embora não necessariamente mais legível:
 
 ```yaml
-- name: "Set flag from Commit"
+- name: "Definir sinalizador a partir do Commit"
   env:
     COMMIT_VAR: ${{ contains(github.event.head_commit.message, '[commit var]') }}
   run: |
-    echo "flag=${COMMIT_VAR}" >> $GITHUB_ENV
-    echo "set flag to ${COMMIT_VAR}"
+  echo "flag=${COMMIT_VAR}" >> $GITHUB_ENV
+  echo "sinalizador definido como ${COMMIT_VAR}"
 ```
 
-Usage:
+Uso:
 
-Including the Variable
+Incluindo a Variável
 
-1. Push to branch `master`:
+1. Faça push na branch `master`:
 
    ```cmd
    > git add.
@@ -151,13 +153,13 @@ Including the Variable
    > git push
    ```
 
-2. This triggers the workflow (as will any push). As the `[commit var]` is in the commit message, the `${COMMIT_VAR}` variable in the workflow will be set to `true` and result in the following:
+2. Isso aciona o fluxo de trabalho (como qualquer push). Como `[commit var]` está na mensagem de commit, a variável `${COMMIT_VAR}` no fluxo de trabalho será definida como `true` e resultará no seguinte:
 
-   ![Commit True Scenario](images/CommitTrue.PNG)
+   ![Cenário de Verdadeiro no Commit](images/CommitTrue.PNG)
 
-Not Including the Variable
+Não Incluindo a Variável
 
-1. Push to branch `master`:
+1. Faça push na branch `master`:
 
    ```cmd
    > git add.
@@ -165,21 +167,21 @@ Not Including the Variable
    > git push
    ```
 
-2. This triggers the workflow (as will any push). As the `[commit var]` is **not** in the commit message, the `${COMMIT_VAR}` variable in the workflow will be set to `false` and result in the following:
+2. Isso aciona o fluxo de trabalho (como qualquer push). Como `[commit var]` **não** está na mensagem de commit, a variável `${COMMIT_VAR}` no fluxo de trabalho será definida como `false` e resultará no seguinte:
 
-   ![Commit False Scenario](images/CommitFalse.PNG)
+   ![Cenário de Falso no Commit](images/CommitFalse.PNG)
 
-## PR Body Variables
+## Variáveis no Corpo do PR
 
-When a PR is made, the PR Body can also be used to set up variables. These variables can be made available to all the workflow runs that stem from that PR, which can help ensure that commit messages are more informative and less cluttered, and reduces the work on the developer.
+Quando um PR é feito, o Corpo do PR também pode ser usado para configurar variáveis. Essas variáveis podem estar disponíveis para todas as execuções de fluxo de trabalho que derivam desse PR, o que pode ajudar a garantir que as mensagens de commit sejam mais informativas e menos poluídas, além de reduzir o trabalho do desenvolvedor.
 
-Once again, this for an expected key and value. In this case, the key is `PR_VAR` and the value is `[pr var]`.
+Mais uma vez, isso é para uma chave e valor esperados. Neste caso, a chave é `PR_VAR` e o valor é `[pr var]`.
 
-Pre-requisites:
+Pré-requisitos:
 
-- Pipeline triggers are correctly set up to trigger on a pull request into a specific branch. (Here we will use master as the destination branch.)
+- Os acionadores da pipeline estão configurados corretamente para acionar um pull request para uma branch específica. (Aqui usaremos `master` como a branch de destino.)
 
-Code Snippet:
+Trecho de Código:
 
 ```yaml
 on:
@@ -191,81 +193,83 @@ jobs:
   Echo-On-PR:
     runs-on: ubuntu-latest
     steps:
-      - name: "Checkout Repository"
+      - name: "Checkout do Repositório"
         uses: actions/checkout@v2
 
-      - name: "Set flag from PR"
+      - name: "Definir sinalizador a partir do PR"
         env:
           PR_VAR: ${{ contains(github.event.pull_request.body, '[pr var]') }}
         run: |
           if ${PR_VAR} == true; then
             echo "flag=true" >> $GITHUB_ENV
-            echo "flag set to true"
+            echo "sinalizador definido como verdadeiro"
           else
             echo "flag=false" >> $GITHUB_ENV
-            echo "flag set to false"
+            echo "sinalizador definido como falso"
           fi
 
-      - name: "Use flag if true"
+      - name: "Usar sinalizador se verdadeiro"
         if: env.flag
-        run: echo "Flag is available and true"
+        run: echo "O sinalizador está disponível e é verdadeiro"
 ```
 
-Available as a .YAML [here](examples/pr-example.yaml).
+Disponível como um arquivo .YAML [aqui](examples/pr-example.yaml).
 
-Code Explanation:
+Explicação do Código:
 
-The first part of the YAML file simply sets up the Pull Request Trigger. The majority of the following code is identical, so we will only explain the differences.
+A primeira parte do arquivo YAML simplesmente configura o Acionador de Pull Request. A maior parte do código a seguir é idêntica, então explicaremos apenas as diferenças.
 
 ```yaml
-- name: "Set flag from PR"
+- name: "Definir sinalizador a partir do PR"
   env:
     PR_VAR: ${{ contains(github.event.pull_request.body, '[pr var]') }}
 ```
 
-In this section, the `PR_VAR` environment variable is set to `true` or `false` depending on whether the `[pr var]` string is in the PR Body.
+Nesta seção, a variável de ambiente `PR_VAR` é definida como `true` ou `false`, dependendo se a string `[pr var]` está no Corpo do PR.
 
-Shorter Alternative:
+Alternativa mais curta:
 
-Similarly to the above, the YAML step can be simplified to the following in order to make the code much shorter, although not necessarily more readable:
+Da mesma forma que o acima, a etapa YAML pode ser simplificada da seguinte forma para tornar o código muito mais curto, embora não necessariamente mais legível:
 
 ```yaml
-- name: "Set flag from PR"
+- name: "Definir sinalizador a partir do PR"
   env:
     PR_VAR: ${{ contains(github.event.pull_request.body, '[pr var]') }}
   run: |
   echo "flag=${PR_VAR}" >> $GITHUB_ENV
-  echo "set flag to ${PR_VAR}"
+  echo "
+
+sinalizador definido como ${PR_VAR}"
 ```
 
-Usage:
+Uso:
 
-1. Create a Pull Request into `master`, and include the expected variable in the body somewhere:
+1. Crie um Pull Request para `master` e inclua a variável esperada em algum lugar do corpo:
 
-   ![PR Example](images/PRExample.PNG)
+   ![Exemplo de PR](images/PRExample.PNG)
 
-2. The GitHub Action will trigger automatically, and since `[pr var]` is present in the PR Body, it will set the `flag` to true, as shown below:
+2. A Ação do GitHub será acionada automaticamente e, como `[pr var]` está presente no Corpo do PR, ela definirá o `flag` como verdadeiro, como mostrado abaixo:
 
-   ![PR True](images/PRTrue.PNG)
+   ![PR Verdadeiro](images/PRTrue.PNG)
 
-## Real World Scenarios
+## Cenários do Mundo Real
 
-There are many real world scenarios where controlling environment variables can be extremely useful. Some are outlined below:
+Existem muitos cenários do mundo real em que o controle de variáveis de ambiente pode ser extremamente útil. Alguns são destacados abaixo:
 
-### Avoiding Expensive External Calls
+### Evitar Chamadas Externas Caras
 
-Developer A is in the process of writing and testing an integration pipeline. The integration pipeline needs to make a call to an external service such as Azure Data Factory or Databricks, wait for a result, and then echo that result. The workflow could look like this:
+O Desenvolvedor A está escrevendo e testando um pipeline de integração. O pipeline de integração precisa fazer uma chamada a um serviço externo, como o Azure Data Factory ou o Databricks, aguardar um resultado e depois exibir esse resultado. O fluxo de trabalho pode ser semelhante a este:
 
-![Workflow A](images/DevAWorkflow.png)
+![Fluxo de Trabalho A](images/DevAWorkflow.png)
 
-The workflow inherently takes time and is expensive to run, as it involves maintaining a Databricks cluster while also waiting for the response. This external dependency can be removed by essentially mocking the response for the duration of writing and testing other parts of the workflow, and mocking the response in situations where the actual response either does not matter, or is not being directly tested.
+O fluxo de trabalho inerentemente leva tempo e é caro de ser executado, pois envolve a manutenção de um cluster Databricks e a espera pela resposta. Essa dependência externa pode ser removida essencialmente simulando a resposta durante a escrita e teste de outras partes do fluxo de trabalho e simulando a resposta em situações em que a resposta real não importa ou não está sendo testada diretamente.
 
-### Skipping Long CI processes
+### Pular Processos de CI Longos
 
-Developer B is in the process of writing and testing a CI/CD pipeline. The pipeline has multiple CI stages, each of which runs sequentially. The workflow might look like this:
+O Desenvolvedor B está escrevendo e testando uma pipeline de CI/CD. A pipeline tem várias etapas de CI, cada uma das quais é executada sequencialmente. O fluxo de trabalho pode ser assim:
 
-![Workflow B](images/DevBWorkflow.png)
+![Fluxo de Trabalho B](images/DevBWorkflow.png)
 
-In this case, each CI stage needs to run before the next one starts, and errors in the middle of the process can cause the entire pipeline to fail. While this might be intended behavior for the pipeline in some situations (Perhaps you don't want to run a more involved, longer build or run a time-consuming test coverage suite if the CI process is failing), it means that steps need to be commented out or deleted when testing the pipeline itself.
+Neste caso, cada etapa de CI precisa ser executada antes que a próxima comece, e erros no meio do processo podem fazer com que a pipeline inteira falhe. Embora esse possa ser um comportamento pretendido para a pipeline em algumas situações (talvez você não queira executar uma construção mais envolvente ou uma suíte de cobertura de testes demorada se o processo de CI estiver falhando), significa que as etapas precisam ser comentadas ou excluídas ao testar a própria pipeline.
 
-Instead, an additional step could check for a `[skip ci $N]` tag in either the commit messages or PR Body, and skip a specific stage of the CI build. This ensures that the final pipeline does not have changes committed to it that render it broken, as sometimes happens when commenting out/deleting steps. It additionally allows for a mechanism to repeatedly test individual steps by skipping the others, making developing the pipeline significantly easier.
+Em vez disso, uma etapa adicional poderia verificar a presença de uma tag `[skip ci $N]` nas mensagens de commit ou no Corpo do PR e pular uma etapa específica da compilação do CI. Isso garante que a pipeline final não tenha alterações confirmadas que a tornem quebrada, como acontece às vezes ao comentar/excluir etapas. Além disso, permite um mecanismo para testar repetidamente etapas individuais pulando as outras, o que facilita significativamente o desenvolvimento da pipeline.

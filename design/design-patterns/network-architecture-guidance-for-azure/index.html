@@ -19,7 +19,7 @@
     
     
       
-        <title>Network Architecture Guidance for Azure - Manual da Engenharia para Codar</title>
+        <title>Orientações de Arquitetura de Rede para o Azure - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#network-architecture-guidance-for-azure" class="md-skip">
+        <a href="#orientacoes-de-arquitetura-de-rede-para-o-azure" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Network Architecture Guidance for Azure
+              Orientações de Arquitetura de Rede para o Azure
             
           </span>
         </div>
@@ -3936,12 +3936,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Network Architecture Guidance for Azure
+          Orientações de Arquitetura de Rede para o Azure
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Network Architecture Guidance for Azure
+        Orientações de Arquitetura de Rede para o Azure
       </a>
       
         
@@ -3960,23 +3960,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#networking-and-vnet-setup" class="md-nav__link">
-    Networking and VNet setup
+  <a href="#configuracao-de-rede-e-vnet" class="md-nav__link">
+    Configuração de Rede e VNet
   </a>
   
-    <nav class="md-nav" aria-label="Networking and VNet setup">
+    <nav class="md-nav" aria-label="Configuração de Rede e VNet">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#hub-and-spoke-topology" class="md-nav__link">
-    Hub-and-spoke Topology
+  <a href="#topologia-de-concentrador-e-filial" class="md-nav__link">
+    Topologia de Concentrador e Filial
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#firewall-and-security" class="md-nav__link">
-    Firewall and Security
+  <a href="#firewall-e-seguranca" class="md-nav__link">
+    Firewall e Segurança
   </a>
   
 </li>
@@ -3989,15 +3989,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ip-allocation" class="md-nav__link">
-    IP Allocation
+  <a href="#alocacao-de-ip" class="md-nav__link">
+    Alocação de IP
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#resource-allocation" class="md-nav__link">
-    Resource Allocation
+  <a href="#alocacao-de-recursos" class="md-nav__link">
+    Alocação de Recursos
   </a>
   
 </li>
@@ -7220,23 +7220,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#networking-and-vnet-setup" class="md-nav__link">
-    Networking and VNet setup
+  <a href="#configuracao-de-rede-e-vnet" class="md-nav__link">
+    Configuração de Rede e VNet
   </a>
   
-    <nav class="md-nav" aria-label="Networking and VNet setup">
+    <nav class="md-nav" aria-label="Configuração de Rede e VNet">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#hub-and-spoke-topology" class="md-nav__link">
-    Hub-and-spoke Topology
+  <a href="#topologia-de-concentrador-e-filial" class="md-nav__link">
+    Topologia de Concentrador e Filial
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#firewall-and-security" class="md-nav__link">
-    Firewall and Security
+  <a href="#firewall-e-seguranca" class="md-nav__link">
+    Firewall e Segurança
   </a>
   
 </li>
@@ -7249,15 +7249,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ip-allocation" class="md-nav__link">
-    IP Allocation
+  <a href="#alocacao-de-ip" class="md-nav__link">
+    Alocação de IP
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#resource-allocation" class="md-nav__link">
-    Resource Allocation
+  <a href="#alocacao-de-recursos" class="md-nav__link">
+    Alocação de Recursos
   </a>
   
 </li>
@@ -7281,65 +7281,92 @@
                 
 
 
-<h1 id="network-architecture-guidance-for-azure">Network Architecture Guidance for Azure</h1>
-<p>The following are some best practices when setting up and working with network resources in Azure Cloud environments.</p>
+<h1 id="orientacoes-de-arquitetura-de-rede-para-o-azure">Orientações de Arquitetura de Rede para o Azure</h1>
+<p>As seguintes são algumas das melhores práticas ao configurar e trabalhar com recursos de rede em ambientes de nuvem do Azure.</p>
 <blockquote>
-<p><strong>NOTE:</strong> When working in an existing cloud environment, it is important to understand any current patterns, and how they are used, before making a change to them. You should also work with the relevant stakeholders to make sure that any new patterns you introduce provide enough value to make the change.</p>
+<p><strong>NOTA:</strong> Ao trabalhar em um ambiente de nuvem existente, é importante entender quaisquer padrões atuais e como eles são usados antes de fazer alterações neles. Você também deve trabalhar com as partes interessadas relevantes para garantir que quaisquer novos padrões que você introduza proporcionem valor suficiente para justificar a mudança.</p>
 </blockquote>
-<h2 id="networking-and-vnet-setup">Networking and VNet setup</h2>
-<h3 id="hub-and-spoke-topology">Hub-and-spoke Topology</h3>
-<p><img alt="image" src="../images/spoke-spoke-routing.png" /></p>
-<p>A hub-and-spoke network topology is a common architecture pattern used in Azure for organizing and managing network resources. It is based on the concept of a central hub that connects to various spoke networks. This model is particularly useful for organizing resources, maintaining security, and simplifying network management.</p>
-<p>The hub-and-spoke model is implemented using Azure Virtual Networks (VNet) and VNet peering.</p>
+<h2 id="configuracao-de-rede-e-vnet">Configuração de Rede e VNet</h2>
+<h3 id="topologia-de-concentrador-e-filial">Topologia de Concentrador e Filial</h3>
+<p><img alt="imagem" src="../images/spoke-spoke-routing.png" /></p>
+<p>A topologia de rede de concentrador e filial é um padrão de arquitetura comum usado no Azure para organizar e gerenciar recursos de rede. Baseia-se no conceito de um concentrador central que se conecta a várias redes de filiais. Esse modelo é particularmente útil para organizar recursos, manter a segurança e simplificar o gerenciamento de rede.</p>
+<p>O modelo de concentrador e filial é implementado usando Redes Virtuais (VNet) e interconexão de VNets (VNet peering).</p>
 <ul>
-<li>The hub: The central VNet acts as a hub, providing shared services such as network security, monitoring, and connectivity to on-premises or other cloud environments. Common components in the hub include Network Virtual Appliances (NVAs), Azure Firewall, VPN Gateway, and ExpressRoute Gateway.</li>
+<li>O concentrador: A VNet central age como um concentrador, fornecendo serviços compartilhados como segurança de rede, monitoramento e conectividade com ambientes locais ou outras nuvens. Componentes comuns no concentrador incluem Dispositivos Virtuais de Rede (NVA), Firewall do Azure, Gateway VPN e Gateway ExpressRoute.</li>
 </ul>
 <ul>
-<li>The spokes: The spoke VNets represent separate units or applications within an organization, each with its own set of resources and services. They connect to the hub through VNet peering, which allows for communication between the hub and spoke VNets.</li>
+<li>As filiais: As VNets de filial representam unidades separadas ou aplicativos dentro de uma organização, cada um com seu próprio conjunto de recursos e serviços. Elas se conectam ao concentrador por meio de interconexão de VNets (VNet peering), o que permite a comunicação entre as VNets do concentrador e da filial.</li>
 </ul>
-<p>Implementing a hub-and-spoke model in Azure offers several benefits:</p>
+<p>A implementação de um modelo de concentrador e filial no Azure oferece várias vantagens:</p>
 <ul>
-<li>Isolation and segmentation: By dividing resources into separate spoke VNets, you can isolate and segment workloads, preventing any potential issues or security risks from affecting other parts of the network.</li>
-<li>Centralized management: The hub VNet acts as a single point of management for shared services, making it easier to maintain, monitor, and enforce policies across the network.</li>
-<li>Simplified connectivity: VNet peering enables seamless communication between the hub and spoke VNets without the need for complex routing or additional gateways, reducing latency and management overhead.</li>
-<li>Scalability: The hub-and-spoke model can easily scale to accommodate additional spokes as the organization grows or as new applications and services are introduced.</li>
-<li>Cost savings: By centralizing shared services in the hub, organizations can reduce the costs associated with deploying and managing multiple instances of the same services across different VNets.</li>
+<li>Isolamento e segmentação: Ao dividir recursos em VNets de filiais separadas, você pode isolar e segmentar cargas de trabalho, impedindo que possíveis problemas ou riscos de segurança afetem outras partes da rede.</li>
 </ul>
-<p>Read more about <a href="https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli">hub-and-spoke topology</a></p>
-<p>When deploying hub/spoke, it is recommended that you do so in connection with <a href="https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/">landing zones</a>. This ensures consistency across all environments as well as guardrails to ensure a high level of security while giving developers freedom within development environments.</p>
-<h3 id="firewall-and-security">Firewall and Security</h3>
-<p>When using a hub-and-spoke topology it is possible to deploy a centralized firewall in the Hub that all outgoing traffic or traffic to/from certain VNets, this allows for centralized threat protection while minimizing costs.</p>
+<ul>
+<li>Gerenciamento centralizado: A VNet do concentrador atua como um ponto único de gerenciamento para serviços compartilhados, facilitando a manutenção, o monitoramento e a aplicação de políticas em toda a rede.</li>
+</ul>
+<ul>
+<li>Conectividade simplificada: A interconexão de VNets (VNet peering) permite a comunicação sem problemas entre as VNets do concentrador e da filial, sem a necessidade de roteamento complexo ou gateways adicionais, reduzindo a latência e a sobrecarga de gerenciamento.</li>
+</ul>
+<ul>
+<li>Escalabilidade: O modelo de concentrador e filial pode ser facilmente dimensionado para acomodar filiais adicionais à medida que a organização cresce ou à medida que novos aplicativos e serviços são introduzidos.</li>
+</ul>
+<ul>
+<li>Economia de custos: Centralizando serviços compartilhados no concentrador, as organizações podem reduzir os custos associados à implantação e ao gerenciamento de várias instâncias dos mesmos serviços em diferentes VNets.</li>
+</ul>
+<p>Saiba mais sobre <a href="https://learn.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli">topologia de concentrador e filial</a></p>
+<p>Ao implantar um modelo de concentrador/filial, é recomendável fazê-lo em conjunto com <a href="https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/">zonas de pouso (landing zones)</a>. Isso garante consistência em todos os ambientes, bem como salvaguardas para garantir um alto nível de segurança, ao mesmo tempo em que oferece liberdade aos desenvolvedores nos ambientes de desenvolvimento.</p>
+<h3 id="firewall-e-seguranca">Firewall e Segurança</h3>
+<p>Ao usar uma topologia de concentrador e filial, é possível implantar um firewall centralizado no Hub que controle todo o tráfego de saída ou o tráfego de/para determinadas VNets. Isso permite proteção centralizada contra ameaças, minimizando os custos.</p>
 <h3 id="dns">DNS</h3>
-<p>The best practices for handling DNS in Azure, and in cloud environments in general, include using managed DNS services. Some of the benefits of using managed DNS services is that the resources are designed to be secure, easy to deploy and configure.</p>
+<p>As melhores práticas para o gerenciamento de DNS no Azure e em ambientes de nuvem em geral incluem o uso de serviços de DNS gerenciados. Alguns dos benefícios de usar serviços de DNS gerenciados são que os recursos são projetados para serem seguros, fáceis de implantar e configurar.</p>
 <ul>
-<li><strong>DNS forwarding:</strong> Set up DNS forwarding between your on-premises DNS servers and Azure DNS servers for name resolution across environments.</li>
-<li><strong>Use Azure Private DNS zones for Azure resources:</strong> Configure Azure Private DNS zones for your Azure resources to ensure name resolution is kept within the virtual network.</li>
+<li><strong>Encaminhamento de DNS:</strong> Configure o encaminhamento</li>
 </ul>
-<p>Read more about <a href="https://learn.microsoft.com/azure/architecture/hybrid/hybrid-dns-infra">Hybrid/Multi-Cloud DNS infrastructure</a> and <a href="https://learn.microsoft.com/azure/dns/">Azure DNS infrastructure</a></p>
-<h3 id="ip-allocation">IP Allocation</h3>
-<p>When allocating IP address spaces to Azure Virtual Networks (VNets), it's essential to follow best practices for proper management, and scalability.</p>
-<p>Here are some recommendations for IP allocation to VNets:</p>
+<p>de DNS entre seus servidores de DNS locais e os servidores de DNS do Azure para resolução de nomes em diferentes ambientes.</p>
 <ul>
-<li><strong>Reserve IP addresses:</strong> Reserve IP addresses in your address space for critical resources or services.</li>
-<li><strong>Public IP allocation:</strong> Minimize the use of public IP addresses and use Azure Private Link when possible to access services over a private connection.</li>
-<li><strong>IP address management (IPAM):</strong> Use IPAM solutions to manage and track IP address allocation across your hybrid environment.</li>
-<li><strong>Plan your address space:</strong> Choose an appropriate private address space (from RFC 1918) for your VNets that is large enough to accommodate future growth. Avoid overlapping with on-premises or other cloud networks.</li>
-<li><strong>Use CIDR notation:</strong> Use Classless Inter-Domain Routing (CIDR) notation to define the VNet address space, which allows more efficient allocation and prevents wasting IP addresses.</li>
-<li><strong>Use subnets:</strong> Divide your VNets into smaller subnets based on security, application, or environment requirements. This allows for better network management and security.</li>
-<li><strong>Consider leaving a buffer between VNets:</strong> While it's not strictly necessary, leaving a buffer between VNets can be beneficial in some cases, especially when you anticipate future growth or when you might need to merge VNets. This can help avoid re-addressing conflicts when expanding or merging networks.</li>
-<li><strong>Reserve IP addresses:</strong> Reserve a range of IP addresses within your VNet address space for critical resources or services. This ensures that they have a static IP address, which is essential for specific services or applications.</li>
-<li><strong>Plan for hybrid scenarios:</strong> If you're working in a hybrid environment with on-premises or multi-cloud networks, ensure that you plan for IP address allocation across all environments. This includes avoiding overlapping address spaces and reserving IP addresses for specific resources like VPN gateways or ExpressRoute circuits.</li>
+<li><strong>Use zonas DNS Privadas do Azure para recursos do Azure:</strong> Configure zonas DNS Privadas do Azure para seus recursos do Azure para garantir que a resolução de nomes seja mantida dentro da rede virtual.</li>
 </ul>
-<p>Read more at <a href="https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing">azure-best-practices/plan-for-ip-addressing</a></p>
-<h3 id="resource-allocation">Resource Allocation</h3>
-<p>For resource allocation the best practices from <a href="../cloud-resource-design-guidance/">Cloud Resource Design Guidance</a> should be followed.</p>
+<p>Saiba mais sobre <a href="https://learn.microsoft.com/azure/architecture/hybrid/hybrid-dns-infra">infraestrutura de DNS híbrido/multi-cloud</a> e <a href="https://learn.microsoft.com/azure/dns/">infraestrutura de DNS do Azure</a></p>
+<h3 id="alocacao-de-ip">Alocação de IP</h3>
+<p>Ao alocar espaços de endereço IP para Redes Virtuais do Azure (VNets), é essencial seguir as melhores práticas para um gerenciamento adequado e escalabilidade.</p>
+<p>Aqui estão algumas recomendações para alocação de IP para VNets:</p>
+<ul>
+<li><strong>Reserve endereços IP:</strong> Reserve endereços IP em seu espaço de endereço para recursos ou serviços críticos.</li>
+</ul>
+<ul>
+<li><strong>Alocação de IP pública:</strong> Minimize o uso de endereços IP públicos e use o Azure Private Link sempre que possível para acessar serviços por meio de uma conexão privada.</li>
+</ul>
+<ul>
+<li><strong>Gerenciamento de endereços IP (IPAM):</strong> Use soluções de IPAM para gerenciar e acompanhar a alocação de endereços IP em todo o ambiente híbrido.</li>
+</ul>
+<ul>
+<li><strong>Planeje seu espaço de endereço:</strong> Escolha um espaço de endereço IP privado apropriado (a partir do RFC 1918) para suas VNets que seja grande o suficiente para acomodar o crescimento futuro. Evite sobreposição com redes locais ou de outras nuvens.</li>
+</ul>
+<ul>
+<li><strong>Use notação CIDR:</strong> Use a notação CIDR (Classless Inter-Domain Routing) para definir o espaço de endereço da VNet, o que permite uma alocação mais eficiente e impede o desperdício de endereços IP.</li>
+</ul>
+<ul>
+<li><strong>Use sub-redes:</strong> Divida suas VNets em sub-redes menores com base em requisitos de segurança, aplicação ou ambiente. Isso permite um melhor gerenciamento e segurança de rede.</li>
+</ul>
+<ul>
+<li><strong>Considere deixar um buffer entre as VNets:</strong> Embora não seja estritamente necessário, deixar um buffer entre as VNets pode ser benéfico em alguns casos, especialmente quando você antecipa crescimento futuro ou a possibilidade de mesclar VNets. Isso pode ajudar a evitar conflitos de reendereçamento ao expandir ou mesclar redes.</li>
+</ul>
+<ul>
+<li><strong>Reserve endereços IP:</strong> Reserve uma faixa de endereços IP dentro do espaço de endereço da sua VNet para recursos ou serviços críticos. Isso garante que eles tenham um endereço IP estático, essencial para serviços ou aplicativos específicos.</li>
+</ul>
+<ul>
+<li><strong>Planeje para cenários híbridos:</strong> Se você estiver trabalhando em um ambiente híbrido com redes locais ou multi-cloud, certifique-se de planejar a alocação de endereços IP em todos os ambientes. Isso inclui evitar sobreposição de espaços de endereço e reservar endereços IP para recursos específicos, como gateways VPN ou circuitos ExpressRoute.</li>
+</ul>
+<p>Saiba mais em <a href="https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing">azure-best-practices/plan-for-ip-addressing</a></p>
+<h3 id="alocacao-de-recursos">Alocação de Recursos</h3>
+<p>Para alocação de recursos, as melhores práticas do <a href="../cloud-resource-design-guidance/">Guia de Design de Recursos de Nuvem</a> devem ser seguidas.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 29, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
       
     
   </small>

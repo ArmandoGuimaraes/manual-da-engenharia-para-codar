@@ -1,306 +1,309 @@
-# Continuous Integration
+# Integração Contínua
 
-![image](https://user-images.githubusercontent.com/7635865/76624154-c2c12800-6502-11ea-912d-a260c821ac41.png)
+![imagem](https://user-images.githubusercontent.com/7635865/76624154-c2c12800-6502-11ea-912d-a260c821ac41.png)
 
-We encourage engineering teams to make an upfront investment during Sprint 0 of a project to establish an automated and repeatable pipeline which continuously integrates code and releases system executable(s) to target cloud environments. Each integration should be verified by an automated build process that asserts a suite of validation tests pass and surface any errors across the developer team.
+Incentivamos equipes de engenharia a fazer um investimento inicial durante o Sprint 0 de um projeto para estabelecer um pipeline automatizado e repetível que integre continuamente o código e libere executáveis do sistema para ambientes de nuvem específicos. Cada integração deve ser verificada por um processo de compilação automatizado que assegura que um conjunto de testes de validação seja aprovado e identifica quaisquer erros para toda a equipe de desenvolvedores.
 
-We encourage teams to implement the CI/CD pipelines before any service code is written for customers, which usually happens in Sprint 0(N). This way, the engineering team can develop and test their work in isolation without impacting other developers and promote a consistent devops workflow throughout the engagement.
+Encorajamos as equipes a implementar os pipelines de CI/CD antes que qualquer código de serviço seja escrito para os clientes, o que geralmente acontece no Sprint 0(N). Dessa forma, a equipe de engenharia pode desenvolver e testar seu trabalho de forma isolada sem impactar outros desenvolvedores e promover um fluxo de trabalho DevOps consistente ao longo do envolvimento.
 
-These [principles](https://martinfowler.com/articles/continuousIntegration.html) map directly agile software development lifecycle [practices](https://en.wikipedia.org/wiki/Agile_software_development).
+Esses [princípios](https://martinfowler.com/articles/continuousIntegration.html) estão diretamente alinhados com as [práticas](https://en.wikipedia.org/wiki/Agile_software_development) do ciclo de vida de desenvolvimento de software ágil.
 
-## Goals
+## Objetivos
 
-Continuous integration automation is an integral part of the software development lifecycle intended to reduce build integration errors and maximize velocity across a dev crew.
+A automação de integração contínua é uma parte integral do ciclo de desenvolvimento de software destinada a reduzir erros de integração de compilação e maximizar a velocidade em uma equipe de desenvolvimento.
 
-A robust build automation pipeline will:
+Um pipeline de automação de compilação robusto deve:
 
-- Accelerate team velocity
-- Prevent integration problems
-- Avoid last minute chaos during release dates
-- Provide a quick feedback cycle for system-wide impact of local changes
-- Separate build and deployment stages
-- Measure and report metrics around build failures / success(s)
-- Increase visibility across the team enabling tighter communication
-- Reduce human errors, which is probably the most important part of automating the builds
+- Acelerar a velocidade da equipe
+- Evitar problemas de integração
+- Evitar caos de última hora durante as datas de lançamento
+- Fornecer um ciclo de feedback rápido para o impacto em todo o sistema das mudanças locais
+- Separar as etapas de compilação e implantação
+- Medir e relatar métricas sobre falhas/sucessos de compilação
+- Aumentar a visibilidade entre a equipe, facilitando a comunicação
+- Reduzir erros humanos, que é provavelmente a parte mais importante da automação de compilações
 
-## Build Definition Managed in Git
+## Definição de Compilação Gerenciada no Git
 
-### Code / manifest artifacts required to build your project should be maintained in within your project(s) git repository(s)
+### Código / artefatos de manifesto necessários para compilar seu projeto devem ser mantidos dentro de seus repositórios Git de projeto
 
-- CI provider-specific build pipeline definition(s) should reside within your project(s) git repository(s).
+- As definições de pipeline de compilação específicas do provedor de CI devem residir dentro dos repositórios Git de projeto.
 
-## Build Automation
+## Automação de Compilação
 
-An automated build should encompass the following principles:
+Uma compilação automatizada deve abranger os seguintes princípios:
 
-### Build Task
+### Tarefa de Compilação
 
-- A single step within your build pipeline that compiles your code project into a single build artifact.
+- Uma etapa única dentro do seu pipeline de compilação que compila o projeto de código em um único artefato de compilação.
 
-### Unit Testing
+### Testes Unitários
 
-- Your build definition includes validation steps to execute a suite of automated unit tests to ensure that application components meets its design and behaves as intended.
+- Sua definição de compilação inclui etapas de validação para executar um conjunto de testes unitários automatizados para garantir que os componentes da aplicação atendam ao seu design e se comportem conforme o esperado.
 
-### Code Style Checks
+### Verificação de Estilo de Código
 
-- Code across an engineering team must be formatted to agreed coding standards. Such standards keep code consistent, and most importantly easy for the team and customer(s) to read and refactor. Code styling consistency encourages collective ownership for project scrum teams and our partners.
-- There are several open source code style validation tools available to choose from ([code style checks](https://github.com/checkstyle/checkstyle), [StyleCop](https://en.wikipedia.org/wiki/StyleCop)). The [Code Review recipes section](../code-reviews/recipes) of the playbook has suggestions for linters and preferred styles for a number of languages.
-- Your code and documentation should avoid the use of non-inclusive language wherever possible. Follow the [Inclusive Linting section](inclusive-linting.md) to ensure your project promotes an inclusive work environment for both the team and for customers.
-- We recommend incorporating security analysis tools within the build stage of your pipeline such as: code credential scanner, security risk detection, static analysis, etc. For Azure DevOps, you can add a security scan task to your pipeline by installing the [Microsoft Security Code Analysis Extension](https://secdevtools.azurewebsites.net/#pills-onboard). GitHub Actions supports a similar extension with the [RIPS security scan solution](https://github.com/marketplace/actions/rips-security-scan).
-- Code standards are maintained within a single configuration file. There should be a step in your build pipeline that asserts code in the latest commit conforms to the known style definition.
+- O código em toda a equipe de engenharia deve estar formatado de acordo com os padrões de codificação acordados. Esses padrões mantêm o código consistente e, o mais importante, fácil para a equipe e os clientes lerem e refatorarem. A consistência de estilo de código incentiva a propriedade coletiva das equipes de scrum do projeto e nossos parceiros.
+- Existem várias ferramentas de validação de estilo de código de código aberto disponíveis para escolher ([verificações de estilo de código](https://github.com/checkstyle/checkstyle), [StyleCop](https://en.wikipedia.org/wiki/StyleCop)). A seção [Receitas de Revisão de Código](../code-reviews/recipes) do guia tem sugestões de linters e estilos preferidos para várias linguagens.
+- Seu código e documentação devem evitar o uso de linguagem não inclusiva sempre que possível. Siga a seção [Verificação Inclusiva](inclusive-linting.md) para garantir que seu projeto promova um ambiente de trabalho inclusivo tanto para a equipe quanto para os clientes.
+- Recomendamos incorporar ferramentas de análise de segurança na fase de compilação de seu pipeline, como scanner de credenciais de código, detecção de riscos de segurança, análise estática, etc. Para o Azure DevOps, você pode adicionar uma tarefa de análise de segurança ao seu pipeline instalando a [Extensão de Análise de Código de Segurança da Microsoft](https://secdevtools.azurewebsites.net/#pills-onboard). O GitHub Actions suporta uma extensão semelhante com a [solução de análise de segurança RIPS](https://github.com/marketplace/actions/rips-security-scan).
+- Os padrões de código são mantidos dentro de um único arquivo de configuração. Deve haver uma etapa em seu pipeline de compilação que assegure que o código no último commit esteja em conformidade com a definição de estilo conhecida.
 
-### Build Script Target
+### Alvo do Script de Compilação
 
-- A single command should have the capability of building the system. This is also true for builds running on a CI server or on a developers local machine.
+- Um único comando deve ter a capacidade de compilar o sistema. Isso também é verdade para compilações em um servidor de CI ou em uma máquina local de desenvolvedores.
 
-### No IDE Dependencies
+### Sem Dependências de IDE
 
-- It's essential to have a build that's runnable through standalone scripts and not dependent on a particular IDE. Build pipeline targets can be triggered locally on their desktops through their IDE of choice. The build process should maintain enough flexibility to run within a CI server as well. As an example, dockerizing your build process offers this level of flexibility as VSCode and IntelliJ supports [docker plugin](https://code.visualstudio.com/docs/containers/overview) extensions.
 
-### DevOps security checks
 
-- Introduce security to your project at early stages. Follow the [DevSecOps section](dev-sec-ops/README.md) to introduce security practices, automation, tools and frameworks as part of the CI.
+- É essencial ter uma compilação que possa ser executada por meio de scripts independentes e não seja dependente de uma IDE específica. Os alvos do pipeline de compilação podem ser acionados localmente em suas estações de trabalho por meio da IDE de sua escolha. O processo de compilação deve manter flexibilidade suficiente para ser executado em um servidor de CI também. Como exemplo, a dockerização do processo de compilação oferece esse nível de flexibilidade, já que o VSCode e o IntelliJ suportam extensões de [plugin Docker](https://code.visualstudio.com/docs/containers/overview).
 
-## Build Environment Dependencies
+### Verificações de Segurança do DevOps
 
-### Automated local environment setup
+- Introduza segurança em seu projeto nas fases iniciais. Siga a seção [DevSecOps](dev-sec-ops/README.md) para introduzir práticas de segurança, automação, ferramentas e estruturas como parte do CI.
 
-- We encourage maintaining a consistent developer experience for all team members. There should be a central automated manifest / process that streamlines the installation and setup of any software dependencies. This way developers can replicate the same build environment locally as the one running on a CI server.
-- Build automation scripts often require specific software packages and version pre-installed within the runtime environment of the OS. This presents some challenges as build processes typically version lock these dependencies.
-- All developers on the team should be able to emulate the build environment from their local desktop regardless of their OS.
-- For projects using VS Code, leveraging [Dev Containers](../developer-experience/devcontainers.md) can really help standardize the local developer experience across the team.
-- Well established software packaging tools like Docker, Maven, npm, etc should be considered when designing your build automation tool chain.
+## Dependências do Ambiente de Compilação
 
-### Document local setup
+### Configuração automática do ambiente local
 
-- The setup process for setting up a local build environment should be well documented and easy for developers to follow.
+- Incentivamos manter uma experiência de desenvolvedor consistente para todos os membros da equipe. Deve haver um manifesto/processo automatizado central que simplifica a instalação e configuração de quaisquer dependências de software. Isso permite que os desenvolvedores repliquem o mesmo ambiente de compilação localmente que o ambiente em execução em um servidor de CI.
+- Os scripts de automação de compilação frequentemente requerem pacotes de software específicos e versões pré-instaladas dentro do ambiente de tempo de execução do sistema operacional. Isso apresenta alguns desafios, já que os processos de compilação geralmente travam essas dependências em uma versão específica.
+- Todos os desenvolvedores da equipe devem ser capazes de emular o ambiente de compilação de suas estações de trabalho locais, independentemente do sistema operacional.
+- Para projetos que usam o VS Code, aproveitar [Contêineres de Desenvolvedor](../developer-experience/devcontainers.md) pode realmente ajudar a padronizar a experiência de desenvolvimento local em toda a equipe.
+- Ferramentas de empacotamento de software bem estabelecidas, como Docker, Maven, npm, etc., devem ser consideradas ao projetar sua cadeia de ferramentas de automação de compilação.
 
-## Infrastructure as Code
+### Documentação da configuração local
 
-Manage as much of the following as possible, as code:
+- O processo de configuração para configurar um ambiente de compilação local deve ser bem documentado e de fácil acompanhamento para os desenvolvedores.
 
-- Configuration Files
-- Configuration Management(ie environment variable automation via [terraform](https://github.com/microsoft/cobalt/blob/master/infra/modules/providers/azure/app-service/main.tf#L49))
-- Secret Management(ie creating Azure secrets via [terraform](https://github.com/microsoft/cobalt/blob/master/infra/templates/az-isolated-service-single-region/app.tf#L84))
-- Cloud Resource Provisioning
-- Role Assignments
-- Load Test Scenarios
-- Availability Alerting / Monitoring Rules and Conditions
+## Infraestrutura como Código
 
-Decoupling infrastructure from the application codebase simplifies engineering teams move to cloud native applications.
+Gerencie o máximo possível dos seguintes como código:
 
-Terraform resource providers like [Azure DevOps](https://github.com/microsoft/terraform-provider-azuredevops) is making it easier for developers to manage build pipeline variables, service connections and CI/CD pipeline definitions.
+- Arquivos de Configuração
+- Gerenciamento de Configuração (automação de variáveis de ambiente via [terraform](https://github.com/microsoft/cobalt/blob/master/infra/modules/providers/azure/app-service/main.tf#L49))
+- Gerenciamento de Segredos (criação de segredos Azure via [terraform](https://github.com/microsoft/cobalt/blob/master/infra/templates/az-isolated-service-single-region/app.tf#L84))
+- Provisionamento de Recursos de Nuvem
+- Atribuições de Funções
+- Cenários de Teste de Carga
+- Alertas de Disponibilidade / Regras e Condições de Monitoramento
 
-### Sample DevOps Workflow using Terraform and Cobalt
+Desacoplar a infraestrutura do código da aplicação simplifica a transição das equipes de engenharia para aplicativos nativos em nuvem.
 
-![image](https://user-images.githubusercontent.com/7635865/76626035-652eda80-6506-11ea-8870-6070365f10d6.png)
+Provedores de recursos do Terraform, como [Azure DevOps](https://github.com/microsoft/terraform-provider-azuredevops), estão tornando mais fácil para os desenvolvedores gerenciar variáveis de pipeline de compilação, conexões de serviço e definições de pipeline de CI/CD.
 
-### Why
+### Exemplo de Fluxo de Trabalho DevOps usando Terraform e Cobalt
 
-- Repeatable and auditable changes to infrastructure make it easier to roll back to known good configurations and to rapidly expand to new stages and regions without having to hand-wire cloud resources
-- Battle tested and templated IAC reference projects like [Cobalt](https://github.com/microsoft/cobalt) and [Bedrock](https://github.com/microsoft/bedrock) enable more engineering teams deploy secure and scalable solutions at a much more rapid pace
-- Simplify “lift and shift” scenarios by abstracting the complexities of cloud-native computing away from application developer teams.
+![imagem](https://user-images.githubusercontent.com/7635865/76626035-652eda80-6506-11ea-8870-6070365f10d6.png)
 
-### IAC DevOPS: Operations by Pull Request
+### Por que
 
-- The Infrastructure deployment process built around a repo that holds the current expected state of the system / Azure environment.
-- Operational changes are made to the running system by making commits on this repo.
-- Git also provides a simple model for auditing deployments and rolling back to a previous state.
+- Alterações repetíveis e auditáveis na infraestrutura facilitam o retorno a configurações conhecidas e a expansão rápida para novos estágios e regiões sem a necessidade de configurar manualmente os recursos da nuvem.
+- Projetos de referência testados e com modelos de IAC, como [Cobalt](https://github.com/microsoft/cobalt) e [Bedrock](https://github.com/microsoft/bedrock), permitem que equipes de engenharia implementem soluções seguras e escaláveis de forma muito mais rápida.
+- Simplificar cenários de "migrar e executar" abstraindo as complexidades da computação nativa em nuvem das equipes de desenvolvimento de aplicativos.
 
-### Infrastructure Advocated Patterns
+### IAC DevOPS: Operações por Pull Request
 
-- You define infrastructure as code in Terraform / ARM / Ansible templates
-- Templates are repeatable cloud resource stacks with a focus on configuration sets aligned with app scaling and throughput needs.
+- O processo de implantação de infraestrutura é baseado em um repositório que mantém o estado atual esperado do ambiente do sistema / ambiente Azure.
+- As mudanças operacionais são feitas no sistema em execução, fazendo commits neste repositório.
+- O Git também fornece um modelo simples para auditoria de implantações e retorno a um estado anterior.
 
-### IAC Principles
+### Padrões de Infraestrutura Recomendados
 
-#### Automate the Azure Environment
+- Defina a infraestrutura como código em modelos Terraform / ARM / Ansible.
+- Os modelos são pilhas repetíveis de recursos de nuvem com foco em conjuntos de configurações alinhados com escalabilidade e necessidades de throughput da aplicação.
 
-- All cloud resources are provisioned through a set of infrastructure as code templates. This also includes secrets, service configuration settings, role assignments and monitoring conditions.
-- Azure Portal should provide a read-only view on environment resources. Any change applied to the environment should be made through the IAC CI tool-chain only.
-- Provisioning cloud environments should be a repeatable process that's driven off the infrastructure code artifacts checked into our git repository.
+### Princípios de IAC
 
-#### IAC CI Workflow
+#### Automatize o Ambiente Azure
 
-- When the IAC template files change through a git-based workflow, A CI build pipeline builds, validates and reconciles the target infrastructure environment's current state with the expected state. The infrastructure execution plan candidate for these fixed environments are reviewed by a cloud administrator as a gate check prior to the deployment stage of the pipeline applying the execution plan.
+- Todos os recursos de nuvem são provisionados por meio de um conjunto de modelos de infraestrutura como código. Isso inclui segredos, configurações de serviço, atribuições de função e condições de monitoramento.
+- O Portal Azure deve fornecer uma visualização somente leitura dos recursos do ambiente. Qualquer alteração aplicada ao ambiente deve ser feita apenas por meio da cadeia de ferramentas de IAC.
 
-#### Developer Read-Only Access to Cloud Resources
+#### Fluxo de Trabalho de CI de IAC
 
-- Developer accounts in the Azure portal should have read-only access to IAC environment resources in Azure.
+- Quando os arquivos de modelo IAC mudam por meio de um fluxo de trabalho baseado em git, um pipeline de compilação CI constrói, valida e concilia o estado atual do ambiente de infraestrutura de destino com o estado esperado. O plano de execução de infraestrutura candidato para esses ambientes fixos é revisado por um administrador de nuvem como uma verificação de porta antes da etapa de implantação do pipeline aplicar o plano de execução.
 
-#### Secret Automation
+#### Acesso de Desenvolvedor Somente Leitura a Recursos de Nuvem
 
-- IAC templates are deployed via a CI/CD system that has secrets automation integrated. Avoid applying changes to secrets and/or certificates directly in the Azure Portal.
+- Contas de desenvolvedores no portal Azure devem ter acesso somente leitura aos recursos de ambiente IAC no Azure.
 
-#### Infrastructure Integration Test Automation
+#### Automação de Segredos
 
-- End-to-end integration tests are run as part of your IAC CI process to inspect and validate that an azure environment is ready for use.
+- Model
 
-#### Infrastructure Documentation
+os IAC são implantados por meio de um sistema CI/CD que possui automação de segredos integrada. Evite aplicar alterações a segredos e/ou certificados diretamente no Portal Azure.
 
-- The deployment and cloud resource template topology should be documented and well understood within the README of the IAC git repo.
-- Local environment and CI workflow setup steps should be documented.
+#### Automação de Testes de Integração de Infraestrutura
 
-## Configuration Validation
+- Testes de integração de ponta a ponta são executados como parte de seu processo de CI IAC para inspecionar e validar que um ambiente Azure está pronto para uso.
 
-Applications use configuration to allow different runtime behaviors and it’s quite common to use files to store these settings. As developers, we might introduce errors while editing these files which would cause issues for the application to start and/or run correctly. By applying validation techniques on both syntax and semantics of our configuration, we can detect errors before the application is deployed and execute, improving the developer (user) experience.
+#### Documentação de Infraestrutura
 
-### Application Configuration Files Examples
+- A implantação e a topologia de modelo de recurso em nuvem devem ser documentadas e bem compreendidas dentro do README do repositório git IAC.
+- As etapas de configuração do ambiente local e do fluxo de trabalho de CI devem ser documentadas.
 
-- JSON, with support for complex data types and data structures
-- YAML, a super set of JSON with support for complex data types and structures
-- TOML, a super set of JSON and a formally specified configuration file format
+## Validação de Configuração
 
-### Why Validate Application Configuration as a Separate Step?
+As aplicações usam configurações para permitir diferentes comportamentos em tempo de execução e é bastante comum usar arquivos para armazenar essas configurações. Como desenvolvedores, podemos introduzir erros ao editar esses arquivos, o que causaria problemas para a inicialização e/ou execução correta da aplicação. Aplicando técnicas de validação na sintaxe e semântica de nossa configuração, podemos detectar erros antes que a aplicação seja implantada e executada, melhorando a experiência do desenvolvedor (usuário).
 
-- **Easier Debugging & Time saving** - With a configuration validation step in our pipeline, we can avoid running the application just to find it fails. It saves time on having to deploy & run, wait and then realize something is wrong in configuration. In addition, it also saves time on going through the logs to figure out what failed and why.
-- **Better user/developer experience** - A simple reminder to the user that something in the configuration isn't in the right format can make all the difference between the joy of a successful deployment process and the intense frustration of having to guess what went wrong. For example, when there is a Boolean value expected, it can either be a string value like "True" or "False" or an integer value such as "0" or "1" . With configuration validation we make sure the meaning is correct for our application.
-- **Avoid data corruption and security breaches** - Since the data arrives from an untrusted source, such as a user or an external webservice, it’s particularly important to validate the input . Otherwise, it will run at the risk of performing errors, corrupting data, or, worse, be vulnerable to a whole array of injection attacks.
+### Exemplos de Arquivos de Configuração de Aplicativos
 
-### What is Json Schema?
+- JSON, com suporte para tipos de dados complexos e estruturas de dados complexas.
+- YAML, um superconjunto de JSON com suporte para tipos de dados e estruturas complexas.
+- TOML, um superconjunto de JSON e um formato de arquivo de configuração formalmente especificado.
 
-[JSON-Schema](https://json-schema.org/) is the standard of JSON documents that describes the structure and the requirements of your JSON data. Although it is called JSON-Schema, it also common to use this method for YAMLs, as it is a super set of JSON.
-The schema is very simple; point out which fields might exist, which are required or optional, what data format they use. Other validation rules can be added on top of that basic premise, along with human-readable information. The metadata lives in schemas which are .json files as well.
-In addition, schema has the widest adoption among all standards for JSON validation as it covers a big part of validation scenarios. It uses easy-to-parse JSON documents for schemas and is easily extensible.
+### Por que Validar a Configuração da Aplicação como uma Etapa Separada?
 
-### How to Implement Schema Validation?
+- **Facilita a Depuração e Economiza Tempo** - Com uma etapa de validação de configuração em nosso pipeline, podemos evitar a execução da aplicação apenas para descobrir que ela falha. Isso economiza tempo ao evitar a implantação e execução, esperar e, em seguida, perceber que algo está errado na configuração. Além disso, economiza tempo ao passar pelos registros para descobrir o que deu errado e por quê.
+- **Melhor experiência do usuário/desenvolvedor** - Um lembrete simples para o usuário de que algo na configuração não está no formato correto pode fazer toda a diferença entre a alegria de um processo de implantação bem-sucedido e a intensa frustração de ter que adivinhar o que deu errado. Por exemplo, quando se espera um valor booleano, ele pode ser uma string como "True" ou "False" ou um valor inteiro como "0" ou "1". Com a validação da configuração, garantimos que o significado esteja correto para nossa aplicação.
+- **Evitar corrupção de dados e violações de segurança** - Como os dados vêm de uma fonte não confiável, como um usuário ou um serviço externo, é especialmente importante validar a entrada. Caso contrário, ele correrá o risco de executar erros, corromper dados ou, pior ainda, ser vulnerável a uma série de ataques de injeção.
 
-Implementing schema validation is divided in two - the generation of the schemas and the validation of yaml/json files with those schemas.
+### O que é o Esquema JSON?
 
-### Generation
+[JSON-Schema](https://json-schema.org/) é o padrão de documentos JSON que descreve a estrutura e os requisitos dos seus dados JSON. Embora seja chamado de JSON-Schema, também é comum usar esse método para YAMLs, já que ele é um superconjunto do JSON. O esquema é muito simples: aponta quais campos podem existir, quais são obrigatórios ou opcionais, que formato de dados eles usam. Outras regras de validação podem ser adicionadas a essa premissa básica, juntamente com informações legíveis por humanos. Os metadados ficam nos esquemas, que são arquivos .json também. Além disso, o esquema tem a maior adoção entre todos os padrões de validação JSON, pois cobre uma grande parte dos cenários de validação. Ele usa documentos JSON fáceis de analisar para esquemas e é facilmente extensível.
 
-There are two options to generate a schema:
+### Como Implementar a Validação de Esquema?
 
-- [From code](https://json-schema.org/implementations.html#from-code) - we can leverage the existing models and objects in the code and generate a customized schema.
+A implementação da validação de esquema é dividida em duas partes: a geração dos esquemas e a validação de arquivos YAML/JSON com esses esquemas.
 
-- [From data](https://json-schema.org/implementations.html#from-data) - we can take yaml/json samples which reflect the configuration in general and use the various online tools to generate a schema.
+### Geração
 
-### Validation
+Existem duas opções para gerar um esquema:
 
-The schema has 30+ [validators](https://json-schema.org/implementations.html#validators) for different languages, including 10+ for JavaScript, so no need to code it yourself.
+- [A partir do código](https://json-schema.org/implementations.html#from-code) - podemos aproveitar os modelos e objetos existentes no código e gerar um esquema personalizado.
 
-## Integration Validation
+- [A partir de dados](https://json-schema.org/implementations.html#from-data) - podemos pegar amostras de yaml/json que refletem a configuração em geral e usar várias ferramentas online para gerar um esquema.
 
-An effective way to identify bugs in your build at a rapid pace is to invest early into a reliable suite of automated tests that validate the baseline functionality of the system:
+### Validação
 
-### End to end integration tests
+O esquema possui mais de 30 [validadores](https://json-schema.org/implementations.html#validators) para diferentes linguagens, incluindo mais de 10 para JavaScript, portanto, não é necessário codificá-lo você mesmo.
 
-- Include tests in your pipeline to validate the build candidate conforms to automated business functionality assertions. Any bugs or broken code should be reported in the test results including the failed test and relevant stack trace. All tests should be invoked through a single command.
-- Keep the build fast. Consider automated test runtime when deciding to pull in dependencies like databases, external services and mock data loading into your test harness. Slow builds often become a bottleneck for dev teams when parallel builds on a CI server are not an option. Consider adding max timeout limits for lengthy validations to fail fast and maintain high velocity across the team.
+Validação de Integração
 
-### Avoid checking in broken builds
+Uma maneira eficaz de identificar erros em sua compilação rapidamente é investir cedo em um conjunto confiável de testes automatizados que validem a funcionalidade básica do sistema:
 
-- Automated build checks, tests, lint runs, etc should be validated locally before committing your changes to the scm repo. [Test Driven Development](https://martinfowler.com/bliki/TestDrivenDevelopment.html) is a practice dev crews should consider to help identify bugs and failures as early as possible within the development lifecycle.
+Testes de Integração de Ponta a Ponta
 
-### Reporting build failures
+- Inclua testes em seu pipeline para validar que o candidato à compilação está em conformidade com as asserções automatizadas de funcionalidade de negócios. Quaisquer erros ou código quebrado devem ser relatados nos resultados dos testes, incluindo o teste falhado e o rastreamento de pilha relevante. Todos os testes devem ser invocados por meio de um único comando.
+- Mantenha a compilação rápida. Considere o tempo de execução dos testes automatizados ao decidir trazer dependências como bancos de dados, serviços externos e carga de dados fictícios para o seu conjunto de testes. Compilações lentas frequentemente se tornam um gargalo para equipes de desenvolvimento quando compilações paralelas em um servidor de Integração Contínua não são uma opção. Considere adicionar limites máximos de tempo para validações demoradas para falhar rapidamente e manter uma alta velocidade em toda a equipe.
 
-- If the build step happens to fail then the build pipeline run status should be reported as failed including relevant logs and stack traces.
+Evite enviar compilações quebradas
 
-### Test Automation Data Dependencies
+- Verificações automatizadas de compilação, testes, execuções de análise de código etc. devem ser validadas localmente antes de enviar suas alterações para o repositório de controle de versão. A [Desenvolvimento Orientado a Testes](https://martinfowler.com/bliki/TestDrivenDevelopment.html) é uma prática que equipes de desenvolvimento devem considerar para ajudar a identificar erros e falhas o mais cedo possível no ciclo de desenvolvimento.
 
-- Any mocked dataset(s) used for unit and end-to-end integration tests should be checked into the mainline repository. Minimize any external data dependencies with your build process.
+Relatando falhas de compilação
 
-### Code Coverage Checks
+- Se a etapa de compilação falhar, o status da execução do pipeline de compilação deve ser relatado como falho, incluindo logs relevantes e rastreamentos de pilha.
 
-- We recommend integrating code coverage tools within your build stage. Most coverage tools fail builds when the test coverage falls below a minimum threshold(80% coverage). The coverage report should be published to your CI system to track a time series of variations.
+Dependências de Dados de Automação de Teste
 
-## Git Driven Workflow
+- Qualquer conjunto de dados fictícios usado para testes unitários e de integração de ponta a ponta deve ser incluído no repositório principal. Minimize quaisquer dependências de dados externos no processo de compilação.
 
-### Build on commit
+Verificações de Cobertura de Código
 
-- Every commit to the baseline repository should trigger the CI pipeline to create a new build candidate.
-- Build artifact(s) are built, packaged, validated and deployed continuously into a non-production environment per commit. Each commit against the repository results into a CI run which checks out the sources onto the integration machine, initiates a build, and notifies the committer of the result of the build.
+- Recomendamos integrar ferramentas de cobertura de código em sua etapa de compilação. A maioria das ferramentas de cobertura de código falha nas compilações quando a cobertura de teste fica abaixo de um limite mínimo (80% de cobertura). O relatório de cobertura deve ser publicado em seu sistema de Integração Contínua para acompanhar uma série temporal de variações.
 
-### Avoid commenting out failing tests
+Fluxo de Trabalho Orientado pelo Git
 
-- Avoid commenting out tests in the mainline branch. By commenting out tests, we get an incorrect indication of the status of the build.
+Compilação na Confirmação
 
-### Branch policy enforcement
+- Cada confirmação no repositório base deve acionar o pipeline de Integração Contínua para criar um novo candidato à compilação.
+- Os artefatos de compilação são criados, empacotados, validados e implantados continuamente em um ambiente não produtivo por confirmação. Cada confirmação no repositório resulta em uma execução de Integração Contínua que verifica as fontes na máquina de integração, inicia uma compilação e notifica o autor da confirmação sobre o resultado da compilação.
 
-- Protected [branch policies](https://help.github.com/en/github/administering-a-repository/about-protected-branches) should be setup on the main branch to ensure that CI stage(s) have passed prior to starting a code review. Code review approvers will only start reviewing a pull request once the CI pipeline run passes for the latest pushed git commit.
-- Broken builds should block pull request reviews.
-- Prevent commits directly into main branch.
+Evite comentar testes falhados
 
-### Branch strategy
+- Evite comentar testes na ramificação principal. Ao comentar testes, obtemos uma indicação incorreta do estado da compilação.
 
-- Release branches should auto trigger the deployment of a build artifact to its target cloud environment. You can find additional guidance on the Azure DevOps documentation site under the [Manage deployments](https://learn.microsoft.com/en-us/azure/devops/repos/git/git-branching-guidance?view=azure-devops#manage-deployments) section
+Aplicação da Política de Ramificação
 
-## Deliver Quickly and Daily
+- Políticas de [ramificação protegidas](https://help.github.com/en/github/administering-a-repository/about-protected-branches) devem ser configuradas na ramificação principal para garantir que as etapas de Integração Contínua tenham sido concluídas antes de iniciar uma revisão de código. Os aprovadores de revisão de código só iniciarão a revisão de uma solicitação de pull quando a execução do pipeline de Integração Contínua for bem-sucedida para a confirmação mais recentemente enviada para o Git.
+- Compilações quebradas devem bloquear revisões de solicitações de pull.
+- Evite confirmações diretas na ramificação principal.
 
-> "By committing regularly, every committer can reduce the number of conflicting changes. Checking in a week's worth of work runs the risk of conflicting with other features and can be very difficult to resolve. Early, small conflicts in an area of the system cause team members to communicate about the change they are making."
+Estratégia de Ramificação
 
-In the spirit of transparency and embracing frequent communication across a dev crew, we encourage developers to commit code on a daily cadence. This approach provides visibility to feature progress and accelerates pair programming across the team. Here are some principles to consider:
+- Ramificações de lançamento devem acionar automaticamente a implantação de um artefato de compilação em seu ambiente de nuvem de destino. Você pode encontrar orientações adicionais no site de documentação do Azure DevOps na seção [Gerenciar implantações](https://learn.microsoft.com/en-us/azure/devops/repos/git/git-branching-guidance?view=azure-devops#manage-deployments).
 
-### Everyone commits to the git repository each day
+Entregar Rapidamente e Diariamente
 
-- End of day checked-in code should contain unit tests at the minimum.
-- Run the build locally before checking in to avoid CI pipeline failure saturation. You should verify what caused the error, and try to solve it as soon as possible instead of committing your code. We encourage developers to follow a [lean SDLC principles](https://leankit.com/learn/lean/principles-of-lean-development/).
-- Isolate work into small chunks which ties directly to business value and refactor incrementally.
+> "Ao confirmar regularmente, cada colaborador pode reduzir o número de alterações conflitantes. Fazer confirmações semanais de trabalho corre o risco de entrar em conflito com outras funcionalidades e pode ser muito difícil de resolver. Conflitos iniciais e pequenos em uma área do sistema fazem com que os membros da equipe se comuniquem sobre a alteração que estão fazendo."
 
-## Isolated Environments
+No espírito da transparência e da comunicação frequente em uma equipe de desenvolvimento, incentivamos os desenvolvedores a confirmar o código diariamente. Essa abordagem fornece visibilidade ao progresso das funcionalidades e acelera a programação em pares em toda a equipe. Aqui estão alguns princípios a serem considerados:
 
-One of the key goals of build validation is to isolate and identify failures in staging environment(s) and minimize any disruption to live production traffic. Our E2E automated tests should run in an environment which mimics our production environment(as much as possible). This includes consistent software versions, OS, test data volume simulations, network traffic parity with production, etc.
+Todos confirmam no repositório git todos os dias
 
-### Test in a clone of production
+- No final do dia, o código confirmado deve conter testes unitários no mínimo.
+- Execute a compilação localmente antes de confirmar para evitar a saturação do pipeline de Integração Contínua. Você deve verificar o que causou o erro e tentar resolvê-lo o mais rápido possível, em vez de confirmar o código. Incentivamos os desenvolvedores a seguir princípios de [Desenvolvimento Lean](https://leankit.com/learn/lean/principles-of-lean-development/).
+- Isolar o trabalho em pequenos pedaços que se relacionam diretamente com o valor comercial e refatorar incrementalmente.
 
-- The production environment should be duplicated into a staging environment(QA and/or Pre-Prod) at a minimum.
+Ambientes Isolados
 
-### Pull request update(s) trigger staged releases
+Um dos principais objetivos da validação de compilação é isolar e identificar falhas em ambientes de preparação e minimizar qualquer interrupção no tráfego de produção ao vivo. Nossos testes automatizados de ponta a ponta devem ser executados em um ambiente que reproduza nosso ambiente de produção (o máximo possível). Isso inclui versões de software consistent
 
-- New commits related to a pull request should trigger a build / release into an integration environment. The production environment should be fully isolated from this process.
+es, SO, simulações de volume de dados de teste, paridade de tráfego de rede com produção, etc.
 
-### Promote infrastructure changes across fixed environments
+Teste em um clone da produção
 
-- Infrastructure as code changes should be tested in an integration environment and promoted to all staging environment(s) then migrated to production with zero downtime for system users.
+- O ambiente de produção deve ser duplicado em um ambiente de preparação (QA e/ou Pré-Produção) no mínimo.
 
-### Testing in production
+Atualizações de solicitação de pull acionam lançamentos em estágios
 
-- There are various [approaches](https://medium.com/@copyconstruct/testing-in-production-the-safe-way-18ca102d0ef1) with safely carrying out automated tests for production deployments. Some of these may include:
-  - Feature flagging
-  - A/B testing
-  - Traffic shifting
+- Novas confirmações relacionadas a uma solicitação de pull devem acionar uma compilação/liberação em um ambiente de integração. O ambiente de produção deve ser totalmente isolado desse processo.
 
-## Developer Access to the Latest Release Artifacts
+Promover alterações de infraestrutura em ambientes fixos
 
-Our devops workflow should enable developers to get, install and run the latest system executable. Release executable(s) should be auto generated as part of our CI/CD pipeline(s).
+- Alterações de infraestrutura como código devem ser testadas em um ambiente de integração e promovidas para todos os ambientes de preparação, depois migradas para produção sem tempo de inatividade para os usuários do sistema.
 
-### Developers can access latest executable
+Testando em produção
 
-- The latest system executable is available for all developers on the team. There should be a well-known place where developers can reference the release artifact.
+- Existem várias [abordagens](https://medium.com/@copyconstruct/testing-in-production-the-safe-way-18ca102d0ef1) para realizar testes automatizados para implantações em produção com segurança. Algumas dessas abordagens podem incluir:
+  - Sinalização de recursos
+  - Teste A/B
+  - Deslocamento de tráfego
 
-### Release artifact is published for each pull request or merges into main branch
+Acesso do Desenvolvedor aos Últimos Artefatos de Lançamento
 
-## Integration Observability
+Nosso fluxo de trabalho de DevOps deve permitir que os desenvolvedores obtenham, instalem e executem o executável do sistema mais recente. Os executáveis de lançamento devem ser gerados automaticamente como parte de nossos pipelines de CI/CD.
 
-Applied state changes to the mainline build should be made available and communicated across the team. Centralizing logs and status(s) from build and release pipeline failures are essential for developers investigating broken builds.
+Os desenvolvedores podem acessar o executável mais recente
 
-We recommend integrating Teams or Slack with CI/CD pipeline runs which helps keep the team continuously plugged into failures and build candidate status(s).
+- O executável do sistema mais recente está disponível para todos os desenvolvedores da equipe. Deve haver um local conhecido onde os desenvolvedores possam consultar o artefato de lançamento.
 
-### Continuous integration top level dashboard
+O artefato de lançamento é publicado para cada solicitação de pull ou mesclagem na ramificação principal
 
-- Modern CI providers have the capability to consolidate and report build status(s) within a given dashboard.
-- Your CI dashboard should be able to correlate a build failure with a git commit.
+Observabilidade da Integração
 
-### Build status badge in project readme
+As mudanças de estado aplicadas à compilação principal devem estar disponíveis e ser comunicadas em toda a equipe. Centralizar logs e status de falhas de pipeline de compilação e lançamento é essencial para desenvolvedores que investigam compilações quebradas.
 
-- There should be a build status badge included in the root README of the project.
+Recomendamos integrar Teams ou Slack com as execuções de pipeline de CI/CD, o que ajuda a manter a equipe constantemente informada sobre falhas e status de candidatos à compilação.
 
-### Build notifications
+Painel de nível superior de Integração Contínua
 
-- Your CI process should be configured to send notifications to messaging platforms like Teams / Slack once the build completes. We recommend creating a separate channel to help consolidate and isolate these notifications.
+- Os provedores modernos de CI têm a capacidade de consolidar e relatar status de compilação em um painel específico.
+- Seu painel de CI deve ser capaz de correlacionar uma falha de compilação com um commit do Git.
 
-## Resources
+Emblema de status de compilação no README do projeto
 
-- [Martin Fowler's Continuous Integration Best Practices](https://martinfowler.com/articles/continuousIntegration.html)
-- [Bedrock Getting Started Quick Guide](https://github.com/microsoft/bedrock#getting-started)
-- [Cobalt Quick Start Guide](https://github.com/microsoft/cobalt/blob/master/docs/2_QUICK_START_GUIDE.md)
-- [Terraform Azure DevOps Provider](https://github.com/microsoft/terraform-provider-azuredevops)
-- [Azure DevOps multi stage pipelines](https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/multi-stage-pipelines-experience?view=azure-devops)
-- [Azure Pipeline Key Concepts](https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops)
-- [Azure Pipeline Environments](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/environments?view=azure-devops)
-- [Artifacts in Azure Pipelines](https://learn.microsoft.com/en-us/azure/devops/pipelines/artifacts/artifacts-overview?view=azure-devops)
-- [Azure Pipeline permission and security roles](https://learn.microsoft.com/en-us/azure/devops/pipelines/policies/permissions?view=azure-devops)
-- [Azure Environment approvals and checks](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops&tabs=check-pass)
-- [Terraform Getting Started Guide with Azure](https://learn.hashicorp.com/terraform?track=azure#azure)
-- [Terraform Remote State Azure Setup](https://learn.microsoft.com/en-us/azure/terraform/terraform-backend)
-- [Terratest - Unit and Integration Infrastructure Framework](https://terratest.gruntwork.io/)
+- Deve haver um emblema de status de compilação incluído no README raiz do projeto.
+
+Notificações de compilação
+
+- Seu processo de CI deve ser configurado para enviar notificações para plataformas de mensagens como Teams/Slack assim que a compilação for concluída. Recomendamos criar um canal separado para ajudar a consolidar e isolar essas notificações.
+
+Recursos
+
+- [Melhores Práticas de Integração Contínua de Martin Fowler](https://martinfowler.com/articles/continuousIntegration.html)
+- [Guia Rápido de Início do Bedrock](https://github.com/microsoft/bedrock#getting-started)
+- [Guia Rápido do Cobalt](https://github.com/microsoft/cobalt/blob/master/docs/2_QUICK_START_GUIDE.md)
+- [Provedor Azure DevOps do Terraform](https://github.com/microsoft/terraform-provider-azuredevops)
+- [Pipelines de Vários Estágios do Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/multi-stage-pipelines-experience?view=azure-devops)
+- [Conceitos Chave do Azure Pipeline](https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops)
+- [Ambientes do Azure Pipeline](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/environments?view=azure-devops)
+- [Artefatos no Azure Pipelines](https://learn.microsoft.com/en-us/azure/devops/pipelines/artifacts/artifacts-overview?view=azure-devops)
+- [Permissões e Funções de Segurança do Azure Pipeline](https://learn.microsoft.com/en-us/azure/devops/pipelines/policies/permissions?view=azure-devops)
+- [Aprovações e Verificações de Ambiente do Azure](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops&tabs=check-pass)
+- [Guia de Início Rápido do Terraform com Azure](https://learn.hashicorp.com/terraform?track=azure#azure)
+- [Configuração Remota do Estado do Terraform no Azure](https://learn.microsoft.com/en-us/azure/terraform/terraform-backend)
+- [Terratest - Framework de Infraestrutura de Testes Unitários e de Integração](https://terratest.gruntwork.io/)

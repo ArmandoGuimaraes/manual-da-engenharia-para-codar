@@ -1,68 +1,68 @@
-# Application Deployment
+# Implantação da Aplicação
 
-The Memory application leverages [Azure DevOps](https://learn.microsoft.com/en-gb/azure/devops/index?view=azure-devops) for work item tracking as well as continuous integration (CI) and continuous deployment (CD).
+A aplicação Memory utiliza o [Azure DevOps](https://learn.microsoft.com/en-gb/azure/devops/index?view=azure-devops) para rastreamento de itens de trabalho, bem como integração contínua (CI) e implantação contínua (CD).
 
 ---
 
-## Environments
+## Ambientes
 
-The Memory project uses multiple environments to isolate and test changes before promoting releases to the global user base.
+O projeto Memory utiliza vários ambientes para isolar e testar alterações antes de promover lançamentos para a base de usuários global.
 
-New environment rollouts are automatically triggered based upon a successful deployment of the previous stage /environment.
+A implantação de novos ambientes é acionada automaticamente com base em uma implantação bem-sucedida do estágio / ambiente anterior.
 
-The **development**, **staging** and **production** environments leverage slot deployment during an environment rollout.
-After a new release is deployed to a staging slot, it is validated through a series of functional integration tests.
-Upon a 100% pass rate of all tests the staging & production slots are swapped effectively making updates to the environment available.
+Os ambientes de **desenvolvimento**, **staging** e **produção** utilizam a implantação de slot durante uma implantação de ambiente.
+Após a implantação de um novo lançamento em um slot de staging, ele é validado por meio de uma série de testes de integração funcional.
+Após uma taxa de aprovação de 100% de todos os testes, os slots de staging e produção são trocados, tornando efetivamente as atualizações no ambiente disponíveis.
 
-Any errors or failed tests halt the deployment in the current stage and prevent changes to further environments.
+Quaisquer erros ou testes falhados interrompem a implantação no estágio atual e impedem alterações em estágios posteriores.
 
-Each deployed environment is completely isolated and does not share any components.
-They each have unique resource instances of Azure Traffic Manager, Cosmos DB, etc.
+Cada ambiente implantado é completamente isolado e não compartilha nenhum componente.
+Cada um possui instâncias de recursos exclusivos, como Azure Traffic Manager, Cosmos DB, etc.
 
-### Deployment Dependencies
+### Dependências de Implantação
 
-| Development      | Staging     | Production      |
+| Desenvolvimento | Staging     | Produção      |
 |------------------|-------------|-----------------|
-| CI Quality Gates | Development | Staging         |
-|                  |             | Manual Approval |
+| Portões de Qualidade da CI | Desenvolvimento | Staging         |
+|                  |             | Aprovação Manual |
 
 ### Local
 
-The local environment is used by individual software engineers during the development of new features and components.
+O ambiente local é usado por engenheiros de software individuais durante o desenvolvimento de novos recursos e componentes.
 
-Engineers leverage some components from the deployed development environment that are not available on certain platforms or are unable to run locally.
+Os engenheiros utilizam alguns componentes do ambiente de desenvolvimento implantado que não estão disponíveis em determinadas plataformas ou não podem ser executados localmente.
 
 - CosmosDB
-  - Emulator only exists for Windows
+  - O emulador só existe para Windows
 
-The local environment also does not use Azure Traffic Manager.
-The frontend web app directly communicates to the backend REST API typically running on a separate localhost port mapping.
+O ambiente local também não utiliza o Azure Traffic Manager.
+O aplicativo web frontend se comunica diretamente com a API REST de backend, normalmente em uma porta localhost separada.
 
-### Development
+### Desenvolvimento
 
-The development environment is used as the first quality gate.
-All code that is checked into the `main` branch is automatically deployed to this environment after all CI quality gates have passed.
+O ambiente de desenvolvimento é usado como o primeiro portão de qualidade.
+Todo o código verificado no branch `main` é implantado automaticamente neste ambiente após a passagem de todos os portões de qualidade da CI.
 
-#### Dev Regions
+#### Regiões de Desenvolvimento
 
 - West US (westus)
 
 ### Staging
 
-The staging environment is used to validate new features, components and other changes prior to production rollout.
-This environment is primarily used by developers, QA and other company stakeholders.
+O ambiente de staging é usado para validar novos recursos, componentes e outras alterações antes da implantação em produção.
+Este ambiente é usado principalmente por desenvolvedores, QA e outros stakeholders da empresa.
 
-#### Staging Regions
+#### Regiões de Staging
 
 - West US (westus)
 - East US (eastus)
 
-### Production
+### Produção
 
-The production environment is used by the worldwide user base.
-Changes to this environment are gated by manual approval by your product's leadership team in addition to other automatic quality gates.
+O ambiente de produção é usado pela base de usuários em todo o mundo.
+As alterações neste ambiente são controladas por aprovação manual pela equipe de liderança do produto, além de outros portões de qualidade automáticos.
 
-#### Production Regions
+#### Regiões de Produção
 
 - West US (westus)
 - Central US (centralus)
@@ -70,23 +70,23 @@ Changes to this environment are gated by manual approval by your product's leade
 
 ---
 
-## Environment Variable Group
+## Grupo de Variáveis de Ambiente
 
-### Infrastructure Setup (memory-common)
+### Configuração de Infraestrutura (memory-common)
 
 - appName
 - businessUnit
 - serviceConnection
 - subscriptionId
 
-### Development Setup (memory-dev)
+### Configuração de Desenvolvimento (memory-dev)
 
-- environmentName (placeholder)
+- environmentName (espaço reservado)
 
-### Staging Setup (memory-staging)
+### Configuração de Staging (memory-staging)
 
-- environmentName (placeholder)
+- environmentName (espaço reservado)
 
-### Production Setup (memory-prod)
+### Configuração de Produção (memory-prod)
 
-- environmentName (placeholder)
+- environmentName (espaço reservado)

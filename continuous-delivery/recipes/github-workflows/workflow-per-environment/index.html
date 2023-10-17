@@ -19,7 +19,7 @@
     
     
       
-        <title>GitHub Workflows - Manual da Engenharia para Codar</title>
+        <title>Fluxos de Trabalho no GitHub - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#github-workflows" class="md-skip">
+        <a href="#fluxos-de-trabalho-no-github" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              GitHub Workflows
+              Fluxos de Trabalho no GitHub
             
           </span>
         </div>
@@ -3019,12 +3019,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          GitHub Workflows
+          Fluxos de Trabalho no GitHub
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        GitHub Workflows
+        Fluxos de Trabalho no GitHub
       </a>
       
         
@@ -3043,15 +3043,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#workflow-per-environment" class="md-nav__link">
-    Workflow Per Environment
+  <a href="#fluxo-de-trabalho-por-ambiente" class="md-nav__link">
+    Fluxo de Trabalho por Ambiente
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
+  <a href="#referencias" class="md-nav__link">
+    Referências
   </a>
   
 </li>
@@ -7188,15 +7188,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#workflow-per-environment" class="md-nav__link">
-    Workflow Per Environment
+  <a href="#fluxo-de-trabalho-por-ambiente" class="md-nav__link">
+    Fluxo de Trabalho por Ambiente
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
+  <a href="#referencias" class="md-nav__link">
+    Referências
   </a>
   
 </li>
@@ -7215,19 +7215,19 @@
                 
 
 
-<h1 id="github-workflows">GitHub Workflows</h1>
-<p>A workflow is a configurable automated process made up of one or more jobs where each of these jobs can be an action in GitHub. Currently, a YAML file format is supported for defining a workflow in GitHub.</p>
-<p>Additional information on GitHub actions and GitHub Workflows in the links posted in the <a href="#references">references</a> section below.</p>
-<h2 id="workflow-per-environment">Workflow Per Environment</h2>
-<p>The general approach is to have one pipeline, where the code is built, tested and deployed, and the artifact is then promoted to the next environment, eventually to be deployed into production.</p>
-<p>There are multiple ways in GitHub that an environment setup can be achieved. One way it can be done is to have one workflow for multiple environments, but the complexity increases as additional processes and jobs are added to a workflow, which does not mean it cannot be done for small pipelines. The plus point of having one workflow is that, when an artifact flows from one environment to another the state and environment values between the deployment environments can be passed easily.</p>
+<h1 id="fluxos-de-trabalho-no-github">Fluxos de Trabalho no GitHub</h1>
+<p>Um fluxo de trabalho é um processo automatizado configurável composto por um ou mais trabalhos, onde cada um desses trabalhos pode ser uma ação no GitHub. Atualmente, é suportado um formato de arquivo YAML para definir um fluxo de trabalho no GitHub.</p>
+<p>Informações adicionais sobre ações do GitHub e Fluxos de Trabalho no GitHub estão nos links postados na seção de <a href="#references">referências</a> abaixo.</p>
+<h2 id="fluxo-de-trabalho-por-ambiente">Fluxo de Trabalho por Ambiente</h2>
+<p>A abordagem geral é ter um pipeline, onde o código é construído, testado e implantado, e o artefato é então promovido para o próximo ambiente, eventualmente sendo implantado na produção.</p>
+<p>Existem várias maneiras no GitHub de configurar um ambiente. Uma maneira de fazer isso é ter um fluxo de trabalho para vários ambientes, mas a complexidade aumenta à medida que processos e trabalhos adicionais são adicionados a um fluxo de trabalho, o que não significa que não pode ser feito para pipelines pequenos. O ponto positivo de ter um único fluxo de trabalho é que, quando um artefato flui de um ambiente para outro, os valores de estado e ambiente entre os ambientes de implantação podem ser facilmente passados.</p>
 <p><img alt="Workflow-Designs-Dependent-Workflows" src="../images/Workflow-Designs-Dependent-Workflows.png" /></p>
-<p>One way to get around the complexity of a single workflow is to have separate workflows for different environments, making sure that only the artifacts created and validated are promoted from one environment to another, as well as, the workflow is small enough, to debug any issues seen in any of the workflows. In this case, the state and environment values need to be passed from one deployment environment to another. Multiple workflows also helps to keep the deployments to the environments independent thus reducing the time to deploy and find issues earlier than later in the process. Also, since the environments are independent of each other, any failures in deploying to one environment does not block deployments to other environments. One tradeoff in this method, is that with different workflows for each environment, the maintenance increases as the complexity of workflows increase over time.</p>
+<p>Uma maneira de contornar a complexidade de um único fluxo de trabalho é ter fluxos de trabalho separados para diferentes ambientes, garantindo que apenas os artefatos criados e validados sejam promovidos de um ambiente para outro, bem como que o fluxo de trabalho seja pequeno o suficiente para depurar problemas em qualquer um dos fluxos de trabalho. Nesse caso, os valores de estado e ambiente precisam ser passados de um ambiente de implantação para outro. Múltiplos fluxos de trabalho também ajudam a manter as implantações nos ambientes independentes, reduzindo assim o tempo para implantar e encontrar problemas mais cedo do que tarde no processo. Além disso, como os ambientes são independentes entre si, qualquer falha na implantação em um ambiente não bloqueia as implantações em outros ambientes. Um trade-off neste método é que, com diferentes fluxos de trabalho para cada ambiente, a manutenção aumenta à medida que a complexidade dos fluxos de trabalho aumenta ao longo do tempo.</p>
 <p><img alt="Workflow-Designs-Independent-Workflows" src="../images/Workflow-Designs-Independent-Workflows.png" /></p>
-<h2 id="references">References</h2>
+<h2 id="referencias">Referências</h2>
 <ul>
-<li><a href="https://docs.github.com/en/actions">GitHub Actions</a></li>
-<li><a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions">GitHub Workflows</a></li>
+<li><a href="https://docs.github.com/en/actions">Ações do GitHub</a></li>
+<li><a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions">Fluxos de Trabalho do GitHub</a></li>
 </ul>
 
   <hr>
@@ -7235,7 +7235,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 17, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
       
     
   </small>

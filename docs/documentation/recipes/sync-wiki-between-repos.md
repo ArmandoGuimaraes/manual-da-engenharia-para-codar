@@ -1,66 +1,67 @@
-# How to Sync a Wiki between Repositories
+# Como Sincronizar uma Wiki entre Repositórios
 
-This is a quick guide to mirroring a Project Wiki to another repository.
+Este é um guia rápido para espelhar uma Wiki de Projeto em outro repositório.
 
 ```bash
-# Clone the wiki
-git clone <source wiki repo url>
+# Clonar a wiki
+git clone <URL do repositório da wiki de origem>
 
-# Add mirror repository as a remote
-cd <source wiki repo working folder>
-git remote add mirror <mirror repo that must already exist>
+# Adicionar o repositório espelhado como um controle remoto
+cd <pasta de trabalho do repositório da wiki de origem>
+git remote add espelho <URL do repositório espelhado que deve existir previamente>
 ```
 
-Now each time you wish to sync run the following to get latest from the source wiki repo:
+Agora, cada vez que você desejar sincronizar, execute o seguinte para obter as últimas atualizações do repositório da wiki de origem:
 
 ```bash
-# Get everything
+# Obter tudo
 git pull -v
 ```
 
-> **Warning**: Check that the output of the pull shows "From source repo URL". If this shows the mirror repo url then you've forgotten to reset the tracking. Run `git branch -u origin/wikiMaster` then continue.
+> **Aviso**: Verifique se a saída do comando pull mostra "From URL do repositório de origem". Se isso mostrar a URL do repositório espelhado, você esqueceu de redefinir o rastreamento. Execute `git branch -u origin/wikiMaster` e depois continue.
 
-Then run this to push it to the mirror repo and reset the branch to track the source repo again:
+Em seguida, execute o seguinte para enviá-lo para o repositório espelhado e redefinir o branch para rastrear o repositório de origem novamente:
 
 ```bash
-# Push all branches up to mirror remote
-git push -u mirror
+# Enviar todos os branches para o controle remoto espelhado
+git push -u espelho
 
-# Reset local to track source remote
+# Ressincronizar localmente com o repositório de origem
 git branch -u origin/wikiMaster
 
 ```
 
-Your output should look like this when run:
+A saída deve ser semelhante a esta quando executada:
 
 ```powershell
-PS C:\Git\MyProject.wiki> git pull -v
+PS C:\Git\MinhaWikiProjeto> git pull -v
 POST git-upload-pack (909 bytes)
-remote: Azure Repos
-remote: Found 5 objects to send. (0 ms)
-Unpacking objects: 100% (5/5), done.
-From https://.....  wikiMaster -> origin/wikiMaster
-Updating 7412b94..a0f543b
-Fast-forward
+remote: Repositórios Azure
+remote: Encontrados 5 objetos para enviar. (0 ms)
+Descompactando objetos: 100% (5/5), concluído.
+De https://.....  wikiMaster -> origin/wikiMaster
+Atualizando 7412b94..a0f543b
+Encaminhamento rápido
  .../dffffds.md | 4 ++++
- 1 file changed, 4 insertions(+)
+ 1 arquivo alterado, 4 inserções(+)
 
 
-PS C:\Git\MyProject.wiki> git push -u mirror
-Enumerating objects: 9, done.
-Counting objects: 100% (9/9), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (5/5), done.
-Writing objects: 100% (5/5), 2.08 KiB | 2.08 MiB/s, done.
-Total 5 (delta 4), reused 0 (delta 0)
-remote: Analyzing objects... (5/5) (6 ms)
-remote: Storing packfile... done (48 ms)
-remote: Storing index... done (59 ms)
-To https://......
+PS C:\Git\MinhaWikiProjeto> git push -u espelho
+Enumerando objetos: 9, concluído.
+Contando objetos: 100% (9/9), concluído.
+Compactação de objetos usando até 8 threads
+Compactação de objetos: 100% (5/5), concluído.
+Gravando objetos: 100% (5/5), 2.08 KiB | 2.08 MiB/s, concluído.
+Total 5 (delta 4), reutilizados 0 (delta 0)
+remote: Analisando objetos... (5/5) (6 ms)
+remote: Armazenando packfile... concluído (48 ms)
+remote: Armazenando índice... concluído (59 ms)
+Para https://......
    7412b94..a0f543b  wikiMaster -> wikiMaster
-Branch 'wikiMaster' set up to track remote branch 'wikiMaster' from 'mirror'.
+Branch 'wikiMaster' configurado para rastrear o branch remoto 'wikiMaster' do 'espelho'.
 
 
-PS C:\Git\MyProject.wiki> git branch -u origin/wikiMaster
-Branch 'wikiMaster' set up to track remote branch 'wikiMaster' from 'origin'.
+PS C:\Git\MinhaWikiProjeto> git branch -u origin/wikiMaster
+Branch 'wikiMaster' configurado para rastrear o branch remoto 'wikiMaster' do 'origin'.
 ```
+

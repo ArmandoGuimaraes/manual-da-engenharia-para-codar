@@ -1,41 +1,41 @@
-# Machine Learning Fundamentals at ISE
+# Fundamentos de Aprendizado de Máquina na ISE
 
-This guideline documents the Machine Learning (ML) practices in ISE. ISE works with customers on developing ML models and putting them in production, with an emphasis on engineering and research best practices throughout the project's life cycle.
+Este guia documenta as práticas de Aprendizado de Máquina (ML) na ISE. A ISE trabalha com clientes no desenvolvimento de modelos de ML e na colocação deles em produção, com ênfase em boas práticas de engenharia e pesquisa ao longo do ciclo de vida do projeto.
 
-## Goals
+## Objetivos
 
-* Provide a set of ML practices to follow in an ML project.
-* Provide clarity on ML process and how it fits within a software engineering project.
-* Provide best practices for the different stages of an ML project.
+* Fornecer um conjunto de práticas de ML a serem seguidas em um projeto de ML.
+* Fornecer clareza sobre o processo de ML e como ele se encaixa em um projeto de engenharia de software.
+* Fornecer as melhores práticas para as diferentes etapas de um projeto de ML.
 
-## How to use these fundamentals
+## Como usar esses fundamentos
 
-* If you are starting a new ML project, consider reading through the [general guidance documents](#general-guidance).
-* For specific aspects of an ML project, refer to the guidelines for different [project phases](#ml-project-phases).
+* Se você está iniciando um novo projeto de ML, considere ler os [documentos de orientação geral](#orientacao-geral).
+* Para aspectos específicos de um projeto de ML, consulte as diretrizes para as diferentes [fases do projeto de ML](#fases-do-projeto-de-ml).
 
-## ML Project phases
+## Fases do Projeto de ML
 
-The diagram below shows different phases in an ideal ML project. Due to practical constraints and requirements, it might not always be possible to have a project structured in such a manner, however best practices should be followed for each individual phase.
+O diagrama abaixo mostra diferentes fases em um projeto de ML ideal. Devido a restrições práticas e requisitos, nem sempre é possível ter um projeto estruturado dessa maneira, no entanto, as melhores práticas devem ser seguidas para cada fase individual.
 
-![Project flow](images/flow.png)
+![Fluxo do Projeto](images/fluxo.png)
 
-* **[Envisioning](ml-problem-formulation-envisioning.md)**: Initial problem understanding, customer goals and objectives.
-* **[Feasibility Study](ml-feasibility-study.md)**: Assess whether the problem in question is feasible to solve satisfactorily using ML with the available data.
-* **Model Milestone**: There is a basic model that is achieving the minimum required performance, both in terms of ML performance and system performance. Using the knowledge gathered to this milestone, define the scope, objectives, high-level architecture, definition of done and plan for the entire project.
-* **[Model(s) experimentation](ml-experimentation.md)**: Tools and best practices for conducting successful model experimentation.
-* **Model(s) Operationalization**: [Model readiness for production](ml-model-checklist.md) checklist.
+* **[Concepção](ml-formulacao-problema-concepcao.md)**: Compreensão inicial do problema, metas e objetivos do cliente.
+* **[Estudo de Viabilidade](ml-estudo-viabilidade.md)**: Avaliar se o problema em questão é viável de ser resolvido satisfatoriamente usando ML com os dados disponíveis.
+* **Marco do Modelo**: Há um modelo básico que está alcançando o desempenho mínimo requerido, tanto em termos de desempenho de ML quanto de desempenho do sistema. Usando o conhecimento adquirido até este marco, defina o escopo, objetivos, arquitetura de alto nível, definição de pronto e plano para todo o projeto.
+* **[Experimentação de Modelo(s)](ml-experimentacao.md)**: Ferramentas e melhores práticas para conduzir experimentos de modelo bem-sucedidos.
+* **Operacionalização de Modelo(s)**: Lista de verificação de [preparação do modelo para produção](ml-checklist-modelo.md).
 
-## General guidance
+## Orientação Geral
 
-* [ML Process Guidance](ml-proposed-process.md)
-* [ML Fundamentals checklist](ml-fundamentals-checklist.md)
-* [Data Exploration](ml-data-exploration.md)
-* [Agile ML development](ml-project-management.md)
-* [Testing Data Science and ML Ops code](ml-testing.md)
-* [Profiling Machine Learning and ML Ops code](ml-profiling.md)
-* [Responsible AI](responsible-ai.md)
-* [Program Management for ML projects](ml-tpm-guidance.md)
+* [Orientação do Processo de ML](ml-processo-proposto.md)
+* [Lista de Verificação de Fundamentos de ML](ml-lista-verificacao-fundamentos.md)
+* [Exploração de Dados](ml-exploracao-dados.md)
+* [Desenvolvimento Ágil de ML](ml-gerenciamento-projeto.md)
+* [Teste de Código de Ciência de Dados e ML Ops](ml-teste.md)
+* [Perfil de Código de Aprendizado de Máquina e ML Ops](ml-perfil-codigo.md)
+* [IA Responsável](ia-responsavel.md)
+* [Gerenciamento de Programa para Projetos de ML](ml-orientacao-tpm.md)
 
-## References
+## Referências
 
-* [Model Operationalization](https://github.com/Microsoft/MLOps)
+* [Operacionalização de Modelo](https://github.com/Microsoft/MLOps)

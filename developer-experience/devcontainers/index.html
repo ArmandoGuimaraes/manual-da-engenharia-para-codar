@@ -19,7 +19,7 @@
     
     
       
-        <title>Dev Containers: Getting Started - Manual da Engenharia para Codar</title>
+        <title>Dev Containers: Iniciando - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dev-containers-getting-started" class="md-skip">
+        <a href="#dev-containers-iniciando" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Dev Containers: Getting Started
+              Dev Containers: Iniciando
             
           </span>
         </div>
@@ -5119,12 +5119,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Dev Containers: Getting Started
+          Dev Containers: Iniciando
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Dev Containers: Getting Started
+        Dev Containers: Iniciando
       </a>
       
         
@@ -5143,36 +5143,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
+  <a href="#pre-requisitos" class="md-nav__link">
+    Pré-requisitos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-are-dev-containers" class="md-nav__link">
-    What are dev containers?
+  <a href="#o-que-sao-dev-containers" class="md-nav__link">
+    O que são dev containers?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-can-dev-containers-improve-project-collaboration" class="md-nav__link">
-    How can dev containers improve project collaboration?
+  <a href="#como-os-dev-containers-podem-melhorar-a-colaboracao-em-projetos" class="md-nav__link">
+    Como os dev containers podem melhorar a colaboração em projetos?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-do-i-decide-which-dev-container-is-right-for-my-use-case" class="md-nav__link">
-    How do I decide which dev container is right for my use case?
+  <a href="#como-decidir-qual-dev-container-e-o-certo-para-o-meu-caso-de-uso" class="md-nav__link">
+    Como decidir qual dev container é o certo para o meu caso de uso?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#going-further" class="md-nav__link">
-    Going further
+  <a href="#indo-mais-fundo" class="md-nav__link">
+    Indo mais fundo
   </a>
   
 </li>
@@ -7205,36 +7205,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
+  <a href="#pre-requisitos" class="md-nav__link">
+    Pré-requisitos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-are-dev-containers" class="md-nav__link">
-    What are dev containers?
+  <a href="#o-que-sao-dev-containers" class="md-nav__link">
+    O que são dev containers?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-can-dev-containers-improve-project-collaboration" class="md-nav__link">
-    How can dev containers improve project collaboration?
+  <a href="#como-os-dev-containers-podem-melhorar-a-colaboracao-em-projetos" class="md-nav__link">
+    Como os dev containers podem melhorar a colaboração em projetos?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-do-i-decide-which-dev-container-is-right-for-my-use-case" class="md-nav__link">
-    How do I decide which dev container is right for my use case?
+  <a href="#como-decidir-qual-dev-container-e-o-certo-para-o-meu-caso-de-uso" class="md-nav__link">
+    Como decidir qual dev container é o certo para o meu caso de uso?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#going-further" class="md-nav__link">
-    Going further
+  <a href="#indo-mais-fundo" class="md-nav__link">
+    Indo mais fundo
   </a>
   
 </li>
@@ -7253,31 +7253,31 @@
                 
 
 
-<h1 id="dev-containers-getting-started">Dev Containers: Getting Started</h1>
-<p>If you are a developer and have experience with Visual Studio Code (VS Code) or Docker, then it's probably time you look at <a href="https://code.visualstudio.com/docs/remote/containers">development containers</a> (dev containers). This readme is intended to assist developers in the decision-making process needed to build dev containers. The guidance provided should be especially helpful if you are experiencing VS Code dev containers for the first time.</p>
+<h1 id="dev-containers-iniciando">Dev Containers: Iniciando</h1>
+<p>Se você é um desenvolvedor com experiência no Visual Studio Code (VS Code) ou Docker, provavelmente é hora de dar uma olhada nos <a href="https://code.visualstudio.com/docs/remote/containers">containers de desenvolvimento</a> (dev containers). Este guia destina-se a ajudar os desenvolvedores no processo de tomada de decisão necessário para criar dev containers. A orientação fornecida deve ser especialmente útil se você estiver experimentando os dev containers do VS Code pela primeira vez.</p>
 <blockquote>
-<p><strong>Note:</strong> This guide is not about setting up a Docker file for deploying a running Python program for CI/CD.</p>
+<p><strong>Observação:</strong> Este guia não trata da configuração de um arquivo Docker para implantar um programa Python em execução para CI/CD.</p>
 </blockquote>
-<h2 id="prerequisites">Prerequisites</h2>
+<h2 id="pre-requisitos">Pré-requisitos</h2>
 <ul>
-<li>Experience with VS Code</li>
-<li>Experience with Docker</li>
+<li>Experiência com o VS Code</li>
+<li>Experiência com o Docker</li>
 </ul>
-<h2 id="what-are-dev-containers">What are dev containers?</h2>
-<p>Development containers are a VS Code feature that allows developers to package a local development tool stack into the internals of a Docker container while also bringing the VS Code UI experience with them. Have you ever set a breakpoint inside a Docker container? Maybe not. Dev containers make that possible. This is all made possible through a VS Code extension called the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack">Remote Development Extension Pack</a> that works together with Docker to spin-up a VS Code Server within a Docker container. The VS Code UI component remains local, but your working files are volume mounted into the container. The diagram below, taken directly from the <a href="https://code.visualstudio.com/docs/remote/containers">official VS Code docs</a>, illustrates this:</p>
-<p><img alt="image" src="https://user-images.githubusercontent.com/10041279/93239062-e1b9a480-f747-11ea-94fb-3d50b14fd9b1.png" /></p>
-<p>If the above diagram is not clear, a basic analogy that might help you intuitively understand dev containers is to think of them as a union between Docker's interactive mode (<code>docker exec -it 987654e0ff32</code>), and the VS Code UI experience that you are used to.</p>
-<p>To set yourself up for the dev container experience described above, use your VS Code's Extension Marketplace to install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack">Remote Development Extension Pack</a>.</p>
-<h2 id="how-can-dev-containers-improve-project-collaboration">How can dev containers improve project collaboration?</h2>
-<p>VS Code dev containers have improved project collaboration between developers on recent team projects by addressing two very specific problems:</p>
+<h2 id="o-que-sao-dev-containers">O que são dev containers?</h2>
+<p>Os containers de desenvolvimento são um recurso do VS Code que permite aos desenvolvedores empacotar uma pilha de ferramentas de desenvolvimento local dentro de um contêiner Docker, ao mesmo tempo em que trazem a experiência da interface de usuário do VS Code com eles. Você já configurou um ponto de interrupção dentro de um contêiner Docker? Talvez não. Os dev containers tornam isso possível. Isso é feito por meio de uma extensão do VS Code chamada <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack">Remote Development Extension Pack</a> que trabalha em conjunto com o Docker para iniciar um servidor do VS Code dentro de um contêiner Docker. O componente de interface de usuário do VS Code permanece local, mas seus arquivos de trabalho são montados no contêiner. O diagrama abaixo, retirado diretamente da <a href="https://code.visualstudio.com/docs/remote/containers">documentação oficial do VS Code</a>, ilustra isso:</p>
+<p><img alt="imagem" src="https://user-images.githubusercontent.com/10041279/93239062-e1b9a480-f747-11ea-94fb-3d50b14fd9b1.png" /></p>
+<p>Se o diagrama acima não estiver claro, uma analogia básica que pode ajudá-lo a entender intuitivamente os dev containers é pensar neles como uma união entre o modo interativo do Docker (<code>docker exec -it 987654e0ff32</code>) e a experiência da interface de usuário do VS Code com a qual você está acostumado.</p>
+<p>Para se configurar para a experiência do dev container descrita acima, use o Mercado de Extensões do VS Code para instalar o <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack">Remote Development Extension Pack</a>.</p>
+<h2 id="como-os-dev-containers-podem-melhorar-a-colaboracao-em-projetos">Como os dev containers podem melhorar a colaboração em projetos?</h2>
+<p>Os dev containers do VS Code melhoraram a colaboração em projetos recentes da equipe, abordando dois problemas muito específicos:</p>
 <ul>
-<li>Inconsistent local developer experiences within a team.</li>
-<li>Slow onboarding of developers joining a project.</li>
+<li>Experiências locais de desenvolvimento inconsistentes dentro de uma equipe.</li>
+<li>Onboarding lento de desenvolvedores que estão ingressando em um projeto.</li>
 </ul>
-<p>The problems listed above were addressed by configuring and then sharing a dev container definition. Dev containers are defined by their base image, and the artifacts that support that base image. The base image and the artifacts that come with it live in the .devcontainer directory. This directory is where configuration begins. A central artifact to the dev container definition is a configuration file called <code>devcontainer.json</code>. This file orchestrates the artifacts needed to support the base image and the dev container lifecycle. Installation of the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack">Remote Development Extension Pack</a> is required to enable this orchestration within a project repo.</p>
-<p>All developers on the team are expected to share and use the dev container definition (.devcontainer directory) in order to spin-up a container. This definition provides consistent tooling for locally developing an application across a team.</p>
-<p>The code snippets below demonstrate the common location of a .devcontainer directory and devcontainer.json file within a project repository. They also highlight the correct way to reference a Docker file.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>tree<span class="w"> </span>vs-code-remote-try-python<span class="w">  </span><span class="c1"># main repo directory</span>
+<p>Os problemas listados acima foram resolvidos configurando e compartilhando uma definição de dev container. Os dev containers são definidos por sua imagem base e os artefatos que suportam essa imagem base. A imagem base e os artefatos que a acompanham ficam no diretório .devcontainer. Este diretório é onde a configuração começa. Um artefato central para a definição do dev container é um arquivo de configuração chamado <code>devcontainer.json</code>. Este arquivo orquestra os artefatos necessários para dar suporte à imagem base do dev container e ao ciclo de vida do dev container. A instalação do <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack">Remote Development Extension Pack</a> é necessária para habilitar essa orquestração dentro de um repositório de projeto.</p>
+<p>Espera-se que todos os desenvolvedores da equipe compartilhem e usem a definição de dev container (.diretório .devcontainer) para criar um contêiner. Essa definição fornece ferramentas consistentes para desenvolver localmente uma aplicação em toda a equipe.</p>
+<p>Os trechos de código abaixo demonstram a localização comum de um diretório .devcontainer e do arquivo devcontainer.json dentro de um repositório de projeto. Eles também destacam a maneira correta de fazer referência a um arquivo Docker.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>tree<span class="w"> </span>vs-code-remote-try-python<span class="w">  </span><span class="c1"># diretório principal do repositório</span>
 └───.devcontainers
 <span class="w">        </span>├───Dockerfile
 <span class="w">        </span>├───devcontainer.json
@@ -7288,15 +7288,15 @@
 <span class="w">    </span><span class="nt">&quot;build&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;dockerfile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Dockerfile&quot;</span><span class="p">,</span>
 <span class="w">        </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;..&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="c1">// Update &#39;VARIANT&#39; to pick a Python version: 3, 3.6, 3.7, 3.8</span>
+<span class="w">        </span><span class="c1">// Atualize &#39;VARIANT&#39; para escolher uma versão do Python: 3, 3.6, 3.7, 3.8</span>
 <span class="w">        </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;VARIANT&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3.8&quot;</span><span class="p">}</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>For a list of devcontainer.json configuration properties, visit VS Code documentation on <a href="https://code.visualstudio.com/docs/remote/devcontainerjson-reference">dev container properties</a>.</p>
-<h2 id="how-do-i-decide-which-dev-container-is-right-for-my-use-case">How do I decide which dev container is right for my use case?</h2>
-<p>Fortunately, VS Code has a repo gallery of platform specific folders that host dev container definitions (.devcontainer directories) to make getting started with dev containers easier. The code snippet below shows a list of gallery folders that come directly from the <a href="https://github.com/microsoft/vscode-dev-containers/tree/master/containers">VS Code dev container gallery repo</a>:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>tree<span class="w"> </span>vs-code-dev-containers<span class="w">  </span><span class="c1"># main repo directory</span>
+<p>Para obter uma lista das propriedades de configuração do devcontainer.json, visite a documentação do VS Code sobre <a href="https://code.visualstudio.com/docs/remote/devcontainerjson-reference">propriedades de contêineres de desenvolvimento</a>.</p>
+<h2 id="como-decidir-qual-dev-container-e-o-certo-para-o-meu-caso-de-uso">Como decidir qual dev container é o certo para o meu caso de uso?</h2>
+<p>Felizmente, o VS Code possui uma galeria de pastas específicas da plataforma que hospedam definições de dev container (.diretórios .devcontainer) para facilitar o início com dev containers. O trecho de código abaixo mostra uma lista de pastas de galeria que vêm diretamente do <a href="https://github.com/microsoft/vscode-dev-containers/tree/master/containers">repositório de galeria de dev containers do VS Code</a>:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>tree<span class="w"> </span>vs-code-dev-containers<span class="w">  </span><span class="c1"># diretório principal do repositório</span>
 └───containers
 <span class="w">        </span>├───dotnetcore
 <span class="w">        </span><span class="p">|</span><span class="w">   </span>└───.devcontainers<span class="w"> </span><span class="c1"># dev container</span>
@@ -7306,22 +7306,23 @@
 <span class="w">        </span><span class="p">|</span><span class="w">   </span>└───.devcontainers<span class="w"> </span><span class="c1"># dev container</span>
 <span class="w">        </span>└───....
 </code></pre></div>
-<p>Here are the final high-level steps it takes to build a dev container:</p>
+<p>Aqui estão as etapas gerais finais para criar um dev container:</p>
 <ol>
-<li>Decide which platform you'd like to build a local development tool stack around.</li>
-<li>Browse the VS Code provided dev container gallery of project folders that target your platform and choose the most appropriate one.</li>
-<li>Inspect the dev container definitions (.devcontainer directory) of a project for the base image, and the artifacts that support that base image.</li>
-<li>Use what you've discovered to begin setting up the dev container as it is, extending it or building your own from scratch.</li>
+<li>Decida qual plataforma você deseja usar para criar uma pilha de ferramentas de desenvolvimento local.</li>
+<li>Navegue pela galeria de dev containers fornecida pelo VS Code de pastas de projetos que visam sua plataforma e escolha a mais apropriada.</li>
+<li>Inspecione as definições de dev container (.diretório .devcontainer) de um projeto quanto à imagem base e aos artefatos que a suportam.</li>
+<li>Use o que você descobriu para começar a configurar o dev container como ele é, estendê-lo ou construir o seu próprio do zero.</li>
 </ol>
-<h2 id="going-further">Going further</h2>
-<p>There are use cases where you would want to go further in configuring your Dev Container. <a href="../going-further/">More details here</a></p>
+<h2 id="indo-mais-fundo">Indo mais fundo</h2>
+<p>Existem</p>
+<p>casos de uso em que você gostaria de ir mais fundo na configuração do seu Dev Container. <a href="../going-further/">Mais detalhes aqui</a></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 17, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
       
     
   </small>

@@ -1,22 +1,22 @@
-# Testing Data Science and MLOps Code
+# Testando Código de Data Science e MLOps
 
-The purpose of this document is to provide samples of tests for the most common operations in MLOps/Data Science projects. Testing the code used for MLOps or data science projects follows the same principles of any other software project.
+O objetivo deste documento é fornecer exemplos de testes para as operações mais comuns em projetos de MLOps/Data Science. Testar o código usado em projetos de MLOps ou ciência de dados segue os mesmos princípios de qualquer outro projeto de software.
 
-Some scenarios might seem different or more difficult to test. The best way to approach this is to always have a test design session, where the focus is on the input/outputs, exceptions and testing the behavior of data transformations. Designing the tests first makes it easier to test as it forces a more modular style, where each function has one purpose, and extracting common functionality functions and modules.
+Alguns cenários podem parecer diferentes ou mais difíceis de testar. A melhor maneira de abordar isso é sempre ter uma sessão de design de testes, onde o foco está nas entradas/saídas, exceções e na verificação do comportamento das transformações de dados. Projetar os testes primeiro facilita o teste, pois força um estilo mais modular, onde cada função tem um propósito, e a extração de funcionalidades comuns para funções e módulos.
 
-Below are some common operations in MLOps or Data Science projects, along with suggestions on how to test them.
+A seguir, estão algumas operações comuns em projetos de MLOps ou Data Science, juntamente com sugestões sobre como testá-las.
 
-* [Saving and loading data](#saving-and-loading-data)
-* [Transforming data](#transforming-data)
-* [Model load or predict](#model-load-or-predict)
-* [Data validation](#data-validation)
-* [Model testing](#model-testing)
+* [Salvando e carregando dados](#salvando-e-carregando-dados)
+* [Transformação de dados](#transformação-de-dados)
+* [Carregamento ou previsão de modelo](#carregamento-ou-previsão-de-modelo)
+* [Validação de dados](#validação-de-dados)
+* [Teste de modelo](#teste-de-modelo)
 
-## Saving and loading data
+## Salvando e carregando dados
 
-Reading and writing to csv, reading images or loading audio files are common scenarios encountered in MLOps projects.
+Ler e escrever em arquivos CSV, ler imagens ou carregar arquivos de áudio são cenários comuns encontrados em projetos de MLOps.
 
-### Example: Verify that a load function calls read_csv if the file exists
+### Exemplo: Verificar se uma função de carregamento chama read_csv se o arquivo existir
 
 `utils.py`
 
@@ -28,69 +28,68 @@ def load_data(filename: str) -> pd.DataFrame:
     return None
 ```
 
-There's no need to test the `read_csv` function, or the `isfile` functions, we can leave testing them to the **pandas** and **os** developers.
+Não há necessidade de testar a função `read_csv` ou as funções `isfile`, podemos deixar os testes para os desenvolvedores do **pandas** e **os**.
 
-The only thing we need to test here is the logic in this function, i.e. that `load_data` loads the file if the file exists with the right index column, and doesn't load the file if it doesn't exist, and that it returns the expected results.
+A única coisa que precisamos testar aqui é a lógica nesta função, ou seja, que `load_data` carrega o arquivo se o arquivo existir com a coluna de índice correta e não carrega o arquivo se ele não existir, e que ela retorna os resultados esperados.
 
-One way to do this would be to provide a sample file and call the function, and verify that the output is **None** or a **DataFrame**. This requires separate files to be present, or not present, for the tests to run. This can cause the same test to run on one machine and then fail on a build server which is not a desired behavior.
+Uma maneira de fazer isso seria fornecer um arquivo de amostra, chamar a função e verificar se a saída é **None** ou um **DataFrame**. Isso requer que arquivos separados estejam presentes ou ausentes para que os testes sejam executados. Isso pode fazer com que o mesmo teste seja executado em uma máquina e depois falhe em um servidor de compilação, o que não é um comportamento desejado.
 
-A much better way is to **mock** calls to `isfile`, and `read_csv`. Instead of calling the real function, we will return a predefined return value, or call a stub that doesn't have any side effects. This way no files are needed in the repository to execute the test, and the test will always work the same, independent of what machine it runs on.
+Uma maneira muito melhor é **mockear** as chamadas para `isfile` e `read_csv`. Em vez de chamar a função real, retornaremos um valor de retorno predefinido ou chamaremos um stub que não tenha efeitos colaterais. Dessa forma, nenhum arquivo é necessário no repositório para executar o teste, e o teste sempre funcionará da mesma maneira, independente da máquina em que for executado.
 
-> Note: Below we mock the specific os and pd functions referenced in the utils file, any others are left unaffected and would run as normal.
+> Observação: Abaixo, estamos fazendo mocks das funções específicas do `os` e do `pd` referenciadas no arquivo `utils`. As outras funções são deixadas inalteradas e funcionarão normalmente.
 
 `test_utils.py`
 
 ```python
 import utils
-from mock import patch
+from unittest.mock import patch
 
 
 @patch('utils.os.path.isfile')
 @patch('utils.pd.read_csv')
-def test_load_data_calls_read_csv_if_exists(mock_isfile, mock_read_csv):
-    # arrange
-    # always return true for isfile
+def test_load_data_chama_read_csv_se_existir(mock_isfile, mock_read_csv):
+    # organizar
+    # sempre retorne True para isfile
     utils.os.path.isfile.return_value = True
-    filename = 'file.csv'
+    filename = 'arquivo.csv'
 
-    # act
+    # agir
     _ = utils.load_data(filename)
 
-    # assert
-    # check that read_csv is called with the correct parameters
+    # afirmar
+    # verifique se read_csv é chamado com os parâmetros corretos
     utils.pd.read_csv.assert_called_once_with(filename, index_col='ID')
 ```
 
-Similarly, we can verify that it's called 0 or multiple times. In the example below where we verify that it's not called if the file doesn't exist
+Da mesma forma, podemos verificar se a função é chamada 0 ou várias vezes. No exemplo abaixo, verificamos que ela não é chamada se o arquivo não existe:
 
 ```python
 @patch('utils.os.path.isfile')
 @patch('utils.pd.read_csv')
-def test_load_data_does_not_call_read_csv_if_not_exists(mock_isfile, mock_read_csv):
-    # arrange
-    # file doesn't exist
+def test_load_data_nao_chama_read_csv_se_nao_existir(mock_isfile, mock_read_csv):
+    # organizar
+    # o arquivo não existe
     utils.os.path.isfile.return_value = False
-    filename = 'file.csv'
+    filename = 'arquivo.csv'
 
-    # act
+    # agir
     _ = utils.load_data(filename)
 
-    # assert
-    # check that read_csv is not called
+    # afirmar
+    # verifique se read_csv não é chamado
     assert utils.pd.read_csv.call_count == 0
 ```
 
-### Example: Using the same sample data for multiple tests
+### Exemplo: Usando os mesmos dados de amostra para vários testes
 
-If more than one test will use the same sample data, fixtures are a good way to reuse this sample data. The sample data can be the contents of a json file, or a csv, or a DataFrame, or even an image.
+Se mais de um teste utilizar os mesmos dados de amostra, fixtures são uma boa maneira de reutilizar esses dados de amostra. Os dados de amostra podem ser o conteúdo de um arquivo JSON, um CSV, um DataFrame ou até mesmo uma imagem.
 
-> Note: The sample data is still hard coded if possible, and does not need to be large. Only add as much sample data as required for the tests to make the tests readable.
+> Observação: Os dados de amostra ainda são codificados, se possível, e não precisam ser grandes. Adicione apenas a quantidade necessária de dados de amostra para que os testes sejam legíveis.
 
-Use the fixture to return the sample data, and add this as a parameter to the tests where you want to use the sample data.
+Use o fixture para retornar os dados de amostra e adicione isso como um parâmetro nos testes em que deseja usar os dados de amostra.
 
 ```python
 import pytest
-
 
 @pytest.fixture
 def house_features_json():
@@ -105,109 +104,111 @@ def test_extract_features_extracts_price_per_area(house_features_json):
   assert extracted_features['price_per_area'] == 100
 ```
 
-## Transforming data
+Neste exemplo, o fixture `house_features_json` fornece os dados de amostra em formato JSON que são usados em dois testes diferentes. Isso ajuda a reutilizar os dados de amostra de maneira eficaz.
 
-For cleaning and transforming data, test fixed input and output, but try to limit each test to one verification.
+## Transformando dados
 
-For example, create one test to verify the output shape of the data.
+Para limpar e transformar dados, teste entradas e saídas fixas, mas tente limitar cada teste a uma verificação.
+
+Por exemplo, crie um teste para verificar o formato de saída dos dados.
 
 ```python
-def test_resize_image_generates_the_correct_size():
-  # Arrange
-  original_image = np.ones((10, 5, 2, 3))
+def test_resize_image_gera_o_tamanho_correto():
+  # Organizar
+  imagem_original = np.ones((10, 5, 2, 3))
 
-  # act
-  resized_image = utils.resize_image(original_image, 100, 100)
+  # Agir
+  imagem_redimensionada = utils.redimensionar_imagem(imagem_original, 100, 100)
 
-  # assert
-  resized_image.shape[:2] = (100, 100)
+  # Afirmar
+  assert imagem_redimensionada.shape[:2] == (100, 100)
 ```
 
-and one to verify that any padding is made appropriately
+e um para verificar se qualquer preenchimento é feito adequadamente
 
 ```python
-def test_resize_image_pads_correctly():
-  # Arrange
-  original_image = np.ones((10, 5, 2, 3))
+def test_resize_image_preenche_corretamente():
+  # Organizar
+  imagem_original = np.ones((10, 5, 2, 3))
 
-  # Act
-  resized_image = utils.resize_image(original_image, 100, 100)
+  # Agir
+  imagem_redimensionada = utils.redimensionar_imagem(imagem_original, 100, 100)
 
-  # Assert
-  assert resized_image[0][0][0][0] == 0
-  assert resized_image[0][0][2][0] == 1
+  # Afirmar
+  assert imagem_redimensionada[0][0][0][0] == 0
+  assert imagem_redimensionada[0][0][2][0] == 1
 ```
 
-To test different inputs and expected outputs automatically, use parametrize
+Para testar diferentes entradas e saídas esperadas automaticamente, use a parametrização.
 
 ```python
-@pytest.mark.parametrize('orig_height, orig_width, expected_height, expected_width',
+@pytest.mark.parametrize('altura_orig, largura_orig, altura_esperada, largura_esperada',
                          [
-                             # smaller than target
+                             # menor do que o alvo
                              (10, 10, 20, 20),
-                             # larger than target
+                             # maior do que o alvo
                              (20, 20, 10, 10),
-                             # wider than target
+                             # mais largo do que o alvo
                              (10, 20, 10, 10)
                          ])
-def test_resize_image_generates_the_correct_size(orig_height, orig_width, expected_height, expected_width):
-  # Arrange
-  original_image = np.ones((orig_height, orig_width, 2, 3))
+def test_resize_image_gera_o_tamanho_correto(altura_orig, largura_orig, altura_esperada, largura_esperada):
+  # Organizar
+  imagem_original = np.ones((altura_orig, largura_orig, 2, 3))
 
-  # act
-  resized_image = utils.resize_image(original_image, expected_height, expected_width)
+  # Agir
+  imagem_redimensionada = utils.redimensionar_imagem(imagem_original, altura_esperada, largura_esperada)
 
-  # assert
-  resized_image.shape[:2] = (expected_height, expected_width)
+  # Afirmar
+  assert imagem_redimensionada.shape[:2] == (altura_esperada, largura_esperada)
 ```
 
-## Model load or predict
+## Carregar o Modelo ou Prever
 
-When **unit** testing we should mock model load and model predictions similarly to mocking file access.
+Ao realizar testes de **unidade**, devemos simular o carregamento do modelo e as previsões do modelo da mesma forma que simular o acesso a arquivos.
 
-There may be cases when you want to load your model to do smoke tests, or integration tests.
+Pode haver casos em que você deseja carregar seu modelo para realizar testes preliminares ou testes de integração.
 
-Since these will often take a bit longer to run it's important to be able to separate them from unit tests so that the developers on the team can still run unit tests as part of their test driven development.
+Como esses testes geralmente demoram um pouco mais para serem executados, é importante separá-los dos testes de unidade, para que os desenvolvedores da equipe ainda possam executar os testes de unidade como parte do desenvolvimento orientado por testes.
 
-One way to do this is using marks
+Uma maneira de fazer isso é usando marcas (marks).
 
 ```python
 @pytest.mark.longrunning
-def test_integration_between_two_systems():
-    # this might take a while
+def test_integracao_entre_dois_sistemas():
+    # isso pode demorar um pouco
 ```
 
-Run all tests that are not marked `longrunning`
+Execute todos os testes que não estão marcados como `longrunning`
 
 ```bash
 pytest -v -m "not longrunning"
 ```
 
-### Basic Unit Tests for ML Models
+### Testes Básicos de Unidade para Modelos de Aprendizado de Máquina
 
-ML unit tests are not intended to check the accuracy or performance of a model. Unit tests for an ML model is for code quality checks - for example:
+Os testes de unidade de ML não têm a intenção de verificar a precisão ou o desempenho de um modelo. Os testes de unidade para um modelo de ML destinam-se a verificar a qualidade do código, por exemplo:
 
-* Does the model accept the correct inputs and produce the correctly shaped outputs?
-* Do the weights of the model update when running `fit`?
+- O modelo aceita as entradas corretas e produz as saídas com a forma correta?
+- Os pesos do modelo são atualizados ao executar o `fit`?
 
-To do this, the ML model tests do not strictly follow best practices of standard Unit tests - not all outside calls are mocked. These tests are much closer to a [narrow integration test](https://martinfowler.com/bliki/IntegrationTest.html).
-However, the benefits of having simple tests for the ML model help to stop a poorly configured model from spending hours in training, while still producing poor results.
+Para fazer isso, os testes de modelos de ML não seguem estritamente as melhores práticas dos testes de unidade padrão - nem todas as chamadas externas são simuladas. Esses testes estão muito mais próximos de um [teste de integração estreito](https://martinfowler.com/bliki/IntegrationTest.html).
+No entanto, os benefícios de ter testes simples para o modelo de ML ajudam a evitar que um modelo mal configurado passe horas em treinamento, enquanto ainda produz resultados ruins.
 
-Examples of how to implement these tests (for Deep Learning models) include:
+Exemplos de como implementar esses testes (para modelos de Aprendizado Profundo) incluem:
 
-* Build a model and compare the shape of input layers to that of an example source of data. Then, compare the output layer shape to the expected output.
-* Initialize the model and record the weights of each layer. Then, run a single epoch of training on a dummy data set, and compare the weights of the "trained model" - only check if the values have changed.
-* Train the model on a dummy dataset for a single epoch, and then validate with dummy data - only validate that the prediction is formatted correctly, this model will not be accurate.
+- Construir um modelo e comparar a forma das camadas de entrada com a de uma fonte de dados de exemplo. Em seguida, compare a forma da camada de saída com a saída esperada.
+- Inicialize o modelo e registre os pesos de cada camada. Em seguida, execute uma única época de treinamento em um conjunto de dados fictício e compare os pesos do "modelo treinado" - verifique apenas se os valores mudaram.
+- Treine o modelo em um conjunto de dados fictício por uma única época e, em seguida, valide com dados fictícios - valide apenas se a previsão está formatada corretamente, este modelo não será preciso.
 
-## Data Validation
+## Validação de Dados
 
-An important part of the unit testing is to include test cases for data validation. For example, no data supplied, images that are not in the expected format, data containing null values or outliers to make sure that the data processing pipeline is robust.
+Uma parte importante dos testes de unidade é incluir casos de teste para validação de dados. Por exemplo, nenhum dado fornecido, imagens que não estão no formato esperado, dados contendo valores nulos ou valores discrepantes para garantir que o pipeline de processamento de dados seja robusto.
 
-## Model Testing
+## Teste de Modelo
 
-Apart from unit testing code, we can also test, debug and validate our models in different ways during the training process
+Além de testar o código de unidade, também podemos testar, depurar e validar nossos modelos de diferentes maneiras durante o processo de treinamento.
 
-Some options to consider at this stage:
+Algumas opções a serem consideradas nesta fase:
 
-* [Adversarial and Boundary tests to increase robustness](https://medium.com/@deepmindsafetyresearch/towards-robust-and-verified-ai-specification-testing-robust-training-and-formal-verification-69bd1bc48bda)
-* Verifying accuracy for under-represented classes
+- [Testes adversariais e de limite para aumentar a robustez](https://medium.com/@deepmindsafetyresearch/towards-robust-and-verified-ai-specification-testing-robust-training-and-formal-verification-69bd1bc48bda)
+- Verificar a precisão das classes sub-representadas.

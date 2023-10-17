@@ -1,160 +1,159 @@
-# Trade Study Template
+# Modelo de Estudo de Análise
 
-This generic template can be used for any situation where we have a set of requirements that can be satisfied
-by multiple solutions. They can range in scope from choice of which open source package to use, to full
-architecture designs.
+Este modelo genérico pode ser usado em qualquer situação em que tenhamos um conjunto de requisitos que podem ser satisfeitos por várias soluções. Eles podem variar em escopo, desde a escolha de qual pacote de código aberto usar até projetos completos de arquitetura.
 
-## Trade Study/Design: {study name goes here}
+## Estudo de Análise/Design: {nome do estudo}
 
-- **Conducted by:** {Names of those that can answer follow-up questions and at least one email address}
-- **Backlog Work Item:** {Link to the work item to provide more context}
-- **Sprint:** {Which sprint did the study take place? Include sprint start date}
-- **Decision:** {Solution chosen to proceed with}
-- **Decision Makers:**
+- **Conduzido por:** {Nomes das pessoas que podem responder a perguntas de acompanhamento e pelo menos um endereço de e-mail}
+- **Item de Trabalho no Backlog:** {Link para o item de trabalho para fornecer mais contexto}
+- **Sprint:** {Em qual sprint o estudo foi realizado? Inclua a data de início da sprint}
+- **Decisão:** {Solução escolhida para prosseguir}
+- **Tomadores de Decisão:**
 
-**IMPORTANT** Designs should be completed within a sprint. Most designs will benefit from brevity. To accomplish this:
+**IMPORTANTE** Os designs devem ser concluídos dentro de uma sprint. A maioria dos designs se beneficiará da brevidade. Para fazer isso:
 
-1. Narrow the scope of the design.
-1. Narrow evaluation to 2 to 3 solutions.
-1. Design experiments to collect evidence as fast as possible.
+1. Limite o escopo do design.
+1. Reduza a avaliação para 2 a 3 soluções.
+1. Projete experimentos para coletar evidências o mais rápido possível.
 
-## Overview
+## Visão Geral
 
-Description of the problem we are solving. This should include:
+Descrição do problema que estamos resolvendo. Isso deve incluir:
 
-1. Assumptions about the rest of the system
-1. Constraints that apply to the system, both business and technical
-1. Requirements for the functionality that needs to be implemented, including possible inputs and outputs
-1. (optional) A diagram showing the different pieces
+1. Suposições sobre o restante do sistema.
+1. Restrições que se aplicam ao sistema, tanto de negócios quanto técnicas.
+1. Requisitos para a funcionalidade que precisa ser implementada, incluindo possíveis entradas e saídas.
+1. (opcional) Um diagrama mostrando as diferentes partes.
 
-### Desired Outcomes
+### Resultados Desejados
 
-The following section should establish the desired capabilities of the solution for it to be successful. This can be done by answering the following questions either directly or via link to related artifact (i.e. PBI or Feature description).
+A seção a seguir deve estabelecer as capacidades desejadas da solução para que ela seja bem-sucedida. Isso pode ser feito respondendo diretamente às seguintes perguntas ou por meio de um link para um artefato relacionado (ou seja, PBI ou descrição de funcionalidade).
 
-1. Acceptance: What capabilities should be demonstrable for a stakeholder to accept the solution?
-1. Justification: How does this contribute to the broader project objectives?
+1. Aceitação: Quais capacidades devem ser demonstráveis para que um interessado aceite a solução?
+1. Justificação: Como isso contribui para os objetivos gerais do projeto?
 
-> **IMPORTANT** This is **not** intended to define outcomes for the design activity itself. It is intended to define the outcomes for the solution being designed.
+> **IMPORTANTE** Isso **não** se destina a definir resultados para a atividade de design em si. Destina-se a definir os resultados para a solução em processo de design.
 
-As mentioned in the [User Interface](../../../user-interface-engineering/README.md) section, if the trade study is analyzing an application development solution, make use of the _persona stories_ to derive desired outcomes. For example, if a persona story exemplifies a certain accessibility requirement, the parallel desired outcome may be "The application must be accessible for people with vision-based disabilities".
+Como mencionado na seção [Interface do Usuário](../../../user-interface-engineering/README.md), se o estudo de análise estiver analisando uma solução de desenvolvimento de aplicativo, use as "histórias de persona" para derivar resultados desejados. Por exemplo, se uma história de persona exemplifica um certo requisito de acessibilidade, o resultado desejado paralelo pode ser "O aplicativo deve ser acessível para pessoas com deficiência visual".
 
-### Evaluation Criteria
+### Critérios de Avaliação
 
-The former should be condensed down to a set of "evaluation criteria" that we can rate any potential solutions
-against. Examples of evaluation criteria:
+Os resultados devem ser condensados em um conjunto de "critérios de avaliação" que podemos classificar todas as soluções potenciais. Exemplos de critérios de avaliação:
 
-- Runs on Windows and Linux - Binary response
-- Compute Usage - Could be categories that effectively rank different options: High, Medium, Low
-- Cost of the solution – An estimated numeric field
+- Funciona no Windows e Linux - Resposta binária
+- Uso de recursos computacionais - Pode ser categorias que classificam efetivamente diferentes opções: Alto, Médio, Baixo
+- Custo da solução - Um campo numérico estimado
 
-The results section contains a table evaluating each solution against the evaluation criteria.
+A seção de resultados contém uma tabela que avalia cada solução em relação aos critérios de avaliação.
 
-#### Key Metrics (Optional)
+#### Métricas-Chave (Opcional)
 
-If available, describe any measurable metrics that are important to the success of the solution. Examples include, but are not limited to:
+Se disponível, descreva quais métricas mensuráveis são importantes para o sucesso da solução. Exemplos incluem, mas não se limitam a:
 
-- Performance & Scale targets such as, Requests/Second, Latency, and Response time (at a given percentile).
-- Azure consumption cost budget. For example, given certain usage, solution expected to cost X dollars per month.
-- Availability uptime of XX% over X time period.
-- Consistency. Writes available for read within X milliseconds.
-- Recovery point objective (RPO) & Recovery time objective (RTO).
+- Metas de desempenho e escala, como Requisições/Segundo, Latência e Tempo de resposta (em um determinado percentil).
+- Orçamento de custo de consumo no Azure. Por exemplo, dadas certas utilizações, espera-se que a solução custe X dólares por mês.
+- Disponibilidade de tempo de atividade de XX% ao longo de um período de tempo X.
+- Consistência. Escritas disponíveis para leitura em X milissegundos.
+- Objetivo de ponto de recuperação (RPO) e objetivo de tempo de recuperação (RTO).
 
-#### Constraints (Optional)
+#### Restrições (Opcional)
 
-If applicable, describe the boundaries from which we have to design the solution. This could be thought of as the "box" the team has to work within. This box may be defined as:
+Se aplicável, descreva os limites dentro dos quais devemos projetar a solução. Isso pode ser pensado como a "caixa" na qual a equipe deve trabalhar. Essa caixa pode ser definida como:
 
-- Technologies, services, and languages an organization is comfortable operating/managing.
-- Devices, operating systems, and/or browsers that must be supported.
-- Backward Compatibility. For example, public interfaces consumed by client or third party apps cannot introduce breaking changes.
-- Integrations or dependencies with other systems. For example, push notifications to client apps must be done via existing websockets channel.
+- Tecnologias, serviços e linguagens com as quais uma organização se sente confortável operar/gerenciar.
+- Dispositivos, sistemas operacionais e/ou navegadores que precisam ser suportados.
+- Compatibilidade com vers
 
-#### Accessibility
+ões anteriores. Por exemplo, interfaces públicas consumidas por aplicativos de terceiros ou clientes não podem introduzir alterações incompatíveis.
+- Integrações ou dependências com outros sistemas. Por exemplo, notificações push para aplicativos de cliente devem ser feitas por meio de um canal existente de websockets.
 
-**Accessibility is never optional**. Microsoft has made a public commitment to always produce accessible applications. For more information visit the official [Microsoft accessibility site](https://www.microsoft.com/accessibility) and read the [Accessibility](../../../accessibility/README.md) page.
+#### Acessibilidade
 
-Consider the following prompts when determining application accessibility requirements:
+**Acessibilidade nunca é opcional**. A Microsoft fez um compromisso público de sempre produzir aplicativos acessíveis. Para mais informações, visite o [site oficial de acessibilidade da Microsoft](https://www.microsoft.com/accessibility) e leia a página [Acessibilidade](../../../accessibility/README.md).
 
-- Does the application meet industry accessibility standards?
-- Are training, support, and documentation resources accessible?
-- Is the application designed to be inclusive for people will a broad range of abilities, languages, and cultures?
+Considere as seguintes perguntas ao determinar os requisitos de acessibilidade do aplicativo:
 
-## Solution Hypotheses
+- O aplicativo atende aos padrões de acessibilidade da indústria?
+- Os recursos de treinamento, suporte e documentação são acessíveis?
+- O aplicativo foi projetado para ser inclusivo para pessoas com uma ampla gama de habilidades, idiomas e culturas?
 
-Enumerate the solutions that are believed to deliver the outcomes defined above.
+## Hipóteses de Solução
 
-> NOTE: Limiting the evaluated solutions to 2 or 3 potential candidates can help manage the time spent on the evaluation. If there are more than 3 candidates, prioritize what the team feels are the top 3. If appropriate, the eliminated candidates can be mentioned to capture why they were eliminated. Additionally, there should be at least two options compared, otherwise you didn't need a trade study.
+Enumere as soluções que se acredita que proporcionarão os resultados desejados.
 
-### {Solution 1} - Short and easily recognizable name
+> NOTA: Limitar as soluções avaliadas a 2 ou 3 candidatos potenciais pode ajudar a gerenciar o tempo gasto na avaliação. Se houver mais de 3 candidatos, priorize os 3 principais, de acordo com o que a equipe considera os principais. Se apropriado, os candidatos eliminados podem ser mencionados para capturar o motivo de sua eliminação. Além disso, deve haver pelo menos duas opções comparadas, caso contrário, o estudo de análise não era necessário.
 
-Add a **brief** description of the solution and how its expected to produce the desired outcomes. If appropriate, illustrations/diagrams can be used to reduce the amount of text explanation required to describe the solution.
+### {Solução 1} - Nome curto e facilmente reconhecível
 
-> NOTE: Using present tense language to describe the solution can help avoid confusion between current state and future state. For example, use "This solution works by doing..." vs. "This solution would work by doing...".
+Adicione uma descrição **breve** da solução e como ela é esperada para produzir os resultados desejados. Se apropriado, ilustrações/diagramas podem ser usados para reduzir a quantidade de explicação de texto necessária para descrever a solução.
 
-Each solution section should contain the following:
+> NOTA: Usar a linguagem no presente para descrever a solução pode ajudar a evitar confusão entre o estado atual e o estado futuro. Por exemplo, use "Esta solução funciona fazendo..." em vez de "Esta solução funcionaria fazendo...".
 
-1. Description of the solution
-1. (optional) A diagram to quickly reference the solution
-1. Possible variations - things that are small variations on the main solution can be grouped together
-1. Evaluation of the idea based on the evaluation criteria above
+Cada seção de solução deve conter o seguinte:
 
-The depth, detail, and contents of these sections will vary based on the complexity of the functionality
-being developed.
+1. Descrição da solução.
+1. (opcional) Um diagrama para fazer referência rápida à solução.
+1. Variações possíveis - coisas que são pequenas variações na solução principal podem ser agrupadas.
+1. Avaliação da ideia com base nos critérios de avaliação acima.
 
-#### Experiment(s)
+A profundidade, detalhes e conteúdo dessas seções variarão com base na complexidade da funcionalidade a ser desenvolvida.
 
-Describe how the solution will be evaluated to prove or dis-prove that it will produce the desired outcomes. This could take many forms such as building a prototype and researching existing documentation and sample solutions.
+#### Experimento(s)
 
-Additionally, **document any assumptions** made as part of the experiment.
+Descreva como a solução será avaliada para comprovar ou refutar que ela produzirá os resultados desejados. Isso pode assumir muitas formas, como a construção de um protótipo e a pesquisa de documentação e soluções de amostra existentes.
 
-> NOTE: Time boxing these experiments can be beneficial to make sure the team is making the best use of the time by focusing on collecting key evidence in the simplest/fastest way possible.
+Além disso, **documente quaisquer suposições** feitas como parte do experimento.
 
-#### Evidence
+> NOTA: Cronometrar esses experimentos pode ser benéfico para garantir que a equipe esteja aproveitando ao máximo o tempo, concentrando-se na coleta de evidências-chave da maneira mais simples e rápida possível.
 
-Present the evidence collected during experimentation that supports the hypothesis that this solution will meet the desired outcomes. Examples may include:
+#### Evidências
 
-- Recorded or live demos of a prototype providing the desired capabilities
-- Metrics collected while testing the prototype
-- Documentation that indicates the solution can provide the desired capabilities
+Apresente as evidências coletadas durante a experimentação que apoiam a hipótese de que esta solução atenderá aos resultados desejados. Exemplos podem incluir:
 
-> NOTE: **Evidence is not required for every capability, metric, or constraint for the design to be considered done.** Instead, focus on presenting evidence that is most relevant and impactful towards supporting or eliminating the hypothesis.
+- Demonstrações gravadas ou ao vivo de um protótipo fornecendo as capacidades desejadas.
+- Métricas coletadas durante o teste do protótipo.
+- Documentação que indica que a solução pode fornecer as capacidades desejadas.
 
-### {Solution 2}
+> NOTA: **Não é necessário ter evidências para cada capacidade, métrica ou restrição para que o design seja considerado pronto.** Em vez disso, concentre-se em apresentar evidências que sejam mais relevantes e impactantes para apoiar ou eliminar a hipótese.
+
+### {Solução 2}
 
 ...
 
-### {Solution N}
+### {Solução N}
 
 ...
 
-## Results
+## Resultados
 
-This section should contain a table that has each solution rated against each of the evaluation criteria:
+Esta seção deve conter uma tabela que classifica cada solução em relação a cada um dos critérios de avaliação:
 
-| Solution   | Evaluation Criteria 1 | Evaluation Criteria 2 | ... | Evaluation Criteria N |
+| Solução   | Critério de Avaliação 1 | Critério de Avaliação 2 | ... | Critério de Avaliação N |
 |------------|-----------------------|-----------------------|-----|-----------------------|
-| Solution 1 |                       |                       |     |                       |
-| Solution 2 |                       |                       |     |                       |
+| Solução 1 |                       |                       |     |                       |
+| Solução 2 |                       |                       |     |                       |
 | ...        |                       |                       |     |                       |
-| Solution M |                       |                       |     |                       |
+| Solução M |                       |                       |     |                       |
 
-Note: The formatting of the table can change. In the past, we have had success with qualitative descriptions
-in the table entries and color coding the cells to represent good, fair, bad.
+Observação: A formatação da tabela pode mudar. No passado, tivemos sucesso com descrições qualitativas nas entradas da tabela e codificação de cores nas células para representar bom, justo, ruim.
 
-## Decision
+## Decisão
 
-The chosen solution, or a list of questions that need to be answered before the decision can be made.
+A solução escolhida ou uma lista de perguntas que precisam ser respondidas antes que a decisão possa ser tomada.
 
-In the latter case, each question needs an action item and an assigned person for answering the question. Once those questions are answered, the document must be updated to reflect the answers, and the final decision.
+No segundo caso, cada pergunta precisa ter uma tarefa de ação e uma pessoa atribuída para responder à pergunta. Assim que essas perguntas forem respondidas, o documento deve ser atualizado para refletir as respostas e a decisão final.
 
-In the first case, describe which solution was chosen and why. Summarize what evidence informed the decision and how that evidence mapped to the desired outcomes.
+No primeiro caso, descreva qual solução foi escolhida e por quê. Resuma quais evidências informaram a decisão e como essas evidências se relacionaram com os resultados desejados.
 
-> **IMPORTANT**: Decisions should be made with the understanding that they can change as the team learns more. It's a starting point, not a contract.
+> **IMPORTANTE**: As decisões devem ser tomadas com a compreensão de que podem mud
 
-## Next Steps
+ar à medida que a equipe aprende mais. Elas são um ponto de partida, não um contrato.
 
-What work is expected once a decision has been reached? Examples include but are not limited to:
+## Próximos Passos
 
-1. Creating new PBI's or modifying existing ones
-1. Follow up spikes
-1. Creating specification for public interfaces and integrations between other work streams.
-1. Decision Log Entry
+Quais trabalhos são esperados após a tomada de uma decisão? Exemplos incluem, mas não se limitam a:
+
+1. Criar novos PBI's ou modificar os existentes.
+1. Estudos de investigação de acompanhamento.
+1. Criar especificações para interfaces públicas e integrações entre outras correntes de trabalho.
+1. Entrada no Log de Decisões.

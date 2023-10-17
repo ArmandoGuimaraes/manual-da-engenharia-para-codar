@@ -19,7 +19,7 @@
     
     
       
-        <title>Save terraform output to a variable group (Azure DevOps) - Manual da Engenharia para Codar</title>
+        <title>Salvar saída do Terraform em um grupo de variáveis (Azure DevOps) - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#save-terraform-output-to-a-variable-group-azure-devops" class="md-skip">
+        <a href="#salvar-saida-do-terraform-em-um-grupo-de-variaveis-azure-devops" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Save terraform output to a variable group (Azure DevOps)
+              Salvar saída do Terraform em um grupo de variáveis (Azure DevOps)
             
           </span>
         </div>
@@ -3074,12 +3074,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Save terraform output to a variable group (Azure DevOps)
+          Salvar saída do Terraform em um grupo de variáveis (Azure DevOps)
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Save terraform output to a variable group (Azure DevOps)
+        Salvar saída do Terraform em um grupo de variáveis (Azure DevOps)
       </a>
       
         
@@ -3098,18 +3098,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#context" class="md-nav__link">
-    Context
+  <a href="#contexto" class="md-nav__link">
+    Contexto
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#solution" class="md-nav__link">
-    Solution
+  <a href="#solucao" class="md-nav__link">
+    Solução
   </a>
   
-    <nav class="md-nav" aria-label="Solution">
+    <nav class="md-nav" aria-label="Solução">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3121,8 +3121,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
-    Parameters
+  <a href="#parametros" class="md-nav__link">
+    Parâmetros
   </a>
   
 </li>
@@ -3138,15 +3138,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#authenticate-with-azure-devops" class="md-nav__link">
-    Authenticate with Azure DevOps
+  <a href="#autenticacao-no-azure-devops" class="md-nav__link">
+    Autenticação no Azure DevOps
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#library-security" class="md-nav__link">
-    Library security
+  <a href="#seguranca-da-biblioteca" class="md-nav__link">
+    Segurança da Biblioteca
   </a>
   
 </li>
@@ -7228,18 +7228,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#context" class="md-nav__link">
-    Context
+  <a href="#contexto" class="md-nav__link">
+    Contexto
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#solution" class="md-nav__link">
-    Solution
+  <a href="#solucao" class="md-nav__link">
+    Solução
   </a>
   
-    <nav class="md-nav" aria-label="Solution">
+    <nav class="md-nav" aria-label="Solução">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -7251,8 +7251,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
-    Parameters
+  <a href="#parametros" class="md-nav__link">
+    Parâmetros
   </a>
   
 </li>
@@ -7268,15 +7268,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#authenticate-with-azure-devops" class="md-nav__link">
-    Authenticate with Azure DevOps
+  <a href="#autenticacao-no-azure-devops" class="md-nav__link">
+    Autenticação no Azure DevOps
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#library-security" class="md-nav__link">
-    Library security
+  <a href="#seguranca-da-biblioteca" class="md-nav__link">
+    Segurança da Biblioteca
   </a>
   
 </li>
@@ -7295,63 +7295,63 @@
                 
 
 
-<h1 id="save-terraform-output-to-a-variable-group-azure-devops">Save terraform output to a variable group (Azure DevOps)</h1>
-<p>This recipe applies only to <a href="https://www.terraform.io/">terraform</a> usage with Azure DevOps. It assumes your familiar with terraform commands and Azure Pipelines.</p>
-<h2 id="context">Context</h2>
-<p>When <a href="https://www.terraform.io/">terraform</a> is used to automate the provisioning of the infrastructure, an <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/?view=azure-devops">Azure Pipeline</a> is generally dedicated to apply terraform configuration files. It will create, update, delete Azure resources to provision your infrastructure changes.</p>
-<p>Once files are applied, some <a href="https://developer.hashicorp.com/terraform/language/values/outputs">Output Values</a> (for instance resource group name, app service name) can be referenced and outputted by terraform. These values must be generally retrieved afterwards, used as input variables for the deployment of services happening in separate pipelines.</p>
+<h1 id="salvar-saida-do-terraform-em-um-grupo-de-variaveis-azure-devops">Salvar saída do Terraform em um grupo de variáveis (Azure DevOps)</h1>
+<p>Esta receita se aplica apenas ao uso do <a href="https://www.terraform.io/">Terraform</a> com o Azure DevOps. Ela pressupõe que você está familiarizado com os comandos do Terraform e com os pipelines do Azure.</p>
+<h2 id="contexto">Contexto</h2>
+<p>Quando o <a href="https://www.terraform.io/">Terraform</a> é usado para automatizar o provisionamento da infraestrutura, geralmente é dedicado um <a href="https://learn.microsoft.com/pt-br/azure/devops/pipelines/?view=azure-devops">Pipeline do Azure</a> para aplicar os arquivos de configuração do Terraform. Isso criará, atualizará, excluirá recursos do Azure para provisionar as alterações em sua infraestrutura.</p>
+<p>Depois que os arquivos são aplicados, algumas <a href="https://developer.hashicorp.com/terraform/language/values/outputs">Valores de Saída</a> (por exemplo, nome do grupo de recursos, nome do serviço de aplicativo) podem ser referenciados e retornados pelo Terraform. Esses valores geralmente precisam ser recuperados posteriormente e usados como variáveis de entrada para a implantação de serviços em pipelines separados.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">output</span><span class="w"> </span><span class="nv">&quot;core_resource_group_name&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;The resource group name&quot;</span>
+<span class="w">  </span><span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;O nome do grupo de recursos&quot;</span>
 <span class="w">  </span><span class="na">value</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="nv">module.core.resource_group_name</span>
 <span class="p">}</span>
 
 <span class="kr">output</span><span class="w"> </span><span class="nv">&quot;core_key_vault_name&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;The key vault name.&quot;</span>
+<span class="w">  </span><span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;O nome do Key Vault.&quot;</span>
 <span class="w">  </span><span class="na">value</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="nv">module.core.key_vault_name</span>
 <span class="p">}</span>
 
 <span class="kr">output</span><span class="w"> </span><span class="nv">&quot;core_key_vault_url&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;The key vault url.&quot;</span>
+<span class="w">  </span><span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;A URL do Key Vault.&quot;</span>
 <span class="w">  </span><span class="na">value</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="nv">module.core.key_vault_url</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>The purpose of this recipe is to answer the following statement: How to make terraform output values available across multiple pipelines ?</p>
-<h2 id="solution">Solution</h2>
-<p>One suggested solution is to store outputted values in the Library with a <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups?view=azure-devops&amp;tabs=yaml">Variable Group</a>. Variable groups is a convenient way store values you might want to be passed into a YAML pipeline. In addition, all assets defined in the Library share a common security model. You can control who can define new items in a library, and who can use an existing item.</p>
-<p>For this purpose, we are using the following commands:</p>
+<p>O objetivo desta receita é responder à seguinte declaração: Como tornar os valores de saída do Terraform disponíveis em vários pipelines?</p>
+<h2 id="solucao">Solução</h2>
+<p>Uma solução sugerida é armazenar os valores de saída na Biblioteca com um <a href="https://learn.microsoft.com/pt-br/azure/devops/pipelines/library/variable-groups?view=azure-devops&amp;tabs=yaml">Grupo de Variáveis</a>. Grupos de variáveis são uma maneira conveniente de armazenar valores que você deseja passar para um pipeline YAML. Além disso, todos os ativos definidos na Biblioteca compartilham um modelo de segurança comum. Você pode controlar quem pode definir novos itens em uma biblioteca e quem pode usar um item existente.</p>
+<p>Para esse fim, estamos usando os seguintes comandos:</p>
 <ul>
-<li><a href="https://developer.hashicorp.com/terraform/cli/commands/output">terraform output</a> to extract the value of an output variable from the state file (provided by <a href="https://developer.hashicorp.com/terraform/cli">Terraform CLI</a>)</li>
-<li><a href="https://learn.microsoft.com/en-us/cli/azure/pipelines/variable-group?view=azure-cli-latest">az pipelines variable-group</a> to manage variable groups (provided by <a href="https://learn.microsoft.com/en-us/azure/devops/cli/?view=azure-devops">Azure DevOps CLI</a>)</li>
+<li><a href="https://developer.hashicorp.com/terraform/cli/commands/output">terraform output</a> para extrair o valor de uma variável de saída do arquivo de estado (fornecido pelo <a href="https://developer.hashicorp.com/terraform/cli">Terraform CLI</a>)</li>
+<li><a href="https://learn.microsoft.com/pt-br/cli/azure/pipelines/variable-group?view=azure-cli-latest">az pipelines variable-group</a> para gerenciar grupos de variáveis (fornecido pelo <a href="https://learn.microsoft.com/pt-br/azure/devops/cli/?view=azure-devops">Azure DevOps CLI</a>)</li>
 </ul>
-<p>You can use the following script once <code>terraform apply</code> is completed to create/update the variable group.</p>
+<p>Você pode usar o seguinte script após a conclusão do <code>terraform apply</code> para criar/atualizar o grupo de variáveis.</p>
 <h3 id="script-update-variablegroupsh">Script (update-variablegroup.sh)</h3>
-<h4 id="parameters">Parameters</h4>
+<h4 id="parametros">Parâmetros</h4>
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Description</th>
+<th>Nome</th>
+<th>Descrição</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>DEVOPS_ORGANIZATION</td>
-<td>The URI of the Azure DevOps organization.</td>
+<td>A URI da organização do Azure DevOps.</td>
 </tr>
 <tr>
 <td>DEVOPS_PROJECT</td>
-<td>The name or id of the Azure DevOps project.</td>
+<td>O nome ou ID do projeto do Azure DevOps.</td>
 </tr>
 <tr>
 <td>GROUP_NAME</td>
-<td>The name of the variable group targeted.</td>
+<td>O nome do grupo de variáveis alvo.</td>
 </tr>
 </tbody>
 </table>
-<p>Implementation choices:</p>
+<p>Escolhas de implementação:</p>
 <ul>
-<li>If a variable group already exists, a valid option could be to delete and rebuild the group from scratch. However, as authorization could have been updated at the group level, we prefer to avoid this option. The script remove instead all variables in the targeted group and add them back with latest values. Permissions are not impacted.</li>
-<li>A variable group cannot be empty. It must contains at least one variable. A temporary uuid value is created to mitigate this issue, and removed once variables are updated.</li>
+<li>Se um grupo de variáveis já existe, uma opção válida pode ser excluí-lo e reconstruir o grupo do zero. No entanto, como a autorização pode ter sido atualizada no nível do grupo, preferimos evitar essa opção. O script remove todos os valores das variáveis no grupo alvo e os adiciona novamente com os valores mais recentes. As permissões não são afetadas.</li>
+<li>Um grupo de variáveis não pode estar vazio. Ele deve conter pelo menos uma variável. Um valor temporário UUID é criado para mitigar esse problema e é removido assim que as variáveis são atualizadas.</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
@@ -7361,30 +7361,30 @@
 <span class="nb">export</span><span class="w"> </span><span class="nv">DEVOPS_PROJECT</span><span class="o">=</span><span class="nv">$2</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">GROUP_NAME</span><span class="o">=</span><span class="nv">$3</span>
 
-<span class="c1"># configure the azure devops cli</span>
+<span class="c1"># Configurar o CLI do Azure DevOps</span>
 az<span class="w"> </span>devops<span class="w"> </span>configure<span class="w"> </span>--defaults<span class="w"> </span><span class="nv">organization</span><span class="o">=</span><span class="si">${</span><span class="nv">DEVOPS_ORGANIZATION</span><span class="si">}</span><span class="w"> </span><span class="nv">project</span><span class="o">=</span><span class="si">${</span><span class="nv">DEVOPS_PROJECT</span><span class="si">}</span><span class="w"> </span>--use-git-aliases<span class="w"> </span><span class="nb">true</span>
 
-<span class="c1"># get the variable group id (if already exists)</span>
+<span class="c1"># Obter o ID do grupo de variáveis (se já existir)</span>
 <span class="nv">group_id</span><span class="o">=</span><span class="k">$(</span>az<span class="w"> </span>pipelines<span class="w"> </span>variable-group<span class="w"> </span>list<span class="w"> </span>--group-name<span class="w"> </span><span class="si">${</span><span class="nv">GROUP_NAME</span><span class="si">}</span><span class="w"> </span>--query<span class="w"> </span><span class="s1">&#39;[0].id&#39;</span><span class="w"> </span>-o<span class="w"> </span>json<span class="k">)</span>
 
 <span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">group_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="c1"># create a new variable group</span>
+<span class="w">    </span><span class="c1"># Criar um novo grupo de variáveis</span>
 <span class="w">    </span><span class="nv">tf_output</span><span class="o">=</span><span class="k">$(</span>terraform<span class="w"> </span>output<span class="w"> </span>-json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;to_entries[] | &quot;\(.key)=\(.value.value)&quot;&#39;</span><span class="k">)</span>
 <span class="w">    </span>az<span class="w"> </span>pipelines<span class="w"> </span>variable-group<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span><span class="si">${</span><span class="nv">GROUP_NAME</span><span class="si">}</span><span class="w"> </span>--variables<span class="w"> </span><span class="si">${</span><span class="nv">tf_output</span><span class="si">}</span><span class="w"> </span>--authorize<span class="w"> </span><span class="nb">true</span>
 <span class="k">else</span>
-<span class="w">    </span><span class="c1"># get existing variables</span>
+<span class="w">    </span><span class="c1"># Obter variáveis existentes</span>
 <span class="w">    </span><span class="nv">var_list</span><span class="o">=</span><span class="k">$(</span>az<span class="w"> </span>pipelines<span class="w"> </span>variable-group<span class="w"> </span>variable<span class="w"> </span>list<span class="w"> </span>--group-id<span class="w"> </span><span class="si">${</span><span class="nv">group_id</span><span class="si">}</span><span class="k">)</span>
 
-<span class="w">    </span><span class="c1"># add temporary uuid variable (a variable group cannot be empty)</span>
+<span class="w">    </span><span class="c1"># Adicionar variável UUID temporária (um grupo de variáveis não pode estar vazio)</span>
 <span class="w">    </span><span class="nv">uuid</span><span class="o">=</span><span class="k">$(</span>cat<span class="w"> </span>/proc/sys/kernel/random/uuid<span class="k">)</span>
 <span class="w">    </span>az<span class="w"> </span>pipelines<span class="w"> </span>variable-group<span class="w"> </span>variable<span class="w"> </span>create<span class="w"> </span>--group-id<span class="w"> </span><span class="si">${</span><span class="nv">group_id</span><span class="si">}</span><span class="w"> </span>--name<span class="w"> </span><span class="si">${</span><span class="nv">uuid</span><span class="si">}</span>
 
-<span class="w">    </span><span class="c1"># delete existing variables</span>
+<span class="w">    </span><span class="c1"># Excluir variáveis existentes</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span>row<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">var_list</span><span class="si">}</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;to_entries[] | &quot;\(.key)&quot;&#39;</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">        </span>az<span class="w"> </span>pipelines<span class="w"> </span>variable-group<span class="w"> </span>variable<span class="w"> </span>delete<span class="w"> </span>--group-id<span class="w"> </span><span class="si">${</span><span class="nv">group_id</span><span class="si">}</span><span class="w"> </span>--name<span class="w"> </span><span class="si">${</span><span class="nv">row</span><span class="si">}</span><span class="w"> </span>--yes
 <span class="w">    </span><span class="k">done</span>
 
-<span class="w">    </span><span class="c1"># create variables with latest values (from terraform)</span>
+<span class="w">    </span><span class="c1"># Criar variáveis com os valores mais recentes (do Terraform)</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span>row<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>terraform<span class="w"> </span>output<span class="w"> </span>-json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;to_entries[]&#39;</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">        </span>_jq<span class="o">()</span>
 <span class="w">        </span><span class="o">{</span>
@@ -7394,15 +7394,15 @@ az<span class="w"> </span>devops<span class="w"> </span>configure<span class="w"
 <span class="w">        </span>az<span class="w"> </span>pipelines<span class="w"> </span>variable-group<span class="w"> </span>variable<span class="w"> </span>create<span class="w"> </span>--group-id<span class="w"> </span><span class="si">${</span><span class="nv">group_id</span><span class="si">}</span><span class="w"> </span>--name<span class="w"> </span><span class="k">$(</span>_jq<span class="w"> </span><span class="s1">&#39;.key&#39;</span><span class="k">)</span><span class="w"> </span>--value<span class="w"> </span><span class="k">$(</span>_jq<span class="w"> </span><span class="s1">&#39;.value.value&#39;</span><span class="k">)</span><span class="w"> </span>--secret<span class="w"> </span><span class="k">$(</span>_jq<span class="w"> </span><span class="s1">&#39;.value.sensitive&#39;</span><span class="k">)</span><span class="w"> </span>
 <span class="w">    </span><span class="k">done</span>
 
-<span class="w">    </span><span class="c1"># delete temporary uuid variable</span>
+<span class="w">    </span><span class="c1"># Excluir variável UUID temporária</span>
 <span class="w">    </span>az<span class="w"> </span>pipelines<span class="w"> </span>variable-group<span class="w"> </span>variable<span class="w"> </span>delete<span class="w"> </span>--group-id<span class="w"> </span><span class="si">${</span><span class="nv">group_id</span><span class="si">}</span><span class="w"> </span>--name<span class="w"> </span><span class="si">${</span><span class="nv">uuid</span><span class="si">}</span><span class="w"> </span>--yes
 <span class="k">fi</span>
 </code></pre></div>
-<h2 id="authenticate-with-azure-devops">Authenticate with Azure DevOps</h2>
-<p>Most commands used in previous script interact with Azure DevOps and do require authentication. You can authenticate using the <code>System.AccessToken</code> security token used by the running pipeline, by assigning it to an environment variable named <code>AZURE_DEVOPS_EXT_PAT</code>, as shown in the following example (see <a href="https://learn.microsoft.com/en-us/azure/devops/cli/azure-devops-cli-in-yaml?view=azure-devops#authenticate-with-azure-devops">Azure DevOps CLI in Azure Pipeline YAML</a> for additional information).</p>
-<p>In addition, you can notice we are also using <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/build/variables">predefined variables</a> to target the Azure DevOps organization and project (respectively <code>System.TeamFoundationCollectionUri</code> and <code>System.TeamProjectId</code>).</p>
+<h2 id="autenticacao-no-azure-devops">Autenticação no Azure DevOps</h2>
+<p>A maioria dos comandos usados no script anterior interage com o Azure DevOps e requer autenticação. Você pode autenticar usando o token de segurança <code>System.AccessToken</code> usado pelo pipeline em execução, atribuindo-o a uma variável de ambiente chamada <code>AZURE_DEVOPS_EXT_PAT</code>, como mostrado no exemplo a seguir (consulte <a href="https://learn.microsoft.com/pt-br/azure/devops/cli/azure-devops-cli-in-yaml?view=azure-devops#authenticate-with-azure-devops">Azure DevOps CLI in Azure Pipeline YAML</a> para obter informações adicionais).</p>
+<p>Além disso, você pode notar que também estamos usando <a href="https://learn.microsoft.com/pt-br/azure/devops/pipelines/build/variables">variáveis predefinidas</a> para direcionar a organização e o projeto do Azure DevOps (respectivamente <code>System.TeamFoundationCollectionUri</code> e <code>System.TeamProjectId</code>).</p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Bash@3</span>
-<span class="w">    </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Update</span><span class="nv"> </span><span class="s">variable</span><span class="nv"> </span><span class="s">group</span><span class="nv"> </span><span class="s">using</span><span class="nv"> </span><span class="s">terraform</span><span class="nv"> </span><span class="s">outputs&#39;</span>
+<span class="w">    </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Atualizar</span><span class="nv"> </span><span class="s">grupo</span><span class="nv"> </span><span class="s">de</span><span class="nv"> </span><span class="s">variáveis</span><span class="nv"> </span><span class="s">usando</span><span class="nv"> </span><span class="s">saídas</span><span class="nv"> </span><span class="s">do</span><span class="nv"> </span><span class="s">Terraform&#39;</span>
 <span class="w">    </span><span class="nt">inputs</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">targetType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">filePath</span>
 <span class="w">      </span><span class="nt">arguments</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$(System.TeamFoundationCollectionUri) $(System.TeamProjectId) &quot;Platform-VG&quot;</span>
@@ -7414,62 +7414,62 @@ az<span class="w"> </span>devops<span class="w"> </span>configure<span class="w"
 <table>
 <thead>
 <tr>
-<th>System variables</th>
-<th>Description</th>
+<th>Variáveis do sistema</th>
+<th>Descrição</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&amp;tabs=yaml#systemaccesstoken">System.AccessToken</a></td>
-<td>Special variable that carries the security token used by the running build.</td>
+<td><a href="https://learn.microsoft.com/pt-br/azure/devops/pipelines/build/variables?view=azure-devops&amp;tabs=yaml#systemaccesstoken">System.AccessToken</a></td>
+<td>Variável especial que carrega o token de segurança usado pela compilação em execução.</td>
 </tr>
 <tr>
-<td><a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&amp;tabs=yaml#system-variables-devops-services">System.TeamFoundationCollectionUri</a></td>
-<td>The URI of the Azure DevOps organization.</td>
+<td><a href="https://learn.microsoft.com/pt-br/azure/devops/pipelines/build/variables?view=azure-devops&amp;tabs=yaml#system-variables-devops-services">System.TeamFoundationCollectionUri</a></td>
+<td>A URI da organização do Azure DevOps.</td>
 </tr>
 <tr>
-<td><a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&amp;tabs=yaml#system-variables-devops-services">System.TeamProjectId</a></td>
-<td>The ID of the project that this build belongs to.</td>
+<td><a href="https://learn.microsoft.com/pt-br/azure/devops/pipelines/build/variables?view=azure-devops&amp;tabs=yaml#system-variables-devops-services">System.TeamProjectId</a></td>
+<td>O ID do projeto ao qual esta compilação pertence.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="library-security">Library security</h2>
-<p>Roles are defined for Library items, and membership of these roles governs the operations you can perform on those items.</p>
+<h2 id="seguranca-da-biblioteca">Segurança da Biblioteca</h2>
+<p>Funções são definidas para os itens da Biblioteca, e a associação a essas funções governa as operações que você pode executar nesses itens.</p>
 <table>
 <thead>
 <tr>
-<th>Role for library item</th>
-<th>Description</th>
+<th>Função para item da biblioteca</th>
+<th>Descrição</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Reader</td>
-<td>Can view the item.</td>
+<td>Leitor</td>
+<td>Pode visualizar o item.</td>
 </tr>
 <tr>
-<td>User</td>
-<td>Can use the item when authoring build or release pipelines. For example, you must be a 'User' for a variable group to use it in a release pipeline.</td>
+<td>Usuário</td>
+<td>Pode usar o item ao criar pipelines de compilação ou liberação. Por exemplo, você deve ser um 'Usuário' de um grupo de variáveis para usá-lo em um pipeline de liberação.</td>
 </tr>
 <tr>
-<td>Administrator</td>
-<td>Can also manage membership of all other roles for the item. The user who created an item gets automatically added to the Administrator role for that item. By default, the following groups get added to the Administrator role of the library: Build Administrators, Release Administrators, and Project Administrators.</td>
+<td>Administrador</td>
+<td>Também pode gerenciar a associação de todas as outras funções para o item. O usuário que criou um item é automaticamente adicionado à função de Administrador desse item. Por padrão, os seguintes grupos são adicionados à função de Administrador da biblioteca: Administradores de Compilação, Administradores de Liberação e Administradores de Projeto.</td>
 </tr>
 <tr>
-<td>Creator</td>
-<td>Can create new items in the library, but this role doesn't include Reader or User permissions. The Creator role can't manage permissions for other users.</td>
+<td>Criador</td>
+<td>Pode criar novos itens na biblioteca, mas essa função não inclui permissões de Leitura ou Usuário. A função de Criador não pode gerenciar permissões para outros usuários.</td>
 </tr>
 </tbody>
 </table>
-<p>When using <code>System.AccessToken</code>, service account <code>&lt;ProjectName&gt; Build Service</code> identity will be used to access the Library.</p>
-<p>Please ensure in <code>Pipelines &gt; Library &gt; Security</code> section that this service account has <code>Administrator</code> role at the <code>Library</code> or <code>Variable Group</code> level to create/update/delete variables (see. <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/library/?view=azure-devops">Library of assets</a> for additional information)).</p>
+<p>Ao usar <code>System.AccessToken</code>, a identidade da conta de serviço <code>&lt;NomeDoProjeto&gt; Build Service</code> será usada para acessar a Biblioteca.</p>
+<p>Certifique-se de que, na seção <code>Pipelines &gt; Biblioteca &gt; Segurança</code>, esta conta de serviço tenha a função de <code>Administrador</code> no nível da <code>Biblioteca</code> ou do <code>Grupo de Variáveis</code> para criar/atualizar/excluir variáveis (consulte <a href="https://learn.microsoft.com/pt-br/azure/devops/pipelines/library/?view=azure-devops">Biblioteca de ativos</a> para informações adicionais).</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 18, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
       
     
   </small>

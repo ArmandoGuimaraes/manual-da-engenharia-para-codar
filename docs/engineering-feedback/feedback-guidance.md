@@ -1,93 +1,93 @@
-# Engineering Feedback Guidance
+# Orientações para Feedback de Engenharia
 
-The following guidance provides a minimum set of details that will result in actionable engineering feedback. Ensure that you provide as much detail for each of the following sections as relevant and possible.
+As seguintes orientações fornecem um conjunto mínimo de detalhes que resultarão em feedback de engenharia acionável. Certifique-se de fornecer o máximo de detalhes possível para cada uma das seguintes seções, conforme relevante.
 
-## Title
+## Título
 
-Provide a meaningful and descriptive title. There is no need to include the Azure service in the title as this will be included as part of the **Categorization** section.
+Forneça um título significativo e descritivo. Não é necessário incluir o serviço Azure no título, pois isso será incluído como parte da seção de **Categorização**.
 
-Good examples:
+Exemplos bons:
 
-- Supported X versions not documented
-- Require all-in-one Y story
+- Versões de X suportadas não documentadas
+- Requer história Y completa
 
-## Summary
+## Resumo
 
-Summarize the feedback in a short paragraph.
+Resuma o feedback em um parágrafo curto.
 
-## Categorization
+## Categorização
 
-### Azure Service
+### Serviço Azure
 
-Which Azure service does this feedback item refer to? If there are multiple Azure services involved, pick the primary service and include the details of the others in the **Notes** section.
+A que serviço Azure se refere este item de feedback? Se houver vários serviços Azure envolvidos, escolha o serviço principal e inclua os detalhes dos outros na seção **Notas**.
 
-### Type
+### Tipo
 
-Select one of the following to describe what type of feedback is being provided:
+Selecione um dos seguintes para descrever que tipo de feedback está sendo fornecido:
 
-- Business Blocker (e.g. No SLA on X, Service Y not GA, Service A not in Region B)
-- Technical Blocker (e.g. Accelerated networking not available on Service X)
-- Documentation (e.g. Instructions for configuring scenario X missing)
-- Feature Request (e.g. Enable simple integration to X on Service Y)
+- Impedimento de Negócios (por exemplo, Sem SLA em X, Serviço Y não está na GA, Serviço A não está na Região B)
+- Impedimento Técnico (por exemplo, Rede Acelerada não disponível no Serviço X)
+- Documentação (por exemplo, Instruções para configurar o cenário X ausentes)
+- Solicitação de Recurso (por exemplo, Habilitar integração simples com X no Serviço Y)
 
-### Stage
+### Estágio
 
-Select one of the following to describe the lifecycle stage of the engagement that has generated this feedback:
+Selecione um dos seguintes para descrever o estágio do ciclo de vida do engajamento que gerou este feedback:
 
-- Production
-- Staging
-- Testing
-- Development
+- Produção
+- Estágio
+- Teste
+- Desenvolvimento
 
-### Impact
+### Impacto
 
-Describe the impact to the customer and engagement that this feedback implies.
+Descreva o impacto para o cliente e o engajamento que esse feedback implica.
 
-### Time frame
+### Prazo
 
-Provide a time frame that this feedback item needs to be resolved within (if relevant).
+Forneça um prazo dentro do qual este item de feedback precisa ser resolvido (se relevante).
 
-### Priority
+### Prioridade
 
-Please provide the customer perspective priority of the feedback.  Feedback is prioritized at one of the following four levels:
+Forneça a prioridade do ponto de vista do cliente para o feedback. O feedback é priorizado em um dos quatro níveis a seguir:
 
-- **P0 - Impact is critical and large**: Needs to be addressed immediately; impact is critical and large in scope (i.e. major service outage; makes service or functions unusable/unavailable to a high portion of addressable space; no known workaround).
-- **P1 - Impact is high and significant**: Needs to be addressed quickly; impacts a large percentage of addressable space and impedes progress. A partial workaround exists or is overly painful.
-- **P2 - Impact is moderate and varies in scope**: Needs to be addressed in a reasonable time frame (i.e. issues that are impeding adoption and usage with no reasonable workarounds). For example, feedback may be related to feature-level issue to solve for friction.
-- **P3 - Impact is low**: Issue can be address when able or eventually (i.e. relevant to core addressable space but issue does not impede progress or has reasonable workaround). For example, feedback may be related to feature ideas or opportunities.
+- **P0 - O impacto é crítico e grande**: Precisa ser abordado imediatamente; o impacto é crítico e de grande alcance (ou seja, grande interrupção do serviço; torna o serviço ou funções inutilizáveis/inacessíveis para uma grande parte do espaço abrangível; sem solução conhecida).
+- **P1 - O impacto é alto e significativo**: Precisa ser abordado rapidamente; impacta uma grande porcentagem do espaço abrangível e dificulta o progresso. Uma solução alternativa parcial existe ou é muito problemática.
+- **P2 - O impacto é moderado e varia em alcance**: Precisa ser abordado em um período de tempo razoável (ou seja, questões que estão prejudicando a adoção e o uso sem soluções alternativas razoáveis). Por exemplo, o feedback pode estar relacionado a problemas de nível de recurso para resolver a fricção.
+- **P3 - O impacto é baixo**: O problema pode ser resolvido quando possível ou mais tarde (ou seja, relevante para o espaço abrangível central, mas o problema não impede o progresso ou possui solução razoável). Por exemplo, o feedback pode estar relacionado a ideias ou oportunidades de recursos.
 
-## Reproduction Steps
+## Passos de Reprodução
 
-The reproduction steps are important since they help confirm and replay the issue, and are essential in demonstrating success once there is a resolution.
+Os passos de reprodução são importantes, pois ajudam a confirmar e reproduzir o problema e são essenciais para demonstrar o sucesso quando houver uma solução.
 
-### Pre-requisites
+### Pré-requisitos
 
-Provide a clear set of all conditions and pre-requisites required before following the set of reproduction steps. These could include:
+Forneça um conjunto claro de todas as condições e pré-requisitos necessários antes de seguir os passos de reprodução. Isso pode incluir:
 
-- Platform (e.g. AKS 1.16.4 cluster with Azure CNI, Ubuntu 19.04 VM)
-- Services (e.g. Azure Key Vault, Azure Monitor)
-- Networking (e.g. VNET with subnet)
+- Plataforma (por exemplo, cluster AKS 1.16.4 com Azure CNI, VM Ubuntu 19.04)
+- Serviços (por exemplo, Azure Key Vault, Azure Monitor)
+- Rede (por exemplo, VNET com sub-rede)
 
-### Steps
+### Passos
 
-Provide a clear set of repeatable steps that will allow for this feedback to be reproduced. This can take the form of:
+Forneça um conjunto claro de passos repetíveis que permitirão a reprodução deste feedback. Isso pode assumir a forma de:
 
-- Scripts (e.g. bash, PowerShell, terraform, arm template)
-- Command line instructions (e.g. az, helm, terraform)
-- Screen shots (e.g. azure portal screens)
+- Scripts (por exemplo, bash, PowerShell, terraform, modelo de braço)
+- Instruções de linha de comando (por exemplo, az, helm, terraform)
+- Capturas de tela (por exemplo, telas do portal Azure)
 
-## Notes
+## Notas
 
-Include items like architecture diagrams, screenshots, logs, traces etc which can help with understanding your notes and the feedback item. Also include details about the scenario customer/partner verbatim as much as possible in the main content.
+Inclua itens como diagramas de arquitetura, capturas de tela, logs, traces, etc., que possam ajudar a entender suas anotações e o item de feedback. Inclua também detalhes sobre o cenário do cliente/parceiro, o máximo possível, no conteúdo principal.
 
-### What didn't work
+### O que não funcionou
 
-Describe what didn't work or what feature gap you identified.
+Descreva o que não funcionou ou que lacuna de recurso você identificou.
 
-### What was your expectation or the desired outcome
+### Qual era a sua expectativa ou resultado desejado
 
-Describe what you expected to happen. What was the outcome that was expected?
+Descreva o que você esperava que acontecesse. Qual era o resultado esperado? 
 
-### Describe the steps you took
+### Descreva os passos que você seguiu
 
-Provide a clear description of the steps taken and the outcome/description at each point.
+Forneça uma descrição clara dos passos tomados e o resultado/descrição em cada ponto.

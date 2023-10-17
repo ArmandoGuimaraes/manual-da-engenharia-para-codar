@@ -1,74 +1,74 @@
-# Your Milestone/Epic Design Title Here (prefix with DRAFT/WIP to indicate level of completeness)
+# Sua Revisão de Design de Milestone/Épico (prefixe com DRAFT/WIP para indicar nível de completude)
 
-> Please refer to <https://microsoft.github.io/code-with-engineering-playbook/design/design-reviews/recipes/milestone-epic-design-review-recipe/> for things to keep in mind when using this template.
+> Por favor, consulte <https://microsoft.github.io/code-with-engineering-playbook/design/design-reviews/recipes/milestone-epic-design-review-recipe/> para orientações a serem seguidas ao utilizar este modelo.
 
-* Milestone / Epic: [Name](http://link-to-work-item)
-* Project / Engagement: [Project Engagement]
-* Authors: [Author1, Author2, etc.]
+* Milestone / Épico: [Nome](http://link-para-o-item-de-trabalho)
+* Projeto / Engajamento: [Projeto ou Engajamento]
+* Autores: [Autor1, Autor2, etc.]
 
-## Overview / Problem Statement
+## Visão Geral / Declaração do Problema
 
-> Describe the milestone/epic with a high-level summary and a problem statement. Consider including or linking to any additional background (e.g. Game Plan or Checkpoint docs) if it is useful for historical context.
+> Descreva o milestone/épico com um resumo de alto nível e uma declaração do problema. Considere incluir ou vincular a qualquer contexto adicional (por exemplo, Plano de Jogo ou documentos de Verificação) se for útil para o contexto histórico.
 
-## Goals / In-Scope
+## Metas / No Escopo
 
-> List a few bullet points of goals that this milestone/epic will achieve and that are most relevant for the design review discussion. You may include acceptable criteria required to meet the [Definition of Done](../../../agile-development/advanced-topics/team-agreements/definition-of-done.md).
+> Liste alguns pontos principais das metas que este milestone/épico alcançará e que são mais relevantes para a discussão da revisão de design. Você pode incluir critérios de aceitação necessários para atender à [Definição de Pronto](../../../agile-development/advanced-topics/team-agreements/definition-of-done.md).
 
-## Non-goals / Out-of-Scope
+## Não Metas / Fora do Escopo
 
-> List a few bullet points of non-goals to clarify the work that is beyond the scope of the design review for this milestone/epic.
+> Liste alguns pontos principais das não metas para esclarecer o trabalho que está fora do escopo da revisão de design deste milestone/épico.
 
-## Proposed Design / Suggested Approach
+## Design Proposto / Abordagem Sugerida
 
-> To optimize the time investment, this should be brief since it is likely that details will change as the epic/milestone is further decomposed into features and stories. The goal being to convey the vision and complexity in something that can be understood in a few minutes and can help guide a discussion (either asynchronously via comments or in a meeting).
+> Para otimizar o investimento de tempo, isso deve ser breve, pois é provável que os detalhes mudem à medida que o épico/milestone for decomposto em funcionalidades e histórias. O objetivo é transmitir a visão e complexidade em algo que possa ser compreendido em poucos minutos e possa ajudar a orientar uma discussão (seja de forma assíncrona por meio de comentários ou em uma reunião).
 
-* A paragraph to describe the proposed design / suggested approach for this milestone/epic.
-* A diagram (e.g. architecture, sequence, component, deployment, etc.) or pseudo-code snippet to make it easier to talk through the approach.
-* List a few of the alternative approaches that were considered and include the brief key **Pros and Cons** used to help rationalize the decision. For example:
+* Um parágrafo para descrever o design proposto / abordagem sugerida para este milestone/épico.
+* Um diagrama (por exemplo, arquitetura, sequência, componente, implantação, etc.) ou trecho de pseudo-código para facilitar a discussão da abordagem.
+* Liste algumas das abordagens alternativas que foram consideradas e inclua as breves principais **Vantagens e Desvantagens** usadas para justificar a decisão. Por exemplo:
 
-| Pros                             | Cons                                  |
+| Prós                             | Contras                                  |
 |----------------------------------|---------------------------------------|
-| Simple to implement              | Creates secondary identity system     |
-| Repeatable pattern/code artifact | Deployment requires admin credentials |
+| Simples de implementar            | Cria sistema de identidade secundário  |
+| Padrão/código repetível          | A implantação requer credenciais de administrador |
 |                                  |                                       |
 
-## Technology
+## Tecnologia
 
-> Briefly list the languages(s) and platform(s) that comprise the stack. This may include anything that is needed to understand the overall solution: OS, web server, presentation layer, persistence layer, caching, eventing, etc.
+> Liste brevemente as linguagens e plataformas que compõem o stack. Isso pode incluir qualquer coisa que seja necessária para entender a solução geral: SO, servidor web, camada de apresentação, camada de persistência, cache, eventos, etc.
 
-## Non-Functional Requirements
+## Requisitos Não Funcionais
 
-* What are the primary performance and scalability concerns for this milestone/epic?
-* Are there specific latency, availability, and RTO/RPO objectives that must be met?
-* Are there specific bottlenecks or potential problem areas? For example, are operations CPU or I/O (network, disk) bound?
-* How large are the data sets and how fast do they grow?
-* What is the expected usage pattern of the service? For example, will there be peaks and valleys of intense concurrent usage?
-* Are there specific cost constraints? (e.g. $ per transaction/device/user)
+* Quais são as principais preocupações de desempenho e escalabilidade para este milestone/épico?
+* Existem objetivos específicos de latência, disponibilidade e RTO/RPO que devem ser atendidos?
+* Existem gargalos específicos ou áreas potenciais de problema? Por exemplo, as operações são limitadas por CPU ou E/S (rede, disco)?
+* Quão grandes são os conjuntos de dados e com que rapidez eles crescem?
+* Qual é o padrão de uso esperado do serviço? Por exemplo, haverá picos e vales de uso intenso concorrente?
+* Existem restrições de custo específicas? (por exemplo, $ por transação/dispositivo/usuario)
 
-## Operationalization
+## Operacionalização
 
-* Are there any specific considerations for the CI/CD setup of milestone/epic?
-* Is there a process (manual or automated) to promote builds from lower environments to higher ones?
-* Does this milestone/epic require zero-downtime deployments, and if so, how are they achieved?
-* Are there mechanisms in place to rollback a deployment?
-* What is the process for monitoring the functionality provided by this milestone/epic?
+* Existem considerações específicas para a configuração de CI/CD do milestone/épico?
+* Existe um processo (manual ou automatizado) para promover builds de ambientes mais baixos para ambientes mais altos?
+* Este milestone/épico requer implantações sem tempo de inatividade e, se sim, como elas são alcançadas?
+* Existem mecanismos para reverter uma implantação?
+* Qual é o processo de monitoramento da funcionalidade fornecida por este milestone/épico?
 
-## Dependencies
+## Dependências
 
-* Does this milestone/epic need to be sequenced after another epic assigned to the same team and why?
-* Is the milestone/epic dependent on another team completing other work?
-* Will the team need to wait for that work to be completed or could the work proceed in parallel?
+* Este milestone/épico precisa ser sequenciado após outro épico atribuído à mesma equipe e por quê?
+* O milestone/épico depende de outro trabalho que outra equipe precisa concluir?
+* A equipe precisará esperar que esse trabalho seja concluído ou o trabalho pode prosseguir em paralelo?
 
-## Risks & Mitigations
+## Riscos e Mitigações
 
-* Does the team need assistance from subject-matter experts?
-* What security and privacy concerns does this milestone/epic have?
-* Is all sensitive information and secrets treated in a safe and secure manner?
+* A equipe precisa de assistência de especialistas no assunto?
+* Quais são as preocupações de segurança e privacidade deste milestone/épico?
+* Todas as informações sensíveis e segredos são tratados de forma segura e protegida?
 
-## Open Questions
+## Perguntas em Aberto
 
-> Include any open questions and concerns.
+> Inclua quaisquer perguntas em aberto e preocupações.
 
-## Additional References
+## Referências Adicionais
 
-> Include any additional references including links to work items or other documents.
+> Inclua quaisquer referências adicionais, incluindo links para itens de trabalho ou outros documentos.

@@ -1,72 +1,73 @@
-# Class Diagrams
+# Diagramas de Classes
 
-## Purpose
+## Propósito
 
-This document is intended to provide a baseline understanding for what, why, and how to incorporate Class Diagrams as part of your engagement. Regarding the **how**, the section at the bottom will provide tools and plugins to automate as much as possible when generating Class Diagrams through VSCode.
+Este documento tem como objetivo fornecer uma compreensão básica do que são, por que são usados e como incorporar Diagramas de Classes como parte de seu envolvimento. Em relação ao "como", a seção abaixo fornecerá ferramentas e plugins para automatizar o máximo possível a geração de Diagramas de Classes por meio do VSCode.
 
-[Wikipedia](https://en.wikipedia.org/wiki/Class_diagram) defines UML Class Diagrams as:
+A [Wikipedia](https://en.wikipedia.org/wiki/Class_diagram) define os Diagramas de Classes UML como:
 
- > _a type of static structure diagram that describes the structure of a system by showing the system's classes, their attributes, operations (or methods), and the relationships among objects._
+ > _um tipo de diagrama de estrutura estática que descreve a estrutura de um sistema, mostrando as classes do sistema, seus atributos, operações (ou métodos) e as relações entre objetos._
 
-The key terms to make a note of here are:
+Os termos-chave a serem observados aqui são:
 
-- static structure
-- showing the system's classes, attributes, operations, and relationships
+- estrutura estática
+- mostrando as classes do sistema, atributos, operações e relacionamentos
 
-Class Diagrams are a type of a static structure because it focuses on the properties, and relationships of classes. It is not supposed to inform about the data flow, the caller or callee responsibilities, the request flows, nor any other "behavior" related characteristics.
+Os Diagramas de Classes são um tipo de estrutura estática porque se concentram nas propriedades e relacionamentos das classes. Eles não têm a finalidade de informar sobre o fluxo de dados, as responsabilidades do chamador ou do chamado, os fluxos de solicitação ou quaisquer outras características relacionadas ao "comportamento".
 
-## Essential Takeaways
+## Principais Pontos
 
-Each "Component" (Stand alone piece of software - think datastores, microservices, serverless functions, user interfaces, etc...) of a Product or System will have it's own Class Diagram.
+Cada "Componente" (peça independente de software - pense em repositórios de dados, microsserviços, funções serverless, interfaces de usuário, etc...) de um Produto ou Sistema terá seu próprio Diagrama de Classes.
 
-Class Diagrams should tell a "story", where each Diagram will require Engineers to really think about:
+Os Diagramas de Classes devem contar uma "história", onde cada Diagrama exigirá que os engenheiros pensem profundamente sobre:
 
-- The responsibility / operations of each class. What can (should) the class perform?
-- The class' attributes and properties. What can be set by an implementor of this class? What are all (if any) universally static properties?
-- The visibility or accessibility that a class' operation may have to other classes
-- The [relationship](https://en.wikipedia.org/wiki/Class_diagram#Relationships) between each class or the various instances
+- A responsabilidade / operações de cada classe. O que uma classe pode (e deve) fazer?
+- Os atributos e propriedades da classe. O que pode ser definido por um implementador desta classe? Quais são todas (se houver) as propriedades universalmente estáticas?
+- A visibilidade ou acessibilidade que uma operação de classe pode ter para outras classes
+- O [relacionamento](https://en.wikipedia.org/wiki/Class_diagram#Relationships) entre cada classe ou as várias instâncias
 
-## When to Create?
+## Quando Criar?
 
-Because Class Diagrams represent one of the more granular depiction of what a "product" or "system" is composed of, it is recommended to begin the creation of these diagrams at the beginning and throughout the engineering portions of an engagement.
+Porque os Diagramas de Classes representam uma das representações mais granulares do que um "produto" ou "sistema" é composto, é recomendável começar a criação desses diagramas no início e ao longo das partes de engenharia de um envolvimento.
 
-This does mean that any code change (new feature, enhancement, code refactor) might involve updating one or many Class Diagrams. Although this might seem like a downside of Class Diagrams, it actually can become a very strong benefit.
+Isso significa que qualquer mudança de código (nova funcionalidade, melhoria, refatoração de código) pode envolver a atualização de um ou muitos Diagramas de Classes. Embora isso possa parecer uma desvantagem dos Diagramas de Classes, na verdade pode se tornar um grande benefício.
 
-Because Class Diagrams tell a "story" for each Component of a product (see the previous section), it requires a substantial amount of upfront thought and design considerations. This amount of upfront thought ultimately results in making more effective code changes, and may even minimize the level of refactors in future stages of the engagement.
+Porque os Diagramas de Classes contam uma "história" para cada Componente de um produto (veja a seção anterior), eles exigem uma quantidade substancial de planejamento antecipado e considerações de design. Essa quantidade de planejamento antecipado, no final das contas, resulta em mudanças de código mais eficazes e pode até minimizar o nível de refatorações em estágios futuros do envolvimento.
 
-Class Diagrams also provides quick "alert indicators" when a refactor might be necessary. Reasons could be due to seeing that a particular class might be doing too much, have too many dependencies, or when the codebase might produce a very "messy" or "chaotic" Class Diagram. **If the Class Diagram is unreadable, the code will probably be unreadable**
+Os Diagramas de Classes também fornecem indicadores rápidos de "alerta" quando uma refatoração pode ser necessária. As razões podem ser devido ao fato de que uma classe específica pode estar fazendo muito, ter muitas dependências ou quando a base de código pode produzir um Diagrama de Classes muito "confuso" ou "caótico". **Se o Diagrama de Classes for ilegível, o código provavelmente será ilegível**.
 
-## Examples
+## Exemplos
 
-One can find many examples online such as at [UML Diagrams](https://www.uml-diagrams.org/class-diagrams-examples.html).
+Pode-se encontrar muitos exemplos online, como em [Diagramas UML](https://www.uml-diagrams.org/class-diagrams-examples.html).
 
-Below are some basic examples:
+Abaixo estão alguns exemplos básicos:
 
 ![image](./Images/generalization-aggregation-association.png)
 
 ![image](./Images/realization.png)
 
-## Versioning
+## Versionamento
 
-Because Class Diagrams will be changing rapidly, essentially anytime a class is changed in the code, and because it might be very large in size, it's recommended to "publish" an image of the generated diagram periodically. The frequency might vary as the engagement proceeds.
+Como os Diagramas de Classes mudarão rapidamente, essencialmente sempre que uma classe for alterada no código, e porque podem ser muito grandes, é recomendável "publicar" periodicamente uma imagem do diagrama gerado. A frequência pode variar à medida que o envolvimento avança.
 
-The below approach can be used to assist the team on how often to update the published version of the diagram:
+A abordagem abaixo pode ser usada para auxiliar a equipe a determinar com que frequência atualizar a versão publicada do diagrama:
 
-- Wait until the engagement progresses (maybe 10-20% completion) before publishing a Class Diagram. It is not worth publishing a Class Diagram from the beginning as it will be changing daily
-- Once the most crucial classes are developed, update the published diagram periodically. Ideally whenever a large refactor or net new class is introduced. If the team uses an IDE plugin to automatically generate the diagram from their development environment, this becomes more of a documentation task rather than a necessity
-- As the engagement approaches its end (90-100% completion), update the published diagram whenever a change to an existing class as part of a feature or story acceptance criteria
+- Espere até que o envolvimento progrida (talvez 10-20% de conclusão) antes de publicar um Diagrama de Classes. Não vale a pena publicar um Diagrama de Classes desde o início, pois ele estará mudando diariamente.
+- Uma vez que as classes mais cruciais forem desenvolvidas, atualize o diagrama publicado periodicamente. Idealmente, sempre que uma grande refatoração ou uma nova classe for introduzida. Se a equipe usar um plugin de IDE para gerar automaticamente o diagrama de seu ambiente de desenvolvimento, isso se tornará mais uma t
 
-Depending on the tool being used, automatic versioning might be performed whenever an update to the Diagram is performed. If not, it is recommended to capture distinct versions whenever there is a particular customer need to have a snapshot of the project at a particular point in time. The hard requirement is that the latest diagram should be published and everyone should know how to access it as
-the customer hand-off approaches.
+arefa de documentação do que uma necessidade.
+- À medida que o envolvimento se aproxima do final (90-100% de conclusão), atualize o diagrama publicado sempre que houver uma alteração em uma classe existente como parte dos critérios de aceitação de uma funcionalidade ou história.
 
-## Resources
+Dependendo da ferramenta usada, o versionamento automático pode ser realizado sempre que uma atualização do Diagrama for feita. Se não for o caso, é recomendável capturar versões distintas sempre que houver uma necessidade específica do cliente de ter uma imagem do projeto em um ponto específico no tempo. O requisito fundamental é que o diagrama mais recente deve ser publicado e todos devem saber como acessá-lo quando a entrega ao cliente se aproximar.
+
+## Recursos
 
 - [Wikipedia](https://en.wikipedia.org/wiki/Class_diagram)
 - [Visual Paradigm](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/#:~:text=A%20class%20diagram%20in%20the%20Unified%20Modeling%20Language,%28or%20methods%29%2C%204%20and%20the%20relationships%20among%20objects.)
-- VS Code Plugins:
-  - C#, Visual Basic, C++ using [Class Designer Component](https://marketplace.visualstudio.com/items?itemName=AlexShen.classdiagram-ts&ssr=false#overview)
+- Plugins para o VS Code:
+  - C#, Visual Basic, C++ usando [Componente de Designer de Classe](https://marketplace.visualstudio.com/items?itemName=AlexShen.classdiagram-ts&ssr=false#overview)
   - TypeScript [classdiagram-ts](https://marketplace.visualstudio.com/items?itemName=AlexShen.classdiagram-ts&ssr=false#overview)
-  - [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) - requires a generator from code to PlantUML syntax to generate diagrams
-    - [PlantUML Syntax](https://plantuml.com/class-diagram)
-    - [C# to PlantUML](https://marketplace.visualstudio.com/items?itemName=pierre3.csharp-to-plantuml)
-    - [Drawing manually](https://towardsdatascience.com/drawing-a-uml-diagram-in-the-vs-code-53c2e67deffe)
+  - [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) - requer um gerador de código para a sintaxe PlantUML para gerar diagramas
+    - [Sintaxe PlantUML](https://plantuml.com/class-diagram)
+    - [C# para PlantUML](https://marketplace.visualstudio.com/items?itemName=pierre3.csharp-to-plantuml)
+    - [Desenhar manualmente](https://towardsdatascience.com/drawing-a-uml-diagram-in-the-vs-code-53c2e67deffe)

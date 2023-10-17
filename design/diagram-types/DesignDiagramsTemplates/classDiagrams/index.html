@@ -19,7 +19,7 @@
     
     
       
-        <title>Class Diagrams - Manual da Engenharia para Codar</title>
+        <title>Diagramas de Classes - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#class-diagrams" class="md-skip">
+        <a href="#diagramas-de-classes" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Class Diagrams
+              Diagramas de Classes
             
           </span>
         </div>
@@ -4860,12 +4860,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Class Diagrams
+          Diagramas de Classes
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Class Diagrams
+        Diagramas de Classes
       </a>
       
         
@@ -4884,43 +4884,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#purpose" class="md-nav__link">
-    Purpose
+  <a href="#proposito" class="md-nav__link">
+    Propósito
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#essential-takeaways" class="md-nav__link">
-    Essential Takeaways
+  <a href="#principais-pontos" class="md-nav__link">
+    Principais Pontos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-to-create" class="md-nav__link">
-    When to Create?
+  <a href="#quando-criar" class="md-nav__link">
+    Quando Criar?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    Examples
+  <a href="#exemplos" class="md-nav__link">
+    Exemplos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#versioning" class="md-nav__link">
-    Versioning
+  <a href="#versionamento" class="md-nav__link">
+    Versionamento
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    Resources
+  <a href="#recursos" class="md-nav__link">
+    Recursos
   </a>
   
 </li>
@@ -7216,43 +7216,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#purpose" class="md-nav__link">
-    Purpose
+  <a href="#proposito" class="md-nav__link">
+    Propósito
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#essential-takeaways" class="md-nav__link">
-    Essential Takeaways
+  <a href="#principais-pontos" class="md-nav__link">
+    Principais Pontos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-to-create" class="md-nav__link">
-    When to Create?
+  <a href="#quando-criar" class="md-nav__link">
+    Quando Criar?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    Examples
+  <a href="#exemplos" class="md-nav__link">
+    Exemplos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#versioning" class="md-nav__link">
-    Versioning
+  <a href="#versionamento" class="md-nav__link">
+    Versionamento
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    Resources
+  <a href="#recursos" class="md-nav__link">
+    Recursos
   </a>
   
 </li>
@@ -7271,59 +7271,59 @@
                 
 
 
-<h1 id="class-diagrams">Class Diagrams</h1>
-<h2 id="purpose">Purpose</h2>
-<p>This document is intended to provide a baseline understanding for what, why, and how to incorporate Class Diagrams as part of your engagement. Regarding the <strong>how</strong>, the section at the bottom will provide tools and plugins to automate as much as possible when generating Class Diagrams through VSCode.</p>
-<p><a href="https://en.wikipedia.org/wiki/Class_diagram">Wikipedia</a> defines UML Class Diagrams as:</p>
+<h1 id="diagramas-de-classes">Diagramas de Classes</h1>
+<h2 id="proposito">Propósito</h2>
+<p>Este documento tem como objetivo fornecer uma compreensão básica do que são, por que são usados e como incorporar Diagramas de Classes como parte de seu envolvimento. Em relação ao "como", a seção abaixo fornecerá ferramentas e plugins para automatizar o máximo possível a geração de Diagramas de Classes por meio do VSCode.</p>
+<p>A <a href="https://en.wikipedia.org/wiki/Class_diagram">Wikipedia</a> define os Diagramas de Classes UML como:</p>
 <blockquote>
-<p><em>a type of static structure diagram that describes the structure of a system by showing the system's classes, their attributes, operations (or methods), and the relationships among objects.</em></p>
+<p><em>um tipo de diagrama de estrutura estática que descreve a estrutura de um sistema, mostrando as classes do sistema, seus atributos, operações (ou métodos) e as relações entre objetos.</em></p>
 </blockquote>
-<p>The key terms to make a note of here are:</p>
+<p>Os termos-chave a serem observados aqui são:</p>
 <ul>
-<li>static structure</li>
-<li>showing the system's classes, attributes, operations, and relationships</li>
+<li>estrutura estática</li>
+<li>mostrando as classes do sistema, atributos, operações e relacionamentos</li>
 </ul>
-<p>Class Diagrams are a type of a static structure because it focuses on the properties, and relationships of classes. It is not supposed to inform about the data flow, the caller or callee responsibilities, the request flows, nor any other "behavior" related characteristics.</p>
-<h2 id="essential-takeaways">Essential Takeaways</h2>
-<p>Each "Component" (Stand alone piece of software - think datastores, microservices, serverless functions, user interfaces, etc...) of a Product or System will have it's own Class Diagram.</p>
-<p>Class Diagrams should tell a "story", where each Diagram will require Engineers to really think about:</p>
+<p>Os Diagramas de Classes são um tipo de estrutura estática porque se concentram nas propriedades e relacionamentos das classes. Eles não têm a finalidade de informar sobre o fluxo de dados, as responsabilidades do chamador ou do chamado, os fluxos de solicitação ou quaisquer outras características relacionadas ao "comportamento".</p>
+<h2 id="principais-pontos">Principais Pontos</h2>
+<p>Cada "Componente" (peça independente de software - pense em repositórios de dados, microsserviços, funções serverless, interfaces de usuário, etc...) de um Produto ou Sistema terá seu próprio Diagrama de Classes.</p>
+<p>Os Diagramas de Classes devem contar uma "história", onde cada Diagrama exigirá que os engenheiros pensem profundamente sobre:</p>
 <ul>
-<li>The responsibility / operations of each class. What can (should) the class perform?</li>
-<li>The class' attributes and properties. What can be set by an implementor of this class? What are all (if any) universally static properties?</li>
-<li>The visibility or accessibility that a class' operation may have to other classes</li>
-<li>The <a href="https://en.wikipedia.org/wiki/Class_diagram#Relationships">relationship</a> between each class or the various instances</li>
+<li>A responsabilidade / operações de cada classe. O que uma classe pode (e deve) fazer?</li>
+<li>Os atributos e propriedades da classe. O que pode ser definido por um implementador desta classe? Quais são todas (se houver) as propriedades universalmente estáticas?</li>
+<li>A visibilidade ou acessibilidade que uma operação de classe pode ter para outras classes</li>
+<li>O <a href="https://en.wikipedia.org/wiki/Class_diagram#Relationships">relacionamento</a> entre cada classe ou as várias instâncias</li>
 </ul>
-<h2 id="when-to-create">When to Create?</h2>
-<p>Because Class Diagrams represent one of the more granular depiction of what a "product" or "system" is composed of, it is recommended to begin the creation of these diagrams at the beginning and throughout the engineering portions of an engagement.</p>
-<p>This does mean that any code change (new feature, enhancement, code refactor) might involve updating one or many Class Diagrams. Although this might seem like a downside of Class Diagrams, it actually can become a very strong benefit.</p>
-<p>Because Class Diagrams tell a "story" for each Component of a product (see the previous section), it requires a substantial amount of upfront thought and design considerations. This amount of upfront thought ultimately results in making more effective code changes, and may even minimize the level of refactors in future stages of the engagement.</p>
-<p>Class Diagrams also provides quick "alert indicators" when a refactor might be necessary. Reasons could be due to seeing that a particular class might be doing too much, have too many dependencies, or when the codebase might produce a very "messy" or "chaotic" Class Diagram. <strong>If the Class Diagram is unreadable, the code will probably be unreadable</strong></p>
-<h2 id="examples">Examples</h2>
-<p>One can find many examples online such as at <a href="https://www.uml-diagrams.org/class-diagrams-examples.html">UML Diagrams</a>.</p>
-<p>Below are some basic examples:</p>
+<h2 id="quando-criar">Quando Criar?</h2>
+<p>Porque os Diagramas de Classes representam uma das representações mais granulares do que um "produto" ou "sistema" é composto, é recomendável começar a criação desses diagramas no início e ao longo das partes de engenharia de um envolvimento.</p>
+<p>Isso significa que qualquer mudança de código (nova funcionalidade, melhoria, refatoração de código) pode envolver a atualização de um ou muitos Diagramas de Classes. Embora isso possa parecer uma desvantagem dos Diagramas de Classes, na verdade pode se tornar um grande benefício.</p>
+<p>Porque os Diagramas de Classes contam uma "história" para cada Componente de um produto (veja a seção anterior), eles exigem uma quantidade substancial de planejamento antecipado e considerações de design. Essa quantidade de planejamento antecipado, no final das contas, resulta em mudanças de código mais eficazes e pode até minimizar o nível de refatorações em estágios futuros do envolvimento.</p>
+<p>Os Diagramas de Classes também fornecem indicadores rápidos de "alerta" quando uma refatoração pode ser necessária. As razões podem ser devido ao fato de que uma classe específica pode estar fazendo muito, ter muitas dependências ou quando a base de código pode produzir um Diagrama de Classes muito "confuso" ou "caótico". <strong>Se o Diagrama de Classes for ilegível, o código provavelmente será ilegível</strong>.</p>
+<h2 id="exemplos">Exemplos</h2>
+<p>Pode-se encontrar muitos exemplos online, como em <a href="https://www.uml-diagrams.org/class-diagrams-examples.html">Diagramas UML</a>.</p>
+<p>Abaixo estão alguns exemplos básicos:</p>
 <p><img alt="image" src="../Images/generalization-aggregation-association.png" /></p>
 <p><img alt="image" src="../Images/realization.png" /></p>
-<h2 id="versioning">Versioning</h2>
-<p>Because Class Diagrams will be changing rapidly, essentially anytime a class is changed in the code, and because it might be very large in size, it's recommended to "publish" an image of the generated diagram periodically. The frequency might vary as the engagement proceeds.</p>
-<p>The below approach can be used to assist the team on how often to update the published version of the diagram:</p>
+<h2 id="versionamento">Versionamento</h2>
+<p>Como os Diagramas de Classes mudarão rapidamente, essencialmente sempre que uma classe for alterada no código, e porque podem ser muito grandes, é recomendável "publicar" periodicamente uma imagem do diagrama gerado. A frequência pode variar à medida que o envolvimento avança.</p>
+<p>A abordagem abaixo pode ser usada para auxiliar a equipe a determinar com que frequência atualizar a versão publicada do diagrama:</p>
 <ul>
-<li>Wait until the engagement progresses (maybe 10-20% completion) before publishing a Class Diagram. It is not worth publishing a Class Diagram from the beginning as it will be changing daily</li>
-<li>Once the most crucial classes are developed, update the published diagram periodically. Ideally whenever a large refactor or net new class is introduced. If the team uses an IDE plugin to automatically generate the diagram from their development environment, this becomes more of a documentation task rather than a necessity</li>
-<li>As the engagement approaches its end (90-100% completion), update the published diagram whenever a change to an existing class as part of a feature or story acceptance criteria</li>
+<li>Espere até que o envolvimento progrida (talvez 10-20% de conclusão) antes de publicar um Diagrama de Classes. Não vale a pena publicar um Diagrama de Classes desde o início, pois ele estará mudando diariamente.</li>
+<li>Uma vez que as classes mais cruciais forem desenvolvidas, atualize o diagrama publicado periodicamente. Idealmente, sempre que uma grande refatoração ou uma nova classe for introduzida. Se a equipe usar um plugin de IDE para gerar automaticamente o diagrama de seu ambiente de desenvolvimento, isso se tornará mais uma t</li>
 </ul>
-<p>Depending on the tool being used, automatic versioning might be performed whenever an update to the Diagram is performed. If not, it is recommended to capture distinct versions whenever there is a particular customer need to have a snapshot of the project at a particular point in time. The hard requirement is that the latest diagram should be published and everyone should know how to access it as
-the customer hand-off approaches.</p>
-<h2 id="resources">Resources</h2>
+<p>arefa de documentação do que uma necessidade.
+- À medida que o envolvimento se aproxima do final (90-100% de conclusão), atualize o diagrama publicado sempre que houver uma alteração em uma classe existente como parte dos critérios de aceitação de uma funcionalidade ou história.</p>
+<p>Dependendo da ferramenta usada, o versionamento automático pode ser realizado sempre que uma atualização do Diagrama for feita. Se não for o caso, é recomendável capturar versões distintas sempre que houver uma necessidade específica do cliente de ter uma imagem do projeto em um ponto específico no tempo. O requisito fundamental é que o diagrama mais recente deve ser publicado e todos devem saber como acessá-lo quando a entrega ao cliente se aproximar.</p>
+<h2 id="recursos">Recursos</h2>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Class_diagram">Wikipedia</a></li>
 <li><a href="https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/#:~:text=A%20class%20diagram%20in%20the%20Unified%20Modeling%20Language,%28or%20methods%29%2C%204%20and%20the%20relationships%20among%20objects.">Visual Paradigm</a></li>
-<li>VS Code Plugins:<ul>
-<li>C#, Visual Basic, C++ using <a href="https://marketplace.visualstudio.com/items?itemName=AlexShen.classdiagram-ts&amp;ssr=false#overview">Class Designer Component</a></li>
+<li>Plugins para o VS Code:<ul>
+<li>C#, Visual Basic, C++ usando <a href="https://marketplace.visualstudio.com/items?itemName=AlexShen.classdiagram-ts&amp;ssr=false#overview">Componente de Designer de Classe</a></li>
 <li>TypeScript <a href="https://marketplace.visualstudio.com/items?itemName=AlexShen.classdiagram-ts&amp;ssr=false#overview">classdiagram-ts</a></li>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml">PlantUML</a> - requires a generator from code to PlantUML syntax to generate diagrams<ul>
-<li><a href="https://plantuml.com/class-diagram">PlantUML Syntax</a></li>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=pierre3.csharp-to-plantuml">C# to PlantUML</a></li>
-<li><a href="https://towardsdatascience.com/drawing-a-uml-diagram-in-the-vs-code-53c2e67deffe">Drawing manually</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml">PlantUML</a> - requer um gerador de código para a sintaxe PlantUML para gerar diagramas<ul>
+<li><a href="https://plantuml.com/class-diagram">Sintaxe PlantUML</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=pierre3.csharp-to-plantuml">C# para PlantUML</a></li>
+<li><a href="https://towardsdatascience.com/drawing-a-uml-diagram-in-the-vs-code-53c2e67deffe">Desenhar manualmente</a></li>
 </ul>
 </li>
 </ul>
@@ -7335,7 +7335,7 @@ the customer hand-off approaches.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 26, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
       
     
   </small>

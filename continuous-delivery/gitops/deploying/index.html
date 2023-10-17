@@ -19,7 +19,7 @@
     
     
       
-        <title>Deploying with GitOps - Manual da Engenharia para Codar</title>
+        <title>Implantação com GitOps - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#deploying-with-gitops" class="md-skip">
+        <a href="#implantacao-com-gitops" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Deploying with GitOps
+              Implantação com GitOps
             
           </span>
         </div>
@@ -7140,29 +7140,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-gitops" class="md-nav__link">
-    What is GitOps?
+  <a href="#o-que-e-gitops" class="md-nav__link">
+    O que é GitOps?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-should-i-use-gitops" class="md-nav__link">
-    Why should I use GitOps?
+  <a href="#por-que-devo-usar-o-gitops" class="md-nav__link">
+    Por que devo usar o GitOps?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tools-for-gitops" class="md-nav__link">
-    Tools for GitOps
+  <a href="#ferramentas-para-gitops" class="md-nav__link">
+    Ferramentas para GitOps
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#deploying-using-gitops" class="md-nav__link">
-    Deploying using GitOps
+  <a href="#implantacao-usando-gitops" class="md-nav__link">
+    Implantação usando GitOps
   </a>
   
 </li>
@@ -7181,26 +7181,26 @@
                 
 
 
-<h1 id="deploying-with-gitops">Deploying with GitOps</h1>
-<h2 id="what-is-gitops">What is GitOps?</h2>
-<p>GitOps is a way of managing your infrastructure and applications so that the whole system is described declaratively and version controlled (most likely in a Git repository), and having an automated process that ensures that the deployed environment matches the state specified in a repository."- <a href="https://www.weave.works/technologies/gitops/#what-is-gitops">WeaveWorks</a></p>
-<h2 id="why-should-i-use-gitops">Why should I use GitOps?</h2>
-<p>GitOps simply allows faster deployments by having git repositories in the center offering a clear audit trail via git commits and no direct environment access. Read more on <a href="https://www.gitops.tech/#why-should-i-use-gitops">Why should I use GitOps?</a></p>
-<p>The below diagram compares traditional CI/CD vs GitOps workflow:
-<img alt="push based vs pull based deployments" src="images/GitopsWorflowVsTraditionalPush.jpg" /></p>
-<h2 id="tools-for-gitops">Tools for GitOps</h2>
-<p>Some popular GitOps frameworks for Kubernetes backed by <a href="https://landscape.cncf.io/card-mode?category=continuous-integration-delivery">CNCF</a> community:</p>
+<h1 id="implantacao-com-gitops">Implantação com GitOps</h1>
+<h2 id="o-que-e-gitops">O que é GitOps?</h2>
+<p>GitOps é uma forma de gerenciar sua infraestrutura e aplicativos para que todo o sistema seja descrito de forma declarativa e controlada por versões (provavelmente em um repositório Git) e tenha um processo automatizado que garanta que o ambiente implantado corresponda ao estado especificado em um repositório." - <a href="https://www.weave.works/technologies/gitops/#what-is-gitops">WeaveWorks</a></p>
+<h2 id="por-que-devo-usar-o-gitops">Por que devo usar o GitOps?</h2>
+<p>O GitOps simplesmente permite implantações mais rápidas, tendo repositórios Git no centro, oferecendo um rastreamento claro por meio de commits do Git e sem acesso direto ao ambiente. Saiba mais em <a href="https://www.gitops.tech/#why-should-i-use-gitops">Por que devo usar o GitOps?</a></p>
+<p>O diagrama abaixo compara o fluxo de trabalho tradicional de CI/CD com o GitOps:
+<img alt="implantações baseadas em push versus implantações baseadas em pull" src="images/GitopsWorflowVsTraditionalPush.jpg" /></p>
+<h2 id="ferramentas-para-gitops">Ferramentas para GitOps</h2>
+<p>Alguns frameworks populares de GitOps para Kubernetes apoiados pela comunidade <a href="https://landscape.cncf.io/card-mode?category=continuous-integration-delivery">CNCF</a>:</p>
 <ul>
 <li><a href="https://fluxcd.io/docs/get-started/">Flux V2</a></li>
 <li><a href="https://argo-cd.readthedocs.io/en/stable/">Argo CD</a></li>
 <li><a href="https://fleet.rancher.io/">Rancher Fleet</a></li>
 </ul>
-<h2 id="deploying-using-gitops">Deploying using GitOps</h2>
-<p>GitOps with Flux v2 can be enabled in Azure Kubernetes Service (AKS) managed clusters or Azure Arc-enabled Kubernetes connected clusters as a cluster extension. After the microsoft.flux cluster extension is installed, you can create one or more fluxConfigurations resources that sync your Git repository sources to the cluster and reconcile the cluster to the desired state. With GitOps, you can use your Git repository as the source of truth for cluster configuration and application deployment.</p>
+<h2 id="implantacao-usando-gitops">Implantação usando GitOps</h2>
+<p>O GitOps com o Flux v2 pode ser habilitado em clusters gerenciados do Azure Kubernetes Service (AKS) ou em clusters conectados do Kubernetes habilitados para o Azure Arc como uma extensão de cluster. Após a instalação da extensão de cluster microsoft.flux, você pode criar um ou mais recursos de fluxConfigurations que sincronizam as fontes do seu repositório Git com o cluster e reconciliam o cluster com o estado desejado. Com o GitOps, você pode usar seu repositório Git como a fonte da verdade para a configuração do cluster e a implantação de aplicativos.</p>
 <ul>
-<li><a href="https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster">Tutorial: Deploy configurations using GitOps on an Azure Arc-enabled Kubernetes cluster</a></li>
-<li><a href="https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd">Tutorial: Implement CI/CD with GitOps</a></li>
-<li><a href="https://github.com/microsoft/multicluster-gitops">Multi-cluster and multi-tenant environment with Flux v2</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster">Tutorial: Implante configurações usando GitOps em um cluster Kubernetes habilitado para Azure Arc</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd">Tutorial: Implemente CI/CD com GitOps</a></li>
+<li><a href="https://github.com/microsoft/multicluster-gitops">Ambiente com vários clusters e locatários com o Flux v2</a></li>
 </ul>
 
   <hr>
@@ -7208,7 +7208,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 2, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
       
     
   </small>

@@ -1,69 +1,73 @@
-# TPM considerations for Machine Learning projects
+# Considerações sobre TPM para projetos de Aprendizado de Máquina
 
-In this document, we explore some of the Program Management considerations for Machine Learning (ML) projects and suggest recommendations for Technical Program Managers (TPM) to effectively work with Data and Applied Machine Learning engineering teams.
+Neste documento, exploramos algumas das considerações de Gerenciamento de Programas para projetos de Aprendizado de Máquina (ML) e sugerimos recomendações para Gerentes de Programas Técnicos (TPM) trabalharem de forma eficaz com equipes de engenharia de Dados e Aprendizado de Máquina Aplicado.
 
-## Determine the need for Machine Learning in the project
+## Determinar a necessidade de Aprendizado de Máquina no projeto
 
-In Artificial Intelligence (AI) projects, the ML component is generally a part of an overall business problem and **NOT** the problem itself. Determine the overall business problem first and then evaluate if ML can help address a part of the problem space.
-Few considerations for identifying the right fit for the project:
+Em projetos de Inteligência Artificial (IA), o componente de ML geralmente faz parte de um problema de negócios geral e **NÃO** é o problema em si. Determine primeiro o problema de negócios geral e, em seguida, avalie se o ML pode ajudar a abordar uma parte do espaço do problema.
+Algumas considerações para identificar o ajuste certo para o projeto:
 
-- Engage experts in human experience and employ techniques such as [Design Thinking](https://www.microsoft.com/en-us/haxtoolkit/ai-guidelines/) and [Problem Formulation](ml-problem-formulation-envisioning.md) to **understand the customer needs** and human behavior first. Identify the right stakeholders from both business and technical leadership and invite them to these workshops. The outcome should be end-user scenarios and [personas](https://en.wikipedia.org/wiki/Persona_(user_experience)) to determine the real needs of the users.
+- Envolva especialistas em experiência humana e utilize técnicas como [Design Thinking](https://www.microsoft.com/en-us/haxtoolkit/ai-guidelines/) e [Formulação de Problemas](ml-problem-formulation-envisioning.md) para **compreender as necessidades do cliente** e o comportamento humano primeiro. Identifique as partes interessadas corretas tanto da liderança de negócios quanto da liderança técnica e convide-os para essas oficinas. O resultado deve ser cenários de usuários finais e [personas](https://en.wikipedia.org/wiki/Persona_(user_experience)) para determinar as necessidades reais dos usuários.
 
-- Focus on [System Design](https://learn.microsoft.com/en-us/azure/architecture/data-guide/big-data/ai-overview) principles to identify the architectural components, entities, interfaces, constraints. Ask the right questions early and explore design alternatives with the engineering team.
+- Concentre-se nos princípios de [Design de Sistema](https://learn.microsoft.com/en-us/azure/architecture/data-guide/big-data/ai-overview) para identificar os componentes arquiteturais, entidades, interfaces e restrições. Faça as perguntas certas desde cedo e explore alternativas de design com a equipe de engenharia.
 
-- Think hard about the **costs of ML** and whether we are solving a repetitive problem at scale. Many a times, customer problems can be solved with data analytics, dashboards, or rule-based algorithms as the first phase of the project.
+- Pense cuidadosamente sobre os **custos do ML** e se estamos resolvendo um problema repetitivo em escala. Muitas vezes, os problemas dos clientes podem ser resolvidos com análise de dados, painéis de controle ou algoritmos baseados em regras como a primeira fase do projeto.
 
-### Set Expectations for high ambiguity in ML components
+### Definir expectativas para alta ambiguidade nos componentes de ML
 
-ML projects can be plagued with a phenomenon we can call as the "**Death by Unknowns**". Unlike software engineering projects, ML focused projects can result in quick success early (aka sudden decrease in error rate), but this may flatten eventually. Few things to consider:
+Projetos de ML podem ser afligidos por um fenômeno que podemos chamar de "**Morte pelo Desconhecido**". Ao contrário de projetos de engenharia de software, projetos focados em ML podem resultar em sucesso rápido no início (ou seja, diminuição repentina na taxa de erro), mas isso pode se estabilizar eventualmente. Algumas coisas a considerar:
 
-- **Set clear expectations**: Identify the performance metrics and discuss on a "good enough" prediction rate that will bring value to the business. An 80% "good enough" rate may save business costs and increase productivity but if going from 80 to 95% would require unimaginable cost and effort. Is it worth it? Can it be a progressive road map?
+- **Defina expectativas claras**: Identifique as métricas de desempenho e discuta uma taxa de previsão "suficientemente boa" que trará valor ao negócio. Uma taxa de "suficientemente boa" de 80% pode economizar custos de negócios e aumentar a produtividade, mas se passar de 80% para 95% exigir custos e esforços inimagináveis. Vale a pena? Pode ser um roadmap progressivo?
 
-- Create a smaller team and **undertake a feasibility analysis** through techniques like [EDA](https://en.wikipedia.org/wiki/Exploratory_data_analysis) (Exploratory Data Analysis). A [feasibility study](ml-feasibility-study.md) is much cheaper to evaluate data quality, customer constraints and model feasibility. It allows a TPM to better understand customer use cases and current environment and can act as a fail-fast mechanism. Note that feasibility should be shorter (in weeks) else it misses the point of saving costs.
+- Crie uma equipe menor e **realize uma análise de viabilidade** por meio de técnicas como [EDA](https://en.wikipedia.org/wiki/Exploratory_data_analysis) (Análise Exploratória de Dados). Um [estudo de viabilidade](ml-feasibility-study.md) é muito mais barato para avaliar a qualidade dos dados, as restrições do cliente e a viabilidade do modelo. Isso permite que um TPM compreenda melhor os casos de uso do cliente e o ambiente atual e pode atuar como um mecanismo de falha rápida. Observe que a viabilidade deve ser mais curta (em semanas) senão perderá o objetivo de economizar custos.
 
-- As in any project, there will be new needs (additional data sources, technical constraints, hiring data labelers, business users time etc.). Incorporate [Agile](ml-project-management.md) techniques to fail fast and minimize cost and schedule surprises.
+- Como em qualquer projeto, haverá novas necessidades (fontes de dados adicionais, restrições técnicas, contratação de rotuladores de dados, tempo dos usuários de negócios etc.). Incorpore técnicas [Ágeis](ml-project-management.md) para falhar rapidamente e minimizar custos e surpresas no cronograma.
 
-### Notebooks != ML Production
+Peço desculpas por não ter respeitado os marcadores Markdown em minha resposta anterior. Vou corrigir isso e fornecer a tradução novamente com a formatação correta:
 
-Notebooks are a great way to kick start Data Analytics and Applied Machine Learning efforts, however for a production releases, additional constraints should be considered:
+### Notebooks != Produção de ML
 
-- Understand the [end-end flow of data management](https://learn.microsoft.com/en-us/azure/architecture/data-guide/big-data/ai-overview), how data will be made available (ingestion flows), what's the frequency, storage, retention of data. Plan user stories and design spikes around these flows to ensure a robust ML pipeline is developed.
+Notebooks são uma ótima maneira de iniciar os esforços de Análise de Dados e Aprendizado de Máquina Aplicado, no entanto, para lançamentos em produção, devem ser consideradas restrições adicionais:
 
-- Engineering team should follow the same rigor in building ML projects as in any software engineering project. We at ISE (Industry Solutions Engineering) have built a good set of resources from our learnings in our [ISE Engineering Playbook](../index.md).
-- Think about the how the model will be deployed, for example, are there technical constraints due to an edge device, or network constraints that will prevent updating the model. Understanding of the environment is critical, refer to the [Model Production Checklist](ml-model-checklist.md) as a reference to determine model deployment choices.
+- Compreenda o [fluxo de gerenciamento de dados de ponta a ponta](https://learn.microsoft.com/en-us/azure/architecture/data-guide/big-data/ai-overview), como os dados serão disponibilizados (fluxos de ingestão), qual é a frequência, armazenamento e retenção de dados. Planeje histórias de usuário e spikes de design em torno desses fluxos para garantir o desenvolvimento de um pipeline de ML robusto.
 
-- ML Focussed projects are not a "one-shot" release solution, they need to be nurtured, evolved, and improved over time. Plan for a continuous improvement lifecycle, the initial phases can be model feasibility and validation to get the good enough prediction rate, the later phases can be then be scaling and improving the models through feedback loops and fresh data sets.
+- A equipe de engenharia deve seguir o mesmo rigor na construção de projetos de ML como em qualquer projeto de engenharia de software. Nós, da ISE (Indústria Solutions Engineering), desenvolvemos um bom conjunto de recursos a partir de nossas experiências em nosso [ISE Engineering Playbook](../index.md).
 
-### Garbage Data In -\> Garbage Model Out
+- Pense em como o modelo será implantado, por exemplo, existem restrições técnicas devido a um dispositivo de borda, ou restrições de rede que impedirão a atualização do modelo. Compreender o ambiente é fundamental, consulte a [Lista de Verificação de Produção de Modelos](ml-model-checklist.md) como referência para determinar escolhas de implantação do modelo.
 
-Data quality is a major factor in affecting model performance and production roll-out, consider the following:
+- Projetos focados em ML não são uma solução de "um tiro" - eles precisam ser nutridos, evoluídos e aprimorados ao longo do tempo. Planeje um ciclo de melhoria contínua, as fases iniciais podem ser viabilidade e validação do modelo para obter a taxa de previsão "suficientemente boa", as fases posteriores podem ser escalonamento e melhoria dos modelos por meio de loops de feedback e conjuntos de dados atualizados.
 
-- Conduct a [data exploration](ml-data-exploration.md) workshop and **generate a report on data quality** that includes missing values, duplicates, unlabeled data, expired or not valid data, incomplete data (e.g., only having male representation in a people dataset).
+### Dados Ruins na Entrada -> Modelo Ruim na Saída
 
-- **Identify data source reliability** to ensure data is coming from a production source. (e.g., are the images from a production or industrial camera or taken from an iPhone/Android phone.)
+A qualidade dos dados é um fator importante que afeta o desempenho do modelo e a implementação de produção, considere o seguinte:
 
-- **Identify data acquisition constraints**: Determine how the data is being obtained and the constraints around it. Some example may include legal, contractual, Privacy, regulation, ethics constraints. These can significantly slow down production roll out if not captured in the early phases of the project.
+- Realize uma oficina de [exploração de dados](ml-data-exploration.md) e **elabore um relatório sobre a qualidade dos dados** que inclua valores ausentes, duplicatas, dados não rotulados, dados expirados ou não válidos, dados incompletos (por exemplo, ter apenas representação masculina em um conjunto de dados de pessoas).
 
-- **Determine data volumes**: Identify if we have enough data for sampling the required business use case and how will the data be improved over time. The thumb rule here is that **data should be enough for generalization** to avoid overfitting.
+- **Identifique a confiabilidade da fonte de dados** para garantir que os dados provenham de uma fonte de produção. (por exemplo, as imagens são de uma câmera de produção ou industrial ou foram tiradas de um iPhone/Android.)
 
-### Plan for Unique Roles in AI projects
+- **Identifique as restrições de aquisição de dados**: Determine como os dados estão sendo obtidos e as restrições relacionadas a isso. Alguns exemplos podem incluir restrições legais, contratuais, de privacidade, regulamentares e éticas. Essas restrições podem atrasar significativamente a implementação de produção se não forem capturadas nas fases iniciais do projeto.
 
-An ML Project has multiple stages, and each stage may require additional roles. For example, Design Research & Designers for Human Experience, Data Engineer for Data Collection, Feature Engineering, a Data Labeler for labeling structured data, engineers for MLOps and model deployment and the list can go on. As a TPM, factor in having these resources available at the right time to avoid any schedule risks.
+- **Determine os volumes de dados**: Identifique se temos dados suficientes para amostrar o caso de uso de negócios necessário e como os dados serão aprimorados ao longo do tempo. A regra geral aqui é que os **dados devem ser suficientes para generalização** para evitar o overfitting.
 
-### Feature Engineering and Hyperparameter tuning
+### Planeje para Funções Únicas em Projetos de IA
 
-Feature Engineering enables the transformation of data so that it becomes usable for an algorithm. Creating the right features is an art and may require experimentation as well as domain expertise. Allocate time for domain experts to help with improving and identifying the best features. For example, for a natural language processing engine for text extraction of financial documents, we may involve financial researchers and run a [relevance judgment](https://nlp.stanford.edu/IR-book/html/htmledition/information-retrieval-system-evaluation-1.html) exercise and provide a feedback loop to evaluate model performance.
+Um projeto de ML tem várias etapas, e cada etapa pode exigir funções adicionais. Por exemplo, Pesquisa de Design e Designers para Experiência Humana, Engenheiro de Dados para Coleta de Dados, Engenharia de Recursos, um Rotulador de Dados para rotular dados estruturados, engenheiros para MLOps e implantação de modelo, e a lista pode continuar. Como TPM, leve em consideração ter esses recursos disponíveis no momento certo para evitar quaisquer riscos de cronograma.
 
-### Responsible AI considerations
+### Engenharia de Recursos e Ajuste de Hiperparâmetros
 
-Bias in machine learning could be the number one issue of a model not performing to its intended needs. Plan to incorporate [Responsible AI principles](responsible-ai.md) from Day 1 to ensure fairness, security, privacy and transparency of the models.  For example, for a person recognition algorithm, if the data source is only feeding a specific skin type, then production scenarios may not provide good results.
+A Engenharia de Recursos permite a transformação de dados para que eles se tornem utilizáveis por um algoritmo. Criar os recursos certos é uma arte e pode exigir experimentação, bem como experiência no domínio. Aloque tempo para que especialistas no domínio auxiliem na melhoria e identificação dos melhores recursos. Por exemplo, para um mecanismo de processamento de linguagem natural para extração de texto de documentos financeiros, podemos envolver pesquisadores financeiros e realizar um exercício de [avaliação de relevância](https://nlp.stanford.edu/IR-book/html/htmledition/information-retrieval-system-evaluation-1.html) e fornecer um ciclo de feedback para avaliar o desempenho do modelo.
 
-### PM Fundamentals
+### Considerações de IA Responsável
 
-Core to a TPM role are the fundamentals that include bringing clarity to the team, design thinking, driving the team to the right technical decisions, managing risk, managing stakeholders, backlog management, project management. **These are a TPM superpowers**. A TPM can complement the machine learning team by ensuring the problem and customer needs are understood, a wholistic system design is evaluated, the stakeholder expectations and driving customer objectives.
-Here are some references that may help:
+O viés no aprendizado de máquina pode ser o principal problema para um modelo não atingir suas necessidades pretendidas. Planeje incorporar [princípios de IA Responsável](responsible-ai.md) desde o primeiro dia para garantir a equidade, segurança, privacidade e transparência dos modelos. Por exemplo, para um algoritmo de reconhecimento de pessoas, se a fonte de dados estiver fornecendo apenas um tipo específico de pele, os cenários de produção podem não fornecer bons resultados.
 
-- [The T in a TPM](https://www.linkedin.com/pulse/should-technical-program-manager-tpm-nikhil-sachdeva/)
-- [The TPM Don't M\*ck up framework](https://www.linkedin.com/pulse/tpm-dont-mck-up-framework-nikhil-sachdeva/)
-- [The mind of a TPM](https://www.linkedin.com/pulse/mind-technical-program-manager-nikhil-sachdeva/)
-- [ML Learning Journey for a TPM](https://medium.com/data-science-at-microsoft/the-role-of-a-technical-program-manager-in-ai-projects-8f1ff41905b0)
+### Fundamentos de Gerenciamento de Projetos
+
+Essenciais para o papel de um TPM estão os fundamentos que incluem trazer clareza para a equipe, pensamento de design, direcionar a equipe para as decisões técnicas corretas, gerenciar riscos, gerenciar partes interessadas, gerenciamento de backlog e gerenciamento de projetos. **Esses são os superpoderes de um TPM**. Um TPM pode complementar a equipe de aprendizado de máquina garantindo que o problema e as necessidades do cliente sejam compreendidos, que um design de sistema holístico seja avaliado, que as expectativas das partes interessadas sejam gerenciadas e que os objetivos do cliente sejam alcançados.
+
+Aqui estão algumas referências que podem ajudar:
+
+- [O "T" em um TPM](https://www.linkedin.com/pulse/should-technical-program-manager-tpm-nikhil-sachdeva/)
+- [O framework "TPM Don't M\*ck up"](https://www.linkedin.com/pulse/tpm-dont-mck-up-framework-nikhil-sachdeva/)
+- [A mente de um TPM](https://www.linkedin.com/pulse/mind-technical-program-manager-nikhil-sachdeva/)
+- [Jornada de Aprendizado de Máquina para um TPM](https://medium.com/data-science-at-microsoft/the-role-of-a-technical-program-manager-in-ai-projects-8f1ff41905b0)

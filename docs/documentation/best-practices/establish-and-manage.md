@@ -1,7 +1,7 @@
-# Establishing and Managing Documentation
+# Estabelecendo e Gerenciando Documentação
 
-Documentation should be source-controlled. [Pull Requests](../guidance/pull-requests.md) can be used to tell others about the changes, so they can be reviewed and discussed. E.g., [Async Design Reviews](../../design/design-reviews/recipes/async-design-reviews.md).
+A documentação deve ser controlada por origem. [Pull Requests](../orientacao/pull-requests.md) podem ser usados para informar aos outros sobre as alterações, para que possam ser revisadas e discutidas. Por exemplo, [Revisões de Design Assíncronas](../../design/design-reviews/recipes/async-design-reviews.md).
 
-Tools:
+Ferramentas:
 
-- [Wikis](../tools/wikis.md).
+- [Wikis](../ferramentas/wikis.md).

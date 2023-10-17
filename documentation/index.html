@@ -19,7 +19,7 @@
     
     
       
-        <title>Documentation - Manual da Engenharia para Codar</title>
+        <title>Documentação - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#documentation" class="md-skip">
+        <a href="#documentacao" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Documentation
+              Documentação
             
           </span>
         </div>
@@ -7136,57 +7136,57 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#table-of-contents" class="md-nav__link">
-    Table of Contents
+  <a href="#sumario" class="md-nav__link">
+    Sumário
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#goals" class="md-nav__link">
-    Goals
+  <a href="#objetivos" class="md-nav__link">
+    Objetivos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#challenges" class="md-nav__link">
-    Challenges
+  <a href="#desafios" class="md-nav__link">
+    Desafios
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-documentation-should-exist" class="md-nav__link">
-    What documentation should exist
+  <a href="#que-documentacao-deve-existir" class="md-nav__link">
+    Que documentação deve existir
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    Best practices
+  <a href="#melhores-praticas" class="md-nav__link">
+    Melhores práticas
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
-    Tools
+  <a href="#ferramentas" class="md-nav__link">
+    Ferramentas
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#recipes" class="md-nav__link">
-    Recipes
+  <a href="#receitas" class="md-nav__link">
+    Receitas
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    Resources
+  <a href="#recursos" class="md-nav__link">
+    Recursos
   </a>
   
 </li>
@@ -7205,107 +7205,107 @@
                 
 
 
-<h1 id="documentation">Documentation</h1>
-<p>Every software development project requires documentation. <a href="https://agilemanifesto.org/">Agile Software Development</a> values <em>working software over comprehensive documentation</em>. Still, projects should include the key information needed to understand the development and the use of the generated software.</p>
-<p>Documentation shouldn't be an afterthought. Different written documents and materials should be created during the whole life cycle of the project, as per the project needs.</p>
-<h2 id="table-of-contents">Table of Contents</h2>
+<h1 id="documentacao">Documentação</h1>
+<p>Todo projeto de desenvolvimento de software requer documentação. O <a href="https://agilemanifesto.org/">Desenvolvimento Ágil de Software</a> valoriza <em>software funcionando sobre documentação abrangente</em>. Ainda assim, os projetos devem incluir as informações-chave necessárias para entender o desenvolvimento e o uso do software gerado.</p>
+<p>A documentação não deve ser uma reflexão tardia. Diferentes documentos escritos e materiais devem ser criados durante todo o ciclo de vida do projeto, conforme as necessidades do projeto.</p>
+<h2 id="sumario">Sumário</h2>
 <ul>
-<li><a href="#goals">Goals</a></li>
-<li><a href="#challenges">Challenges</a></li>
-<li><a href="#what-documentation-should-exist">What documentation should exist?</a></li>
-<li><a href="#best-practices">Best practices</a></li>
-<li><a href="#tools">Tools</a></li>
-<li><a href="#recipes">Recipes</a></li>
-<li><a href="#resources">Resources</a></li>
+<li><a href="#objetivos">Objetivos</a></li>
+<li><a href="#desafios">Desafios</a></li>
+<li><a href="#que-documentação-deve-existir">Que documentação deve existir?</a></li>
+<li><a href="#melhores-práticas">Melhores práticas</a></li>
+<li><a href="#ferramentas">Ferramentas</a></li>
+<li><a href="#receitas">Receitas</a></li>
+<li><a href="#recursos">Recursos</a></li>
 </ul>
-<h2 id="goals">Goals</h2>
+<h2 id="objetivos">Objetivos</h2>
 <ul>
-<li>Facilitate onboarding of new team members.</li>
-<li>Improve communication and collaboration between teams (especially when distributed across time zones).</li>
-<li>Improve the transition of the project to another team.</li>
+<li>Facilitar a integração de novos membros da equipe.</li>
+<li>Melhorar a comunicação e colaboração entre equipes (especialmente quando distribuídas em fusos horários diferentes).</li>
+<li>Melhorar a transição do projeto para outra equipe.</li>
 </ul>
-<h2 id="challenges">Challenges</h2>
-<p>When working in an engineering project, we typically encounter one or more of these challenges related to documentation (including some examples):</p>
+<h2 id="desafios">Desafios</h2>
+<p>Ao trabalhar em um projeto de engenharia, geralmente nos deparamos com um ou mais desses desafios relacionados à documentação (incluindo alguns exemplos):</p>
 <ul>
-<li><strong>Non-existent</strong>.<ul>
-<li>No onboarding documentation, so it takes a long time to set up the environment when you join the project.</li>
-<li>No document in the wiki explaining existing repositories, so you cannot tell which of the 10 available repositories you should clone.</li>
-<li>No main README, so you don't know where to start when you clone a repository.</li>
-<li>No "how to contribute" section, so you don't know which is the branch policy, where to add new documents, etc.</li>
-<li>No code guidelines, so everyone follows different naming conventions, etc.</li>
+<li><strong>Inexistente</strong>.<ul>
+<li>Nenhuma documentação de integração, então leva muito tempo para configurar o ambiente quando você entra no projeto.</li>
+<li>Nenhum documento na wiki explicando os repositórios existentes, então você não sabe qual dos 10 repositórios disponíveis deve clonar.</li>
+<li>Nenhum README principal, então você não sabe por onde começar quando clona um repositório.</li>
+<li>Nenhuma seção "como contribuir", então você não sabe qual é a política de branch, onde adicionar novos documentos, etc.</li>
+<li>Nenhuma diretriz de código, então todos seguem convenções de nomenclatura diferentes, etc.</li>
 </ul>
 </li>
-<li><strong>Hidden</strong>.<ul>
-<li>Impossible to find useful documentation as it’s scattered all over the place. E.g., no idea how to compile, run and test the code as the README is hidden in a folder within a folder within a folder.</li>
-<li>Useful processes (e.g., grooming process) explained outside the backlog management tool and not linked anywhere.</li>
-<li>Decisions taken in different channels other than the backlog management tool and not recorded anywhere else.</li>
+<li><strong>Oculto</strong>.<ul>
+<li>Impossível encontrar documentação útil, pois está espalhada por todo lugar. Por exemplo, sem ideia de como compilar, executar e testar o código, pois o README está escondido em uma pasta dentro de outra pasta dentro de outra pasta.</li>
+<li>Processos úteis (por exemplo, processo de grooming) explicados fora da ferramenta de gerenciamento de backlog e não vinculados a nenhum lugar.</li>
+<li>Decisões tomadas em canais diferentes que não a ferramenta de gerenciamento de backlog e não registradas em nenhum outro lugar.</li>
 </ul>
 </li>
-<li><strong>Incomplete</strong>.<ul>
-<li>No clear branch policy, so everyone names their branches differently.</li>
-<li>Missing settings in the "how to run this" document that are required to run the application.</li>
+<li><strong>Incompleta</strong>.<ul>
+<li>Nenhuma política de branch clara, então todos nomeiam suas branches de maneira diferente.</li>
+<li>Configurações ausentes no documento "como executar isso" que são necessárias para executar a aplicação.</li>
 </ul>
 </li>
-<li><strong>Inaccurate</strong>.<ul>
-<li>Documents not updated along with the code, so they don't mention the right folders, settings, etc.</li>
+<li><strong>Inexata</strong>.<ul>
+<li>Documentos não atualizados junto com o código, então eles não mencionam as pastas corretas, configurações, etc.</li>
 </ul>
 </li>
-<li><strong>Obsolete</strong>.<ul>
-<li>Design documents that don't apply anymore, sitting next to valid documents. Which one shows the latest decisions?</li>
+<li><strong>Obsoleta</strong>.<ul>
+<li>Documentos de design que não se aplicam mais, ao lado de documentos válidos. Qual deles mostra as decisões mais recentes?</li>
 </ul>
 </li>
-<li><strong>Out of order (subject / date)</strong>.<ul>
-<li>Documents not organized per subject/workstream so not easy to find relevant information when you change to a new workstream.</li>
-<li>Design decision logs out of order and without a date that helps to determine which is the final decision on something.</li>
+<li><strong>Desorganizada (por assunto/data)</strong>.<ul>
+<li>Documentos não organizados por assunto/workstream, portanto, não é fácil encontrar informações relevantes quando você muda para um novo workstream.</li>
+<li>Registros de decisões de design fora de ordem e sem uma data que ajude a determinar qual é a decisão final sobre algo.</li>
 </ul>
 </li>
-<li><strong>Duplicate</strong>.<ul>
-<li>No settings file available in a centralized place as a single source of truth, so developers must keep sharing their own versions, and we end up with many files that might or might not work.</li>
+<li><strong>Duplicada</strong>.<ul>
+<li>Nenhum arquivo de configurações disponível em um local centralizado como fonte única da verdade, então os desenvolvedores precisam continuar compartilhando suas próprias versões, e acabamos com muitos arquivos que podem ou não funcionar.</li>
 </ul>
 </li>
-<li><strong>Afterthought</strong>.<ul>
-<li>Key documents created several weeks into the project: onboarding, how to run the app, etc.</li>
-<li>Documents created last minute just before the end of a project, forgetting that they also help the team while working on the project.</li>
+<li><strong>Reflexão tardia</strong>.<ul>
+<li>Documentos-chave criados várias semanas após o início do projeto: integração, como executar o aplicativo, etc.</li>
+<li>Documentos criados de última hora, pouco antes do término de um projeto, esquecendo que também ajudam a equipe durante o trabalho no projeto.</li>
 </ul>
 </li>
 </ul>
-<h2 id="what-documentation-should-exist">What documentation should exist</h2>
+<h2 id="que-documentacao-deve-existir">Que documentação deve existir</h2>
 <ul>
-<li><a href="guidance/project-and-repositories/">Project and Repositories</a></li>
-<li><a href="../source-control/git-guidance/#commit-best-practices">Commit Messages</a></li>
-<li><a href="guidance/pull-requests/">Pull Requests</a></li>
-<li><a href="guidance/code/">Code</a></li>
-<li><a href="guidance/work-items/">Work Items</a></li>
-<li><a href="guidance/rest-apis/">REST APIs</a></li>
-<li><a href="guidance/engineering-feedback/">Engineering Feedback</a></li>
+<li><a href="./orientacao/projeto-e-repositorios.md">Projeto e Repositórios</a></li>
+<li><a href="../controle-de-fonte/git-orientacao/README.md#melhores-praticas-de-commit">Mensagens de Commit</a></li>
+<li><a href="./orientacao/pull-requests.md">Pull Requests</a></li>
+<li><a href="./orientacao/codigo.md">Código</a></li>
+<li><a href="./orientacao/itens-de-trabalho.md">Itens de Trabalho</a></li>
+<li><a href="./orientacao/apis-rest.md">APIs REST</a></li>
+<li><a href="./orientacao/feedback-de-engenharia.md">Feedback de Engenharia</a></li>
 </ul>
-<h2 id="best-practices">Best practices</h2>
+<h2 id="melhores-praticas">Melhores práticas</h2>
 <ul>
-<li><a href="best-practices/establish-and-manage/">Establishing and managing documentation</a></li>
-<li><a href="best-practices/good-documentation/">Creating good documentation</a></li>
-<li><a href="best-practices/automation/">Replacing documentation with automation</a></li>
+<li><a href="./melhores-praticas/estabelecer-e-gerenciar.md">Estabelecendo e gerenciando documentação</a></li>
+<li><a href="./melhores-praticas/boa-documentacao.md">Criando boa documentação</a></li>
+<li><a href="./melhores-praticas/automacao.md">Substituindo documentação por automação</a></li>
 </ul>
-<h2 id="tools">Tools</h2>
+<h2 id="ferramentas">Ferramentas</h2>
 <ul>
-<li><a href="tools/wikis/">Wikis</a></li>
-<li><a href="tools/languages/">Languages</a><ul>
-<li><a href="tools/languages/#markdown">markdown</a></li>
-<li><a href="tools/languages/#mermaid">mermaid</a></li>
+<li><a href="./ferramentas/wikis.md">Wikis</a></li>
+<li><a href="./ferramentas/linguagens.md">Linguagens</a><ul>
+<li><a href="./ferramentas/linguagens.md#markdown">markdown</a></li>
+<li><a href="./ferramentas/linguagens.md#mermaid">mermaid</a></li>
 </ul>
 </li>
-<li><a href="tools/automation/">How to automate simple checks</a></li>
-<li><a href="tools/integrations/">Integration with Teams/Slack</a></li>
+<li><a href="./ferramentas/automacao.md">Como automatizar verificações simples</a></li>
+<li><a href="./ferramentas/integracoes.md">Integração com Teams/Slack</a></li>
 </ul>
-<h2 id="recipes">Recipes</h2>
+<h2 id="receitas">Receitas</h2>
 <ul>
-<li><a href="recipes/sync-wiki-between-repos/">How to sync a wiki between repositories</a></li>
-<li><a href="recipes/using-docfx-and-tools/">Using DocFx and Companion Tools to generate a Documentation website</a></li>
-<li><a href="recipes/deploy-docfx-azure-website/">Deploy the DocFx Documentation website to an Azure Website automatically</a></li>
-<li><a href="recipes/static-website-with-mkdocs/">How to create a static website for your documentation based on MkDocs and Material for MkDocs</a></li>
+<li><a href="./receitas/sincronizar-wiki-entre-repositorios.md">Como sincronizar uma wiki entre repositórios</a></li>
+<li><a href="./receitas/usar-docfx-e-ferramentas.md">Usando DocFx e Ferramentas Complementares para gerar um site de Documentação</a></li>
+<li><a href="./receitas/implantar-docfx-site-azure.md">Implantar automaticamente o site de Documentação DocFx em um site Azure</a></li>
+<li><a href="./receitas/site-estatico-com-mkdocs.md">Como criar um site estático para sua documentação com base em MkDocs e Material for MkDocs</a></li>
 </ul>
-<h2 id="resources">Resources</h2>
+<h2 id="recursos">Recursos</h2>
 <ul>
-<li><a href="https://blog.prototypr.io/software-documentation-types-and-best-practices-1726ca595c7f">Software Documentation Types and Best Practices</a></li>
+<li><a href="https://blog.prototypr.io/software-documentation-types-and-best-practices-1726ca595c7f">Tipos de Documentação de Software e Melhores Práticas</a></li>
 </ul>
 
   <hr>
@@ -7313,7 +7313,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 19, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
       
     
   </small>

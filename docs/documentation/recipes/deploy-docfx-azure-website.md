@@ -1,120 +1,122 @@
-# Deploy the DocFx Documentation website to an Azure Website automatically
+Entendi sua solicitação. Vou traduzir o documento técnico sobre o uso do Azure Website conforme as diretrizes fornecidas no seu prompt inicial.
 
-In the article [Using DocFx and Companion Tools to generate a Documentation website](using-docfx-and-tools.md) the process is described to generate content of a documentation website using DocFx. This document describes how to setup an Azure Website to host the content and automate the deployment to it using a pipeline in Azure DevOps.
+# Implante o site de documentação DocFx automaticamente em um site do Azure
 
-The [QuickStart sample](https://github.com/mtirionMSFT/DocFxQuickStart) that is provided for a quick setup of DocFx generation also contains the files explained in this document. Especially the **.pipelines** and **infrastructure** folders.
+No artigo [Usando o DocFx e Ferramentas Complementares para Gerar um Site de Documentação](using-docfx-and-tools.md), descreve-se o processo de geração de conteúdo de um site de documentação usando o DocFx. Este documento descreve como configurar um site do Azure para hospedar o conteúdo e automatizar a implantação usando um pipeline no Azure DevOps.
 
-The following steps can be followed when using the Quick Start folder. In the **infrastructure** folder you can find the Terraform files to create the website in an Azure environment. Out of the box, the script will create a website where the documentation content can be deployed to.
+A [amostra QuickStart](https://github.com/mtirionMSFT/DocFxQuickStart) fornecida para uma configuração rápida da geração do DocFx também contém os arquivos explicados neste documento. Especialmente as pastas **.pipelines** e **infrastructure**.
 
-## 1. Install Terraform
+Os seguintes passos podem ser seguidos ao usar a pasta Quick Start. Na pasta **infrastructure**, você pode encontrar os arquivos Terraform para criar o site em um ambiente do Azure. Por padrão, o script criará um site onde o conteúdo da documentação pode ser implantado.
 
-You can use tools like [Chocolatey](https://chocolatey.org/) to install Terraform:
+## 1. Instale o Terraform
+
+Você pode usar ferramentas como o [Chocolatey](https://chocolatey.org/) para instalar o Terraform:
 
 ```shell
 choco install terraform
 ```
 
-## 2. Set the proper variables
+## 2. Configure as variáveis apropriadas
 
-> **IMPORTANT:** Make sure you modify the value of the **app_name**, **rg_name** and **rg_location** variables. The *app_name* value is appended by **azurewebsites.net** and must be unique. Otherwise the script will fail that it cannot create the website.
+> **IMPORTANTE:** Certifique-se de modificar o valor das variáveis **app_name**, **rg_name** e **rg_location**. O valor de *app_name* é acrescentado por **azurewebsites.net** e deve ser exclusivo. Caso contrário, o script falhará ao criar o site.
 
-In the Quick Start, authentication is disabled. If you want that enabled, make sure you have create an *Application* in the Azure AD and have the *client ID*. This client id must be set as the value of the **client_id** variable in *variables.tf*. In the *main.tf* make sure you uncomment the authentication settings in the *app-service*. For more information see [Configure Azure AD authentication - Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad).
+Na Quick Start, a autenticação está desativada. Se você deseja ativá-la, certifique-se de criar um *Aplicativo* no Azure AD e obter o *ID do cliente*. Este ID do cliente deve ser definido como o valor da variável **client_id** em *variables.tf*. No *main.tf*, certifique-se de descomentar as configurações de autenticação em *app-service*. Para obter mais informações, consulte [Configurar a autenticação do Azure AD - Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad).
 
-If you want to set a custom domain for your documentation website with an SSL certificate you have to do some extra steps. You have to create a *Key Vault* and store the certificate there. Next step is to uncomment and set the values in *variables.tf*. You also have to uncomment the necessary steps in *main.tf*. All is indicated by comment-boxes. For more information see [Add a TLS/SSL certificate in Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/configure-ssl-certificate).
+Se você deseja configurar um domínio personalizado para o seu site de documentação com um certificado SSL, precisará seguir algumas etapas adicionais. Você deve criar um *Key Vault* e armazenar o certificado lá. O próximo passo é descomentar e definir os valores em *variables.tf*. Você também deve descomentar as etapas necessárias em *main.tf*. Tudo é indicado por caixas de comentários. Para obter mais informações, consulte [Adicionar um certificado TLS/SSL no Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/configure-ssl-certificate).
 
-Some extra information on SSL certificate, custom domain and Azure App Service can be found in the following paragraphs. If you are familiar with that or don't need it, go ahead and continue with [Step 3](#3-deploy-azure-resources-from-your-local-machine).
+Algumas informações adicionais sobre certificado SSL, domínio personalizado e Azure App Service podem ser encontradas nos parágrafos a seguir. Se você estiver familiarizado com isso ou não precisar disso, prossiga com [Passo 3](#3-implante-recursos-do-Azure-a-partir-do-seu-computador-local).
 
-### SSL Certificate
+### Certificado SSL
 
-To secure a website with a custom domain name and a certificate, you can find the steps to take in the article [Add a TLS/SSL certificate in Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/configure-ssl-certificate). That article also contains a description of ways to obtain a certificate and the requirements for a certificate. Usually you'll get a certificate from the customers IT department. If you want to start with a development certificate to test the process, you can create one yourself. You can do that in PowerShell with the script below. Replace:
+Para proteger um site com um nome de domínio personalizado e um certificado, você pode encontrar as etapas a serem seguidas no artigo [Adicionar um certificado TLS/SSL no Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/configure-ssl-certificate). Esse artigo também contém uma descrição das maneiras de obter um certificado e os requisitos para um certificado. Normalmente, você obterá um certificado do departamento de TI do cliente. Se você deseja começar com um certificado de desenvolvimento para testar o processo, pode criar um por conta própria. Você pode fazer isso no PowerShell com o seguinte script. Substitua:
 
-* **[YOUR DOMAIN]** with the domain you would like to register, e.g. `docs.somewhere.com`
-* **[PASSWORD]** with a password of the certificate. It's required for uploading a certificate in the Key Vault to have a password. You'll need this password in that step.
-* **[FILENAME]** for the output file name of the certificate. You can even insert the path here where it should be store on your machine.
+* **[SEU DOMÍNIO]** pelo domínio que deseja registrar, por exemplo, `docs.somewhere.com`.
+* **[SENHA]** por uma senha do certificado. É necessário ter uma senha ao carregar um certificado no Key Vault. Você precisará dessa senha nessa etapa.
+* **[NOME DO ARQUIVO]** pelo nome do arquivo de saída do certificado. Você pode até inserir o caminho aqui onde ele deve ser armazenado em sua máquina.
 
-You can store this script in a PowerShell script file (ps1 extension).
+Você pode armazenar este script em um arquivo de script do PowerShell (com extensão ps1).
 
 ```powershell
-$cert = New-SelfSignedCertificate -CertStoreLocation cert:\currentuser\my -Subject "cn=[YOUR DOMAIN]" -DnsName "[YOUR DOMAIN]"
-$pwd = ConvertTo-SecureString -String '[PASSWORD]' -Force -AsPlainText
+$cert = New-SelfSignedCertificate -CertStoreLocation cert:\currentuser\my -Subject "cn=[SEU DOMÍNIO]" -DnsName "[SEU DOMÍNIO]"
+$pwd = ConvertTo-SecureString -String '[SENHA]' -Force -AsPlainText
 $path = 'cert:\currentuser\my\' + $cert.thumbprint
-Export-PfxCertificate -cert $path -FilePath [FILENAME].pfx -Password $pwd
+Export-PfxCertificate -cert $path -FilePath [NOME DO ARQUIVO].pfx -Password $pwd
 ```
 
-The certificate needs to be stored in the common Key Vault. Go to `Settings > Certificates` in the left menu of the Key Vault and click `Generate/Import`. Provide these details:
+O certificado precisa ser armazenado no Key Vault comum. Acesse `Configurações > Certificados` no menu esquerdo do Key Vault e clique em `Gerar/Importar`. Forneça esses detalhes:
 
-* Method of Certificate Creation: `Import`
+* Método de criação de certificado: `Importar`
+* Nome do certificado: por exemplo, `ssl-certificate`
+* Carregar arquivo de certificado: selecione o arquivo no disco.
 
-* Certificate name: e.g. `ssl-certificate`
+Senha: esta é a [SENHA] que mencionamos anteriormente.
 
-* Upload Certificate File: select the file on disc for this.
+### Registro de domínio personalizado
 
-* Password: this is the [PASSWORD] we reference earlier.
+Para usar um domínio personalizado, algumas etapas precisam ser executadas. O processo no portal do Azure é descrito no artigo [Tutorial: Mapear um nome DNS personalizado existente para o Azure App Service](https://learn.microsoft.com/pt-br/azure/app-service/app-service-web-tutorial-custom-domain). Uma parte importante é descrita sob o cabeçalho [Obter um ID de verificação de domínio](https://learn.microsoft.com/pt-br/azure/app-service/app-service-web-tutorial-custom-domain#get-a-domain-verification-id). Este ID de verificação de domínio precisa ser registrado com a descrição DNS como um registro TXT.
 
-### Custom domain registration
+Importante saber que este "ID de Verificação de Domínio Personalizado" é o mesmo para todos os recursos da Web na mesma assinatura do Azure. Veja [esta questão no StackOverflow](https://stackoverflow.com/questions/64309200/is-the-custom-domain-verification-shared-across-an-azure-subscription). Isso significa que este ID precisa ser registrado apenas uma vez para uma assinatura do Azure. E isso permite a (re)criação de um Serviço de Aplicativo com o domínio personalizado por meio de um script.
 
-To use a custom domain a few things need to be done. The process in the Azure portal is described in the article [Tutorial: Map an existing custom DNS name to Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-custom-domain). An important part is described under the header [Get a domain verification ID](https://learn.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-custom-domain#get-a-domain-verification-id). This ID needs to be registered with the DNS description as a TXT record.
+### Adicionar Get-permissions para o Microsoft
 
-Important to know is that this `Custom Domain Verification ID` is the same for all web resources in the same Azure subscription. See [this StackOverflow issue](https://stackoverflow.com/questions/64309200/is-the-custom-domain-verification-shared-across-an-azure-subscription). This means that this ID needs to be registered only once for one Azure Subscription. And this enables (re)creation of an App Service with the custom domain though script.
+ Azure App Service
 
-### Add Get-permissions for Microsoft Azure App Service
+O Azure App Service precisa acessar o Key Vault para obter o certificado. Isso é necessário na primeira execução, mas também quando o certificado é renovado no Key Vault. Para esse fim, o Azure App Service acessa o Key Vault com a identidade de recurso fornecida pelo serviço. Essa identidade pode ser encontrada com o nome principal de serviço **abfa0a7c-a6b6-4736-8310-5855508787cd** ou **Microsoft Azure App Service** e é do tipo **Aplicativo**. Esse ID é o mesmo para todas as assinaturas do Azure. Ele precisa ter permissões Get em segredos e certificados. Para obter mais informações, consulte este artigo [Importar um certificado do Key Vault](https://learn.microsoft.com/pt-br/azure/app-service/configure-ssl-certificate#importar-um-certificado-do-key-vault).
 
-The Azure App Service needs to access the Key Vault to get the certificate. This is needed for the first run, but also when the certificate is renewed in the Key Vault. For this purpose the Azure App Service accesses the Key Vault with the App Service resource provided identity. This identity can be found with the service principal name **abfa0a7c-a6b6-4736-8310-5855508787cd** or **Microsoft Azure App Service** and is of type **Application**. This ID is the same for all Azure subscriptions. It needs to have Get-permissions on secrets and certificates. For more information see this article [Import a certificate from Key Vault](https://learn.microsoft.com/en-us/azure/app-service/configure-ssl-certificate#import-a-certificate-from-key-vault).
+### Adicione o domínio personalizado e o certificado SSL ao Serviço de Aplicativo
 
-### Add the custom domain and SSL certificate to the App Service
+Depois de obtermos o certificado SSL e houver um registro DNS completo conforme descrito, podemos descomentar o código no script Terraform da pasta Quick Start para vinculá-lo ao Serviço de Aplicativo. Neste script, você precisa fazer referência ao certificado no Key Vault comum e usá-lo na vinculação de nome de host personalizado. O nome de host personalizado também é atribuído no script. As configurações `ssl_state` devem ser `SniEnabled` se você estiver usando um certificado SSL. Agora a criação do site autenticado com um domínio personalizado está automatizada.
 
-Once we have the SSL certificate and there is a complete DNS registration as described, we can uncomment the code in the Terraform script from the Quick Start folder to attach this to the App Service. In this script you need to reference the certificate in the common Key Vault and use it in the custom hostname binding. The custom hostname is assigned in the script as well. The settings `ssl_state` needs to be `SniEnabled` if you're using an SSL certificate. Now the creation of the authenticated website with a custom domain is automated.
+## 3. Implante recursos do Azure a partir do seu computador local
 
-## 3. Deploy Azure resources from your local machine
-
-Open up a command prompt. For the commands to be executed, you need to have a connection to your Azure subscription. This can be done using [Azure Cli](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli). Type this command:
+Abra um prompt de comando. Para executar os comandos, você precisa ter uma conexão com sua assinatura do Azure. Isso pode ser feito usando o [Azure CLI](https://learn.microsoft.com/pt-br/cli/azure/install-azure-cli-windows?tabs=azure-cli). Digite este comando:
 
 ```shell
 az login
 ```
 
-This will use the web browser to login to your account. You can check the connected subscription with this command:
+Isso usará o navegador da web para fazer login na sua conta. Você pode verificar a assinatura conectada com este comando:
 
 ```shell
 az account show
 ```
 
-If you have to change to another subscription, use this command where you replace *[id]* with the id of the subscription to select:
+Se você precisar mudar para outra assinatura, use este comando, substituindo *[id]* pelo ID da assinatura a ser selecionada:
 
 ```shell
 az account set --subscription [id]
 ```
 
-Once this is done run this command to initialize:
+Depois de fazer isso, execute este comando para inicializar:
 
 ```shell
 terraform init
 ```
 
-Now you can run the command to plan what the script will do. You run this command every time changes are made to the terraform scripts:
+Agora você pode executar o comando para planejar o que o script fará. Execute este comando sempre que fizer alterações nos scripts do Terraform:
 
 ```shell
 terraform plan
 ```
 
-Inspect the result shown. If that is what you expect, apply these changes with this command:
+Verifique o resultado mostrado. Se isso for o que você espera, aplique essas alterações com este comando:
 
 ```shell
 terraform apply
 ```
 
-When asked for approval, type "yes" and ENTER. You can also add the *-auto-approve* flag to the apply command.
+Quando for solicitada a aprovação, digite "yes" e pressione ENTER. Você também pode adicionar a opção *-auto-approve* ao comando apply.
 
-The deployment using Terraform is not included in the pipeline from the Quick Start folder as described in the next step, as that asks for more configuration. But of course that can always be added.
+A implantação usando o Terraform não está incluída no pipeline da pasta Quick Start, conforme descrito no próximo passo, pois requer mais configuração. Mas é claro que isso pode sempre ser adicionado.
 
-## 4. Deploy the website from a pipeline
+## 4. Implante o site a partir de um pipeline
 
-The best way to create the resources and deploy to it, is to do this automatically in a pipeline. For this purpose the **.pipelines/documentation.yml** pipeline is provided. This pipeline is built for an Azure DevOps environment. Create a pipeline and reference this YAML file.
+A melhor maneira de criar os recursos e implantar neles é fazer isso automaticamente em um pipeline. Para esse fim, o pipeline **.pipelines/documentation.yml** é fornecido. Este pipeline é construído para um ambiente Azure DevOps. Crie um pipeline e faça referência a este arquivo YAML.
 
-> **IMPORTANT:** the Quick Start folder contains a web.config that is needed for deployment to IIS or Azure App Service. This enables the use of the json file for search requests. If you don't have this in place, the search of text will never return anything and result in 404's under the hood.
+> **IMPORTANTE:** a pasta Quick Start contém um arquivo web.config necessário para a implantação no IIS ou no Azure App Service. Isso permite o uso do arquivo json para solicitações de pesquisa. Se você não tiver isso, a pesquisa de texto nunca retornará nada e resultará em erros 404 nos bastidores.
 
-You have to create a Service Connection in your DevOps environment to connect to the Azure Subscription you want to deploy to.
+Você deve criar uma Conexão de Serviço em seu ambiente do DevOps para se conectar à Assinatura do Azure à qual deseja implantar.
 
-> **IMPORTANT:** set the variables **AzureConnectionName** to the name of the Service Connection and the **AzureAppServiceName** to the name you determined in the *infrastructure/variables.tf*.
+> **IMPORTANTE:** configure as variáveis **AzureConnectionName** como o nome da Conexão de Serviço e **AzureAppServiceName** como o nome que você determinou em *infrastructure/variables.tf*.
 
-In the Quick Start folder the pipeline uses `master` as trigger, which means that any push being done to master triggers the pipeline. You will probably change this to another branch.
+Na pasta Quick Start, o pipeline usa `master` como acionador, o que significa que qualquer push feito para o master aciona o pipeline. Você provavelmente mudará isso para outra branch.

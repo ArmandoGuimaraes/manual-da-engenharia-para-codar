@@ -1,87 +1,87 @@
-# Documentation
+# Documentação
 
-Every software development project requires documentation. [Agile Software Development](https://agilemanifesto.org/) values *working software over comprehensive documentation*. Still, projects should include the key information needed to understand the development and the use of the generated software.
+Todo projeto de desenvolvimento de software requer documentação. O [Desenvolvimento Ágil de Software](https://agilemanifesto.org/) valoriza *software funcionando sobre documentação abrangente*. Ainda assim, os projetos devem incluir as informações-chave necessárias para entender o desenvolvimento e o uso do software gerado.
 
-Documentation shouldn't be an afterthought. Different written documents and materials should be created during the whole life cycle of the project, as per the project needs.
+A documentação não deve ser uma reflexão tardia. Diferentes documentos escritos e materiais devem ser criados durante todo o ciclo de vida do projeto, conforme as necessidades do projeto.
 
-## Table of Contents
+## Sumário
 
-- [Goals](#goals)
-- [Challenges](#challenges)
-- [What documentation should exist?](#what-documentation-should-exist)
-- [Best practices](#best-practices)
-- [Tools](#tools)
-- [Recipes](#recipes)
-- [Resources](#resources)
+- [Objetivos](#objetivos)
+- [Desafios](#desafios)
+- [Que documentação deve existir?](#que-documentação-deve-existir)
+- [Melhores práticas](#melhores-práticas)
+- [Ferramentas](#ferramentas)
+- [Receitas](#receitas)
+- [Recursos](#recursos)
 
-## Goals
+## Objetivos
 
-- Facilitate onboarding of new team members.
-- Improve communication and collaboration between teams (especially when distributed across time zones).
-- Improve the transition of the project to another team.
+- Facilitar a integração de novos membros da equipe.
+- Melhorar a comunicação e colaboração entre equipes (especialmente quando distribuídas em fusos horários diferentes).
+- Melhorar a transição do projeto para outra equipe.
 
-## Challenges
+## Desafios
 
-When working in an engineering project, we typically encounter one or more of these challenges related to documentation (including some examples):
+Ao trabalhar em um projeto de engenharia, geralmente nos deparamos com um ou mais desses desafios relacionados à documentação (incluindo alguns exemplos):
 
-- **Non-existent**.
-  - No onboarding documentation, so it takes a long time to set up the environment when you join the project.
-  - No document in the wiki explaining existing repositories, so you cannot tell which of the 10 available repositories you should clone.
-  - No main README, so you don't know where to start when you clone a repository.
-  - No "how to contribute" section, so you don't know which is the branch policy, where to add new documents, etc.
-  - No code guidelines, so everyone follows different naming conventions, etc.
-- **Hidden**.
-  - Impossible to find useful documentation as it’s scattered all over the place. E.g., no idea how to compile, run and test the code as the README is hidden in a folder within a folder within a folder.
-  - Useful processes (e.g., grooming process) explained outside the backlog management tool and not linked anywhere.
-  - Decisions taken in different channels other than the backlog management tool and not recorded anywhere else.
-- **Incomplete**.
-  - No clear branch policy, so everyone names their branches differently.
-  - Missing settings in the "how to run this" document that are required to run the application.
-- **Inaccurate**.
-  - Documents not updated along with the code, so they don't mention the right folders, settings, etc.
-- **Obsolete**.
-  - Design documents that don't apply anymore, sitting next to valid documents. Which one shows the latest decisions?
-- **Out of order (subject / date)**.
-  - Documents not organized per subject/workstream so not easy to find relevant information when you change to a new workstream.
-  - Design decision logs out of order and without a date that helps to determine which is the final decision on something.
-- **Duplicate**.
-  - No settings file available in a centralized place as a single source of truth, so developers must keep sharing their own versions, and we end up with many files that might or might not work.
-- **Afterthought**.
-  - Key documents created several weeks into the project: onboarding, how to run the app, etc.
-  - Documents created last minute just before the end of a project, forgetting that they also help the team while working on the project.
+- **Inexistente**.
+  - Nenhuma documentação de integração, então leva muito tempo para configurar o ambiente quando você entra no projeto.
+  - Nenhum documento na wiki explicando os repositórios existentes, então você não sabe qual dos 10 repositórios disponíveis deve clonar.
+  - Nenhum README principal, então você não sabe por onde começar quando clona um repositório.
+  - Nenhuma seção "como contribuir", então você não sabe qual é a política de branch, onde adicionar novos documentos, etc.
+  - Nenhuma diretriz de código, então todos seguem convenções de nomenclatura diferentes, etc.
+- **Oculto**.
+  - Impossível encontrar documentação útil, pois está espalhada por todo lugar. Por exemplo, sem ideia de como compilar, executar e testar o código, pois o README está escondido em uma pasta dentro de outra pasta dentro de outra pasta.
+  - Processos úteis (por exemplo, processo de grooming) explicados fora da ferramenta de gerenciamento de backlog e não vinculados a nenhum lugar.
+  - Decisões tomadas em canais diferentes que não a ferramenta de gerenciamento de backlog e não registradas em nenhum outro lugar.
+- **Incompleta**.
+  - Nenhuma política de branch clara, então todos nomeiam suas branches de maneira diferente.
+  - Configurações ausentes no documento "como executar isso" que são necessárias para executar a aplicação.
+- **Inexata**.
+  - Documentos não atualizados junto com o código, então eles não mencionam as pastas corretas, configurações, etc.
+- **Obsoleta**.
+  - Documentos de design que não se aplicam mais, ao lado de documentos válidos. Qual deles mostra as decisões mais recentes?
+- **Desorganizada (por assunto/data)**.
+  - Documentos não organizados por assunto/workstream, portanto, não é fácil encontrar informações relevantes quando você muda para um novo workstream.
+  - Registros de decisões de design fora de ordem e sem uma data que ajude a determinar qual é a decisão final sobre algo.
+- **Duplicada**.
+  - Nenhum arquivo de configurações disponível em um local centralizado como fonte única da verdade, então os desenvolvedores precisam continuar compartilhando suas próprias versões, e acabamos com muitos arquivos que podem ou não funcionar.
+- **Reflexão tardia**.
+  - Documentos-chave criados várias semanas após o início do projeto: integração, como executar o aplicativo, etc.
+  - Documentos criados de última hora, pouco antes do término de um projeto, esquecendo que também ajudam a equipe durante o trabalho no projeto.
 
-## What documentation should exist
+## Que documentação deve existir
 
-- [Project and Repositories](./guidance/project-and-repositories.md)
-- [Commit Messages](../source-control/git-guidance/README.md#commit-best-practices)
-- [Pull Requests](./guidance/pull-requests.md)
-- [Code](./guidance/code.md)
-- [Work Items](./guidance/work-items.md)
-- [REST APIs](./guidance/rest-apis.md)
-- [Engineering Feedback](./guidance/engineering-feedback.md)
+- [Projeto e Repositórios](./orientacao/projeto-e-repositorios.md)
+- [Mensagens de Commit](../controle-de-fonte/git-orientacao/README.md#melhores-praticas-de-commit)
+- [Pull Requests](./orientacao/pull-requests.md)
+- [Código](./orientacao/codigo.md)
+- [Itens de Trabalho](./orientacao/itens-de-trabalho.md)
+- [APIs REST](./orientacao/apis-rest.md)
+- [Feedback de Engenharia](./orientacao/feedback-de-engenharia.md)
 
-## Best practices
+## Melhores práticas
 
-- [Establishing and managing documentation](./best-practices/establish-and-manage.md)
-- [Creating good documentation](./best-practices/good-documentation.md)
-- [Replacing documentation with automation](./best-practices/automation.md)
+- [Estabelecendo e gerenciando documentação](./melhores-praticas/estabelecer-e-gerenciar.md)
+- [Criando boa documentação](./melhores-praticas/boa-documentacao.md)
+- [Substituindo documentação por automação](./melhores-praticas/automacao.md)
 
-## Tools
+## Ferramentas
 
-- [Wikis](./tools/wikis.md)
-- [Languages](./tools/languages.md)
-  - [markdown](./tools/languages.md#markdown)
-  - [mermaid](./tools/languages.md#mermaid)
-- [How to automate simple checks](./tools/automation.md)
-- [Integration with Teams/Slack](./tools/integrations.md)
+- [Wikis](./ferramentas/wikis.md)
+- [Linguagens](./ferramentas/linguagens.md)
+  - [markdown](./ferramentas/linguagens.md#markdown)
+  - [mermaid](./ferramentas/linguagens.md#mermaid)
+- [Como automatizar verificações simples](./ferramentas/automacao.md)
+- [Integração com Teams/Slack](./ferramentas/integracoes.md)
 
-## Recipes
+## Receitas
 
-- [How to sync a wiki between repositories](./recipes/sync-wiki-between-repos.md)
-- [Using DocFx and Companion Tools to generate a Documentation website](./recipes/using-docfx-and-tools.md)
-- [Deploy the DocFx Documentation website to an Azure Website automatically](./recipes/deploy-docfx-azure-website.md)
-- [How to create a static website for your documentation based on MkDocs and Material for MkDocs](./recipes/static-website-with-mkdocs.md)
+- [Como sincronizar uma wiki entre repositórios](./receitas/sincronizar-wiki-entre-repositorios.md)
+- [Usando DocFx e Ferramentas Complementares para gerar um site de Documentação](./receitas/usar-docfx-e-ferramentas.md)
+- [Implantar automaticamente o site de Documentação DocFx em um site Azure](./receitas/implantar-docfx-site-azure.md)
+- [Como criar um site estático para sua documentação com base em MkDocs e Material for MkDocs](./receitas/site-estatico-com-mkdocs.md)
 
-## Resources
+## Recursos
 
-- [Software Documentation Types and Best Practices](https://blog.prototypr.io/software-documentation-types-and-best-practices-1726ca595c7f)
+- [Tipos de Documentação de Software e Melhores Práticas](https://blog.prototypr.io/software-documentation-types-and-best-practices-1726ca595c7f)

@@ -19,7 +19,7 @@
     
     
       
-        <title>Executing pipelines locally - Manual da Engenharia para Codar</title>
+        <title>Executando pipelines localmente - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#executing-pipelines-locally" class="md-skip">
+        <a href="#executando-pipelines-localmente" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Executing pipelines locally
+              Executando pipelines localmente
             
           </span>
         </div>
@@ -5133,12 +5133,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Executing pipelines locally
+          Executando pipelines localmente
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Executing pipelines locally
+        Executando pipelines localmente
       </a>
       
         
@@ -5157,37 +5157,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#abstract" class="md-nav__link">
-    Abstract
+  <a href="#resumo" class="md-nav__link">
+    Resumo
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#enter-docker-compose" class="md-nav__link">
-    Enter Docker Compose
+  <a href="#usando-o-docker-compose" class="md-nav__link">
+    Usando o Docker Compose
   </a>
   
-    <nav class="md-nav" aria-label="Enter Docker Compose">
+    <nav class="md-nav" aria-label="Usando o Docker Compose">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#method-of-work" class="md-nav__link">
-    Method of work
+  <a href="#metodo-de-trabalho" class="md-nav__link">
+    Método de trabalho
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
+  <a href="#pre-requisitos" class="md-nav__link">
+    Pré-requisitos
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-by-step-with-examples" class="md-nav__link">
-    Step by step with examples
+  <a href="#passo-a-passo-com-exemplos" class="md-nav__link">
+    Passo a passo com exemplos
   </a>
   
 </li>
@@ -7211,37 +7211,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#abstract" class="md-nav__link">
-    Abstract
+  <a href="#resumo" class="md-nav__link">
+    Resumo
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#enter-docker-compose" class="md-nav__link">
-    Enter Docker Compose
+  <a href="#usando-o-docker-compose" class="md-nav__link">
+    Usando o Docker Compose
   </a>
   
-    <nav class="md-nav" aria-label="Enter Docker Compose">
+    <nav class="md-nav" aria-label="Usando o Docker Compose">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#method-of-work" class="md-nav__link">
-    Method of work
+  <a href="#metodo-de-trabalho" class="md-nav__link">
+    Método de trabalho
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
+  <a href="#pre-requisitos" class="md-nav__link">
+    Pré-requisitos
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-by-step-with-examples" class="md-nav__link">
-    Step by step with examples
+  <a href="#passo-a-passo-com-exemplos" class="md-nav__link">
+    Passo a passo com exemplos
   </a>
   
 </li>
@@ -7265,65 +7265,62 @@
                 
 
 
-<h1 id="executing-pipelines-locally">Executing pipelines locally</h1>
-<h2 id="abstract">Abstract</h2>
-<p>Having the ability to execute pipeline activities locally has been identified as an opportunity to promote positive developer experience.
-In this document we will explore a solution which will allow us to have the local CI experience to be as similar as possible to the remote process in the CI server.</p>
-<p>Using the suggested method will allow us to:</p>
+<h1 id="executando-pipelines-localmente">Executando pipelines localmente</h1>
+<h2 id="resumo">Resumo</h2>
+<p>A capacidade de executar atividades de pipeline localmente foi identificada como uma oportunidade para promover uma experiência positiva para desenvolvedores. Neste documento, exploraremos uma solução que nos permitirá ter a experiência local de CI o mais semelhante possível ao processo remoto no servidor de CI.</p>
+<p>Usar o método sugerido nos permitirá:</p>
 <ul>
-<li>Build</li>
-<li>Lint</li>
-<li>Unit test</li>
-<li>E2E test</li>
-<li>Run Solution</li>
-<li>Be OS and environment agnostic.</li>
+<li>Construir</li>
+<li>Lintar</li>
+<li>Testar unitariamente</li>
+<li>Testar E2E (End-to-End)</li>
+<li>Executar a solução</li>
+<li>Ser agnóstico em relação ao sistema operacional e ao ambiente.</li>
 </ul>
-<h2 id="enter-docker-compose">Enter Docker Compose</h2>
-<p><a href="https://docs.docker.com/compose/">Docker Compose</a> allows you to build push or run multi-container Docker applications.</p>
-<h3 id="method-of-work">Method of work</h3>
+<h2 id="usando-o-docker-compose">Usando o Docker Compose</h2>
+<p>O <a href="https://docs.docker.com/compose/">Docker Compose</a> permite construir, publicar ou executar aplicativos Docker com vários contêineres.</p>
+<h3 id="metodo-de-trabalho">Método de trabalho</h3>
 <ol>
-<li>Dockerize your application(s), including a build step if possible.</li>
-<li>Add a step in your docker file to execute unit tests.</li>
-<li>Add a step in the docker file for linting.</li>
-<li>Create a new dockerfile, possibly in a different folder, which executes end-to-end tests against the cluster. Make sure the default endpoints are configurable (This will become handy in your remote CI server, where you will be able to test against a live environment, if you choose to).</li>
-<li>Create a docker-compose file which allows you to choose which of the services to run. The default will run all applications and tests, and an optional parameter can run specific services, for example only the application without the tests.</li>
+<li>Crie imagens Docker para suas aplicações, incluindo uma etapa de compilação, se possível.</li>
+<li>Adicione uma etapa em seu Dockerfile para executar testes unitários.</li>
+<li>Adicione uma etapa no Dockerfile para a verificação de estilo (linting).</li>
+<li>Crie um novo Dockerfile, possivelmente em uma pasta diferente, que execute testes de ponta a ponta (E2E) contra o cluster. Certifique-se de que os pontos de extremidade padrão sejam configuráveis (isso será útil em seu servidor de CI remoto, onde você poderá testar em um ambiente ao vivo, se desejar).</li>
+<li>Crie um arquivo docker-compose que permita escolher quais dos serviços executar. O padrão executará todas as aplicações e testes, e um parâmetro opcional pode executar serviços específicos, por exemplo, apenas a aplicação sem os testes.</li>
 </ol>
-<h3 id="prerequisites">Prerequisites</h3>
+<h3 id="pre-requisitos">Pré-requisitos</h3>
 <ol>
 <li><a href="https://www.docker.com/products/docker-desktop">Docker</a></li>
-<li>Optional: if you clone the sample app, you need to have <a href="https://dotnet.microsoft.com/download">dotnet core</a> installed.</li>
+<li>Opcional: se você clonar o aplicativo de exemplo, precisará ter o <a href="https://dotnet.microsoft.com/download">dotnet core</a> instalado.</li>
 </ol>
-<h3 id="step-by-step-with-examples">Step by step with examples</h3>
-<p>For this tutorial we are going to use a <a href="https://github.com/itye-msft/cse-engagement-template">sample dotnet core api application</a>.
-Here is the docker file for the sample app:</p>
+<h3 id="passo-a-passo-com-exemplos">Passo a passo com exemplos</h3>
+<p>Para este tutorial, vamos usar um <a href="https://github.com/itye-msft/cse-engagement-template">aplicativo de exemplo .NET Core API</a>. Aqui está o Dockerfile para o aplicativo de exemplo:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># https://hub.docker.com/_/microsoft-dotnet</span>
 FROM<span class="w"> </span>mcr.microsoft.com/dotnet/sdk:5.0<span class="w"> </span>AS<span class="w"> </span>build
 WORKDIR<span class="w"> </span>/app
 
-<span class="c1"># copy csproj and restore as distinct layers</span>
+<span class="c1"># copia o csproj e restaura em camadas distintas</span>
 COPY<span class="w"> </span>./<span class="w"> </span>./
 RUN<span class="w"> </span>dotnet<span class="w"> </span>restore
 
 RUN<span class="w"> </span>dotnet<span class="w"> </span><span class="nb">test</span>
 
-<span class="c1"># copy everything else and build app</span>
+<span class="c1"># copia tudo o mais e constrói a aplicação</span>
 COPY<span class="w"> </span>SampleApp/.<span class="w"> </span>./
 RUN<span class="w"> </span>dotnet<span class="w"> </span>publish<span class="w"> </span>-c<span class="w"> </span>release<span class="w"> </span>-o<span class="w"> </span>out<span class="w"> </span>--no-restore
 
-<span class="c1"># final stage/image</span>
+<span class="c1"># estágio/fase final/imagem</span>
 FROM<span class="w"> </span>mcr.microsoft.com/dotnet/aspnet:5.0
 WORKDIR<span class="w"> </span>/app
 COPY<span class="w"> </span>--from<span class="o">=</span>build<span class="w"> </span>/app/out<span class="w"> </span>.
 ENTRYPOINT<span class="w"> </span><span class="o">[</span><span class="s2">&quot;dotnet&quot;</span>,<span class="w"> </span><span class="s2">&quot;SampleNetApi.dll&quot;</span><span class="o">]</span>
 </code></pre></div>
-<p>This script restores all dependencies, builds and runs tests. The dotnet app includes <code>stylecop</code> which fails the build in case of linting issues.</p>
-<p>Next we will also create a dockerfile to perform an end-to-end test. Usually this will look like a set of scripts, or a dedicated app which performs actual HTTP calls to a running application.
-For the sake of simplicity the dockerfile itself will run a simple curl command:</p>
+<p>Este script restaura todas as dependências, constrói e executa os testes. O aplicativo .NET Core inclui o <code>stylecop</code>, que falha na compilação em caso de problemas de linting.</p>
+<p>A seguir, criaremos um Dockerfile para executar um teste de ponta a ponta. Normalmente, isso se parecerá com um conjunto de scripts ou um aplicativo dedicado que faz chamadas HTTP reais para uma aplicação em execução. Para simplificar, o próprio Dockerfile executará um comando curl simples:</p>
 <div class="highlight"><pre><span></span><code>FROM<span class="w"> </span>alpine:3.7
 RUN<span class="w"> </span>apk<span class="w"> </span>--no-cache<span class="w"> </span>add<span class="w"> </span>curl
-ENTRYPOINT<span class="w"> </span><span class="o">[</span><span class="s2">&quot;curl&quot;</span>,<span class="s2">&quot;0.0.0.0:8080/weatherforecast&quot;</span><span class="o">]</span>
+ENTRYPOINT<span class="w"> </span><span class="o">[</span><span class="s2">&quot;curl&quot;</span>,<span class="w"> </span><span class="s2">&quot;0.0.0.0:8080/weatherforecast&quot;</span><span class="o">]</span>
 </code></pre></div>
-<p>Now we are ready to combine both of the dockerfiles in a docker-compose script:</p>
+<p>Agora estamos prontos para combinar ambos os Dockerfiles em um script docker-compose:</p>
 <div class="highlight"><pre><span></span><code>version:<span class="w"> </span><span class="s1">&#39;3&#39;</span>
 services:
 <span class="w">  </span>app:
@@ -7337,17 +7334,14 @@ services:
 <span class="w">    </span>build:
 <span class="w">      </span>context:<span class="w"> </span>./E2E
 </code></pre></div>
-<p>The docker-compose script will launch the 2 dockerfiles, and it will build them if they were not built before.
-The following command will run docker compose:</p>
+<p>O script docker-compose lançará os 2 Dockerfiles e os construirá se ainda não tiverem sido construídos. O comando a seguir executará o docker-compose:</p>
 <div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>up<span class="w"> </span>--build<span class="w"> </span>-d
 </code></pre></div>
-<p>Once the images are up, you can make calls to the service. The e2e image will perform the set of e2e tests.
-If you want to skip the tests, you can simply tell compose to run a specific service by appending the name of the service, as follows:</p>
+<p>Assim que as imagens estiverem ativas, você poderá fazer chamadas para o serviço. A imagem de teste de ponta a ponta executará o conjunto de testes de ponta a ponta. Se você quiser pular os testes, pode simplesmente dizer ao compose para executar um serviço específico, conforme a seguir:</p>
 <div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>up<span class="w"> </span>--build<span class="w"> </span>-d<span class="w"> </span>app
 </code></pre></div>
-<p>Now you have a local script which builds and tests you application.
-The next step would be make your CI run the docker-compose script.</p>
-<p>Here is an example of a yaml file used by Azure DevOps pipelines:</p>
+<p>Agora você tem um script local que constrói e testa sua aplicação. O próximo passo seria fazer com que seu CI execute o script docker-compose.</p>
+<p>Aqui está um exemplo de um arquivo yaml usado pelas pipelines do Azure DevOps:</p>
 <div class="highlight"><pre><span></span><code>trigger:
 -<span class="w"> </span>master
 
@@ -7369,16 +7363,14 @@ steps:
 -<span class="w"> </span>script:<span class="w"> </span>dotnet<span class="w"> </span>build<span class="w"> </span>--configuration<span class="w"> </span><span class="k">$(</span>buildConfiguration<span class="k">)</span><span class="w"> </span>SampleApp
 <span class="w">  </span>displayName:<span class="w"> </span><span class="s1">&#39;dotnet build $(buildConfiguration)&#39;</span>
 </code></pre></div>
-<p>In this script the first step is docker-compose, which uses the same file we created the previous steps.
-The next steps, do the same using scripts, and are here for comparison.
-By the end of this step, your CI effectively runs the same build and test commands you run locally.</p>
+<p>Neste script, o primeiro passo é docker-compose, que usa o mesmo arquivo que criamos nos passos anteriores. Os próximos passos fazem a mesma coisa usando scripts, e estão aqui para fins de comparação. No final deste passo, seu CI efetivamente executa os mesmos comandos de construção e teste que você executa localmente.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 17, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
       
     
   </small>

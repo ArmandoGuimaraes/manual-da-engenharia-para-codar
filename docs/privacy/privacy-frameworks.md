@@ -1,200 +1,152 @@
-# Privacy related frameworks
+# Quadro de Referência para Privacidade
 
-The following tools/frameworks could be leveraged when data analysis or model development needs to take place on private data.
-Note that the use of such frameworks still requires the solution to adhere to privacy regulations and others, and additional safeguards should be applied.
+Nesta seção, discutirei ferramentas e estruturas relacionadas à privacidade que podem ser aproveitadas quando a análise de dados ou o desenvolvimento de modelos precisa ser realizado em dados privados. É importante ressaltar que o uso dessas estruturas ainda requer a aderência às regulamentações de privacidade e a aplicação de medidas adicionais de segurança.
 
-## Typical scenarios for leveraging a Privacy framework
+## Cenários Típicos para Utilização de um Quadro de Privacidade
 
-- Sharing data or results while preserving data subjects' privacy
-- Performing analysis or statistical modeling on private data
-- Developing privacy preserving ML models and data pipelines
+- Compartilhar dados ou resultados enquanto preserva a privacidade dos indivíduos.
+- Realizar análises ou modelagem estatística em dados privados.
+- Desenvolver modelos de ML que preservem a privacidade e pipelines de dados.
 
-## Privacy frameworks
+## Quadros de Privacidade
 
-Protecting private data involves the entire data lifecycle, from acquisition, through storage, processing, analysis, modeling and usage in reports or machine learning models. Proper safeguards and restrictions should be applied in each of these phases.
+Proteger dados privados envolve todo o ciclo de vida dos dados, desde a aquisição até o armazenamento, processamento, análise, modelagem e uso em relatórios ou modelos de machine learning. Deve-se aplicar salvaguardas e restrições adequadas em cada uma dessas fases.
 
-In this section we provide a **non-exhaustive list** of privacy frameworks which can be leveraged for protecting and preserving privacy.
+Nesta seção, fornecerei uma lista não exaustiva de quadros de privacidade que podem ser aproveitados para proteger e preservar a privacidade.
 
-We focus on four main use cases in the data lifecycle:
+Concentramos-nos em quatro casos principais no ciclo de vida dos dados:
 
-1. [Obtaining non-sensitive data](#obtaining-non-sensitive-data)
-2. [Establishing trusted research and modeling environments](#trusted-research-and-modeling-environments)
-3. [Creating privacy preserving data and ML pipelines](#privacy-preserving-data-pipelines-and-ml)
-4. [Data loss prevention](#data-loss-prevention)
+1. [Obtenção de dados não sensíveis](#obtenção-de-dados-não-sensíveis).
+2. [Estabelecimento de ambientes de pesquisa e modelagem confiáveis](#ambientes-de-pesquisa-e-modelagem-confiáveis).
+3. [Criação de pipelines de dados e ML preservadores de privacidade](#pipelines-de-dados-e-ml-preservadores-de-privacidade).
+4. [Prevenção de perda de dados](#prevenção-de-perda-de-dados).
 
-### Obtaining non-sensitive data
+### Obtenção de dados não sensíveis
 
-In many scenarios, analysts, researchers and data scientists require access to a non-sensitive version or sample of the private data.
-In this section we focus on two approaches for obtaining non-sensitive data.
+Em muitos cenários, analistas, pesquisadores e cientistas de dados precisam de acesso a uma versão não sensível ou amostra dos dados privados. Nesta seção, discutirei duas abordagens para obter dados não sensíveis.
 
-**Note:** These two approaches do not guarantee that the outcome would not include private data, and additional measures should be applied.
+**Observação:** Essas duas abordagens não garantem que o resultado não incluirá dados privados, e medidas adicionais devem ser aplicadas.
 
-#### Data de-identification
+#### Desidentificação de dados
 
-De-identification is the process of applying a set of transformations to a dataset,
-in order to lower the risk of unintended disclosure of personal data.
-De-identification involves the removal or substitution of both direct identifiers (such as name, or social security number) or quasi-identifiers,
-which can be used for re-identification using additional external information.
+A desidentificação é o processo de aplicar um conjunto de transformações a um conjunto de dados para reduzir o risco de divulgação não intencional de dados pessoais. Isso envolve a remoção ou substituição de identificadores diretos (como nome ou número de segurança social) ou quasi-identificadores, que podem ser usados para reidentificação com informações externas adicionais.
 
-De-identification can be applied to different types of data, such as structured data, images and text.
-However, de-identification of non-structured data often involves statistical approaches which might result in undetected PII (Personal Identifiable Information) or non-private information being redacted or replaced.
+A desidentificação pode ser aplicada a diferentes tipos de dados, como dados estruturados, imagens e texto. No entanto, a desidentificação de dados não estruturados geralmente envolve abordagens estatísticas que podem resultar na remoção ou substituição não detectada de informações pessoais identificáveis (PII) ou informações não privadas.
 
-Here we outline several de-identification solutions available as open source:
+Aqui, vou destacar várias soluções de desidentificação disponíveis como open source:
 
-| Solution                                                                                  | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-|-------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Presidio](https://microsoft.github.io/presidio)                                          | Presidio helps to ensure sensitive data is properly managed and governed. It provides fast identification and anonymization modules for private entities in text such as credit card numbers, names, locations, social security numbers, bitcoin wallets, US phone numbers, financial data and more in unstructured text and images. It's useful when high customization is required, for example to detect custom PII entities or languages. [Link to repo](https://aka.ms/presidio), [link to docs](https://microsoft.github.io/presidio), [link to demo](https://aka.ms/presidio-demo). |
-| [FHIR tools for anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization) | FHIR Tools for Anonymization is an open-source project that helps anonymize healthcare FHIR data (FHIR=Fast Healthcare Interoperability Resources, a standard for exchanging Electric Health Records), on-premises or in the cloud, for secondary usage such as research, public health, and more. [Link](https://github.com/microsoft/FHIR-Tools-for-Anonymization). Works with FHIR format (Stu3 and R4), allows different strategies for anonymization (date shift, crypto-hash, encrypt, substitute, perturb, generalize)                                                              |
-| [ARX](https://arx.deidentifier.org/)                                                      | Anonymization using statistical models, specifically k-anonymity, ℓ-diversity, t-closeness and δ-presence. Useful for validating the anonymization of aggregated data. Links: [Repo](https://github.com/arx-deidentifier/arx), [Website](https://arx.deidentifier.org/). Written in Java.                                                                                                                                                                                                                                                                                                  |
-| [k-Anonymity](https://github.com/Nuclearstar/K-Anonymity)                                 | GitHub repo with examples on how to produce k-anonymous datasets. k-anonymity protects the privacy of individual persons by pooling their attributes into groups of at least *k* people. [repo](https://github.com/Nuclearstar/K-Anonymity/blob/master/k-Anonymity.ipynb)                                                                                                                                                                                                                                                                                                                  |
+- [Presidio](https://microsoft.github.io/presidio): O Presidio ajuda a garantir que dados sensíveis sejam gerenciados e governados adequadamente. Ele fornece módulos de identificação e anonimização rápidos para entidades privadas em texto, como números de cartão de crédito, nomes, locais, números de previdência social, carteiras de bitcoin, números de telefone dos EUA, dados financeiros e muito mais em texto e imagens não estruturados. É útil quando alta personalização é necessária, por exemplo, para detectar entidades de PII personalizadas ou idiomas específicos.
 
-#### Synthetic data generation
+- [FHIR Tools for Anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization): Este projeto de código aberto ajuda a anonimizar dados de saúde FHIR (Recursos de Interoperabilidade Rápida em Saúde) no local ou na nuvem, para uso secundário, como pesquisa e saúde pública. Trabalha com o formato FHIR (Stu3 e R4) e permite diferentes estratégias de anonimização (deslocamento de datas, cripto-hash, criptografia, substituição, perturbação, generalização).
 
-A synthetic dataset is a repository of data generated from actual data and has the same statistical properties as the real data.
-The degree to which a synthetic dataset is an accurate proxy for real data is a measure of utility.
-The potential benefit of such synthetic datasets is for sensitive applications – medical classifications or financial modelling, where getting hands on a high-quality labelled dataset is often prohibitive.
+- [ARX](https://arx.deidentifier.org/): O ARX permite a anonimização usando modelos estatísticos, como k-anonimato, ℓ-diversidade, t-closeness e δ-presence. É útil para validar a anonimização de dados agregados.
 
-When determining the best method for creating synthetic data, it is essential first to consider what type of synthetic data you aim to have. There are two broad categories to choose from, each with different benefits and drawbacks:
+- [k-Anonymity](https://github.com/Nuclearstar/K-Anonymity): Este repositório do GitHub contém exemplos de como produzir conjuntos de dados k-anônimos. O k-anonimato protege a privacidade das pessoas agrupando seus atributos em grupos de pelo menos *k* pessoas.
 
-- Fully synthetic: This data does not contain any original data, which means that re-identification of any single unit is almost impossible, and all variables are still fully available.
-- Partially synthetic: Only sensitive data is replaced with synthetic data, which requires a heavy dependency on the imputation model. This leads to decreased model dependence but does mean that some disclosure is possible due to the actual values within the dataset.
+#### Geração de dados sintéticos
 
-| Solution                                                                                                                        | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|---------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Synthea](https://synthetichealth.github.io/synthea/)                                                                           | Synthea was developed with numerous data sources collected on the internet, including US Census Bureau demographics, Centers for Disease Control and Prevention prevalence and incidence rates, and National Institutes of Health reports. The source code and disease models include annotations and citations for all data, statistics, and treatments. These models of diseases and treatments interact appropriately with the health record. |
-| [PII dataset generator](https://github.com/microsoft/presidio-research/blob/master/presidio_evaluator/data_generator/README.md) | A synthetic data generator developed on top of Fake Name Generator which takes a text file with templates (e.g. my name is *PERSON*) and creates a list of Input Samples which contain fake PII entities instead of placeholders.                                                                                                                                                                                                                |
-| [CheckList](https://github.com/marcotcr/checklist)                                                                              | CheckList provides a framework for perturbation techniques to evaluate specific behavioral capabilities of NLP models systematically                                                                                                                                                                                                                                                                                                             |
-| [Mimesis](https://github.com/lk-geimfari/mimesis)                                                                               | Mimesis a high-performance fake data generator for Python, which provides data for a variety of purposes in a variety of languages.                                                                                                                                                                                                                                                                                                              |
-| [Faker](https://github.com/joke2k/faker)                                                                                        | Faker is a Python package that generates fake data for you. Whether you need to bootstrap your database, create good-looking XML documents, fill-in your persistence to stress test it, or anonymize data taken from a production service, Faker is for you.                                                                                                                                                                                     |
-| [Plaitpy](https://github.com/plaitpy/plaitpy)                                                                                   | The idea behind plait.py is that it should be easy to model fake data that has an interesting shape. Currently, many fake data generators model their data as a collection of IID variables; with plait.py we can stitch together those variables into a more coherent model.                                                                                                                                                                    |
+Um conjunto de dados sintéticos é um repositório de dados gerados a partir de dados reais e possui as mesmas propriedades estatísticas dos dados reais. O grau de semelhança entre um conjunto de dados sintéticos e os dados reais é uma medida de utilidade. Os conjuntos de dados sintéticos podem ser benéficos em aplicações sensíveis, como classificações médicas ou modelagem financeira, onde obter um conjunto de dados rotulados de alta qualidade é muitas vezes proibitivo.
 
-### Trusted research and modeling environments
+Ao determinar o melhor método para criar dados sintéticos, é essencial primeiro considerar que tipo de dados sintéticos você deseja ter. Existem duas categorias amplas de escolha, cada uma com benefícios e desvantagens diferentes:
 
-#### Trusted research environments
+- Totalmente sintético: Esses dados não contêm nenhum dado original, o que significa que a reidentificação de qualquer unidade individual é quase impossível, e todas as variáveis ainda estão totalmente disponíveis.
 
-Trusted Research Environments (TREs) enable organizations to create secure workspaces for analysts,
-data scientists and researchers who require access to sensitive data.
+- Parcialmente sintético: Apenas dados sensíveis são substituídos por dados sintéticos, o que requer uma forte dependência do modelo de imputação. Isso leva a uma dependência diminuída do modelo, mas significa que alguma divulgação é possível devido aos valores reais dentro do conjunto de dados.
 
-TREs enforce a secure boundary around distinct workspaces to enable information governance controls.
-Each workspace is accessible by a set of authorized users, prevents the exfiltration of sensitive data,
-and has access to one or more datasets provided by the data platform.
+Aqui estão algumas soluções para geração de dados sintéticos:
 
-We highlight several alternatives for Trusted Research Environments:
+- [Synthea](https://synthetichealth.github.io/synthea/): O Synthea foi desenvolvido com base em numerosas fontes de dados coletadas na Internet, incluindo demografia do US Census Bureau, taxas de prevalência e incidência dos Centros de Controle e
 
-| Solution                                                                                                                            | Notes                         |
-|-------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|
-| [Azure Trusted Research Environment](https://github.com/microsoft/azuretre)                                                         | An Open Source TRE for Azure. |
-| [Aridhia DRE](https://appsource.microsoft.com/en-us/product/web-apps/aridhiainformatics.analytixagility_workspace_123?tab=Overview) |                               |
+ Prevenção de Doenças e relatórios dos Institutos Nacionais de Saúde. Os modelos de doenças e tratamentos incluem anotações e citações para todos os dados, estatísticas e tratamentos. Esses modelos de doenças e tratamentos interagem adequadamente com o registro de saúde.
 
-#### Eyes-off machine learning
+- [Gerador de conjunto de dados PII](https://github.com/microsoft/presidio-research/blob/master/presidio_evaluator/data_generator/README.md): Um gerador de dados sintéticos desenvolvido com base no Fake Name Generator. Ele pode criar uma lista de amostras de entrada que contêm entidades de PII falsas no lugar de espaços reservados.
 
-In certain situations, Data Scientists may need to train models on data they are not allowed to see. In these cases, an "eyes-off" approach is recommended.
-An eyes-off approach provides a data scientist with an environment in which scripts can be run on the data but direct access to samples is not allowed.
-When using Azure ML, tools such as the [Identity Based Data Access](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-identity-based-data-access) can enable this scenario,
-alongside proper role assignment for users.
+- [CheckList](https://github.com/marcotcr/checklist): O CheckList fornece um quadro para técnicas de perturbação para avaliar sistematicamente as capacidades comportamentais específicas de modelos de processamento de linguagem natural (NLP).
 
-During the processing within the eyes-off environment, only certain outputs (e.g. logs) are allowed to be extracted back to the user.
-For example, a user would be able to submit a script which trains a model and inspect the model's performance, but would not be able to see on which samples the model predicted the wrong output.
+- [Mimesis](https://github.com/lk-geimfari/mimesis): O Mimesis é um gerador de dados falsos de alto desempenho para Python, que fornece dados para diversas finalidades em diferentes idiomas.
 
-In addition to the eyes-off environment, this approach usually entails providing access to an "eyes-on" dataset, which is a representative, cleansed, sample set of data for model design purposes.
-The Eyes-on dataset is often a de-identified subset of the private dataset, or a synthetic dataset generated based on the characteristics of the private dataset.
+- [Faker](https://github.com/joke2k/faker): O Faker é um pacote Python que gera dados falsos para você. Pode ser usado para preencher bancos de dados, criar documentos XML com boa aparência, preencher seu sistema de persistência para testes de estresse ou anonimizar dados retirados de um serviço de produção.
 
-#### Private data sharing platforms
+- [Plaitpy](https://github.com/plaitpy/plaitpy): O Plaitpy foi projetado para modelar facilmente dados falsos que têm uma forma interessante. Muitos geradores de dados falsos modelam seus dados como uma coleção de variáveis IID; com o Plaitpy, você pode unir essas variáveis em um modelo mais coerente.
 
-Various tools and systems allow different parties to share data with 3rd parties while protecting private entities, and securely process data while reducing the likelihood of data exfiltration.
-These tools include [Secure Multi Party Computation (SMPC)](https://en.wikipedia.org/wiki/Secure_multi-party_computation) systems,
-[Homomorphic Encryption](#homomorphic-encryption) systems, [Confidential Computing](https://azure.microsoft.com/en-us/solutions/confidential-compute/),
-private data analysis frameworks such as [PySift](https://github.com/OpenMined/PySyft) among others.
+### Ambientes de Pesquisa e Modelagem Confiáveis
 
-### Privacy preserving data pipelines and ML
+#### Ambientes de Pesquisa Confiáveis
 
-Even when our data is secure, private entities can still be extracted when the data is consumed.
-Privacy preserving data pipelines and ML models focus on minimizing the risk of private data exfiltration during data querying or model predictions.
+Ambientes de Pesquisa Confiáveis (TREs) permitem que as organizações criem espaços de trabalho seguros para analistas, cientistas de dados e pesquisadores que precisam de acesso a dados sensíveis.
 
-#### Differential Privacy
+TREs impõem um limite seguro em torno de espaços de trabalho distintos para permitir controles de governança de informações. Cada espaço de trabalho é acessível por um conjunto de usuários autorizados, previne a exfiltração de dados sensíveis e tem acesso a um ou mais conjuntos de dados fornecidos pela plataforma de dados.
 
-Differential privacy (DP) is a system that enables one to extract meaningful insights from datasets about subgroups of people, while also providing strong guarantees with regards to protecting any given individual's privacy.
-This is typically achieved by adding a small statistical noise to every individual's information,
-thereby introducing uncertainty in the data.
-However, the insights gleaned still accurately represent what we intend to learn about the population in the aggregate.
-This approach is known to be robust to re-identification attacks and data reconstruction by adversaries who possess auxiliary information.
-For a more comprehensive overview,
-check out [Differential privacy: A primer for a non-technical audience](https://dash.harvard.edu/bitstream/handle/1/38323292/4_Wood_Final.pdf?sequence=1&isAllowed=y).
+Aqui estão algumas alternativas para Ambientes de Pesquisa Confiáveis:
 
-DP has been widely adopted in various scenarios such as learning from census data, user telemetry data analysis, audience engagement to advertisements, and health data insights where PII protection is of paramount importance. However, DP is less suitable for small datasets.
+- [Azure Trusted Research Environment](https://github.com/microsoft/azuretre): Um ambiente TRE de código aberto para o Azure.
 
-Tools that implement DP include [SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-samples), [Tensorflow Privacy](https://github.com/tensorflow/privacy) among some others.
+- [Aridhia DRE](https://appsource.microsoft.com/en-us/product/web-apps/aridhiainformatics.analytixagility_workspace_123?tab=Overview): Um ambiente de pesquisa confiável.
 
-#### Homomorphic Encryption
+#### Aprendizado de Máquina "Sem Olhos"
 
-Homomorphic Encryption (HE) is a form of encryption allowing one to perform calculations on encrypted data without decrypting it first.
-The result of the computation *F* is in an encrypted form, which on decrypting gives us the same result if computation *F* was done on raw unencrypted data.
-([source](https://en.wikipedia.org/wiki/Homomorphic_encryption#:~:text=Homomorphic%20encryption%20is%20a%20form,performed%20on%20the%20unencrypted%20data.))
+Em certas situações, os cientistas de dados podem precisar treinar modelos com dados que não têm permissão para visualizar. Nesses casos, é recomendável uma abordagem "sem olhos".
 
-Homomorphic Encryption frameworks:
+Uma abordagem "sem olhos" oferece a um cientista de dados um ambiente no qual os scripts podem ser executados nos dados, mas o acesso direto às amostras não é permitido. Durante o processamento dentro do ambiente "sem olhos", apenas determinadas saídas (por exemplo, logs) podem ser extraídas de volta para o usuário. Isso permite que um usuário envie um script que treina um modelo e inspecione o desempenho do modelo, mas não veja em quais amostras o modelo previu uma saída incorreta.
 
-| Solution                                                                          | Notes                                                                                                                                                                                                                                                                                    |
-|-----------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Microsoft SEAL](https://www.microsoft.com/en-us/research/project/microsoft-seal) | Secure Cloud Storage and Computation, ML Modeling. A widely used open-source library from Microsoft that supports the BFV and the CKKS schemes.                                                                                                                                          |
-| [Palisade](https://palisade-crypto.org/)                                          | A widely used open-source library from a consortium of DARPA-funded defense contractors that supports multiple homomorphic encryption schemes such as BGV, BFV, CKKS, TFHE and FHEW, among others, with multiparty support. [Link to repo](https://gitlab.com/palisade/palisade-release) |
-| [PySift](https://github.com/OpenMined/PySyft) | Private deep learning. PySyft decouples private data from model training, using Federated Learning, Differential Privacy, and Encrypted Computation (like Multi-Party Computation (MPC) and Homomorphic Encryption (HE)) within the main Deep Learning frameworks like PyTorch and TensorFlow.
+Além do ambiente "sem olhos", essa abordagem geralmente envolve o fornecimento de acesso a um conjunto de dados "com olhos", que é um conjunto de dados representativo e limpo para fins de design do modelo. O conjunto de dados "com olhos" geralmente é um subconjunto desidentificado do conjunto de dados privados ou um conjunto de dados sintéticos gerado com base nas características do conjunto de dados privados.
 
-A list of additional OSS tools can be found [here](https://homomorphicencryption.org/introduction/).
+#### Plataformas de Compartilhamento de Dados Privados
 
-#### Federated learning
+Várias ferramentas e sistemas permitem que diferentes partes compartilhem dados com terceiros, protegendo entidades privadas e processem dados de forma segura, reduzindo a probabilidade de exfiltração de dados. Essas ferramentas incluem sistemas de Computação Segura entre Várias Partes (SMPC), sistemas de Criptografia Homomórfica, Computação Confidencial, estruturas de análise de dados privados, como [PySift](https://github.com/OpenMined/PySyft), entre outras.
 
-Federated learning is a Machine Learning technique which allows the training of ML models in a decentralized way without having to share the actual data.
-Instead of sending data to the processing engine of the model, the approach is to distribute the model to the different data owners and perform training in a distributed fashion.
+### Pipelines de Dados e ML Preservadores de Privacidade
 
-Federated learning frameworks:
+Mesmo quando nossos dados estão seguros, entidades privadas podem ainda ser extraídas quando os dados são consumidos. Pipelines de dados e modelos de ML preservadores de privacidade focam em minimizar o risco de exfiltração de dados privados durante a consulta de dados ou previsões de modelos.
 
-| Solution                                                                 | Notes                                                                                                                          |
-|--------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| [TensorFlow Federated Learning](https://github.com/tensorflow/federated) | OSS federated learning system built on top of TensorFlow                                                                       |
-| [FATE](https://fate.fedai.org/)                                          | An OSS federated learning system with different options for deployment and different algorithms adapted for federated learning |
-| [IBM Federated Learning](https://github.com/IBM/federated-learning-lib)  | A Python based federated learning framework focused on enterprise environments.                                                |
+#### Privacidade Diferencial
 
-### Data loss prevention
+A privacidade diferencial (DP) é um sistema que permite extrair insights significativos de conjuntos de dados sobre subgrupos de pessoas, ao mesmo tempo em que oferece garantias sólidas de proteção à privacidade de qualquer indivíduo. Isso é tipicamente alcançado adicionando um pequeno ruído estatístico às informações de cada indivíduo, introduzindo incerteza nos dados. No entanto, as informações obtidas ainda representam com precisão o que pretendemos aprender sobre a população como um todo. Essa abordagem é conhecida por ser robusta a ataques de reidentificação e reconstrução de dados por adversários que possuem informações auxiliares.
 
-Organizations have sensitive information under their control such as financial data, proprietary data, credit card numbers, health records, or social security numbers.
-To help protect this sensitive data and reduce risk, they need a way to prevent their users from inappropriately sharing it with people who shouldn't have it.
-This practice is called [data loss prevention (DLP)](https://learn.microsoft.com/en-us/microsoft-365/compliance/dlp-learn-about-dlp).
+Ferramentas que implementam DP incluem [SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-samples) e [Tensorflow Privacy](https://github.com/tensorflow/privacy), entre outras.
 
-Below we focus on two aspects of DLP: Sensitive data classification and Access management.
+#### Criptografia Homomórfica
 
-#### Sensitive data classification
+A criptografia homomórfica (HE) é uma forma de criptografia que permite realizar cálculos em dados criptografados sem descriptografá-los primeiro. O resultado da computação *F* está em uma forma criptografada, que, ao ser descriptografada, nos dá o mesmo resultado se a computação *F* fosse feita nos dados brutos não criptografados.
 
-Sensitive data classification is an important aspect of DLP, as it allows organizations to track, monitor, secure and identify sensitive and private data.
-Furthermore, different sensitivity levels can be applied to different data items, facilitating proper governance and cataloging.
+Frameworks de criptografia homomórfica incluem o [Microsoft SEAL](https://www.microsoft.com/en-us/research/project/microsoft-seal), [Palis
 
-There are typically four levels data classification levels:
+ade](https://palisade-crypto.org/), [PySift](https://github.com/OpenMined/PySyft) e outros.
 
-1. Public
-2. Internal
-3. Confidential
-4. Restricted / Highly confidential
+#### Aprendizado Federado
 
-Tools for data classification on Azure:
+O aprendizado federado é uma técnica de aprendizado de máquina que permite o treinamento de modelos de ML de forma descentralizada, sem a necessidade de compartilhar os dados reais. Em vez de enviar dados para o mecanismo de processamento do modelo, a abordagem é distribuir o modelo para os diferentes proprietários de dados e realizar o treinamento de forma distribuída.
 
-| Solution                                                                                                                                                                                                       | Notes                                                                                                                                                                               |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Microsoft Information Protection](https://learn.microsoft.com/en-us/microsoft-365/compliance/information-protection) (MIP)                                                                                    | A suite for DLP, sensitive data classification, cataloging  and more.                                                                                                               |
-| [Azure Purview](https://azure.microsoft.com/en-us/services/purview/)                                                                                                                                           | A unified data governance service, which includes the classification and cataloging of sensitive data. Azure Purview leverages the MIP technology for data classification and more. |
-| [Data Discovery & Classification for Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse](https://learn.microsoft.com/en-us/azure/azure-sql/database/data-discovery-and-classification-overview) | Basic capabilities for discovering, classifying, labeling, and reporting the sensitive data in Azure SQL and Synapse databases.                                                     |
-| [Data Discovery & Classification for SQL Server](https://learn.microsoft.com/en-us/sql/relational-databases/security/sql-data-discovery-and-classification?view=sql-server-ver15&tabs=t-sql)                   | Capabilities for discovering, classifying, labeling & reporting the sensitive data in SQL Server databases.                                                                         |
+Frameworks de aprendizado federado incluem [TensorFlow Federated Learning](https://github.com/tensorflow/federated), [FATE](https://fate.fedai.org/) e [IBM Federated Learning](https://github.com/IBM/federated-learning-lib), entre outros.
 
-Often, tools used for de-identification can also serve as sensitive data classifiers. Refer to [de-identification tools](#data-de-identification) for such tools.
+### Prevenção de Perda de Dados
 
-Additional resources:
+As organizações têm informações sensíveis sob seu controle, como dados financeiros, dados proprietários, números de cartões de crédito, registros de saúde ou números de previdência social. Para ajudar a proteger esses dados sensíveis e reduzir os riscos, é necessário impedir que os usuários compartilhem inadequadamente esses dados com pessoas que não devem tê-los. Essa prática é chamada de [prevenção de perda de dados (DLP)](https://learn.microsoft.com/en-us/microsoft-365/compliance/dlp-learn-about-dlp).
 
-- [Example guidelines for data classification](https://www.cmu.edu/iso/governance/guidelines/data-classification.html)
-- [Learn about sensitivity levels](https://learn.microsoft.com/en-us/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide)
+Abaixo, focamos em dois aspectos da DLP: classificação de dados sensíveis e gerenciamento de acesso.
 
-#### Access management
+#### Classificação de Dados Sensíveis
 
-Access control is an important component of privacy by design and falls into overall data lifecycle protection.
-Successful access control will restrict access only to authorized individuals that should have access to data.
-Once data is secure in an environment, it is important to review who should access this data and for what purpose.
-Access control may be audited with a comprehensive logging strategy which may include the integration of [activity logs](https://learn.microsoft.com/en-us/azure/azure-monitor/platform/platform-logs-overview) that can provide insight into operations performed on resources in a subscription.
+A classificação de dados sensíveis é um aspecto importante da DLP, pois permite que as organizações rastreiem, monitorem, protejam e identifiquem dados sensíveis e privados. Além disso, diferentes níveis de sensibilidade podem ser aplicados a diferentes itens de dados, facilitando a governança e a catalogação adequadas.
+
+Normalmente, existem quatro níveis de classificação de dados:
+
+1. Público
+2. Interno
+3. Confidencial
+4. Restrito / Altamente confidencial
+
+Ferramentas para classificação de dados no Azure incluem o [Microsoft Information Protection](https://learn.microsoft.com/en-us/microsoft-365/compliance/information-protection) (MIP), [Azure Purview](https://azure.microsoft.com/en-us/services/purview/), [Data Discovery & Classification for Azure SQL Database, Azure SQL Managed Instance e Azure Synapse](https://learn.microsoft.com/en-us/azure/azure-sql/database/data-discovery-and-classification-overview) e [Data Discovery & Classification for SQL Server](https://learn.microsoft.com/en-us/sql/relational-databases/security/sql-data-discovery-and-classification?view=sql-server-ver15&tabs=t-sql), entre outros.
+
+Frequentemente, ferramentas usadas para desidentificação também podem servir como classificadores de dados sensíveis. Consulte [ferramentas de desidentificação de dados](#data-de-identification) para tais ferramentas.
+
+Recursos adicionais:
+
+- [Diretrizes de exemplo para classificação de dados](https://www.cmu.edu/iso/governance/guidelines/data-classification.html)
+- [Saiba sobre os níveis de sensibilidade](https://learn.microsoft.com/en-us/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide)
+
+#### Gerenciamento de Acesso
+
+O controle de acesso é um componente importante da privacidade desde o início e faz parte da proteção geral do ciclo de vida dos dados. Um controle de acesso bem-sucedido restringirá o acesso apenas a indivíduos autorizados que devem ter acesso aos dados. Uma vez que os dados estão seguros em um ambiente, é importante revisar quem deve acessar esses dados e para que finalidade. O controle de acesso pode ser auditado com uma estratégia de registro abrangente, que pode incluir a integração de [registros de atividades](https://learn.microsoft.com/en-us/azure/azure-monitor/platform/platform-logs-overview) que podem fornecer insights sobre operações realizadas em recursos em uma assinatura.
 
 - [OWASP Access Control Cheat Sheet](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Access_Control_Cheat_Sheet.md)

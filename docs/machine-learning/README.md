@@ -17,7 +17,7 @@ Este guia documenta as práticas de Aprendizado de Máquina (ML) na ISE. A ISE t
 
 O diagrama abaixo mostra diferentes fases em um projeto de ML ideal. Devido a restrições práticas e requisitos, nem sempre é possível ter um projeto estruturado dessa maneira, no entanto, as melhores práticas devem ser seguidas para cada fase individual.
 
-![Fluxo do Projeto](images/fluxo.png)
+![Fluxo do Projeto](images/flow.png)
 
 * **[Concepção](ml-formulacao-problema-concepcao.md)**: Compreensão inicial do problema, metas e objetivos do cliente.
 * **[Estudo de Viabilidade](ml-estudo-viabilidade.md)**: Avaliar se o problema em questão é viável de ser resolvido satisfatoriamente usando ML com os dados disponíveis.

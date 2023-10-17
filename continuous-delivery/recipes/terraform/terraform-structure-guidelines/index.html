@@ -19,7 +19,7 @@
     
     
       
-        <title>Guidelines on Structuring the Terraform Configuration - Manual da Engenharia para Codar</title>
+        <title>Diretrizes para Estruturar a Configuração do Terraform - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#guidelines-on-structuring-the-terraform-configuration" class="md-skip">
+        <a href="#diretrizes-para-estruturar-a-configuracao-do-terraform" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Guidelines on Structuring the Terraform Configuration
+              Diretrizes para Estruturar a Configuração do Terraform
             
           </span>
         </div>
@@ -3102,12 +3102,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Guidelines on Structuring the Terraform Configuration
+          Diretrizes para Estruturar a Configuração do Terraform
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Guidelines on Structuring the Terraform Configuration
+        Diretrizes para Estruturar a Configuração do Terraform
       </a>
       
         
@@ -3126,43 +3126,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#context" class="md-nav__link">
-    Context
+  <a href="#contexto" class="md-nav__link">
+    Contexto
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#structuring-the-terraform-configuration" class="md-nav__link">
-    Structuring the Terraform configuration
+  <a href="#estruturando-a-configuracao-do-terraform" class="md-nav__link">
+    Estruturando a Configuração do Terraform
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#naming-convention" class="md-nav__link">
-    Naming convention
+  <a href="#convencao-de-nomenclatura" class="md-nav__link">
+    Convenção de Nomenclatura
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#generating-the-documentation" class="md-nav__link">
-    Generating the documentation
+  <a href="#gerando-a-documentacao" class="md-nav__link">
+    Gerando a Documentação
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    Conclusion
+  <a href="#conclusao" class="md-nav__link">
+    Conclusão
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#references-and-further-reading" class="md-nav__link">
-    References and Further Reading
+  <a href="#referencias-e-leituras-adicionais" class="md-nav__link">
+    Referências e Leituras Adicionais
   </a>
   
 </li>
@@ -7216,43 +7216,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#context" class="md-nav__link">
-    Context
+  <a href="#contexto" class="md-nav__link">
+    Contexto
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#structuring-the-terraform-configuration" class="md-nav__link">
-    Structuring the Terraform configuration
+  <a href="#estruturando-a-configuracao-do-terraform" class="md-nav__link">
+    Estruturando a Configuração do Terraform
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#naming-convention" class="md-nav__link">
-    Naming convention
+  <a href="#convencao-de-nomenclatura" class="md-nav__link">
+    Convenção de Nomenclatura
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#generating-the-documentation" class="md-nav__link">
-    Generating the documentation
+  <a href="#gerando-a-documentacao" class="md-nav__link">
+    Gerando a Documentação
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    Conclusion
+  <a href="#conclusao" class="md-nav__link">
+    Conclusão
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#references-and-further-reading" class="md-nav__link">
-    References and Further Reading
+  <a href="#referencias-e-leituras-adicionais" class="md-nav__link">
+    Referências e Leituras Adicionais
   </a>
   
 </li>
@@ -7271,34 +7271,36 @@
                 
 
 
-<h1 id="guidelines-on-structuring-the-terraform-configuration">Guidelines on Structuring the Terraform Configuration</h1>
-<h2 id="context">Context</h2>
-<p>When creating an infrastructure configuration, it is important to follow a consistent and organized structure to ensure maintainability, scalability and reusability of the code. The goal of this section is to briefly describe how to structure your Terraform configuration in order to achieve this.</p>
-<h2 id="structuring-the-terraform-configuration">Structuring the Terraform configuration</h2>
-<p>The recommended structure is as follows:</p>
+<h1 id="diretrizes-para-estruturar-a-configuracao-do-terraform">Diretrizes para Estruturar a Configuração do Terraform</h1>
+<h2 id="contexto">Contexto</h2>
+<p>Ao criar uma configuração de infraestrutura, é importante seguir uma estrutura consistente e organizada para garantir a manutenibilidade, escalabilidade e reutilização do código. O objetivo desta seção é descrever brevemente como estruturar sua configuração do Terraform para alcançar esses objetivos.</p>
+<h2 id="estruturando-a-configuracao-do-terraform">Estruturando a Configuração do Terraform</h2>
+<p>A estrutura recomendada é a seguinte:</p>
 <ol>
 <li>
-<p>Place each component you want to configure in its own module folder. Analyze your infrastructure code and identify the logical components that can be separated into reusable modules. This will give you a clear separation of concerns and will make it straight forward to include new resources, update existing ones or reuse them in the future. For more details on modules and when to use them, see the <a href="https://developer.hashicorp.com/terraform/language/modules/develop#when-to-write-a-module">Terraform guidance</a>.</p>
+<p>Coloque cada componente que deseja configurar em sua própria pasta de módulo. Analise o código de sua infraestrutura e identifique os componentes lógicos que podem ser separados em módulos reutilizáveis. Isso dará a você uma clara separação de preocupações e tornará fácil incluir novos recursos, atualizar os existentes ou reutilizá-los no futuro. Para obter mais detalhes sobre módulos e quando usá-los, consulte o <a href="https://developer.hashicorp.com/terraform/language/modules/develop#when-to-write-a-module">guia do Terraform</a>.</p>
 </li>
 <li>
-<p>Place the <code>.tf</code> module files at the root of each folder and make sure to include a <a href="#generating-the-documentation"><code>README</code></a> file in a markdown format which can be automatically generated based on the module code. It's recommended to follow this approach as this file structure will be automatically picked up by the <a href="https://registry.terraform.io/browse/modules">Terraform Registry</a>.</p>
+<p>Coloque os arquivos de módulo <code>.tf</code> na raiz de cada pasta e certifique-se de incluir um arquivo <a href="#gerando-a-documentação"><code>README</code></a> em formato markdown que pode ser gerado automaticamente com base no código do módulo. É recomendável seguir esta abordagem, pois essa estrutura de arquivo será automaticamente reconhecida pelo <a href="https://registry.terraform.io/browse/modules">Terraform Registry</a>.</p>
 </li>
-<li>Use a consistent set of files to structure your modules. While this can vary depending on the specific needs of the project, one good example can be the following:<ul>
-<li><strong>provider.tf</strong>: defines the list of providers according to the plugins used</li>
-<li><strong>data.tf</strong>: defines information read from different data sources</li>
-<li><strong>main.tf</strong>: defines the infrastructure objects needed for your configuration (e.g. resource group, role assignment, container registry)</li>
-<li><strong>backend.tf</strong>: backend configuration file</li>
-<li><strong>outputs.tf</strong>: defines structured data that is exported</li>
-<li><strong>variables.tf</strong>: defines static, reusable values</li>
+<li>
+<p>Use um conjunto consistente de arquivos para estruturar seus módulos. Embora isso possa variar dependendo das necessidades específicas do projeto, um bom exemplo pode ser o seguinte:</p>
+<ul>
+<li><strong>provider.tf</strong>: define a lista de provedores de acordo com os plugins usados</li>
+<li><strong>data.tf</strong>: define informações lidas de diferentes fontes de dados</li>
+<li><strong>main.tf</strong>: define os objetos de infraestrutura necessários para sua configuração (por exemplo, grupo de recursos, atribuição de função, registro de contêiner)</li>
+<li><strong>backend.tf</strong>: arquivo de configuração de backend</li>
+<li><strong>outputs.tf</strong>: define dados estruturados que são exportados</li>
+<li><strong>variables.tf</strong>: define valores estáticos e reutilizáveis</li>
 </ul>
 </li>
-<li>Include in each module sub folders for documentation, examples and tests.
-The documentation includes basic information about the module: what is it installing, what are the options, an example use case and so on. You can also add here any other relevant details you might have.
-The example folder can include one or more examples of how to use the module, each example having the same set of configuration files decided on the previous step. It's recommended to also include a README providing a clear understanding of how it can be used in practice.
-The tests folder includes one or more files to test the example module together with a documentation file with instructions on how these tests can be <a href="https://www.hashicorp.com/blog/testing-hashicorp-terraform">executed</a>.</li>
-<li>Place the root module in a separate folder called <code>main</code>: this is the primary entry point for the configuration. Like for the other modules, it will contain its corresponding configuration files.</li>
+<li>Inclua em cada módulo subpastas para documentação, exemplos e testes.
+A documentação inclui informações básicas sobre o módulo: o que ele está instalando, quais são as opções, um exemplo de caso de uso, e assim por diante. Você também pode adicionar aqui quaisquer outros detalhes relevantes que possa ter.
+A pasta de exemplos pode incluir um ou mais exemplos de como usar o módulo, cada exemplo tendo o mesmo conjunto de arquivos de configuração decidido na etapa anterior. É recomendável também incluir um README que forneça uma compreensão clara de como ele pode ser usado na prática.
+A pasta de testes inclui um ou mais arquivos para testar o módulo de exemplo junto com um arquivo de documentação com instruções sobre como esses testes podem ser <a href="https://www.hashicorp.com/blog/testing-hashicorp-terraform">executados</a>.</li>
+<li>Coloque o módulo raiz em uma pasta separada chamada <code>main</code>: este é o ponto de entrada principal para a configuração. Assim como nos outros módulos, ele conterá seus arquivos de configuração correspondentes.</li>
 </ol>
-<p>An example configuration structure obtained using the guidelines above is:</p>
+<p>Uma estrutura de configuração de exemplo obtida usando as diretrizes acima é:</p>
 <div class="highlight"><pre><span></span><code><span class="go">modules</span>
 <span class="go">├── mlops</span>
 <span class="go">│   ├── doc</span>
@@ -7314,19 +7316,19 @@ The tests folder includes one or more files to test the example module together 
 <span class="go">├── common</span>
 <span class="go">├── main</span>
 </code></pre></div>
-<h2 id="naming-convention">Naming convention</h2>
-<p>When naming Terraform variables, it's essential to use clear and consistent naming conventions that are easy to understand and follow. The general convention is to use lowercase letters and numbers, with underscores instead of dashes, for example: "azurerm_resource_group".
-When naming resources, start with the provider's name, followed by the target resource, separated by underscores. For instance, "azurerm_postgresql_server" is an appropriate name for an Azure provider resource. When it comes to data sources, use a similar naming convention, but make sure to use plural names for lists of items. For example, "azurerm_resource_groups" is a good name for a data source that represents a list of resource groups.
-Variable and output names should be descriptive and reflect the purpose or use of the variable. It's also helpful to group related items together using a common prefix. For example, all variables related to storage accounts could start with "storage_". Keep in mind that outputs should be understandable outside of their scope. A useful naming pattern to follow is "{name}_{attribute}", where "name" represents a resource or data source name, and "attribute" is the attribute returned by the output. For example, "storage_primary_connection_string" could be a valid output name.</p>
-<p>Make sure you include a description for outputs and variables, as well as marking the values as 'default' or 'sensitive' when the case. This information will be captured in the generated documentation.</p>
-<h2 id="generating-the-documentation">Generating the documentation</h2>
-<p>The documentation can be automatically generated based on the configuration code in your modules with the help of <a href="https://terraform-docs.io/">terraform-docs</a>. To generate the Terraform module documentation, go to the module folder and enter this command:</p>
+<h2 id="convencao-de-nomenclatura">Convenção de Nomenclatura</h2>
+<p>Ao nomear variáveis do Terraform, é essencial usar convenções de nomenclatura claras e consistentes que sejam fáceis de entender e seguir. A convenção geral é usar letras minúsculas e números, com underscores em vez de traços, por exemplo: "azurerm_resource_group".
+Ao nomear recursos, comece com o nome do provedor, seguido pelo recurso de destino, separado por underscores. Por exemplo, "azurerm_postgresql_server" é um nome apropriado para um recurso de provedor Azure. Quando se trata de fontes de dados, use uma convenção de nomenclatura semelhante, mas certifique-se de usar nomes no plural para listas de itens. Por exemplo, "azurerm_resource_groups" é um bom nome para uma fonte de dados que representa uma lista de grupos de recursos.
+Nomes de variáveis e saídas devem ser descritivos e refletir o propósito ou uso da variável. Também é útil agrupar itens relacionados usando um prefixo comum. Por exemplo, todas as variáveis relacionadas a contas de armazenamento podem começar com "storage_". Tenha em mente que as saídas devem ser compreensíveis fora de seu escopo. Um padrão de nomenclatura útil a seguir é "{nome}_{atributo}", onde "nome" representa o nome de um recurso ou fonte de dados, e "atributo" é o atributo retornado pela saída. Por exemplo, "storage_primary_connection_string" poderia ser um nome de saída válido.</p>
+<p>Certifique-se de incluir uma descrição para saídas e variáveis, além de marcar os valores como 'default' ou 'sensitive' quando necessário. Essas informações serão capturadas na documentação gerada.</p>
+<h2 id="gerando-a-documentacao">Gerando a Documentação</h2>
+<p>A documentação pode ser gerada automaticamente com base no código de configuração em seus módulos com a ajuda do <a href="https://terraform-docs.io/">terraform-docs</a>. Para gerar a documentação do módulo Terraform, vá para a pasta do módulo e insira este comando:</p>
 <div class="highlight"><pre><span></span><code>terraform-docs<span class="w"> </span>markdown<span class="w"> </span>table<span class="w"> </span>--output-file<span class="w"> </span>README.md<span class="w"> </span>--output-mode<span class="w"> </span>inject<span class="w"> </span>.
 </code></pre></div>
-<p>Then, the documentation will be generated inside the component root directory.</p>
-<h2 id="conclusion">Conclusion</h2>
-<p>The approach presented in this section is designed to be flexible and easy to use, making it straight forward to add new resources or update existing ones. The separation of concerns also makes it easy to reuse existing components in other projects, with all the information (modules, examples, documentation and tests) located in one place.</p>
-<h2 id="references-and-further-reading">References and Further Reading</h2>
+<p>Em seguida, a documentação será gerada dentro do diretório raiz do componente.</p>
+<h2 id="conclusao">Conclusão</h2>
+<p>A abordagem apresentada nesta seção foi projetada para ser flexível e fácil de usar, tornando simples adicionar novos recursos ou atualizar os existentes. A separação de preocupações também facilita a reutilização de componentes existentes em outros projetos, com todas as informações (módulos, exemplos, documentação e testes) localizadas em um só lugar.</p>
+<h2 id="referencias-e-leituras-adicionais">Referências e Leituras Adicionais</h2>
 <ul>
 <li><a href="https://github.com/terraform-docs/terraform-docs">Terraform-docs</a></li>
 <li><a href="https://registry.terraform.io/browse/modules">Terraform Registry</a></li>
@@ -7341,7 +7343,7 @@ Variable and output names should be descriptive and reflect the purpose or use o
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 12, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
       
     
   </small>

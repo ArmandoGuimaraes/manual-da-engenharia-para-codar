@@ -1,99 +1,101 @@
-# Reliability
+# Confiabilidade
 
-All the other ISE Engineering Fundamentals work towards a more reliable infrastructure. Automated integration and deployment ensures code is properly tested, and helps remove human error, while slow releases build confidence in the code. Observability helps more quickly pinpoint errors when they arise to get back to a stable state, and so on.
+Todos os outros fundamentos de engenharia da ISE trabalham para uma infraestrutura mais confiável. A integração e implantação automatizadas garantem que o código seja adequadamente testado e ajuda a eliminar erros humanos, enquanto as implantações lentas constroem confiança no código. A observabilidade ajuda a identificar erros mais rapidamente quando surgem para retornar a um estado estável, e assim por diante.
 
-However, there are some additional steps we can take, that don't neatly fit into the previous categories, to help ensure a more reliable solution. We'll explore these below.
+No entanto, existem algumas etapas adicionais que podemos tomar, que não se encaixam perfeitamente nas categorias anteriores, para garantir uma solução mais confiável. Vamos explorar essas etapas abaixo.
 
-## Remove "Foot-Guns"
+## Remova os "Foot-Guns"
 
-Prevent your dev team from shooting themselves in the foot. People make mistakes; any mistake made in production is not the fault of that person, it's the collective fault of the system to not prevent that mistake from happening.
+Evite que sua equipe de desenvolvimento se prejudique. As pessoas cometem erros; qualquer erro cometido em produção não é culpa da pessoa, é culpa coletiva do sistema por não prevenir que o erro aconteça.
 
-Check out the below list for some common tooling to remove these foot guns:
+Confira a lista abaixo de algumas ferramentas comuns para remover esses "foot guns":
 
-* In Kubernetes, leverage [Admission Controllers](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/) to prevent "bad things" from happening.
-  * You can create custom controllers using the Webhook Admission controller.
-* [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) is a pre-built Webhook Admission controller, leveraging [OPA](https://github.com/open-policy-agent/opa) underneath the hood, with support for some [out-of-the-box protections](https://github.com/open-policy-agent/gatekeeper-library/tree/master/library)
+* No Kubernetes, aproveite os [Controladores de Admissão](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/) para evitar que "coisas ruins" aconteçam.
+  * Você pode criar controladores personalizados usando o controlador de admissão Webhook.
+* [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) é um controlador de admissão Webhook pré-construído, usando [OPA](https://github.com/open-policy-agent/opa) por baixo, com suporte para algumas [proteções prontas para uso](https://github.com/open-policy-agent/gatekeeper-library/tree/master/library).
 
-If a user ever makes a mistake, don't ask: "how could somebody possibly do that?", do ask: "how can we prevent this from happening in the future?"
+Se um usuário cometer um erro, não pergunte: "como alguém poderia fazer isso?", pergunte: "como podemos evitar que isso aconteça no futuro?"
 
-## Autoscaling
+## Dimensionamento Automático
 
-Whenever possible, leverage autoscaling for your deployments. Vertical autoscaling can scale your VMs by tuning parameters like CPU, disk, and RAM, while horizontal autoscaling can tune the number of running images backing your deployments. Autoscaling can help your system respond to inorganic growth in traffic, and prevent failing requests due to resource starvation.
+Sempre que possível, aproveite o dimensionamento automático para suas implantações. O dimensionamento vertical pode dimensionar suas VMs ajustando parâmetros como CPU, disco e RAM, enquanto o dimensionamento horizontal pode ajustar o número de imagens em execução que sustentam suas implantações. O dimensionamento automático pode ajudar seu sistema a responder ao crescimento não orgânico no tráfego e evitar solicitações falhadas devido à escassez de recursos.
 
-> Note: In environments like K8s, both horizontal and vertical autoscaling are offered as a native solution. The VMs backing each Pod however, may also need autoscaling to handle an increase in the number of Pods.
+> Observação: Em ambientes como o K8s, tanto o dimensionamento horizontal quanto o vertical são oferecidos como solução nativa. No entanto, as VMs que sustentam cada Pod também podem precisar de dimensionamento automático para lidar com um aumento no número de Pods.
 
-It should also be noted that the parameters that affect autoscaling can be difficult to tune. Typical metrics like CPU or RAM utilization, or request rate may not be enough. Sometimes you might want to consider custom metrics, like cache eviction rate.
+Também deve ser observado que os parâmetros que afetam o dimensionamento automático podem ser difíceis de ajustar. Métricas típicas como utilização de CPU ou RAM, ou taxa de solicitações, podem não ser suficientes. Às vezes, pode ser necessário considerar métricas personalizadas, como a taxa de evicção de cache.
 
-## Load shedding & DOS Protection
+## Descarte de Carga e Proteção contra Ataques de Negação de Serviço (DOS)
 
-Often we think of Denial of Service [DOS] attacks as an act from a malicious actor, so we place some load shedding at the gates to our system and call it a day. In reality, many DOS attacks are unintentional, and self-inflicted. A bad deployment that takes down a Cache results in hammering downstream services. Polling from a distributed system synchronizes and results in a [thundering herd](https://en.wikipedia.org/wiki/Thundering_herd_problem). A misconfiguration results in an error which triggers clients to retry uncontrollably. Requests append to a stored object until it is so big that future reads crash the server. The list goes on.
+Muitas vezes, pensamos em ataques de Negação de Serviço [DOS] como um ato de um ator malicioso, então colocamos algum descarte de carga nos portões do nosso sistema e chamamos isso de dia. Na realidade, muitos ataques DOS são acidentais e autoinfligidos. Uma implantação ruim que derruba um cache resulta em sobrecarregar serviços downstream. A coleta de dados de um sistema distribuído se sincroniza e resulta em um [problema de manada trovejante](https://en.wikipedia.org/wiki/Thundering_herd_problem). Uma má configuração resulta em um erro que desencadeia tentativas de recuperação incontroláveis por parte dos clientes. As solicitações se acumulam em um objeto armazenado até que ele fique tão grande que leituras futuras travem o servidor. A lista continua.
 
-Follow these steps to protect yourself:
+Siga estas etapas para se proteger:
 
-* Add a jitter (random) to any action that occurs from a non-user triggered flow (ie: add a random duration to the sleep in a cron, or job that continuously polls a downstream service).
-* Implement [exponential backoff retry policies](https://en.wikipedia.org/wiki/Exponential_backoff) in your client code
-* Add load shedding to your servers (yes, your internal microservices too).
-  * This can be configured easily when leveraging a sidecar like envoy.
-* Be careful when deserializing user requests, and use buffer limits.
-  * ie: HTTP/gRPC Servers can set limits on how much data will get read from the socket.
-* Set alerts for utilization, servers restarting, or going offline to detect when your system may be failing.
+* Adicione uma oscilação (aleatória) a qualquer ação que ocorra a partir de um fluxo não acionado pelo usuário (ou seja, adicione uma duração aleatória ao tempo de espera em um cron ou trabalho que consulta continuamente um serviço downstream).
+* Implemente políticas de tentativas de recuperação com [backoff exponencial](https://en.wikipedia.org/wiki/Exponential_backoff) em seu código do cliente.
+* Adicione descarte de carga aos seus servidores (sim, também aos seus microsserviços internos).
+  * Isso pode ser configurado facilmente ao usar um sidecar como o Envoy.
+* Tenha cuidado ao desserializar solicitações de usuário e use limites de buffer.
+  * Por exemplo, servidores HTTP/gRPC podem definir limites sobre quanto dados serão lidos do soquete.
+* Defina alertas para utilização, reinicialização de servidores ou desconexão para detectar quando seu sistema pode estar falhando.
 
-These types of errors can result in Cascading Failures, where a non-critical portion of your system takes down the entire service. Plan accordingly, and make sure to put extra thought into how your system might degrade during failures.
+Esses tipos de erros podem resultar em falhas em cascata, onde uma parte não crítica do seu sistema derruba todo o serviço. Planeje adequadamente e certifique-se de pensar em como seu sistema pode degradar durante falhas.
 
-## Backup Data
+## Backup de Dados
 
-Data gets lost, corrupted, or accidentally deleted. It happens. Take data backups to help get your system back up online as soon as possible. It can happen in the application stack, with code deleting or corrupting data, or at the storage layer by losing the volumes, or losing encryption keys.
+Dados são perdidos, corrompidos ou excluídos acidentalmente. Isso acontece. Faça backups dos dados para ajudar a colocar seu sistema online o mais rápido possível. Isso pode ocorrer na pilha de aplicativos, com código excluindo ou corrompendo dados, ou na camada de armazenamento, com perda de volumes ou chaves de criptografia.
 
-Consider things like:
+Considere coisas como:
 
-* How long will it take to restore data.
-* How much data loss can you tolerate.
-* How long will it take you to notice there is data loss.
+* Quanto tempo levará para restaurar os dados.
+* Quanta perda de dados você pode tolerar.
+* Quanto tempo levará para perceber que ocorreu perda de dados.
 
-Look into the difference between **snapshot** and **incremental** backups. A good policy might be to take incremental backups on a period of N, and a snapshot backup on a period of M (where N < M).
+Pesquise a diferença entre **snapshot** e **incremental** backups. Uma boa política pode ser fazer backups incrementais em um período de N e backups de snapshot em um período de M (onde N < M).
 
-## Target Uptime & Failing Gracefully
+## Meta de Tempo de Atividade e Falha Graciosa
 
-It's a known fact that systems cannot target 100% uptime. There are too many factors in today's software systems to achieve this, many outside of our control. Even a service that never gets updated and is 100% bug free will fail. Upstream DNS servers have issues all the time. Hardware breaks. Power outages, backup generators fail. The world is chaotic. Good services target some number of "9's" of uptime. ie: 99.99% uptime means that the system has a "budget" of 4 minutes and 22 seconds of uptime each month. Some months might achieve 100% uptime, which means that budget gets rolled over to the next month. What uptime means is different for everybody, and up to the service to define.
+É um fato conhecido que os sistemas não podem ter como meta 100% de tempo de atividade. Existem muitos fatores nos sistemas de software de hoje que impedem isso, muitos deles fora de nosso controle. Mesmo um serviço que nunca é atualizado e é 100% livre de bugs falhará. Servidores DNS upstream têm problemas o tempo todo. Hardware quebra. Quedas de energia, geradores de backup falham. O mundo é caótico. Bons serviços têm como meta algum número de "9s" de tempo de atividade. Por exemplo, 99,
 
-A good practice is to use any leftover budget at the end of the period (ie: year, quarter), to intentionally take that service down, and ensure that the rest of your systems fail as expected. Often times other engineers and services come to rely on that additional achieved availability, and it can be healthy to ensure that systems fail gracefully.
+99% de tempo de atividade significa que o sistema tem um "orçamento" de 4 minutos e 22 segundos de tempo de atividade a cada mês. Alguns meses podem atingir 100% de tempo de atividade, o que significa que esse orçamento é rolado para o próximo mês. O que o tempo de atividade significa é diferente para todos e depende do serviço definir.
 
-We can build graceful failure (or graceful degradation) into our software stack by anticipating failures. Some tactics include:
+Uma boa prática é usar qualquer tempo de atividade restante no final do período (por exemplo, ano, trimestre) para derrubar intencionalmente esse serviço e garantir que o resto de seus sistemas falhe conforme o esperado. Muitas vezes, outros engenheiros e serviços começam a depender dessa disponibilidade adicional alcançada, e pode ser saudável garantir que os sistemas falhem graciosamente.
 
-* Failover to healthy services
-  * [Leader Election](https://en.wikipedia.org/wiki/Leader_election) can be used to keep healthy services on standby in case the leader experiences issues.
-  * Entire cluster failover can redirect traffic to another region or availability zone.
-  * Propagate downstream failures of **dependent services** up the stack via health checks, so that your ingress points can re-route to healthy services.
-* [Circuit breakers](https://techblog.constantcontact.com/software-development/circuit-breakers-and-microservices/#:~:text=The%20Circuit%20breaker%20pattern%20helps,unavailable%20or%20have%20high%20latency.) can bail early on requests vs. propagating errors throughout the system.
-  Consider using a well-known, tested library such as [Polly](https://github.com/App-vNext/Polly) (.NET) that enables configurable implementations of this and other common resilience and transient fault-handling patterns.
+Podemos incorporar a falha graciosa (ou degradação graciosa) em nossa pilha de software antecipando falhas. Algumas táticas incluem:
 
-## Practice
+* Failover para serviços saudáveis.
+  * A [Eleição de Líder](https://en.wikipedia.org/wiki/Leader_election) pode ser usada para manter serviços saudáveis em espera caso o líder tenha problemas.
+  * A falha do cluster inteiro pode redirecionar o tráfego para outra região ou zona de disponibilidade.
+  * Propague as falhas a jusante de serviços dependentes pela pilha por meio de verificações de integridade, para que seus pontos de entrada possam redirecionar o tráfego para serviços saudáveis.
+* Os [disjuntores](https://techblog.constantcontact.com/software-development/circuit-breakers-and-microservices/#:~:text=The%20Circuit%20breaker%20pattern%20helps,unavailable%20or%20have%20high%20latency.) podem interromper precocemente as solicitações em vez de propagar erros por todo o sistema.
+  Considere usar uma biblioteca bem conhecida e testada, como o [Polly](https://github.com/App-vNext/Polly) (.NET), que permite implementações configuráveis desse e de outros padrões comuns de tratamento de falhas de resiliência e transitórias.
 
-[None of the above recommendations will work if they are not tested](https://thinkmeta.net/2010/11/06/what-is-an-untested-dr-plan-worth/). Your backups are meaningless if you don't know how to mount them. Your cluster failover and other mitigations will regress over time if they are not tested. Here are some tips to test the above:
+## Prática
 
-### Maintain Playbooks
+[Nenhuma das recomendações acima funcionará se não forem testadas](https://thinkmeta.net/2010/11/06/what-is-an-untested-dr-plan-worth/). Seus backups são inúteis se você não souber como montá-los. Suas estratégias de failover e outras mitigações regredirão com o tempo se não forem testadas. Aqui estão algumas dicas para testar o que foi mencionado acima:
 
-No software service is complete without playbooks to navigate the developers through unfamiliar territory. Playbooks should be thorough and cover all known failure scenarios and mitigations.
+### Mantenha Playbooks
 
-### Run maintenance exercises
+Nenhum serviço de software está completo sem playbooks para orientar os desenvolvedores por território desconhecido. Os playbooks devem ser abrangentes e cobrir todos os cenários de falha conhecidos e suas mitigações.
 
-Take the time to fabricate scenarios, and run a D&D style campaign to solve your issues. This can be as elaborate as spinning up a new environment and injecting errors, or as simple as asking the "players" to navigate to a dashboard and describing would they would see in the fabricated scenario (small amounts of imagination required). The playbooks should **easily** navigate the user to the correct solution/mitigation. If not, update your playbooks.
+### Realize exercícios de manutenção
 
-### Chaos Testing
+Dedique tempo para criar cenários fictícios e conduza uma campanha no estilo D&D para resolver seus problemas. Isso pode ser tão elaborado quanto criar um novo ambiente e injetar erros ou tão simples quanto pedir aos "jogadores" que acessem um painel e descrevam o que veriam no cenário fictício (pequenas doses de imaginação são necessárias). Os playbooks devem guiar facilmente o usuário para a solução/mitigação correta. Se não o fizerem, atualize seus playbooks.
 
-Leverage automated chaos testing to see how things break. You can read this playbook's [article on fault injection testing](../automated-testing/fault-injection-testing/README.md) for more information on developing a hypothesis-driven suite of automated chaos test. The following list of chaos testing tools as well as [this section in the article linked above](../automated-testing/fault-injection-testing/README.md#chaos) have more details on available platforms and tooling for this purpose:
+### Teste de Caos
 
-* [Azure Chaos Studio](https://learn.microsoft.com/en-US/azure/chaos-studio/chaos-studio-overview) - An in-preview tool for orchestrating controlled fault injection experiments on Azure resources.
-* [Chaos toolkit](https://chaostoolkit.org/) - A declarative, modular chaos platform with many extensions, including the [Azure actions and probes kit](https://github.com/chaostoolkit-incubator/chaostoolkit-azure).
-* [Kraken](https://github.com/openshift-scale/kraken) - An Openshift-specific chaos tool, maintained by Redhat.
-* [Chaos Monkey](https://github.com/netflix/chaosmonkey) - The Netflix platform which popularized chaos engineering (doesn't support Azure OOTB).
-* Many services meshes, like [Linkerd](https://linkerd.io/2/features/fault-injection/), offer fault injection tooling through the use of their sidecars.
+Aproveite os testes de caos automatizados para ver como as coisas quebram. Você pode ler o [artigo deste playbook sobre testes de injeção de falhas](../automated-testing/fault-injection-testing/README.md) para obter mais informações sobre o desenvolvimento de uma suíte de testes de caos orientados por hipóteses. A seguinte lista de ferramentas de teste de caos, bem como [esta seção no artigo linkado acima](../automated-testing/fault-injection-testing/README.md#chaos), têm mais detalhes sobre plataformas e ferramentas disponíveis para esse fim:
+
+* [Azure Chaos Studio](https://learn.microsoft.com/en-US/azure/chaos-studio/chaos-studio-overview) - Uma ferramenta em prévia para orquestrar experimentos controlados de injeção de falhas em recursos do Azure.
+* [Chaos toolkit](https://chaostoolkit.org/) - Uma plataforma de caos declarativa e modular com muitas extensões, incluindo o [kit de ações e sondas do Azure](https://github.com/chaostoolkit-incubator/chaostoolkit-azure).
+* [Kraken](https://github.com/openshift-scale/kraken) - Uma ferramenta específica para o Openshift, mantida pela Red Hat.
+* [Chaos Monkey](https://github.com/netflix/chaosmonkey) - A plataforma Netflix que popularizou a engenharia do caos (não oferece suporte ao Azure out-of-the-box).
+* Muitas malhas de serviços, como o [Linkerd](https://linkerd.io/2/features/fault-injection/), oferecem ferramentas de injeção de falhas por meio do uso de seus sidecars.
 * [Chaos Mesh](https://github.com/chaos-mesh/chaos-mesh)
-* [Simmy](https://github.com/Polly-Contrib/Simmy) - A .NET library for chaos testing and fault injection integrated with the [Polly](https://github.com/App-vNext/Polly) library for resilience engineering.
-[This ISE dev blog post](https://devblogs.microsoft.com/cse/2023/03/07/build-test-resilience-dotnet-functions/) provides code snippets as an example of how to use Polly and Simmy to implement a hypothesis-driven approach to resilience and chaos testing.
+* [Simmy](https://github.com/Polly-Contrib/Simmy) - Uma biblioteca .NET para teste de caos e injeção de falhas integrada com a biblioteca [Polly](https://github.com/App-vNext/Polly) para engenharia de resiliência.
+[Este post no blog de desenvolvimento da ISE](https://devblogs.microsoft.com/cse/2023/03/07/build-test-resilience-dotnet-functions/) fornece trechos de código como exemplo de como usar o Polly e o Simmy para implementar uma abordagem orientada por hipóteses para testes de resiliência e caos.
 
-## Analyze all Failures
+## Analise Todas as Falhas
 
-Writing up a [post-mortem](https://en.wikipedia.org/wiki/Postmortem_documentation) is a great way to document the root causes, and action items for your failures. They're also a great way to track recurring issues, and create a strong case for prioritizing fixes.
+Escrever um [pós-mortem](https://en.wikipedia.org/wiki/Postmortem_documentation) é uma ótima maneira de documentar as causas raiz e as ações necessárias para suas falhas. Também é uma ótima maneira de rastrear problemas recorrentes e criar um forte argumento para priorizar correções.
 
-This can even be tied into your regular Agile [restrospectives](../agile-development/core-expectations/README.md).
+Isso pode até ser vinculado às suas [retrospectivas](../agile-development/core-expectations/README.md) regulares do Agile.

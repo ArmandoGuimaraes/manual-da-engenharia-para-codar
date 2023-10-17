@@ -1,96 +1,95 @@
-# REST API Design Guidance
+# Orientações de Design de REST API
 
-## Goals
+## Objetivos
 
-* Elevate Microsoft's published [REST API design guidelines](https://github.com/microsoft/api-guidelines).
-* Highlight common design decisions and factors to consider when designing.
-* Provide additional resources to inform API design in areas not directly addressed by the Microsoft guidelines.
+* Elevar as [diretrizes de design de REST API publicadas pela Microsoft](https://github.com/microsoft/api-guidelines).
+* Destacar decisões de design comuns e fatores a serem considerados ao projetar.
+* Fornecer recursos adicionais para informar o design de API em áreas não abordadas diretamente pelas diretrizes da Microsoft.
 
-## Common API Design Decisions
+## Decisões Comuns de Design de API
 
-The [Microsoft REST API guidelines](https://github.com/microsoft/api-guidelines) provide design guidance covering a multitude of use-cases.
-The following sections are a good place to start as they are likely required considerations by any REST API design:
+As [diretrizes da Microsoft para REST API](https://github.com/microsoft/api-guidelines) fornecem orientações de design que abrangem uma variedade de casos de uso. As seguintes seções são um bom ponto de partida, pois são considerações provavelmente necessárias em qualquer design de REST API:
 
-* [URL Structure](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#71-url-structure)
-* [HTTP Methods](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods)
-* [HTTP Status Codes](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#711-http-status-codes)
-* [Collections](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#9-collections)
-* [JSON Standardizations](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#11-json-standardizations)
-* [Versioning](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#12-versioning)
-* [Naming](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#17-naming-guidelines)
+* [Estrutura de URL](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#71-url-structure)
+* [Métodos HTTP](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods)
+* [Códigos de Status HTTP](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#711-http-status-codes)
+* [Coleções](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#9-collections)
+* [Padronizações JSON](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#11-json-standardizations)
+* [Versionamento](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#12-versioning)
+* [Nomenclatura](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#17-naming-guidelines)
 
-## Creating API Contracts
+## Criando Contratos de API
 
-As different development teams expose APIs to access various REST based services, it's important to have an API contract to share between the producer and consumers of APIs. [Open API](https://www.openapis.org/) format is one of the most popular API description format. This Open API document can be produced in two ways:
+À medida que diferentes equipes de desenvolvimento expõem APIs para acessar vários serviços baseados em REST, é importante ter um contrato de API para compartilhar entre os produtores e consumidores de APIs. O formato [Open API](https://www.openapis.org/) é um dos formatos de descrição de API mais populares. Este documento Open API pode ser produzido de duas maneiras:
 
-* Design-First - Team starts developing APIs by first describing API designs as an Open API document and later generates server side boilerplate code with the help of this document.
-* Code-First - Team starts writing the server side API interface code e.g. controllers, DTOs etc. and later generates and Open API document from it.
+* Abordagem Design-First - A equipe começa a desenvolver APIs descrevendo primeiro os designs da API como um documento Open API e posteriormente gera o código de boilerplate do lado do servidor com a ajuda deste documento.
+* Abordagem Code-First - A equipe começa escrevendo o código da interface da API do lado do servidor, como controladores, DTOs, etc., e posteriormente gera um documento Open API a partir dele.
 
-### Design-First Approach
+### Abordagem Design-First
 
-A Design-First approach means that APIs are treated as "first-class citizens" and everything about a project revolves around the idea that at the end these APIs will be consumed by clients. So based on the business requirements API development team first start describing API designs as an Open API document and collaborate with the stakeholders to gather feedback.
+Uma abordagem Design-First significa que as APIs são tratadas como "cidadãos de primeira classe" e tudo em torno de um projeto gira em torno da ideia de que, no final, essas APIs serão consumidas por clientes. Com base nos requisitos de negócios, a equipe de desenvolvimento de API começa descrevendo primeiro os designs da API como um documento Open API e colabora com as partes interessadas para obter feedback.
 
-This approach is quite useful if a project is about developing externally exposed set of APIs which will be consumed by partners. In this approach, we first agree upon an API contract (Open API document) creating clear expectations on both API producer and consumer sides so both teams can begin work in parallel as per the pre-agreed API design.
+Essa abordagem é bastante útil se um projeto envolver o desenvolvimento de um conjunto de APIs externamente expostas que serão consumidas por parceiros. Nessa abordagem, concordamos primeiro com um contrato de API (documento Open API), criando expectativas claras tanto para o produtor quanto para o consumidor da API, para que ambas as equipes possam começar a trabalhar em paralelo de acordo com o design da API pré-acordado.
 
-Key Benefits of this approach:
+Principais benefícios desta abordagem:
 
-* Early API design feedback.
-* Clearly established expectations for both consumer & producer as both have agreed upon an API contract.
-* Development teams can work in parallel.
-* Testing team can use API contracts to write early tests even before business logic is in place. By looking at different models, paths, attributes and other aspects of the API testing can provide their input which can be very valuable.
-* During an agile development cycle API definitions are not impacted by incremental dev changes.
-* API design is not influenced by actual implementation limitations & code structure.
-* Server side boilerplate code e.g. controllers, DTOs etc. can be auto generated from API contracts.
-* May improve collaboration between API producer & consumer teams.
+* Feedback precoce sobre o design da API.
+* Expectativas claramente estabelecidas tanto para o consumidor quanto para o produtor, já que ambos concordaram com um contrato de API.
+* As equipes de desenvolvimento podem trabalhar em paralelo.
+* A equipe de testes pode usar os contratos de API para escrever testes antecipados, mesmo antes que a lógica de negócios esteja implementada. Ao examinar modelos, caminhos, atributos e outros aspectos da API, os testadores podem fornecer seu feedback, o que pode ser muito valioso.
+* Durante um ciclo de desenvolvimento ágil, as definições de API não são impactadas por alterações incrementais.
+* O design da API não é influenciado por limitações de implementação real e estrutura de código.
+* O código de boilerplate do lado do servidor, como controladores, DTOs, etc., pode ser gerado automaticamente a partir dos contratos de API.
+* Pode melhorar a colaboração entre as equipes de produtor e consumidor da API.
 
-Planning a Design-First Development:
+Planejando um Desenvolvimento Design-First:
 
-1. Identify use cases & key services which API should offer.
-2. Identify key stakeholders of API and try to include them during API design phase to get continuous feedback.
-3. Write API contract definitions.
-4. Maintain consistent style for API status codes, versioning, error responses etc.
-5. Encourage peer reviews via pull requests.
-6. Generate server side boilerplate code & client SDKs from API contract definitions.
+1. Identifique casos de uso e serviços-chave que a API deve oferecer.
+2. Identifique as principais partes interessadas da API e tente incluí-las na fase de design da API para obter feedback contínuo.
+3. Escreva definições de contrato de API.
+4. Mantenha um estilo consistente para códigos de status da API, versionamento, respostas de erro, etc.
+5. Incentive revisões por pares por meio de solicitações de pull.
+6. Gere o código de boilerplate do lado do servidor e os SDKs do cliente a partir das definições de contrato de API.
 
-Important Points to consider:
+Pontos importantes a considerar:
 
-* If API requirements changes often during initial development phase, than a Design-First approach may not be a good fit as this will introduce additional overhead, requiring repeated updates & maintenance to the API contract definitions.
-* It might be worthwhile to first try out your platform specific code generator and evaluate how much more additional work will be required in order to meet your project requirements and coding guidelines because it is possible that a particular platform specific code generator might not be able to generate a flexible & maintainable implementation of actual code. For instance If your web framework requires annotations to be present on your controller classes (e.g. for API versioning or authentication), make sure that the code generation tool you use fully supports them.
-* [Microsoft TypeSpec](https://github.com/Microsoft/typespec) is a valuable tool for developers who are working on complex APIs. By providing reusable patterns it can streamline API development and promote best practices. We have put together some [samples about how to enforce an API design-first approach in a GitHub CI/CD pipeline](https://github.com/cse-labs/typespec-workflow-samples/) to help accelerate it's adoption in a Design-First Development.
+* Se os requisitos da API mudarem com frequência durante a fase inicial de desenvolvimento, a abordagem Design-First pode não ser adequada, pois isso introduzirá uma sobrecarga adicional, exigindo atualizações e manutenção repetidas das definições de contrato da API.
+* Pode ser útil primeiro experimentar o gerador de código específico da plataforma e avaliar quanto trabalho adicional será necessário para atender aos requisitos e diretrizes de codificação do projeto, pois é possível que um gerador de código específico da plataforma não consiga gerar uma implementação flexível e mantida do código real. Por exemplo, se o seu framework web exigir que anotações estejam presentes em suas classes de controlador (por exemplo, para versionamento de API ou autenticação), certifique-se de que a ferramenta de geração de código que você usa as suporta totalmente.
+* [Microsoft TypeSpec](https://github.com/Microsoft/typespec) é uma ferramenta valiosa para desenvolvedores que trabalham com APIs complexas. Fornecendo padrões reutilizáveis, ele pode simplificar o desenvolvimento de APIs e promover as melhores práticas. Criamos alguns [exemplos de como aplicar uma abordagem de desenvolvimento Design-First em um pipeline de CI/CD do GitHub](https://github.com/cse-labs/typespec-workflow-samples/) para ajudar a acelerar sua adoção em um Desenvolvimento Design-First.
 
-### Code-First Approach
+### Abordagem Code-First
 
-A Code-First approach means that development teams first implements server side API interface code e.g. controllers, DTOs etc. and than generates API contract definitions out of it. In current times this approach is more widely popular within developer community than Design-First Approach.
+Uma abordagem Code-First
 
-This approach has the advantages of allowing the team to quickly implement APIs and also providing the flexibility to react very quickly to any unexpected API requirement changes.
+ significa que as equipes de desenvolvimento primeiro implementam o código da interface da API do lado do servidor, como controladores, DTOs, etc., e depois geram as definições de contrato de API a partir dele. Nos tempos atuais, essa abordagem é mais amplamente popular na comunidade de desenvolvedores do que a Abordagem Design-First.
 
-Key Benefits of this approach:
+Essa abordagem tem a vantagem de permitir que a equipe implemente rapidamente as APIs e também fornece a flexibilidade de reagir muito rapidamente a quaisquer mudanças inesperadas nos requisitos da API.
 
-* Rapid development of APIs as development team can start implementing APIs much faster directly after understanding key requirements & use cases.
-* Development team has better control & flexibility to implement server side API interfaces in a way which best suited for project structure.
-* More popular among development teams so its easier to get consensus on a related topic and also has more ready to use code examples available on various blogs or developer forums regarding how to generate Open API definitions out of actual code.
-* During initial phase of development where both API producer & consumers requirements might change often this approach is better as it provides flexibility to quickly react on such changes.
+Principais benefícios desta abordagem:
 
-Important Points to consider:
+* Desenvolvimento rápido de APIs, pois a equipe de desenvolvimento pode começar a implementar as APIs muito mais rapidamente após entender os requisitos e casos de uso-chave.
+* A equipe de desenvolvimento tem melhor controle e flexibilidade para implementar interfaces de API do lado do servidor da maneira que melhor se adapte à estrutura do projeto.
+* Mais popular entre as equipes de desenvolvimento, tornando mais fácil obter consenso sobre tópicos relacionados e também possui mais exemplos de código prontos para uso disponíveis em vários blogs ou fóruns de desenvolvedores sobre como gerar definições Open API a partir do código real.
 
-* A generated Open API definition can become outdated, so its important to have automated checks to avoid this otherwise generated client SDKs will be out of sync and may cause issues for API consumers.
-* With Agile development, it is hard to ensure that definitions embedded in runtime code remain stable, especially across rounds of refactoring and when serving multiple concurrent API versions.
-* It might be useful to regularly generate Open API definition and store it in version control system otherwise generating the OpenAPI definition at runtime might makes it more complex in scenarios where that definition is required at development/CI time.
+Pontos importantes a considerar:
 
-## How to Interpret and Apply The Guidelines
+* Uma definição Open API gerada pode ficar desatualizada, portanto, é importante ter verificações automatizadas para evitar isso, caso contrário, os SDKs de cliente gerados estarão desatualizados e podem causar problemas para os consumidores da API.
+* Com o desenvolvimento ágil, é difícil garantir que as definições incorporadas no código em tempo de execução permaneçam estáveis, especialmente em rodadas de refatoração e ao atender várias versões concorrentes da API.
+* Pode ser útil gerar regularmente a definição Open API e armazená-la em um sistema de controle de versão; caso contrário, gerar a definição Open API em tempo de execução pode tornar mais complexo em cenários em que essa definição é necessária durante o desenvolvimento/tempo de CI.
 
-The API guidelines document includes a section on [how to apply the guidelines](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#4-interpreting-the-guidelines) depending on whether the API is new or existing.
-In particular, when working in an existing API ecosystem, be sure to align with stakeholders on a definition of what constitutes a [breaking change](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#123-definition-of-a-breaking-change) to understand the impact of implementing certain best practices.
+## Como Interpretar e Aplicar as Diretrizes
 
-> We do not recommend making a breaking change to a service that predates these guidelines simply for the sake of compliance.
+O documento de diretrizes de API inclui uma seção sobre [como aplicar as diretrizes](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#4-interpreting-the-guidelines), dependendo se a API é nova ou existente. Em particular, ao trabalhar em um ecossistema de API existente, certifique-se de alinhar com as partes interessadas uma definição do que constitui uma [mudança quebra](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#123-definition-of-a-breaking-change) para entender o impacto da implementação de determinadas melhores práticas.
 
-## Additional Resources
+> Não recomendamos fazer uma mudança quebra em um serviço que antecede estas diretrizes simplesmente para cumprir.
 
-* [Microsoft's Recommended Reading List for REST APIs](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#31-recommended-reading)
-* [Documentation - Guidance - REST APIs](https://microsoft.github.io/code-with-engineering-playbook/documentation/guidance/rest-apis/)
-* [Detailed HTTP status code definitions](https://www.restapitutorial.com/httpstatuscodes.html)
-* [Semantic Versioning](https://semver.org/)
-* [Other Public API Guidelines](http://apistylebook.com/design/guidelines/)
-* [OpenAPI Design Practices](https://oai.github.io/Documentation/best-practices.html)
+## Recursos Adicionais
+
+* [Lista de Leitura Recomendada da Microsoft para REST APIs](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#31-recommended-reading)
+* [Documentação - Orientação - REST APIs](https://microsoft.github.io/code-with-engineering-playbook/documentation/guidance/rest-apis/)
+* [Definições detalhadas de códigos de status HTTP](https://www.restapitutorial.com/httpstatuscodes.html)
+* [Versionamento Semântico](https://semver.org/)
+* [Outras Diretrizes Públicas de API](http://apistylebook.com/design/guidelines/)
+* [Práticas de Design OpenAPI](https://oai.github.io/Documentation/best-practices.html)
 * [Microsoft TypeSpec](https://github.com/Microsoft/typespec)
-* [Microsoft TypeSpec GitHub Workflow samples](https://github.com/cse-labs/typespec-workflow-samples/)
+* [Exemplos de Fluxo de Trabalho do GitHub Microsoft TypeSpec](https://github.com/cse-labs/typespec-workflow-samples/)

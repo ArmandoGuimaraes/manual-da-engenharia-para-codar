@@ -19,7 +19,7 @@
     
     
       
-        <title>Network Architecture Guidance for Hybrid - Manual da Engenharia para Codar</title>
+        <title>Orientações de Arquitetura de Rede para Ambientes Híbridos - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#network-architecture-guidance-for-hybrid" class="md-skip">
+        <a href="#orientacoes-de-arquitetura-de-rede-para-ambientes-hibridos" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Network Architecture Guidance for Hybrid
+              Orientações de Arquitetura de Rede para Ambientes Híbridos
             
           </span>
         </div>
@@ -3950,12 +3950,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Network Architecture Guidance for Hybrid
+          Orientações de Arquitetura de Rede para Ambientes Híbridos
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Network Architecture Guidance for Hybrid
+        Orientações de Arquitetura de Rede para Ambientes Híbridos
       </a>
       
         
@@ -3974,16 +3974,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#hub-and-spoke-topology" class="md-nav__link">
-    Hub-and-spoke Topology
+  <a href="#topologia-de-concentrador-e-filial" class="md-nav__link">
+    Topologia de Concentrador e Filial
   </a>
   
-    <nav class="md-nav" aria-label="Hub-and-spoke Topology">
+    <nav class="md-nav" aria-label="Topologia de Concentrador e Filial">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ip-allocation" class="md-nav__link">
-    IP Allocation
+  <a href="#alocacao-de-ip" class="md-nav__link">
+    Alocação de IP
   </a>
   
 </li>
@@ -4003,8 +4003,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#resource-allocation" class="md-nav__link">
-    Resource Allocation
+  <a href="#alocacao-de-recursos" class="md-nav__link">
+    Alocação de Recursos
   </a>
   
 </li>
@@ -7213,16 +7213,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#hub-and-spoke-topology" class="md-nav__link">
-    Hub-and-spoke Topology
+  <a href="#topologia-de-concentrador-e-filial" class="md-nav__link">
+    Topologia de Concentrador e Filial
   </a>
   
-    <nav class="md-nav" aria-label="Hub-and-spoke Topology">
+    <nav class="md-nav" aria-label="Topologia de Concentrador e Filial">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ip-allocation" class="md-nav__link">
-    IP Allocation
+  <a href="#alocacao-de-ip" class="md-nav__link">
+    Alocação de IP
   </a>
   
 </li>
@@ -7242,8 +7242,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#resource-allocation" class="md-nav__link">
-    Resource Allocation
+  <a href="#alocacao-de-recursos" class="md-nav__link">
+    Alocação de Recursos
   </a>
   
 </li>
@@ -7267,37 +7267,37 @@
                 
 
 
-<h1 id="network-architecture-guidance-for-hybrid">Network Architecture Guidance for Hybrid</h1>
-<p>The following are best practices around how to design and configure resources, used for Hybrid and Multi-Cloud environments.</p>
+<h1 id="orientacoes-de-arquitetura-de-rede-para-ambientes-hibridos">Orientações de Arquitetura de Rede para Ambientes Híbridos</h1>
+<p>As seguintes são as melhores práticas sobre como projetar e configurar recursos usados em ambientes híbridos e multi-cloud.</p>
 <blockquote>
-<p><strong>NOTE:</strong> When working in an existing hybrid environment, it is important to understand any current patterns, and how they are used before making any changes.</p>
+<p><strong>NOTA:</strong> Ao trabalhar em um ambiente híbrido existente, é importante entender quaisquer padrões atuais e como eles são usados antes de fazer qualquer alteração.</p>
 </blockquote>
-<h2 id="hub-and-spoke-topology">Hub-and-spoke Topology</h2>
-<p>The hub-and-spoke topology doesn't change much when using cloud/hybrid if configured correctly, The main different is that the hub VNet is peering to the on-prem network via a ExpressRoute and that all traffic from Azure might exit via the ExpressRoute and the on-prem internet connection.</p>
-<p>The generalized best practices are in  <a href="../network-architecture-guidance-for-azure/#hub-and-spoke-topology">Network Architecture Guidance for Azure#Hub and Spoke topology</a></p>
-<h3 id="ip-allocation">IP Allocation</h3>
-<p>When working with Hybrid deployment, take extra care when planning IP allocation as there is a much greater risk of overlapping network ranges.</p>
-<p>The general best practices are available in the <a href="../network-architecture-guidance-for-azure/#ip-allocation">Network Architecture Guidance for Azure#ip-allocation</a></p>
-<p>Read more about this in <a href="https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing">Azure Best Practices Plan for IP Addressing</a></p>
+<h2 id="topologia-de-concentrador-e-filial">Topologia de Concentrador e Filial</h2>
+<p>A topologia de concentrador e filial não muda muito ao usar nuvem/híbrido se configurada corretamente. A principal diferença é que a VNet do concentrador está interconectada com a rede local por meio de um ExpressRoute e que todo o tráfego do Azure pode sair via ExpressRoute e a conexão com a Internet local.</p>
+<p>As melhores práticas gerais estão em <a href="../network-architecture-guidance-for-azure/#topologia-de-concentrador-e-filial">Orientações de Arquitetura de Rede para Azure#Topologia de Concentrador e Filial</a></p>
+<h3 id="alocacao-de-ip">Alocação de IP</h3>
+<p>Ao trabalhar com implantações híbridas, tome cuidado extra ao planejar a alocação de IPs, pois existe um risco muito maior de sobreposição de intervalos de rede.</p>
+<p>As melhores práticas gerais estão disponíveis em <a href="../network-architecture-guidance-for-azure/#ip-allocation">Orientações de Arquitetura de Rede para Azure#Alocação de IP</a></p>
+<p>Saiba mais sobre isso em <a href="https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-ip-addressing">Melhores Práticas do Azure para Planejamento de Endereçamento IP</a></p>
 <h3 id="expressroute">ExpressRoute</h3>
-<p>Environments using Express often tunnel all traffic from Azure via a private link (ExpressRoute) to an on-prem location. This imposes a few problems when working with PAAS offerings as not all of them connect via their respective private endpoint and instead use an external IP for outgoing connections, or some PAAS to PASS traffic occur internally in azure and won't function with disabled public networks.</p>
-<p>Two notable services here are data planes copies of storage accounts and a lot of the services not supporting private endpoints.</p>
-<p>Choose the right ExpressRoute circuit: Select an appropriate SKU (Standard or Premium) and bandwidth based on your organization's requirements.
-Redundancy: Ensure redundancy by provisioning two ExpressRoute circuits in different peering locations.
-Monitoring: Use Azure Monitor and Network Performance Monitor (NPM) to monitor the health and performance of your ExpressRoute circuits.</p>
+<p>Ambientes que usam o ExpressRoute frequentemente direcionam todo o tráfego do Azure por meio de uma conexão privada (ExpressRoute) para um local local. Isso impõe alguns problemas ao trabalhar com ofertas de PAAS, pois nem todas elas se conectam por meio de seu respectivo ponto de extremidade privado e, em vez disso, usam um IP externo para conexões de saída, ou algum tráfego de PAAS para PAAS ocorre internamente no Azure e não funcionará com redes públicas desativadas.</p>
+<p>Dois serviços notáveis aqui são cópias dos planos de dados de contas de armazenamento e muitos dos serviços não suportam pontos de extremidade privados.</p>
+<p>Escolha o circuito ExpressRoute certo: selecione um SKU (Padrão ou Premium) e largura de banda apropriados com base nos requisitos da sua organização.
+Redundância: garanta redundância provisionando dois circuitos ExpressRoute em locais de interconexão diferentes.
+Monitoramento: use o Azure Monitor e o Network Performance Monitor (NPM) para monitorar a saúde e o desempenho de seus circuitos ExpressRoute.</p>
 <h3 id="dns">DNS</h3>
-<p>General best practices are available in <a href="../network-architecture-guidance-for-azure/#dns">Network Architecture Guidance for Azure#dns</a></p>
-<p>When using Azure DNS in a hybrid or multi-cloud environment it is important to ensure a consistent DNS and forwarding configuration which ensures that records are automatically updated and that all DNS servers are aware of each other and know which server is the authoritative for the different records.</p>
-<p>Read more about <a href="https://learn.microsoft.com/azure/architecture/hybrid/hybrid-dns-infra">Hybrid/Multi-Cloud DNS infrastructure</a></p>
-<h3 id="resource-allocation">Resource Allocation</h3>
-<p>For resource allocation the best practices from <a href="../cloud-resource-design-guidance/">Cloud Resource Design Guidance</a> should be followed.</p>
+<p>As melhores práticas gerais estão disponíveis em <a href="../network-architecture-guidance-for-azure/#dns">Orientações de Arquitetura de Rede para Azure#DNS</a></p>
+<p>Ao usar o Azure DNS em um ambiente híbrido ou multi-cloud, é importante garantir uma configuração de DNS e encaminhamento consistente que garanta que os registros sejam atualizados automaticamente e que todos os servidores DNS estejam cientes uns dos outros e saibam qual servidor é o autorizado para os diferentes registros.</p>
+<p>Saiba mais sobre <a href="https://learn.microsoft.com/azure/architecture/hybrid/hybrid-dns-infra">Infraestrutura de DNS Híbrida/Multi-Cloud</a></p>
+<h3 id="alocacao-de-recursos">Alocação de Recursos</h3>
+<p>Para alocação de recursos, as melhores práticas do <a href="../cloud-resource-design-guidance/">Guia de Design de Recursos de Nuvem</a> devem ser seguidas.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 29, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
       
     
   </small>

@@ -19,7 +19,7 @@
     
     
       
-        <title>Continuous Integration - Manual da Engenharia para Codar</title>
+        <title>Integração Contínua - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#continuous-integration" class="md-skip">
+        <a href="#integracao-continua" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Continuous Integration
+              Integração Contínua
             
           </span>
         </div>
@@ -7136,23 +7136,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#goals" class="md-nav__link">
-    Goals
+  <a href="#objetivos" class="md-nav__link">
+    Objetivos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#build-definition-managed-in-git" class="md-nav__link">
-    Build Definition Managed in Git
+  <a href="#definicao-de-compilacao-gerenciada-no-git" class="md-nav__link">
+    Definição de Compilação Gerenciada no Git
   </a>
   
-    <nav class="md-nav" aria-label="Build Definition Managed in Git">
+    <nav class="md-nav" aria-label="Definição de Compilação Gerenciada no Git">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#code-manifest-artifacts-required-to-build-your-project-should-be-maintained-in-within-your-projects-git-repositorys" class="md-nav__link">
-    Code / manifest artifacts required to build your project should be maintained in within your project(s) git repository(s)
+  <a href="#codigo-artefatos-de-manifesto-necessarios-para-compilar-seu-projeto-devem-ser-mantidos-dentro-de-seus-repositorios-git-de-projeto" class="md-nav__link">
+    Código / artefatos de manifesto necessários para compilar seu projeto devem ser mantidos dentro de seus repositórios Git de projeto
   </a>
   
 </li>
@@ -7163,51 +7163,51 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#build-automation" class="md-nav__link">
-    Build Automation
+  <a href="#automacao-de-compilacao" class="md-nav__link">
+    Automação de Compilação
   </a>
   
-    <nav class="md-nav" aria-label="Build Automation">
+    <nav class="md-nav" aria-label="Automação de Compilação">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#build-task" class="md-nav__link">
-    Build Task
+  <a href="#tarefa-de-compilacao" class="md-nav__link">
+    Tarefa de Compilação
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#unit-testing" class="md-nav__link">
-    Unit Testing
+  <a href="#testes-unitarios" class="md-nav__link">
+    Testes Unitários
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#code-style-checks" class="md-nav__link">
-    Code Style Checks
+  <a href="#verificacao-de-estilo-de-codigo" class="md-nav__link">
+    Verificação de Estilo de Código
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#build-script-target" class="md-nav__link">
-    Build Script Target
+  <a href="#alvo-do-script-de-compilacao" class="md-nav__link">
+    Alvo do Script de Compilação
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#no-ide-dependencies" class="md-nav__link">
-    No IDE Dependencies
+  <a href="#sem-dependencias-de-ide" class="md-nav__link">
+    Sem Dependências de IDE
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#devops-security-checks" class="md-nav__link">
-    DevOps security checks
+  <a href="#verificacoes-de-seguranca-do-devops" class="md-nav__link">
+    Verificações de Segurança do DevOps
   </a>
   
 </li>
@@ -7218,23 +7218,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#build-environment-dependencies" class="md-nav__link">
-    Build Environment Dependencies
+  <a href="#dependencias-do-ambiente-de-compilacao" class="md-nav__link">
+    Dependências do Ambiente de Compilação
   </a>
   
-    <nav class="md-nav" aria-label="Build Environment Dependencies">
+    <nav class="md-nav" aria-label="Dependências do Ambiente de Compilação">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#automated-local-environment-setup" class="md-nav__link">
-    Automated local environment setup
+  <a href="#configuracao-automatica-do-ambiente-local" class="md-nav__link">
+    Configuração automática do ambiente local
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#document-local-setup" class="md-nav__link">
-    Document local setup
+  <a href="#documentacao-da-configuracao-local" class="md-nav__link">
+    Documentação da configuração local
   </a>
   
 </li>
@@ -7245,87 +7245,87 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#infrastructure-as-code" class="md-nav__link">
-    Infrastructure as Code
+  <a href="#infraestrutura-como-codigo" class="md-nav__link">
+    Infraestrutura como Código
   </a>
   
-    <nav class="md-nav" aria-label="Infrastructure as Code">
+    <nav class="md-nav" aria-label="Infraestrutura como Código">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sample-devops-workflow-using-terraform-and-cobalt" class="md-nav__link">
-    Sample DevOps Workflow using Terraform and Cobalt
+  <a href="#exemplo-de-fluxo-de-trabalho-devops-usando-terraform-e-cobalt" class="md-nav__link">
+    Exemplo de Fluxo de Trabalho DevOps usando Terraform e Cobalt
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#why" class="md-nav__link">
-    Why
+  <a href="#por-que" class="md-nav__link">
+    Por que
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#iac-devops-operations-by-pull-request" class="md-nav__link">
-    IAC DevOPS: Operations by Pull Request
+  <a href="#iac-devops-operacoes-por-pull-request" class="md-nav__link">
+    IAC DevOPS: Operações por Pull Request
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#infrastructure-advocated-patterns" class="md-nav__link">
-    Infrastructure Advocated Patterns
+  <a href="#padroes-de-infraestrutura-recomendados" class="md-nav__link">
+    Padrões de Infraestrutura Recomendados
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#iac-principles" class="md-nav__link">
-    IAC Principles
+  <a href="#principios-de-iac" class="md-nav__link">
+    Princípios de IAC
   </a>
   
-    <nav class="md-nav" aria-label="IAC Principles">
+    <nav class="md-nav" aria-label="Princípios de IAC">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#automate-the-azure-environment" class="md-nav__link">
-    Automate the Azure Environment
+  <a href="#automatize-o-ambiente-azure" class="md-nav__link">
+    Automatize o Ambiente Azure
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#iac-ci-workflow" class="md-nav__link">
-    IAC CI Workflow
+  <a href="#fluxo-de-trabalho-de-ci-de-iac" class="md-nav__link">
+    Fluxo de Trabalho de CI de IAC
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#developer-read-only-access-to-cloud-resources" class="md-nav__link">
-    Developer Read-Only Access to Cloud Resources
+  <a href="#acesso-de-desenvolvedor-somente-leitura-a-recursos-de-nuvem" class="md-nav__link">
+    Acesso de Desenvolvedor Somente Leitura a Recursos de Nuvem
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#secret-automation" class="md-nav__link">
-    Secret Automation
+  <a href="#automacao-de-segredos" class="md-nav__link">
+    Automação de Segredos
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#infrastructure-integration-test-automation" class="md-nav__link">
-    Infrastructure Integration Test Automation
+  <a href="#automacao-de-testes-de-integracao-de-infraestrutura" class="md-nav__link">
+    Automação de Testes de Integração de Infraestrutura
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#infrastructure-documentation" class="md-nav__link">
-    Infrastructure Documentation
+  <a href="#documentacao-de-infraestrutura" class="md-nav__link">
+    Documentação de Infraestrutura
   </a>
   
 </li>
@@ -7341,275 +7341,57 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration-validation" class="md-nav__link">
-    Configuration Validation
+  <a href="#validacao-de-configuracao" class="md-nav__link">
+    Validação de Configuração
   </a>
   
-    <nav class="md-nav" aria-label="Configuration Validation">
+    <nav class="md-nav" aria-label="Validação de Configuração">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#application-configuration-files-examples" class="md-nav__link">
-    Application Configuration Files Examples
+  <a href="#exemplos-de-arquivos-de-configuracao-de-aplicativos" class="md-nav__link">
+    Exemplos de Arquivos de Configuração de Aplicativos
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#why-validate-application-configuration-as-a-separate-step" class="md-nav__link">
-    Why Validate Application Configuration as a Separate Step?
+  <a href="#por-que-validar-a-configuracao-da-aplicacao-como-uma-etapa-separada" class="md-nav__link">
+    Por que Validar a Configuração da Aplicação como uma Etapa Separada?
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-is-json-schema" class="md-nav__link">
-    What is Json Schema?
+  <a href="#o-que-e-o-esquema-json" class="md-nav__link">
+    O que é o Esquema JSON?
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#how-to-implement-schema-validation" class="md-nav__link">
-    How to Implement Schema Validation?
+  <a href="#como-implementar-a-validacao-de-esquema" class="md-nav__link">
+    Como Implementar a Validação de Esquema?
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#generation" class="md-nav__link">
-    Generation
+  <a href="#geracao" class="md-nav__link">
+    Geração
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#validation" class="md-nav__link">
-    Validation
+  <a href="#validacao" class="md-nav__link">
+    Validação
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#integration-validation" class="md-nav__link">
-    Integration Validation
-  </a>
-  
-    <nav class="md-nav" aria-label="Integration Validation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#end-to-end-integration-tests" class="md-nav__link">
-    End to end integration tests
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#avoid-checking-in-broken-builds" class="md-nav__link">
-    Avoid checking in broken builds
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reporting-build-failures" class="md-nav__link">
-    Reporting build failures
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#test-automation-data-dependencies" class="md-nav__link">
-    Test Automation Data Dependencies
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#code-coverage-checks" class="md-nav__link">
-    Code Coverage Checks
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#git-driven-workflow" class="md-nav__link">
-    Git Driven Workflow
-  </a>
-  
-    <nav class="md-nav" aria-label="Git Driven Workflow">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#build-on-commit" class="md-nav__link">
-    Build on commit
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#avoid-commenting-out-failing-tests" class="md-nav__link">
-    Avoid commenting out failing tests
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#branch-policy-enforcement" class="md-nav__link">
-    Branch policy enforcement
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#branch-strategy" class="md-nav__link">
-    Branch strategy
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deliver-quickly-and-daily" class="md-nav__link">
-    Deliver Quickly and Daily
-  </a>
-  
-    <nav class="md-nav" aria-label="Deliver Quickly and Daily">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#everyone-commits-to-the-git-repository-each-day" class="md-nav__link">
-    Everyone commits to the git repository each day
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#isolated-environments" class="md-nav__link">
-    Isolated Environments
-  </a>
-  
-    <nav class="md-nav" aria-label="Isolated Environments">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#test-in-a-clone-of-production" class="md-nav__link">
-    Test in a clone of production
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pull-request-updates-trigger-staged-releases" class="md-nav__link">
-    Pull request update(s) trigger staged releases
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#promote-infrastructure-changes-across-fixed-environments" class="md-nav__link">
-    Promote infrastructure changes across fixed environments
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#testing-in-production" class="md-nav__link">
-    Testing in production
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#developer-access-to-the-latest-release-artifacts" class="md-nav__link">
-    Developer Access to the Latest Release Artifacts
-  </a>
-  
-    <nav class="md-nav" aria-label="Developer Access to the Latest Release Artifacts">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#developers-can-access-latest-executable" class="md-nav__link">
-    Developers can access latest executable
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#release-artifact-is-published-for-each-pull-request-or-merges-into-main-branch" class="md-nav__link">
-    Release artifact is published for each pull request or merges into main branch
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#integration-observability" class="md-nav__link">
-    Integration Observability
-  </a>
-  
-    <nav class="md-nav" aria-label="Integration Observability">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#continuous-integration-top-level-dashboard" class="md-nav__link">
-    Continuous integration top level dashboard
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#build-status-badge-in-project-readme" class="md-nav__link">
-    Build status badge in project readme
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#build-notifications" class="md-nav__link">
-    Build notifications
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    Resources
-  </a>
   
 </li>
       
@@ -7627,277 +7409,276 @@
                 
 
 
-<h1 id="continuous-integration">Continuous Integration</h1>
-<p><img alt="image" src="https://user-images.githubusercontent.com/7635865/76624154-c2c12800-6502-11ea-912d-a260c821ac41.png" /></p>
-<p>We encourage engineering teams to make an upfront investment during Sprint 0 of a project to establish an automated and repeatable pipeline which continuously integrates code and releases system executable(s) to target cloud environments. Each integration should be verified by an automated build process that asserts a suite of validation tests pass and surface any errors across the developer team.</p>
-<p>We encourage teams to implement the CI/CD pipelines before any service code is written for customers, which usually happens in Sprint 0(N). This way, the engineering team can develop and test their work in isolation without impacting other developers and promote a consistent devops workflow throughout the engagement.</p>
-<p>These <a href="https://martinfowler.com/articles/continuousIntegration.html">principles</a> map directly agile software development lifecycle <a href="https://en.wikipedia.org/wiki/Agile_software_development">practices</a>.</p>
-<h2 id="goals">Goals</h2>
-<p>Continuous integration automation is an integral part of the software development lifecycle intended to reduce build integration errors and maximize velocity across a dev crew.</p>
-<p>A robust build automation pipeline will:</p>
+<h1 id="integracao-continua">Integração Contínua</h1>
+<p><img alt="imagem" src="https://user-images.githubusercontent.com/7635865/76624154-c2c12800-6502-11ea-912d-a260c821ac41.png" /></p>
+<p>Incentivamos equipes de engenharia a fazer um investimento inicial durante o Sprint 0 de um projeto para estabelecer um pipeline automatizado e repetível que integre continuamente o código e libere executáveis do sistema para ambientes de nuvem específicos. Cada integração deve ser verificada por um processo de compilação automatizado que assegura que um conjunto de testes de validação seja aprovado e identifica quaisquer erros para toda a equipe de desenvolvedores.</p>
+<p>Encorajamos as equipes a implementar os pipelines de CI/CD antes que qualquer código de serviço seja escrito para os clientes, o que geralmente acontece no Sprint 0(N). Dessa forma, a equipe de engenharia pode desenvolver e testar seu trabalho de forma isolada sem impactar outros desenvolvedores e promover um fluxo de trabalho DevOps consistente ao longo do envolvimento.</p>
+<p>Esses <a href="https://martinfowler.com/articles/continuousIntegration.html">princípios</a> estão diretamente alinhados com as <a href="https://en.wikipedia.org/wiki/Agile_software_development">práticas</a> do ciclo de vida de desenvolvimento de software ágil.</p>
+<h2 id="objetivos">Objetivos</h2>
+<p>A automação de integração contínua é uma parte integral do ciclo de desenvolvimento de software destinada a reduzir erros de integração de compilação e maximizar a velocidade em uma equipe de desenvolvimento.</p>
+<p>Um pipeline de automação de compilação robusto deve:</p>
 <ul>
-<li>Accelerate team velocity</li>
-<li>Prevent integration problems</li>
-<li>Avoid last minute chaos during release dates</li>
-<li>Provide a quick feedback cycle for system-wide impact of local changes</li>
-<li>Separate build and deployment stages</li>
-<li>Measure and report metrics around build failures / success(s)</li>
-<li>Increase visibility across the team enabling tighter communication</li>
-<li>Reduce human errors, which is probably the most important part of automating the builds</li>
+<li>Acelerar a velocidade da equipe</li>
+<li>Evitar problemas de integração</li>
+<li>Evitar caos de última hora durante as datas de lançamento</li>
+<li>Fornecer um ciclo de feedback rápido para o impacto em todo o sistema das mudanças locais</li>
+<li>Separar as etapas de compilação e implantação</li>
+<li>Medir e relatar métricas sobre falhas/sucessos de compilação</li>
+<li>Aumentar a visibilidade entre a equipe, facilitando a comunicação</li>
+<li>Reduzir erros humanos, que é provavelmente a parte mais importante da automação de compilações</li>
 </ul>
-<h2 id="build-definition-managed-in-git">Build Definition Managed in Git</h2>
-<h3 id="code-manifest-artifacts-required-to-build-your-project-should-be-maintained-in-within-your-projects-git-repositorys">Code / manifest artifacts required to build your project should be maintained in within your project(s) git repository(s)</h3>
+<h2 id="definicao-de-compilacao-gerenciada-no-git">Definição de Compilação Gerenciada no Git</h2>
+<h3 id="codigo-artefatos-de-manifesto-necessarios-para-compilar-seu-projeto-devem-ser-mantidos-dentro-de-seus-repositorios-git-de-projeto">Código / artefatos de manifesto necessários para compilar seu projeto devem ser mantidos dentro de seus repositórios Git de projeto</h3>
 <ul>
-<li>CI provider-specific build pipeline definition(s) should reside within your project(s) git repository(s).</li>
+<li>As definições de pipeline de compilação específicas do provedor de CI devem residir dentro dos repositórios Git de projeto.</li>
 </ul>
-<h2 id="build-automation">Build Automation</h2>
-<p>An automated build should encompass the following principles:</p>
-<h3 id="build-task">Build Task</h3>
+<h2 id="automacao-de-compilacao">Automação de Compilação</h2>
+<p>Uma compilação automatizada deve abranger os seguintes princípios:</p>
+<h3 id="tarefa-de-compilacao">Tarefa de Compilação</h3>
 <ul>
-<li>A single step within your build pipeline that compiles your code project into a single build artifact.</li>
+<li>Uma etapa única dentro do seu pipeline de compilação que compila o projeto de código em um único artefato de compilação.</li>
 </ul>
-<h3 id="unit-testing">Unit Testing</h3>
+<h3 id="testes-unitarios">Testes Unitários</h3>
 <ul>
-<li>Your build definition includes validation steps to execute a suite of automated unit tests to ensure that application components meets its design and behaves as intended.</li>
+<li>Sua definição de compilação inclui etapas de validação para executar um conjunto de testes unitários automatizados para garantir que os componentes da aplicação atendam ao seu design e se comportem conforme o esperado.</li>
 </ul>
-<h3 id="code-style-checks">Code Style Checks</h3>
+<h3 id="verificacao-de-estilo-de-codigo">Verificação de Estilo de Código</h3>
 <ul>
-<li>Code across an engineering team must be formatted to agreed coding standards. Such standards keep code consistent, and most importantly easy for the team and customer(s) to read and refactor. Code styling consistency encourages collective ownership for project scrum teams and our partners.</li>
-<li>There are several open source code style validation tools available to choose from (<a href="https://github.com/checkstyle/checkstyle">code style checks</a>, <a href="https://en.wikipedia.org/wiki/StyleCop">StyleCop</a>). The <a href="../code-reviews/recipes">Code Review recipes section</a> of the playbook has suggestions for linters and preferred styles for a number of languages.</li>
-<li>Your code and documentation should avoid the use of non-inclusive language wherever possible. Follow the <a href="inclusive-linting/">Inclusive Linting section</a> to ensure your project promotes an inclusive work environment for both the team and for customers.</li>
-<li>We recommend incorporating security analysis tools within the build stage of your pipeline such as: code credential scanner, security risk detection, static analysis, etc. For Azure DevOps, you can add a security scan task to your pipeline by installing the <a href="https://secdevtools.azurewebsites.net/#pills-onboard">Microsoft Security Code Analysis Extension</a>. GitHub Actions supports a similar extension with the <a href="https://github.com/marketplace/actions/rips-security-scan">RIPS security scan solution</a>.</li>
-<li>Code standards are maintained within a single configuration file. There should be a step in your build pipeline that asserts code in the latest commit conforms to the known style definition.</li>
+<li>O código em toda a equipe de engenharia deve estar formatado de acordo com os padrões de codificação acordados. Esses padrões mantêm o código consistente e, o mais importante, fácil para a equipe e os clientes lerem e refatorarem. A consistência de estilo de código incentiva a propriedade coletiva das equipes de scrum do projeto e nossos parceiros.</li>
+<li>Existem várias ferramentas de validação de estilo de código de código aberto disponíveis para escolher (<a href="https://github.com/checkstyle/checkstyle">verificações de estilo de código</a>, <a href="https://en.wikipedia.org/wiki/StyleCop">StyleCop</a>). A seção <a href="../code-reviews/recipes">Receitas de Revisão de Código</a> do guia tem sugestões de linters e estilos preferidos para várias linguagens.</li>
+<li>Seu código e documentação devem evitar o uso de linguagem não inclusiva sempre que possível. Siga a seção <a href="inclusive-linting/">Verificação Inclusiva</a> para garantir que seu projeto promova um ambiente de trabalho inclusivo tanto para a equipe quanto para os clientes.</li>
+<li>Recomendamos incorporar ferramentas de análise de segurança na fase de compilação de seu pipeline, como scanner de credenciais de código, detecção de riscos de segurança, análise estática, etc. Para o Azure DevOps, você pode adicionar uma tarefa de análise de segurança ao seu pipeline instalando a <a href="https://secdevtools.azurewebsites.net/#pills-onboard">Extensão de Análise de Código de Segurança da Microsoft</a>. O GitHub Actions suporta uma extensão semelhante com a <a href="https://github.com/marketplace/actions/rips-security-scan">solução de análise de segurança RIPS</a>.</li>
+<li>Os padrões de código são mantidos dentro de um único arquivo de configuração. Deve haver uma etapa em seu pipeline de compilação que assegure que o código no último commit esteja em conformidade com a definição de estilo conhecida.</li>
 </ul>
-<h3 id="build-script-target">Build Script Target</h3>
+<h3 id="alvo-do-script-de-compilacao">Alvo do Script de Compilação</h3>
 <ul>
-<li>A single command should have the capability of building the system. This is also true for builds running on a CI server or on a developers local machine.</li>
+<li>Um único comando deve ter a capacidade de compilar o sistema. Isso também é verdade para compilações em um servidor de CI ou em uma máquina local de desenvolvedores.</li>
 </ul>
-<h3 id="no-ide-dependencies">No IDE Dependencies</h3>
+<h3 id="sem-dependencias-de-ide">Sem Dependências de IDE</h3>
 <ul>
-<li>It's essential to have a build that's runnable through standalone scripts and not dependent on a particular IDE. Build pipeline targets can be triggered locally on their desktops through their IDE of choice. The build process should maintain enough flexibility to run within a CI server as well. As an example, dockerizing your build process offers this level of flexibility as VSCode and IntelliJ supports <a href="https://code.visualstudio.com/docs/containers/overview">docker plugin</a> extensions.</li>
+<li>É essencial ter uma compilação que possa ser executada por meio de scripts independentes e não seja dependente de uma IDE específica. Os alvos do pipeline de compilação podem ser acionados localmente em suas estações de trabalho por meio da IDE de sua escolha. O processo de compilação deve manter flexibilidade suficiente para ser executado em um servidor de CI também. Como exemplo, a dockerização do processo de compilação oferece esse nível de flexibilidade, já que o VSCode e o IntelliJ suportam extensões de <a href="https://code.visualstudio.com/docs/containers/overview">plugin Docker</a>.</li>
 </ul>
-<h3 id="devops-security-checks">DevOps security checks</h3>
+<h3 id="verificacoes-de-seguranca-do-devops">Verificações de Segurança do DevOps</h3>
 <ul>
-<li>Introduce security to your project at early stages. Follow the <a href="dev-sec-ops/">DevSecOps section</a> to introduce security practices, automation, tools and frameworks as part of the CI.</li>
+<li>Introduza segurança em seu projeto nas fases iniciais. Siga a seção <a href="dev-sec-ops/">DevSecOps</a> para introduzir práticas de segurança, automação, ferramentas e estruturas como parte do CI.</li>
 </ul>
-<h2 id="build-environment-dependencies">Build Environment Dependencies</h2>
-<h3 id="automated-local-environment-setup">Automated local environment setup</h3>
+<h2 id="dependencias-do-ambiente-de-compilacao">Dependências do Ambiente de Compilação</h2>
+<h3 id="configuracao-automatica-do-ambiente-local">Configuração automática do ambiente local</h3>
 <ul>
-<li>We encourage maintaining a consistent developer experience for all team members. There should be a central automated manifest / process that streamlines the installation and setup of any software dependencies. This way developers can replicate the same build environment locally as the one running on a CI server.</li>
-<li>Build automation scripts often require specific software packages and version pre-installed within the runtime environment of the OS. This presents some challenges as build processes typically version lock these dependencies.</li>
-<li>All developers on the team should be able to emulate the build environment from their local desktop regardless of their OS.</li>
-<li>For projects using VS Code, leveraging <a href="../developer-experience/devcontainers/">Dev Containers</a> can really help standardize the local developer experience across the team.</li>
-<li>Well established software packaging tools like Docker, Maven, npm, etc should be considered when designing your build automation tool chain.</li>
+<li>Incentivamos manter uma experiência de desenvolvedor consistente para todos os membros da equipe. Deve haver um manifesto/processo automatizado central que simplifica a instalação e configuração de quaisquer dependências de software. Isso permite que os desenvolvedores repliquem o mesmo ambiente de compilação localmente que o ambiente em execução em um servidor de CI.</li>
+<li>Os scripts de automação de compilação frequentemente requerem pacotes de software específicos e versões pré-instaladas dentro do ambiente de tempo de execução do sistema operacional. Isso apresenta alguns desafios, já que os processos de compilação geralmente travam essas dependências em uma versão específica.</li>
+<li>Todos os desenvolvedores da equipe devem ser capazes de emular o ambiente de compilação de suas estações de trabalho locais, independentemente do sistema operacional.</li>
+<li>Para projetos que usam o VS Code, aproveitar <a href="../developer-experience/devcontainers/">Contêineres de Desenvolvedor</a> pode realmente ajudar a padronizar a experiência de desenvolvimento local em toda a equipe.</li>
+<li>Ferramentas de empacotamento de software bem estabelecidas, como Docker, Maven, npm, etc., devem ser consideradas ao projetar sua cadeia de ferramentas de automação de compilação.</li>
 </ul>
-<h3 id="document-local-setup">Document local setup</h3>
+<h3 id="documentacao-da-configuracao-local">Documentação da configuração local</h3>
 <ul>
-<li>The setup process for setting up a local build environment should be well documented and easy for developers to follow.</li>
+<li>O processo de configuração para configurar um ambiente de compilação local deve ser bem documentado e de fácil acompanhamento para os desenvolvedores.</li>
 </ul>
-<h2 id="infrastructure-as-code">Infrastructure as Code</h2>
-<p>Manage as much of the following as possible, as code:</p>
+<h2 id="infraestrutura-como-codigo">Infraestrutura como Código</h2>
+<p>Gerencie o máximo possível dos seguintes como código:</p>
 <ul>
-<li>Configuration Files</li>
-<li>Configuration Management(ie environment variable automation via <a href="https://github.com/microsoft/cobalt/blob/master/infra/modules/providers/azure/app-service/main.tf#L49">terraform</a>)</li>
-<li>Secret Management(ie creating Azure secrets via <a href="https://github.com/microsoft/cobalt/blob/master/infra/templates/az-isolated-service-single-region/app.tf#L84">terraform</a>)</li>
-<li>Cloud Resource Provisioning</li>
-<li>Role Assignments</li>
-<li>Load Test Scenarios</li>
-<li>Availability Alerting / Monitoring Rules and Conditions</li>
+<li>Arquivos de Configuração</li>
+<li>Gerenciamento de Configuração (automação de variáveis de ambiente via <a href="https://github.com/microsoft/cobalt/blob/master/infra/modules/providers/azure/app-service/main.tf#L49">terraform</a>)</li>
+<li>Gerenciamento de Segredos (criação de segredos Azure via <a href="https://github.com/microsoft/cobalt/blob/master/infra/templates/az-isolated-service-single-region/app.tf#L84">terraform</a>)</li>
+<li>Provisionamento de Recursos de Nuvem</li>
+<li>Atribuições de Funções</li>
+<li>Cenários de Teste de Carga</li>
+<li>Alertas de Disponibilidade / Regras e Condições de Monitoramento</li>
 </ul>
-<p>Decoupling infrastructure from the application codebase simplifies engineering teams move to cloud native applications.</p>
-<p>Terraform resource providers like <a href="https://github.com/microsoft/terraform-provider-azuredevops">Azure DevOps</a> is making it easier for developers to manage build pipeline variables, service connections and CI/CD pipeline definitions.</p>
-<h3 id="sample-devops-workflow-using-terraform-and-cobalt">Sample DevOps Workflow using Terraform and Cobalt</h3>
-<p><img alt="image" src="https://user-images.githubusercontent.com/7635865/76626035-652eda80-6506-11ea-8870-6070365f10d6.png" /></p>
-<h3 id="why">Why</h3>
+<p>Desacoplar a infraestrutura do código da aplicação simplifica a transição das equipes de engenharia para aplicativos nativos em nuvem.</p>
+<p>Provedores de recursos do Terraform, como <a href="https://github.com/microsoft/terraform-provider-azuredevops">Azure DevOps</a>, estão tornando mais fácil para os desenvolvedores gerenciar variáveis de pipeline de compilação, conexões de serviço e definições de pipeline de CI/CD.</p>
+<h3 id="exemplo-de-fluxo-de-trabalho-devops-usando-terraform-e-cobalt">Exemplo de Fluxo de Trabalho DevOps usando Terraform e Cobalt</h3>
+<p><img alt="imagem" src="https://user-images.githubusercontent.com/7635865/76626035-652eda80-6506-11ea-8870-6070365f10d6.png" /></p>
+<h3 id="por-que">Por que</h3>
 <ul>
-<li>Repeatable and auditable changes to infrastructure make it easier to roll back to known good configurations and to rapidly expand to new stages and regions without having to hand-wire cloud resources</li>
-<li>Battle tested and templated IAC reference projects like <a href="https://github.com/microsoft/cobalt">Cobalt</a> and <a href="https://github.com/microsoft/bedrock">Bedrock</a> enable more engineering teams deploy secure and scalable solutions at a much more rapid pace</li>
-<li>Simplify “lift and shift” scenarios by abstracting the complexities of cloud-native computing away from application developer teams.</li>
+<li>Alterações repetíveis e auditáveis na infraestrutura facilitam o retorno a configurações conhecidas e a expansão rápida para novos estágios e regiões sem a necessidade de configurar manualmente os recursos da nuvem.</li>
+<li>Projetos de referência testados e com modelos de IAC, como <a href="https://github.com/microsoft/cobalt">Cobalt</a> e <a href="https://github.com/microsoft/bedrock">Bedrock</a>, permitem que equipes de engenharia implementem soluções seguras e escaláveis de forma muito mais rápida.</li>
+<li>Simplificar cenários de "migrar e executar" abstraindo as complexidades da computação nativa em nuvem das equipes de desenvolvimento de aplicativos.</li>
 </ul>
-<h3 id="iac-devops-operations-by-pull-request">IAC DevOPS: Operations by Pull Request</h3>
+<h3 id="iac-devops-operacoes-por-pull-request">IAC DevOPS: Operações por Pull Request</h3>
 <ul>
-<li>The Infrastructure deployment process built around a repo that holds the current expected state of the system / Azure environment.</li>
-<li>Operational changes are made to the running system by making commits on this repo.</li>
-<li>Git also provides a simple model for auditing deployments and rolling back to a previous state.</li>
+<li>O processo de implantação de infraestrutura é baseado em um repositório que mantém o estado atual esperado do ambiente do sistema / ambiente Azure.</li>
+<li>As mudanças operacionais são feitas no sistema em execução, fazendo commits neste repositório.</li>
+<li>O Git também fornece um modelo simples para auditoria de implantações e retorno a um estado anterior.</li>
 </ul>
-<h3 id="infrastructure-advocated-patterns">Infrastructure Advocated Patterns</h3>
+<h3 id="padroes-de-infraestrutura-recomendados">Padrões de Infraestrutura Recomendados</h3>
 <ul>
-<li>You define infrastructure as code in Terraform / ARM / Ansible templates</li>
-<li>Templates are repeatable cloud resource stacks with a focus on configuration sets aligned with app scaling and throughput needs.</li>
+<li>Defina a infraestrutura como código em modelos Terraform / ARM / Ansible.</li>
+<li>Os modelos são pilhas repetíveis de recursos de nuvem com foco em conjuntos de configurações alinhados com escalabilidade e necessidades de throughput da aplicação.</li>
 </ul>
-<h3 id="iac-principles">IAC Principles</h3>
-<h4 id="automate-the-azure-environment">Automate the Azure Environment</h4>
+<h3 id="principios-de-iac">Princípios de IAC</h3>
+<h4 id="automatize-o-ambiente-azure">Automatize o Ambiente Azure</h4>
 <ul>
-<li>All cloud resources are provisioned through a set of infrastructure as code templates. This also includes secrets, service configuration settings, role assignments and monitoring conditions.</li>
-<li>Azure Portal should provide a read-only view on environment resources. Any change applied to the environment should be made through the IAC CI tool-chain only.</li>
-<li>Provisioning cloud environments should be a repeatable process that's driven off the infrastructure code artifacts checked into our git repository.</li>
+<li>Todos os recursos de nuvem são provisionados por meio de um conjunto de modelos de infraestrutura como código. Isso inclui segredos, configurações de serviço, atribuições de função e condições de monitoramento.</li>
+<li>O Portal Azure deve fornecer uma visualização somente leitura dos recursos do ambiente. Qualquer alteração aplicada ao ambiente deve ser feita apenas por meio da cadeia de ferramentas de IAC.</li>
 </ul>
-<h4 id="iac-ci-workflow">IAC CI Workflow</h4>
+<h4 id="fluxo-de-trabalho-de-ci-de-iac">Fluxo de Trabalho de CI de IAC</h4>
 <ul>
-<li>When the IAC template files change through a git-based workflow, A CI build pipeline builds, validates and reconciles the target infrastructure environment's current state with the expected state. The infrastructure execution plan candidate for these fixed environments are reviewed by a cloud administrator as a gate check prior to the deployment stage of the pipeline applying the execution plan.</li>
+<li>Quando os arquivos de modelo IAC mudam por meio de um fluxo de trabalho baseado em git, um pipeline de compilação CI constrói, valida e concilia o estado atual do ambiente de infraestrutura de destino com o estado esperado. O plano de execução de infraestrutura candidato para esses ambientes fixos é revisado por um administrador de nuvem como uma verificação de porta antes da etapa de implantação do pipeline aplicar o plano de execução.</li>
 </ul>
-<h4 id="developer-read-only-access-to-cloud-resources">Developer Read-Only Access to Cloud Resources</h4>
+<h4 id="acesso-de-desenvolvedor-somente-leitura-a-recursos-de-nuvem">Acesso de Desenvolvedor Somente Leitura a Recursos de Nuvem</h4>
 <ul>
-<li>Developer accounts in the Azure portal should have read-only access to IAC environment resources in Azure.</li>
+<li>Contas de desenvolvedores no portal Azure devem ter acesso somente leitura aos recursos de ambiente IAC no Azure.</li>
 </ul>
-<h4 id="secret-automation">Secret Automation</h4>
+<h4 id="automacao-de-segredos">Automação de Segredos</h4>
 <ul>
-<li>IAC templates are deployed via a CI/CD system that has secrets automation integrated. Avoid applying changes to secrets and/or certificates directly in the Azure Portal.</li>
+<li>Model</li>
 </ul>
-<h4 id="infrastructure-integration-test-automation">Infrastructure Integration Test Automation</h4>
+<p>os IAC são implantados por meio de um sistema CI/CD que possui automação de segredos integrada. Evite aplicar alterações a segredos e/ou certificados diretamente no Portal Azure.</p>
+<h4 id="automacao-de-testes-de-integracao-de-infraestrutura">Automação de Testes de Integração de Infraestrutura</h4>
 <ul>
-<li>End-to-end integration tests are run as part of your IAC CI process to inspect and validate that an azure environment is ready for use.</li>
+<li>Testes de integração de ponta a ponta são executados como parte de seu processo de CI IAC para inspecionar e validar que um ambiente Azure está pronto para uso.</li>
 </ul>
-<h4 id="infrastructure-documentation">Infrastructure Documentation</h4>
+<h4 id="documentacao-de-infraestrutura">Documentação de Infraestrutura</h4>
 <ul>
-<li>The deployment and cloud resource template topology should be documented and well understood within the README of the IAC git repo.</li>
-<li>Local environment and CI workflow setup steps should be documented.</li>
+<li>A implantação e a topologia de modelo de recurso em nuvem devem ser documentadas e bem compreendidas dentro do README do repositório git IAC.</li>
+<li>As etapas de configuração do ambiente local e do fluxo de trabalho de CI devem ser documentadas.</li>
 </ul>
-<h2 id="configuration-validation">Configuration Validation</h2>
-<p>Applications use configuration to allow different runtime behaviors and it’s quite common to use files to store these settings. As developers, we might introduce errors while editing these files which would cause issues for the application to start and/or run correctly. By applying validation techniques on both syntax and semantics of our configuration, we can detect errors before the application is deployed and execute, improving the developer (user) experience.</p>
-<h3 id="application-configuration-files-examples">Application Configuration Files Examples</h3>
+<h2 id="validacao-de-configuracao">Validação de Configuração</h2>
+<p>As aplicações usam configurações para permitir diferentes comportamentos em tempo de execução e é bastante comum usar arquivos para armazenar essas configurações. Como desenvolvedores, podemos introduzir erros ao editar esses arquivos, o que causaria problemas para a inicialização e/ou execução correta da aplicação. Aplicando técnicas de validação na sintaxe e semântica de nossa configuração, podemos detectar erros antes que a aplicação seja implantada e executada, melhorando a experiência do desenvolvedor (usuário).</p>
+<h3 id="exemplos-de-arquivos-de-configuracao-de-aplicativos">Exemplos de Arquivos de Configuração de Aplicativos</h3>
 <ul>
-<li>JSON, with support for complex data types and data structures</li>
-<li>YAML, a super set of JSON with support for complex data types and structures</li>
-<li>TOML, a super set of JSON and a formally specified configuration file format</li>
+<li>JSON, com suporte para tipos de dados complexos e estruturas de dados complexas.</li>
+<li>YAML, um superconjunto de JSON com suporte para tipos de dados e estruturas complexas.</li>
+<li>TOML, um superconjunto de JSON e um formato de arquivo de configuração formalmente especificado.</li>
 </ul>
-<h3 id="why-validate-application-configuration-as-a-separate-step">Why Validate Application Configuration as a Separate Step?</h3>
+<h3 id="por-que-validar-a-configuracao-da-aplicacao-como-uma-etapa-separada">Por que Validar a Configuração da Aplicação como uma Etapa Separada?</h3>
 <ul>
-<li><strong>Easier Debugging &amp; Time saving</strong> - With a configuration validation step in our pipeline, we can avoid running the application just to find it fails. It saves time on having to deploy &amp; run, wait and then realize something is wrong in configuration. In addition, it also saves time on going through the logs to figure out what failed and why.</li>
-<li><strong>Better user/developer experience</strong> - A simple reminder to the user that something in the configuration isn't in the right format can make all the difference between the joy of a successful deployment process and the intense frustration of having to guess what went wrong. For example, when there is a Boolean value expected, it can either be a string value like "True" or "False" or an integer value such as "0" or "1" . With configuration validation we make sure the meaning is correct for our application.</li>
-<li><strong>Avoid data corruption and security breaches</strong> - Since the data arrives from an untrusted source, such as a user or an external webservice, it’s particularly important to validate the input . Otherwise, it will run at the risk of performing errors, corrupting data, or, worse, be vulnerable to a whole array of injection attacks.</li>
+<li><strong>Facilita a Depuração e Economiza Tempo</strong> - Com uma etapa de validação de configuração em nosso pipeline, podemos evitar a execução da aplicação apenas para descobrir que ela falha. Isso economiza tempo ao evitar a implantação e execução, esperar e, em seguida, perceber que algo está errado na configuração. Além disso, economiza tempo ao passar pelos registros para descobrir o que deu errado e por quê.</li>
+<li><strong>Melhor experiência do usuário/desenvolvedor</strong> - Um lembrete simples para o usuário de que algo na configuração não está no formato correto pode fazer toda a diferença entre a alegria de um processo de implantação bem-sucedido e a intensa frustração de ter que adivinhar o que deu errado. Por exemplo, quando se espera um valor booleano, ele pode ser uma string como "True" ou "False" ou um valor inteiro como "0" ou "1". Com a validação da configuração, garantimos que o significado esteja correto para nossa aplicação.</li>
+<li><strong>Evitar corrupção de dados e violações de segurança</strong> - Como os dados vêm de uma fonte não confiável, como um usuário ou um serviço externo, é especialmente importante validar a entrada. Caso contrário, ele correrá o risco de executar erros, corromper dados ou, pior ainda, ser vulnerável a uma série de ataques de injeção.</li>
 </ul>
-<h3 id="what-is-json-schema">What is Json Schema?</h3>
-<p><a href="https://json-schema.org/">JSON-Schema</a> is the standard of JSON documents that describes the structure and the requirements of your JSON data. Although it is called JSON-Schema, it also common to use this method for YAMLs, as it is a super set of JSON.
-The schema is very simple; point out which fields might exist, which are required or optional, what data format they use. Other validation rules can be added on top of that basic premise, along with human-readable information. The metadata lives in schemas which are .json files as well.
-In addition, schema has the widest adoption among all standards for JSON validation as it covers a big part of validation scenarios. It uses easy-to-parse JSON documents for schemas and is easily extensible.</p>
-<h3 id="how-to-implement-schema-validation">How to Implement Schema Validation?</h3>
-<p>Implementing schema validation is divided in two - the generation of the schemas and the validation of yaml/json files with those schemas.</p>
-<h3 id="generation">Generation</h3>
-<p>There are two options to generate a schema:</p>
+<h3 id="o-que-e-o-esquema-json">O que é o Esquema JSON?</h3>
+<p><a href="https://json-schema.org/">JSON-Schema</a> é o padrão de documentos JSON que descreve a estrutura e os requisitos dos seus dados JSON. Embora seja chamado de JSON-Schema, também é comum usar esse método para YAMLs, já que ele é um superconjunto do JSON. O esquema é muito simples: aponta quais campos podem existir, quais são obrigatórios ou opcionais, que formato de dados eles usam. Outras regras de validação podem ser adicionadas a essa premissa básica, juntamente com informações legíveis por humanos. Os metadados ficam nos esquemas, que são arquivos .json também. Além disso, o esquema tem a maior adoção entre todos os padrões de validação JSON, pois cobre uma grande parte dos cenários de validação. Ele usa documentos JSON fáceis de analisar para esquemas e é facilmente extensível.</p>
+<h3 id="como-implementar-a-validacao-de-esquema">Como Implementar a Validação de Esquema?</h3>
+<p>A implementação da validação de esquema é dividida em duas partes: a geração dos esquemas e a validação de arquivos YAML/JSON com esses esquemas.</p>
+<h3 id="geracao">Geração</h3>
+<p>Existem duas opções para gerar um esquema:</p>
 <ul>
-<li><a href="https://json-schema.org/implementations.html#from-code">From code</a> - we can leverage the existing models and objects in the code and generate a customized schema.</li>
+<li><a href="https://json-schema.org/implementations.html#from-code">A partir do código</a> - podemos aproveitar os modelos e objetos existentes no código e gerar um esquema personalizado.</li>
 </ul>
 <ul>
-<li><a href="https://json-schema.org/implementations.html#from-data">From data</a> - we can take yaml/json samples which reflect the configuration in general and use the various online tools to generate a schema.</li>
+<li><a href="https://json-schema.org/implementations.html#from-data">A partir de dados</a> - podemos pegar amostras de yaml/json que refletem a configuração em geral e usar várias ferramentas online para gerar um esquema.</li>
 </ul>
-<h3 id="validation">Validation</h3>
-<p>The schema has 30+ <a href="https://json-schema.org/implementations.html#validators">validators</a> for different languages, including 10+ for JavaScript, so no need to code it yourself.</p>
-<h2 id="integration-validation">Integration Validation</h2>
-<p>An effective way to identify bugs in your build at a rapid pace is to invest early into a reliable suite of automated tests that validate the baseline functionality of the system:</p>
-<h3 id="end-to-end-integration-tests">End to end integration tests</h3>
+<h3 id="validacao">Validação</h3>
+<p>O esquema possui mais de 30 <a href="https://json-schema.org/implementations.html#validators">validadores</a> para diferentes linguagens, incluindo mais de 10 para JavaScript, portanto, não é necessário codificá-lo você mesmo.</p>
+<p>Validação de Integração</p>
+<p>Uma maneira eficaz de identificar erros em sua compilação rapidamente é investir cedo em um conjunto confiável de testes automatizados que validem a funcionalidade básica do sistema:</p>
+<p>Testes de Integração de Ponta a Ponta</p>
 <ul>
-<li>Include tests in your pipeline to validate the build candidate conforms to automated business functionality assertions. Any bugs or broken code should be reported in the test results including the failed test and relevant stack trace. All tests should be invoked through a single command.</li>
-<li>Keep the build fast. Consider automated test runtime when deciding to pull in dependencies like databases, external services and mock data loading into your test harness. Slow builds often become a bottleneck for dev teams when parallel builds on a CI server are not an option. Consider adding max timeout limits for lengthy validations to fail fast and maintain high velocity across the team.</li>
+<li>Inclua testes em seu pipeline para validar que o candidato à compilação está em conformidade com as asserções automatizadas de funcionalidade de negócios. Quaisquer erros ou código quebrado devem ser relatados nos resultados dos testes, incluindo o teste falhado e o rastreamento de pilha relevante. Todos os testes devem ser invocados por meio de um único comando.</li>
+<li>Mantenha a compilação rápida. Considere o tempo de execução dos testes automatizados ao decidir trazer dependências como bancos de dados, serviços externos e carga de dados fictícios para o seu conjunto de testes. Compilações lentas frequentemente se tornam um gargalo para equipes de desenvolvimento quando compilações paralelas em um servidor de Integração Contínua não são uma opção. Considere adicionar limites máximos de tempo para validações demoradas para falhar rapidamente e manter uma alta velocidade em toda a equipe.</li>
 </ul>
-<h3 id="avoid-checking-in-broken-builds">Avoid checking in broken builds</h3>
+<p>Evite enviar compilações quebradas</p>
 <ul>
-<li>Automated build checks, tests, lint runs, etc should be validated locally before committing your changes to the scm repo. <a href="https://martinfowler.com/bliki/TestDrivenDevelopment.html">Test Driven Development</a> is a practice dev crews should consider to help identify bugs and failures as early as possible within the development lifecycle.</li>
+<li>Verificações automatizadas de compilação, testes, execuções de análise de código etc. devem ser validadas localmente antes de enviar suas alterações para o repositório de controle de versão. A <a href="https://martinfowler.com/bliki/TestDrivenDevelopment.html">Desenvolvimento Orientado a Testes</a> é uma prática que equipes de desenvolvimento devem considerar para ajudar a identificar erros e falhas o mais cedo possível no ciclo de desenvolvimento.</li>
 </ul>
-<h3 id="reporting-build-failures">Reporting build failures</h3>
+<p>Relatando falhas de compilação</p>
 <ul>
-<li>If the build step happens to fail then the build pipeline run status should be reported as failed including relevant logs and stack traces.</li>
+<li>Se a etapa de compilação falhar, o status da execução do pipeline de compilação deve ser relatado como falho, incluindo logs relevantes e rastreamentos de pilha.</li>
 </ul>
-<h3 id="test-automation-data-dependencies">Test Automation Data Dependencies</h3>
+<p>Dependências de Dados de Automação de Teste</p>
 <ul>
-<li>Any mocked dataset(s) used for unit and end-to-end integration tests should be checked into the mainline repository. Minimize any external data dependencies with your build process.</li>
+<li>Qualquer conjunto de dados fictícios usado para testes unitários e de integração de ponta a ponta deve ser incluído no repositório principal. Minimize quaisquer dependências de dados externos no processo de compilação.</li>
 </ul>
-<h3 id="code-coverage-checks">Code Coverage Checks</h3>
+<p>Verificações de Cobertura de Código</p>
 <ul>
-<li>We recommend integrating code coverage tools within your build stage. Most coverage tools fail builds when the test coverage falls below a minimum threshold(80% coverage). The coverage report should be published to your CI system to track a time series of variations.</li>
+<li>Recomendamos integrar ferramentas de cobertura de código em sua etapa de compilação. A maioria das ferramentas de cobertura de código falha nas compilações quando a cobertura de teste fica abaixo de um limite mínimo (80% de cobertura). O relatório de cobertura deve ser publicado em seu sistema de Integração Contínua para acompanhar uma série temporal de variações.</li>
 </ul>
-<h2 id="git-driven-workflow">Git Driven Workflow</h2>
-<h3 id="build-on-commit">Build on commit</h3>
+<p>Fluxo de Trabalho Orientado pelo Git</p>
+<p>Compilação na Confirmação</p>
 <ul>
-<li>Every commit to the baseline repository should trigger the CI pipeline to create a new build candidate.</li>
-<li>Build artifact(s) are built, packaged, validated and deployed continuously into a non-production environment per commit. Each commit against the repository results into a CI run which checks out the sources onto the integration machine, initiates a build, and notifies the committer of the result of the build.</li>
+<li>Cada confirmação no repositório base deve acionar o pipeline de Integração Contínua para criar um novo candidato à compilação.</li>
+<li>Os artefatos de compilação são criados, empacotados, validados e implantados continuamente em um ambiente não produtivo por confirmação. Cada confirmação no repositório resulta em uma execução de Integração Contínua que verifica as fontes na máquina de integração, inicia uma compilação e notifica o autor da confirmação sobre o resultado da compilação.</li>
 </ul>
-<h3 id="avoid-commenting-out-failing-tests">Avoid commenting out failing tests</h3>
+<p>Evite comentar testes falhados</p>
 <ul>
-<li>Avoid commenting out tests in the mainline branch. By commenting out tests, we get an incorrect indication of the status of the build.</li>
+<li>Evite comentar testes na ramificação principal. Ao comentar testes, obtemos uma indicação incorreta do estado da compilação.</li>
 </ul>
-<h3 id="branch-policy-enforcement">Branch policy enforcement</h3>
+<p>Aplicação da Política de Ramificação</p>
 <ul>
-<li>Protected <a href="https://help.github.com/en/github/administering-a-repository/about-protected-branches">branch policies</a> should be setup on the main branch to ensure that CI stage(s) have passed prior to starting a code review. Code review approvers will only start reviewing a pull request once the CI pipeline run passes for the latest pushed git commit.</li>
-<li>Broken builds should block pull request reviews.</li>
-<li>Prevent commits directly into main branch.</li>
+<li>Políticas de <a href="https://help.github.com/en/github/administering-a-repository/about-protected-branches">ramificação protegidas</a> devem ser configuradas na ramificação principal para garantir que as etapas de Integração Contínua tenham sido concluídas antes de iniciar uma revisão de código. Os aprovadores de revisão de código só iniciarão a revisão de uma solicitação de pull quando a execução do pipeline de Integração Contínua for bem-sucedida para a confirmação mais recentemente enviada para o Git.</li>
+<li>Compilações quebradas devem bloquear revisões de solicitações de pull.</li>
+<li>Evite confirmações diretas na ramificação principal.</li>
 </ul>
-<h3 id="branch-strategy">Branch strategy</h3>
+<p>Estratégia de Ramificação</p>
 <ul>
-<li>Release branches should auto trigger the deployment of a build artifact to its target cloud environment. You can find additional guidance on the Azure DevOps documentation site under the <a href="https://learn.microsoft.com/en-us/azure/devops/repos/git/git-branching-guidance?view=azure-devops#manage-deployments">Manage deployments</a> section</li>
+<li>Ramificações de lançamento devem acionar automaticamente a implantação de um artefato de compilação em seu ambiente de nuvem de destino. Você pode encontrar orientações adicionais no site de documentação do Azure DevOps na seção <a href="https://learn.microsoft.com/en-us/azure/devops/repos/git/git-branching-guidance?view=azure-devops#manage-deployments">Gerenciar implantações</a>.</li>
 </ul>
-<h2 id="deliver-quickly-and-daily">Deliver Quickly and Daily</h2>
+<p>Entregar Rapidamente e Diariamente</p>
 <blockquote>
-<p>"By committing regularly, every committer can reduce the number of conflicting changes. Checking in a week's worth of work runs the risk of conflicting with other features and can be very difficult to resolve. Early, small conflicts in an area of the system cause team members to communicate about the change they are making."</p>
+<p>"Ao confirmar regularmente, cada colaborador pode reduzir o número de alterações conflitantes. Fazer confirmações semanais de trabalho corre o risco de entrar em conflito com outras funcionalidades e pode ser muito difícil de resolver. Conflitos iniciais e pequenos em uma área do sistema fazem com que os membros da equipe se comuniquem sobre a alteração que estão fazendo."</p>
 </blockquote>
-<p>In the spirit of transparency and embracing frequent communication across a dev crew, we encourage developers to commit code on a daily cadence. This approach provides visibility to feature progress and accelerates pair programming across the team. Here are some principles to consider:</p>
-<h3 id="everyone-commits-to-the-git-repository-each-day">Everyone commits to the git repository each day</h3>
+<p>No espírito da transparência e da comunicação frequente em uma equipe de desenvolvimento, incentivamos os desenvolvedores a confirmar o código diariamente. Essa abordagem fornece visibilidade ao progresso das funcionalidades e acelera a programação em pares em toda a equipe. Aqui estão alguns princípios a serem considerados:</p>
+<p>Todos confirmam no repositório git todos os dias</p>
 <ul>
-<li>End of day checked-in code should contain unit tests at the minimum.</li>
-<li>Run the build locally before checking in to avoid CI pipeline failure saturation. You should verify what caused the error, and try to solve it as soon as possible instead of committing your code. We encourage developers to follow a <a href="https://leankit.com/learn/lean/principles-of-lean-development/">lean SDLC principles</a>.</li>
-<li>Isolate work into small chunks which ties directly to business value and refactor incrementally.</li>
+<li>No final do dia, o código confirmado deve conter testes unitários no mínimo.</li>
+<li>Execute a compilação localmente antes de confirmar para evitar a saturação do pipeline de Integração Contínua. Você deve verificar o que causou o erro e tentar resolvê-lo o mais rápido possível, em vez de confirmar o código. Incentivamos os desenvolvedores a seguir princípios de <a href="https://leankit.com/learn/lean/principles-of-lean-development/">Desenvolvimento Lean</a>.</li>
+<li>Isolar o trabalho em pequenos pedaços que se relacionam diretamente com o valor comercial e refatorar incrementalmente.</li>
 </ul>
-<h2 id="isolated-environments">Isolated Environments</h2>
-<p>One of the key goals of build validation is to isolate and identify failures in staging environment(s) and minimize any disruption to live production traffic. Our E2E automated tests should run in an environment which mimics our production environment(as much as possible). This includes consistent software versions, OS, test data volume simulations, network traffic parity with production, etc.</p>
-<h3 id="test-in-a-clone-of-production">Test in a clone of production</h3>
+<p>Ambientes Isolados</p>
+<p>Um dos principais objetivos da validação de compilação é isolar e identificar falhas em ambientes de preparação e minimizar qualquer interrupção no tráfego de produção ao vivo. Nossos testes automatizados de ponta a ponta devem ser executados em um ambiente que reproduza nosso ambiente de produção (o máximo possível). Isso inclui versões de software consistent</p>
+<p>es, SO, simulações de volume de dados de teste, paridade de tráfego de rede com produção, etc.</p>
+<p>Teste em um clone da produção</p>
 <ul>
-<li>The production environment should be duplicated into a staging environment(QA and/or Pre-Prod) at a minimum.</li>
+<li>O ambiente de produção deve ser duplicado em um ambiente de preparação (QA e/ou Pré-Produção) no mínimo.</li>
 </ul>
-<h3 id="pull-request-updates-trigger-staged-releases">Pull request update(s) trigger staged releases</h3>
+<p>Atualizações de solicitação de pull acionam lançamentos em estágios</p>
 <ul>
-<li>New commits related to a pull request should trigger a build / release into an integration environment. The production environment should be fully isolated from this process.</li>
+<li>Novas confirmações relacionadas a uma solicitação de pull devem acionar uma compilação/liberação em um ambiente de integração. O ambiente de produção deve ser totalmente isolado desse processo.</li>
 </ul>
-<h3 id="promote-infrastructure-changes-across-fixed-environments">Promote infrastructure changes across fixed environments</h3>
+<p>Promover alterações de infraestrutura em ambientes fixos</p>
 <ul>
-<li>Infrastructure as code changes should be tested in an integration environment and promoted to all staging environment(s) then migrated to production with zero downtime for system users.</li>
+<li>Alterações de infraestrutura como código devem ser testadas em um ambiente de integração e promovidas para todos os ambientes de preparação, depois migradas para produção sem tempo de inatividade para os usuários do sistema.</li>
 </ul>
-<h3 id="testing-in-production">Testing in production</h3>
+<p>Testando em produção</p>
 <ul>
-<li>There are various <a href="https://medium.com/@copyconstruct/testing-in-production-the-safe-way-18ca102d0ef1">approaches</a> with safely carrying out automated tests for production deployments. Some of these may include:<ul>
-<li>Feature flagging</li>
-<li>A/B testing</li>
-<li>Traffic shifting</li>
+<li>Existem várias <a href="https://medium.com/@copyconstruct/testing-in-production-the-safe-way-18ca102d0ef1">abordagens</a> para realizar testes automatizados para implantações em produção com segurança. Algumas dessas abordagens podem incluir:<ul>
+<li>Sinalização de recursos</li>
+<li>Teste A/B</li>
+<li>Deslocamento de tráfego</li>
 </ul>
 </li>
 </ul>
-<h2 id="developer-access-to-the-latest-release-artifacts">Developer Access to the Latest Release Artifacts</h2>
-<p>Our devops workflow should enable developers to get, install and run the latest system executable. Release executable(s) should be auto generated as part of our CI/CD pipeline(s).</p>
-<h3 id="developers-can-access-latest-executable">Developers can access latest executable</h3>
+<p>Acesso do Desenvolvedor aos Últimos Artefatos de Lançamento</p>
+<p>Nosso fluxo de trabalho de DevOps deve permitir que os desenvolvedores obtenham, instalem e executem o executável do sistema mais recente. Os executáveis de lançamento devem ser gerados automaticamente como parte de nossos pipelines de CI/CD.</p>
+<p>Os desenvolvedores podem acessar o executável mais recente</p>
 <ul>
-<li>The latest system executable is available for all developers on the team. There should be a well-known place where developers can reference the release artifact.</li>
+<li>O executável do sistema mais recente está disponível para todos os desenvolvedores da equipe. Deve haver um local conhecido onde os desenvolvedores possam consultar o artefato de lançamento.</li>
 </ul>
-<h3 id="release-artifact-is-published-for-each-pull-request-or-merges-into-main-branch">Release artifact is published for each pull request or merges into main branch</h3>
-<h2 id="integration-observability">Integration Observability</h2>
-<p>Applied state changes to the mainline build should be made available and communicated across the team. Centralizing logs and status(s) from build and release pipeline failures are essential for developers investigating broken builds.</p>
-<p>We recommend integrating Teams or Slack with CI/CD pipeline runs which helps keep the team continuously plugged into failures and build candidate status(s).</p>
-<h3 id="continuous-integration-top-level-dashboard">Continuous integration top level dashboard</h3>
+<p>O artefato de lançamento é publicado para cada solicitação de pull ou mesclagem na ramificação principal</p>
+<p>Observabilidade da Integração</p>
+<p>As mudanças de estado aplicadas à compilação principal devem estar disponíveis e ser comunicadas em toda a equipe. Centralizar logs e status de falhas de pipeline de compilação e lançamento é essencial para desenvolvedores que investigam compilações quebradas.</p>
+<p>Recomendamos integrar Teams ou Slack com as execuções de pipeline de CI/CD, o que ajuda a manter a equipe constantemente informada sobre falhas e status de candidatos à compilação.</p>
+<p>Painel de nível superior de Integração Contínua</p>
 <ul>
-<li>Modern CI providers have the capability to consolidate and report build status(s) within a given dashboard.</li>
-<li>Your CI dashboard should be able to correlate a build failure with a git commit.</li>
+<li>Os provedores modernos de CI têm a capacidade de consolidar e relatar status de compilação em um painel específico.</li>
+<li>Seu painel de CI deve ser capaz de correlacionar uma falha de compilação com um commit do Git.</li>
 </ul>
-<h3 id="build-status-badge-in-project-readme">Build status badge in project readme</h3>
+<p>Emblema de status de compilação no README do projeto</p>
 <ul>
-<li>There should be a build status badge included in the root README of the project.</li>
+<li>Deve haver um emblema de status de compilação incluído no README raiz do projeto.</li>
 </ul>
-<h3 id="build-notifications">Build notifications</h3>
+<p>Notificações de compilação</p>
 <ul>
-<li>Your CI process should be configured to send notifications to messaging platforms like Teams / Slack once the build completes. We recommend creating a separate channel to help consolidate and isolate these notifications.</li>
+<li>Seu processo de CI deve ser configurado para enviar notificações para plataformas de mensagens como Teams/Slack assim que a compilação for concluída. Recomendamos criar um canal separado para ajudar a consolidar e isolar essas notificações.</li>
 </ul>
-<h2 id="resources">Resources</h2>
+<p>Recursos</p>
 <ul>
-<li><a href="https://martinfowler.com/articles/continuousIntegration.html">Martin Fowler's Continuous Integration Best Practices</a></li>
-<li><a href="https://github.com/microsoft/bedrock#getting-started">Bedrock Getting Started Quick Guide</a></li>
-<li><a href="https://github.com/microsoft/cobalt/blob/master/docs/2_QUICK_START_GUIDE.md">Cobalt Quick Start Guide</a></li>
-<li><a href="https://github.com/microsoft/terraform-provider-azuredevops">Terraform Azure DevOps Provider</a></li>
-<li><a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/multi-stage-pipelines-experience?view=azure-devops">Azure DevOps multi stage pipelines</a></li>
-<li><a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops">Azure Pipeline Key Concepts</a></li>
-<li><a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/process/environments?view=azure-devops">Azure Pipeline Environments</a></li>
-<li><a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/artifacts/artifacts-overview?view=azure-devops">Artifacts in Azure Pipelines</a></li>
-<li><a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/policies/permissions?view=azure-devops">Azure Pipeline permission and security roles</a></li>
-<li><a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops&amp;tabs=check-pass">Azure Environment approvals and checks</a></li>
-<li><a href="https://learn.hashicorp.com/terraform?track=azure#azure">Terraform Getting Started Guide with Azure</a></li>
-<li><a href="https://learn.microsoft.com/en-us/azure/terraform/terraform-backend">Terraform Remote State Azure Setup</a></li>
-<li><a href="https://terratest.gruntwork.io/">Terratest - Unit and Integration Infrastructure Framework</a></li>
+<li><a href="https://martinfowler.com/articles/continuousIntegration.html">Melhores Práticas de Integração Contínua de Martin Fowler</a></li>
+<li><a href="https://github.com/microsoft/bedrock#getting-started">Guia Rápido de Início do Bedrock</a></li>
+<li><a href="https://github.com/microsoft/cobalt/blob/master/docs/2_QUICK_START_GUIDE.md">Guia Rápido do Cobalt</a></li>
+<li><a href="https://github.com/microsoft/terraform-provider-azuredevops">Provedor Azure DevOps do Terraform</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/multi-stage-pipelines-experience?view=azure-devops">Pipelines de Vários Estágios do Azure DevOps</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops">Conceitos Chave do Azure Pipeline</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/process/environments?view=azure-devops">Ambientes do Azure Pipeline</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/artifacts/artifacts-overview?view=azure-devops">Artefatos no Azure Pipelines</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/policies/permissions?view=azure-devops">Permissões e Funções de Segurança do Azure Pipeline</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops&amp;tabs=check-pass">Aprovações e Verificações de Ambiente do Azure</a></li>
+<li><a href="https://learn.hashicorp.com/terraform?track=azure#azure">Guia de Início Rápido do Terraform com Azure</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/terraform/terraform-backend">Configuração Remota do Estado do Terraform no Azure</a></li>
+<li><a href="https://terratest.gruntwork.io/">Terratest - Framework de Infraestrutura de Testes Unitários e de Integração</a></li>
 </ul>
 
   <hr>
@@ -7905,7 +7686,7 @@ In addition, schema has the widest adoption among all standards for JSON validat
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 15, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
       
     
   </small>

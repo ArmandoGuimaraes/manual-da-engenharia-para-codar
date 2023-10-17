@@ -19,7 +19,7 @@
     
     
       
-        <title>Azure DevOps: Managing Settings on a Per-Branch Basis - Manual da Engenharia para Codar</title>
+        <title>Azure DevOps: Gerenciando Configurações de Forma Branch Específica - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#azure-devops-managing-settings-on-a-per-branch-basis" class="md-skip">
+        <a href="#azure-devops-gerenciando-configuracoes-de-forma-branch-especifica" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Azure DevOps: Managing Settings on a Per-Branch Basis
+              Azure DevOps: Gerenciando Configurações de Forma Branch Específica
             
           </span>
         </div>
@@ -2607,7 +2607,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Azure DevOps: Managing Settings on a Per-Branch Basis
+        Azure DevOps: Gerenciando Configurações de Forma Branch Específica
       </a>
       
     </li>
@@ -7153,46 +7153,46 @@
                 
 
 
-<h1 id="azure-devops-managing-settings-on-a-per-branch-basis">Azure DevOps: Managing Settings on a Per-Branch Basis</h1>
-<p>When using <a href="https://azure.microsoft.com/en-us/services/devops/pipelines/">Azure DevOps Pipelines</a> for CI/CD, it's convenient to leverage the built-in <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables">pipeline variables</a> for <a href="../../secrets-management/">secrets management</a>, but using pipeline variables for secrets management has its disadvantages:</p>
+<h1 id="azure-devops-gerenciando-configuracoes-de-forma-branch-especifica">Azure DevOps: Gerenciando Configurações de Forma Branch Específica</h1>
+<p>Ao utilizar o <a href="https://azure.microsoft.com/en-us/services/devops/pipelines/">Azure DevOps Pipelines</a> para CI/CD, é conveniente aproveitar as <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables">variáveis de pipeline</a> integradas para <a href="../../secrets-management/">gerenciamento de segredos</a>, mas o uso de variáveis de pipeline para gerenciamento de segredos tem suas desvantagens:</p>
 <ul>
-<li><em>Pipeline variables are managed outside the code that references them.</em> This makes it easy to introduce drift between the source code and the secrets, e.g. adding a reference to a new secret in code but forgetting to add it to the pipeline variables (leads to confusing build breaks), or deleting a reference to a secret in code and forgetting to remote it from the pipeline variables (leads to confusing pipeline variables).</li>
+<li><em>Variáveis de pipeline são gerenciadas fora do código que faz referência a elas.</em> Isso torna fácil introduzir divergências entre o código-fonte e os segredos, por exemplo, ao adicionar uma referência a um novo segredo no código, mas esquecer de adicioná-lo às variáveis de pipeline (o que leva a quebras de compilação confusas) ou excluir uma referência a um segredo no código e esquecer de removê-lo das variáveis de pipeline (o que leva a variáveis de pipeline confusas).</li>
 </ul>
 <ul>
-<li><em>Pipeline variables are global shared state.</em> This can lead to confusing situations and hard to debug problems when developers make concurrent changes to the pipeline variables which may override each other. Having a single global set of pipeline variables also makes it impossible for secrets to vary per environment (e.g. when using a branch-based deployment model where 'master' deploys using the production secrets, 'development' deploys using the staging secrets, and so forth).</li>
+<li><em>Variáveis de pipeline são um estado global compartilhado.</em> Isso pode levar a situações confusas e problemas difíceis de depurar quando os desenvolvedores fazem alterações simultâneas nas variáveis de pipeline que podem se sobrepor umas às outras. Ter um único conjunto global de variáveis de pipeline também torna impossível que os segredos variem por ambiente (por exemplo, ao usar um modelo de implantação baseado em branches, onde 'master' faz implantações usando os segredos de produção, 'development' faz implantações usando os segredos de staging, e assim por diante).</li>
 </ul>
-<p>A solution to these limitations is to manage secrets in the Git repository jointly with the project's source code. As described in <a href="../../secrets-management/">secrets management</a>, don't check secrets into the repository in plain text. Instead we can add an encrypted version of our secrets to the repository and enable our CI/CD agents and developers to decrypt the secrets for local usage with some pre-shared key. This gives us the best of both worlds: a secure storage for secrets as well as side-by-side management of secrets and code.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># first, make sure that we never commit our plain text secrets and generate a strong encryption key</span>
+<p>Uma solução para essas limitações é gerenciar os segredos no repositório Git em conjunto com o código-fonte do projeto. Conforme descrito em <a href="../../secrets-management/">gerenciamento de segredos</a>, não inclua segredos no repositório em texto simples. Em vez disso, podemos adicionar uma versão criptografada de nossos segredos ao repositório e permitir que nossos agentes CI/CD e desenvolvedores descriptografem os segredos para uso local com alguma chave pré-compartilhada. Isso nos oferece o melhor dos dois mundos: um armazenamento seguro para segredos, bem como o gerenciamento lado a lado de segredos e código.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Primeiro, certifique-se de nunca cometer nossos segredos em texto simples e gere uma chave de criptografia forte</span>
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;.env&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.gitignore
 <span class="nv">ENCRYPTION_KEY</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nv">LC_ALL</span><span class="o">=</span>C<span class="w"> </span>&lt;<span class="w"> </span>/dev/urandom<span class="w"> </span>tr<span class="w"> </span>-dc<span class="w"> </span><span class="s1">&#39;_A-Z-a-z-0-9&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-c128<span class="k">)</span><span class="s2">&quot;</span>
 
-<span class="c1"># now let&#39;s add some secret to our .env file</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;MY_SECRET=...&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.env
+<span class="c1"># Agora, vamos adicionar algum segredo ao nosso arquivo .env</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;MEU_SEGREDO=...&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.env
 
-<span class="c1"># also update our secrets documentation file</span>
+<span class="c1"># Atualize também nosso arquivo de documentação de segredos</span>
 cat<span class="w"> </span>&gt;&gt;<span class="w"> </span>.env.template<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span><span class="s2">&quot;</span>
-<span class="s2"># enter description of your secret here</span>
-<span class="s2">MY_SECRET=</span>
+<span class="s2"># Insira a descrição do seu segredo aqui</span>
+<span class="s2">MEU_SEGREDO=</span>
 <span class="s2">&quot;</span>
 
-<span class="c1"># next, encrypt the plain text secrets; the resulting .env.enc file can safely be committed to the repository</span>
+<span class="c1"># Em seguida, criptografe os segredos em texto simples; o arquivo resultante .env.enc pode ser comitado com segurança para o repositório</span>
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">ENCRYPTION_KEY</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>openssl<span class="w"> </span>enc<span class="w"> </span>-aes-256-cbc<span class="w"> </span>-md<span class="w"> </span>sha512<span class="w"> </span>-pass<span class="w"> </span>stdin<span class="w"> </span>-in<span class="w"> </span>.env<span class="w"> </span>-out<span class="w"> </span>.env.enc
 git<span class="w"> </span>add<span class="w"> </span>.env.enc<span class="w"> </span>.env.template
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Update secrets&quot;</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Atualizar segredos&quot;</span>
 </code></pre></div>
-<p>When running the CI/CD, the build server can now access the secrets by decrypting them. E.g. for Azure DevOps, configure <code>ENCRYPTION_KEY</code> as a <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables#secret-variables">secret pipeline variable</a> and then add the following step to <code>azure-pipelines.yml</code>:</p>
+<p>Ao executar o CI/CD, o servidor de compilação agora pode acessar os segredos descriptografando-os. Por exemplo, para o Azure DevOps, configure <code>ENCRYPTION_KEY</code> como uma <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables#secret-variables">variável de pipeline secreta</a> e, em seguida, adicione a seguinte etapa ao arquivo <code>azure-pipelines.yml</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">steps</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;$(ENCRYPTION_KEY)&quot; | openssl enc -aes-256-cbc -md sha512 -pass stdin -in .env.enc -out .env -d</span>
-<span class="w">    </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Decrypt secrets</span>
+<span class="w">    </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Descriptografar segredos</span>
 </code></pre></div>
-<p>You can also use <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups?view=azure-devops&amp;tabs=yaml#link-secrets-from-an-azure-key-vault">variable groups linked directly to Azure key vault</a> for your pipelines to manage all secrets in one location.</p>
+<p>Você também pode usar <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups?view=azure-devops&amp;tabs=yaml#link-secrets-from-an-azure-key-vault">grupos de variáveis vinculados diretamente ao Azure Key Vault</a> para seus pipelines para gerenciar todos os segredos em um local.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 2, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
       
     
   </small>

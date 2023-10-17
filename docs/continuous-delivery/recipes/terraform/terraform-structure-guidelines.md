@@ -1,29 +1,30 @@
-# Guidelines on Structuring the Terraform Configuration
+# Diretrizes para Estruturar a Configuração do Terraform
 
-## Context
-When creating an infrastructure configuration, it is important to follow a consistent and organized structure to ensure maintainability, scalability and reusability of the code. The goal of this section is to briefly describe how to structure your Terraform configuration in order to achieve this.
+## Contexto
+Ao criar uma configuração de infraestrutura, é importante seguir uma estrutura consistente e organizada para garantir a manutenibilidade, escalabilidade e reutilização do código. O objetivo desta seção é descrever brevemente como estruturar sua configuração do Terraform para alcançar esses objetivos.
 
-## Structuring the Terraform configuration
+## Estruturando a Configuração do Terraform
 
-The recommended structure is as follows:
+A estrutura recomendada é a seguinte:
 
-1. Place each component you want to configure in its own module folder. Analyze your infrastructure code and identify the logical components that can be separated into reusable modules. This will give you a clear separation of concerns and will make it straight forward to include new resources, update existing ones or reuse them in the future. For more details on modules and when to use them, see the [Terraform guidance](https://developer.hashicorp.com/terraform/language/modules/develop#when-to-write-a-module).
+1. Coloque cada componente que deseja configurar em sua própria pasta de módulo. Analise o código de sua infraestrutura e identifique os componentes lógicos que podem ser separados em módulos reutilizáveis. Isso dará a você uma clara separação de preocupações e tornará fácil incluir novos recursos, atualizar os existentes ou reutilizá-los no futuro. Para obter mais detalhes sobre módulos e quando usá-los, consulte o [guia do Terraform](https://developer.hashicorp.com/terraform/language/modules/develop#when-to-write-a-module).
 
-2. Place the `.tf` module files at the root of each folder and make sure to include a [`README`](#generating-the-documentation) file in a markdown format which can be automatically generated based on the module code. It's recommended to follow this approach as this file structure will be automatically picked up by the [Terraform Registry](https://registry.terraform.io/browse/modules).
-3. Use a consistent set of files to structure your modules. While this can vary depending on the specific needs of the project, one good example can be the following:
-   - **provider.tf**: defines the list of providers according to the plugins used
-   - **data.tf**: defines information read from different data sources
-   - **main.tf**: defines the infrastructure objects needed for your configuration (e.g. resource group, role assignment, container registry)
-   - **backend.tf**: backend configuration file
-   - **outputs.tf**: defines structured data that is exported
-   - **variables.tf**: defines static, reusable values
-4. Include in each module sub folders for documentation, examples and tests.
-The documentation includes basic information about the module: what is it installing, what are the options, an example use case and so on. You can also add here any other relevant details you might have.
-The example folder can include one or more examples of how to use the module, each example having the same set of configuration files decided on the previous step. It's recommended to also include a README providing a clear understanding of how it can be used in practice.
-The tests folder includes one or more files to test the example module together with a documentation file with instructions on how these tests can be [executed](https://www.hashicorp.com/blog/testing-hashicorp-terraform).
-5. Place the root module in a separate folder called `main`: this is the primary entry point for the configuration. Like for the other modules, it will contain its corresponding configuration files.
+2. Coloque os arquivos de módulo `.tf` na raiz de cada pasta e certifique-se de incluir um arquivo [`README`](#gerando-a-documentação) em formato markdown que pode ser gerado automaticamente com base no código do módulo. É recomendável seguir esta abordagem, pois essa estrutura de arquivo será automaticamente reconhecida pelo [Terraform Registry](https://registry.terraform.io/browse/modules).
 
-An example configuration structure obtained using the guidelines above is:
+3. Use um conjunto consistente de arquivos para estruturar seus módulos. Embora isso possa variar dependendo das necessidades específicas do projeto, um bom exemplo pode ser o seguinte:
+   - **provider.tf**: define a lista de provedores de acordo com os plugins usados
+   - **data.tf**: define informações lidas de diferentes fontes de dados
+   - **main.tf**: define os objetos de infraestrutura necessários para sua configuração (por exemplo, grupo de recursos, atribuição de função, registro de contêiner)
+   - **backend.tf**: arquivo de configuração de backend
+   - **outputs.tf**: define dados estruturados que são exportados
+   - **variables.tf**: define valores estáticos e reutilizáveis
+4. Inclua em cada módulo subpastas para documentação, exemplos e testes.
+A documentação inclui informações básicas sobre o módulo: o que ele está instalando, quais são as opções, um exemplo de caso de uso, e assim por diante. Você também pode adicionar aqui quaisquer outros detalhes relevantes que possa ter.
+A pasta de exemplos pode incluir um ou mais exemplos de como usar o módulo, cada exemplo tendo o mesmo conjunto de arquivos de configuração decidido na etapa anterior. É recomendável também incluir um README que forneça uma compreensão clara de como ele pode ser usado na prática.
+A pasta de testes inclui um ou mais arquivos para testar o módulo de exemplo junto com um arquivo de documentação com instruções sobre como esses testes podem ser [executados](https://www.hashicorp.com/blog/testing-hashicorp-terraform).
+5. Coloque o módulo raiz em uma pasta separada chamada `main`: este é o ponto de entrada principal para a configuração. Assim como nos outros módulos, ele conterá seus arquivos de configuração correspondentes.
+
+Uma estrutura de configuração de exemplo obtida usando as diretrizes acima é:
 
 ```console
 modules
@@ -43,29 +44,29 @@ modules
 ```
 
 
-## Naming convention
+## Convenção de Nomenclatura
 
-When naming Terraform variables, it's essential to use clear and consistent naming conventions that are easy to understand and follow. The general convention is to use lowercase letters and numbers, with underscores instead of dashes, for example: "azurerm_resource_group".
-When naming resources, start with the provider's name, followed by the target resource, separated by underscores. For instance, "azurerm_postgresql_server" is an appropriate name for an Azure provider resource. When it comes to data sources, use a similar naming convention, but make sure to use plural names for lists of items. For example, "azurerm_resource_groups" is a good name for a data source that represents a list of resource groups.
-Variable and output names should be descriptive and reflect the purpose or use of the variable. It's also helpful to group related items together using a common prefix. For example, all variables related to storage accounts could start with "storage_". Keep in mind that outputs should be understandable outside of their scope. A useful naming pattern to follow is "{name}_{attribute}", where "name" represents a resource or data source name, and "attribute" is the attribute returned by the output. For example, "storage_primary_connection_string" could be a valid output name.
+Ao nomear variáveis do Terraform, é essencial usar convenções de nomenclatura claras e consistentes que sejam fáceis de entender e seguir. A convenção geral é usar letras minúsculas e números, com underscores em vez de traços, por exemplo: "azurerm_resource_group".
+Ao nomear recursos, comece com o nome do provedor, seguido pelo recurso de destino, separado por underscores. Por exemplo, "azurerm_postgresql_server" é um nome apropriado para um recurso de provedor Azure. Quando se trata de fontes de dados, use uma convenção de nomenclatura semelhante, mas certifique-se de usar nomes no plural para listas de itens. Por exemplo, "azurerm_resource_groups" é um bom nome para uma fonte de dados que representa uma lista de grupos de recursos.
+Nomes de variáveis e saídas devem ser descritivos e refletir o propósito ou uso da variável. Também é útil agrupar itens relacionados usando um prefixo comum. Por exemplo, todas as variáveis relacionadas a contas de armazenamento podem começar com "storage_". Tenha em mente que as saídas devem ser compreensíveis fora de seu escopo. Um padrão de nomenclatura útil a seguir é "{nome}_{atributo}", onde "nome" representa o nome de um recurso ou fonte de dados, e "atributo" é o atributo retornado pela saída. Por exemplo, "storage_primary_connection_string" poderia ser um nome de saída válido.
 
-Make sure you include a description for outputs and variables, as well as marking the values as 'default' or 'sensitive' when the case. This information will be captured in the generated documentation.
+Certifique-se de incluir uma descrição para saídas e variáveis, além de marcar os valores como 'default' ou 'sensitive' quando necessário. Essas informações serão capturadas na documentação gerada.
 
-## Generating the documentation
+## Gerando a Documentação
 
-The documentation can be automatically generated based on the configuration code in your modules with the help of [terraform-docs](https://terraform-docs.io/). To generate the Terraform module documentation, go to the module folder and enter this command:
+A documentação pode ser gerada automaticamente com base no código de configuração em seus módulos com a ajuda do [terraform-docs](https://terraform-docs.io/). Para gerar a documentação do módulo Terraform, vá para a pasta do módulo e insira este comando:
 
 ```sh
 terraform-docs markdown table --output-file README.md --output-mode inject .
 ```
 
-Then, the documentation will be generated inside the component root directory.
+Em seguida, a documentação será gerada dentro do diretório raiz do componente.
 
-## Conclusion
+## Conclusão
 
-The approach presented in this section is designed to be flexible and easy to use, making it straight forward to add new resources or update existing ones. The separation of concerns also makes it easy to reuse existing components in other projects, with all the information (modules, examples, documentation and tests) located in one place.
+A abordagem apresentada nesta seção foi projetada para ser flexível e fácil de usar, tornando simples adicionar novos recursos ou atualizar os existentes. A separação de preocupações também facilita a reutilização de componentes existentes em outros projetos, com todas as informações (módulos, exemplos, documentação e testes) localizadas em um só lugar.
 
-## References and Further Reading
+## Referências e Leituras Adicionais
 
 - [Terraform-docs](https://github.com/terraform-docs/terraform-docs)
 - [Terraform Registry](https://registry.terraform.io/browse/modules)

@@ -1,46 +1,46 @@
-# Agile Development Considerations for ML Projects
+# Considerações sobre Desenvolvimento Ágil para Projetos de Aprendizado de Máquina
 
-## Overview
+## Visão Geral
 
-When running ML projects, we follow the Agile methodology for software development with some adaptations, as we acknowledge that research and experimentation are sometimes difficult to plan and estimate.
+Ao conduzir projetos de Aprendizado de Máquina (ML), seguimos a metodologia Ágil para o desenvolvimento de software, com algumas adaptações, pois reconhecemos que a pesquisa e experimentação são, por vezes, difíceis de planejar e estimar.
 
-## Goals
+## Objetivos
 
-1. Run and manage ML projects effectively
-2. Create effective collaboration between the ML team and the other teams working on the project
+1. Executar e gerenciar projetos de ML de forma eficaz.
+2. Criar uma colaboração eficaz entre a equipe de ML e as outras equipes que trabalham no projeto.
 
-To learn more about how ISE runs the Agile process for software development teams, refer to this [doc](../agile-development).
+Para saber mais sobre como a ISE conduz o processo Ágil para equipes de desenvolvimento de software, consulte este [documento](../agile-development).
 
-Within this framework, the team follows these Agile ceremonies:
+Dentro deste framework, a equipe segue essas cerimônias Ágeis:
 
-- [Backlog management](../agile-development/advanced-topics/backlog-management/README.md)
-- [Retrospectives](../agile-development/core-expectations/README.md)
-- [Scrum of Scrums](../agile-development/advanced-topics/effective-organization/scrum-of-scrums.md) (where applicable)
-- [Sprint planning](../agile-development/core-expectations/README.md)
-- [Stand-ups](../agile-development/core-expectations/README.md)
-- [Working agreement](../agile-development/advanced-topics/team-agreements/working-agreements.md)
+- [Gerenciamento do Backlog](../agile-development/advanced-topics/backlog-management/README.md)
+- [Retrospectivas](../agile-development/core-expectations/README.md)
+- [Scrum of Scrums](../agile-development/advanced-topics/effective-organization/scrum-of-scrums.md) (quando aplicável)
+- [Planejamento de Sprint](../agile-development/core-expectations/README.md)
+- [Reuniões Diárias (Stand-ups)](../agile-development/core-expectations/README.md)
+- [Acordo de Trabalho (Working agreement)](../agile-development/advanced-topics/team-agreements/working-agreements.md)
 
-### Notes on Agile process during exploration and experimentation
+### Observações sobre o processo Ágil durante a exploração e experimentação
 
-1. While acknowledging the fact that ML user stories and research spikes are less predictable than software development ones, we strive to have a deliverable for every user story in every sprint.
+1. Reconhecendo que histórias de usuário de ML e análises exploratórias são menos previsíveis do que as de desenvolvimento de software, nos esforçamos para ter um entregável para cada história de usuário em cada sprint.
 
-2. User stories and spikes are usually estimated using [T-shirt sizes](../agile-development/core-expectations/README.md) or similar, and not in actual days/hours. See more [here](../agile-development/core-expectations/README.md) on story estimation.
+2. Histórias de usuário e análises exploratórias são geralmente estimadas usando tamanhos de camisetas (T-shirt sizes) ou similares, e não em dias/horas reais. Veja mais [aqui](../agile-development/core-expectations/README.md) sobre estimativa de histórias.
 
-3. ML design sessions should be included in each sprint.
+3. As sessões de design de ML devem ser incluídas em cada sprint.
 
-#### Examples of ML deliverables for each sprint
+#### Exemplos de entregáveis de ML para cada sprint
 
-- Working code (e.g. models, pipelines, exploratory code)
-- Documentation of new hypotheses, and the acceptance or rejection of previous hypotheses as part of a Hypothesis Driven Analysis (HDA). For more information see [Hypothesis Driven Development on Barry Oreilly's website](https://barryoreilly.com/explore/blog/how-to-implement-hypothesis-driven-development/)
-- Exploratory Data Analysis (EDA) results and learnings documented
+- Código funcional (por exemplo, modelos, pipelines, código exploratório)
+- Documentação de novas hipóteses e a aceitação ou rejeição de hipóteses anteriores como parte de uma Análise Orientada por Hipóteses (HDA). Para mais informações, consulte [Desenvolvimento Orientado por Hipóteses no site de Barry Oreilly](https://barryoreilly.com/explore/blog/how-to-implement-hypothesis-driven-development/)
+- Resultados e aprendizados da Análise Exploratória de Dados (EDA) documentados
 
-## Notes on collaboration between ML team and software development team
+## Notas sobre a colaboração entre a equipe de ML e a equipe de desenvolvimento de software
 
-- The ML and Software Development teams work together on the project. The team uses one backlog and attend the same Agile ceremonies. In cases where the project has many participants, we will divide into working groups, but still have the entire team join the Agile ceremonies.
+- As equipes de ML e Desenvolvimento de Software trabalham juntas no projeto. A equipe usa um único backlog e participa das mesmas cerimônias Ágeis. Em casos em que o projeto envolve muitos participantes, dividimos em grupos de trabalho, mas ainda mantemos toda a equipe participando das cerimônias Ágeis.
 
-- If possible, feasibility study and initial model experimentation takes place before the operationalization work kicks off.
-- The ML team and dev team both share the accountability for the MLOps solution.
-- The ML model interface (API) is determined as early as possible, to allow the developers to consider its integration into the production pipeline.
-- MLOps artifacts are developed with a continuous collaboration and review of the ML team, to ensure the appropriate approaches for experimentation and
-productization are used.
-- Retrospectives and sprint planning are performed on the entire team level, and not the specific work groups level.
+- Se possível, o estudo de viabilidade e a experimentação inicial do modelo ocorrem antes do início do trabalho de operacionalização.
+- A equipe de ML e a equipe de desenvolvimento compartilham a responsabilidade pela solução de MLOps.
+- A interface do modelo de ML (API) é determinada o mais cedo possível, para permitir que os desenvolvedores considerem sua integração à linha de produção.
+- Os artefatos de MLOps são desenvolvidos com uma colaboração contínua e revisão da equipe de ML, para garantir que abordagens apropriadas para experimentação e
+produtização sejam utilizadas.
+- As retrospectivas e o planejamento de sprints são realizados no nível de toda a equipe e não no nível de grupos de trabalho específicos.

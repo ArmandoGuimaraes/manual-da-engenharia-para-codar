@@ -1,42 +1,42 @@
-# Continuous Integration and Delivery
+# Integração Contínua e Entrega Contínua
 
-Continuous Integration is the engineering practice of frequently committing code in a shared repository, ideally several times a day, and performing an automated build on it. These changes are built with other simultaneous changes to the system, which enables early detection of integration issues between multiple developers working on a project. Build breaks due to integration failures are treated as the highest priority issue for all the developers on a team and generally work stops until they are fixed.
+A Integração Contínua é a prática de engenharia de frequentemente enviar código para um repositório compartilhado, idealmente várias vezes ao dia, e realizar uma compilação automatizada desse código. Essas mudanças são compiladas junto com outras alterações simultâneas no sistema, o que permite a detecção precoce de problemas de integração entre vários desenvolvedores que trabalham em um projeto. Quebras na compilação devido a falhas de integração são tratadas como a questão de maior prioridade para todos os desenvolvedores de uma equipe, e geralmente o trabalho para até que sejam corrigidas.
 
-Paired with an automated testing approach, continuous integration also allows us to also test the integrated build such that we can verify that not only does the code base still build correctly, but also is still functionally correct. This is also a best practice for building robust and flexible software systems.
+Associada a uma abordagem de teste automatizado, a integração contínua também nos permite testar a compilação integrada de forma a verificar não apenas se a base de código ainda é compilada corretamente, mas também se ainda é funcionalmente correta. Isso também é uma prática recomendada para a construção de sistemas de software robustos e flexíveis.
 
-Continuous Delivery takes the Continuous Integration concept further to also test deployments of the integrated code base on a replica of the environment it will be ultimately deployed on. This enables us to learn early about any unforeseen operational issues that arise from our changes as quickly as possible and also learn about gaps in our test coverage.
+A Entrega Contínua leva o conceito de Integração Contínua ainda mais longe, testando também implantações da base de código integrada em uma réplica do ambiente em que será finalmente implantada. Isso nos permite aprender antecipadamente sobre quaisquer problemas operacionais não previstos que surgem de nossas alterações o mais rápido possível e também aprender sobre lacunas em nossa cobertura de teste.
 
-The goal of all of this is to ensure that the main branch is always shippable, meaning that we could, if we needed to, take a build from the main branch of our code base and ship it on production.
+O objetivo de tudo isso é garantir que o branch principal (main) esteja sempre pronto para ser entregue, ou seja, significa que poderíamos, se necessário, pegar uma compilação do branch principal de nossa base de código e implantá-la na produção.
 
-If these concepts are unfamiliar to you, take a few minutes and read through [Continuous Integration](https://www.martinfowler.com/articles/continuousIntegration.html) and [Continuous Delivery](https://martinfowler.com/bliki/ContinuousDelivery.html).
+Se esses conceitos são desconhecidos para você, reserve alguns minutos para ler [Integração Contínua](https://www.martinfowler.com/articles/continuousIntegration.html) e [Entrega Contínua](https://martinfowler.com/bliki/ContinuousDelivery.html).
 
-Our expectation is that CI/CD should be used in all the engineering projects that we do with our customers and that we are building, testing, and deploying each change we make to any software system that we are building.
+Nossa expectativa é que a IC/CD deve ser usada em todos os projetos de engenharia que fazemos com nossos clientes e que estamos construindo, testando e implantando cada alteração que fazemos em qualquer sistema de software que estamos desenvolvendo.
 
-For a much deeper understanding of all of these concepts, the books [Continuous Integration](https://www.amazon.com/Continuous-Integration-Improving-Software-Reducing/dp/0321336380) and [Continuous Delivery](https://www.amazon.com/gp/product/0321601912) provide a comprehensive background.
+Para uma compreensão mais profunda de todos esses conceitos, os livros [Integração Contínua](https://www.amazon.com/Continuous-Integration-Improving-Software-Reducing/dp/0321336380) e [Entrega Contínua](https://www.amazon.com/gp/product/0321601912) fornecem um conhecimento abrangente.
 
-## Tools
+## Ferramentas
 
 ### Azure Pipelines
 
-Our tooling at Microsoft has made setting up integration and delivery systems like this easy. If you are unfamiliar with it, take a few moments now to read through [Azure Pipelines](https://azure.microsoft.com/en-us/services/devops/pipelines/) (Previously VSTS) and for a practical walkthrough of how this works in practice, one example you can read through is [CI/CD on Kubernetes with VSTS](https://medium.com/@timfpark/application-ci-cd-on-kubernetes-with-visual-studio-team-services-ccacecdea8a5).
+Nossa ferramenta na Microsoft tornou fácil configurar sistemas de integração e entrega como este. Se você não está familiarizado com ela, reserve alguns momentos agora para ler sobre [Azure Pipelines](https://azure.microsoft.com/en-us/services/devops/pipelines/) (anteriormente VSTS). Para um exemplo prático de como isso funciona na prática, você pode ler [IC/CD no Kubernetes com VSTS](https://medium.com/@timfpark/application-ci-cd-on-kubernetes-with-visual-studio-team-services-ccacecdea8a5).
 
 ### Jenkins
 
-Jenkins is one of the most commonly used tools across the open source community. It is well-known with hundreds of plugins for every build requirement.
-Jenkins is free but requires a dedicated server.
-You can easily create a Jenkins VM using this [template](https://ms.portal.azure.com/#create/azure-oss.jenkinsjenkins)
+O Jenkins é uma das ferramentas mais comumente usadas na comunidade de código aberto. É bem conhecido e possui centenas de plugins para atender a todos os requisitos de compilação.
+O Jenkins é gratuito, mas requer um servidor dedicado.
+Você pode criar facilmente uma máquina virtual Jenkins usando este [modelo](https://ms.portal.azure.com/#create/azure-oss.jenkinsjenkins).
 
-### TravisCI
+### Travis CI
 
-Travis CI can be used for open source projects at no cost but developers must purchase an enterprise plan for private projects.
-This service is ideal for validation of PR's on GitHub because it is lightweight and easy to set up with no need for dedicated server setup.
-It also supports a Build matrix feature which allows accelerating the build and testing process by breaking them into parts.
+O Travis CI pode ser usado gratuitamente em projetos de código aberto, mas os desenvolvedores devem adquirir um plano empresarial para projetos privados.
+Este serviço é ideal para validação de PRs no GitHub, pois é leve e fácil de configurar, sem a necessidade de configuração de servidor dedicado.
+Ele também suporta uma característica de matriz de compilação que permite acelerar o processo de compilação e teste dividindo-o em partes.
 
 ### CircleCI
 
-CircleCI is a free service for open source projects with no dedicated server required. It is also ideal for validation of PR's on GitHub.
-CircleCI also allows workflows, parallelism and splitting your tests across any number of containers with a wide array of packages pre-installed on the build containers.
+O CircleCI é um serviço gratuito para projetos de código aberto, sem a necessidade de servidor dedicado. Também é ideal para validação de PRs no GitHub.
+O CircleCI também permite fluxos de trabalho, paralelismo e a divisão de seus testes em qualquer número de contêineres com uma ampla variedade de pacotes pré-instalados nos contêineres de compilação.
 
 ### AppVeyor
 
-AppVeyor is another free CI service for open source projects which also supports Windows-based builds.
+O AppVeyor é outro serviço de IC gratuito para projetos de código aberto que também suporta compilações baseadas no Windows.

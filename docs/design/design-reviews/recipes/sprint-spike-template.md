@@ -1,33 +1,33 @@
-# Spike: {Name}
+# Investigação: {Nome}
 
-- **Conducted by:** {Names and at least one email address for follow-up questions}
-- **Backlog Work Item:** {Link to the work item to provide more context}
-- **Sprint**: {Which sprint did the study take place. Include sprint start date}
+- **Realizado por:** {Nomes e pelo menos um endereço de e-mail para perguntas de acompanhamento}
+- **Item de Trabalho do Backlog:** {Link para o item de trabalho para fornecer mais contexto}
+- **Sprint:** {Em qual sprint ocorreu o estudo. Inclua a data de início da sprint}
 
-## Goal
+## Objetivo
 
-Describe what question(s) the spike intends to answer and why.
+Descreva que pergunta(s) a investigação pretende responder e por quê.
 
-## Method
+## Método
 
-Describe how the team will uncover the answer to the question(s) the spike intends to answer. For example:
+Descreva como a equipe descobrirá a resposta para a(s) pergunta(s) que a investigação pretende responder. Por exemplo:
 
-1. Build prototype to test.
-1. Research existing documents and samples.
-1. Discuss with subject matter experts.
+1. Construir um protótipo para teste.
+1. Pesquisar documentos e exemplos existentes.
+1. Discutir com especialistas no assunto.
 
-## Evidence
+## Evidências
 
-Document the evidence collected that informed the conclusions below. Examples may include:
+Documente as evidências coletadas que informaram as conclusões abaixo. Exemplos podem incluir:
 
-- Recorded or live demos of a prototype providing the desired capabilities
-- Metrics collected while testing the prototype
-- Documentation that indicates the solution can provided the desired capabilities
+- Demonstração gravada ou ao vivo de um protótipo fornecendo as capacidades desejadas
+- Métricas coletadas durante o teste do protótipo
+- Documentação que indica que a solução pode fornecer as capacidades desejadas
 
-## Conclusions
+## Conclusões
 
-What was the answer to the question(s) outlined at the start of the spike? Capture what was learned that will inform future work.
+Qual foi a resposta para a(s) pergunta(s) delineada(s) no início da investigação? Capture o que foi aprendido que informará trabalhos futuros.
 
-## Next Steps
+## Próximos Passos
 
-What work is expected as an outcome of the learning within this spike. Was there work that was blocked or dependent on the learning within this spike?
+Que trabalho é esperado como resultado da aprendizagem dentro desta investigação. Houve algum trabalho que foi bloqueado ou dependente da aprendizagem dentro desta investigação?

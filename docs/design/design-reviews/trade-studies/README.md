@@ -1,45 +1,41 @@
-# Trade Studies
+# Estudos de Análise
 
-Trade studies are a tool for selecting the best option out of several possible options for a given problem (for example: compute, storage).
-They evaluate potential choices against a set of objective criteria/requirements to clearly lay out the benefits and limitations
-of each solution.
+Os estudos de análise são uma ferramenta para selecionar a melhor opção entre várias opções possíveis para um determinado problema (por exemplo: computação, armazenamento). Eles avaliam escolhas potenciais em relação a um conjunto de critérios/requisitos objetivos para claramente apresentar os benefícios e limitações de cada solução.
 
-[Trade studies](https://en.wikipedia.org/wiki/Trade_study) are a concept from systems engineering that we adapted for software projects. Trade
-studies have proved to be a critical tool to drive alignment with the stakeholders, earn credibility while doing so and ensure our decisions
-were backed by data and not bias.  
+[Estudos de análise](https://en.wikipedia.org/wiki/Trade_study) são um conceito da engenharia de sistemas que adaptamos para projetos de software. Os estudos de análise provaram ser uma ferramenta crítica para direcionar o alinhamento com as partes interessadas, ganhar credibilidade ao fazê-lo e garantir que nossas decisões fossem respaldadas por dados e não por viés.
 
-## When to use the tool
+## Quando Usar Esta Ferramenta
 
-Trade studies go hand in hand with high level architecture design. This usually occurs as project requirements are solidifying, before
-coding begins. Trade studies continue to be useful throughout the project any time there are multiple options that need
-to be selected from. New decision point could occur from changing requirements, getting results of a research spike, or identifying
-challenges that were not originally seen.
+Os estudos de análise andam de mãos dadas com o projeto de arquitetura de alto nível. Isso geralmente ocorre à medida que os requisitos do projeto estão se solidificando, antes do início da codificação. Os estudos de análise continuam a ser úteis ao longo do projeto sempre que houver várias opções a serem selecionadas. Novos pontos de decisão podem surgir devido a mudanças nos requisitos, obtenção dos resultados de uma investigação técnica ou identificação de desafios que não foram originalmente previstos.
 
-Trade studies should be avoided if there is a clear solution choice. Because they require each solution to be fully thought out, they
-have the potential to take a lot of time to complete. When there is a clear design, the trade study should be omitted, and an entry
-should be made in the [Decision Log](../decision-log/README.md) documenting the decision.
+Os estudos de análise devem ser evitados se houver uma escolha clara de solução. Porque eles exigem que cada solução seja totalmente pensada, eles têm o potencial de levar muito tempo para serem concluídos. Quando houver um design claro, o estudo de análise deve ser omitido, e uma entrada deve ser feita no [Registro de Decisões](../decision-log/README.md) documentando a decisão.
 
-## Why Trade Studies
+## Por Que Usar Estudos de Análise
 
-Trade studies are a way of formalizing the design process and leaving a documentation record for why the decision was made. This gives a few advantages:
+Os estudos de análise são uma maneira de formalizar o processo de design e deixar um registro documentado do motivo pelo qual a decisão foi tomada. Isso oferece algumas vantagens:
 
-1. The trade study template guides a user through the design process. This provides structure to the design stage.
-1. Having a uniform design process aids splitting work amongst team members. We have had success with engineers pairing to define requirements, evaluation criteria, and brainstorming possible solutions. Then they can each split to review solutions in parallel, before rejoining to make the final decision.
-1. The completed trade study document helps drive alignment across the team and decision makers. For presenting results of the study, the document itself can be used to highlight the main points. Alternatively, we have extracted requirements, diagrams for each solution, and the results table into a slide deck to give high level overviews of the results.
-1. The completed trade study gets checked into the code repository, providing documentation of the decision process. This leaves a history of the requirements at the time that lead to each decision. Also, the results table gives a quick reference for how the decision would be impacted if requirements change as the project proceeds.
+1. O modelo de estudo de análise orienta o usuário por meio do processo de design. Isso fornece estrutura à fase de design.
 
-## Flow of a Trade Study
+2. Ter um processo de design uniforme ajuda a dividir o trabalho entre os membros da equipe. Tivemos sucesso com engenheiros se reunindo para definir requisitos, critérios de avaliação e brainstorming de soluções possíveis. Em seguida, eles podem se separar para revisar soluções em paralelo, antes de se reunirem para tomar a decisão final.
 
-Trade studies can vary widely in scope; however, they follow the common pattern below:
+3. O estudo de análise concluído ajuda a alinhar a equipe e os tomadores de decisão. Para apresentar os resultados do estudo, o próprio documento pode ser usado para destacar os principais pontos. Alternativamente, extraímos requisitos, diagramas para cada solução e a tabela de resultados para um slide deck que fornece uma visão geral de alto nível dos resultados.
 
-1. Solidify the requirements – Work with the stakeholders to agree on the requirements for the functionality that you are trying to build.
-1. Create evaluation criteria – This is a set of qualitative and quantitative assessment points that represent the requirements. Taken together, they become an easy to measure stand-in for the potentially abstract requirements.
-1. Brainstorm solutions – Gather a list of possible solutions to the problem. Then, use your best judgement to pick the 2-4 solutions that seem most promising. For assistance narrowing solutions, remember to reach out to subject-matter experts and other teams who may have gone through a similar decision.
-1. Evaluate shortlisted solutions – Dive deep into each solution and measure it against the evaluation criteria. In this stage, time box your research to avoid overly investing in any given area.
-1. Compare results and choose solution - Align the decision with the team. If you are unable to decide, then a clear list of action items and owners to drive the final decision must be produced.
+4. O estudo de análise concluído é verificado no repositório de código, fornecendo documentação do processo de decisão. Isso deixa um histórico dos requisitos no momento que levou a cada decisão. Além disso, a tabela de resultados oferece uma referência rápida para como a decisão seria afetada se os requisitos mudarem à medida que o projeto avança.
 
-## Template
+## Fluxo de um Estudo de Análise
 
-See [template.md](./template.md) for an example of how to structure the above information. This template was created to guide a user
-through conducting a trade study. Once the decision has been made we recommend adding an entry to the
-[Decision Log](../decision-log/README.md) that has references back to the full text of the trade study.
+Os estudos de análise podem variar amplamente em escopo; no entanto, eles seguem o padrão comum descrito abaixo:
+
+1. Solidifique os requisitos - Trabalhe com as partes interessadas para concordar com os requisitos para a funcionalidade que você está tentando construir.
+
+2. Crie critérios de avaliação - Este é um conjunto de pontos de avaliação qualitativa e quantitativa que representam os requisitos. Juntos, eles se tornam um substituto fácil de medir para os requisitos potencialmente abstratos.
+
+3. Brainstorm de soluções - Reúna uma lista de possíveis soluções para o problema. Em seguida, use seu melhor julgamento para escolher as 2-4 soluções que parecem mais promissoras. Para ajudar a reduzir as soluções, lembre-se de entrar em contato com especialistas em assuntos e outras equipes que possam ter passado por uma decisão semelhante.
+
+4. Avalie soluções selecionadas - Aprofunde-se em cada solução e meça-a em relação aos critérios de avaliação. Nesta etapa, limite seu tempo de pesquisa para evitar investir demais em uma determinada área.
+
+5. Compare resultados e escolha a solução - Alinhe a decisão com a equipe. Se você não conseguir decidir, uma lista clara de ações e responsáveis para conduzir a decisão final deve ser produzida.
+
+## Modelo
+
+Consulte [template.md](./template.md) para um exemplo de como estruturar as informações acima. Este modelo foi criado para orientar o usuário na condução de um estudo de análise. Após a tomada de decisão, recomendamos adicionar uma entrada no [Registro de Decisões](../decision-log/README.md) que faça referência ao texto completo do estudo de análise.

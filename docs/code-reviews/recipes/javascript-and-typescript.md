@@ -1,28 +1,28 @@
-# JavaScript/TypeScript Code Reviews
+# Revisões de Código em JavaScript/TypeScript
 
-## Style Guide
+## Guia de Estilo
 
-Developers should use [prettier](https://prettier.io/) to do code formatting for JavaScript.
+Os desenvolvedores devem usar o [Prettier](https://prettier.io/) para formatação de código em JavaScript.
 
-Using an automated code formatting tool like Prettier enforces a well accepted style guide that was collaboratively built by a wide range of companies including Microsoft, Facebook, and AirBnB.
+O uso de uma ferramenta automatizada de formatação de código, como o Prettier, impõe um guia de estilo amplamente aceito que foi colaborativamente desenvolvido por uma ampla gama de empresas, incluindo Microsoft, Facebook e AirBnB.
 
-For higher level style guidance not covered by prettier, we follow the [AirBnB Style Guide](https://github.com/airbnb/javascript).
+Para orientação de estilo de nível superior não abrangida pelo Prettier, seguimos o [Guia de Estilo AirBnB](https://github.com/airbnb/javascript).
 
-## Code Analysis / Linting
+## Análise de Código / Verificação de Estilo
 
 ### eslint
 
-Per guidance outlined in [Palantir's 2019 TSLint road map](https://medium.com/palantir/tslint-in-2019-1a144c2317a9),
-TypeScript code should be linted with [ESLint](https://github.com/eslint/eslint). See the [typescript-eslint](https://typescript-eslint.io/) documentation for more information around linting TypeScript code with ESLint.
+De acordo com as orientações delineadas no [roadmap TSLint da Palantir de 2019](https://medium.com/palantir/tslint-in-2019-1a144c2317a9),
+o código TypeScript deve ser lintado com o [ESLint](https://github.com/eslint/eslint). Consulte a documentação do [typescript-eslint](https://typescript-eslint.io/) para obter mais informações sobre a verificação de código TypeScript com o ESLint.
 
-To [install and configure linting with ESLint](https://typescript-eslint.io/),
-install the following packages as dev-dependencies:
+Para [instalar e configurar a verificação de código com o ESLint](https://typescript-eslint.io/),
+instale os seguintes pacotes como dependências de desenvolvimento:
 
 ```bash
 npm install -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
 ```
 
-Add a `.eslintrc.js` to the root of your project:
+Adicione um arquivo `.eslintrc.js` à raiz do seu projeto:
 
 ```javascript
 module.exports = {
@@ -39,7 +39,7 @@ module.exports = {
 };
 ```
 
-Add the following to the `scripts` of your `package.json`:
+Adicione o seguinte ao `scripts` do seu `package.json`:
 
 ```json
 "scripts": {
@@ -47,28 +47,28 @@ Add the following to the `scripts` of your `package.json`:
 }
 ```
 
-This will lint all `.js`, `.jsx`, `.ts`, `.tsx` files in your project and omit any files or
-directories specified in your `.gitignore`.
+Isso vai lintar todos os arquivos `.js`, `.jsx`, `.ts`, `.tsx` em seu projeto e omitir quaisquer arquivos ou
+diretórios especificados no seu `.gitignore`.
 
-You can run linting with:
+Você pode executar a verificação de lintagem com:
 
 ```bash
 npm run lint
 ```
 
-## Setting up Prettier
+## Configuração do Prettier
 
-[Prettier](https://prettier.io/docs/en/) is an opinionated code formatter.
+[Prettier](https://prettier.io/docs/en/) é um formatador de código com opiniões.
 
-[Getting started guide](https://prettier.io/docs/en/integrating-with-linters.html).
+[Guia de início](https://prettier.io/docs/en/integrating-with-linters.html).
 
-Install with `npm` as a dev-dependency:
+Instale com `npm` como uma dependência de desenvolvimento:
 
 ```bash
 npm install -D prettier eslint-config-prettier eslint-plugin-prettier
 ```
 
-Add `prettier` to your `.eslintrc.js`:
+Adicione `prettier` ao seu `.eslintrc.js`:
 
 ```javascript
 module.exports = {
@@ -87,13 +87,13 @@ module.exports = {
 };
 ```
 
-This will apply the `prettier` rule set when linting with ESLint.
+Isso aplicará o conjunto de regras `prettier` ao fazer a lintagem com o ESLint.
 
-## Auto formatting with VS Code
+## Formatação Automática com o VS Code
 
-VS Code can be configured to automatically perform `eslint --fix` on save.
+O VS Code pode ser configurado para executar automaticamente `eslint --fix` ao salvar.
 
-Create a `.vscode` folder in the root of your project and add the following to your
+Crie uma pasta `.vscode` na raiz do seu projeto e adicione o seguinte ao seu
 `.vscode/settings.json`:
 
 ```json
@@ -104,7 +104,7 @@ Create a `.vscode` folder in the root of your project and add the following to y
 }
 ```
 
-By default, we use the following overrides should be added to the VS Code configuration to standardize on single quotes, a four space drop, and to do ESLinting:
+Por padrão, usamos as seguintes substituições que devem ser adicionadas à configuração do VS Code para padronizar as aspas simples, uma indentação de quatro espaços e para realizar a verificação de linting com ESLint:
 
 ```json
 {
@@ -113,20 +113,21 @@ By default, we use the following overrides should be added to the VS Code config
     "prettier.tabWidth": 4
 }
 ```
-## Setting Up Testing
 
-Playwright is highly recommended to be set up within a project. its an open source testing suite created by Microsoft.
+## Configuração de Testes
 
-To install it use this command:
+Recomenda-se fortemente a configuração do Playwright em um projeto. É uma suíte de testes de código aberto criada pela Microsoft.
+
+Para instalá-lo, use o seguinte comando:
 
 ```bash
 npm install playwright
 ```
 
-Since playwright shows the tests in the browser you have to choose which browser you want it to run if unless using chrome, which is the default. You can do this by
-## Build Validation
+Como o Playwright mostra os testes no navegador, você deve escolher qual navegador deseja executar, a menos que esteja usando o Chrome, que é o padrão. Você pode fazer isso
+## Validação de Build
 
-To automate this process in Azure Devops you can add the following snippet to your pipeline definition yaml file. This will lint any scripts in the `./scripts/` folder.
+Para automatizar esse processo no Azure DevOps, você pode adicionar o seguinte trecho ao seu arquivo de definição de pipeline yaml. Isso realizará a lintagem de quaisquer scripts na pasta `./scripts/`.
 
 ```yaml
 - task: Npm@1
@@ -137,39 +138,41 @@ To automate this process in Azure Devops you can add the following snippet to yo
     workingDir: './scripts/'
 ```
 
-## Pre-commit hooks
+## Hooks Pré-Commit
 
-All developers should run `eslint` in a pre-commit hook to ensure standard formatting. We highly recommend using an editor integration like [vscode-eslint](https://github.com/Microsoft/vscode-eslint) to provide realtime feedback.
+Todos os desenvolvedores devem executar o `eslint` em um hook pré-commit para garantir a formatação padrão. Recomendamos fortemente o uso de uma integração com o editor, como o [vscode-eslint](https://github.com/Microsoft/vscode-eslint), para fornecer feedback em tempo real.
 
-1. Under `.git/hooks` rename `pre-commit.sample` to `pre-commit`
-1. Remove the existing sample code in that file
-1. There are many examples of scripts for this on gist, like [pre-commit-eslint](https://gist.github.com/linhmtran168/2286aeafe747e78f53bf)
-1. Modify accordingly to include TypeScript files (include ts extension and make sure typescript-eslint is set up)
-1. Make the file executable: `chmod +x .git/hooks/pre-commit`
+1. Em `.git/hooks`, renomeie `pre-commit.sample` para `pre-commit`
+1. Remova o código de exemplo existente nesse arquivo
+1. Existem muitos exemplos de scripts para isso no gist, como [pre-commit-eslint](https://gist.github.com/linhmtran168/2286aeafe747e78f53bf)
+1. Modifique de acordo para incluir arquivos TypeScript (inclua a extensão ts e certifique-se de que typescript-eslint esteja configurado)
+1. Torne o arquivo executável: `chmod +x .git/hooks/pre-commit`
 
-As an alternative [husky](https://github.com/typicode/husky) can be considered to simplify pre-commit hooks.
+Como alternativa, [husky](https://github.com/typicode/husky) pode ser considerado para simplificar os hooks pré-commit.
 
-## Code Review Checklist
+## Checklist de Revisão de Código
 
-In addition to the [Code Review Checklist](../process-guidance/reviewer-guidance.md) you should also look for these JavaScript and TypeScript specific code review items.
 
-### Javascript / Typescript Checklist
 
-* [ ] Does the code stick to our formatting and code standards? Does running prettier and ESLint over the code should yield no warnings or errors respectively?
-* [ ] Does the change re-implement code that would be better served by pulling in a well known module from the ecosystem?
-* [ ] Is `"use strict";` used to reduce errors with undeclared variables?
-* [ ] Are unit tests used where possible, also for APIs?
-* [ ] Are tests arranged correctly with the **Arrange/Act/Assert** pattern and properly documented in this way?
-* [ ] Are best practices for error handling followed, as well as `try catch finally` statements?
-* [ ] Are the `doWork().then(doSomething).then(checkSomething)` properly followed for async calls, including `expect`, `done`?
-* [ ] Instead of using raw strings, are constants used in the main class? Or if these strings are used across files/classes, is there a static class for the constants?
-* [ ] Are magic numbers explained? There should be no number in the code without at least a comment of why it is there. If the number is repetitive, is there a constant/enum or equivalent?
-* [ ] If there is an asynchronous method, does the name of the method end with the `Async` suffix?
-* [ ] Is a minimum level of logging in place? Are the logging levels used sensible?
-* [ ] Is document fragment manipulation limited to when you need to manipulate multiple sub elements?
-* [ ] Does TypeScript code compile without raising linting errors?
-* [ ] Instead of using raw strings, are constants used in the main class? Or if these strings are used across files/classes, is there a static class for the constants?
-* [ ] Are magic numbers explained? There should be no number in the code without at least a comment of why it is there. If the number is repetitive, is there a constant/enum or equivalent?
-* [ ] Is there a proper `/* */` in the various classes and methods?
-* [ ] Are heavy operations implemented in the backend, leaving the controller as thin as possible?
-* [ ] Is event handling on the html efficiently done?
+Além do [Checklist de Revisão de Código](../process-guidance/reviewer-guidance.md), você também deve verificar esses itens específicos de revisão de código em JavaScript e TypeScript.
+
+### Checklist de JavaScript / TypeScript
+
+* [ ] O código segue nossos padrões de formatação e código? Executar prettier e ESLint no código não deve gerar avisos ou erros, respectivamente?
+* [ ] A mudança re-implementa código que seria melhor servido por um módulo bem conhecido do ecossistema?
+* [ ] É usado `"use strict";` para reduzir erros com variáveis não declaradas?
+* [ ] São usados testes unitários sempre que possível, também para APIs?
+* [ ] Os testes são organizados corretamente no padrão **Arrange/Act/Assert** e devidamente documentados dessa forma?
+* [ ] São seguidas as melhores práticas para tratamento de erros, bem como as declarações `try catch finally`?
+* [ ] As chamadas assíncronas seguem corretamente o padrão `doWork().then(doSomething).then(checkSomething)`, incluindo `expect`, `done`?
+* [ ] Em vez de usar strings brutas, são usadas constantes na classe principal? Ou, se essas strings são usadas em vários arquivos/classes, existe uma classe estática para as constantes?
+* [ ] Números mágicos são explicados? Não deve haver números no código sem pelo menos um comentário explicando por que estão lá. Se o número for repetitivo, existe uma constante/enum ou equivalente?
+* [ ] Se houver um método assíncrono, o nome do método termina com o sufixo `Async`?
+* [ ] Existe um nível mínimo de registro de eventos? Os níveis de registro usados são sensatos?
+* [ ] A manipulação do fragmento de documento é limitada quando é necessário manipular vários subelementos?
+* [ ] O código TypeScript é compilado sem gerar erros de lintagem?
+* [ ] Em vez de usar strings brutas, são usadas constantes na classe principal? Ou, se essas strings são usadas em vários arquivos/classes, existe uma classe estática para as constantes?
+* [ ] Números mágicos são explicados? Não deve haver números no código sem pelo menos um comentário explicando por que estão lá. Se o número for repetitivo, existe uma constante/enum ou equivalente?
+* [ ] Existem comentários apropriados `/* */` nas várias classes e métodos?
+* [ ] Operações pesadas são implementadas no backend, mantendo o controlador o mais leve possível?
+* [ ] O tratamento de eventos no HTML é eficiente?

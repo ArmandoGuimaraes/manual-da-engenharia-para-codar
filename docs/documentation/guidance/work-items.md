@@ -1,105 +1,107 @@
-# Work Items
+# Itens de Trabalho
 
-While many teams can work with a flat list of items, sometimes it helps to group related items into a hierarchical structure. You can use portfolio backlogs to bring more order to your backlog.
+Embora muitas equipes possam trabalhar com uma lista plana de itens, às vezes é útil agrupar itens relacionados em uma estrutura hierárquica. Você pode usar portfólios de backlog para trazer mais ordem ao seu backlog.
 
-**Agile** process backlog work item hierarchy:
+**Processo Ágil** hierarquia de itens de backlog de trabalho:
 
-![agile-artifacts](./images/agile-artifacts.png)
+![artefatos-ageis](./images/agile-artifacts.png)
 
-**Scrum** process backlog work item hierarchy:
+Hierarquia de itens de backlog de trabalho do **Scrum**:
 
-![scrum-artifacts](./images/scrum-artifacts.png)
+![artefatos-scrum](./images/scrum-artifacts.png)
 
-Bugs can be set at the same level as User Stories / Product Backlog Items or Tasks.
+Os bugs podem ser definidos no mesmo nível das Histórias de Usuário / Itens de Backlog do Produto ou Tarefas.
 
-## Epics and Features
+## Épicos e Features
 
-User stories / Product Backlog Items roll up into **Features**, which typically represent a shippable deliverable that addresses a customer need e.g., "Add shopping cart". And Features roll up into **Epics**, which represent a business initiative to be accomplished e.g., "Increase customer engagement". Take that into account when naming them.
+As histórias de usuário / itens de backlog do produto são agrupados em **Features**, que normalmente representam um entregável despachável que aborda uma necessidade do cliente, por exemplo, "Adicionar carrinho de compras". E as Features são agrupadas em **Épicos**, que representam uma iniciativa de negócios a ser realizada, por exemplo, "Aumentar o engajamento do cliente". Leve isso em consideração ao nomeá-los.
 
-Each Feature or Epic should include as much detail as the team needs to:
+Cada Feature ou Épico deve incluir o máximo de detalhes de que a equipe precisa para:
 
-- Understand the scope.
-- Estimate the work required.
-- Develop tests.
-- Ensure the end product meets acceptance criteria.
+- Compreender o escopo.
+- Estimar o trabalho necessário.
+- Desenvolver testes.
+- Garantir que o produto final atenda aos critérios de aceitação.
 
-Details that should be added:
+Detalhes que devem ser adicionados:
 
-- *Value Area*: Business (directly deliver customer value) vs. Architectural (technical services to implement business features).
-- *Effort / Story Points / Size*: Relative estimate of the amount of work required to complete the item.
-- *Business Value*: Priority of an item compared to other items of the same type.
-- *Time Criticality*: Higher values indicate an item is more time critical than items with lower values.
-- *Target Date* by which the feature should be implemented.
+- *Área de Valor*: Negócios (fornece valor diretamente ao cliente) vs. Arquitetural (serviços técnicos para implementar recursos de negócios).
+- *Esforço / Pontos de História / Tamanho*: Estimativa relativa da quantidade de trabalho necessária para concluir o item.
+- *Valor de Negócio*: Prioridade do item em comparação com outros itens do mesmo tipo.
+- *Criticidade em Tempo*: Valores mais altos indicam que um item é mais crítico em termos de tempo do que itens com valores mais baixos.
+- *Data-Alvo* pela qual a feature deve ser implementada.
 
-You may use work item tags to support queries and filtering.
+Você pode usar tags de itens de trabalho para suportar consultas e filtragem.
 
-## User Stories / Product Backlog Items
+## Histórias de Usuário / Itens de Backlog do Produto
 
-Each User Story / Product Backlog Item should be sized so that they can be completed within a sprint.
+Cada História de Usuário / Item de Backlog do Produto deve ter um tamanho de modo que possa ser concluída dentro de um sprint.
 
-You should add the following details to the items:
+Você deve adicionar os seguintes detalhes aos itens:
 
-- *Title*: Usually expressed as "As a [persona], I want [to perform an action], so that [I can achieve an end result].".
-- *Description*: Provide enough detail to create shared understanding of scope and support estimation efforts. Focus on the user, what they want to accomplish, and why. Don't describe how to develop the product. Provide enough details so the team can write tasks and test cases to implement the item.
-  - Include Design Reviews.
-- *Acceptance Criteria*: Define what "Done" means.
-- *Activity*: Deployment, Design, Development, Documentation, Requirements, Testing.
-- *Effort / Story Points / Size*: Relative estimate of the amount of work required to complete the item.
-- *Business Value*: Priority of an item compared to other items of the same type.
-- *Original Estimate*: The amount of estimated work required to complete a task.
+- *Título*: Normalmente expresso como "Como uma [persona], eu quero [realizar uma ação], para que [possa alcançar um resultado final]".
+- *Descrição*: Fornecer detalhes suficientes para criar uma compreensão compartilhada do escopo e apoiar os esforços de estimativa. Concentre-se no usuário, no que eles desejam realizar e por quê. Não descreva como desenvolver o produto. Forneça detalhes suficientes para que a equipe possa escrever tarefas e casos de teste para implementar o item.
+  - Inclua Avaliações de Design.
+- *Critérios de Aceitação*: Defina o que significa "Concluído".
+- *Atividade*: Implantação, Design, Desenvolvimento, Documentação, Requisitos, Testes.
+- *Esforço / Pontos de História / Tamanho*: Estimativa relativa da quantidade de trabalho necessária para concluir o item.
+- *Valor de Negócio*: Prioridade do item em comparação com outros itens do mesmo tipo.
+- *Estimativa Original*: A quantidade de trabalho estimada necessária para concluir uma tarefa.
 
-Remember to use the *Discussion* section of the items to keep track of related comments, and mention individuals, groups, work items or pull requests when required.
+Lembre-se de usar a seção de *Discussão* dos itens para acompanhar comentários relacionados e mencionar indivíduos, grupos, itens de trabalho ou pull requests quando necessário.
 
-## Tasks
+## Tarefas
 
-Each Task should be sized so that they can be completed within a day.
+Cada Tarefa deve ter um tamanho para que possa ser concluída em um dia.
 
-You should at least add the following details to the items:
+Pelo menos, você deve adicionar os seguintes detalhes aos itens:
 
-- *Title*.
-- *Description*: Provide enough detail to create shared understanding of scope. Any developer should be able to take the item and know what needs to be implemented.
-  - Include Design Reviews.
-- Reference to the working *branch* in related code repository.
+- *Título*.
+- *Descrição*: Fornecer detalhes suficientes para criar uma compreensão compartilhada do escopo. Qualquer desenvolvedor deve ser capaz de pegar o item e saber o que precisa ser implementado.
+  - Inclua Avaliações de Design.
+- Referência para o *branch* de trabalho no repositório de código relacionado.
 
-Remember to use the Discussion section of the tasks to keep track of related comments.
+Lembre-se de usar a seção de Discussão das tarefas para acompanhar comentários relacionados.
 
 ## Bugs
 
-You should use bugs to capture both the initial issue and ongoing discoveries.
+Você deve usar bugs para capturar tanto o problema inicial quanto as descobertas em curso.
 
-You should at least add the following details to the bug items:
+Pelo menos, você deve adicionar os seguintes detalhes aos itens de bug:
 
-- *Title*.
-- *Description*.
-- *Steps to Reproduce*.
-- *System Info* / *Found in Build*: Software and system configuration that is relevant to the bug and tests to apply.
-- *Acceptance Criteria*: Criteria to meet so the bug can be closed.
-- *Integrated in Build*: Name of the build that incorporates the code that fixes the bug.
-- *Priority*:
-  - 1: Product should not ship without the successful resolution of the work item. The bug should be addressed as soon as possible.
-  - 2: Product should not ship without the successful resolution of the work item, but it does not need to be addressed immediately.
-  - 3: Resolution of the work item is optional based on resources, time, and risk.
-- *Severity*:
-  - 1 - Critical: Must fix. No acceptable alternative methods.
-  - 2 - High: Consider fix. An acceptable alternative method exists.
-  - 3 - Medium: (Default).
-  - 4 - Low.
+- *Título*.
+- *Descrição*.
+- *Passos para Reproduzir*.
+- *Informações do Sistema* / *Encontrado na Build*: Configuração de software e sistema relevante para o bug e testes a serem aplicados.
+- *Critérios de Aceitação*: Critérios a serem atendidos para que o bug possa ser fechado.
+- *Integrado na Build*: Nome da build que incorpora o código que corrige o bug.
+- *Prioridade*:
+  - 1: O produto não deve ser lançado sem a resolução bem-sucedida do item de trabalho. O bug deve ser tratado o mais rápido possível.
+  - 2: O produto não deve ser lançado sem a resolução bem-sucedida do item de trabalho, mas não precisa ser tratado imediatamente.
+  - 3: A resolução do item de trabalho é opcional com base em recursos, tempo e risco.
+- *Gravidade*:
+  - 1 - Crítico: Deve ser corrigido. Não há métodos alternativos aceitáveis.
+  - 2 - Alto: Considere a correção. Existe um método alternativo aceitável.
+  - 3 - Médio: (Padrão).
+  - 4 - Baixo.
 
-## Issues / Impediments
+## Problemas / Impedimentos
 
-Don't confuse with bugs. They represent unplanned activities that may block work from getting done. For example: feature ambiguity, personnel or resource issues, problems with environments, or other risks that impact scope, quality, or schedule.
+Não confunda com bugs. Eles representam atividades não planejadas que podem bloquear o trabalho de ser concluído. Por exemplo: ambiguidade de funcionalidade, problemas de pessoal ou recursos, problemas com ambientes ou outros riscos que afetam o escopo, qualidade ou cronograma.
 
-In general, you link these items to user stories or other work items.
+Em geral, você vincula esses itens a histórias de usuário ou outros itens de trabalho.
 
-## Actions from Retrospectives
+## Ações de Retrospectivas
 
-After a retrospective, every action that requires work should be tracked with its own Task or Issue / Impediment. These items might be unparented (without link to parent backlog item or user story).
+Após uma retrospectiva, todas as ações que exigem trabalho devem ser rastreadas com sua própria Tarefa ou Problema / Impedimento. Esses itens podem ser desvinculados (sem vínculo com o item de backlog pai
 
-## Related information
+ ou história de usuário).
 
-- [Best practices for Agile project management - Azure Boards | Microsoft Docs](https://learn.microsoft.com/azure/devops/boards/best-practices-agile-project-management?view=azure-devops&tabs=agile-process).
-- [Define features and epics, organize backlog items - Azure Boards | Microsoft Docs](https://learn.microsoft.com/azure/devops/boards/backlogs/define-features-epics?view=azure-devops&tabs=scrum-process).
-- [Create your product backlog - Azure Boards | Microsoft Docs](https://learn.microsoft.com/azure/devops/boards/backlogs/create-your-backlog?view=azure-devops&tabs=agile-process).
-- [Add tasks to support sprint planning - Azure Boards | Microsoft Docs](https://learn.microsoft.com/azure/devops/boards/sprints/add-tasks?view=azure-devops).
-- [Define, capture, triage, and manage bugs or code defects - Azure Boards | Microsoft Docs](https://learn.microsoft.com/azure/devops/boards/backlogs/manage-bugs?view=azure-devops).
-- [Add and manage issues or impediments - Azure Boards | Microsoft Docs](https://learn.microsoft.com/azure/devops/boards/backlogs/manage-issues-impediments?view=azure-devops).
+## Informações Relacionadas
+
+- [Melhores práticas para gerenciamento de projetos ágeis - Azure Boards | Microsoft Docs](https://learn.microsoft.com/azure/devops/boards/best-practices-agile-project-management?view=azure-devops&tabs=agile-process).
+- [Definir features e épicos, organizar itens de backlog - Azure Boards | Microsoft Docs](https://learn.microsoft.com/azure/devops/boards/backlogs/define-features-epics?view=azure-devops&tabs=scrum-process).
+- [Crie seu backlog de produto - Azure Boards | Microsoft Docs](https://learn.microsoft.com/azure/devops/boards/backlogs/create-your-backlog?view=azure-devops&tabs=agile-process).
+- [Adicionar tarefas para apoiar o planejamento de sprint - Azure Boards | Microsoft Docs](https://learn.microsoft.com/azure/devops/boards/sprints/add-tasks?view=azure-devops).
+- [Definir, capturar, triar e gerenciar bugs ou defeitos de código - Azure Boards | Microsoft Docs](https://learn.microsoft.com/azure/devops/boards/backlogs/manage-bugs?view=azure-devops).
+- [Adicionar e gerenciar problemas ou impedimentos - Azure Boards | Microsoft Docs](https://learn.microsoft.com/azure/devops/boards/backlogs/manage-issues-impediments?view=azure-devops).

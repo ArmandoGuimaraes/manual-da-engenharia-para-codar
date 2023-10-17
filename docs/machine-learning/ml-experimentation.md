@@ -1,158 +1,156 @@
-# Model Experimentation
+# Experimentação de Modelos
 
-## Overview
+## Visão Geral
 
-Machine learning model experimentation involves uncertainty around the expected model results and future operationalization.
-To handle this uncertainty as much as possible, we propose a semi-structured process, balancing between engineering/research best practices and rapid model/data exploration.
+A experimentação de modelos de aprendizado de máquina envolve incerteza em torno dos resultados esperados do modelo e futura operacionalização. Para lidar com essa incerteza o máximo possível, propomos um processo semi-estruturado, equilibrando as melhores práticas de engenharia/pesquisa e exploração rápida de modelo/dados.
 
-## Model experimentation goals
+## Objetivos da experimentação de modelos
 
-- **Performance**: Find the best performing solution
-- **Operationalization**: Keep an eye towards production, making sure that operationalization is feasible
-- **Code quality** Maintain code and artifacts quality
-- **Reproducibility**: Keep research active by allowing experiment tracking and reproducibility
-- **Collaboration**: Foster the collaboration and joint work of multiple people on the team
+- **Desempenho**: Encontrar a solução com melhor desempenho.
+- **Operacionalização**: Manter um olho na produção, garantindo que a operacionalização seja viável.
+- **Qualidade do código**: Manter a qualidade do código e dos artefatos.
+- **Reprodutibilidade**: Manter a pesquisa ativa permitindo o rastreamento e a reprodutibilidade dos experimentos.
+- **Colaboração**: Fomentar a colaboração e o trabalho conjunto de várias pessoas na equipe.
 
-## Model experimentation challenges
+## Desafios da experimentação de modelos
 
-- **Trial and error process**: Difficult to plan and estimate durations and capacity.
-- **Quick and dirty**: We want to fail fast and get a sense of what’s working efficiently.
-- **Collaboration**: How do we form a team-wide trial and error process and effective brainstorming.
-- **Code quality**: How do we maintain the quality of non-production code during research.
-- **Operationalization**: Switching between approaches might have a significant impact on operationalization (e.g. GPU/CPU, batch/online, parallel/sequential, runtime environments).
+- **Processo de tentativa e erro**: Difícil de planejar e estimar durações e capacidade.
+- **Rápido e sujo**: Queremos falhar rapidamente e ter uma ideia do que está funcionando eficientemente.
+- **Colaboração**: Como formar um processo de tentativa e erro em toda a equipe e brainstorming eficaz.
+- **Qualidade do código**: Como manter a qualidade do código que não é de produção durante a pesquisa.
+- **Operacionalização**: A mudança entre abordagens pode ter um impacto significativo na operacionalização (por exemplo, GPU/CPU, lote/online, paralelo/sequencial, ambientes de tempo de execução).
 
-Creating an experimentation framework which facilitates rapid **experimentation**, **collaboration**,
-experiment and model **reproducibility**, **evaluation**  and **defined APIs**,
-and lets each team member focus on the model development and improvement,
-while trusting the framework to do the rest.
+Criar um framework de experimentação que facilite a experimentação rápida, colaboração, reprodutibilidade dos experimentos e modelos, avaliação e APIs definidas, e permita que cada membro da equipe se concentre no desenvolvimento e aprimoramento do modelo, enquanto confia no framework para fazer o resto.
 
-The following tools and guidelines are aimed at achieving experimentation goals as well as addressing the aforementioned challenges.
+As seguintes ferramentas e diretrizes têm como objetivo alcançar os objetivos da experimentação, bem como abordar os desafios mencionados anteriormente.
 
-## Tools and guidelines for successful model experimentation
+## Ferramentas e diretrizes para experimentação de modelos bem-sucedida
 
-- [Virtual environments](#virtual-environments)
-- [Source control and folder/package structure](#source-control-and-folder-or-package-structure)
-- [Experiment tracking](#experiment-tracking)
-- [Datasets and models abstractions](#datasets-and-models-abstractions)
-- [Model evaluation](#model-evaluation)
+- [Ambientes virtuais](#ambientes-virtuais)
+- [Controle de código-fonte e estrutura de pastas/pacotes](#controle-de-codigo-fonte-e-estrutura-de-pastas-ou-pacotes)
+- [Rastreamento de experimentos](#rastreamento-de-experimentos)
+- [Abstrações de conjuntos de dados e modelos](#abstracoes-de-conjuntos-de-dados-e-modelos)
+- [Avaliação de modelos](#avaliacao-de-modelos)
 
-### Virtual environments
+### Ambientes virtuais
 
-In languages like Python and R, it is always advised to employ virtual environments. Virtual environments facilitate reproducibility, collaboration and productization.
-Virtual environments allow us to be consistent across our local dev envs as well as with compute resources. These environments' configuration files can be used to build the code from source in an consistent way.
-For more details on why we need virtual environments visit [this blog post](https://realpython.com/python-virtual-environments-a-primer/#why-the-need-for-virtual-environments).
+Em linguagens como Python e R, é sempre aconselhável usar ambientes virtuais. Ambientes virtuais facilitam a reprodutibilidade, colaboração e productização.
+Ambientes virtuais nos permitem ser consistentes em nossos ambientes locais de desenvolvimento, assim como com os recursos de computação. Os arquivos de configuração desses ambientes podem ser usados para construir o código a partir da fonte de uma maneira consistente.
+Para obter mais detalhes sobre por que precisamos de ambientes virtuais, visite [este post no blog](https://realpython.com/python-virtual-environments-a-primer/#why-the-need-for-virtual-environments).
 
-#### Which virtual environment framework should I choose
+#### Qual framework de ambiente virtual devo escolher
 
-All virtual environments frameworks create isolation, some also propose dependency management and additional features. Decision on which framework to use depends on the complexity of the development environment (dependencies and other required resources) and on the ease of use of the framework.
+Todos os frameworks de ambiente virtual criam isolamento, alguns também propõem gerenciamento de dependências e recursos adicionais. A decisão sobre qual framework usar depende da complexidade do ambiente de desenvolvimento (dependências e outros recursos necessários) e da facilidade de uso do framework.
 
-#### Types of virtual environments
+#### Tipos de ambientes virtuais
 
-In ISE, we often choose from either `venv`, `Conda` or `Poetry`, depending on the project requirements and complexity.
+Na ISE, frequentemente escolhemos entre `venv`, `Conda` ou `Poetry`, dependendo dos requisitos e complexidade do projeto.
 
-- [venv](https://docs.python.org/3/library/venv.html) is included in Python, is the easiest to use, but lacks more advanced features like dependency management.
-- [Conda](https://docs.conda.io/en/latest/) is a popular package, dependency and environment management framework. It supports multiple stacks (Python, R) and multiple versions of the same environment (e.g. multiple Python versions). `Conda` maintains its own package repository, therefore some packages might not be downloaded and managed directly through `Conda`.
-- [Poetry](https://python-poetry.org/) is a Python dependency management system which manages dependencies in a standard way using `pyproject.toml` files and `lock` files. Similar to `Conda`, `Poetry`'s dependency resolution process is sometimes slow (see [FAQ](https://python-poetry.org/docs/faq/#why-is-the-dependency-resolution-process-slow)), but in cases where dependency issues are common or tricky, it provides a robust way to create reproducible and stable environments.
+- [venv](https://docs.python.org/3/library/venv.html) está incluído no Python, é o mais fácil de usar, mas carece de recursos mais avançados, como gerenciamento de dependências.
+- [Conda](https://docs.conda.io/en/latest/) é um framework popular de gerenciamento de pacotes, dependências e ambiente. Suporta várias pilhas (Python, R) e várias versões do mesmo ambiente (por exemplo, várias versões do Python). O `Conda` mantém seu próprio repositório de pacotes, portanto, alguns pacotes podem não ser baixados e gerenciados diretamente pelo `Conda`.
+- [Poetry](https://python-poetry.org/) é um sistema de gerenciamento de dependências Python que gerencia dependências de maneira padrão usando arquivos `pyproject.toml` e arquivos `lock`. Semelhante ao `Conda`, o processo de resolução de dependências do `Poetry` às vezes é lento (consulte [FAQ](https://python-poetry.org/docs/faq/#why-is-the-dependency-resolution-process-slow)), mas em casos em que problemas de dependência são comuns ou complicados, ele fornece uma maneira robusta de criar ambientes reproduzíveis e estáveis.
 
-#### Expected outcomes for virtual environments setup
+#### Resultados esperados para a configuração de ambientes virtuais
 
-1. Documentation describing how to create the selected virtual environment and how to install dependencies.
-2. Environment configuration files if applicable (e.g. `requirements.txt` for `venv`, [environment.yml](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file) for `Conda` or [pyrpoject.toml](https://python-poetry.org/docs/pyproject/) for `Poetry`).
+1. Documentação descrevendo como criar o ambiente virtual selecionado e como instalar as dependências.
+2. Arquivos de configuração do ambiente, se aplicável (por exemplo, `requirements.txt` para `venv`, [environment.yml](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file) para `Conda` ou [pyrpoject.toml](https://python-poetry.org/docs/pyproject/) para `Poetry`).
 
-#### Virtual environments benefits
+#### Benefícios de ambientes virtuais
 
-- Productization
-- Collaboration
-- Reproducibility
+- Productização
+- Colaboração
+- Reprodutibilidade
 
-### Source control and folder or package structure
+### Controle de código-fonte e estr
 
-Applied ML projects often contain source code, notebooks, devops scripts, documentation, scientific resources, datasets and more. We recommend coming up with an agreed folder structure to keep resources tidy. Consider deciding upon a generic folder structure for projects (e.g. which contains the folders `data`, `src`, `docs` and `notebooks`), or adopt popular structures like the [CookieCutter Data Science](https://drivendata.github.io/cookiecutter-data-science/) folder structure.
+utura de pastas ou pacotes
 
-[Source control](../source-control/README.md) should be applied to allow collaboration, versioning, code reviews, traceability and backup. In data science projects, source control should be used for code, and the storing and versioning of other  artifacts (e.g. data, scientific literature) should be decided upon depending on the scenario.
+Projetos de ML aplicado frequentemente contêm código-fonte, notebooks, scripts de DevOps, documentação, recursos científicos, conjuntos de dados e muito mais. Recomendamos criar uma estrutura de pastas acordada para manter os recursos organizados. Considere decidir sobre uma estrutura de pastas genérica para projetos (por exemplo, que contenha as pastas `data`, `src`, `docs` e `notebooks`), ou adote estruturas populares como a [estrutura de pastas CookieCutter Data Science](https://drivendata.github.io/cookiecutter-data-science/).
 
-#### Folder structure and source control expected outcomes
+[Controle de código-fonte](../source-control/README.md) deve ser aplicado para permitir colaboração, versionamento, revisões de código, rastreabilidade e backup. Em projetos de ciência de dados, o controle de código-fonte deve ser usado para código, e o armazenamento e versionamento de outros artefatos (por exemplo, dados, literatura científica) deve ser decidido dependendo do cenário.
 
-- Defined folder structure for all users to use, pushed to the repo.
-- [.gitignore](https://git-scm.com/docs/gitignore) file determining which folders should be synced with `git` and which should be kept locally. For example, [this one](https://github.com/drivendata/cookiecutter-data-science/blob/master/%7B%7B%20cookiecutter.repo_name%20%7D%7D/.gitignore).
-- Determine how notebooks are stored and versioned (e.g. [strip output from Jupyter notebooks](https://github.com/kynan/nbstripout))
+#### Resultados da estrutura de pastas e controle de código-fonte
 
-#### Source control and folder structure benefits
+- Estrutura de pastas definida para que todos os usuários a utilizem, enviada para o repositório.
+- Arquivo [.gitignore](https://git-scm.com/docs/gitignore) determinando quais pastas devem ser sincronizadas com o `git` e quais devem ser mantidas localmente. Por exemplo, [este](https://github.com/drivendata/cookiecutter-data-science/blob/master/%7B%7B%20cookiecutter.repo_name%20%7D%7D/.gitignore).
+- Determinar como os notebooks são armazenados e versionados (por exemplo, [remover a saída dos notebooks Jupyter](https://github.com/kynan/nbstripout)).
 
-- Collaboration
-- Reproducibility
-- Code quality
+#### Benefícios de controle de código-fonte e estrutura de pastas
 
-### Experiment tracking
+- Colaboração
+- Reprodutibilidade
+- Qualidade do código
 
-Experiment tracking tools allow data scientists and researchers to keep track of previous experiments for better understanding of the experimentation process and for the reproducibility of experiments or models.
+### Rastreamento de experimentos
 
-#### Types of experiment tracking frameworks
+Ferramentas de rastreamento de experimentos permitem que cientistas de dados e pesquisadores acompanhem experimentos anteriores para uma melhor compreensão do processo de experimentação e para a reproducibilidade de experimentos ou modelos.
 
-Experiment tracking frameworks differ by the set of features they provide for collecting experiment metadata, and comparing and analyzing experiments. In ISE, we mainly use [MLFlow](https://mlflow.org/) on [Databricks](https://databricks.com/product/managed-mlflow) or [Azure ML Experimentation](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-track-experiments). Note that some experiment tracking frameworks require a deployment, while others are SaaS.
+#### Tipos de frameworks de rastreamento de experimentos
 
-#### Experiment tracking outcomes
+Frameworks de rastreamento de experimentos diferem pelo conjunto de recursos que oferecem para coletar metadados de experimentos e comparar e analisar experimentos. Na ISE, principalmente usamos [MLFlow](https://mlflow.org/) no [Databricks](https://databricks.com/product/managed-mlflow) ou [Azure ML Experimentation](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-track-experiments). Observe que alguns frameworks de rastreamento de experimentos exigem uma implantação, enquanto outros são SaaS.
 
-1. Decide on an experiment tracking framework
-2. Ensure it is accessible to all users
-3. Document set-up on local environments
-4. Define datasets and evaluation in a way which will allow the comparison of all experiments. **Consistency across datasets and evaluation is paramount for experiment comparison**.
-5. Ensure full reproducibility by assuring that all required details are tracked (i.e. dataset names and versions, parameters, code, environment)
+#### Resultados do rastreamento de experimentos
 
-#### Experiment tracking benefits
+1. Decida sobre um framework de rastreamento de experimentos.
+2. Garanta que ele seja acessível a todos os usuários.
+3. Documente a configuração em ambientes locais.
+4. Defina conjuntos de dados e avaliações de uma maneira que permita a comparação de todos os experimentos. **A consistência nos conjuntos de dados e avaliação é fundamental para a comparação de experimentos**.
+5. Garanta a plena reprodutibilidade, assegurando que todos os detalhes necessários sejam rastreados (ou seja, nomes e versões de conjuntos de dados, parâmetros, código, ambiente).
 
-- Model performance
-- Reproducibility
-- Collaboration
-- Code quality
+#### Benefícios do rastreamento de experimentos
 
-### Datasets and models abstractions
+- Desempenho do modelo
+- Reprodutibilidade
+- Colaboração
+- Qualidade do código
 
-By creating abstractions to building blocks (e.g., datasets, models, evaluators),
-we allow the easy introduction of new logic into the experimentation pipeline while keeping the agreed upon experimentation flow intact.
+### Abstrações de conjuntos de dados e modelos
 
-These abstractions can be created using different mechanisms.
-For example, we can use Object-Oriented Programming (OOP) solutions like abstract classes:
+Ao criar abstrações para blocos de construção (por exemplo, conjuntos de dados, modelos, avaliadores), permitimos a fácil introdução de novas lógicas na tubulação de experimentação, mantendo intacta a tubulação de experimentação acordada.
 
-- [An example from scikit-learn describing the creation of new estimators compatible with the API](https://scikit-learn.org/stable/developers/develop.html).
-- [An example from PyTorch on extending the abstract `Dataset` class](https://pytorch.org/tutorials/beginner/data_loading_tutorial.html#dataset-class).
+Essas abstrações podem ser criadas usando diferentes mecanismos. Por exemplo, podemos usar soluções de Programação Orientada a Objetos (OOP) como classes abstratas:
 
-#### Abstraction outcomes
+- [Um exemplo do scikit-learn descrevendo a criação de novos estimadores compatíveis com a API](https://scikit-learn.org/stable/developers/develop.html).
+- [Um exemplo do PyTorch sobre a extensão da classe abstrata `Dataset`](https://pytorch.org/tutorials
 
-1. Different building blocks have defined APIs allowing them to be replaced or extended.
-2. Replacing building blocks does not break the original experimentation flow.
-3. Mock building blocks are used for unit tests
-4. APIs/mocks are shared with the engineering teams for integration with other modules.
+/beginner/data_loading_tutorial.html#dataset-class).
 
-#### Abstraction benefits
+#### Resultados de abstração
 
-- Collaboration
-- Code quality
-- Reproducibility
-- Operationalization
-- Model performance
+1. Diferentes blocos de construção têm APIs definidas que permitem substituí-los ou estendê-los.
+2. A substituição dos blocos de construção não quebra o fluxo original de experimentação.
+3. Blocos de construção simulados são usados para testes unitários.
+4. APIs/mocks são compartilhados com as equipes de engenharia para integração com outros módulos.
 
-### Model evaluation
+#### Benefícios de abstrações
 
-When deciding on the evaluation of the ML model/process, consider the following checklist:
+- Colaboração
+- Qualidade do código
+- Reprodutibilidade
+- Operacionalização
+- Desempenho do modelo
 
-- [ ] Evaluation logic is approved by all stakeholders.
-- [ ] Relationship between evaluation logic and business KPIs is analyzed and decided.
-- [ ] Evaluation flow is applicable for all present and future models (i.e. does not assume some prediction structure or method-specific process).
-- [ ] Evaluation code is unit-tested and reviewed by all team members.
-- [ ] Evaluation flow facilitates further results and error analysis.
+### Avaliação de modelos
 
-## Evaluation development process outcomes
+Ao decidir sobre a avaliação do modelo de ML/processo, considere a seguinte lista de verificação:
 
-1. Evaluation strategy is agreed upon all stakeholders
-2. Research and discussion on various evaluation methods and metrics is documented.
-3. The code holding the logic and data structures for evaluation is reviewed and tested.
-4. Documentation on how to apply evaluation is reviewed.
-5. Performance metrics are automatically tracked into the experiment tracker.
+- [ ] A lógica de avaliação é aprovada por todas as partes interessadas.
+- [ ] A relação entre a lógica de avaliação e os KPIs de negócios é analisada e decidida.
+- [ ] O fluxo de avaliação é aplicável a todos os modelos presentes e futuros (ou seja, não assume alguma estrutura de previsão ou processo específico do método).
+- [ ] O código de avaliação é testado unitariamente e revisado por todos os membros da equipe.
+- [ ] O fluxo de avaliação facilita análises adicionais de resultados e erros.
 
-## Evaluation development process benefits
+## Resultados do processo de desenvolvimento de avaliação
 
-- Model performance
-- Code quality
-- Collaboration
-- Reproducibility
+1. A estratégia de avaliação é acordada por todas as partes interessadas.
+2. Pesquisa e discussão sobre vários métodos e métricas de avaliação são documentados.
+3. O código que contém a lógica e as estruturas de dados para avaliação é revisado e testado.
+4. A documentação sobre como aplicar a avaliação é revisada.
+5. As métricas de desempenho são rastreadas automaticamente no rastreador de experimentos.
+
+## Benefícios do processo de desenvolvimento de avaliação
+
+- Desempenho do modelo
+- Qualidade do código
+- Colaboração
+- Reprodutibilidade

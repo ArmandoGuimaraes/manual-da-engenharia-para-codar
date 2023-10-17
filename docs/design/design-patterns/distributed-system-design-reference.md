@@ -1,9 +1,7 @@
-# Distributed System Design Reference
+# Referência de Design de Sistemas Distribuídos
 
-Distributed systems introduce new and interesting problems that need addressing.
-Software engineering as a field has dealt with these problems for years, and there are phenomenal resources available for reference when creating a new distributed system.
-Some that we recommend are as follows:
+Sistemas distribuídos introduzem problemas novos e interessantes que precisam ser abordados. A engenharia de software como campo lidou com esses problemas por anos, e existem recursos fenomenais disponíveis para referência ao criar um novo sistema distribuído. Alguns que recomendamos são os seguintes:
 
-* [Martin Fowler's Patterns of Distributed Systems](https://martinfowler.com/articles/patterns-of-distributed-systems/)
+* [Padrões de Sistemas Distribuídos de Martin Fowler](https://martinfowler.com/articles/patterns-of-distributed-systems/)
 * [microservices.io](https://microservices.io/index.html)
-* [Azure's Cloud Design Patterns](https://learn.microsoft.com/en-us/azure/architecture/patterns/)
+* [Padrões de Design de Nuvem da Azure](https://learn.microsoft.com/en-us/azure/architecture/patterns/)

@@ -1,33 +1,33 @@
-# Technical Spike
+# Investigação Técnica
 
-From [Wikipedia](<https://en.wikipedia.org/wiki/Spike_(software_development)>)...
+De acordo com a [Wikipedia](https://en.wikipedia.org/wiki/Spike_(software_development))...
 
-A spike in a sprint can be used in a number of ways:
+Uma investigação técnica em uma sprint pode ser utilizada de várias maneiras:
 
-- As a way to familiarize the team with new hardware or software
-- To analyze a problem thoroughly and assist in properly dividing work among separate team members.
-- Spike tests can also be used to mitigate future risk, and may uncover additional issues that have escaped notice.
+- Como uma forma de familiarizar a equipe com novo hardware ou software.
+- Para analisar minuciosamente um problema e auxiliar na divisão adequada do trabalho entre membros separados da equipe.
+- Testes de investigação podem também ser usados para mitigar riscos futuros e podem revelar problemas adicionais que passaram despercebidos.
 
-A distinction can be made between technical spikes and functional spikes. The technical spike is used more often for evaluating the impact new technology has on the current implementation. A functional spike is used to determine the interaction with a new feature or implementation.
+É possível fazer uma distinção entre investigações técnicas e investigações funcionais. A investigação técnica é utilizada com maior frequência para avaliar o impacto que uma nova tecnologia tem na implementação atual. Uma investigação funcional é usada para determinar a interação com um novo recurso ou implementação.
 
-[Engineering feasibility spikes](./engineering-feasibility-spikes.md) can also be conducted to de-risk an engagement and increase the team's understanding.
+Também podem ser realizadas [investigações de viabilidade técnica](./engineering-feasibility-spikes.md) para reduzir os riscos em um engajamento e aumentar a compreensão da equipe.
 
-## Deliverable
+## Resultado
 
-Generally the deliverable from a Technical Spike should be a document detailing what was evaluated and the outcome of that evaluation. The specifics contained in the document will vary, but there are some general principles that might be helpful.
+Geralmente, o resultado de uma Investigação Técnica deve ser um documento detalhando o que foi avaliado e o resultado dessa avaliação. Os detalhes contidos no documento podem variar, mas existem alguns princípios gerais que podem ser úteis.
 
-- **Problem Statement/Goals:** Be sure to include a section that clearly details why an evaluation is being done and what the outcome of this evaluation should be. This is helpful to ensure that the technical spike was productive and advanced the overall project in some way.
+- **Declaração do Problema/Objetivos:** Certifique-se de incluir uma seção que detalhe claramente por que uma avaliação está sendo feita e qual deve ser o resultado dessa avaliação. Isso é útil para garantir que a investigação técnica tenha sido produtiva e avançado o projeto como um todo de alguma forma.
 
-- **Make sure it is repeatable:** Detail the components used, installation instructions, configuration, etc. required to build the environment that was used for evaluation and testing. If any testing is performed, make sure to include the scripts, links to the applications, configuration options, etc. so that testing could be performed again.
+- **Garanta que seja Repetível:** Detalhe os componentes usados, instruções de instalação, configuração, etc., necessários para criar o ambiente que foi usado para avaliação e teste. Se algum teste for realizado, certifique-se de incluir os scripts, links para as aplicações, opções de configuração, etc., para que os testes possam ser realizados novamente.
 
-    There are many reasons that the evaluation environment may need to be rebuilt. For example:
+    Existem muitas razões pelas quais o ambiente de avaliação pode precisar ser reconstruído. Por exemplo:
 
-  - Another scenario needs to be tested.
-  - A new version of the technology has been released.
-  - The technology needs to be tested on a new platform.
+  - Outro cenário precisa ser testado.
+  - Uma nova versão da tecnologia foi lançada.
+  - A tecnologia precisa ser testada em uma nova plataforma.
 
-- **Fact-Finding:** The goal of a spike should be fact-finding, not decision-making or recommendation. Ideally, the technology spike digs into a number of technical questions and gets answers so that the _broader project team_ can then come back together and agree on an appropriate course forward.
+- **Coleta de Dados:** O objetivo de uma investigação deve ser a coleta de dados, não a tomada de decisões ou recomendações. Idealmente, a investigação técnica aprofunda várias questões técnicas e obtém respostas para que a _equipe de projeto mais ampla_ possa então se reunir e concordar com um curso apropriado para o futuro.
 
-- **Evidence:** Generally you will use sections to summarize the results of testing which do not include the potentially hundreds of detailed results, however, you should include all detailed testing results in an appendix or an attachment. Having full results detailed somewhere will help the team trust the results. In addition, data can be interpreted lots of different ways, and it may be necessary to go back to the original data for a new interpretation.
+- **Evidências:** Geralmente, você usará seções para resumir os resultados dos testes que não incluem os resultados detalhados potencialmente numerosos; no entanto, você deve incluir todos os resultados detalhados dos testes em um apêndice ou um anexo. Ter resultados completos detalhados em algum lugar ajudará a equipe a confiar nos resultados. Além disso, os dados podem ser interpretados de várias maneiras diferentes, e pode ser necessário voltar aos dados originais para uma nova interpretação.
 
-- **Organization:** The technical documentation can be lengthy. It is generally a good idea to organize sections with headers and include a table of contents. Generally sections towards the beginning of the document should summarize data and use one or more appendices for more details.
+- **Organização:** A documentação técnica pode ser extensa. Geralmente, é uma boa ideia organizar as seções com cabeçalhos e incluir uma tabela de conteúdo. Geralmente, as seções no início do documento devem resumir os dados e usar um ou mais apêndices para mais detalhes.

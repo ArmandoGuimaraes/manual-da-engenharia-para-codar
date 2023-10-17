@@ -1,41 +1,41 @@
-# Inclusive Linting
+# Inclusão de Linting
 
-As software professionals we should strive to promote an inclusive work environment, which naturally extends to the code and documentation we write. It's important to keep the use of inclusive language consistent across an entire project or repository.
+Como profissionais de software, devemos nos esforçar para promover um ambiente de trabalho inclusivo, o que naturalmente se estende ao código e à documentação que escrevemos. É importante manter o uso de linguagem inclusiva consistente em todo o projeto ou repositório.
 
-To achieve this, we recommend using a text file analysis tool such as an inclusive linter and including this as a step in your CI pipelines.
+Para alcançar isso, recomendamos o uso de uma ferramenta de análise de texto, como um linter inclusivo, e incluí-lo como uma etapa em seus pipelines de Integração Contínua (CI).
 
-## What to Lint for
+### O que verificar com o Linter
 
-The primary goal of an inclusive linter is to flag any occurrences of non-inclusive language within source code (and optionally suggest some alternatives). Non-inclusive words or phrases in a project can be found anywhere from comments and documentation to variable names.
+O objetivo principal de um inclusive linter é identificar qualquer ocorrência de linguagem não inclusiva no código-fonte (e opcionalmente sugerir algumas alternativas). Palavras ou frases não inclusivas em um projeto podem ser encontradas em qualquer lugar, desde comentários e documentação até nomes de variáveis.
 
-An inclusive linter may include its own dictionary of "default" non-inclusive words and phrases to run against as a good starting point. These tools can also be customizable, oftentimes offering the ability to omit some terms and/or add your own.
+Um inclusive linter pode incluir seu próprio dicionário de palavras e frases não inclusivas "padrão" para verificar como um bom ponto de partida. Essas ferramentas também podem ser personalizáveis, oferecendo frequentemente a capacidade de omitir alguns termos e/ou adicionar os seus próprios.
 
-The ability to add additional terms to your linter has the added benefit of enabling linting of sensitive language on top of inclusive linting. This can prevent things such as customer names or other non-public information from making it into your git history, for instance.
+A capacidade de adicionar termos adicionais ao seu linter tem o benefício adicional de permitir a verificação de linguagem sensível, além da verificação inclusiva. Isso pode evitar que coisas como nomes de clientes ou outras informações não públicas entrem em seu histórico do Git, por exemplo.
 
-## Getting Started with an Inclusive Linter
+### Como Começar com um Inclusive Linter
 
-### [`woke`]
+**[`woke`](https://github.com/get-woke/woke)**
 
-One inclusive linter we recommend is `woke`. It is a language-agnostic CLI tool that detects non-inclusive language in your source code and recommends alternatives. While `woke` automatically applies a [default ruleset] with non-inclusive terms to lint for, you can also apply a custom rule config (via a yaml file) with additional terms to lint for. See [`example.yaml`] for an example of adding custom rules.
+Um inclusive linter que recomendamos é o **`woke`**. É uma ferramenta CLI agnóstica a linguagens que detecta linguagem não inclusiva em seu código-fonte e sugere alternativas. Embora o **`woke`** aplique automaticamente um [conjunto de regras padrão](https://github.com/get-woke/woke/blob/main/pkg/rule/default.yaml) com termos não inclusivos para verificar, você também pode aplicar uma configuração de regra personalizada (por meio de um arquivo YAML) com termos adicionais para verificar. Veja [`example.yaml`](https://github.com/get-woke/woke/blob/main/example.yaml) para um exemplo de adição de regras personalizadas.
 
-Running the tool locally on a file or directory is relatively straightforward:
+Executar a ferramenta localmente em um arquivo ou diretório é relativamente simples:
 
 ```sh
 $ woke test.txt
 
-test.txt:2:2-6: `guys` may be insensitive, use `folks`, `people` instead (warning)
+test.txt:2:2-6: `guys` pode ser insensível, use `pessoas`, `indivíduos` em vez disso (aviso)
 * guys
   ^
 ```
 
-`woke` can be run locally on your machine or CI/CD system via CLI and is also available as a two GitHub Actions:
+**`woke`** pode ser executado localmente em sua máquina ou sistema CI/CD por meio da CLI e também está disponível como duas ações no GitHub:
 
-- [Run woke]
-- [Run woke with Reviewdog]
+- [Executar woke](https://github.com/marketplace/actions/run-woke)
+- [Executar woke com o Reviewdog](https://github.com/marketplace/actions/run-woke-with-reviewdog)
 
-To use the standard "Run woke" GitHub Action with the default ruleset in a CI pipeline:
+Para usar a ação padrão "Run woke" do GitHub com o conjunto de regras padrão em um pipeline de CI:
 
-1. Add the `woke` action as a step in your project's CI pipeline yaml:
+1. Adicione a ação **`woke`** como uma etapa no arquivo YAML do pipeline de CI do seu projeto:
 
     ```yaml
     name: ci
@@ -52,14 +52,14 @@ To use the standard "Run woke" GitHub Action with the default ruleset in a CI pi
           - name: woke
             uses: get-woke/woke-action@v0
             with:
-              # Cause the check to fail on any broke rules
+              # Faz com que a verificação falhe em qualquer regra quebrada
               fail-on-error: true
     ```
 
-1. Run your pipeline
-1. View the output in the "Actions" tab in the main repository view
+2. Execute seu pipeline
+3. Veja a saída na guia "Ações" na visualização principal do repositório
 
-For more information about additional configuration and usage, see the official [docs].
+Para obter mais informações sobre configuração adicional e uso, consulte a [documentação oficial](https://docs.getwoke.tech/).
 
 [`woke`]: https://github.com/get-woke/woke
 [default ruleset]: https://github.com/get-woke/woke/blob/main/pkg/rule/default.yaml

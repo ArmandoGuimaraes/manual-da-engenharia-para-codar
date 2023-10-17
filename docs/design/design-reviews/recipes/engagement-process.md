@@ -1,82 +1,84 @@
-# Incorporating Design Reviews into an Engagement
+# Incorporando Revisões de Design em um Engajamento
 
-## Introduction
+## Introdução
 
-Design reviews should not feel like a burden. Design reviews can be easily incorporated into the dev crew process with minimal overhead.
+As revisões de design não devem parecer um fardo. As revisões de design podem ser facilmente incorporadas ao processo de desenvolvimento da equipe com um mínimo de sobrecarga.
 
-- Only create design reviews when needed. Not every story or task requires a complete design review.
-- Leverage this guidance to make changes that best fit in with the team. Every team works differently.
-- Leverage Microsoft subject-matter experts (SME) as needed during design reviews. Not every story needs SME or leadership sign-off. Most design reviews can be fully executed within a dev crew.
-- [Use diagrams](./preferred-diagram-tooling.md) to visualize concepts and architecture.
+- Crie revisões de design apenas quando necessário. Nem toda história ou tarefa requer uma revisão de design completa.
+- Utilize este guia para fazer alterações que se adaptem melhor à equipe. Cada equipe trabalha de maneira diferente.
+- Recorra aos especialistas em determinados assuntos da Microsoft (SME) conforme necessário durante as revisões de design. Nem toda história precisa de um SME ou da aprovação da liderança. A maioria das revisões de design pode ser totalmente executada dentro de uma equipe de desenvolvimento.
+- [Use diagramas](./preferred-diagram-tooling.md) para visualizar conceitos e arquitetura.
 
-The following guidelines outline how Microsoft and the customer together can incorporate design reviews into their day-to-day agile processes.
+As seguintes diretrizes descrevem como a Microsoft e o cliente podem incorporar revisões de design em seu processo ágil do dia a dia.
 
-## Envisioning / Architecture Design Session (ADS)
+## Visão Geral / Sessão de Design de Arquitetura (ADS)
 
-Early in an engagement Microsoft works with customers to understand their unique goals and objectives and establish a definition of done. Microsoft dives deep into existing customer infrastructure and architecture to understand potential constraints. Additionally, we seek to understand and uncover specific [non-functional requirements](../../design-patterns/non-functional-requirements-capture-guide.md) that influence the solution.
+No início de um engajamento, a Microsoft trabalha com os clientes para entender seus objetivos e metas exclusivos e estabelecer uma definição de feito. A Microsoft mergulha profundamente na infraestrutura e arquitetura existentes do cliente para entender as possíveis restrições. Além disso, buscamos compreender e descobrir [requisitos não funcionais](../../design-patterns/non-functional-requirements-capture-guide.md) específicos que influenciam a solução.
 
-During this time the team uncovers many unknowns, leveraging all new-found information, in order to help generate an impactful design that meets customer goals. After ADS it can be helpful to conduct [Engineering Feasibility Spikes](../recipes/engineering-feasibility-spikes.md) to further de-risk technologies being considered for the engagement.
+Durante esse período, a equipe descobre muitos desconhecidos, aproveitando todas as informações recém-descobertas, a fim de ajudar a gerar um design impactante que atenda aos objetivos do cliente. Após a ADS, pode ser útil realizar [Engenharia de Viabilidade (Engineering Feasibility Spikes)](../recipes/engineering-feasibility-spikes.md) para reduzir ainda mais os riscos das tecnologias consideradas para o engajamento.
 
-> **Tip**: All unknowns have not been addressed at this point.
+> **Dica**: Todos os desconhecidos ainda não foram abordados neste ponto.
 
-## Sprint Planning
+## Planejamento do Sprint
 
-In many engagements Microsoft works with customers using a SCRUM agile development process which begins with sprint planning. [Sprint planning](../../../agile-development/core-expectations/README.md) is a great opportunity to dive deep into the next set of high priority work. Some key points to address are the following:
+Em muitos engajamentos, a Microsoft trabalha com os clientes usando um processo de desenvolvimento ágil SCRUM que começa com o planejamento do sprint. O [planejamento do sprint](../../../agile-development/core-expectations/README.md) é uma ótima oportunidade para mergulhar profundamente no próximo conjunto de trabalho de alta prioridade. Alguns pontos-chave a serem abordados são os seguintes:
 
-1. Identify stories that require design reviews
-1. Separate design from implementation for complex stories
-1. Assign an owner to each design story
+1. Identificar histórias que exigem revisões de design.
+1. Separar o design da implementação para histórias complexas.
+1. Atribuir um responsável para cada história de design.
 
-Stories that will benefit from design reviews have one or more of the following in common:
+Histórias que se beneficiarão com revisões de design têm uma ou mais das seguintes características em comum:
 
-1. There are many unknown or unclear requirements
-1. There is a wide distribution of anticipated workload, or story pointing, across the dev crew
-1. The developer cannot clearly illustrate all tasks required for the story
+1. Existem muitos requisitos desconhecidos ou pouco claros.
+1. Há uma ampla distribuição da carga de trabalho prevista, ou pontos de história, em toda a equipe de desenvolvimento.
+1. O desenvolvedor não consegue ilustrar claramente todas as tarefas necessárias para a história.
 
-> **Tip:** After sprint planning is complete the team should consider hosting an initial design review discussion to dive deep in the design requirement of the stories that were identified. This will provide more clarity so that the team can move forward with a design review, synchronously or asynchronously, and complete tasks.
+> **Dica**: Após o planejamento do sprint estar concluído, a equipe deve considerar a realização de uma discussão inicial de revisão de design para aprofundar os requisitos de design das histórias que foram identificadas. Isso fornecerá mais clareza para que a equipe possa avançar com uma revisão de design, de forma síncrona ou assíncrona, e concluir as tarefas.
 
-## Sprint Backlog Refinement
+## Refinamento do Backlog do Sprint
 
-If your team is not already hosting a [Sprint Backlog Refinement](../../../agile-development/advanced-topics/backlog-management/README.md) session at least once per week you should consider it. It is a great opportunity to:
+Se sua equipe ainda não realiza uma sessão de [Refinamento do Backlog do Sprint](../../../agile-development/advanced-topics/backlog-management/README.md) pelo menos uma vez por semana, você deve considerar fazê-lo. É uma ótima oportunidade para:
 
-1. Keep the backlog clean
-1. Re-prioritize work based on shifting business priorities
-1. Fill in missing descriptions and acceptance criteria
-1. Identify stories that require design reviews
+1. Manter o backlog limpo.
+1. Repriorizar o trabalho com base nas mudanças nas prioridades do negócio.
+1. Preencher descrições e critérios de aceitação ausentes.
+1. Identificar histórias que exigem revisões de design.
 
-The team can follow the same steps from [sprint planning](#sprint-planning) to help identify which stories require design reviews. This can often save much time during the actual sprint planning meetings to focus on the task at hand.
+A equipe pode seguir as mesmas etapas do [planejamento do sprint](#planejamento-do-sprint) para ajudar a identificar quais histórias exigem revisões de design. Isso muitas vezes pode economizar muito tempo durante as próprias reuniões de planejamento do sprint para se concentrar na tarefa em questão.
 
-## Sprint Retrospectives
+## Retrospectivas do Sprint
 
-[Sprint retrospectives](../../../agile-development/core-expectations/README.md) are a great time to check in with the dev team, identify what is working or not working, and propose changes to keep improving.
+As [retrospectivas do sprint](../../../agile-development/core-expectations/README.md) são um ótimo momento para fazer check-in com a equipe de desenvolvimento, identificar o que está funcionando ou não, e propor mudanças para continuar melhorando.
 
-It is also a great time to check in on design reviews
+Também é um ótimo momento para verificar as revisões de design:
 
-- Did any of the designs change from last sprint?
-- How have design changes impacted the engagement?
-- Have previous design artifacts been updated to reflect new changes?
+- Os designs mudaram desde o último sprint?
+- Como as mudanças de design impactaram o engajamento?
+- Os artefatos de design anteriores foram atualizados para refletir novas mudanças?
 
-All design artifacts should be treated as a living document. As requirements change or uncover more unknowns the dev crew should retroactively update all design artifacts. Missing this critical step may cause the customer to incur future technical debt. Artifacts that are not up to date are `bugs` in the design.
+Todos os artefatos de design devem ser tratados como documentos vivos. À medida que os requisitos mudam ou mais desconhecidos são descobertos, a equipe de desenvolvimento deve atualizar retroativamente todos os artefatos de design. Não cumprir esta etapa crítica pode fazer com que o cliente incorra em dívida técnica futura. Artefatos que não estão atualizados são `bugs` no design.
 
-> **Tip:** Keep your artifacts up to date by adding it to your teams [Definition of Done](../../../agile-development/advanced-topics/team-agreements/definition-of-done.md) for all user stories.
+> **Dica**: Mantenha seus artefatos atualizados adicionando-os à [Definição de Feito (Definition of Done)](../../../agile-development/advanced-topics/team-agreements/definition-of-done.md) de sua
 
-## Sync Design Reviews
+ equipe para todas as histórias de usuário.
 
-It is often helpful to schedule 1-2 design sessions per sprint as part of the normal aforementioned meeting cadence.
-Throughout the sprint, folks can add design topics to the meeting agenda and if there is nothing to discuss for a particular meeting occurrence, it can simply be cancelled.
-While these sessions may not always be used, they help project members align on timing and purpose early on and establish precedence, often encouraging participation so design topics don't slip through the cracks.
-Oftentimes, it is helpful for those project members intending to present their design to the wider group to distribute documentation on their design prior to the session so that other participants can come prepared with context heading into the session.
+## Revisões de Design Síncronas
 
-It should be noted that the necessity of these sessions certainly evolves over the course of the engagement.
-Early on, or in other times of more ambiguity, these meetings are typically used more often and more fully.
+É frequentemente útil agendar 1-2 sessões de design por sprint como parte da cadência de reuniões mencionada anteriormente.
+Ao longo do sprint, as pessoas podem adicionar tópicos de design à pauta da reunião e, se não houver nada a discutir para uma determinada reunião, ela pode ser simplesmente cancelada.
+Embora essas sessões nem sempre sejam usadas, elas ajudam os membros do projeto a se alinharem quanto ao tempo e ao propósito desde cedo, estabelecendo um precedente e incentivando a participação para que os tópicos de design não sejam negligenciados.
+Muitas vezes, é útil que os membros do projeto que pretendem apresentar seu design ao grupo mais amplo distribuam a documentação sobre seu design antes da sessão, para que os outros participantes possam se preparar com contexto antes da reunião.
 
-Lastly, while it is suggested that sync design reviews are scheduled during the normal sprint cadence, scheduling ad-hoc sessions should not be discouraged - even if these reviews are limited to the participants of a specific workstream.
+Deve-se observar que a necessidade dessas sessões certamente evolui ao longo do engajamento.
+No início, ou em outros momentos de maior ambiguidade, essas reuniões são geralmente usadas com mais frequência e de maneira mais completa.
 
-## Wrap-up Sprints
+Por fim, embora seja sugerido que as revisões de design síncronas sejam agendadas durante a cadência normal do sprint, não deve haver desencorajamento ao agendamento de sessões ad hoc - mesmo que essas revisões se limitem aos participantes de um fluxo de trabalho específico.
 
-Wrap-up sprints are a great time to tie up loose ends with the customer and hand-off solution. Customer hand-off becomes a lot easier when there are design artifacts to reference and deliver alongside the completed solution.
+## Sprints de Encerramento
 
-During your wrap-up sprints the dev crew should consider the following:
+Os sprints de encerramento são um ótimo momento para amarrar pontas soltas com o cliente e entregar a solução. A entrega ao cliente fica muito mais fácil quando há artefatos de design para referenciar e entregar junto com a solução concluída.
 
-1. Are the design artifacts up to date?
-1. Are the design artifacts stored in an accessible location?
+Durante seus sprints de encerramento, a equipe de desenvolvimento deve considerar o seguinte:
+
+1. Os artefatos de design estão atualizados?
+1. Os artefatos de design estão armazenados em um local acessível?

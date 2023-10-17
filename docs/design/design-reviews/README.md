@@ -1,96 +1,91 @@
-# Design Reviews
+# Revisões de Design
 
-## Table of Contents
+## Sumário
 
-- [Goals](#goals)
-- [Measures](#measures)
-- [Impact](#impact)
-- [Participation](#participation)
-- [Facilitation Guidance](#facilitation-guidance)
-- [Technical Spike](#technical-spike)
+- [Objetivos](#objetivos)
+- [Medidas](#medidas)
+- [Impacto](#impacto)
+- [Participação](#participação)
+- [Orientação para Facilitação](#orientação-para-facilitação)
+- [Avaliação Técnica](#avaliação-técnica)
 
-## Goals
+## Objetivos
 
-- Reduce technical debt for our customers
-- Continue to iterate on design after Game Plan review
-- Generate useful technical artifacts that can be referenced by Microsoft and customers
+- Reduzir a dívida técnica para nossos clientes.
+- Continuar a iterar no design após a revisão do Plano de Jogo.
+- Gerar artefatos técnicos úteis que possam ser referenciados pela Microsoft e pelos clientes.
 
-## Measures
+## Medidas
 
-### Cost of Change
+### Custo da Mudança
 
-When incorporating design reviews as part of the engineering process, decisions are front-loaded before implementation begins. Making a decision of using Azure Kubernetes Service instead of App Services at the design phase likely only requires updating documentation. However, making this pivot after implementation has started or after a solution is in use is much more costly.
+Ao incorporar revisões de design como parte do processo de engenharia, as decisões são tomadas antecipadamente antes do início da implementação. Tomar a decisão de usar o Azure Kubernetes Service em vez dos Serviços de Aplicativos na fase de design provavelmente requer apenas a atualização da documentação. No entanto, fazer essa mudança após o início da implementação ou após a solução estar em uso é muito mais custoso.
 
-Are these changes occurring before or after implementation? How large of effort are they typically?
+Essas mudanças estão ocorrendo antes ou depois da implementação? Qual é o esforço normalmente envolvido?
 
-### Reviewer Participation
+### Participação dos Revisores
 
-How many individuals participate across the designs created? Cumulatively if this is a larger number this would indicate a wider contribution of ideas and perspectives. A lower number (i.e. same 2 individuals only on every review) might indicate a limited set of perspectives. Is anyone participating from outside the core development team?
+Quantas pessoas participam das revisões dos designs criados? Cumulativamente, se esse número for maior, isso indicaria uma maior contribuição de ideias e perspectivas. Um número menor (ou seja, as mesmas 2 pessoas apenas em cada revisão) pode indicar um conjunto limitado de perspectivas. Alguém está participando de fora da equipe central de desenvolvimento?
 
-### Time To Potential Solutions
+### Tempo para Soluções Potenciais
 
-How long does it typically take to go from requirements to solution options (multiple)?
+Quanto tempo normalmente leva para ir dos requisitos às opções de solução (múltiplas)?
 
-There is a healthy balancing act between spending too much or too little time evaluating different potential solutions. Too little time puts higher risk of costly changes required after implementation. Too much time delays target value from being delivered; as well as subsequent features in queue. However, the faster the team can *identify the most critical information necessary to make an informed decision*, the faster value can be provided with lower risk of costly changes down the road.
+Há um equilíbrio saudável entre gastar muito ou muito pouco tempo avaliando diferentes soluções potenciais. Muito pouco tempo aumenta o risco de mudanças custosas necessárias após a implementação. Muito tempo atrasa a entrega do valor-alvo e das funcionalidades subsequentes na fila. No entanto, quanto mais rápido a equipe puder *identificar as informações mais críticas necessárias para tomar uma decisão informada*, mais rápido o valor pode ser entregue com menor risco de mudanças custosas no futuro.
 
-### Time to Decisions
+### Tempo para Decisões
 
-How long does it take to make a decision on which solution to implement?
+Quanto tempo leva para tomar uma decisão sobre qual solução implementar?
 
-There is also a healthy balancing act in supporting a healthy debate while not hindering the team's delivery. The ideal case is for a team to quickly digest the solution options presented, ask questions, and debate before finally reaching quorum on a particular approach. In cases where no quorum can be reached, the person with the most context on the problem (typically story owner) should make the final decision. Prioritize delivering value and learning. Disagree and commit!
+Também há um equilíbrio saudável em apoiar um debate saudável sem prejudicar a entrega da equipe. O caso ideal é que a equipe assimile rapidamente as opções de solução apresentadas, faça perguntas e debata antes de finalmente alcançar um consenso sobre uma abordagem específica. Nos casos em que não houver consenso, a pessoa com mais contexto sobre o problema (geralmente o proprietário da história) deve tomar a decisão final. Priorize a entrega de valor e aprendizado. Discordem e comprometam-se!
 
-## Impact
+## Impacto
 
-- Solutions can be quickly be operated into customer's production environment
-- Easier for other dev crews to leverage your teams work
-- Easier for engineers to ramp up on projects
-- Increase team velocity by front-loading changes and decisions when they cost the least
-- Increased team engagement and transparency by soliciting wide reviewer participation
+- As soluções podem ser rapidamente implementadas no ambiente de produção do cliente.
+- É mais fácil para outras equipes de desenvolvimento aproveitar o trabalho de sua equipe.
+- É mais fácil para os engenheiros se envolverem em projetos.
+- Aumento da velocidade da equipe ao antecipar mudanças e decisões quando elas custam menos.
+- Maior engajamento e transparência da equipe ao solicitar ampla participação dos revisores.
 
-## Participation
+## Participação
 
-### Dev Crew
+### Equipe de Desenvolvimento
 
-The dev crew should always participate in all design review sessions
+A equipe de desenvolvimento deve sempre participar de todas as sessões de revisão de design.
 
-- [ISE](../../ISE.md) Engineering
-- Customer Engineering
+- Engenharia do ISE (Intelligent Security Engineering)
+- Engenharia de Clientes
 
-### Domain Experts
+### Especialistas em Domínio
 
-Domain experts should participate in design review sessions as needed
+Os especialistas em domínio devem participar das sessões de revisão de design conforme necessário.
 
-- ISE Tech Domains
-- Customer subject-matter experts (SME)
-- Senior Leadership
+- Domínios Técnicos do ISE
+- Especialistas em assuntos do cliente (SME - Subject Matter Experts)
+- Liderança Sênior
 
-## Facilitation Guidance
+## Orientação para Facilitação
 
-### Recipes
+### Receitas
 
-Please see our [Design Review Recipes](./recipes/README.md) for guidance on design process.
+Consulte nossas [Receitas de Revisão de Design](./recipes/README.md) para orientações sobre o processo de design.
 
-### Sync Design Reviews via in-person / virtual meetings
+### Sincronização de Revisões de Design via Reuniões Presenciais/Virtuais
 
-Joint meetings with dev crew, subject-matter experts (SMEs) and customer engineers
+Reuniões conjuntas com a equipe de desenvolvimento, especialistas em domínio e engenheiros do cliente.
 
-### Async Design Reviews via Pull-Requests
+### Revisões de Design Assíncronas via Pull Requests
 
-See the [async design review recipe](./recipes/async-design-reviews.md) for guidance on facilitating async design reviews. This can be useful for teams that are geographically distributed across different time-zones.
+Consulte a [receita de revisão de design assíncrona](./recipes/async-design-reviews.md) para orientações sobre a facilitação de revisões de design assíncronas. Isso pode ser útil para equipes que estão geograficamente distribuídas em diferentes fusos horários.
 
-## Technical Spike
+## Avaliação Técnica
 
-A technical spike is most often used for evaluating the impact new technology has on the current implementation. Please read more [here](./recipes/technical-spike.md).
+Um spike técnico é mais frequentemente usado para avaliar o impacto que uma nova tecnologia tem na implementação atual. Leia mais [aqui](./recipes/technical-spike.md).
 
-## Design Documentation
+## Documentação de Design
 
-- Document and update the architecture design in the project design documentation
-- Track and document design decisions in a [decision log](decision-log/README.md)
-- Document decision process in [trade studies](trade-studies/README.md) when multiple solutions exist for the given problem
+- Documentar e atualizar o design de arquitetura na documentação de design do projeto.
+- Rastrear e documentar decisões de design em um [registro de decisões](decision-log/README.md).
+- Documentar o processo de decisão em [estudos de troca](trade-studies/README.md) quando várias soluções existem para o problema dado.
 
-Early on in engagements, the team must decide where to land artifacts generated from design reviews.
-Typically, we meet the customer where they are at (for example, using their Confluence instance to land documentation if that is their preferred process).
-However, similar to storing decision logs, trade studies, etc. in the development repo, there are also large benefits to maintaining design review artifacts in the repo as well.
-Usually these artifacts can be further added to root level documentation directory or even at the root of the corresponding project if the repo is monolithic.
-In adding them to the project repo, these artifacts must similarly be reviewed in Pull Requests (typically preceding but sometimes accompanying implementation) which allows async review/discussion.
-Furthermore, artifacts can then easily link to other sections of the repo and source code files (via [markdown links](https://www.w3schools.io/file/markdown-links/)).
+No início das colaborações, a equipe deve decidir onde armazenar os artefatos gerados pelas revisões de design. Normalmente, nos encontramos com o cliente onde eles preferem (por exemplo, usando sua instância Confluence para armazenar a documentação, se essa for a preferência deles). No entanto, semelhante ao armazenamento de registros de decisões, estudos de troca, etc., no repositório de desenvolvimento, também existem grandes benefícios em manter os artefatos de revisão de design no próprio repositório. Normalmente, esses artefatos podem ser adicionados ao diretório de documentação de nível superior ou até mesmo à raiz do projeto correspondente, se o repositório for monolítico. Ao adicioná-los ao repositório do projeto, esses artefatos devem ser revisados em Pull Requests (normalmente precedendo, mas às vezes acompanhando a implementação), o que permite a revisão/discussão assíncrona. Além disso, os artefatos podem ser facilmente vinculados a outras seções do repositório e a arquivos de código-fonte (por meio de [links em Markdown](https://www.w3schools.io/file/markdown-links/)).

@@ -1,144 +1,146 @@
-# Feasibility Studies
+# Estudos de Viabilidade
 
-The main goal of feasibility studies is to assess whether it is feasible to solve the problem satisfactorily using ML with the available data. We want to avoid investing too much in the solution before we have:
+O principal objetivo dos estudos de viabilidade é avaliar se é viável resolver o problema de forma satisfatória usando aprendizado de máquina (ML) com os dados disponíveis. Queremos evitar investir demais na solução antes de termos:
 
-* Sufficient evidence that a solution would be the best technical solution given the business case
-* Sufficient evidence that a solution is compatible with the problem context
-* Sufficient evidence that a solution is possible
-* Some vetted direction on what a solution should look like
+* Evidências suficientes de que uma solução seria a melhor solução técnica, dadas as considerações do caso de negócios.
+* Evidências suficientes de que uma solução é compatível com o contexto do problema.
+* Evidências suficientes de que uma solução é possível.
+* Alguma direção validada sobre como uma solução deve ser.
 
-This effort ensures quality solutions backed by the appropriate, thorough amount of consideration and evidence.
+Esse esforço garante soluções de qualidade respaldadas pela quantidade apropriada de consideração e evidência.
 
-## When are feasibility studies useful?
+## Quando são úteis os estudos de viabilidade?
 
-Every engagement can benefit from a feasibility study early in the project.
+Cada engajamento pode se beneficiar de um estudo de viabilidade no início do projeto.
 
-Architectural discussions can still occur in parallel as the team works towards gaining a solid understanding and definition of what will be built.
+Discussões arquitetônicas ainda podem ocorrer em paralelo enquanto a equipe trabalha para obter uma compreensão sólida e definição do que será construído.
 
-Feasibility studies can last between 4-16 weeks, depending on specific problem details, volume of data, state of the data etc. Starting with a 4-week milestone might be useful, during which it can be determined how much more time, if any, is required for completion.
+Os estudos de viabilidade podem durar entre 4 e 16 semanas, dependendo dos detalhes específicos do problema, volume de dados, estado dos dados, etc. Começar com um marco de 4 semanas pode ser útil, durante o qual pode ser determinado quanto mais tempo, se houver, é necessário para a conclusão.
 
-## Who collaborates on feasibility studies?
+## Quem colabora nos estudos de viabilidade?
 
-Collaboration from individuals with diverse skill sets is desired at this stage, including data scientists, data engineers, software engineers, PMs, human experience researchers, and domain experts. It embraces the use of engineering fundamentals, with some flexibility. For example, not all experimentation requires full test coverage and code review. Experimentation is typically not part of a CI/CD pipeline. Artifacts may live in the `main` branch as a folder excluded from the CI/CD pipeline, or as a separate experimental branch, depending on customer/team preferences.
+A colaboração de pessoas com conjuntos de habilidades diversas é desejada nessa fase, incluindo cientistas de dados, engenheiros de dados, engenheiros de software, gerentes de projeto, pesquisadores de experiência humana e especialistas do domínio. Isso abraça o uso de fundamentos de engenharia, com alguma flexibilidade. Por exemplo, nem toda experimentação requer cobertura de teste completa e revisão de código. A experimentação geralmente não faz parte de um pipeline de CI/CD (Integração Contínua e Entrega Contínua). Os artefatos podem estar na branch `main` como uma pasta excluída do pipeline de CI/CD ou como uma branch experimental separada, dependendo das preferências do cliente/equipe.
 
-## What do feasibility studies entail?
+## O que os estudos de viabilidade envolvem?
 
-### Problem definition and desired outcome
+### Definição do problema e resultado desejado
 
-* Ensure that the problem is complex enough that coding rules or manual scaling is unrealistic
-* Clear definition of the problem from business and technical perspectives
+* Garantir que o problema seja complexo o suficiente para que regras de codificação ou dimensionamento manual sejam irrealistas.
+* Definição clara do problema do ponto de vista de negócios e técnico.
 
-### Deep contextual understanding
+### Compreensão contextual profunda
 
-Confirm that the following questions can be answered based on what was learned during the Discovery Phase of the project. For items that can not be satisfactorily answered, undertake additional investigation to answer.
+Confirme que as seguintes perguntas podem ser respondidas com base no que foi aprendido durante a Fase de Descoberta do projeto. Para itens que não podem ser respondidos satisfatoriamente, empreenda investigações adicionais para respondê-los.
 
-* Understanding the people who are using and/or affected by the solution
-* Understanding the contextual forces at play around the problem, including goals, culture, and historical context
-* To accomplish this a researcher will:
-* Collaborate with customers and colleagues to explore the landscape of people who relate to and may be affected by the problem space being explored (Users, stakeholders, subject matter experts, etc)
-* Formulate the research question(s) to be addressed
-* Select and design research to best serve the research question(s)
-* Identify and select representative research participants across the problem space with whom to conduct the research
-* Construct a research plan and necessary preparation documents for the selected research method(s)
-* Conduct research activity with the participants via the selected method(s)
-* Synthesize, analyze, and interpret research findings
-* Where relevant, build frameworks, artifacts and processes that help explore the findings and implications of the research across the team
-* Share what was uncovered and understood, and the implications thereof across the engagement team and relevant stakeholders.
-* If the above research was conducted during the Discovery phase, it should be reviewed, and any substantial knowledge gaps should be identified and filled by following the above process.
+* Compreender as pessoas que estão usando e/ou sendo afetadas pela solução.
+* Compreender as forças contextuais em jogo em torno do problema, incluindo metas, cultura e contexto histórico.
+* Para realizar isso, um pesquisador irá:
+  * Colaborar com clientes e colegas para explorar o cenário das pessoas que se relacionam e podem ser afetadas pelo espaço do problema sendo explorado (usuários, partes interessadas, especialistas no assunto, etc.).
+  * Formular as perguntas de pesquisa a serem abordadas.
+  * Selecionar e projetar a pesquisa que melhor servirá às perguntas de pesquisa.
+  * Identificar e selecionar participantes representativos da pesquisa em todo o espaço do problema com os quais conduzir a pesquisa.
+  * Construir um plano de pesquisa e documentos de preparação necessários para o método de pesquisa selecionado.
+  * Conduzir a atividade de pesquisa com os participantes por meio dos métodos selecionados.
+  * Sintetizar, analisar e interpretar as descobertas da pesquisa.
+  * Quando relevante, construir estruturas, artefatos e processos que ajudem a explorar as descobertas e implicações da pesquisa em toda a equipe.
+  * Compartilhar o que foi descoberto e entendido, bem como suas implicações, com toda a equipe de engajamento e partes interessadas relevantes.
+* Se a pesquisa acima foi conduzida durante a fase de Descoberta, ela deve ser revisada, e quaisquer lacunas significativas de conhecimento devem ser identificadas e preenchidas seguindo o processo acima.
 
-### Data access
+### Acesso aos dados
 
-* Verify that the full team has access to the data
-* Set up a dedicated and/or restricted environment if required
-* Perform any required de-identification or redaction of sensitive information
-* Understand data access requirements (retention, role-based access, etc.)
+* Verificar se toda a equipe tem acesso aos dados.
+* Configurar um ambiente dedicado e/ou restrito, se necessário.
+* Realizar qualquer desidentificação ou omissão de informações sensíveis.
+* Compreender os requisitos de acesso aos dados (retenção, acesso baseado em função, etc.).
 
-### Data discovery
+### Descoberta de dados
 
-* Hold a [data exploration](ml-data-exploration.md) workshop and deep dive with domain experts
-* Understand data availability and confirm the team's access
-* Understand the data dictionary, if available
-* Understand the quality of the data. Is there already a data validation strategy in place?
-* Ensure required data is present in reasonable volumes
-* For supervised problems (most common), assess the availability of labels or data that can be used to effectively approximate labels
-* If applicable, ensure all data can be joined as required and understand how
-  * Ideally obtain or create an entity relationship diagram (ERD)
-* Potentially uncover new useful data sources
+* Realizar uma oficina de [exploração de dados](ml-data-exploration.md) e aprofundar com especialistas do domínio.
+* Compreender a disponibilidade dos dados e confirmar o acesso da equipe.
+* Compreender o dicionário de dados, se disponível.
+* Compreender a qualidade dos dados. Já existe uma estratégia de validação de dados em vigor?
+* Garantir que os dados necessários estejam presentes em volumes razoáveis.
+* Para problemas supervisionados (mais comuns), avaliar a disponibilidade de rótulos ou dados que possam ser usados para aproximar efetivamente rótulos.
+* Se aplicável, garantir que todos os dados possam ser unidos conforme necessário e entender como isso é feito.
+  * Idealmente, obter ou criar um diagrama de relacionamento de entidades (ERD).
+* Potencialmente descobrir novas fontes úteis de dados.
 
-### Architecture discovery
+### Descoberta de arquitetura
 
-* Clear picture of existing architecture
-* Infrastructure spikes
+* Imagem clara da arquitetura existente.
+* Pontos de arquitetura.
 
-### Concept ideation and iteration
+### Ideação e iteração de conceitos
 
-* Develop value proposition(s) for users and stakeholders based on the contextual understanding developed through the discovery process (e.g. key elements of value, benefits)
-* As relevant, make use of
-* Co-creation with team
-* Co-creation with users and stakeholders
-* As relevant, create vignettes, narratives or other materials to communicate the concept
-* Identify the next set of hypotheses or unknowns to be tested (see concept testing)
-* Revisit and iterate on the concept throughout discovery as understanding of the problem space evolves
+* Desenvolver propostas de valor para usuários e partes interessadas com base na compreensão contextual desenvolvida por meio do processo de descoberta (por exemplo, elementos-chave de valor, benefícios).
+* Conforme relevante, faça uso de
+  * Co-criação com a equipe.
+  * Co-criação com usuários e partes interessadas.
+* Conforme relevante, crie vinhetas, narrativas ou outros materiais para comunicar o conceito.
+* Identificar o próximo conjunto de hipóteses ou incógnitas a serem testadas (veja teste de conceito).
+* Revisitar e iterar o conceito ao longo da descoberta à medida que a compreensão do espaço do problema evolui.
 
-### Exploratory data analysis (EDA)
+### Análise explorató
 
-* Data deep dive
-* Understand feature and label value distributions
-* Understand correlations among features and between features and labels
-* Understand data specific problem constraints like missing values, categorical cardinality, potential for data leakage etc.
-* Identify any gaps in data that couldn't be identified in the data discovery phase
-* Pave the way of further understanding of what techniques are applicable
-* Establish a mutual understanding of what data is in or out of scope for feasibility, ensuring that the data in scope is significant for the business
+ria de dados (AED)
 
-### Data pre-processing
+* Aprofundamento nos dados.
+* Compreender as distribuições de valores de recursos e rótulos.
+* Compreender as correlações entre recursos e entre recursos e rótulos.
+* Compreender restrições específicas do problema de dados, como valores ausentes, cardinalidade categórica, potencial para vazamento de dados, etc.
+* Identificar quaisquer lacunas nos dados que não puderam ser identificadas na fase de descoberta de dados.
+* Abrir o caminho para uma compreensão mais aprofundada sobre quais técnicas são aplicáveis.
+* Estabelecer uma compreensão mútua do que está dentro ou fora do escopo para viabilidade, garantindo que os dados dentro do escopo sejam significativos para o negócio.
 
-* Happens during EDA and hypothesis testing
-* Feature engineering
-* Sampling
-* Scaling and/or discretization
-* Noise handling
+### Pré-processamento de dados
 
-### Hypothesis testing
+* Acontece durante a AED e o teste de hipóteses.
+* Engenharia de recursos.
+* Amostragem.
+* Dimensionamento e/ou discretização.
+* Tratamento de ruído.
 
-* Design several potential solutions using theoretically applicable algorithms and techniques, starting with the simplest reasonable baseline
-* Train model(s)
-* Evaluate performance and determine if satisfactory
-* Tweak experimental solution designs based on outcomes
-* Iterate
-* Thoroughly document each step and outcome, plus any resulting hypotheses for easy following of the decision-making process
+### Teste de hipóteses
 
-### Concept testing
+* Projete várias soluções potenciais usando algoritmos e técnicas teoricamente aplicáveis, começando com a linha de base mais simples razoável.
+* Treine modelos.
+* Avalie o desempenho e determine se é satisfatório.
+* Ajuste os designs de solução experimental com base nos resultados.
+* Itere.
+* Documente minuciosamente cada etapa e resultado, além de quaisquer hipóteses resultantes para facilitar o acompanhamento do processo de tomada de decisão.
 
-* Where relevant, to test the value proposition, concepts or aspects of the experience
-* Plan user, stakeholder and expert research
-* Develop and design necessary research materials
-* Synthesize and evaluate feedback to incorporate into concept development
-* Continue to iterate and test different elements of the concept as necessary, including testing to best serve RAI goals and guidelines
-* Ensure that the proposed solution and framing are compatible with and acceptable to affected people
-* Ensure that the proposed solution and framing is compatible with existing business goals and context
+### Teste de conceito
 
-### Risk assessment
+* Conforme relevante, para testar a proposta de valor, conceitos ou aspectos da experiência.
+* Planeje pesquisa com usuários, partes interessadas e especialistas.
+* Desenvolva e projete materiais de pesquisa necessários.
+* Sintetize e avalie feedback para incorporar no desenvolvimento do conceito.
+* Continue a iterar e testar diferentes elementos do conceito conforme necessário, incluindo testes para melhor atender aos objetivos e diretrizes de AI responsável.
+* Garanta que a solução proposta e o enquadramento sejam compatíveis e aceitáveis para as pessoas afetadas.
+* Garanta que a solução proposta e o enquadramento sejam compatíveis com os objetivos e contexto de negócios existentes.
 
-* Identification and assessment of risks and constraints
+### Avaliação de risco
 
-### Responsible AI
+* Identificação e avaliação de riscos e restrições.
 
-* Consideration of responsible AI principles
-* Understanding of users and stakeholders’ contexts, needs and concerns to inform development of RAI
-* Testing AI concept and experience elements with users and stakeholders
-* Discussion and feedback from diverse perspectives around any responsible AI concerns
+### AI Responsável
 
-## Output of a feasibility study
+* Consideração dos princípios de AI responsável.
+* Compreensão dos contextos, necessidades e preocupações dos usuários e partes interessadas para informar o desenvolvimento da AI responsável.
+* Teste de conceito de AI e elementos de experiência com usuários e partes interessadas.
+* Discussão e feedback de diversas perspectivas em torno de preocupações de AI responsável, quando relevante.
 
-### Possible outcomes
+## Resultado de um estudo de viabilidade
 
-The main outcome is a feasibility study report, with a recommendation on next steps:
-- If there is not enough evidence to support the hypothesis that this problem can be solved using ML, as aligned with the pre-determined performance measures and business impact:
+### Possíveis resultados
 
-  * We detail the gaps and challenges that prevented us from reaching a positive outcome
-  * We may scope down the project, if applicable
-  * We may look at re-scoping the problem taking into account the findings of the feasibility study
-  * We assess the possibility to collect more data or improve data quality
+O principal resultado é um relatório de estudo de viabilidade, com uma recomendação sobre os próximos passos:
+- Se não houver evidências suficientes para apoiar a hipótese de que este problema pode ser resolvido usando ML, de acordo com as medidas de desempenho predefinidas e o impacto nos negócios:
 
-- If there is enough evidence to support the hypothesis that this problem can be solved using ML
-  * Provide recommendations and technical assets for moving to the operationalization phase
+  * Detalhamos as lacunas e desafios que nos impediram de alcançar um resultado positivo.
+  * Podemos restringir o escopo do projeto, se aplicável.
+  * Podemos reavaliar o problema levando em consideração as descobertas do estudo de viabilidade.
+  * Avaliamos a possibilidade de coletar mais dados ou melhorar a qualidade dos dados.
+
+- Se houver evidências suficientes para apoiar a hipótese de que este problema pode ser resolvido usando ML
+  * Fornecer recomendações e ativos técnicos para avançar para a fase de operacionalização.

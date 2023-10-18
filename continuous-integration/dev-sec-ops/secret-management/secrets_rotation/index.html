@@ -19,7 +19,7 @@
     
     
       
-        <title>Secrets Rotation - Manual da Engenharia para Codar</title>
+        <title>Rotação de Segredos - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#secrets-rotation" class="md-skip">
+        <a href="#rotacao-de-segredos" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Secrets Rotation
+              Rotação de Segredos
             
           </span>
         </div>
@@ -3548,12 +3548,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Secrets Rotation
+          Rotação de Segredos
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Secrets Rotation
+        Rotação de Segredos
       </a>
       
         
@@ -3572,36 +3572,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-secrets-rotation" class="md-nav__link">
-    Why Secrets Rotation
+  <a href="#por-que-a-rotacao-de-segredos" class="md-nav__link">
+    Por que a Rotação de Segredos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#managed-identity" class="md-nav__link">
-    Managed Identity
+  <a href="#identidade-gerenciada" class="md-nav__link">
+    Identidade Gerenciada
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#applying-secrets-rotation" class="md-nav__link">
-    Applying Secrets Rotation
+  <a href="#aplicando-a-rotacao-de-segredos" class="md-nav__link">
+    Aplicando a Rotação de Segredos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#secrets-rotation-frameworks-and-tools" class="md-nav__link">
-    Secrets Rotation Frameworks and Tools
+  <a href="#estruturas-e-ferramentas-de-rotacao-de-segredos" class="md-nav__link">
+    Estruturas e Ferramentas de Rotação de Segredos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    Conclusion
+  <a href="#conclusao" class="md-nav__link">
+    Conclusão
   </a>
   
 </li>
@@ -7209,36 +7209,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-secrets-rotation" class="md-nav__link">
-    Why Secrets Rotation
+  <a href="#por-que-a-rotacao-de-segredos" class="md-nav__link">
+    Por que a Rotação de Segredos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#managed-identity" class="md-nav__link">
-    Managed Identity
+  <a href="#identidade-gerenciada" class="md-nav__link">
+    Identidade Gerenciada
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#applying-secrets-rotation" class="md-nav__link">
-    Applying Secrets Rotation
+  <a href="#aplicando-a-rotacao-de-segredos" class="md-nav__link">
+    Aplicando a Rotação de Segredos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#secrets-rotation-frameworks-and-tools" class="md-nav__link">
-    Secrets Rotation Frameworks and Tools
+  <a href="#estruturas-e-ferramentas-de-rotacao-de-segredos" class="md-nav__link">
+    Estruturas e Ferramentas de Rotação de Segredos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    Conclusion
+  <a href="#conclusao" class="md-nav__link">
+    Conclusão
   </a>
   
 </li>
@@ -7257,31 +7257,31 @@
                 
 
 
-<h1 id="secrets-rotation">Secrets Rotation</h1>
-<p>Secret rotation is the process of refreshing the secrets that are used by the application.
-The best way to authenticate to Azure services is by using a managed identity, but there are some scenarios where that isn't an option. In those cases, access keys or secrets are used. You should periodically rotate access keys or secrets.</p>
-<h2 id="why-secrets-rotation">Why Secrets Rotation</h2>
-<p>Secrets are an asset and as such have a potential to be leaked or stolen. By rotating the secrets, we are revoking any secrets that may have been compromised. Therefore, secrets should be rotated frequently.</p>
-<h2 id="managed-identity">Managed Identity</h2>
-<p>Azure Managed identities are automatically issues by Azure in order to identify individual resources, and can be used for authentication in place of secrets and passwords. The appeal in using Managed Identities is the elimination of management of secrets and credentials. They are not required on developers machines or checked into source control, and they don't need to be rotated. Managed identities are considered safer than the alternatives and is the recommended choice.</p>
-<h2 id="applying-secrets-rotation">Applying Secrets Rotation</h2>
-<p>If Azure Managed Identity can't be used. This and the following sections will explain how rotation of secrets can be achieved:</p>
-<p>To promote frequent rotation of a secret - define an automated periodic secret rotation process.
-The secret rotation process might result in a downtime when the application is restarted to introduce the new secret. A common solution for that is to have two versions of secret available, also referred to as Blue/Green Secret rotation. By having a second secret at hand, we can start a second instance of the application with that secret before the previous secret is revoked, thus avoiding any downtime.</p>
-<h2 id="secrets-rotation-frameworks-and-tools">Secrets Rotation Frameworks and Tools</h2>
+<h1 id="rotacao-de-segredos">Rotação de Segredos</h1>
+<p>A rotação de segredos é o processo de atualização dos segredos usados pela aplicação.
+A melhor maneira de autenticar-se nos serviços Azure é usando uma identidade gerenciada, mas existem alguns cenários em que isso não é uma opção. Nesses casos, são usadas chaves de acesso ou segredos. Você deve periodicamente rotacionar chaves de acesso ou segredos.</p>
+<h2 id="por-que-a-rotacao-de-segredos">Por que a Rotação de Segredos</h2>
+<p>Segredos são um ativo e, como tal, têm o potencial de vazar ou serem roubados. Ao rotacionar os segredos, estamos revogando quaisquer segredos que possam ter sido comprometidos. Portanto, os segredos devem ser rotacionados com frequência.</p>
+<h2 id="identidade-gerenciada">Identidade Gerenciada</h2>
+<p>As identidades gerenciadas do Azure são emitidas automaticamente pela Azure para identificar recursos individuais e podem ser usadas para autenticação em vez de segredos e senhas. O atrativo em usar Identidades Gerenciadas é a eliminação da gestão de segredos e credenciais. Eles não são necessários nas máquinas dos desenvolvedores ou verificados no controle de origem, e não precisam ser rotacionados. As identidades gerenciadas são consideradas mais seguras do que as alternativas e são a escolha recomendada.</p>
+<h2 id="aplicando-a-rotacao-de-segredos">Aplicando a Rotação de Segredos</h2>
+<p>Se a Identidade Gerenciada do Azure não puder ser usada. Esta e as próximas seções explicarão como alcançar a rotação de segredos:</p>
+<p>Para promover a rotação frequente de um segredo - defina um processo automatizado de rotação periódica de segredos.
+O processo de rotação de segredos pode resultar em tempo de inatividade quando a aplicação é reiniciada para introduzir o novo segredo. Uma solução comum para isso é ter duas versões de segredo disponíveis, também chamadas de Rotação de Segredo Azul/Verde. Ao ter um segundo segredo à mão, podemos iniciar uma segunda instância da aplicação com esse segredo antes que o segredo anterior seja revogado, evitando assim qualquer tempo de inatividade.</p>
+<h2 id="estruturas-e-ferramentas-de-rotacao-de-segredos">Estruturas e Ferramentas de Rotação de Segredos</h2>
 <ol>
-<li>For rotation of a secret for resources that use one set of authentication credentials <a href="https://learn.microsoft.com/en-us/azure/key-vault/secrets/tutorial-rotation">click here</a></li>
-<li>For rotation of a secret for resources that have two sets of authentication credentials <a href="https://learn.microsoft.com/en-us/azure/key-vault/secrets/tutorial-rotation-dual?tabs=azure-cli">click here</a></li>
+<li>Para a rotação de um segredo para recursos que usam um conjunto de credenciais de autenticação <a href="https://learn.microsoft.com/en-us/azure/key-vault/secrets/tutorial-rotation">clique aqui</a></li>
+<li>Para a rotação de um segredo para recursos que têm dois conjuntos de credenciais de autenticação <a href="https://learn.microsoft.com/en-us/azure/key-vault/secrets/tutorial-rotation-dual?tabs=azure-cli">clique aqui</a></li>
 </ol>
-<h2 id="conclusion">Conclusion</h2>
-<p>Refreshing secrets is important to ensure that your secret stays a secret without causing downtime to your application.</p>
+<h2 id="conclusao">Conclusão</h2>
+<p>Atualizar segredos é importante para garantir que seu segredo permaneça em segredo sem causar tempo de inatividade em sua aplicação.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 15, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
       
     
   </small>

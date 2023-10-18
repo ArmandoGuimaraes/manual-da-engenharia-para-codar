@@ -109,23 +109,21 @@ Uma implantação quente segue um processo de troca de usuários de uma versão 
 
 O Kubernetes oferece suporte nativo a [atualizações contínuas](https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/).
 
-### Implantações Azuis/Verdes
+### Implantações Blue/Green
 
-Azul/Verde é uma técnica de implantação que reduz o tempo de inatividade ao executar duas instâncias idênticas de um ambiente de produção chamadas *Azul* e *Verde*.
+Blue/Green é uma técnica de implantação que reduz o tempo de inatividade ao executar duas instâncias idênticas de um ambiente de produção chamadas *Blue* e *Green*.
 
 Apenas um desses ambientes aceita tráfego de produção ao vivo de cada vez.
 
 ![imagem](./images/blue_green.png)
 
-No exemplo acima, o tráfego de produção ao vivo é direcionado para o ambiente Verde. Durante os lançamentos da aplicação, a nova versão é implantada no ambiente Azul, o que ocorre independentemente do ambiente Verde. O tráfego ao vivo não é afetado pelas implantações do ambiente Azul. Você pode direcionar sua suíte de testes de ponta a ponta ao ambiente Azul como um de seus pontos de verificação de teste.
+No exemplo acima, o tráfego de produção ao vivo é direcionado para o ambiente Green. Durante os lançamentos da aplicação, a nova versão é implantada no ambiente Blue, o que ocorre independentemente do ambiente Green. O tráfego ao vivo não é afetado pelas implantações do ambiente Blue. Você pode direcionar sua suíte de testes de ponta a ponta ao ambiente Blue como um de seus pontos de verificação de teste.
 
-Migrar os usuários para a nova versão do aplicativo é tão simples quanto alterar a configuração do roteador para direcionar todo o tráfego para o ambiente Azul.
+Migrar os usuários para a nova versão do aplicativo é tão simples quanto alterar a configuração do roteador para direcionar todo o tráfego para o ambiente Blue.
 
-Essa técnica simplifica cenários de rollback, pois você pode simplesmente altern
+Essa técnica simplifica cenários de rollback, pois você pode simplesmente alternar o roteador de volta para o Green.
 
-ar o roteador de volta para o Verde.
-
-Provedores de banco de dados como Cosmos e Azure SQL oferecem suporte nativo à replicação de dados para ajudar a habilitar ambientes de banco de dados Azul/Verde totalmente sincronizados.
+Provedores de banco de dados como Cosmos e Azure SQL oferecem suporte nativo à replicação de dados para ajudar a habilitar ambientes de banco de dados Blue/Green totalmente sincronizados.
 
 ### Implantações de Lançamento Canary
 
@@ -139,11 +137,11 @@ As implantações Canary simplificam os rollbacks, pois você pode evitar direci
 
 Tente limitar o número de versões de sua aplicação em execução paralelamente na produção, pois isso pode complicar os controles de manutenção e monitoramento.
 
-### Soluções de Baixo Código
+### Soluções de Low-Code/No-Code
 
-Soluções de baixo código aumentaram sua participação nas aplicações e processos e, por causa disso, é necessário uma adequada combinação de disciplinas para melhorar seu desenvolvimento.
+Soluções de Low-Code/No-Codeo aumentaram sua participação nas aplicações e processos e, por causa disso, é necessário uma adequada combinação de disciplinas para melhorar seu desenvolvimento.
 
-Aqui está um guia para [entrega contínua para Soluções de Baixo Código](low-code-solutions/low-code-solutions.md).
+Aqui está um guia para [entrega contínua para Soluções de Low-Code/No-Code](low-code-solutions/low-code-solutions.md).
 
 ## Referências
 

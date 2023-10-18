@@ -6521,29 +6521,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#loki-server" class="md-nav__link">
-    Loki Server
+  <a href="#servidor-loki" class="md-nav__link">
+    Servidor Loki
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#grafana-dashboards" class="md-nav__link">
-    Grafana Dashboards
+  <a href="#paineis-do-grafana" class="md-nav__link">
+    Painéis do Grafana
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-use-loki" class="md-nav__link">
-    Why use Loki
+  <a href="#por-que-usar-o-loki" class="md-nav__link">
+    Por que usar o Loki
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
+  <a href="#referencias" class="md-nav__link">
+    Referências
   </a>
   
 </li>
@@ -7214,29 +7214,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#loki-server" class="md-nav__link">
-    Loki Server
+  <a href="#servidor-loki" class="md-nav__link">
+    Servidor Loki
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#grafana-dashboards" class="md-nav__link">
-    Grafana Dashboards
+  <a href="#paineis-do-grafana" class="md-nav__link">
+    Painéis do Grafana
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-use-loki" class="md-nav__link">
-    Why use Loki
+  <a href="#por-que-usar-o-loki" class="md-nav__link">
+    Por que usar o Loki
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
+  <a href="#referencias" class="md-nav__link">
+    Referências
   </a>
   
 </li>
@@ -7256,33 +7256,21 @@
 
 
 <h1 id="loki">Loki</h1>
-<p>Loki is a horizontally-scalable, highly-available, multi-tenant log aggregation system, created by Grafana
-Labs inspired by the learnings from Prometheus. Loki is commonly referred as 'Prometheus, but for logs', which
-makes total sense. Both tools follow the same architecture, which is an agent collecting metrics in each
-of the components of the software system, a server which stores the logs and also the Grafana dashboard, which
-access the loki server to build its visualizations and queries. That being said, Loki has three main
-components:</p>
+<p>O Loki é um sistema de agregação de logs horizontalmente escalável, altamente disponível e multi-inquilino, criado pela Grafana Labs, inspirado nas lições aprendidas com o Prometheus. O Loki é comumente chamado de 'Prometheus, mas para logs', o que faz todo sentido. Ambas as ferramentas seguem a mesma arquitetura, que consiste em um agente coletando métricas em cada um dos componentes do sistema de software, um servidor que armazena os logs e também o painel Grafana, que acessa o servidor Loki para criar suas visualizações e consultas. Dito isso, o Loki possui três componentes principais:</p>
 <h2 id="promtail">Promtail</h2>
-<p>It is the agent portion of Loki. It can be used to grab logs from several places, like var/log/ for
-example. The configuration of the Promtail is a yaml file called <code>config-promtail.yml</code>. In this file, its described all the paths and log sources that will be
-aggregated on Loki Server.</p>
-<h2 id="loki-server">Loki Server</h2>
-<p>Loki Server is responsible for receiving and storing all the logs received from all the different systems. The Loki Server is also
-responsible for the queries done on Grafana, for example.</p>
-<h2 id="grafana-dashboards">Grafana Dashboards</h2>
-<p>Grafana Dashboards are responsible for creating the visualizations and performing queries. After all, it will
-be a web page that people with the right access can log into to see, query and create alerts for the aggregated
-logs.</p>
-<h2 id="why-use-loki">Why use Loki</h2>
-<p>The main reason to use Loki instead of other log aggregation tools, is that Loki optimizes the necessary
-storage. It does that by following the same pattern as prometheus, which index the labels and make chunks
-of the log itself, using less space than just storing the raw logs.</p>
-<h2 id="references">References</h2>
+<p>É a parte do agente do Loki. Pode ser usado para capturar logs de vários lugares, como <code>/var/log/</code>, por exemplo. A configuração do Promtail é um arquivo YAML chamado <code>config-promtail.yml</code>. Neste arquivo, são descaminhados todos os caminhos e fontes de log que serão agregados no servidor Loki.</p>
+<h2 id="servidor-loki">Servidor Loki</h2>
+<p>O servidor Loki é responsável por receber e armazenar todos os logs recebidos de todos os sistemas diferentes. O servidor Loki também é responsável pelas consultas feitas no Grafana, por exemplo.</p>
+<h2 id="paineis-do-grafana">Painéis do Grafana</h2>
+<p>Os painéis do Grafana são responsáveis por criar as visualizações e realizar consultas. Afinal, será uma página da web na qual as pessoas com o acesso correto podem fazer login para ver, consultar e criar alertas para os logs agregados.</p>
+<h2 id="por-que-usar-o-loki">Por que usar o Loki</h2>
+<p>A principal razão para usar o Loki em vez de outras ferramentas de agregação de logs é que o Loki otimiza o armazenamento necessário. Ele faz isso seguindo o mesmo padrão do Prometheus, que indexa as etiquetas e cria fragmentos do próprio log, usando menos espaço do que simplesmente armazenar os logs brutos.</p>
+<h2 id="referencias">Referências</h2>
 <ul>
-<li><a href="https://grafana.com/oss/loki/">Loki Official Site</a></li>
-<li><a href="https://grafana.com/docs/loki/latest/getting-started/get-logs-into-loki/">Inserting logs into Loki</a></li>
-<li><a href="https://grafana.com/docs/grafana/latest/datasources/loki/#adding-the-data-source">Adding Loki Source to Grafana</a></li>
-<li><a href="https://grafana.com/docs/loki/latest/best-practices/">Loki Best Practices</a></li>
+<li><a href="https://grafana.com/oss/loki/">Site Oficial do Loki</a></li>
+<li><a href="https://grafana.com/docs/loki/latest/getting-started/get-logs-into-loki/">Inserindo logs no Loki</a></li>
+<li><a href="https://grafana.com/docs/grafana/latest/datasources/loki/#adding-the-data-source">Adicionando uma fonte do Loki ao Grafana</a></li>
+<li><a href="https://grafana.com/docs/loki/latest/best-practices/">Melhores Práticas do Loki</a></li>
 </ul>
 
   <hr>
@@ -7290,7 +7278,7 @@ of the log itself, using less space than just storing the raw logs.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 8, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
       
     
   </small>

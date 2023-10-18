@@ -19,7 +19,7 @@
     
     
       
-        <title>Reusing dev containers within a pipeline - Manual da Engenharia para Codar</title>
+        <title>Reutilização de contêineres de desenvolvimento em um pipeline - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#reusing-dev-containers-within-a-pipeline" class="md-skip">
+        <a href="#reutilizacao-de-conteineres-de-desenvolvimento-em-um-pipeline" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Reusing dev containers within a pipeline
+              Reutilização de contêineres de desenvolvimento em um pipeline
             
           </span>
         </div>
@@ -7138,37 +7138,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#options-for-building-devcontainers-within-pipeline" class="md-nav__link">
-    Options for building devcontainers within pipeline
+  <a href="#opcoes-para-construir-dev-containers-dentro-do-pipeline" class="md-nav__link">
+    Opções para construir dev containers dentro do pipeline
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#considered-options" class="md-nav__link">
-    Considered Options
+  <a href="#opcoes-consideradas" class="md-nav__link">
+    Opções Consideradas
   </a>
   
-    <nav class="md-nav" aria-label="Considered Options">
+    <nav class="md-nav" aria-label="Opções Consideradas">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#run-ci-pipelines-in-native-environment" class="md-nav__link">
-    Run CI pipelines in native environment
+  <a href="#executar-os-pipelines-de-ci-em-ambiente-nativo" class="md-nav__link">
+    Executar os pipelines de CI em ambiente nativo
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#run-ci-pipelines-in-the-dev-container-without-image-caching" class="md-nav__link">
-    Run CI pipelines in the dev container without image caching
+  <a href="#executar-os-pipelines-de-ci-no-conteiner-de-desenvolvimento-sem-cache-de-imagem" class="md-nav__link">
+    Executar os pipelines de CI no contêiner de desenvolvimento sem cache de imagem
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#run-ci-pipelines-in-the-dev-container-with-image-registry" class="md-nav__link">
-    Run CI pipelines in the dev container with image registry
+  <a href="#executar-os-pipelines-de-ci-no-conteiner-de-desenvolvimento-com-registro-de-imagem" class="md-nav__link">
+    Executar os pipelines de CI no contêiner de desenvolvimento com registro de imagem
   </a>
   
 </li>
@@ -7192,137 +7192,137 @@
                 
 
 
-<h1 id="reusing-dev-containers-within-a-pipeline">Reusing dev containers within a pipeline</h1>
-<p>Given a repository with a local development container aka <a href="./">dev container</a> that contains all the tooling required for development, would it make sense to reuse that container for running the tooling in the Continuous Integration pipelines?</p>
-<h2 id="options-for-building-devcontainers-within-pipeline">Options for building devcontainers within pipeline</h2>
-<p>There are three ways to build devcontainers within pipeline:</p>
+<h1 id="reutilizacao-de-conteineres-de-desenvolvimento-em-um-pipeline">Reutilização de contêineres de desenvolvimento em um pipeline</h1>
+<p>Dado um repositório com um contêiner de desenvolvimento local, também conhecido como <a href="./">dev container</a>, que contém todas as ferramentas necessárias para o desenvolvimento, faria sentido reutilizar esse contêiner para executar as ferramentas nos pipelines de Integração Contínua?</p>
+<h2 id="opcoes-para-construir-dev-containers-dentro-do-pipeline">Opções para construir dev containers dentro do pipeline</h2>
+<p>Existem três maneiras de construir dev containers dentro do pipeline:</p>
 <ul>
-<li>With <a href="https://github.com/devcontainers/ci">GitHub - devcontainers/ci</a> builds the container with the <code>devcontainer.json</code>. Example here: <a href="https://github.com/devcontainers/ci/blob/main/docs/github-action.md#getting-started">devcontainers/ci · Getting Started</a>.</li>
-<li>With <a href="https://github.com/devcontainers/cli">GitHub - devcontainers/cli</a>, which is the same as the above, but using the underlying CLI directly without tasks.</li>
-<li>Building the <code>DockerFile</code> with <code>docker build</code>. This option excludes all configuration/features specified within the <code>devcontainer.json</code>.</li>
+<li>Com <a href="https://github.com/devcontainers/ci">GitHub - devcontainers/ci</a>, que cria o contêiner com o arquivo <code>devcontainer.json</code>. Exemplo aqui: <a href="https://github.com/devcontainers/ci/blob/main/docs/github-action.md#getting-started">devcontainers/ci · Getting Started</a>.</li>
+<li>Com <a href="https://github.com/devcontainers/cli">GitHub - devcontainers/cli</a>, que é o mesmo que o acima, mas usa a CLI subjacente diretamente, sem tarefas.</li>
+<li>Construindo o <code>DockerFile</code> com <code>docker build</code>. Essa opção exclui todas as configurações/recursos especificados no <code>devcontainer.json</code>.</li>
 </ul>
-<h2 id="considered-options">Considered Options</h2>
+<h2 id="opcoes-consideradas">Opções Consideradas</h2>
 <ul>
-<li>Run CI pipelines in native environment</li>
-<li>Run CI pipelines in the dev container via building image locally</li>
-<li>Run CI pipelines in the dev container with a container registry</li>
+<li>Executar os pipelines de CI em ambiente nativo.</li>
+<li>Executar os pipelines de CI no contêiner de desenvolvimento construindo a imagem localmente.</li>
+<li>Executar os pipelines de CI no contêiner de desenvolvimento com um registro de contêiner.</li>
 </ul>
-<p>Here are below pros and cons for both approaches:</p>
-<h3 id="run-ci-pipelines-in-native-environment">Run CI pipelines in native environment</h3>
+<p>Aqui estão os prós e contras de ambas as abordagens:</p>
+<h3 id="executar-os-pipelines-de-ci-em-ambiente-nativo">Executar os pipelines de CI em ambiente nativo</h3>
 <table>
 <thead>
 <tr>
-<th>Pros</th>
-<th>Cons</th>
+<th>Prós</th>
+<th>Contras</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Can use any pipeline tasks available</td>
-<td>Need to keep two sets of tooling and their versions in sync</td>
+<td>Pode usar qualquer tarefa de pipeline disponível</td>
+<td>É necessário manter duas conjuntos de ferramentas e suas versões sincronizadas</td>
 </tr>
 <tr>
-<td>No container registry</td>
-<td>Can take some time to start, based on tools/dependencies required</td>
+<td>Sem registro de contêiner</td>
+<td>Pode levar algum tempo para iniciar, dependendo das ferramentas/dependências necessárias</td>
 </tr>
 <tr>
-<td>Agent will always be up to date with security patches</td>
-<td>The dev container should always be built within each run of the CI pipeline, to verify the changes within the branch haven't broken anything</td>
+<td>O agente estará sempre atualizado com correções de segurança</td>
+<td>O contêiner de desenvolvimento deve ser sempre construído a cada execução do pipeline de CI, para verificar se as alterações na branch não quebraram nada</td>
 </tr>
 </tbody>
 </table>
-<h3 id="run-ci-pipelines-in-the-dev-container-without-image-caching">Run CI pipelines in the dev container without image caching</h3>
+<h3 id="executar-os-pipelines-de-ci-no-conteiner-de-desenvolvimento-sem-cache-de-imagem">Executar os pipelines de CI no contêiner de desenvolvimento sem cache de imagem</h3>
 <table>
 <thead>
 <tr>
-<th>Pros</th>
-<th>Cons</th>
+<th>Prós</th>
+<th>Contras</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Utilities scripts will work out of the box</td>
-<td>Need to rebuild the container for each run, given that there may be changes within the branch being built</td>
+<td>Os scripts de utilidade funcionarão imediatamente</td>
+<td>É necessário reconstruir o contêiner a cada execução, dado que pode haver alterações na branch em construção</td>
 </tr>
 <tr>
-<td>Rules used (for linting or unit tests) will be the same on the CI</td>
-<td>Not everything in the container is needed for the CI pipeline&#185;</td>
+<td>As regras usadas (para linting ou testes unitários) serão as mesmas no CI</td>
+<td>Nem tudo no contêiner é necessário para o pipeline de CI&#185;</td>
 </tr>
 <tr>
-<td>No surprise for the developers, local outputs (of linting for instance) will be the same in the CI</td>
-<td>Some pipeline tasks will not be available</td>
+<td>Sem surpresas para os desenvolvedores, as saídas locais (por exemplo, de linting) serão iguais no CI</td>
+<td>Algumas tarefas de pipeline não estarão disponíveis</td>
 </tr>
 <tr>
-<td>All tooling and their versions defined in a single place</td>
-<td>Building the image for each pipeline run is slow&#178;</td>
+<td>Todas as ferramentas e suas versões definidas em um único lugar</td>
+<td>A construção da imagem para cada execução de pipeline é lenta&#178;</td>
 </tr>
 <tr>
-<td>Tools/dependencies are already present</td>
+<td>Ferramentas/dependências já estão presentes</td>
 <td></td>
 </tr>
 <tr>
-<td>The dev container is being tested to include all new tooling in addition to not being broken</td>
+<td>O contêiner de desenvolvimento está sendo testado para incluir todas as novas ferramentas, além de não estar quebrado</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <blockquote>
-<p>&#185;: container size can be reduces by exporting the layer that contains only the tooling needed for the CI pipeline</p>
-<p>&#178;: could be mitigated via adding image caching without using a container registry</p>
+<p>&#185;: o tamanho do contêiner pode ser reduzido exportando a camada que contém apenas as ferramentas necessárias para o pipeline de CI.</p>
+<p>&#178;: poderia ser mitigado adicionando o cache de imagem sem usar um registro de contêiner.</p>
 </blockquote>
-<h3 id="run-ci-pipelines-in-the-dev-container-with-image-registry">Run CI pipelines in the dev container with image registry</h3>
+<h3 id="executar-os-pipelines-de-ci-no-conteiner-de-desenvolvimento-com-registro-de-imagem">Executar os pipelines de CI no contêiner de desenvolvimento com registro de imagem</h3>
 <table>
 <thead>
 <tr>
-<th>Pros</th>
-<th>Cons</th>
+<th>Prós</th>
+<th>Contras</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Utilities scripts will work out of the box</td>
-<td>Need to rebuild the container for each run, given that there may be changes within the branch being built</td>
+<td>Os scripts de utilidade funcionarão imediatamente</td>
+<td>É necessário reconstruir o contêiner a cada execução, dado que pode haver alterações na branch em construção</td>
 </tr>
 <tr>
-<td>No surprise for the developers, local outputs (of linting for instance) will be the same in the CI</td>
-<td>Not everything in the container is needed for the CI pipeline&#185;</td>
+<td>Sem surpresas para os desenvolvedores, as saídas locais (por exemplo, de linting) serão iguais no CI</td>
+<td>Nem tudo no contêiner é necessário para o pipeline de CI&#185;</td>
 </tr>
 <tr>
-<td>Rules used (for linting or unit tests) will be the same on the CI</td>
-<td>Some pipeline tasks will not be available   &#178;</td>
+<td>As regras usadas (para linting ou testes unitários) serão as mesmas no CI</td>
+<td>Algumas tarefas de pipeline não estarão disponíveis   &#178;</td>
 </tr>
 <tr>
-<td>All tooling and their versions defined in a single place</td>
-<td>Require access to a container registry to host the container within the pipeline&#179;</td>
+<td>Todas as ferramentas e suas versões definidas em um único lugar</td>
+<td>Exige acesso a um registro de contêiner para hospedar o contêiner no pipeline&#179;</td>
 </tr>
 <tr>
-<td>Tools/dependencies are already present</td>
+<td>Ferramentas/dependências já estão presentes</td>
 <td></td>
 </tr>
 <tr>
-<td>The dev container is being tested to include all new tooling in addition to not being broken</td>
+<td>O contêiner de desenvolvimento está sendo testado para incluir todas as novas ferramentas, além de não estar quebrado</td>
 <td></td>
 </tr>
 <tr>
-<td>Publishing the container built from <code>devcontainer.json</code> allows you to reference it in the cacheFrom in <code>devcontainer.json</code> (see <a href="https://containers.dev/implementors/json_reference/#image-specific">docs</a>). By doing this, VS Code will use the published image as a layer cache when building</td>
+<td>Publicar o contêiner construído a partir do <code>devcontainer.json</code> permite referenciá-lo no <code>cacheFrom</code> em <code>devcontainer.json</code> (consulte a <a href="https://containers.dev/implementors/json_reference/#image-specific">documentação</a>). Dessa forma, o VS Code usará a imagem publicada como um cache de camada ao construir</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <blockquote>
-<p>&#185;: container size can be reduces by exporting the layer that contains only the tooling needed for the CI pipeline. This would require building the image without tasks</p>
-<p>&#178;: using container jobs in AzDO you can use all tasks (as far as I can tell). Reference: <a href="https://dev.to/eliises/dockerizing-devops-v2-azdo-container-jobs-3hbf">Dockerizing DevOps V2 - AzDO container jobs - DEV Community</a></p>
-<p>&#179;: within GH actions, the default Github Actions token can be used for accessing GHCR without setting up separate registry, see the example below.
-<strong>NOTE:</strong> This does not build the <code>Dockerfile</code> together with the <code>devcontainer.json</code></p>
+<p>&#185;: o tamanho do contêiner pode ser reduzido exportando a camada que contém apenas as ferramentas necessárias para o pipeline de CI. Isso exigiria construir a imagem sem tarefas.</p>
+<p>&#178;: usando jobs de contêiner no AzDO, você pode usar todas as tarefas (pelo que pude perceber). Referência: <a href="https://dev.to/eliises/dockerizing-devops-v2-azdo-container-jobs-3hbf">Dockerizing DevOps V2 - AzDO container jobs - DEV Community</a></p>
+<p>&#179;: nas ações do GitHub, o token padrão das Ações do GitHub pode ser usado para acessar o GHCR sem configurar um registro separado. Veja o exemplo abaixo.
+<strong>NOTA:</strong> Isso não compila o <code>Dockerfile</code> junto com o <code>devcontainer.json</code></p>
 </blockquote>
-<div class="highlight"><pre><span></span><code><span class="err">   </span><span class="w"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">whoan/docker-build-with-cache-action@v5</span>
-<span class="err">       </span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cache</span>
-<span class="err">       </span><span class="w"> </span><span class="nt">with</span><span class="p">:</span>
-<span class="err">         </span><span class="w"> </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$GITHUB_ACTOR</span>
-<span class="err">         </span><span class="w"> </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${{</span><span class="nv"> </span><span class="s">secrets.GITHUB_TOKEN</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<span class="err">         </span><span class="w"> </span><span class="nt">registry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker.pkg.github.com</span>
-<span class="err">         </span><span class="w"> </span><span class="nt">image_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">devcontainer</span>
-<span class="err">         </span><span class="w"> </span><span class="nt">dockerfile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.devcontainer/Dockerfile</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">whoan/docker-build-with-cache-action@v5</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cache</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">with</span><span class="p p-Indicator">:</span>
+<span class="w">          </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$GITHUB_ACTOR</span>
+<span class="w">          </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${{</span><span class="nv"> </span><span class="s">secrets.GITHUB_TOKEN</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">          </span><span class="nt">registry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker.pkg.github.com</span>
+<span class="w">          </span><span class="nt">image_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">devcontainer</span>
+<span class="w">          </span><span class="nt">dockerfile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.devcontainer/Dockerfile</span>
 </code></pre></div>
 
   <hr>
@@ -7330,7 +7330,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 18, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
       
     
   </small>

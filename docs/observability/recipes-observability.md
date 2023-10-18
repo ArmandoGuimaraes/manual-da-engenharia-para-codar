@@ -1,41 +1,41 @@
-# Recipes
+# Receitas
 
 ## Application Insights/ASP.NET
 
-[GitHub Repo](https://github.com/Azure-Samples/application-insights-aspnet-sample-opentelemetry), [Article](https://devblogs.microsoft.com/aspnet/observability-asp-net-core-apps/).
+[Repositório GitHub](https://github.com/Azure-Samples/application-insights-aspnet-sample-opentelemetry), [Artigo](https://devblogs.microsoft.com/aspnet/observability-asp-net-core-apps/).
 
-## Application Insights/ASP.NET Core with distributed Trace Context propagation to Kafka
+## Application Insights/ASP.NET Core com propagação de contexto de rastreamento distribuído para o Kafka
 
-[GitHub Repo](https://github.com/MagdaPaj/application-insights-aspnet-sample-trace-context-propagation).
+[Repositório GitHub](https://github.com/MagdaPaj/application-insights-aspnet-sample-trace-context-propagation).
 
-## Example: OpenTelemetry over a message oriented architecture in Java with Jaeger, Prometheus and Azure Monitor
+## Exemplo: OpenTelemetry em uma arquitetura orientada a mensagens em Java com Jaeger, Prometheus e Azure Monitor
 
-[GitHub Repo](https://github.com/iamnicoj/OpenTelemetry-Async-Java-with-Jaeger-Prometheus-AzMonitor)
+[Repositório GitHub](https://github.com/iamnicoj/OpenTelemetry-Async-Java-with-Jaeger-Prometheus-AzMonitor)
 
-## Example: Setup Azure Monitor dashboards and alerts with Terraform
+## Exemplo: Configurar painéis e alertas do Azure Monitor com o Terraform
 
-[GitHub Repo](https://github.com/buzzfrog/azure-alert-dashboard-terraform)
+[Repositório GitHub](https://github.com/buzzfrog/azure-alert-dashboard-terraform)
 
-## On-premises Application Insights
+## Application Insights em Ambientes Locais
 
-[On-premise Application Insights](https://github.com/c-w/appinsights-on-premises) is a service that is compatible with Azure App Insights, but stores the data in an in-house database like PostgreSQL or object storage like [Azurite](https://github.com/Azure/Azurite).
+[Application Insights em Ambientes Locais](https://github.com/c-w/appinsights-on-premises) é um serviço compatível com o Azure App Insights, mas armazena os dados em um banco de dados interno, como o PostgreSQL ou um armazenamento de objetos, como o [Azurite](https://github.com/Azure/Azurite).
 
-On-premises Application Insights is useful as a drop-in replacement for Azure Application Insights in scenarios where a solution must be cloud deployable but must also support on-premises disconnected deployment scenarios.
+O Application Insights em Ambientes Locais é útil como uma substituição direta do Azure Application Insights em cenários em que uma solução deve ser implantável na nuvem, mas também deve oferecer suporte a cenários de implantação desconectada em ambientes locais.
 
-On-premises Application Insights is also useful for testing telemetry integration. Issues related to telemetry can be hard to catch since often these integrations are excluded from unit-test or integration test flows due to it being non-trivial to use a live Azure Application Insights resource for testing, e.g. managing the lifetime of the resource, having to ignore old telemetry for assertions, if a new resource is used it can take a while for the telemetry to show up, etc. The On-premise Application Insights service can be used to make it easier to integrate with an Azure Application Insights compatible API endpoint during local development or continuous integration without having to spin up a resource in Azure. Additionally, the service simplifies integration testing of asynchronous workflows such as web workers since integration tests can now be written to assert against telemetry logged to the service, e.g. assert that no exceptions were logged, assert that some number of events of a specific type were logged within a certain time-frame, etc.
+O Application Insights em Ambientes Locais também é útil para testar a integração de telemetria. Problemas relacionados à telemetria podem ser difíceis de identificar, pois muitas vezes essas integrações são excluídas dos fluxos de teste de unidade ou teste de integração, pois não é trivial usar um recurso Azure Application Insights ao vivo para testes, por exemplo, gerenciar a vida útil do recurso, ter que ignorar telemetria antiga para asserções, se um novo recurso for usado, pode levar um tempo para que a telemetria apareça, etc. O serviço Application Insights em Ambientes Locais pode ser usado para facilitar a integração com um ponto de API compatível com Azure Application Insights durante o desenvolvimento local ou integração contínua, sem a necessidade de criar um recurso no Azure. Além disso, o serviço simplifica os testes de integração de fluxos de trabalho assíncronos, como trabalhadores da web, pois os testes de integração agora podem ser escritos para asserções em relação à telemetria registrada no serviço, por exemplo, assegurar que nenhuma exceção foi registrada, assegurar que algum número de eventos de um tipo específico foi registrados dentro de um determinado intervalo de tempo, etc.
 
-## Azure DevOps Pipelines Reporting with Power BI
+## Relatórios de Pipelines do Azure DevOps com o Power BI
 
-The [Azure DevOps Pipelines Report](https://github.com/Azure-Samples/powerbi-pipeline-report) contains a [Power BI](https://learn.microsoft.com/en-us/power-bi/fundamentals/power-bi-overview) template for monitoring project, pipeline, and pipeline run data from an Azure DevOps (AzDO) organization.
+O [Relatório de Pipelines do Azure DevOps](https://github.com/Azure-Samples/powerbi-pipeline-report) contém um modelo do [Power BI](https://learn.microsoft.com/pt-br/power-bi/fundamentals/power-bi-overview) para monitorar dados de projetos, pipelines e execuções de pipeline de uma organização do Azure DevOps (AzDO).
 
-This dashboard recipe provides observability for AzDO pipelines by displaying various metrics (i.e. average runtime, run outcome statistics, etc.) in a table. Additionally, the second page of the template visualizes pipeline success and failure trends using Power BI charts. Documentation and setup information can be found in the project README.
+Este modelo de painel fornece observabilidade para pipelines do AzDO, exibindo várias métricas (ou seja, tempo médio de execução, estatísticas de resultado de execução, etc.) em uma tabela. Além disso, a segunda página do modelo visualiza as tendências de sucesso e falha do pipeline usando gráficos do Power BI. A documentação e as informações de configuração podem ser encontradas no README do projeto.
 
-## Python Logger class for Application Insights using OpenCensus
+## Classe Logger Python para Application Insights usando OpenCensus
 
-This repository contains "AppLogger" class which is a python logger class for Application Insights using Opencensus. It also contains sample code that shows the usage of "AppLogger".
+Este repositório contém a classe "AppLogger", que é uma classe de logger Python para o Application Insights usando o OpenCensus. Ele também contém código de exemplo que mostra o uso do "AppLogger".
 
-[GitHub Repo](https://github.com/Azure-Samples/azure-monitor-opencensus-python/tree/master/azure_monitor/python_logger_opencensus_azure)
+[Repositório GitHub](https://github.com/Azure-Samples/azure-monitor-opencensus-python/tree/master/azure_monitor/python_logger_opencensus_azure)
 
-## Java OpenTelemetry Examples
+## Exemplos de OpenTelemetry em Java
 
-This [GitHub Repo](https://github.com/open-telemetry/opentelemetry-java-docs) contains a set of fully-functional, working examples of using the OpenTelemetry Java APIs and SDK.
+Este [Repositório GitHub](https://github.com/open-telemetry/opentelemetry-java-docs) contém um conjunto de exemplos totalmente funcionais do uso das APIs e SDKs do OpenTelemetry Java.

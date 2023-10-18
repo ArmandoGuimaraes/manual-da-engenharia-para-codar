@@ -1,37 +1,37 @@
-# Credential Scanning
+# Verificação de Credenciais
 
-Credential scanning is the practice of automatically inspecting a project to ensure that no secrets are included in the project's source code. Secrets include database passwords, storage connection strings, admin logins, service principals, etc.
+A verificação de credenciais é a prática de inspecionar automaticamente um projeto para garantir que não haja segredos incluídos no código-fonte do projeto. Segredos incluem senhas de banco de dados, strings de conexão de armazenamento, logins de administrador, princípios de serviço, etc.
 
-## Why Credential scanning
+## Por que a Verificação de Credenciais
 
-Including secrets in a project's source code is a significant risk, as it might make those secrets available to unwanted parties. Even if it seems that the source code is accessible to the same people who are privy to the secrets, this situation is likely to change as the project grows. Spreading secrets in different places makes them harder to manage, access control, and revoke efficiently. Secrets that are committed to source control are also harder to discard of, since they will persist in the source's history.  
-Another consideration is that coupling the project's code to its infrastructure and deployment specifics is limiting and considered a bad practice. From a software design perspective, the code should be independent of the runtime configuration that will be used to run it, and that runtime configuration includes secrets.
- As such, there should be a clear boundary between code and secrets: secrets should be managed outside of the source code (read more [here](../../../continuous-delivery/secrets-management/README.md)) and credential scanning should be employed to ensure that this boundary is never violated.
+Incluir segredos no código-fonte de um projeto é um risco significativo, pois pode tornar esses segredos disponíveis para partes indesejadas. Mesmo que pareça que o código-fonte seja acessível às mesmas pessoas que têm acesso aos segredos, essa situação provavelmente mudará à medida que o projeto crescer. Espalhar segredos em diferentes lugares torna mais difícil gerenciá-los, controlar o acesso e revogá-los de forma eficiente. Segredos que são confirmados no controle de origem também são mais difíceis de descartar, pois persistirão no histórico do código-fonte.  
+Outra consideração é que acoplar o código do projeto à sua infraestrutura e detalhes de implantação é limitante e considerado uma má prática. Do ponto de vista do design de software, o código deve ser independente da configuração de tempo de execução que será usada para executá-lo, e essa configuração de tempo de execução inclui segredos.
+Portanto, deve haver um limite claro entre o código e os segredos: os segredos devem ser gerenciados fora do código-fonte (leia mais [aqui](../../../continuous-delivery/secrets-management/README.md)) e a verificação de credenciais deve ser empregada para garantir que esse limite nunca seja violado.
 
-## Applying Credential Scanning
+## Aplicando a Verificação de Credenciais
 
-Ideally, credential scanning should be run as part of a developer's workflow (e.g. via a [git pre-commit hook](https://pre-commit.com/)), however, to protect against developer error, credential scanning must also be enforced as part of the continuous integration process to ensure that no credentials ever get merged to a project's main branch.
-To implement credential scanning for a project, consider the  following:
+Idealmente, a verificação de credenciais deve ser executada como parte do fluxo de trabalho de um desenvolvedor (por exemplo, por meio de um [hook git pré-commit](https://pre-commit.com/)), no entanto, para proteger contra erros de desenvolvedor, a verificação de credenciais também deve ser aplicada como parte do processo de integração contínua para garantir que nunca haja comprometimento de credenciais em um ramo principal de um projeto.
+Para implementar a verificação de credenciais em um projeto, considere o seguinte:
 
-1. Store secrets in an external secure store that is meant to store sensitive information
-1. Use secrets scanning tools to asses your repositories current state by scanning it's full history for secrets
-1. Incorporate an automated secrets scanning tool into your CI pipeline to detect unintentional committing of secrets
-1. Avoid `git add .` commands on git
-1. Add sensitive files to .gitignore
+1. Armazene segredos em um repositório externo seguro destinado a armazenar informações sensíveis.
+1. Use ferramentas de verificação de segredos para avaliar o estado atual de seus repositórios, escaneando todo o histórico em busca de segredos.
+1. Incorpore uma ferramenta automatizada de verificação de segredos em seu pipeline de CI para detectar a confirmação não intencional de segredos.
+1. Evite comandos `git add .` no git.
+1. Adicione arquivos sensíveis ao arquivo .gitignore.
 
-## Credential Scanning Frameworks and Tools
+## Estruturas e Ferramentas de Verificação de Credenciais
 
-Recipes and Scenarios-
+Receitas e Cenários -
 
-1. [detect-secrets](./recipes/detect-secrets.md) is an aptly named module for detecting secrets within a code base.
-1. Use [detect-secrets inside Azure DevOps Pipeline](./recipes/detect-secrets-ado.md)
-1. [Microsoft Security Code Analysis extension](https://learn.microsoft.com/en-us/azure/security/develop/security-code-analysis-overview)
+1. [detect-secrets](./recipes/detect-secrets.md) é um módulo apropriadamente nomeado para detectar segredos dentro de uma base de código.
+1. Use [detect-secrets dentro do Azure DevOps Pipeline](./recipes/detect-secrets-ado.md).
+1. [Extensão de Análise de Código de Segurança da Microsoft](https://learn.microsoft.com/en-us/azure/security/develop/security-code-analysis-overview).
 
-Additional Tools -
+Ferramentas Adicionais -
 
-1. [CodeQL](https://securitylab.github.com/tools/codeql)  – GitHub security. CodeQL lets you query code as if it was data. Write a query to find all variants of a vulnerability
-1. [Git-secrets](https://github.com/awslabs/git-secrets)  - Prevents you from committing passwords and other sensitive information to a git repository.
+1. [CodeQL](https://securitylab.github.com/tools/codeql) - Segurança do GitHub. O CodeQL permite consultar o código como se fosse dados. Escreva uma consulta para encontrar todas as variantes de uma vulnerabilidade.
+1. [Git-secrets](https://github.com/awslabs/git-secrets) - Impede que você confirme senhas e outras informações confidenciais em um repositório git.
 
-## Conclusion
+## Conclusão
 
-Secret management is essential to every project. Storing secrets in external secrets store and incorporating this mindset into your workflow will improve your security posture and will result in cleaner code.
+A gestão de segredos é essencial para todos os projetos. Armazenar segredos em um repositório externo de segredos e incorporar essa mentalidade em seu fluxo de trabalho melhorará sua postura de segurança e resultará em código mais limpo.

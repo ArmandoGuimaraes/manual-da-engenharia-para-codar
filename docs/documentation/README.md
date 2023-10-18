@@ -52,35 +52,35 @@ Ao trabalhar em um projeto de engenharia, geralmente nos deparamos com um ou mai
 
 ## Que documentação deve existir
 
-- [Projeto e Repositórios](./orientacao/projeto-e-repositorios.md)
-- [Mensagens de Commit](../controle-de-fonte/git-orientacao/README.md#melhores-praticas-de-commit)
-- [Pull Requests](./orientacao/pull-requests.md)
-- [Código](./orientacao/codigo.md)
-- [Itens de Trabalho](./orientacao/itens-de-trabalho.md)
-- [APIs REST](./orientacao/apis-rest.md)
-- [Feedback de Engenharia](./orientacao/feedback-de-engenharia.md)
+- [Projeto e Repositórios](./guidance/project-and-repositories.md)
+- [Mensagens de Commit](./guidance/project-and-repositories.md)
+- [Pull Requests](./guidance/pull-requests.md)
+- [Código](./guidance/code.md)
+- [Itens de Trabalho](./guidance/work-items.md)
+- [APIs REST](./guidance/rest-apis.md)
+- [Feedback de Engenharia](./guidance/engineering-feedback.md)
 
 ## Melhores práticas
 
-- [Estabelecendo e gerenciando documentação](./melhores-praticas/estabelecer-e-gerenciar.md)
-- [Criando boa documentação](./melhores-praticas/boa-documentacao.md)
-- [Substituindo documentação por automação](./melhores-praticas/automacao.md)
+- [Estabelecendo e gerenciando documentação](./best-practices/establish-and-manage.md)
+- [Criando boa documentação](./best-practices/good-documentation.md)
+- [Substituindo documentação por automação](./best-practices/automation.md)
 
 ## Ferramentas
 
-- [Wikis](./ferramentas/wikis.md)
-- [Linguagens](./ferramentas/linguagens.md)
-  - [markdown](./ferramentas/linguagens.md#markdown)
-  - [mermaid](./ferramentas/linguagens.md#mermaid)
-- [Como automatizar verificações simples](./ferramentas/automacao.md)
-- [Integração com Teams/Slack](./ferramentas/integracoes.md)
+- [Wikis](./tools/wikis.md)
+- [Linguagens](./tools/languages.md)
+  - [markdown](./tools/languages.md#markdown)
+  - [mermaid](./tools/languages.md#mermaid)
+- [Como automatizar verificações simples](./tools/automation.md)
+- [Integração com Teams/Slack](./tools/integrations.md)
 
 ## Receitas
 
-- [Como sincronizar uma wiki entre repositórios](./receitas/sincronizar-wiki-entre-repositorios.md)
-- [Usando DocFx e Ferramentas Complementares para gerar um site de Documentação](./receitas/usar-docfx-e-ferramentas.md)
-- [Implantar automaticamente o site de Documentação DocFx em um site Azure](./receitas/implantar-docfx-site-azure.md)
-- [Como criar um site estático para sua documentação com base em MkDocs e Material for MkDocs](./receitas/site-estatico-com-mkdocs.md)
+- [Como sincronizar uma wiki entre repositórios](./recipes/sync-wiki-between-repos.md)
+- [Usando DocFx e Ferramentas Complementares para gerar um site de Documentação](./recipes/using-docfx-and-tools.md)
+- [Implantar automaticamente o site de Documentação DocFx em um site Azure](./recipes/deploy-docfx-azure-website.md)
+- [Como criar um site estático para sua documentação com base em MkDocs e Material for MkDocs](./recipes/static-website-with-mkdocs.md)
 
 ## Recursos
 

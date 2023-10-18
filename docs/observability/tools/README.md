@@ -1,30 +1,30 @@
-# Tools and Patterns
+# Ferramentas e Padrões
 
-There are a number of modern tools to make systems observable. While identifying and/or creating tools that work for your system, here are a few things to consider to help guide the choices.
+Existem várias ferramentas modernas para tornar sistemas observáveis. Ao identificar e/ou criar ferramentas que funcionam para o seu sistema, aqui estão algumas coisas a serem consideradas para ajudar a orientar as escolhas.
 
-- Must be simple to integrate and easy to use.
-- It must be possible to aggregate and visualize data.
-- Tools must provide real-time data.
-- Must be able to guide users to the problem area with suitable, adequate end-to-end context.
+- Deve ser simples de integrar e fácil de usar.
+- Deve ser possível agregar e visualizar dados.
+- As ferramentas devem fornecer dados em tempo real.
+- Deve ser capaz de guiar os usuários para a área do problema com um contexto adequado de ponta a ponta.
 
-## Choices
+## Escolhas
 
 - [Loki](./loki.md)
 - [OpenTelemetry](./OpenTelemetry.md)
-- [Kubernetes Dashboards](./KubernetesDashboards.md)
+- [Painéis do Kubernetes](./KubernetesDashboards.md)
 - [Prometheus](./Prometheus.md)
 
 ## Service Mesh
 
-Leveraging a Service Mesh that follows the [Sidecar Pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/sidecar) quickly sets up a go-to set of metrics, and traces (although traces need to be propagated from incoming requests to outgoing requests manually).
+Alavancar um Service Mesh que segue o [Padrão Sidecar](https://learn.microsoft.com/en-us/azure/architecture/patterns/sidecar) configura rapidamente um conjunto de métricas e traces, embora as traces precisem ser propagadas manualmente a partir das solicitações de entrada para as solicitações de saída.
 
-A sidecar works by intercepting all incoming and outgoing traffic to your image. It then adds trace headers to each request and emits a standard set of logs and metrics. These metrics are extremely powerful for observability, allowing every service, whether client-side or server-side, to leverage a unified set of metrics, including:
+Um sidecar funciona interceptando todo o tráfego de entrada e saída da sua imagem. Em seguida, ele adiciona cabeçalhos de trace a cada solicitação e emite um conjunto padrão de logs e métricas. Essas métricas são extremamente poderosas para observação, permitindo que cada serviço, seja do lado do cliente ou do lado do servidor, aproveite um conjunto unificado de métricas, incluindo:
 
-- Latency
+- Latência
 - Bytes
-- Request Rate
-- Error Rate
+- Taxa de solicitação
+- Taxa de erro
 
-In a microservice architecture, pinpointing the root cause of a spike in 500's can be non-trivial, but with the added observability from a sidecar you can quickly determine which service in your service mesh resulted in the spike in errors.
+Em uma arquitetura de microserviços, identificar a causa raiz de um aumento nas respostas com código 500 pode ser complicado, mas com a observação adicional de um sidecar, você pode rapidamente determinar qual serviço em sua malha de serviços resultou no aumento nos erros.
 
-Service Mesh's have a large surface area for configuration, and can seem like a daunting undertaking to deploy. However, most services (including Linkerd) offer a sane set of defaults, and can be deployed via the happy path to quickly land these observability wins.
+Os Service Meshes têm uma grande área de superfície para configuração e podem parecer uma empreitada assustadora para implantar. No entanto, a maioria dos serviços (incluindo o Linkerd) oferece um conjunto sensato de padrões, e pode ser implantada seguindo o caminho feliz para obter rapidamente esses benefícios de observação.

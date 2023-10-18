@@ -19,7 +19,7 @@
     
     
       
-        <title>CI Pipeline for better documentation - Manual da Engenharia para Codar</title>
+        <title>Pipeline de CI para Melhor Documentação - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ci-pipeline-for-better-documentation" class="md-skip">
+        <a href="#pipeline-de-ci-para-melhor-documentacao" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CI Pipeline for better documentation
+              Pipeline de CI para Melhor Documentação
             
           </span>
         </div>
@@ -7138,29 +7138,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    Introduction
+  <a href="#introducao" class="md-nav__link">
+    Introdução
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-pipeline" class="md-nav__link">
-    The Pipeline
+  <a href="#o-pipeline" class="md-nav__link">
+    O Pipeline
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-does-it-work" class="md-nav__link">
-    How does it work
+  <a href="#como-funciona" class="md-nav__link">
+    Como Funciona
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
+  <a href="#referencias" class="md-nav__link">
+    Referências
   </a>
   
 </li>
@@ -7179,42 +7179,40 @@
                 
 
 
-<h1 id="ci-pipeline-for-better-documentation">CI Pipeline for better documentation</h1>
-<h2 id="introduction">Introduction</h2>
-<p>Most projects start with spikes, where developers and analysts produce lots of documentation.</p>
-<p>Sometimes, these documents don't have a standard and each team member writes them accordingly with their preference. Add to that
-the time a reviewer will spend confirming grammar, searching for typos or non-inclusive language.</p>
-<p>This pipeline helps address that!</p>
-<h2 id="the-pipeline">The Pipeline</h2>
-<p>The pipeline uses the following <code>npm</code> modules:</p>
+<h1 id="pipeline-de-ci-para-melhor-documentacao">Pipeline de CI para Melhor Documentação</h1>
+<h2 id="introducao">Introdução</h2>
+<p>A maioria dos projetos começa com experimentações, onde desenvolvedores e analistas produzem muita documentação.</p>
+<p>Às vezes, esses documentos não seguem um padrão e cada membro da equipe os escreve de acordo com suas preferências. Acrescente a isso
+o tempo que um revisor gasta verificando gramática, procurando por erros ortográficos ou linguagem não inclusiva.</p>
+<p>Este pipeline ajuda a resolver esse problema!</p>
+<h2 id="o-pipeline">O Pipeline</h2>
+<p>O pipeline utiliza os seguintes módulos <code>npm</code>:</p>
 <ul>
-<li><a href="https://github.com/DavidAnson/markdownlint">markdownlint</a>: add standardization using <a href="https://github.com/DavidAnson/markdownlint#rules--aliases">rules</a></li>
-<li><a href="https://github.com/tcort/markdown-link-check">markdown-link-check</a>: check the links in the documentation and report broken
-ones</li>
-<li><a href="https://github.com/btford/write-good">write-good</a>: linter for English prose</li>
+<li><a href="https://github.com/DavidAnson/markdownlint">markdownlint</a>: adiciona padronização usando <a href="https://github.com/DavidAnson/markdownlint#rules--aliases">regras</a></li>
+<li><a href="https://github.com/tcort/markdown-link-check">markdown-link-check</a>: verifica os links na documentação e relata os quebrados</li>
+<li><a href="https://github.com/btford/write-good">write-good</a>: linter para prosa em inglês</li>
 </ul>
-<p>We have been using this pipeline for more than one year in different engagements and always received great feedback from the
-customers!</p>
-<h2 id="how-does-it-work">How does it work</h2>
-<p>To start using this pipeline:</p>
+<p>Utilizamos este pipeline por mais de um ano em diferentes projetos e sempre recebemos ótimos feedbacks dos clientes!</p>
+<h2 id="como-funciona">Como Funciona</h2>
+<p>Para começar a usar este pipeline:</p>
 <ol>
-<li>Download the files from <a href="https://github.com/squassina/doc-pipeline/tree/main/repo-root">this repository</a></li>
-<li>Unzip the folders and files to your repository root if the repository is empty
-    - if it's not brand new, copy the files and make the required adjustments:
-        - check <code>.azdo</code> so it matches your repository standard
-        - check <code>package.json</code> so you don't overwrite one you already have in the process. Also update the file if you changed
-          the name of the <code>.azdo</code> folder.</li>
-<li>Create the pipeline in Azure DevOps or GitHub</li>
+<li>Baixe os arquivos deste <a href="https://github.com/squassina/doc-pipeline/tree/main/repo-root">repositório</a></li>
+<li>Descompacte as pastas e arquivos na raiz do seu repositório, se o repositório estiver vazio
+    - se não for totalmente novo, copie os arquivos e faça os ajustes necessários:
+        - verifique o <code>.azdo</code> para que ele corresponda ao padrão do seu repositório
+        - verifique o <code>package.json</code> para não sobrescrever um que você já tenha no processo. Atualize o arquivo se você alterou
+          o nome da pasta <code>.azdo</code>.</li>
+<li>Crie o pipeline no Azure DevOps ou GitHub</li>
 </ol>
-<h2 id="references">References</h2>
-<p><a href="https://microsoft.github.io/code-with-engineering-playbook/code-reviews/recipes/markdown/#code-review-checklist">Markdown Code Reviews in the Code With Engineering Playbook</a></p>
+<h2 id="referencias">Referências</h2>
+<p><a href="https://microsoft.github.io/code-with-engineering-playbook/code-reviews/recipes/markdown/#code-review-checklist">Revisões de Código em Markdown no Code With Engineering Playbook</a></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2021</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
       
     
   </small>

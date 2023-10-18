@@ -65,9 +65,7 @@ Dependendo da ferramenta utilizada, o versionamento automático pode ser realiza
 
 ## Recursos
 
-- [Wikipedia](https://en.wikipedia.org/wiki
-
-/Component_diagram)
+- [Wikipedia](https://en.wikipedia.org/wiki/Component_diagram)
 - [Visual Paradigm](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-component-diagram/#:~:text=UML%20Component%20diagrams%20are%20used%20in%20modeling%20the,model%20the%20static%20implementation%20view%20of%20a%20system.)
 - Plugins para o VS Code:
   - [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) - requer um gerador de código para a sintaxe PlantUML para gerar diagramas

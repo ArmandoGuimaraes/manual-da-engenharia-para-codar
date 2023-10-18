@@ -1,37 +1,37 @@
-# Recommended Technologies
+# Tecnologias Recomendadas
 
-The purpose of this page is to review the commonly selected technology options when developing user interface applications. To reiterate from the general guidance section:
+O objetivo desta página é revisar as opções de tecnologia comumente selecionadas ao desenvolver aplicações de interface do usuário. Para reiterar a partir da seção de orientação geral:
 
-> Keep in mind that like all software, there is no "right way" to build a user interface application. Leverage and trust your team's or your customer's experience and expertise for the best development experience.
+> Lembre-se de que, como todo software, não existe uma "maneira certa" de construir uma aplicação de interface do usuário. Aproveite e confie na experiência e expertise de sua equipe ou do seu cliente para obter a melhor experiência de desenvolvimento.
 
-Additionally, while some of these technologies are presented as alternate options, many can be combined together. For example, you can use React in a basic HTML/CSS/JS workflow by inline-importing React along with Babel. See the [Add React to a Website](https://reactjs.org/docs/add-react-to-a-website.html) for more details. Similarly, any [Fast](https://www.fast.design/) web component can be [integrated into any existing React application](https://www.fast.design/docs/integrations/react). And of course, every JavaScript technology can also be used with TypeScript!
+Além disso, enquanto algumas dessas tecnologias são apresentadas como opções alternativas, muitas delas podem ser combinadas. Por exemplo, você pode usar o React em um fluxo de trabalho básico de HTML/CSS/JS incorporando o React junto com o Babel. Consulte [Adicionar React a um Site](https://reactjs.org/docs/add-react-to-a-website.html) para obter mais detalhes. Da mesma forma, qualquer componente da web [Fast](https://www.fast.design/) pode ser [integrado a qualquer aplicação React existente](https://www.fast.design/docs/integrations/react). E, é claro, todas as tecnologias JavaScript também podem ser usadas com TypeScript!
 
 ## TypeScript
 
-> TypeScript is JavaScript with syntax for types. TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.
+> TypeScript é JavaScript com sintaxe para tipos. O TypeScript é uma linguagem de programação fortemente tipada que se baseia no JavaScript, oferecendo melhores ferramentas em qualquer escala.
 > [typescriptlang.org](https://www.typescriptlang.org/)
 
-TypeScript is highly recommended for all new web application projects. The stability it provides for teams is unmatched, and can make it easier for folks with C# backgrounds to work with web technologies.
+O TypeScript é altamente recomendado para todos os novos projetos de aplicativos web. A estabilidade que ele proporciona às equipes é incomparável e pode facilitar o trabalho das pessoas com experiência em C# com tecnologias web.
 
-There are many ways to integrate TypeScript into a web application. The easiest way to get started is by reviewing the [TypeScript Tooling in 5 Minutes](https://www.typescriptlang.org/docs/handbook/typescript-tooling-in-5-minutes.html) guide from the official TypeScript docs. The other sections on this page contain information regarding integration with TypeScript.
+Existem muitas maneiras de integrar o TypeScript em uma aplicação web. A maneira mais fácil de começar é revisar o guia [Ferramentas TypeScript em 5 minutos](https://www.typescriptlang.org/docs/handbook/typescript-tooling-in-5-minutes.html) da documentação oficial do TypeScript. As outras seções desta página contêm informações sobre integração com o TypeScript.
 
 ## React
 
-React is a framework developed and maintained by Facebook. React is used throughout Microsoft and has a vast open source community.
+O React é um framework desenvolvido e mantido pelo Facebook. O React é usado em toda a Microsoft e tem uma vasta comunidade de código aberto.
 
-### Documentation & Recommended Resources
+### Documentação e Recursos Recomendados
 
-One can expect to find a multitude of guides, answers, and posts on how to work with React; don't take everything at face value. The best place to review React concepts is the React documentation. From there, you can review articles from various sources such as [React Community Articles](https://reactjs.org/community/articles.html), [Kent C Dodd's Blog](https://kentcdodds.com/blog?q=react), [CSS Tricks Articles](https://css-tricks.com/?s=react), and [Awesome React](https://github.com/enaqx/awesome-react).
+Você pode encontrar uma infinidade de guias, respostas e postagens sobre como trabalhar com o React; no entanto, não aceite tudo de maneira acrítica. O melhor lugar para revisar os conceitos do React é a documentação do React. A partir daí, você pode revisar artigos de várias fontes, como [Artigos da Comunidade React](https://reactjs.org/community/articles.html), [Blog do Kent C Dodd](https://kentcdodds.com/blog?q=react), [Artigos do CSS Tricks](https://css-tricks.com/?s=react) e [Awesome React](https://github.com/enaqx/awesome-react).
 
-The React API has changed dramatically over time. Older resources may contain solutions or patterns that have since been changed and improved upon. Modern React development uses the [React Hooks](https://reactjs.org/docs/hooks-intro.html) pattern. Rarely will you have to implement something using [React Class](https://reactjs.org/docs/react-component.html) pattern. If you're reading an article/answer/docs that instruct you to use the class pattern you may be looking at an out-of-date resource.
+A API do React mudou dramaticamente ao longo do tempo. Recursos mais antigos podem conter soluções ou padrões que foram desde então alterados e melhorados. O desenvolvimento moderno do React utiliza o padrão [React Hooks](https://reactjs.org/docs/hooks-intro.html). Raramente será necessário implementar algo usando o padrão [React Class](https://reactjs.org/docs/react-component.html). Se você estiver lendo um artigo/resposta/documentação que instrui a usar o padrão de classe, pode estar olhando para um recurso desatualizado.
 
-### Bootstrapping
+### Inicialização
 
-There are many different ways to bootstrap a React application. Two great tool sets to use are [create-react-app](https://create-react-app.dev/) and [vite](https://vitejs.dev/guide).
+Existem muitas maneiras diferentes de inicializar um aplicativo React. Duas ótimas ferramentas para usar são [create-react-app](https://create-react-app.dev/) e [vite](https://vitejs.dev/guide).
 
 #### create-react-app
 
-From [Adding TypeScript](https://create-react-app.dev/docs/adding-typescript/)
+A partir de [Adicionar TypeScript](https://create-react-app.dev/docs/adding-typescript/)
 
 ```sh
 npx create-react-app my-app --template typescript
@@ -39,7 +39,7 @@ npx create-react-app my-app --template typescript
 
 #### Vite
 
-From [Scaffolding your First Vite Project](https://vitejs.dev/guide/#scaffolding-your-first-vite-project)
+A partir de [Scaffold do seu Primeiro Projeto Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project)
 
 ```sh
 # npm 6.x
@@ -51,8 +51,8 @@ npm init vite@latest my-app -- --template react-ts
 
 ## HTML/CSS/JS
 
-> Coming soon!
+> Em breve!
 
-## Web Components
+## Componentes Web
 
-> Coming soon!
+> Em breve!

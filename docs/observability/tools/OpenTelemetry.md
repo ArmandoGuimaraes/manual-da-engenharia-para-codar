@@ -1,40 +1,42 @@
 # Open Telemetry
 
-Building observable systems enable one to measure how well or bad the application is behaving and WHY it is behaving either way. Adopting open-source standards related to implementing telemetry and tracing features built on top of the OpenTelemetry framework helps decouple vendor-specific implementations while maintaining an extensible, standard, and portable open-source solution.
+Construir sistemas observáveis permite medir o quão bem ou mal a aplicação está se comportando e POR QUE ela está se comportando de determinada maneira. A adoção de padrões de código aberto relacionados à implementação de recursos de telemetria e rastreamento, construídos com base no framework OpenTelemetry, ajuda a desacoplar as implementações específicas do fornecedor, mantendo uma solução de código aberto extensível, padrão e portátil.
 
-OpenTelemetry is an open-source observability standard that defines how to generate, collect and describe telemetry in distributed systems. OpenTelemetry also provides a single-point distribution of a set of APIs, SDKs, and instrumentation libraries that implements the open-source standard, which can collect, process, and orchestrate telemetry data (signals) like traces, metrics, and logs. It supports multiple popular languages (Java, .NET, Python, JavaScript, Golang, Erlang, etc.). Open telemetry follows a vendor-agnostic and standards-based approach for collecting and managing telemetry data. An important point to note is that OpenTelemetry does not have its own backend; all telemetry collected by OpenTelemetry Collector must be sent to a backend like Prometheus, Jaeger, Zipkin, Azure Monitor, etc. Open telemetry is also the 2nd most active CNCF project only after Kubernetes.
+O OpenTelemetry é um padrão de observabilidade de código aberto que define como gerar, coletar e descrever telemetria em sistemas distribuídos. O OpenTelemetry também fornece uma distribuição única de um conjunto de APIs, SDKs e bibliotecas de instrumentação que implementam o padrão de código aberto, que pode coletar, processar e orquestrar dados de telemetria (sinais) como rastreamentos, métricas e logs. Ele oferece suporte a várias linguagens populares (Java, .NET, Python, JavaScript, Golang, Erlang, etc.). O OpenTelemetry segue uma abordagem independente de fornecedor e baseada em padrões para coletar e gerenciar dados de telemetria. Um ponto importante a ser observado é que o OpenTelemetry não possui sua própria infraestrutura; toda a telemetria coletada pelo OpenTelemetry Collector deve ser enviada para uma infraestrutura de backend como o Prometheus, Jaeger, Zipkin, Azure Monitor, etc. O OpenTelemetry é também o segundo projeto mais ativo da CNCF, atrás apenas do Kubernetes.
 
-The main two Problems OpenTelemetry solves are: First, vendor neutrality for tracing, monitoring, and logging APIs and second, out-of-the-box cross-platform context propagation implementation for end-to-end distributed tracing over heterogeneous components.
+Os principais problemas que o OpenTelemetry resolve são: primeiro, neutralidade de fornecedor para APIs de rastreamento, monitoramento e registro e, segundo, implementação de propagação de contexto multiplataforma pronta para uso para rastreamento distribuído de ponta a ponta em componentes heterogêneos.
 
-## Open Telemetry Core Concepts
+## Conceitos Principais do OpenTelemetry
 
-### Open Telemetry Implementation Patterns
+### Padrões de Implementação do OpenTelemetry
 
-![Automatic and Manual Telemetry](../images/automaticamanual.png)
+![Telemetria Automática e Manual](../images/automaticamanual.png)
 
-A detailed explanation of OpenTelemetry concepts is out of the scope of this repo. There is plenty of available information about how the SDK and the automatic instrumentation are configured and how the Exporters, Tracers, Context, and Span's hierarchy work. See the Reference section for valuable OpenTelemetry resources.
+Uma explicação detalhada dos conceitos do OpenTelemetry está fora do escopo deste repositório. Há muitas informações disponíveis sobre como configurar a instrumentação automática do SDK e como funcionam os Exportadores, Tracers, Contexto e Hierarquia de Spans. Consulte a seção de Referências para recursos valiosos do OpenTelemetry.
 
-However, understanding the core implementation patterns will help you know what approach better fits the scenario you are trying to solve. These are three main patterns as follows:
+No entanto, entender os padrões principais de implementação ajudará você a saber qual abordagem se adapta melhor ao cenário que está tentando resolver. Existem três padrões principais, a saber:
 
-* Automatic telemetry: Support for automatic instrumentation is available for some languages. OpenTelemetry automatic instrumentation (100% codeless) is typically done through library hooks or monkey-patching library code. Automatic instrumentation will intercept all interactions and dependencies and automatically send the telemetry to the configured exporters. More information about this concept can be found in the [OpenTelemetry instrumentation doc](https://opentelemetry.io/docs/instrumentation/).
-* Manual tracing: This must be done by coding using the OpenTelemetry SDK, managing the `tracer` objects to obtain Spans, and forming instrumented OpenTelemetry Scopes to identify the code segments to be manually traced. Also, by using the @WithSpan annotations (method decorations in C# and [Java](https://opentelemetry.io/docs/instrumentation/java/automatic/annotations/#creating-spans-around-methods-with-withspan)) to mark whole methods that will be automatically traced.
-* Hybrid approach: Most Production-ready scenarios will require a mix of both techniques, using the automatic instrumentation to collect automatic telemetry and the OpenTelemetry SDK to identify code segments that are important to instrument manually. When considering production-ready scenarios, the hybrid approach is the way to go as it allows for a throughout cover over the whole solution. It provides automatic context propagation and events correlation out of the box.
+* Telemetria automática: O suporte para instrumentação automática está disponível para algumas linguagens. A instrumentação automática do OpenTelemetry (100% sem código) é geralmente feita por meio de ganchos de biblioteca ou patching de código de biblioteca. A instrumentação automática interceptará todas as interações e dependências e enviará automaticamente a telemetria para os Exportadores configurados. Mais informações sobre esse conceito podem ser encontradas na [documentação de instrumentação do OpenTelemetry](https://opentelemetry.io/docs/instrumentation/).
+* Rastreamento manual: Isso deve ser feito codificando usando o SDK do OpenTelemetry, gerenciando objetos `tracer` para obter Spans e formando Escopos do OpenTelemetry instrumentados para identificar os segmentos de código a serem rastreados manualmente. Além disso, usando as anotações @WithSpan (decorações de método em C# e [Java](https://opentelemetry.io/docs/instrumentation/java/automatic/annotations/#creating-spans-around-methods-with-withspan)) para marcar métodos inteiros que serão rastreados automaticamente.
+* Abordagem híbrida: A maioria dos cenários prontos para produção exigirá uma combinação de ambas as técnicas, usando a instrumentação automática para coletar telemetria automática e o SDK do OpenTelemetry para identificar segmentos de código que são importantes para instrumentar manualmente. Ao considerar cenários prontos para produção, a abordagem híbrida é o caminho a seguir, pois permite cobrir completamente toda a solução. Ele fornece propagação automática de contexto e correlação de eventos prontas para uso.
 
-### Collector
+### Coletor
 
-![Collectors option](../images/collectors.png)
+![Opções de Coletores](../images/collectors.png)
 
-[The collector](https://opentelemetry.io/docs/collector/) is a separate process that is designed to be a ‘sink’ for telemetry data emitted by many processes, which can then export that data to backend systems. The collector has two different [deployment strategies](https://opentelemetry.io/docs/collector/deployment/) – either running as an agent alongside a service or as a gateway which is a remote application. In general, using both is recommended: the agent would be deployed with your service and run as a separate process or in a sidecar; meanwhile, the collector would be deployed separately, as its own application running in a container or virtual machine. Each agent would forward telemetry data to the collector, which could then export it to a variety of backend systems such as Lightstep, Jaeger, or Prometheus. The agent can be also replaced with the automatic instrumentation if supported. The automatic instrumentation provides the collector capabilities of retrieving, processing and exporting the telemetry.
+[O coletor](https://opentelemetry.io/docs/collector/) é um processo separado projetado para ser um "destino" para dados de telemetria emitidos por muitos processos, que podem então exportar esses dados para sistemas de backend. O coletor possui duas [estratégias de implantação diferentes](https://opentelemetry.io/docs/collector/deployment/): rodar como um agente ao lado de um serviço ou como um gateway, que é uma aplicação remota. Em geral, é recomendável usar ambos: o agente seria implantado com seu serviço e rodaria como um processo separado ou em um sidecar; enquanto isso, o coletor seria implantado separadamente, como sua própria aplicação em um contêiner ou máquina virtual. Cada agente encaminharia os dados de telemetria para o coletor, que poderia então exportá-los para uma variedade de sistemas de backend, como Lightstep, Jaeger ou Prometheus. O agente também pode ser substituído pela instrumentação automática, se suportada. A instrumentação automática fornece as capacidades de coleta, processamento e exportação de telemetria do coletor.
 
-Regardless of how you choose to instrument or deploy OpenTelemetry, exporters provide powerful options for reporting telemetry data. You can directly export from your service, you can proxy through the collector, or you can aggregate into standalone collectors – or even a mix of these.
+Independentemente de como você escolher instrumentar ou implantar o OpenTelemetry, os Exportadores fornecem opções poderosas para relatar dados de telemetria. Você pode exportar diretamente de seu serviço, pode passar pelo coletor ou pode agregar em coletores autônomos - ou mesmo uma combinação desses métodos.
 
-### Instrumentation Libraries
+### Bibliotecas de Instrumentação
 
-A library that enables observability for another library is called an instrumentation library. [OpenTelemetry libraries](https://opentelemetry.io/docs/concepts/instrumenting/) are language specific, currently there is good support for Java, Python, Javascript, dotnet and golang. Support for automatic instrumentation is available for some libraries which make using OpenTelemetry easy and trivial. In case automatic instrumentation is not available, manual instrumentation can be configured by using the OpenTelemetry SDK.
+Uma biblioteca que permite a observabilidade para outra biblioteca é chamada de biblioteca de instrumentação. As [bibliotecas do OpenTelemetry](https://opentelemetry.io/docs/concepts/instrumenting/) são específicas para cada linguagem, e atualmente há um bom suporte para Java, Python, JavaScript, .NET e Golang. O suporte para instrumentação automática está disponível para algumas bibliotecas, o que torna o uso do OpenTelemetry fácil e trivial. Caso a instrumentação automática não esteja disponível, a instrumentação manual pode ser configurada usando o SDK do OpenTelemetry.
 
-## Integration of OpenTelemetry
+## Integração do OpenTelemetry
 
-OpenTelemetry can be used to collect, process and export data into multiple backends, some popular integrations supported with OpenTelemetry are:
+O OpenTelemetry pode ser
+
+ usado para coletar, processar e exportar dados para múltiplos sistemas de backend. Algumas integrações populares suportadas pelo OpenTelemetry são:
 
 1. Zipkin
 2. Prometheus
@@ -46,104 +48,106 @@ OpenTelemetry can be used to collect, process and export data into multiple back
 8. Kafka
 9. Lightstep
 10. Splunk
-11. GCP Monitor
+11. Monitor GCP
 
-## Why use OpenTelemetry
+## Por que usar o OpenTelemetry
 
-The main reason to use OpenTelemetry is that it offers an open-source standard for implementing distributed telemetry (context propagation) over heterogeneous systems. There is no need to reinvent the wheel to implement end-to-end business flow transactions monitoring when using OpenTelemetry.
-![Context Propagation](../images/contextpropagation.png)
+A principal razão para usar o OpenTelemetry é que ele oferece um padrão de código aberto para implementar telemetria distribuída (propagação de contexto) em sistemas heterogêneos. Não é necessário reinventar a roda para implementar o monitoramento de transações de fluxo de negócios de ponta a ponta ao usar o OpenTelemetry.
+![Propagação de Contexto](../images/contextpropagation.png)
 
-It enables tracing, metrics, and logging telemetry through a set of single-distribution multi-language libraries and tools that allow for a plug-and-play telemetry architecture that includes the concept of agents and collectors.
+Ele permite a telemetria de rastreamento, métricas e registros por meio de um conjunto de bibliotecas e ferramentas multilínguas de distribuição única que permitem uma arquitetura de telemetria plug-and-play que inclui o conceito de agentes e coletores.
 
-![Context Propagation](../images/newarchitecture.png)
+![Nova Arquitetura](../images/newarchitecture.png)
 
-Moreover, avoiding any proprietary lock down and achieving vendor-agnostic neutrality for tracing, monitoring, and logging APIs AND backends allow maximum portability and extensibility patterns.
+Além disso, evitando qualquer bloqueio proprietário e alcançando neutralidade de fornecedor para APIs e backends de rastreamento, monitoramento e registro permite a máxima portabilidade e padrões de extensibilidade.
 
-Another good reason to use OpenTelemetry would be whether the stack uses OpenCensus or OpenTracing. As OpenCensus and OpenTracing have carved the way for OpenTelemetry, it makes sense to introduce OpenTelemetry where OpenCensus or OpenTracing is used as it still has backward compatibility.
+Outro bom motivo para usar o OpenTelemetry é se a pilha usa OpenCensus ou OpenTracing. Como o OpenCensus e o OpenTracing abriram caminho para o OpenTelemetry, faz sentido introduzir o OpenTelemetry onde o OpenCensus ou o OpenTracing são usados, pois ainda é compatível com versões anteriores.
 
-Apart from adding custom attributes, sampling, collecting data for metrics and traces, OpenTelemetry is governed by specifications and backed up by big players in the Observability landscape like Microsoft, Splunk, AppDynamics, etc. OpenTelemetry will likely become a de-facto open-source standard for enabling metrics and tracing when all features become GA.
+Além de adicionar atributos personalizados, amostragem e coleta de dados para métricas e rastreamentos, o OpenTelemetry é governado por especificações e apoiado por grandes players no cenário de Observabilidade, como Microsoft, Splunk, AppDynamics, etc. É provável que o OpenTelemetry se torne um padrão de código aberto de fato para habilitar métricas e rastreamentos quando todos os recursos se tornarem GA.
 
-## Current Status of OpenTelemetry Project
+## Status Atual do Projeto OpenTelemetry
 
-OpenTelemetry is a project which emerged from merging of OpenCensus and OpenTracing in 2019. Although OpenCensus and OpenTracing are frozen and no new features are being developed for them, OpenTelemetry has backward compatibility with OpenCensus and OpenTracing. Some features of OpenTelemetry are still in beta, feature support for different languages is being tracked here: [Feature Status of OpenTelemetry](https://github.com/open-telemetry/opentelemetry-specification/blob/main/spec-compliance-matrix.md). Status of OpenTelemetry project can be tracked [here](https://opentelemetry.io/status/).
+O OpenTelemetry é um projeto que surgiu da fusão do OpenCensus e do OpenTracing em 2019. Embora o OpenCensus e o OpenTracing estejam congelados e não estejam mais recebendo novos recursos, o OpenTelemetry possui compatibilidade retroativa com o OpenCensus e o OpenTracing. Alguns recursos do OpenTelemetry ainda estão em beta, o suporte a recursos em diferentes linguagens está sendo rastreado aqui: [Status do Recurso do OpenTelemetry](https://github.com/open-telemetry/opentelemetry-specification/blob/main/spec-compliance-matrix.md). O status do projeto OpenTelemetry pode ser acompanhado [aqui](https://opentelemetry.io/status/).
 
-From the website:
+Do site:
 
->Our goal is to provide a generally available, production quality release for the tracing data source across most OpenTelemetry components in the first half of 2021. Several components have already reached this milestone! We expect metrics to reach the same status in the second half of 2021 and are targeting logs in 2022.
+>Nosso objetivo é fornecer um lançamento de qualidade de produção para a fonte de dados de rastreamento em grande parte dos componentes do OpenTelemetry no primeiro semestre de 2021. Vários componentes já alcançaram esse marco! Esperamos que as métricas atinjam o mesmo status no segundo semestre de 2021 e estamos mirando nos logs em 2022.
 
-## What to watch out for
+## O que observar
 
-As OpenTelemetry is a very recent project (first GA version of some features released in 2020), many features are still in beta hence due diligence needs to be done before using such features in production. Also, OpenTelemetry supports many popular languages but features in all languages are not at par. Some languages offer more features as compared to other languages. It also needs to be called out as some features are not in GA, there may be some incompatibility issues with the tooling. That being said, OpenTelemetry is one of the most active projects of [CNCF](https://www.cncf.io), so it is expected that many more features would reach GA soon.
+Como o OpenTelemetry é um projeto muito recente (a primeira versão GA de alguns recursos foi lançada em 2020), muitos recursos ainda estão em beta, portanto, é necessário fazer uma diligência adequada antes de usar tais recursos em produção. Além disso, o OpenTelemetry oferece suporte a muitas linguagens populares, mas os recursos em todas as linguagens não estão em pé de igualdade. Algumas linguagens oferecem mais recursos em comparação com outras. Também é importante observar que, como alguns recursos não estão em GA, pode haver problemas de incompatibilidade com as ferramentas. Dito isso, o OpenTelemetry é um dos projetos mais ativos da [CNCF](https://www.cncf.io), então é esperado que muitos mais recursos alcancem o status GA em breve.
 
-### January 2022 UPDATE
+### ATUALIZAÇÃO de janeiro de 2022
 
-Apart from the logging specification and implementation that are still marked as draft or beta, all other specifications and implementations regarding tracing and metrics are marked as stable or feature-freeze. Many libraries are still on active development whatsoever, so thorough analysis has to be made depending on the language on a feature basis.
+Além da especificação e implementação de registro que ainda estão marcadas como rascunho ou beta, todas as outras especificações e implementações relacionadas a rastreamento e métricas são consideradas estáveis ou em estado de congelamento de recursos. Muitas bibliotecas ainda estão em desenvolvimento ativo, portanto, uma análise minuciosa deve ser feita dependendo da linguagem com base em recursos.
 
-## Integration Options with Azure Monitor
+## Opções de Integração com o Azure Monitor
 
-### Using the Azure Monitor OpenTelemetry Exporter Library
-  
-This scenario uses the OpenTelemetry SDK as the core instrumentation library. Basically this means you will instrument your application using the OpenTelemetry libraries, but you will additionally use the Azure Monitor OpenTelemetry Exporter and then added it as an additional exporter with the OpenTelemetry SDK. In this way, the OpenTelemetry traces your application creates will be pushed to your Azure Monitor Instance.
+### Usando a Biblioteca Azure Monitor OpenTelemetry Exporter
 
-### Using the Application Insights Agent Jar file - Java only
+Nesse cenário
 
-Java OpenTelemetry instrumentation provides another way to integrate with Azure Monitor, by using [Applications Insights Java Agent jar](https://learn.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent).
+, você utiliza o SDK OpenTelemetry como a biblioteca de instrumentação principal. Basicamente, isso significa que você instrumentará sua aplicação usando as bibliotecas OpenTelemetry e, em seguida, usará o Exportador Azure Monitor OpenTelemetry como um exportador adicional com o SDK OpenTelemetry. Dessa forma, os rastreamentos criados por sua aplicação usando o OpenTelemetry serão enviados para sua instância do Azure Monitor.
 
-When configuring this option, the Applications Insights Agent file is added when executing the application. The `applicationinsights.json` configuration file must be also be added as part of the applications artifacts. Pay close attention to the preview section, where the `"openTelemetryApiSupport": true,` property is set to true, enabling the agent to intercept OpenTelemetry telemetry created in the application code pushing it to Azure Monitor.
+### Usando o Arquivo JAR do Agente Application Insights - Apenas para Java
 
-OpenTelemetry Java Agent instrumentation supports many [libraries and frameworks and application servers](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/docs/supported-libraries.md#supported-libraries-frameworks-application-servers-and-jvms). Application Insights Java Agent [enhances](https://learn.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent#auto-instrumentation) this list.
-Therefore, the main difference between running the OpenTelemetry Java Agent vs. the Application Insights Java Agent is demonstrated in the amount of traces getting logged in Azure Monitor. When running with Application Insights Java agent there's more telemetry getting pushed to Azure Monitor. On the other hand, when running the solution using the Application Insights agent mode, it is essential to highlight that nothing gets logged on Jaeger (or any other OpenTelemetry exporter). All traces will be pushed exclusively to Azure Monitor. However, both manual instrumentation done via the OpenTelemetry SDK and all automatic traces, dependencies, performance counters, and metrics being instrumented by the Application Insights agent are sent to Azure Monitor. Although there is a rich amount of additional data automatically instrumented by the Application Insights agent, it can be deduced that it is not necessarily OpenTelemetry compliant. Only the traces logged by the manual instrumentation using the OpenTelemetry SDK are.
+A instrumentação do OpenTelemetry em Java oferece outra maneira de integrar com o Azure Monitor, usando o [jar do Agente Application Insights Java](https://learn.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent).
 
-#### OpenTelemetry vs Application Insights agents compared
+Ao configurar essa opção, o arquivo do Agente Application Insights é adicionado durante a execução da aplicação. O arquivo de configuração `applicationinsights.json` também deve ser incluído como parte dos artefatos da aplicação. Preste atenção à seção de visualização, onde a propriedade `"openTelemetryApiSupport": true` está definida como true, permitindo que o agente intercepte a telemetria do OpenTelemetry criada no código da aplicação e a envie para o Azure Monitor.
 
-| Highlight                                                                | OpenTelemetry Agent | App Insights Agent |
-|--------------------------------------------------------------------------|---------------------|--------------------|
-| Automatic Telemetry                                                      | Y                   | Y                  |
-| Manual OpenTelemetry                                                     | Y                   | Y                  |
-| Plug and Play Exports                                                    | Y                   | N                  |
-| Multiple Exports                                                         | Y                   | N                  |
-| Full Open Telemetry layout (decoupling agents, collectors and exporters) | Y                   | N                  |
-| Enriched out of the box telemetry                                        | N                   | Y                  |
-| Unified telemetry backend                                                | N                   | Y                  |
+A instrumentação do Agente Java do Application Insights suporta muitas [bibliotecas e frameworks e servidores de aplicação](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/docs/supported-libraries.md#supported-libraries-frameworks-application-servers-and-jvms). O Agente Java do Application Insights [melhora](https://learn.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent#auto-instrumentation) esta lista.
+Portanto, a principal diferença entre executar o Agente Java do OpenTelemetry e o Agente Java do Application Insights é demonstrada na quantidade de rastreamentos registrados no Azure Monitor. Ao executar com o agente Java do Application Insights, há mais telemetria sendo enviada para o Azure Monitor. Por outro lado, ao executar a solução usando o modo de agente do Application Insights, é essencial destacar que nada é registrado no Jaeger (ou em qualquer outro exportador do OpenTelemetry). Todos os rastreamentos são enviados exclusivamente para o Azure Monitor. No entanto, tanto a instrumentação manual feita por meio do SDK OpenTelemetry quanto todos os rastreamentos automáticos, dependências, contadores de desempenho e métricas instrumentadas pelo agente Application Insights são enviados para o Azure Monitor. Embora haja uma grande quantidade de dados adicionais automaticamente instrumentados pelo agente Application Insights, pode-se deduzir que ele não é necessariamente compatível com o OpenTelemetry. Somente os rastreamentos registrados pela instrumentação manual usando o SDK OpenTelemetry o são.
 
-#### Summary
+#### Comparação entre OpenTelemetry e Agentes do Application Insights
 
-As you may have guessed, there is no "one size fits all" approach when implementing OpenTelemetry with Azure Monitor as a backend. At the time of this writing, if you want to have the flexibility of having different OpenTelemetry backends, you should definitively go with the OpenTelemetry Agent, even though you'd sacrifice all automating tracing flowing to Azure Monitor.
-On the other hand, if you want to get the best of Azure Monitor and still want to instrument your code with the OpenTelemetry SDK, you should use the Application Insights Agent and manually instrument your code with the OpenTelemetry SDK to get the best of both worlds.
-Either way, instrumenting your code with OpenTelemetry seems the right approach as the ecosystem will only get bigger, better, and more robust.
+| Destaque                                                                | Agente OpenTelemetry | Agente Application Insights |
+|--------------------------------------------------------------------------|---------------------|----------------------------|
+| Telemetria Automática                                                      | Sim                   | Sim                        |
+| Rastreamento Manual                                                     | Sim                   | Sim                        |
+| Exportadores Plug-and-Play                                           | Sim                   | Não                        |
+| Múltiplos Exportadores                                                 | Sim                   | Não                        |
+| Layout Completo do OpenTelemetry (desacoplamento de agentes, coletores e exportadores) | Sim                   | Não                        |
+| Telemetria Enriquecida pronta para uso                                  | Não                   | Sim                        |
+| Backend de Telemetria Unificado                                        | Não                   | Sim                        |
 
-## Advanced topics
+#### Resumo
 
-Use the [Azure OpenTelemetry Tracing plugin library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/core/azure-core-tracing-opentelemetry) to enable distributed tracing across Azure components through OpenTelemetry.
+Como você pode imaginar, não existe uma abordagem única ao implementar o OpenTelemetry com o Azure Monitor como um backend. No momento em que este texto foi escrito, se você deseja ter a flexibilidade de usar diferentes backends do OpenTelemetry, deve definitivamente optar pelo Agente OpenTelemetry, mesmo que sacrifique todos os rastreamentos automáticos que fluem para o Azure Monitor.
+Por outro lado, se você deseja obter o melhor do Azure Monitor e ainda deseja instrumentar seu código com o SDK OpenTelemetry, deve usar o Agente Application Insights e instrumentar manualmente seu código com o SDK OpenTelemetry para obter o melhor dos dois mundos.
+De qualquer forma, instrumentar seu código com o OpenTelemetry parece ser a abordagem correta, pois o ecossistema só tende a crescer, melhorar e se tornar mais robusto.
 
-### Manual trace context propagation
+## Tópicos Avançados
 
-The trace context is stored in Thread-local storage. When the application flow involves multiple threads (eg. multithreaded work-queue, asynchronous processing) then the traces won't get combined into one end-to-end trace chain with automatic [context propagation](https://opentelemetry.io/docs/concepts/signals/traces/#context-propagation).
-To achieve that you need to manually propagate the trace context ([example in Java](https://opentelemetry.io/docs/instrumentation/java/manual/#context-propagation)) by storing the [trace headers](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) along with the work-queue item.
+Utilize a [biblioteca de plugin de rastreamento Azure OpenTelemetry para Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/core/azure-core-tracing-opentelemetry) para habilitar o rastreamento distribuído entre componentes Azure por meio do OpenTelemetry.
 
-### Telemetry testing
+### Propagação manual de contexto de rastreamento
 
-Mission critical telemetry data should be covered by testing. You can cover telemetry by tests by mocking the telemetry collector web server. In automated testing environment the telemetry instrumentation can be configured to use [OTLP exporter](https://opentelemetry.io/docs/reference/specification/protocol/exporter/) and point the [OTLP exporter endpoint](https://github.com/open-telemetry/opentelemetry-java/blob/main/sdk-extensions/autoconfigure/README.md#otlp-exporter-span-metric-and-log-exporters)
-to the collector web server. Using mocking servers libraries (eg. MockServer or WireMock) can help verify the telemetry data pushed to the collector.
+O contexto de rastreamento é armazenado no armazenamento local da thread. Quando o fluxo de aplicação envolve várias threads (por exemplo, uma fila de trabalho multithread ou processamento assíncrono), os rastreamentos não serão combinados em uma única cadeia de rastreamento de ponta a ponta com [propagação de contexto automática](https://opentelemetry.io/docs/concepts/signals/traces/#context-propagation).
+Para alcançar isso, você precisa propagar manualmente o contexto de rastreamento ([exemplo em Java](https://opentelemetry.io/docs/instrumentation/java/manual/#context-propagation)) armazenando os [cabeçalhos de rastreamento](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) junto com o item da fila de trabalho.
 
-## References
+### Teste de Telemetria
 
-* [OpenTelemetry Official Site](https://opentelemetry.io/)
+Os dados críticos de telemetria devem ser cobertos por testes. Você pode cobrir a telemetria por meio de testes simulando o servidor coletor de telemetria. Em um ambiente de teste automatizado, a instrumentação de telemetria pode ser configurada para usar o [exportador OTLP](https://opentelemetry.io/docs/reference/specification/protocol/exporter/) e apontar o [ponto de extremidade do exportador OTLP](https://github.com/open-telemetry/opentelemetry-java/blob/main/sdk-extensions/autoconfigure/README.md#otlp-exporter-span-metric-and-log-exporters)
+para o servidor coletor. O uso de bibliotecas de servidores simulados (por exemplo, MockServer ou WireMock) pode ajudar a verificar os dados de telemetria enviados para o coletor.
 
-* [Getting Started with dotnet and OpenTelemetry](https://opentelemetry.io/docs/net/getting-started/)
+## Referências
 
-* [Using OpenTelemetry Collector](https://opentelemetry.io/docs/collector/getting-started/)
+* [Site Oficial do OpenTelemetry](https://opentelemetry.io/)
 
-* [OpenTelemetry Java SDK](https://github.com/open-telemetry/opentelemetry-java)
+* [Começando com dotnet e OpenTelemetry](https://opentelemetry.io/docs/net/getting-started/)
 
-* [Manual Instrumentation](https://github.com/open-telemetry/opentelemetry-java-instrumentation#manually-instrumenting)
+* [Usando o OpenTelemetry Collector](https://opentelemetry.io/docs/collector/getting-started/)
 
-* [OpenTelemetry Instrumentation Agent for Java](https://github.com/open-telemetry/opentelemetry-java-instrumentation)
+* [SDK Java OpenTelemetry](https://github.com/open-telemetry/opentelemetry-java)
 
-* [Application Insights Java Agent](https://learn.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent)
+* [Instrumentação Manual](https://github.com/open-telemetry/opentelemetry-java-instrumentation#manually-instrumenting)
 
-* [Azure Monitor OpenTelemetry Exporter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/3f31d68eed6fbe11516ca3afe3955c8840a6e974/sdk/monitor/azure-monitor-opentelemetry-exporter)
+* [Agente de Instrumentação OpenTelemetry para Java](https://github.com/open-telemetry/opentelemetry-java-instrumentation)
 
-* [Azure OpenTelemetry Tracing plugin library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/core/azure-core-tracing-opentelemetry)
+* [Agente Java Application Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent)
 
-* [Application Insights Agent's OpenTelemetry configuration](https://github.com/microsoft/ApplicationInsights-Java/wiki/OpenTelemetry-API-support-(3.0))
+* [Biblioteca de Cliente de Exportação Azure Monitor OpenTelemetry para Java](https://github.com/Azure/azure-sdk-for-java/tree/3f31d68eed6fbe11516ca3afe3955c8840a6e974/sdk/monitor/azure-monitor-opentelemetry-exporter)
+
+* [Biblioteca de Plugin de Rastreamento Azure OpenTelemetry para Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/core/azure-core-tracing-opentelemetry)
+
+* [Configuração de OpenTelemetry da API do Application Insights](https://github.com/microsoft/ApplicationInsights-Java/wiki/OpenTelemetry-API-support-(3.0))

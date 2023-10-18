@@ -19,7 +19,7 @@
     
     
       
-        <title>Credential Scanning - Manual da Engenharia para Codar</title>
+        <title>Verificação de Credenciais - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#credential-scanning" class="md-skip">
+        <a href="#verificacao-de-credenciais" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Credential Scanning
+              Verificação de Credenciais
             
           </span>
         </div>
@@ -3534,12 +3534,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Credential Scanning
+          Verificação de Credenciais
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Credential Scanning
+        Verificação de Credenciais
       </a>
       
         
@@ -3558,29 +3558,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-credential-scanning" class="md-nav__link">
-    Why Credential scanning
+  <a href="#por-que-a-verificacao-de-credenciais" class="md-nav__link">
+    Por que a Verificação de Credenciais
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#applying-credential-scanning" class="md-nav__link">
-    Applying Credential Scanning
+  <a href="#aplicando-a-verificacao-de-credenciais" class="md-nav__link">
+    Aplicando a Verificação de Credenciais
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#credential-scanning-frameworks-and-tools" class="md-nav__link">
-    Credential Scanning Frameworks and Tools
+  <a href="#estruturas-e-ferramentas-de-verificacao-de-credenciais" class="md-nav__link">
+    Estruturas e Ferramentas de Verificação de Credenciais
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    Conclusion
+  <a href="#conclusao" class="md-nav__link">
+    Conclusão
   </a>
   
 </li>
@@ -7202,29 +7202,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-credential-scanning" class="md-nav__link">
-    Why Credential scanning
+  <a href="#por-que-a-verificacao-de-credenciais" class="md-nav__link">
+    Por que a Verificação de Credenciais
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#applying-credential-scanning" class="md-nav__link">
-    Applying Credential Scanning
+  <a href="#aplicando-a-verificacao-de-credenciais" class="md-nav__link">
+    Aplicando a Verificação de Credenciais
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#credential-scanning-frameworks-and-tools" class="md-nav__link">
-    Credential Scanning Frameworks and Tools
+  <a href="#estruturas-e-ferramentas-de-verificacao-de-credenciais" class="md-nav__link">
+    Estruturas e Ferramentas de Verificação de Credenciais
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    Conclusion
+  <a href="#conclusao" class="md-nav__link">
+    Conclusão
   </a>
   
 </li>
@@ -7243,43 +7243,43 @@
                 
 
 
-<h1 id="credential-scanning">Credential Scanning</h1>
-<p>Credential scanning is the practice of automatically inspecting a project to ensure that no secrets are included in the project's source code. Secrets include database passwords, storage connection strings, admin logins, service principals, etc.</p>
-<h2 id="why-credential-scanning">Why Credential scanning</h2>
-<p>Including secrets in a project's source code is a significant risk, as it might make those secrets available to unwanted parties. Even if it seems that the source code is accessible to the same people who are privy to the secrets, this situation is likely to change as the project grows. Spreading secrets in different places makes them harder to manage, access control, and revoke efficiently. Secrets that are committed to source control are also harder to discard of, since they will persist in the source's history.<br />
-Another consideration is that coupling the project's code to its infrastructure and deployment specifics is limiting and considered a bad practice. From a software design perspective, the code should be independent of the runtime configuration that will be used to run it, and that runtime configuration includes secrets.
- As such, there should be a clear boundary between code and secrets: secrets should be managed outside of the source code (read more <a href="../../../../continuous-delivery/secrets-management/">here</a>) and credential scanning should be employed to ensure that this boundary is never violated.</p>
-<h2 id="applying-credential-scanning">Applying Credential Scanning</h2>
-<p>Ideally, credential scanning should be run as part of a developer's workflow (e.g. via a <a href="https://pre-commit.com/">git pre-commit hook</a>), however, to protect against developer error, credential scanning must also be enforced as part of the continuous integration process to ensure that no credentials ever get merged to a project's main branch.
-To implement credential scanning for a project, consider the  following:</p>
+<h1 id="verificacao-de-credenciais">Verificação de Credenciais</h1>
+<p>A verificação de credenciais é a prática de inspecionar automaticamente um projeto para garantir que não haja segredos incluídos no código-fonte do projeto. Segredos incluem senhas de banco de dados, strings de conexão de armazenamento, logins de administrador, princípios de serviço, etc.</p>
+<h2 id="por-que-a-verificacao-de-credenciais">Por que a Verificação de Credenciais</h2>
+<p>Incluir segredos no código-fonte de um projeto é um risco significativo, pois pode tornar esses segredos disponíveis para partes indesejadas. Mesmo que pareça que o código-fonte seja acessível às mesmas pessoas que têm acesso aos segredos, essa situação provavelmente mudará à medida que o projeto crescer. Espalhar segredos em diferentes lugares torna mais difícil gerenciá-los, controlar o acesso e revogá-los de forma eficiente. Segredos que são confirmados no controle de origem também são mais difíceis de descartar, pois persistirão no histórico do código-fonte.<br />
+Outra consideração é que acoplar o código do projeto à sua infraestrutura e detalhes de implantação é limitante e considerado uma má prática. Do ponto de vista do design de software, o código deve ser independente da configuração de tempo de execução que será usada para executá-lo, e essa configuração de tempo de execução inclui segredos.
+Portanto, deve haver um limite claro entre o código e os segredos: os segredos devem ser gerenciados fora do código-fonte (leia mais <a href="../../../../continuous-delivery/secrets-management/">aqui</a>) e a verificação de credenciais deve ser empregada para garantir que esse limite nunca seja violado.</p>
+<h2 id="aplicando-a-verificacao-de-credenciais">Aplicando a Verificação de Credenciais</h2>
+<p>Idealmente, a verificação de credenciais deve ser executada como parte do fluxo de trabalho de um desenvolvedor (por exemplo, por meio de um <a href="https://pre-commit.com/">hook git pré-commit</a>), no entanto, para proteger contra erros de desenvolvedor, a verificação de credenciais também deve ser aplicada como parte do processo de integração contínua para garantir que nunca haja comprometimento de credenciais em um ramo principal de um projeto.
+Para implementar a verificação de credenciais em um projeto, considere o seguinte:</p>
 <ol>
-<li>Store secrets in an external secure store that is meant to store sensitive information</li>
-<li>Use secrets scanning tools to asses your repositories current state by scanning it's full history for secrets</li>
-<li>Incorporate an automated secrets scanning tool into your CI pipeline to detect unintentional committing of secrets</li>
-<li>Avoid <code>git add .</code> commands on git</li>
-<li>Add sensitive files to .gitignore</li>
+<li>Armazene segredos em um repositório externo seguro destinado a armazenar informações sensíveis.</li>
+<li>Use ferramentas de verificação de segredos para avaliar o estado atual de seus repositórios, escaneando todo o histórico em busca de segredos.</li>
+<li>Incorpore uma ferramenta automatizada de verificação de segredos em seu pipeline de CI para detectar a confirmação não intencional de segredos.</li>
+<li>Evite comandos <code>git add .</code> no git.</li>
+<li>Adicione arquivos sensíveis ao arquivo .gitignore.</li>
 </ol>
-<h2 id="credential-scanning-frameworks-and-tools">Credential Scanning Frameworks and Tools</h2>
-<p>Recipes and Scenarios-</p>
+<h2 id="estruturas-e-ferramentas-de-verificacao-de-credenciais">Estruturas e Ferramentas de Verificação de Credenciais</h2>
+<p>Receitas e Cenários -</p>
 <ol>
-<li><a href="../recipes/detect-secrets/">detect-secrets</a> is an aptly named module for detecting secrets within a code base.</li>
-<li>Use <a href="../recipes/detect-secrets-ado/">detect-secrets inside Azure DevOps Pipeline</a></li>
-<li><a href="https://learn.microsoft.com/en-us/azure/security/develop/security-code-analysis-overview">Microsoft Security Code Analysis extension</a></li>
+<li><a href="../recipes/detect-secrets/">detect-secrets</a> é um módulo apropriadamente nomeado para detectar segredos dentro de uma base de código.</li>
+<li>Use <a href="../recipes/detect-secrets-ado/">detect-secrets dentro do Azure DevOps Pipeline</a>.</li>
+<li><a href="https://learn.microsoft.com/en-us/azure/security/develop/security-code-analysis-overview">Extensão de Análise de Código de Segurança da Microsoft</a>.</li>
 </ol>
-<p>Additional Tools -</p>
+<p>Ferramentas Adicionais -</p>
 <ol>
-<li><a href="https://securitylab.github.com/tools/codeql">CodeQL</a>  – GitHub security. CodeQL lets you query code as if it was data. Write a query to find all variants of a vulnerability</li>
-<li><a href="https://github.com/awslabs/git-secrets">Git-secrets</a>  - Prevents you from committing passwords and other sensitive information to a git repository.</li>
+<li><a href="https://securitylab.github.com/tools/codeql">CodeQL</a> - Segurança do GitHub. O CodeQL permite consultar o código como se fosse dados. Escreva uma consulta para encontrar todas as variantes de uma vulnerabilidade.</li>
+<li><a href="https://github.com/awslabs/git-secrets">Git-secrets</a> - Impede que você confirme senhas e outras informações confidenciais em um repositório git.</li>
 </ol>
-<h2 id="conclusion">Conclusion</h2>
-<p>Secret management is essential to every project. Storing secrets in external secrets store and incorporating this mindset into your workflow will improve your security posture and will result in cleaner code.</p>
+<h2 id="conclusao">Conclusão</h2>
+<p>A gestão de segredos é essencial para todos os projetos. Armazenar segredos em um repositório externo de segredos e incorporar essa mentalidade em seu fluxo de trabalho melhorará sua postura de segurança e resultará em código mais limpo.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 6, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
       
     
   </small>

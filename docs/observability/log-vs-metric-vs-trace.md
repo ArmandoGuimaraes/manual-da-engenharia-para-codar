@@ -1,36 +1,36 @@
-# Logs vs Metrics vs Traces
+# Logs vs. Metrics vs. Traces
 
-![Signals](./images/signals.png)
+![Sinais](./images/signals.png)
 
-## Overview
+## Visão Geral
 
-### Metrics
+### Métricas
 
-The purpose of metrics is to inform observers about the health & operations regarding a component or system. A metric represents a point in time measure of a particular source, and data-wise tends to be very small. The compact size allows for efficient collection even at scale in large systems. Metrics also lend themselves very well to pre-aggregation within the component before collection, reducing computation cost for processing & storing large numbers of metric time series in a central system. Due to how efficiently metrics are processed & stored, it lends itself very well for use in automated alerting, as metrics are an excellent source for the health data for all components in the system.
+O objetivo das métricas é informar observadores sobre a saúde e as operações de um componente ou sistema. Uma métrica representa uma medida pontual em um determinado momento de uma fonte específica e, em termos de dados, tende a ser muito pequena. O tamanho compacto permite a coleta eficiente, mesmo em sistemas grandes em escala. As métricas também se prestam muito bem à pré-agregação dentro do componente antes da coleta, reduzindo o custo computacional para o processamento e armazenamento de um grande número de séries temporais de métricas em um sistema central. Devido à eficiência no processamento e armazenamento de métricas, elas são uma excelente fonte de dados de saúde para todos os componentes no sistema e são muito adequadas para uso em alertas automatizados.
 
-### Logs
+### Registros (Logs)
 
-Log data inform observers about the discrete events that occurred within a component or a set of components. Just about every software component log information about its activities over time. This rich data tends to be much larger than metric data and can cause processing issues, especially if components are logging too verbosely. Therefore, using log data to understand the health of an extensive system tends to be avoided and depends on metrics for that data. Once metric telemetry highlights potential problem sources, filtered log data for those sources can be used to understand what occurred.
+Os dados de registro informam os observadores sobre os eventos discretos que ocorreram dentro de um componente ou conjunto de componentes. Quase todos os componentes de software registram informações sobre suas atividades ao longo do tempo. Esses dados ricos costumam ser muito maiores do que os dados métricos e podem causar problemas de processamento, especialmente se os componentes estiverem registrando informações em excesso. Portanto, o uso de dados de registro para entender a saúde de um sistema extenso tende a ser evitado e depende das métricas para esses dados. Uma vez que a telemetria de métricas destaca possíveis fontes de problemas, os dados de registro filtrados para essas fontes podem ser usados para entender o que ocorreu.
 
-### Traces
+### Rastreamentos (Traces)
 
-Where logging provides an overview to a discrete, event-triggered log, tracing encompasses a much wider, continuous view of an application. The goal of tracing is to following a program’s flow and data progression.
+Onde o registro fornece uma visão geral de um registro discreto acionado por eventos, o rastreamento abrange uma visão muito mais ampla e contínua de uma aplicação. O objetivo do rastreamento é seguir o fluxo de um programa e a progressão dos dados.
 
-In many instances, tracing represents a single user’s journey through an entire app stack. Its purpose isn’t reactive, but instead focused on optimization. By tracing through a stack, developers can identify bottlenecks and focus on improving performance.
+Em muitas instâncias, o rastreamento representa a jornada de um único usuário por todo o conjunto de aplicativos. Seu objetivo não é reativo, mas sim focado na otimização. Ao rastrear um conjunto, os desenvolvedores podem identificar gargalos e focar na melhoria do desempenho.
 
-A distributed trace is defined as a collection of spans. A span is the smallest unit in a trace and represents a piece of the workflow in a distributed landscape. It can be an HTTP request, call to a database, or execution of a message from a queue.
+Um rastreamento distribuído é definido como uma coleção de spans (trechos). Um span é a menor unidade em um rastreamento e representa uma parte do fluxo de trabalho em um cenário distribuído. Pode ser uma solicitação HTTP, uma chamada a um banco de dados ou a execução de uma mensagem de uma fila.
 
-When a problem does occur, tracing allows you to see how you got there:
+Quando ocorre um problema, o rastreamento permite ver como você chegou lá:
 
-* Which function.
-* The function’s duration.
-* Parameters passed.
-* How deep into the function the user could get.
+* Qual função.
+* A duração da função.
+* Parâmetros passados.
+* Até que ponto o usuário pode entrar na função.
 
-## Usage Guidance
+## Orientações de Uso
 
-When to use metric or log data to track a particular piece of telemetry can be summarized with the following points:
+Quando usar dados métricos ou de registro para rastrear uma telemetria específica pode ser resumido nos seguintes pontos:
 
-* Use metrics to track the occurrence of an event, counting of items, the time taken to perform an action or to report the current value of a resource (CPU, memory, etc.)
-* Use logs to track detailed information about an event also monitored by a metric, particularly errors, warnings or other exceptional situations.
-* A trace provides visibility into how a request is processed across multiple services in a microservices environment. Every trace needs to have a unique identifier associated with it.
+* Use métricas para rastrear a ocorrência de um evento, contagem de itens, o tempo necessário para realizar uma ação ou para relatar o valor atual de um recurso (CPU, memória, etc.).
+* Use registros para rastrear informações detalhadas sobre um evento também monitorado por uma métrica, especialmente erros, avisos ou outras situações excepcionais.
+* Um rastreamento fornece visibilidade sobre como uma solicitação é processada por vários serviços em um ambiente de microsserviços. Cada rastreamento precisa ter um identificador único associado a ele.

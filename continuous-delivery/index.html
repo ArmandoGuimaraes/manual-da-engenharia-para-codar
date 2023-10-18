@@ -7253,8 +7253,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#implantacoes-azuisverdes" class="md-nav__link">
-    Implantações Azuis/Verdes
+  <a href="#implantacoes-bluegreen" class="md-nav__link">
+    Implantações Blue/Green
   </a>
   
 </li>
@@ -7267,8 +7267,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#solucoes-de-baixo-codigo" class="md-nav__link">
-    Soluções de Baixo Código
+  <a href="#solucoes-de-low-codeno-code" class="md-nav__link">
+    Soluções de Low-Code/No-Code
   </a>
   
 </li>
@@ -7392,24 +7392,23 @@
 <h3 id="lancamentos-sem-interrupcao">Lançamentos sem Interrupção</h3>
 <p>Uma implantação quente segue um processo de troca de usuários de uma versão para outra sem impactar a experiência do usuário. Como exemplo, os serviços gerenciados pela Azure permitem que os desenvolvedores validem as mudanças do aplicativo em um slot de implantação de teste antes de trocá-lo pelo slot de produção. A troca de slots de serviço de aplicativo também pode ser totalmente automatizada assim que o slot de origem estiver totalmente aquecido (e <a href="https://learn.microsoft.com/en-us/azure/app-service/deploy-staging-slots#configure-auto-swap">a troca automática</a> estiver ativada). A troca de slots também simplifica a reversão de lançamentos assim que um operador técnico restaurar os slots para seus estados pré-troca.</p>
 <p>O Kubernetes oferece suporte nativo a <a href="https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/">atualizações contínuas</a>.</p>
-<h3 id="implantacoes-azuisverdes">Implantações Azuis/Verdes</h3>
-<p>Azul/Verde é uma técnica de implantação que reduz o tempo de inatividade ao executar duas instâncias idênticas de um ambiente de produção chamadas <em>Azul</em> e <em>Verde</em>.</p>
+<h3 id="implantacoes-bluegreen">Implantações Blue/Green</h3>
+<p>Blue/Green é uma técnica de implantação que reduz o tempo de inatividade ao executar duas instâncias idênticas de um ambiente de produção chamadas <em>Blue</em> e <em>Green</em>.</p>
 <p>Apenas um desses ambientes aceita tráfego de produção ao vivo de cada vez.</p>
 <p><img alt="imagem" src="images/blue_green.png" /></p>
-<p>No exemplo acima, o tráfego de produção ao vivo é direcionado para o ambiente Verde. Durante os lançamentos da aplicação, a nova versão é implantada no ambiente Azul, o que ocorre independentemente do ambiente Verde. O tráfego ao vivo não é afetado pelas implantações do ambiente Azul. Você pode direcionar sua suíte de testes de ponta a ponta ao ambiente Azul como um de seus pontos de verificação de teste.</p>
-<p>Migrar os usuários para a nova versão do aplicativo é tão simples quanto alterar a configuração do roteador para direcionar todo o tráfego para o ambiente Azul.</p>
-<p>Essa técnica simplifica cenários de rollback, pois você pode simplesmente altern</p>
-<p>ar o roteador de volta para o Verde.</p>
-<p>Provedores de banco de dados como Cosmos e Azure SQL oferecem suporte nativo à replicação de dados para ajudar a habilitar ambientes de banco de dados Azul/Verde totalmente sincronizados.</p>
+<p>No exemplo acima, o tráfego de produção ao vivo é direcionado para o ambiente Green. Durante os lançamentos da aplicação, a nova versão é implantada no ambiente Blue, o que ocorre independentemente do ambiente Green. O tráfego ao vivo não é afetado pelas implantações do ambiente Blue. Você pode direcionar sua suíte de testes de ponta a ponta ao ambiente Blue como um de seus pontos de verificação de teste.</p>
+<p>Migrar os usuários para a nova versão do aplicativo é tão simples quanto alterar a configuração do roteador para direcionar todo o tráfego para o ambiente Blue.</p>
+<p>Essa técnica simplifica cenários de rollback, pois você pode simplesmente alternar o roteador de volta para o Green.</p>
+<p>Provedores de banco de dados como Cosmos e Azure SQL oferecem suporte nativo à replicação de dados para ajudar a habilitar ambientes de banco de dados Blue/Green totalmente sincronizados.</p>
 <h3 id="implantacoes-de-lancamento-canary">Implantações de Lançamento Canary</h3>
 <p>As implantações Canary permitem que equipes de desenvolvimento obtenham feedback mais rápido ao implantar novos recursos na produção. Esses lançamentos são implantados em um subconjunto de nós de produção (<em>onde nenhum usuário é direcionado</em>) para coletar insights precoces sobre testes de capacidade, completude funcional e impacto.</p>
 <p><img alt="imagem" src="images/canary_release.png" /></p>
 <p>Uma vez concluídos os testes de capacidade e fumaça, você pode direcionar um pequeno subconjunto de usuários para os nós de produção que hospedam o candidato a lançamento.</p>
 <p>As implantações Canary simplificam os rollbacks, pois você pode evitar direcionar os usuários para versões ruins do aplicativo.</p>
 <p>Tente limitar o número de versões de sua aplicação em execução paralelamente na produção, pois isso pode complicar os controles de manutenção e monitoramento.</p>
-<h3 id="solucoes-de-baixo-codigo">Soluções de Baixo Código</h3>
-<p>Soluções de baixo código aumentaram sua participação nas aplicações e processos e, por causa disso, é necessário uma adequada combinação de disciplinas para melhorar seu desenvolvimento.</p>
-<p>Aqui está um guia para <a href="low-code-solutions/low-code-solutions/">entrega contínua para Soluções de Baixo Código</a>.</p>
+<h3 id="solucoes-de-low-codeno-code">Soluções de Low-Code/No-Code</h3>
+<p>Soluções de Low-Code/No-Codeo aumentaram sua participação nas aplicações e processos e, por causa disso, é necessário uma adequada combinação de disciplinas para melhorar seu desenvolvimento.</p>
+<p>Aqui está um guia para <a href="low-code-solutions/low-code-solutions/">entrega contínua para Soluções de Low-Code/No-Code</a>.</p>
 <h2 id="referencias">Referências</h2>
 <ul>
 <li><a href="https://www.continuousdelivery.com/">Entrega Contínua</a> por Jez Humble e David Farley.</li>
@@ -7432,7 +7431,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
       
     
   </small>

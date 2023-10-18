@@ -6403,22 +6403,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
+  <a href="#visao-geral" class="md-nav__link">
+    Visão Geral
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    Best Practices
+  <a href="#melhores-praticas" class="md-nav__link">
+    Melhores Práticas
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#recommended-tools" class="md-nav__link">
-    Recommended Tools
+  <a href="#ferramentas-recomendadas" class="md-nav__link">
+    Ferramentas Recomendadas
   </a>
   
 </li>
@@ -7193,22 +7193,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
+  <a href="#visao-geral" class="md-nav__link">
+    Visão Geral
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    Best Practices
+  <a href="#melhores-praticas" class="md-nav__link">
+    Melhores Práticas
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#recommended-tools" class="md-nav__link">
-    Recommended Tools
+  <a href="#ferramentas-recomendadas" class="md-nav__link">
+    Ferramentas Recomendadas
   </a>
   
 </li>
@@ -7228,25 +7228,25 @@
 
 
 <h1 id="tracing">Tracing</h1>
-<h2 id="overview">Overview</h2>
-<p>Produces the information required to observe series of correlated operations in a distributed system. Once collected they show the path, measurements and faults in an end-to-end transaction.</p>
-<h2 id="best-practices">Best Practices</h2>
+<h2 id="visao-geral">Visão Geral</h2>
+<p>Produz as informações necessárias para observar uma série de operações correlacionadas em um sistema distribuído. Uma vez coletadas, elas mostram o caminho, as medidas e as falhas em uma transação de ponta a ponta.</p>
+<h2 id="melhores-praticas">Melhores Práticas</h2>
 <ul>
-<li>Ensure that at least key business transactions are traced.</li>
-<li>Include in each trace necessary information to identify software releases (i.e. service name, version). This is important to correlate deployments and system degradation.</li>
-<li>Ensure dependencies are included in trace (databases, I/O).</li>
-<li>If costs are a concern use sampling, avoiding throwing away errors, unexpected behavior and critical information.</li>
-<li>Don't reinvent the wheel, use existing tools to collect and analyze the data.</li>
-<li>Ensure personal identifiable information policies and restrictions are followed.</li>
+<li>Certifique-se de que pelo menos transações comerciais-chave sejam rastreadas.</li>
+<li>Inclua em cada rastreamento informações necessárias para identificar lançamentos de software (ou seja, nome do serviço, versão). Isso é importante para correlacionar implantações e degradação do sistema.</li>
+<li>Certifique-se de que as dependências estejam incluídas no rastreamento (bancos de dados, I/O).</li>
+<li>Se os custos forem uma preocupação, use amostragem, evitando descartar erros, comportamentos inesperados e informações críticas.</li>
+<li>Não reinvente a roda, use ferramentas existentes para coletar e analisar os dados.</li>
+<li>Garanta que as políticas e restrições de informações pessoais sejam seguidas.</li>
 </ul>
-<h2 id="recommended-tools">Recommended Tools</h2>
+<h2 id="ferramentas-recomendadas">Ferramentas Recomendadas</h2>
 <ul>
-<li><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/overview">Azure Monitor</a> - Umbrella of services including system metrics, log analytics and more.</li>
-<li><a href="https://www.jaegertracing.io">Jaeger Tracing</a> - Open source, end-to-end distributed tracing.</li>
-<li><a href="https://grafana.com">Grafana</a> - Open source dashboard &amp; visualization tool. Supports Log, Metrics and Distributed tracing data sources.</li>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/overview">Azure Monitor</a> - Conjunto de serviços, incluindo métricas do sistema, análise de registros e muito mais.</li>
+<li><a href="https://www.jaegertracing.io">Jaeger Tracing</a> - Rastreamento distribuído de ponta a ponta de código aberto.</li>
+<li><a href="https://grafana.com">Grafana</a> - Ferramenta de painel e visualização de código aberto. Suporta fontes de dados de log, métricas e rastreamento distribuído.</li>
 </ul>
 <blockquote>
-<p>Consider using <a href="../../tools/OpenTelemetry/">OpenTelemetry</a> as it implements open-source cross-platform context propagation for end-to-end distributed transactions over heterogeneous components out-of-the-box. It takes care of automatically creating and managing the Trace Context object among a full stack of microservices implemented across different technical stacks.</p>
+<p>Considere o uso do <a href="../../tools/OpenTelemetry/">OpenTelemetry</a>, pois ele implementa a propagação de contexto de código aberto multiplataforma para transações distribuídas de ponta a ponta em componentes heterogêneos. Ele cuida automaticamente da criação e gerenciamento do objeto de contexto de rastreamento em uma pilha completa de microsserviços implementados em diferentes pilhas técnicas.</p>
 </blockquote>
 
   <hr>
@@ -7254,7 +7254,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 15, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
       
     
   </small>

@@ -1,40 +1,40 @@
-# Credential Scanning Tool: detect-secrets
+# Ferramenta de Verificação de Credenciais: detect-secrets
 
-## Background
+## Contexto
 
-The [`detect-secrets`](https://github.com/Yelp/detect-secrets) tool is an open source project that uses heuristics and rules to scan for [a wide range](https://github.com/Yelp/detect-secrets#currently-supported-plugins) of secrets. We can extend the tool with custom rules and heuristics via a simple [Python plugin API](https://github.com/Yelp/detect-secrets/blob/a9dff60/detect_secrets/plugins/base.py#L27-L49).
+A ferramenta [`detect-secrets`](https://github.com/Yelp/detect-secrets) é um projeto de código aberto que usa heurísticas e regras para escanear [uma ampla gama](https://github.com/Yelp/detect-secrets#currently-supported-plugins) de segredos. Podemos estender a ferramenta com regras e heurísticas personalizadas por meio de uma simples [API de plug-in Python](https://github.com/Yelp/detect-secrets/blob/a9dff60/detect_secrets/plugins/base.py#L27-L49).
 
-Unlike other credential scanning tools, `detect-secrets` does not attempt to check a project's entire git history when invoked, but instead scans the project's current state. This means that the tool runs quickly which makes it ideal for use in continuous integration pipelines.
+Ao contrário de outras ferramentas de verificação de credenciais, o `detect-secrets` não tenta verificar todo o histórico git de um projeto quando é invocado, mas sim escaneia o estado atual do projeto. Isso significa que a ferramenta é rápida, o que a torna ideal para uso em pipelines de integração contínua.
 
-`detect-secrets` employs the concept of a "baseline file", i.e. a list of known secrets already present in the repository, and we can configure it to ignore any of these pre-existing secrets when running. This makes it easy to gradually introduce the tool into a pre-existing project.
+O `detect-secrets` utiliza o conceito de um "arquivo de base", ou seja, uma lista de segredos conhecidos já presentes no repositório, e podemos configurá-lo para ignorar qualquer um desses segredos pré-existentes ao ser executado. Isso torna fácil introduzir gradualmente a ferramenta em um projeto já existente.
 
-The baseline file also provides a simple and convenient way of handling false positives. We can white-list the false positive in the baseline file to ignore it on future invocations of the tool.
+O arquivo de base também fornece uma maneira simples e conveniente de lidar com falsos positivos. Podemos incluir na lista branca o falso positivo no arquivo de base para ignorá-lo em futuras invocações da ferramenta.
 
-## Setup
+## Configuração
 
 ```sh
-# install system dependencies: diff, jq, python3 (if on Linux-based OS)
+# instale as dependências do sistema: diff, jq, python3 (se estiver em um sistema operacional baseado em Linux)
 apt-get install -y diffutils jq python3 python3-pip
 
-# install system dependencies: diff, jq, python3 (if on Windows)
+# instale as dependências do sistema: diff, jq, python3 (se estiver no Windows)
 winget install Python.Python.3
 choco install diffutils jq -y
 
-# install the detect-secrets tool
+# instale a ferramenta detect-secrets
 python3 -m pip install detect-secrets
 
-# run the tool to establish a list of known secrets
-# review this file thoroughly and check it into the repository
+# execute a ferramenta para estabelecer uma lista de segredos conhecidos
+# revise este arquivo cuidadosamente e faça check-in no repositório
 detect-secrets scan > .secrets.baseline
 ```
 
-## Pre-commit hook
+## Gancho pré-commit
 
-It is recommended to use `detect-secrets` in your development environment as a Git pre-commit hook.
+É recomendável usar o `detect-secrets` em seu ambiente de desenvolvimento como um gancho pré-commit do Git.
 
-First, follow the [`pre-commit` installation instructions](https://pre-commit.com/#install) to install the tool in your development environment.
+Primeiro, siga as [instruções de instalação do `pre-commit`](https://pre-commit.com/#install) para instalar a ferramenta em seu ambiente de desenvolvimento.
 
-Then, add the following to your `.pre-commit-config.yaml`:
+Em seguida, adicione o seguinte ao seu `.pre-commit-config.yaml`:
 
 ```yaml
 repos:
@@ -45,20 +45,21 @@ repos:
         args: ['--baseline', '.secrets.baseline']
 ```
 
-## Usage in CI pipelines
+## Uso em pipelines de CI
 
 ```sh
-# backup the list of known secrets
+# faça backup da lista de segredos conhecidos
 cp .secrets.baseline .secrets.new
 
-# find all the secrets in the repository
+# encontre todos os segredos no repositório
 detect-secrets scan --baseline .secrets.new $(find . -type f ! -name '.secrets.*' ! -path '*/.git*')
 
-# if there is any difference between the known and newly detected secrets, break the build
+# se houver alguma diferença entre os segredos conhecidos e os recém-detectados, quebre o build
 list_secrets() { jq -r '.results | keys[] as $key | "\($key),\(.[$key] | .[] | .hashed_secret)"' "$1" | sort; }
 
 if ! diff <(list_secrets .secrets.baseline) <(list_secrets .secrets.new) >&2; then
-  echo "Detected new secrets in the repo" >&2
+  echo "Foram detectados novos segredos no repositório" >&2
   exit 1
 fi
 ```
+

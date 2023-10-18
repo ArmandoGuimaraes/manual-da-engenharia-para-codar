@@ -1,27 +1,25 @@
-# Observability as Code
+# Observabilidade como Código
 
-As much as possible, configuration and management of observability assets such as cloud resource provisioning, monitoring alerts and dashboards must be managed as code. Observability as Code is achieved using any one of Terraform / Ansible / ARM Templates
+Na medida do possível, a configuração e o gerenciamento de ativos de observabilidade, como provisionamento de recursos em nuvem, alertas de monitoramento e painéis, devem ser gerenciados como código. A Observabilidade como Código é alcançada usando qualquer um dos seguintes: Terraform, Ansible ou Modelos ARM.
 
-## Examples of Observability as Code
+## Exemplos de Observabilidade como Código
 
-1. Dashboards as Code - Monitoring Dashboards can be created as JSON or XML templates. This template is source control maintained and any changes to the dashboards can be reviewed. Automation can be built for enabling the dashboard. [More about how to do this in Azure](https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards-create-programmatically). Grafana dashboard can also be [configured as code](https://grafana.com/blog/2020/02/26/how-to-configure-grafana-as-code/) which eventually can be source-controlled to be used in automation and pipelines.
+1. Painéis como Código - Painéis de Monitoramento podem ser criados como modelos JSON ou XML. Este modelo é mantido no controle de origem e qualquer alteração nos painéis pode ser revisada. A automação pode ser criada para habilitar o painel. [Saiba mais sobre como fazer isso no Azure](https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards-create-programmatically). Painéis do Grafana também podem ser [configurados como código](https://grafana.com/blog/2020/02/26/how-to-configure-grafana-as-code/), o que eventualmente pode ser controlado no controle de origem para ser usado na automação e em pipelines.
 
-2. Alerts as Code - Alerts can be created within Azure by using Terraform or ARM templates. Such alerts can be source-controlled and be deployed as part of pipelines (Azure DevOps pipelines, Jenkins, GitHub Actions etc.). Few references of how to do this are: [Terraform Monitor Metric Alert](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_metric_alert). Alerts can also be created based on log analytics query and can be defined as code using [Terraform Monitor Scheduled Query Rules Alert](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_scheduled_query_rules_alert#example-usage).
+2. Alertas como Código - Alertas podem ser criados no Azure usando Terraform ou modelos ARM. Tais alertas podem ser controlados no controle de origem e implantados como parte de pipelines (pipelines do Azure DevOps, Jenkins, GitHub Actions, etc.). Algumas referências de como fazer isso são: [Alerta de Métrica de Monitoramento com Terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_metric_alert). Alertas também podem ser criados com base em consultas de log analytics e podem ser definidos como código usando [Regras de Alerta de Consulta Programada do Terraform Monitor](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_scheduled_query_rules_alert#example-usage).
 
-3. Automating Log Analytics Queries - There are several use cases where automation of log analytics queries may be needed. Example, Automatic Report Generation, Running custom queries programmatically for analysis, debugging etc. For these use cases to work, log queries should be source-controlled and automation can be built using [log analytics REST](https://learn.microsoft.com/en-us/rest/api/loganalytics/) or [azure cli](https://learn.microsoft.com/en-us/cli/azure/ext/log-analytics/monitor/log-analytics?view=azure-cli-latest).
+3. Automação de Consultas do Log Analytics - Existem vários casos de uso em que a automação de consultas do log analytics pode ser necessária. Por exemplo, geração automática de relatórios, execução de consultas personalizadas de forma programática para análise, depuração, etc. Para que esses casos de uso funcionem, as consultas de log devem ser controladas no controle de origem e a automação pode ser criada usando [log analytics REST](https://learn.microsoft.com/en-us/rest/api/loganalytics/) ou [azure cli](https://learn.microsoft.com/en-us/cli/azure/ext/log-analytics/monitor/log-analytics?view=azure-cli-latest).
 
-## Why
+## Por que
 
-- It makes configuration repeatable and automatable. It also avoids manual configuration of monitoring alerts and dashboards from scratch across environments.
+- Torna a configuração repetível e automatizável. Também evita a configuração manual de alertas de monitoramento e painéis do zero em todos os ambientes.
 
-- Configured dashboards help troubleshoot errors during integration and deployment (CI/CD)
+- Painéis configurados ajudam a solucionar erros durante a integração e implantação (CI/CD).
 
-- We can audit changes and roll them back if there are any issues.
+- Podemos auditar alterações e revertê-las se houver problemas.
 
-- Identify actionable insights from the generated metrics data across all environments, not just production.
+- Identificar insights acionáveis a partir dos dados de métricas gerados em todos os ambientes, não apenas na produção.
 
-- Configuration and management of observability assets like alert threshold, duration, configuration
-values using IAC help us in avoiding configuration mistakes, errors or overlooks during deployment.
+- A configuração e o gerenciamento de ativos de observabilidade, como limiar de alerta, duração, valores de configuração, usando IAC, ajudam a evitar erros de configuração, erros ou omissões durante a implantação.
 
-- When practicing observability as code, the changes can be reviewed by the team similar to other code
-contributions.
+- Ao praticar a observabilidade como código, as alterações podem ser revisadas pela equipe, assim como outras contribuições de código.

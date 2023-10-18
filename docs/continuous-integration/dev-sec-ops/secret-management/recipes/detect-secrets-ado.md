@@ -1,24 +1,24 @@
-# Running detect-secrets in Azure DevOps Pipelines
+# Executando detect-secrets no Azure DevOps Pipelines
 
-## Overview
+## Visão geral
 
-In this article, you can find information on how to integrate YELP detect-secrets into your Azure DevOps Pipeline. The proposed code can be part of the classic CI process or (preferred way) build validation for PRs before merging to the `main` branch.
+Neste artigo, você encontrará informações sobre como integrar o detect-secrets do YELP em seu Azure DevOps Pipeline. O código proposto pode fazer parte do processo clássico de CI ou (maneira preferida) validação de build para PRs antes de mesclá-los com o branch `main`.
 
 ## Azure DevOps Pipeline
 
-Proposed Azure DevOps Pipeline contains multiple steps described below:
+O Azure DevOps Pipeline proposto contém várias etapas descritas abaixo:
 
-1. Set Python 3 as default
-1. Install detect-secrets using pip
-1. Run detect-secrets tool
-1. Publish results in the Pipeline Artifact
-   > NOTE: It's an optional step, but for future investigation .json file with results may be helpful.
-1. Analyzing detect-secrets results
-   > NOTE: This step does a simple analysis of the .json file. If any secret has been detected, then break the build with exit code 1.
+1. Definir o Python 3 como padrão.
+1. Instalar o detect-secrets usando o pip.
+1. Executar a ferramenta detect-secrets.
+1. Publicar os resultados no Artifact do Pipeline.
+   > OBS: É uma etapa opcional, mas para investigações futuras, o arquivo .json com os resultados pode ser útil.
+1. Analisar os resultados do detect-secrets.
+   > OBS: Esta etapa faz uma análise simples do arquivo .json. Se algum segredo for detectado, quebre o build com o código de saída 1.
 
-> NOTE: The below example has 2 jobs: for Linux and Windows agents. You do not have to use both jobs - just adjust the pipeline to your needs.
+> OBS: O exemplo abaixo tem 2 jobs: para agentes Linux e Windows. Você não precisa usar ambos os jobs - ajuste o pipeline às suas necessidades.
 >
-> NOTE: Windows example does not use the latest version of detect-secrets. It is related to the bug in the detect-secret tool (see more in [Issue#452](https://github.com/Yelp/detect-secrets/issues/452)). It is highly recommended to monitor the fix for the issue and use the latest version if possible by removing version tag `==1.0.3` in the pip install command.
+> OBS: O exemplo do Windows não usa a versão mais recente do detect-secrets. Isso está relacionado ao bug na ferramenta detect-secrets (veja mais em [Issue#452](https://github.com/Yelp/detect-secrets/issues/452)). É altamente recomendável monitorar a correção do problema e usar a versão mais recente, se possível, removendo a tag de versão `==1.0.3` no comando de instalação do pip.
 
 ```yaml
 trigger:
@@ -26,27 +26,27 @@ trigger:
 
 jobs:
   - job: ubuntu
-    displayName: "detect-secrets on Ubuntu Linux agent"
+    displayName: "detect-secrets no agente Ubuntu Linux"
     pool:
       vmImage: ubuntu-latest
     steps:
       - task: UsePythonVersion@0
-        displayName: "Set Python 3 as default"
+        displayName: "Definir o Python 3 como padrão"
         inputs:
           versionSpec: "3"
           addToPath: true
           architecture: "x64"
 
       - bash: pip install detect-secrets
-        displayName: "Install detect-secrets using pip"
+        displayName: "Instalar detect-secrets usando pip"
 
       - bash: |
           detect-secrets --version
           detect-secrets scan --all-files --force-use-all-plugins --exclude-files FETCH_HEAD > $(Pipeline.Workspace)/detect-secrets.json
-        displayName: "Run detect-secrets tool"
+        displayName: "Executar a ferramenta detect-secrets"
 
       - task: PublishPipelineArtifact@1
-        displayName: "Publish results in the Pipeline Artifact"
+        displayName: "Publicar resultados no Artifact do Pipeline"
         inputs:
           targetPath: "$(Pipeline.Workspace)/detect-secrets.json"
           artifact: "detect-secrets-ubuntu"
@@ -59,36 +59,36 @@ jobs:
           count=$(echo "${dsjson}" | jq -c -r '.results | length')
 
           if [ $count -gt 0 ]; then
-            msg="Secrets were detected in code. ${count} file(s) affected."
+            msg="Segredos foram detectados no código. ${count} arquivo(s) afetado(s)."
             echo "##vso[task.logissue type=error]${msg}"
             echo "##vso[task.complete result=Failed;]${msg}."
           else
-            echo "##vso[task.complete result=Succeeded;]No secrets detected."
+            echo "##vso[task.complete result=Succeeded;]Nenhum segredo detectado."
           fi
-        displayName: "Analyzing detect-secrets results"
+        displayName: "Analisar resultados do detect-secrets"
 
   - job: windows
-    displayName: "detect-secrets on Windows agent"
+    displayName: "detect-secrets no agente Windows"
     pool:
       vmImage: windows-latest
     steps:
       - task: UsePythonVersion@0
-        displayName: "Set Python 3 as default"
+        displayName: "Definir o Python 3 como padrão"
         inputs:
           versionSpec: "3"
           addToPath: true
           architecture: "x64"
 
       - script: pip install detect-secrets==1.0.3
-        displayName: "Install detect-secrets using pip"
+        displayName: "Instalar detect-secrets usando pip"
 
       - script: |
           detect-secrets --version
           detect-secrets scan --all-files --force-use-all-plugins > $(Pipeline.Workspace)/detect-secrets.json
-        displayName: "Run detect-secrets tool"
+        displayName: "Executar a ferramenta detect-secrets"
 
       - task: PublishPipelineArtifact@1
-        displayName: "Publish results in the Pipeline Artifact"
+        displayName: "Publicar resultados no Artifact do Pipeline"
         inputs:
           targetPath: "$(Pipeline.Workspace)/detect-secrets.json"
           artifact: "detect-secrets-windows"
@@ -102,12 +102,15 @@ jobs:
           $count = ($dsObj.results | Get-Member -MemberType NoteProperty).Count
 
           if ($count -gt 0) {
-            $msg = "Secrets were detected in code. $count file(s) affected. "
+            $msg = "Segredos foram detectados no código. $count arquivo(s) afetado(s). "
             Write-Host "##vso[task.logissue type=error]$msg"
             Write-Host "##vso[task.complete result=Failed;]$msg"
+
+
           }
           else {
-            Write-Host "##vso[task.complete result=Succeeded;]No secrets detected."
+            Write-Host "##vso[task.complete result=Succeeded;]Nenhum segredo detectado."
           }
-        displayName: "Analyzing detect-secrets results"
+        displayName: "Analisar resultados do detect-secrets"
 ```
+

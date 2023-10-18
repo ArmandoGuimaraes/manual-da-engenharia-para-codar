@@ -1,63 +1,65 @@
-# User Interface and User Experience Engineering
+# Engenharia de Interface do Usuário e Experiência do Usuário
 
-Also known as _UI/UX_, _Front End Development_, or _Web Development_, user interface and user experience engineering is a broad topic and encompasses many different aspects of modern application development. When a user interface is required, ISE primarily develops a **web application**. Web apps can be built in a variety of ways with many different tools.
+Também conhecida como _UI/UX_, _Desenvolvimento Front-End_ ou _Desenvolvimento Web_, a engenharia de interface do usuário e experiência do usuário é um tópico amplo e abrange muitos aspectos diferentes do desenvolvimento moderno de aplicativos. Quando é necessária uma interface do usuário, a ISE (Engenharia de Software de Interface do Usuário) desenvolve principalmente uma **aplicação web**. Aplicativos web podem ser construídos de várias maneiras com diversas ferramentas diferentes.
 
-## Goal
+## Objetivo
 
-The goal of the **User Interface** section is to provide guidance on developing web applications. Everyone should begin by reading the [General Guidance](#general-guidance) for a quick introduction to the four main aspects of every web application project. From there, readers are encouraged to dive deeper into each topic, or begin reviewing technical guidance that pertains to their engagement. All UI/UX projects should begin with a detailed design document. Review the [Design Process](#design-process) section for more details, and a template to get started.
+O objetivo da seção **Interface do Usuário** é fornecer orientações sobre o desenvolvimento de aplicações web. Todos devem começar lendo o [Guia Geral](#guia-geral) para uma introdução rápida aos quatro principais aspectos de cada projeto de aplicação web. A partir daí, os leitores são incentivados a aprofundar cada tópico ou começar a revisar as orientações técnicas que se aplicam ao seu projeto. Todos os projetos de UI/UX devem começar com um documento de design detalhado. Revise a seção [Processo de Design](#processo-de-design) para obter mais detalhes e um modelo para começar.
 
-Keep in mind that like all software, there is no "right way" to build a user interface application. Leverage and trust your team's or your customer's experience and expertise for the best development experience.
+Lembre-se de que, como todo software, não existe uma "maneira certa" de construir uma aplicação de interface do usuário. Aproveite e confie na experiência e expertise de sua equipe ou do seu cliente para obter a melhor experiência de desenvolvimento.
 
-## General Guidance
+## Guia Geral
 
-The state of web platform engineering is fast moving. There is no one-size-fits-all solution. For any team to be successful in building a UI, they need to have an understanding of the higher-level aspects of all UI project.
+O estado da engenharia de plataformas web está em constante evolução. Não existe uma solução única que sirva para todos. Para que qualquer equipe tenha sucesso na construção de uma UI, é necessário entender os aspectos de alto nível de todos os projetos de UI.
 
-1. [**Accessibility**](../accessibility/README.md) - ensuring your application is usable and enjoyed by as many people as possible is at the heart of accessibility and inclusive design.
-1. [**Usability**](./usability.md) - how effortless should it be for any given user to use the application? Do they need special training or a document to understand how to use it, or will it be intuitive?
-1. [**Maintainability**](./maintainability.md) - is the application just a proof of concept to showcase an idea for future work, or will it be an MVP and act as the starting point for a larger, production-ready application? Sometimes you don't need React or any other framework. Sometimes you need React, but not all the bells and whistles from create-react-app. Understanding project maintainability requirements can simplify an engagement’s tooling needs significantly and let folks iterate without headaches.
-1. [**Stability**](./stability.md) - what is the cost of adding a dependency? Is it actively stable/updated/maintained? If not, can you afford the tech debt (sometimes the answer can be yes!)? Could you get 90% of the way there without adding another dependency?
+1. [**Acessibilidade**](../accessibility/README.md) - garantir que sua aplicação seja utilizável e apreciada por quantas pessoas forem possíveis é o cerne da acessibilidade e do design inclusivo.
+1. [**Usabilidade**](./usability.md) - quão fácil deve ser para qualquer usuário utilizar a aplicação? Eles precisam de treinamento especial ou de um documento para entender como usá-la, ou será intuitivo?
+1. [**Manutenibilidade**](./maintainability.md) - a aplicação é apenas uma prova de conceito para mostrar uma ideia para trabalhos futuros, ou será um MVP (Produto Mínimo Viável) e servirá como ponto de partida para uma aplicação maior e pronta para produção? Às vezes, você não precisa do React ou de qualquer outro framework. Às vezes, você precisa do React, mas não de todos os recursos do create-react-app. Compreender os requisitos de manutenção do projeto pode simplificar significativamente as necessidades de ferramentas de um projeto e permitir iterações sem dores de cabeça.
+1. [**Estabilidade**](./stability.md) - qual é o custo de adicionar uma dependência? Ela está ativamente estável/atualizada/manutenida? Se não, você pode arcar com a dívida técnica (às vezes a resposta pode ser sim!)? Você poderia chegar a 90% do caminho sem adicionar outra dependência?
 
-More information is available for each general guidance section in the corresponding pages.
+Mais informações estão disponíveis para cada seção de orientação geral nas páginas correspondentes.
 
-## Design Process
+## Processo de Design
 
-All user interface applications begin with the design process. The true definition for "the design process" is ever changing and highly opinion based as well. This sections aims to deliver a general overview of a design process _any_ engineering team could conduct when starting an UI application engagement.
+Todas as aplicações de interface do usuário começam com o processo de design. A verdadeira definição de "o processo de design" está em constante mudança e é altamente baseada em opiniões. Esta seção tem como objetivo oferecer uma visão geral geral de um processo de design que _qualquer_ equipe de engenharia pode conduzir ao iniciar um projeto de aplicação de interface do usuário.
 
-> When committing to a UI/UX project, be certain to not over-promise on the web application requirements. Delivering a production-ready application involves a large number of engineering complexities resulting in a very long timeline. Always start with a proof-of-concept or minimum-viable-product first. These projects can easily be achieved within a couple month timeline (and sometimes even less).
+> Ao se comprometer com um projeto de UI/UX, certifique-se de não prometer demais em relação aos requisitos da aplicação web. Entregar uma aplicação pronta para produção envolve um grande número de complexidades de engenharia, resultando em um prazo muito longo. Comece sempre com um prova de conceito ou mínimo produto viável primeiro. Esses projetos podem ser facilmente concluídos em um prazo de alguns meses (e às vezes até menos).
 
-The first step in the design process is to understand the problem at hand and outline what the solution should achieve. Commonly referred to as _Desired Outcomes_, the output of this first step should be a generalized list of outcomes that the solution will accomplish. Consider the following example:
+O primeiro passo no processo de design é entender o problema em questão e delinear o que a solução deve alcançar. Comumente referido como _Resultados Desejados_, a saída desta primeira etapa deve ser uma lista generalizada de resultados que a solução alcançará. Considere o seguinte exemplo:
 
-A public library has a set of data containing information about its collection. The data stores text, images, and the status of a book (borrowed, available, reserved). The library librarian wants to share this data with its users.
+Uma biblioteca pública possui um conjunto de dados contendo informações sobre sua coleção. Os dados armazenam texto, imagens e o status de um livro (emprestado, disponível, reservado). O bibliotecário da biblioteca deseja compartilhar esses dados com seus usuários.
 
-1. As the librarian, I want to notify users before they receive late penalties for overdue books
-1. As the librarian, I want to notify users when a book they have reserved becomes available
+1. Como bibliotecário, quero notificar os usuários antes que eles recebam penalidades por atraso em livros
+1. Como bibliotecário, quero notificar os usuários quando um livro que eles reservaram estiver disponível
 
-With the desired outcomes in mind, the next step in the design process is to define user personas. Regardless of the solution for a given problem, understanding the user needs leads to a better understanding of feature development and technological choices. Personas are written as prose-like paragraphs that describe different types of users. Considering the previous example, the various user personas could be:
+Com os resultados desejados em mente, o próximo passo no processo de design é definir as personas do usuário. Independentemente da solução para um determinado problema, entender as necessidades do usuário leva a uma melhor compreensão do desenvolvimento de recursos e escolhas tecnológicas. As personas são escritas em forma de parágrafos que descrevem diferentes tipos de usuários. Considerando o exemplo anterior, as várias personas de usuário podem ser:
 
-1. An individual with no disabilities, but is unfamiliar with using software interfaces
-1. An individual with no disabilities, and is familiar with using software interfaces
-1. An individual with disabilities, and is unfamiliar with using software interfaces (with or without the use of accessibility tooling)
-1. An individual with disabilities, but familiar with using software interfaces through the use of accessibility tooling
+1. Uma pessoa sem deficiências, mas não familiarizada com interfaces de software
+1. Uma pessoa sem deficiências e familiarizada com interfaces de software
+1. Uma pessoa com deficiências e não familiarizada com interfaces de software (com ou sem o uso de ferramentas de acessibilidade)
+1. Uma pessoa com deficiências, mas familiarizada com interfaces de software por meio do uso de ferramentas de acessibilidade
 
-After defining these personas it is clear that whatever the solution is, it requires a lot of accessibility and user experience design work. Sometimes personas can be simpler than this, but **always include disabled users**. Even when a user set is predefined as a group of individuals without disabilities, there is no guarantee that the user set will remain that way.
+Após definir essas personas, fica claro que qualquer que seja a solução, ela requer muito trabalho de design de acessibilidade e experiência do usuário. Às vezes, as personas podem ser mais simples do que isso, mas **sempre inclua usuários com deficiências**. Mesmo quando um conjunto de usuários é predefinido como um grupo de pessoas sem deficiências, não há garantia de que esse conjunto de usuários permanecerá dessa forma.
 
-After defining the _desired outcomes_ as well as the _personas_, the next step in the design process is to begin conducting [Trade Studies](./../design/design-reviews/trade-studies/README.md) for potential solutions. The first trade study should be high-level and solution oriented. It will utilize the results of previous steps and propose multiple solutions for achieving the desired outcomes with the listed personas in mind. Continuing with the library example, this first trade study may compare various application solutions such as automated emails or text messages, an RSS feed, or an user interface application. There are pros and cons for each solution both from an user experience and a developer experience perspective, but at this stage it is important to focus on the users. After arriving on the best solution, the next trade study can dive into different implementation methods. It is in this subsequent trade studies that developer experience becomes more important.
+Após definir os _resultados desejados_ e as _personas_, o próximo passo no processo de design é começar a conduzir [Estudos de Troca](./../design/design-reviews/trade-studies/README.md) para soluções
 
-The benefit of building software applications is that there are truly infinite ways to build something. A team can use the latest shiny tools, or they can utilize the tried-and-tested ones. It is for this reason that focussing completely on the user until a solution is defined is better than obsessing over technology choices. Within ISE, we often reach for tools such as the [React](https://reactjs.org/) framework. React is a great tool when wielded by an experienced team. Otherwise, it can create more hurdles than it is worth. Keep in mind that even if _you_ feel capable with React, the rest of your team and your customer's dev team needs to as well. Some other great options to consider when building a proof-of-concept or minimum-viable-product are:
+ potenciais. O primeiro estudo de troca deve ser de alto nível e orientado para a solução. Ele utilizará os resultados das etapas anteriores e proporá múltiplas soluções para alcançar os resultados desejados com as personas listadas em mente. Continuando com o exemplo da biblioteca, este primeiro estudo de troca pode comparar várias soluções de aplicativos, como emails ou mensagens de texto automatizadas, um feed RSS ou uma aplicação de interface de usuário. Existem prós e contras para cada solução, tanto do ponto de vista da experiência do usuário quanto da experiência do desenvolvedor, mas nesta fase é importante focar nos usuários. Após chegar à melhor solução, o próximo estudo de troca pode explorar diferentes métodos de implementação. É nesses estudos subsequentes que a experiência do desenvolvedor se torna mais importante.
+
+A vantagem de construir aplicações de software é que existem infinitas maneiras de construir algo. Uma equipe pode usar as ferramentas mais modernas e brilhantes, ou pode utilizar aquelas que já foram testadas e comprovadas. É por isso que focar completamente no usuário até que uma solução seja definida é melhor do que se preocupar com as escolhas tecnológicas. Dentro da ISE, muitas vezes recorremos a ferramentas como o framework [React](https://reactjs.org/). O React é uma ótima ferramenta quando usado por uma equipe experiente. Caso contrário, pode criar mais obstáculos do que vale a pena. Lembre-se de que, mesmo que _você_ se sinta capaz com o React, o resto da sua equipe e a equipe de desenvolvimento do seu cliente também precisam se sentir assim. Algumas outras ótimas opções a serem consideradas ao construir uma prova de conceito ou mínimo produto viável são:
 
 1. HTML/CSS/JavaScript
-   - Back to the basics! Start with a single **index.html**, include a popular CSS framework such as [Bootstrap](https://getbootstrap.com/) using their CDN link, and start prototyping!
-   - Rarely will you have to support legacy browsers; thus, you can rely on modern JavaScript language features! No need for build tools or even TypeScript (did you know you can [type check JavaScript](https://www.typescriptlang.org/docs/handbook/intro-to-js-ts.html)).
-1. Web Component frameworks
-   - Web Components are now standardized in all modern browsers
-   - Microsoft has their own, stable & actively-maintained framework, [Fast](https://www.fast.design/)
+   - Volte ao básico! Comece com um único **index.html**, inclua um popular framework CSS como o [Bootstrap](https://getbootstrap.com/) usando o link CDN deles e comece a criar protótipos!
+   - Raramente será necessário dar suporte a navegadores antigos; portanto, você pode contar com os recursos modernos da linguagem JavaScript! Não há necessidade de ferramentas de construção ou mesmo TypeScript (você sabia que pode [verificar o tipo do JavaScript](https://www.typescriptlang.org/docs/handbook/intro-to-js-ts.html)).
+1. Frameworks de Componentes Web
+   - Os Componentes Web agora são padronizados em todos os navegadores modernos
+   - A Microsoft possui seu próprio framework estável e ativamente mantido, o [Fast](https://www.fast.design/)
 
-For more information of choosing the right implementation tool, read the [Recommended Technologies](./recommended-technologies.md) document.
+Para obter mais informações sobre a escolha da ferramenta de implementação certa, leia o documento [Tecnologias Recomendadas](./recommended-technologies.md).
 
-Continue reading the [Trade Study](./../design/design-reviews/trade-studies/README.md) section of this site for more information on completing this step in the design process.
+Continue lendo a seção de [Estudo de Troca](./../design/design-reviews/trade-studies/README.md) deste site para obter mais informações sobre como concluir esta etapa no processo de design.
 
-After iterating through multiple trade study documents, this design process can be considered complete! With an agreed upon solution and implementation in mind, it is now time to begin development. A natural continuation of the design process is to get users (or stakeholders) involved as early as possible. Constantly look for design and usability feedback, and utilize this to improve the application as it is being developed.
+Após iterar por vários documentos de estudos de troca, este processo de design pode ser considerado concluído! Com uma solução acordada e uma implementação em mente, agora é hora de iniciar o desenvolvimento. Uma continuação natural do processo de design é envolver os usuários (ou partes interessadas) o mais cedo possível. Procure constantemente feedback de design e usabilidade e utilize-o para melhorar a aplicação à medida que ela é desenvolvida.
 
-### Example
+### Exemplo
 
-> Coming soon!
+> Em breve!

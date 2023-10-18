@@ -7516,13 +7516,17 @@
 <tr>
 <td>8</td>
 <td>Disponibilidade</td>
-<td>A exploração do ponto de extremidade público por atores maliciosos que visam tornar o serviço indisponível para seus usuários pretendidos, interrompendo a atividade normal do serviço, por exemplo</td>
-<td></td>
+<td>A exploração do ponto de extremidade público por atores maliciosos que visam tornar o serviço indisponível para seus usuários pretendidos, interrompendo a atividade normal do serviço, por exemplo, inundando o serviço de destino com solicitações até que o tráfego normal não possa ser processado (Negação de Serviço)</td>
+<td>O aplicativo é acessado por meio de um aplicativo da web implantado como um dos módulos IoTEdge no dispositivo IoTEdge. Este aplicativo pode ser acessado por qualquer pessoa na rede local. Portanto, ataques DDoS são possíveis se o atacante ganhar acesso à rede local. Todos os serviços implantados como módulos IoTEdge devem usar autenticação. <em>Aplica-se a serviços implantados em dispositivos IoTEdge.</em></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Integridade</td>
+<td>Manipulação de dados</td>
+<td>Os dados em repouso, no Azure Storage, devem ser criptografados no disco. Os dados em repouso, no Azure, podem ser protegidos ainda mais pelo Azure Advanced Threat Protection. Os dados em repouso, no Azure Storage e no espaço de trabalho do Azure Monitor, usarão o Azure RBAC para segregação de tarefas e concederão apenas a menor quantidade de acesso para executar uma ação em um escopo específico. Os dados em trânsito entre os serviços podem ser criptografados em TLS 1.2 <em>Aplica-se ao fluxo de dados entre os módulos IoTEdge e os Serviços Azure.</em></td>
 </tr>
 </tbody>
 </table>
-<p>, inundando o serviço de destino com solicitações até que o tráfego normal não possa ser processado (Negação de Serviço) | O aplicativo é acessado por meio de um aplicativo da web implantado como um dos módulos IoTEdge no dispositivo IoTEdge. Este aplicativo pode ser acessado por qualquer pessoa na rede local. Portanto, ataques DDoS são possíveis se o atacante ganhar acesso à rede local. Todos os serviços implantados como módulos IoTEdge devem usar autenticação. <em>Aplica-se a serviços implantados em dispositivos IoTEdge.</em>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| 9                   | Integridade                     | Manipulação de dados                                                                                                                                                                                                                                                                               | Os dados em repouso, no Azure Storage, devem ser criptografados no disco. Os dados em repouso, no Azure, podem ser protegidos ainda mais pelo Azure Advanced Threat Protection. Os dados em repouso, no Azure Storage e no espaço de trabalho do Azure Monitor, usarão o Azure RBAC para segregação de tarefas e concederão apenas a menor quantidade de acesso para executar uma ação em um escopo específico. Os dados em trânsito entre os serviços podem ser criptografados em TLS 1.2 <em>Aplica-se ao fluxo de dados entre os módulos IoTEdge e os Serviços Azure.</em>                                                                                                                                                                                                                                                                                                                                                                                            |</p>
 <h2 id="principios-de-seguranca">Princípios de Segurança</h2>
 <ul>
 <li><strong>Confidencialidade</strong> refere-se ao objetivo de manter os dados privados ou secretos. Na prática, trata-se de controlar o acesso aos dados para evitar divulgação não autorizada.</li>

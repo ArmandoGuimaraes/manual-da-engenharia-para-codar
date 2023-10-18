@@ -1,22 +1,22 @@
 # Tracing
 
-## Overview
+## Visão Geral
 
-Produces the information required to observe series of correlated operations in a distributed system. Once collected they show the path, measurements and faults in an end-to-end transaction.
+Produz as informações necessárias para observar uma série de operações correlacionadas em um sistema distribuído. Uma vez coletadas, elas mostram o caminho, as medidas e as falhas em uma transação de ponta a ponta.
 
-## Best Practices
+## Melhores Práticas
 
-- Ensure that at least key business transactions are traced.
-- Include in each trace necessary information to identify software releases (i.e. service name, version). This is important to correlate deployments and system degradation.
-- Ensure dependencies are included in trace (databases, I/O).
-- If costs are a concern use sampling, avoiding throwing away errors, unexpected behavior and critical information.
-- Don't reinvent the wheel, use existing tools to collect and analyze the data.
-- Ensure personal identifiable information policies and restrictions are followed.
+- Certifique-se de que pelo menos transações comerciais-chave sejam rastreadas.
+- Inclua em cada rastreamento informações necessárias para identificar lançamentos de software (ou seja, nome do serviço, versão). Isso é importante para correlacionar implantações e degradação do sistema.
+- Certifique-se de que as dependências estejam incluídas no rastreamento (bancos de dados, I/O).
+- Se os custos forem uma preocupação, use amostragem, evitando descartar erros, comportamentos inesperados e informações críticas.
+- Não reinvente a roda, use ferramentas existentes para coletar e analisar os dados.
+- Garanta que as políticas e restrições de informações pessoais sejam seguidas.
 
-## Recommended Tools
+## Ferramentas Recomendadas
 
-- [Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/overview) - Umbrella of services including system metrics, log analytics and more.
-- [Jaeger Tracing](https://www.jaegertracing.io) - Open source, end-to-end distributed tracing.
-- [Grafana](https://grafana.com) - Open source dashboard & visualization tool. Supports Log, Metrics and Distributed tracing data sources.
+- [Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/overview) - Conjunto de serviços, incluindo métricas do sistema, análise de registros e muito mais.
+- [Jaeger Tracing](https://www.jaegertracing.io) - Rastreamento distribuído de ponta a ponta de código aberto.
+- [Grafana](https://grafana.com) - Ferramenta de painel e visualização de código aberto. Suporta fontes de dados de log, métricas e rastreamento distribuído.
 
->Consider using [OpenTelemetry](../tools/OpenTelemetry.md) as it implements open-source cross-platform context propagation for end-to-end distributed transactions over heterogeneous components out-of-the-box. It takes care of automatically creating and managing the Trace Context object among a full stack of microservices implemented across different technical stacks.
+> Considere o uso do [OpenTelemetry](../tools/OpenTelemetry.md), pois ele implementa a propagação de contexto de código aberto multiplataforma para transações distribuídas de ponta a ponta em componentes heterogêneos. Ele cuida automaticamente da criação e gerenciamento do objeto de contexto de rastreamento em uma pilha completa de microsserviços implementados em diferentes pilhas técnicas.

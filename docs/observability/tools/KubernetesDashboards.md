@@ -1,39 +1,39 @@
-# Kubernetes UI Dashboards
+# Painéis de Controle da UI do Kubernetes
 
-This document covers the options and benefits of various Kubernetes UI Dashboards which are useful tools for monitoring and debugging your application on Kubernetes Clusters. It allows the management of applications running in the cluster, debug them and manage the cluster all through these dashboards.
+Este documento aborda as opções e benefícios de vários painéis de controle da UI do Kubernetes, que são ferramentas úteis para monitorar e depurar sua aplicação em Clusters Kubernetes. Eles permitem a gestão de aplicativos em execução no cluster, a depuração deles e a gestão do cluster, tudo por meio desses painéis.
 
-## Overview and Background
+## Visão Geral e Contexto
 
-There are times when not all solutions can be run locally. This limitation could be due to a cloud service which does not offer a robust or efficient way to locally debug the environment. In these cases, it is necessary to use other tools which provide the capabilities to monitor your application with Kubernetes.
+Há momentos em que nem todas as soluções podem ser executadas localmente. Essa limitação pode ser devido a um serviço em nuvem que não oferece uma forma robusta ou eficiente de depurar o ambiente localmente. Nestes casos, é necessário usar outras ferramentas que proporcionem as capacidades de monitorar sua aplicação com o Kubernetes.
 
-## Advantages and Use Cases
+## Vantagens e Casos de Uso
 
-- Allows the ability to view, manage and monitor the operational aspects of the Kubernetes Cluster.
+- Permite a capacidade de visualizar, gerenciar e monitorar os aspectos operacionais do Cluster Kubernetes.
 
-- Benefits of using a UI dashboard includes the following:
-  - see an overview of the cluster
-  - deploy applications onto the cluster
-  - troubleshoot applications running on the cluster
-  - view, create, modify, and delete Kubernetes resources
-  - view basic resource metrics including resource usage for Kubernetes objects
-  - view and access logs
-  - live view of the pods state (e.g. started, terminating, etc)
+- Os benefícios de usar um painel de controle de UI incluem o seguinte:
+  - ver uma visão geral do cluster
+  - implantar aplicativos no cluster
+  - depurar aplicativos em execução no cluster
+  - visualizar, criar, modificar e excluir recursos do Kubernetes
+  - visualizar métricas básicas de recursos, incluindo o uso de recursos para objetos Kubernetes
+  - visualizar e acessar logs
+  - visualização em tempo real do estado dos pods (por exemplo, iniciados, terminando, etc.)
 
-- Different dashboards may provide different functionalities, and the use case to choose a particular dashboard will depend on the requirements. For example, many dashboards provide a way to only monitor your applications on Kubernetes but do not provide a way to manage them.
+- Diferentes painéis de controle podem fornecer funcionalidades diferentes, e a escolha de um painel de controle específico dependerá dos requisitos. Por exemplo, muitos painéis de controle oferecem apenas uma maneira de monitorar suas aplicações no Kubernetes, mas não oferecem uma maneira de gerenciá-las.
 
-## Open Source Dashboards
+## Painéis de Controle de Código Aberto
 
-There are currently several UI dashboards available to monitor your applications or manage them with Kubernetes. For example:
+Atualmente, existem vários painéis de controle de UI disponíveis para monitorar suas aplicações ou gerenciá-las com o Kubernetes. Por exemplo:
 
 - [Octant](https://github.com/vmware-tanzu/octant)
-- [Prometheus and Grafana](https://prometheus.io/docs/visualization/grafana/)
-  - [Kube Prometheus Stack Chart](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack): provides an easy way to operate end-to-end Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.
+- [Prometheus e Grafana](https://prometheus.io/docs/visualization/grafana/)
+  - [Gráfico Kube Prometheus Stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack): fornece uma maneira fácil de operar o monitoramento de cluster Kubernetes de ponta a ponta com o Prometheus usando o Prometheus Operator.
 - [K8Dash](https://github.com/indeedeng/k8dash)
-- [kube-ops-view](https://github.com/hjacobs/kube-ops-view): a tool to visualize node occupancy & utilization
-- [Lens](https://k8slens.dev/): Client side desktop tool
-- [Thanos](https://github.com/thanos-io/thanos) and [Cortex](https://cortexmetrics.io/docs/): Multi-cluster implementations
+- [kube-ops-view](https://github.com/hjacobs/kube-ops-view): uma ferramenta para visualizar a ocupação e utilização de nós
+- [Lens](https://k8slens.dev/): Ferramenta de desktop do lado do cliente
+- [Thanos](https://github.com/thanos-io/thanos) e [Cortex](https://cortexmetrics.io/docs/): Implementações multi-cluster
 
-## References
+## Referências
 
-- [Alternatives to Kubernetes Dashboard](https://octopus.com/blog/alternative-kubernetes-dashboards)
-- [Prometheus and Grafana with Kubernetes](https://tanzu.vmware.com/developer/guides/kubernetes/observability-prometheus-grafana-p1/)
+- [Alternativas ao Painel de Controle do Kubernetes](https://octopus.com/blog/alternative-kubernetes-dashboards)
+- [Prometheus e Grafana com Kubernetes](https://tanzu.vmware.com/developer/guides/kubernetes/observability-prometheus-grafana-p1/)

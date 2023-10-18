@@ -1,17 +1,17 @@
-# Recommended Practices
+# Práticas Recomendadas
 
-1. **Correlation Id**: Include unique identifier at the start of the interaction to tie down aggregated data from various system components and provide a holistic view. Read more guidelines about using [correlation id](correlation-id.md).
-1. Ensure health of the services are **monitored** and provide insights into system's performance and behavior.
-1. Ensure **dependent services** are monitored properly. Errors and exceptions in dependent services like Redis cache, Service bus, etc. should be logged and alerted. Also, metrics related to dependent services should be captured and logged.
+1. **ID de Correlação**: Inclua um identificador único no início da interação para vincular dados agregados de vários componentes do sistema e fornecer uma visão holística. Leia mais orientações sobre o uso do [ID de correlação](correlation-id.md).
+2. Certifique-se de que a **saúde dos serviços** seja **monitorada** e forneça insights sobre o desempenho e o comportamento do sistema.
+3. Certifique-se de que os **serviços dependentes** sejam monitorados adequadamente. Erros e exceções em serviços dependentes, como o cache Redis, o Service bus, etc., devem ser registrados e alertados. Além disso, métricas relacionadas aos serviços dependentes devem ser capturadas e registradas.
 
-    - Additionally, failures in **dependent services** should be propagated up each level of the stack by the health check.
+   - Além disso, falhas nos **serviços dependentes** devem ser propagadas por cada nível da pilha por meio da verificação de integridade.
 
-1. **Faults, crashes, and failures** are logged as discrete events. This helps engineers identify problem area(s) during failures.
-1. Ensure logging configuration (eg: setting logging to "verbose") can be controlled without code changes.
-1. Ensure that **metrics** around latency and duration are collected and can be aggregated.
-1. Start small and add where there is customer impact. [Avoiding metric fatigue](pitfalls.md#metric-fatigue) is very crucial to collecting actionable data.
-1. It is important that every data that is collected contains relevant and rich context.
-1. Personally Identifiable Information or any other customer sensitive information should never be logged. Special attention should be paid to any local privacy data regulations and collected data must adhere to those. (ex: GDPR)
-1. **Health checks** : Appropriate health checks should added to determine if service is healthy and ready to serve traffic. On a kubernetes platform different types of probes e.g. Liveness, Readiness, Startup etc. can be used to determine health and readiness of the deployed service.
+4. **Falhas, crashes e falhas** são registrados como eventos discretos. Isso ajuda os engenheiros a identificar áreas problemáticas durante as falhas.
+5. Certifique-se de que a configuração de registro (por exemplo, definir o registro como "verbose") possa ser controlada sem alterações de código.
+6. Garanta que **métricas** relacionadas à latência e duração sejam coletadas e possam ser agregadas.
+7. Comece pequeno e adicione métricas onde houver impacto no cliente. Evitar a [fadiga de métricas](pitfalls.md#metric-fatigue) é fundamental para coletar dados acionáveis.
+8. É importante que todos os dados coletados contenham contexto relevante e rico.
+9. Informações Pessoalmente Identificáveis ou qualquer outra informação sensível do cliente nunca devem ser registradas. Deve-se prestar atenção especial a regulamentações locais de privacidade de dados e os dados coletados devem estar em conformidade com essas regulamentações (por exemplo, GDPR).
+10. **Verificação de Saúde**: Verificações de saúde apropriadas devem ser adicionadas para determinar se o serviço está saudável e pronto para atender ao tráfego. Em uma plataforma Kubernetes, diferentes tipos de sondagens, como Liveness, Readiness, Startup, etc., podem ser usados para determinar a saúde e prontidão do serviço implantado.
 
-Read more [here](pitfalls.md) to understand what to watch out for while designing and building an observable system.
+Leia mais [aqui](pitfalls.md) para entender o que observar ao projetar e construir um sistema observável.

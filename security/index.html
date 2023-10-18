@@ -19,7 +19,7 @@
     
     
       
-        <title>Security - Manual da Engenharia para Codar</title>
+        <title>Segurança - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#security" class="md-skip">
+        <a href="#seguranca" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Security
+              Segurança
             
           </span>
         </div>
@@ -7136,22 +7136,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#requesting-security-reviews" class="md-nav__link">
-    Requesting Security Reviews
+  <a href="#solicitacao-de-revisoes-de-seguranca" class="md-nav__link">
+    Solicitação de Revisões de Segurança
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-references" class="md-nav__link">
-    Quick References
+  <a href="#referencias-rapidas" class="md-nav__link">
+    Referências Rápidas
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#azure-devops-security" class="md-nav__link">
-    Azure DevOps Security
+  <a href="#seguranca-no-azure-devops" class="md-nav__link">
+    Segurança no Azure DevOps
   </a>
   
 </li>
@@ -7164,22 +7164,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#owasp-cheat-sheets" class="md-nav__link">
-    OWASP Cheat Sheets
+  <a href="#folhas-de-resumo-da-owasp" class="md-nav__link">
+    Folhas de Resumo da OWASP
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#recommended-tools" class="md-nav__link">
-    Recommended Tools
+  <a href="#ferramentas-recomendadas" class="md-nav__link">
+    Ferramentas Recomendadas
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#useful-links" class="md-nav__link">
-    Useful links
+  <a href="#links-uteis" class="md-nav__link">
+    Links Úteis
   </a>
   
 </li>
@@ -7198,81 +7198,82 @@
                 
 
 
-<h1 id="security">Security</h1>
-<p>Developers working on projects should adhere to industry-recommended standard practices for secure design and implementation of code. For the purposes of our customers, this means our engineers should understand the <a href="https://owasp.org/www-project-top-ten/">OWASP Top 10 Web Application Security Risks</a>, as well as how to mitigate as many of them as possible, using the resources below.</p>
-<p><strong>If you are looking for a fast way to get started</strong> evaluating your application or design, check out the "Secure Coding Practices Quick Reference" document below, which contains an itemized checklist of high-level concepts you can validate are being done properly. This checklist covers many common errors associated with the OWASP Top 10 list linked above, and should be the minimum amount of effort being put into security.</p>
-<h2 id="requesting-security-reviews">Requesting Security Reviews</h2>
-<p>When requesting a security review for your application, please make sure you have familiarized yourself with the <a href="rules-of-engagement/">Rules of Engagement</a>. This will help you to prepare the application for testing, as well as understand the scope limits of the test.</p>
-<h2 id="quick-references">Quick References</h2>
+<h1 id="seguranca">Segurança</h1>
+<p>Os desenvolvedores que trabalham em projetos devem aderir às práticas padrão recomendadas pela indústria para o design seguro e implementação de código. Para os nossos clientes, isso significa que nossos engenheiros devem entender os <a href="https://owasp.org/www-project-top-ten/">10 Principais Riscos de Segurança de Aplicações Web da OWASP</a>, bem como como mitigar o máximo possível deles, usando os recursos abaixo.</p>
+<p><strong>Se você está procurando uma maneira rápida de começar</strong> a avaliar sua aplicação ou design, confira o documento "Referência Rápida de Práticas de Codificação Segura" abaixo, que contém uma lista de verificação detalhada de conceitos de alto nível que você pode verificar se estão sendo feitos corretamente. Esta lista cobre muitos erros comuns associados à lista dos 10 Principais Riscos da OWASP mencionada acima e deve representar o esforço mínimo em termos de segurança.</p>
+<h2 id="solicitacao-de-revisoes-de-seguranca">Solicitação de Revisões de Segurança</h2>
+<p>Ao solicitar uma revisão de segurança para sua aplicação, certifique-se de ter se familiarizado com as <a href="rules-of-engagement/">Regras de Engajamento</a>. Isso o ajudará a preparar a aplicação para o teste, bem como entender os limites de escopo do teste.</p>
+<h2 id="referencias-rapidas">Referências Rápidas</h2>
 <ul>
-<li><a href="https://owasp.org/www-pdf-archive/OWASP_SCP_Quick_Reference_Guide_v2.pdf">Secure Coding Practices Quick Reference</a></li>
-<li><a href="https://owasp.org/www-pdf-archive//OWASP_Web_Application_Security_Quick_Reference_Guide_0.3.pdf">Web Application Security Quick Reference</a></li>
-<li><a href="https://github.com/OWASP/Quick-Start-Guide/blob/master/OWASP%20Quick%20Start%20Guide.pdf?raw=true">Security Mindset/Creating a Security Program Quick Start</a></li>
-<li><a href="../continuous-integration/dev-sec-ops/secret-management/credential_scanning/">Credential Scanning / Secret Detection</a></li>
-<li><a href="threat-modelling/">Threat Modelling</a></li>
+<li><a href="https://owasp.org/www-pdf-archive/OWASP_SCP_Quick_Reference_Guide_v2.pdf">Referência Rápida de Práticas de Codificação Segura</a></li>
+<li><a href="https://owasp.org/www-pdf-archive//OWASP_Web_Application_Security_Quick_Reference_Guide_0.3.pdf">Referência Rápida de Segurança de Aplicações Web</a></li>
+<li><a href="https://github.com/OWASP/Quick-Start-Guide/blob/master/OWASP%20Quick%20Start%20Guide.pdf?raw=true">Mentalidade de Segurança/Criando um Programa de Segurança Inicial Rápido</a></li>
+<li><a href="../continuous-integration/dev-sec-ops/secret-management/credential_scanning/">Varredura de Credenciais / Detecção de Segredos</a></li>
+<li><a href="threat-modelling/">Modelagem de Ameaças</a></li>
 </ul>
-<h2 id="azure-devops-security">Azure DevOps Security</h2>
+<h2 id="seguranca-no-azure-devops">Segurança no Azure DevOps</h2>
 <ul>
-<li><a href="https://www.microsoft.com/en-us/securityengineering/devsecops">Security Engineering DevSecOps Practices</a></li>
-<li><a href="https://learn.microsoft.com/en-us/azure/devops/organizations/security/data-protection?view=azure-devops">Azure DevOps Data Protection Overview</a></li>
-<li><a href="https://learn.microsoft.com/en-us/azure/devops/organizations/security/about-security-identity?view=azure-devops">Security and Identity in Azure DevOps</a></li>
-<li><a href="https://secdevtools.azurewebsites.net/">Security Code Analysis</a></li>
+<li><a href="https://www.microsoft.com/en-us/securityengineering/devsecops">Práticas de Engenharia de Segurança DevSecOps</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/devops/organizations/security/data-protection?view=azure-devops">Visão Geral da Proteção de Dados no Azure DevOps</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/devops/organizations/security/about-security-identity?view=azure-devops">Segurança e Identidade no Azure DevOps</a></li>
+<li><a href="https://secdevtools.azurewebsites.net/">Análise de Código de Segurança</a></li>
 </ul>
 <h2 id="devsecops">DevSecOps</h2>
-<p>Introduce security to your project at early stages. The <a href="../continuous-integration/dev-sec-ops/">DevSecOps section</a> covers security practices, automation, tools and frameworks as part of the application CI.</p>
-<h2 id="owasp-cheat-sheets">OWASP Cheat Sheets</h2>
+<p>Introduza a segurança ao seu projeto desde as fases iniciais. A seção <a href="../continuous-integration/dev-sec-ops/">DevSecOps</a> aborda práticas de segurança, automação, ferramentas e estruturas como parte da integração contínua da aplicação.</p>
+<h2 id="folhas-de-resumo-da-owasp">Folhas de Resumo da OWASP</h2>
 <blockquote>
-<p>Note: OWASP is considered to be the gold-standard in computer security information. OWASP maintains an extensive series of cheat sheets which cover all the OWASP Top 10 and more. Below, many of the more relevant cheat sheets have been summarized. To view all the cheat sheets, check out their <a href="https://github.com/OWASP/CheatSheetSeries/blob/master/Index.md">Cheat Sheet Index</a>.</p>
+<p>Observação: a OWASP é considerada o padrão-ouro em informações de segurança de computadores. A OWASP mantém uma extensa série de folhas de resumo que cobrem todos os 10 Principais Riscos da OWASP e mais. Abaixo, muitas das folhas de resumo mais relevantes foram resumidas. Para ver todas as folhas de resumo, confira o <a href="https://github.com/OWASP/CheatSheetSeries/blob/master/Index.md">Índice de Folhas de Resumo</a>.</p>
 </blockquote>
 <ul>
-<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Access_Control_Cheat_Sheet.md">Access Control Basics</a></li>
-<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Attack_Surface_Analysis_Cheat_Sheet.md">Attack Surface Analysis</a></li>
-<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Content_Security_Policy_Cheat_Sheet.md">Content Security Policy (CSP)</a></li>
-<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.md">Cross-Site Request Forgery (CSRF) Prevention</a></li>
-<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.md">Cross-Site Scripting (XSS) Prevention</a></li>
-<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cryptographic_Storage_Cheat_Sheet.md">Cryptographic Storage</a></li>
-<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Deserialization_Cheat_Sheet.md">Deserialization</a></li>
-<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Docker_Security_Cheat_Sheet.md">Docker/Kubernetes (k8s) Security</a></li>
-<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Input_Validation_Cheat_Sheet.md">Input Validation</a></li>
-<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Key_Management_Cheat_Sheet.md">Key Management</a></li>
-<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.md">OS Command Injection Defense</a></li>
-<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Query_Parameterization_Cheat_Sheet.md">Query Parameterization Examples</a></li>
-<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.md">Server-Side Request Forgery Prevention</a></li>
-<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.md">SQL Injection Prevention</a></li>
-<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.md">Unvalidated Redirects and Forwards</a></li>
-<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Web_Service_Security_Cheat_Sheet.md">Web Service Security</a></li>
-<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/XML_Security_Cheat_Sheet.md">XML Security</a></li>
+<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Access_Control_Cheat_Sheet.md">Noções Básicas de Controle de Acesso</a></li>
+<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Attack_Surface_Analysis_Cheat_Sheet.md">Análise de Superfície de Ataque</a></li>
+<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Content_Security_Policy_Cheat_Sheet.md">Política de Segurança de Conteúdo (CSP)</a></li>
+<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.md">Prevenção de Falsificação de Solicitação entre Sites (CSRF)</a></li>
+<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.md">Prevenção de Script entre Sites (XSS)</a></li>
+<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cryptographic_Storage_Cheat_Sheet.md">Armazenamento Criptográfico</a></li>
+<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Deserialization_Cheat_Sheet.md">Serialização</a></li>
+<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Docker_Security_Cheat_Sheet.md">Segurança do Docker/Kubernetes (k8s)</a></li>
+<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Input_Validation_Cheat_Sheet.md">Validação de Entrada</a></li>
+<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Key_Management_Cheat_Sheet.md">Gerenciamento de Chaves</a></li>
+<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.md">Defesa contra Injeção de Comando no Sistema Operacional</a></li>
+<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Query_Parameterization_Cheat_Sheet.md">Exemplos de Parametrização de Consulta</a></li>
+<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.md">Prevenção de Solicitação de Servidor do Lado do Cliente</a></li>
+<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.md">Prevenção de Injeção SQL</a></li>
+<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.md">Redirecionamentos e Encaminhamentos não Validados</a></li>
+<li><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Web_Service_Security_Cheat_Sheet.md">Segurança de Serviços Web</a></li>
+<li>[Segurança XML](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/XML</li>
 </ul>
-<h2 id="recommended-tools">Recommended Tools</h2>
-<p>Check out the list of tools to help enable security in your projects.</p>
+<p>_Security_Cheat_Sheet.md)</p>
+<h2 id="ferramentas-recomendadas">Ferramentas Recomendadas</h2>
+<p>Confira a lista de ferramentas para ajudar a habilitar a segurança em seus projetos.</p>
 <blockquote>
-<p><strong>Note:</strong> Although some tools are agnostic, the below list is geared towards Cloud Native security, with a focus on Kubernetes.</p>
+<p><strong>Observação:</strong> Embora algumas ferramentas sejam agnósticas, a lista abaixo se concentra na segurança nativa em nuvem, com foco em Kubernetes.</p>
 </blockquote>
 <ul>
 <li>
-<p>Vulnerability Scanning</p>
+<p>Verificação de Vulnerabilidades</p>
 <ul>
 <li><a href="https://sonarcloud.io/">SonarCloud</a><ul>
-<li>Integrates with Azure Devops with the click of a button.</li>
+<li>Integra-se ao Azure Devops com o clique de um botão.</li>
 </ul>
 </li>
 <li><a href="https://github.com/snyk/snyk">Snyk</a></li>
 <li><a href="https://github.com/aquasecurity/trivy">Trivy</a></li>
 <li><a href="https://github.com/aquasecurity/cloudsploit">Cloudsploit</a></li>
 <li><a href="https://github.com/anchore/anchore-engine">Anchore</a></li>
-<li><a href="https://owasp.org/www-community/Vulnerability_Scanning_Tools">Other tools from OWASP</a></li>
-<li><a href="https://sysdig.com/blog/image-scanning-best-practices/">See why you should check for vulnerabilities at all layers of the stack</a>, as well as a couple of other useful tips to reduce surface area for attacks.</li>
+<li><a href="https://owasp.org/www-community/Vulnerability_Scanning_Tools">Outras ferramentas da OWASP</a></li>
+<li><a href="https://sysdig.com/blog/image-scanning-best-practices/">Veja por que você deve verificar vulnerabilidades em todas as camadas da pilha</a>, bem como algumas dicas úteis adicionais para reduzir a superfície de ataque.</li>
 </ul>
 </li>
 </ul>
 <ul>
 <li>
-<p>Runtime Security</p>
+<p>Segurança em Tempo de Execução</p>
 <ul>
 <li><a href="https://github.com/falcosecurity/falco">Falco</a></li>
 <li><a href="https://github.com/aquasecurity/tracee">Tracee</a></li>
 <li><a href="https://github.com/stackrox/kube-linter">Kubelinter</a><ul>
-<li>May not fully qualify as runtime security, but helps ensure you're enabling best practices.</li>
+<li>Pode não se qualificar totalmente como segurança em tempo de execução, mas ajuda a garantir que você esteja habilitando as melhores práticas.</li>
 </ul>
 </li>
 </ul>
@@ -7280,19 +7281,19 @@
 </ul>
 <ul>
 <li>
-<p>Binary Authorization</p>
-<p>Binary authorization can happen both at the docker registry layer, and runtime (ie: via a K8s admission controller).
-The authorization check ensures that the image is signed by a trusted authority. This can occur for both (pre-approved) 3rd party images,
-and internal images. Taking this a step further the signing should occur <em>only</em> on images where all code has been reviewed and approved.
-Binary authorization can both reduce the impact of damage from a compromised hosting environment, and the damage from malicious insiders.</p>
+<p>Autorização Binária</p>
+<p>A autorização binária pode ocorrer tanto na camada do registro Docker quanto em tempo de execução (ou seja, por meio de um controlador de admissão K8s).
+A verificação de autorização garante que a imagem seja assinada por uma autoridade confiável. Isso pode ocorrer tanto para imagens de terceiros (pré-aprovadas)
+quanto para imagens internas. Levando isso adiante, a assinatura deve ocorrer <em>apenas</em> em imagens em que todo o código foi revisado e aprovado.
+A autorização binária pode reduzir o impacto de danos causados por um ambiente de hospedagem comprometido e o dano causado por insiders maliciosos.</p>
 <ul>
 <li><a href="https://github.com/goharbor/harbor/">Harbor</a><ul>
-<li><a href="https://github.com/goharbor/harbor-operator">Operator available</a></li>
+<li><a href="https://github.com/goharbor/harbor-operator">Operador disponível</a></li>
 </ul>
 </li>
 <li><a href="https://github.com/IBM/portieris">Portieris</a></li>
 <li><a href="https://github.com/theupdateframework/notary">Notary</a><ul>
-<li>Note harbor leverages notary internally.</li>
+<li>Observação: o Harbor utiliza internamente o Notary.</li>
 </ul>
 </li>
 <li><a href="https://github.com/theupdateframework/tuf">TUF</a></li>
@@ -7301,17 +7302,17 @@ Binary authorization can both reduce the impact of damage from a compromised hos
 </ul>
 <ul>
 <li>
-<p>Other K8s Security</p>
+<p>Outra Segurança do K8s</p>
 <ul>
-<li><a href="https://github.com/open-policy-agent/opa">OPA</a>, <a href="https://github.com/open-policy-agent/gatekeeper">Gatekeeper</a>, and the <a href="https://github.com/open-policy-agent/gatekeeper-library/tree/master/library">Gatekeeper Library</a></li>
-<li><a href="https://github.com/jetstack/cert-manager">cert-manager</a> for easy certificate provisioning and automatic rotation.</li>
-<li><a href="https://linkerd.io/2/features/automatic-mtls/">Quickly enable mTLS between your microservices with Linkerd</a>.</li>
+<li><a href="https://github.com/open-policy-agent/opa">OPA</a>, <a href="https://github.com/open-policy-agent/gatekeeper">Gatekeeper</a> e <a href="https://github.com/open-policy-agent/gatekeeper-library/tree/master/library">Biblioteca Gatekeeper</a></li>
+<li><a href="https://github.com/jetstack/cert-manager">cert-manager</a> para fornecimento automático e rotação de certificados.</li>
+<li><a href="https://linkerd.io/2/features/automatic-mtls/">Habilite rapidamente o mTLS entre seus microserviços com o Linkerd</a>.</li>
 </ul>
 </li>
 </ul>
-<h2 id="useful-links">Useful links</h2>
+<h2 id="links-uteis">Links Úteis</h2>
 <ul>
-<li><a href="../design/design-patterns/non-functional-requirements-capture-guide/">Non-Functional Requirements Guidance</a></li>
+<li><a href="../design/design-patterns/non-functional-requirements-capture-guide/">Orientações sobre Requisitos Não Funcionais</a></li>
 </ul>
 
   <hr>
@@ -7319,7 +7320,7 @@ Binary authorization can both reduce the impact of damage from a compromised hos
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
       
     
   </small>

@@ -19,7 +19,7 @@
     
     
       
-        <title>Data Science Pipeline - Manual da Engenharia para Codar</title>
+        <title>Pipeline de Ciência de Dados - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#data-science-pipeline" class="md-skip">
+        <a href="#pipeline-de-ciencia-de-dados" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Data Science Pipeline
+              Pipeline de Ciência de Dados
             
           </span>
         </div>
@@ -7140,15 +7140,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#problem-statement" class="md-nav__link">
-    Problem statement
+  <a href="#declaracao-do-problema" class="md-nav__link">
+    Declaração do Problema
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#solution" class="md-nav__link">
-    Solution
+  <a href="#solucao" class="md-nav__link">
+    Solução
   </a>
   
 </li>
@@ -7167,108 +7167,104 @@
                 
 
 
-<h1 id="data-science-pipeline">Data Science Pipeline</h1>
-<p>As Azure DevOps doesn't allow code reviewers to comment directly in Jupyter Notebooks, Data Scientists(DSs) have
-to convert the notebooks to scripts before they commit and push these files to the repository.</p>
-<p>This document aims to automate this process in Azure DevOps, so the DSs don't need to execute anything locally.</p>
-<h2 id="problem-statement">Problem statement</h2>
-<p>A Data Science repository has this folder structure:</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span>.
-<span class="w">    </span>├──<span class="w"> </span>notebooks
-<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>Machine<span class="w"> </span>Learning<span class="w"> </span>Experiments<span class="w"> </span>-<span class="w"> </span><span class="m">00</span>.ipynb
-<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>Machine<span class="w"> </span>Learning<span class="w"> </span>Experiments<span class="w"> </span>-<span class="w"> </span><span class="m">01</span>.ipynb
-<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>Machine<span class="w"> </span>Learning<span class="w"> </span>Experiments<span class="w"> </span>-<span class="w"> </span><span class="m">02</span>.ipynb
-<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>Machine<span class="w"> </span>Learning<span class="w"> </span>Experiments<span class="w"> </span>-<span class="w"> </span><span class="m">03</span>.ipynb
-<span class="w">    </span>└──<span class="w"> </span>scripts
-<span class="w">       </span>├──<span class="w"> </span>Machine<span class="w"> </span>Learning<span class="w"> </span>Experiments<span class="w"> </span>-<span class="w"> </span><span class="m">00</span>.py
-<span class="w">       </span>├──<span class="w"> </span>Machine<span class="w"> </span>Learning<span class="w"> </span>Experiments<span class="w"> </span>-<span class="w"> </span><span class="m">01</span>.py
-<span class="w">       </span>├──<span class="w"> </span>Machine<span class="w"> </span>Learning<span class="w"> </span>Experiments<span class="w"> </span>-<span class="w"> </span><span class="m">02</span>.py
-<span class="w">       </span>└──<span class="w"> </span>Machine<span class="w"> </span>Learning<span class="w"> </span>Experiments<span class="w"> </span>-<span class="w"> </span><span class="m">03</span>.py
+<h1 id="pipeline-de-ciencia-de-dados">Pipeline de Ciência de Dados</h1>
+<p>Como o Azure DevOps não permite que revisores de código comentem diretamente em Notebooks Jupyter, os Cientistas de Dados (DSs) precisam converter os notebooks em scripts antes de fazerem commit e enviar esses arquivos para o repositório.</p>
+<p>Este documento tem como objetivo automatizar esse processo no Azure DevOps, para que os DSs não precisem executar nada localmente.</p>
+<h2 id="declaracao-do-problema">Declaração do Problema</h2>
+<p>Um repositório de Ciência de Dados possui a seguinte estrutura de pastas:</p>
+<div class="highlight"><pre><span></span><code>.
+├──<span class="w"> </span>notebooks
+│<span class="w">   </span>├──<span class="w"> </span>Experimentos<span class="w"> </span>de<span class="w"> </span>Aprendizado<span class="w"> </span>de<span class="w"> </span>Máquina<span class="w"> </span>-<span class="w"> </span><span class="m">00</span>.ipynb
+│<span class="w">   </span>├──<span class="w"> </span>Experimentos<span class="w"> </span>de<span class="w"> </span>Aprendizado<span class="w"> </span>de<span class="w"> </span>Máquina<span class="w"> </span>-<span class="w"> </span><span class="m">01</span>.ipynb
+│<span class="w">   </span>├──<span class="w"> </span>Experimentos<span class="w"> </span>de<span class="w"> </span>Aprendizado<span class="w"> </span>de<span class="w"> </span>Máquina<span class="w"> </span>-<span class="w"> </span><span class="m">02</span>.ipynb
+│<span class="w">   </span>├──<span class="w"> </span>Experimentos<span class="w"> </span>de<span class="w"> </span>Aprendizado<span class="w"> </span>de<span class="w"> </span>Máquina<span class="w"> </span>-<span class="w"> </span><span class="m">03</span>.ipynb
+└──<span class="w"> </span>scripts
+<span class="w">    </span>├──<span class="w"> </span>Experimentos<span class="w"> </span>de<span class="w"> </span>Aprendizado<span class="w"> </span>de<span class="w"> </span>Máquina<span class="w"> </span>-<span class="w"> </span><span class="m">00</span>.py
+<span class="w">    </span>├──<span class="w"> </span>Experimentos<span class="w"> </span>de<span class="w"> </span>Aprendizado<span class="w"> </span>de<span class="w"> </span>Máquina<span class="w"> </span>-<span class="w"> </span><span class="m">01</span>.py
+<span class="w">    </span>├──<span class="w"> </span>Experimentos<span class="w"> </span>de<span class="w"> </span>Aprendizado<span class="w"> </span>de<span class="w"> </span>Máquina<span class="w"> </span>-<span class="w"> </span><span class="m">02</span>.py
+<span class="w">    </span>└──<span class="w"> </span>Experimentos<span class="w"> </span>de<span class="w"> </span>Aprendizado<span class="w"> </span>de<span class="w"> </span>Máquina<span class="w"> </span>-<span class="w"> </span><span class="m">03</span>.py
 </code></pre></div>
-<p>The python files are needed to allow Pull Request reviewers to add comments to the notebooks, they can add comments
-to the Python scripts and we apply these comments to the notebooks.</p>
-<p>Since we have to run this process manually before we add files to a commit, this manual process is error prone, e.g.
-If we create a notebook, generate the script from it, but later make some changes and forget to generate a new script
-for the changes.</p>
-<h2 id="solution">Solution</h2>
-<p>One way to avoid this is to create the scripts in the repository from the commit. This document will describe this
-process.</p>
-<p>We can add a pipeline with the following steps to the repository to run in <code>ipynb</code> files:</p>
+<p>Os arquivos Python são necessários para permitir que revisores de Pull Request adicionem comentários aos notebooks. Eles podem adicionar comentários aos scripts em Python e aplicamos esses comentários aos notebooks.</p>
+<p>Como temos que executar este processo manualmente antes de adicionar arquivos a um commit, esse processo manual é propenso a erros. Por exemplo, se criarmos um notebook, gerarmos o script a partir dele, mas depois fizermos algumas alterações e esquecermos de gerar um novo script para as alterações.</p>
+<h2 id="solucao">Solução</h2>
+<p>Uma maneira de evitar isso é criar os scripts no repositório a partir do commit. Este documento descreverá esse processo.</p>
+<p>Podemos adicionar um pipeline com as seguintes etapas ao repositório para executar em arquivos <code>ipynb</code>:</p>
 <ol>
-<li>Go to the <em>Project Settings</em> -&gt; <em>Repositories</em> -&gt; <em>Security</em> -&gt; <em>User Permissions</em></li>
-<li>Add the <em>Build Service</em> in <em>Users</em> the permission to <em>Contribute</em>
-    <img alt="Contribute" src="assets/repository-properties.png" /></li>
-<li>Create a new pipeline.</li>
+<li>Acesse as <em>Configurações do Projeto</em> -&gt; <em>Repositórios</em> -&gt; <em>Segurança</em> -&gt; <em>Permissões de Usuário</em>.</li>
+<li>Adicione o <em>Serviço de Build</em> nas permissões dos <em>Usuários</em> para <em>Contribuir</em>.</li>
+<li>Crie um novo pipeline.</li>
 </ol>
-<p>In the newly created pipeline we add:</p>
+<p>No pipeline recém-criado, adicione:</p>
 <ol>
-<li>
-<p>Trigger to run on ipynb files:</p>
+<li>Desencadeador para executar em arquivos ipynb:</li>
+</ol>
 <div class="highlight"><pre><span></span><code>trigger:
   paths:
   include:
     - &#39;*.ipynb&#39;
     - &#39;**/*.ipynb&#39;
 </code></pre></div>
-</li>
-<li>
-<p>Select the pool as Linux:</p>
+<ol>
+<li>Defina o ambiente como Linux:</li>
+</ol>
 <div class="highlight"><pre><span></span><code>pool:
   vmImage: ubuntu-latest
 </code></pre></div>
-</li>
-<li>
-<p>Set the directory where we want to store the scripts:</p>
+<ol>
+<li>Configure o diretório onde deseja armazenar os scripts:</li>
+</ol>
 <div class="highlight"><pre><span></span><code>variables:
-  REPO_URL: # Azure DevOps URL in the format: dev.azure.com/&lt;Organization&gt;/&lt;Project&gt;/_git/&lt;RepoName&gt;
+  REPO_URL: # URL do Azure DevOps no formato: dev.azure.com/&lt;Organização&gt;/&lt;Projeto&gt;/_git/&lt;NomeRepo&gt;
 </code></pre></div>
-</li>
-<li>
-<p>Now we will start the core of the pipeline:
-    1. Upgrade pip</p>
+<ol>
+<li>Agora, iniciaremos o núcleo do pipeline:
+    1. Atualize o pip:</li>
+</ol>
 <div class="highlight"><pre><span></span><code>- script: |
     python -m pip install --upgrade pip
-  displayName: &#39;Upgrade pip&#39;
+  displayName: &#39;Atualizar pip&#39;
 </code></pre></div>
-<p>1. Install <code>nbconvert</code> and <code>ipython</code>:</p>
+<div class="highlight"><pre><span></span><code>2. Instale `nbconvert` e `ipython`:
+</code></pre></div>
 <div class="highlight"><pre><span></span><code>- script: |
     pip install nbconvert ipython
-  displayName: &#39;install nbconvert &amp; ipython&#39;
+  displayName: &#39;Instalar nbconvert e ipython&#39;
 </code></pre></div>
-<p>1. Install <code>pandoc</code>:</p>
+<div class="highlight"><pre><span></span><code>3. Instale o `pandoc`:
+</code></pre></div>
 <div class="highlight"><pre><span></span><code>- script: |
     sudo apt install -y pandoc
-  displayName: &quot;Install pandoc&quot;
+  displayName: &quot;Instalar o pandoc&quot;
 </code></pre></div>
-<p>1. Find the notebook files (<code>ipynb</code>) in the last commit to the repo and convert it to scripts (<code>py</code>):</p>
+<div class="highlight"><pre><span></span><code>4. Encontre os arquivos de notebook (`ipynb`) no último commit do repositório e converta-os em scripts (`py`):
+</code></pre></div>
 <div class="highlight"><pre><span></span><code>- task: Bash@3
     inputs:
       targetType: &#39;inline&#39;
       script: |
         IPYNB_PATH=($(git diff-tree --no-commit-id --name-only -r $(Build.SourceVersion) | grep &#39;[.]ipynb$&#39;))
         echo $IPYNB_PATH
-        [ -z &quot;$IPYNB_PATH&quot; ] &amp;&amp; echo &quot;Nothing to convert&quot; || jupyter nbconvert --to script $IPYNB_PATH
-    displayName: &quot;Convert Notebook to script&quot;
+        [ -z &quot;$IPYNB_PATH&quot; ] &amp;&amp; echo &quot;Nada para converter&quot; || jupyter nbconvert --to script $IPYNB_PATH
+    displayName: &quot;Converter Notebook em script&quot;
 </code></pre></div>
-<p>1. Commit these changes to the repository:</p>
+<div class="highlight"><pre><span></span><code>5. Faça commit dessas alterações no repositório:
+</code></pre></div>
 <div class="highlight"><pre><span></span><code>- bash: |
     git config --global user.email &quot;build@dev.azure.com&quot;
     git config --global user.name &quot;build&quot;
     git add .
-    git commit -m &#39;Convert Jupyter notebooks&#39; || echo &quot;No changes to commit&quot; &amp;&amp; NO_CHANGES=1
+    git commit -m &#39;Converter notebooks Jupyter&#39; || echo &quot;Sem alterações para fazer commit&quot; &amp;&amp; NO_CHANGES=1
     [ -z &quot;$NO_CHANGES&quot; ] || git push https://$(System.AccessToken)@$(REPO_URL) HEAD:$(Build.SourceBranchName)
-  displayName: &quot;Commit notebook to repository&quot;
+  displayName: &quot;Commit de notebook para o repositório&quot;
 </code></pre></div>
-</li>
-</ol>
-<p>Now we have a pipeline that will generate the scripts as we commit our notebooks.</p>
+<p>Agora temos um pipeline que gerará os scripts à medida que fazemos commit em nossos notebooks.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 13, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
       
     
   </small>

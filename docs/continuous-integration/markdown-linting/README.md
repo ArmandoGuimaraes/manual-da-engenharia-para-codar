@@ -1,38 +1,36 @@
-# CI Pipeline for better documentation
+# Pipeline de CI para Melhor Documentação
 
-## Introduction
+## Introdução
 
-Most projects start with spikes, where developers and analysts produce lots of documentation.
+A maioria dos projetos começa com experimentações, onde desenvolvedores e analistas produzem muita documentação.
 
-Sometimes, these documents don't have a standard and each team member writes them accordingly with their preference. Add to that
-the time a reviewer will spend confirming grammar, searching for typos or non-inclusive language.
+Às vezes, esses documentos não seguem um padrão e cada membro da equipe os escreve de acordo com suas preferências. Acrescente a isso
+o tempo que um revisor gasta verificando gramática, procurando por erros ortográficos ou linguagem não inclusiva.
 
-This pipeline helps address that!
+Este pipeline ajuda a resolver esse problema!
 
-## The Pipeline
+## O Pipeline
 
-The pipeline uses the following `npm` modules:
+O pipeline utiliza os seguintes módulos `npm`:
 
-- [markdownlint](https://github.com/DavidAnson/markdownlint): add standardization using [rules](https://github.com/DavidAnson/markdownlint#rules--aliases)
-- [markdown-link-check](https://github.com/tcort/markdown-link-check): check the links in the documentation and report broken
-ones
-- [write-good](https://github.com/btford/write-good): linter for English prose
+- [markdownlint](https://github.com/DavidAnson/markdownlint): adiciona padronização usando [regras](https://github.com/DavidAnson/markdownlint#rules--aliases)
+- [markdown-link-check](https://github.com/tcort/markdown-link-check): verifica os links na documentação e relata os quebrados
+- [write-good](https://github.com/btford/write-good): linter para prosa em inglês
 
-We have been using this pipeline for more than one year in different engagements and always received great feedback from the
-customers!
+Utilizamos este pipeline por mais de um ano em diferentes projetos e sempre recebemos ótimos feedbacks dos clientes!
 
-## How does it work
+## Como Funciona
 
-To start using this pipeline:
+Para começar a usar este pipeline:
 
-1. Download the files from [this repository](https://github.com/squassina/doc-pipeline/tree/main/repo-root)
-1. Unzip the folders and files to your repository root if the repository is empty
-    - if it's not brand new, copy the files and make the required adjustments:
-        - check `.azdo` so it matches your repository standard
-        - check `package.json` so you don't overwrite one you already have in the process. Also update the file if you changed
-          the name of the `.azdo` folder.
-1. Create the pipeline in Azure DevOps or GitHub
+1. Baixe os arquivos deste [repositório](https://github.com/squassina/doc-pipeline/tree/main/repo-root)
+1. Descompacte as pastas e arquivos na raiz do seu repositório, se o repositório estiver vazio
+    - se não for totalmente novo, copie os arquivos e faça os ajustes necessários:
+        - verifique o `.azdo` para que ele corresponda ao padrão do seu repositório
+        - verifique o `package.json` para não sobrescrever um que você já tenha no processo. Atualize o arquivo se você alterou
+          o nome da pasta `.azdo`.
+1. Crie o pipeline no Azure DevOps ou GitHub
 
-## References
+## Referências
 
-[Markdown Code Reviews in the Code With Engineering Playbook](https://microsoft.github.io/code-with-engineering-playbook/code-reviews/recipes/markdown/#code-review-checklist)
+[Revisões de Código em Markdown no Code With Engineering Playbook](https://microsoft.github.io/code-with-engineering-playbook/code-reviews/recipes/markdown/#code-review-checklist)

@@ -7136,50 +7136,50 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sections-within-source-control" class="md-nav__link">
-    Sections within Source Control
+  <a href="#secoes-dentro-do-source-control" class="md-nav__link">
+    Seções dentro do Source Control
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#goal" class="md-nav__link">
-    Goal
+  <a href="#objetivo" class="md-nav__link">
+    Objetivo
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#general-guidance" class="md-nav__link">
-    General Guidance
+  <a href="#orientacoes-gerais" class="md-nav__link">
+    Orientações Gerais
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#creating-a-new-repository" class="md-nav__link">
-    Creating a new repository
+  <a href="#criando-um-novo-repositorio" class="md-nav__link">
+    Criando um novo repositório
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#contributing-to-an-existing-repository" class="md-nav__link">
-    Contributing to an existing repository
+  <a href="#contribuindo-para-um-repositorio-existente" class="md-nav__link">
+    Contribuindo para um repositório existente
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mixed-devops-environments" class="md-nav__link">
-    Mixed DevOps Environments
+  <a href="#ambientes-devops-mistos" class="md-nav__link">
+    Ambientes DevOps Mistos
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    Resources
+  <a href="#recursos" class="md-nav__link">
+    Recursos
   </a>
   
 </li>
@@ -7199,54 +7199,54 @@
 
 
 <h1 id="source-control">Source Control</h1>
-<p>There are many options when working with Source Control. In <a href="../ISE/">ISE</a> we use <a href="https://azure.microsoft.com/en-us/services/devops/">AzureDevOps</a> for private repositories and <a href="https://github.com/">GitHub</a> for public repositories.</p>
-<h2 id="sections-within-source-control">Sections within Source Control</h2>
+<p>Existem muitas opções ao trabalhar com Source Control. Na <a href="../ISE/">ISE</a>, usamos o <a href="https://azure.microsoft.com/en-us/services/devops/">AzureDevOps</a> para repositórios privados e o <a href="https://github.com/">GitHub</a> para repositórios públicos.</p>
+<h2 id="secoes-dentro-do-source-control">Seções dentro do Source Control</h2>
 <ul>
-<li><a href="merge-strategies/">Merge Strategies</a></li>
-<li><a href="naming-branches/">Branch Naming</a></li>
-<li><a href="component-versioning/">Versioning</a></li>
-<li><a href="secrets-management/">Working with Secrets</a></li>
-<li><a href="git-guidance/">Git Guidance</a></li>
+<li><a href="merge-strategies/">Estratégias de Mesclagem</a></li>
+<li><a href="naming-branches/">Nomenclatura de Ramificação</a></li>
+<li><a href="component-versioning/">Versionamento</a></li>
+<li><a href="secrets-management/">Trabalhando com Segredos</a></li>
+<li><a href="git-guidance/">Orientação do Git</a></li>
 </ul>
-<h2 id="goal">Goal</h2>
+<h2 id="objetivo">Objetivo</h2>
 <ul>
-<li>Following industry best practice to work in geo-distributed teams which encourage contributions from all across <a href="../ISE/">ISE</a> as well as the broader OSS community</li>
-<li>Improve code quality by enforcing reviews before merging into main branches</li>
-<li>Improve traceability of features and fixes through a clean commit history</li>
+<li>Seguir as melhores práticas da indústria para trabalhar em equipes geodistribuídas que incentivam contribuições de toda a <a href="../ISE/">ISE</a>, bem como da comunidade de Código Aberto mais ampla</li>
+<li>Melhorar a qualidade do código, garantindo revisões antes da mesclagem nas branches principais</li>
+<li>Melhorar a rastreabilidade de recursos e correções por meio de um histórico de commits limpo</li>
 </ul>
-<h2 id="general-guidance">General Guidance</h2>
-<p>Consistency is important, so agree to the approach as a team before starting to code. Treat this as a design decision, so include a design proposal and review, in the same way as you would document all design decisions (see <a href="../agile-development/advanced-topics/team-agreements/working-agreements/">Working Agreements</a> and <a href="../design/design-reviews/">Design Reviews</a>).</p>
-<h2 id="creating-a-new-repository">Creating a new repository</h2>
-<p>When creating a new repository, the team should at least do the following</p>
+<h2 id="orientacoes-gerais">Orientações Gerais</h2>
+<p>A consistência é importante, portanto, concorde com a abordagem como equipe antes de começar a codificar. Trate isso como uma decisão de design, inclua uma proposta de design e revisão, da mesma forma como você documentaria todas as decisões de design (consulte <a href="../agile-development/advanced-topics/team-agreements/working-agreements/">Acordos de Trabalho</a> e <a href="../design/design-reviews/">Revisões de Design</a>).</p>
+<h2 id="criando-um-novo-repositorio">Criando um novo repositório</h2>
+<p>Ao criar um novo repositório, a equipe deve fazer pelo menos o seguinte:</p>
 <ul>
-<li>Agree on the <strong>branch</strong>, <strong>release</strong> and <strong>merge strategy</strong></li>
-<li>Define the merge strategy (<a href="merge-strategies/">linear or non-linear</a>)</li>
-<li>Lock the default branch and merge using <a href="../code-reviews/pull-requests/">pull requests (PRs)</a></li>
-<li>Agree on <a href="naming-branches/">branch naming</a> (e.g. <code>user/your_alias/feature_name</code>)</li>
-<li>Establish <a href="../code-reviews/pull-requests/">branch/PR policies</a></li>
-<li>For public repositories the default branch should contain the following files:<ul>
+<li>Concordar com a <strong>branch</strong>, <strong>release</strong> e <strong>estratégia de mesclagem</strong></li>
+<li>Definir a estratégia de mesclagem (<a href="merge-strategies/">linear ou não linear</a>)</li>
+<li>Bloquear a branch padrão e mesclar usando <a href="../code-reviews/pull-requests/">pull requests (PRs)</a></li>
+<li>Concordar com a <a href="naming-branches/">nomenclatura de branches</a> (por exemplo, <code>user/your_alias/feature_name</code>)</li>
+<li>Estabelecer políticas de <a href="../code-reviews/pull-requests/">branch/PR</a></li>
+<li>Para repositórios públicos, a branch padrão deve conter os seguintes arquivos:<ul>
 <li><a href="../resources/templates/LICENSE">LICENSE</a></li>
 <li><a href="../resources/templates/">README.md</a></li>
 <li><a href="../resources/templates/CONTRIBUTING/">CONTRIBUTING.md</a></li>
 </ul>
 </li>
 </ul>
-<h2 id="contributing-to-an-existing-repository">Contributing to an existing repository</h2>
-<p>When working on an existing project, <code>git clone</code> the repository and ensure you understand the team's branch, merge and release strategy (e.g. through the projects <a href="https://blog.github.com/2012-09-17-contributing-guidelines/">CONTRIBUTING.md file</a>).</p>
-<h2 id="mixed-devops-environments">Mixed DevOps Environments</h2>
-<p>For most engagements having a single hosted DevOps environment (i.e. Azure DevOps) is the preferred path but there are times when a mixed DevOps environment (i.e. Azure DevOps for Agile/Work item tracking &amp; GitHub for Source Control) is needed due to customer requirements. When working in a mixed environment:</p>
+<h2 id="contribuindo-para-um-repositorio-existente">Contribuindo para um repositório existente</h2>
+<p>Ao trabalhar em um projeto existente, faça <code>git clone</code> do repositório e certifique-se de entender a estratégia de branch, mesclagem e lançamento da equipe (por exemplo, por meio do arquivo <a href="https://blog.github.com/2012-09-17-contributing-guidelines/">CONTRIBUTING.md do projeto</a>).</p>
+<h2 id="ambientes-devops-mistos">Ambientes DevOps Mistos</h2>
+<p>Na maioria dos casos, ter um único ambiente DevOps hospedado (ou seja, Azure DevOps) é o caminho preferido, mas há momentos em que um ambiente DevOps misto (ou seja, Azure DevOps para rastreamento de itens de trabalho ágil e GitHub para Controle de Origem) é necessário devido a requisitos do cliente. Ao trabalhar em um ambiente misto:</p>
 <ul>
-<li>Manually tag PR's in work items</li>
-<li>Ensure that the scope of work items / tasks align with PR's</li>
+<li>Marque manualmente os PRs nos itens de trabalho</li>
+<li>Certifique-se de que o escopo dos itens de trabalho/tarefas esteja alinhado com os PRs</li>
 </ul>
-<h2 id="resources">Resources</h2>
+<h2 id="recursos">Recursos</h2>
 <ul>
 <li><a href="https://git-scm.com/">Git</a> <code>--local-branching-on-the-cheap</code></li>
-<li><a href="https://azure.microsoft.com/en-us/services/devops/">Azure DevOps</a></li>
-<li><a href="git-guidance/">ISE Git details</a>details on how to use Git as part of a <a href="../ISE/">ISE</a> project.</li>
-<li><a href="https://help.github.com/articles/removing-sensitive-data-from-a-repository/">GitHub - Removing sensitive data from a repository</a></li>
-<li><a href="https://www.pluralsight.com/courses/how-git-works">How Git Works Pluralsight course</a></li>
-<li><a href="https://www.pluralsight.com/courses/master-git">Mastering Git Pluralsight course</a></li>
+<li><a href="https://azure.microsoft.com/pt-br/services/devops/">Azure DevOps</a></li>
+<li><a href="git-guidance/">Detalhes do Git da ISE</a>: detalhes sobre como usar o Git como parte de um projeto da <a href="../ISE/">ISE</a>.</li>
+<li><a href="https://help.github.com/articles/removing-sensitive-data-from-a-repository/">GitHub - Removendo dados sensíveis de um repositório</a></li>
+<li><a href="https://www.pluralsight.com/courses/how-git-works">Curso Pluralsight sobre Como o Git Funciona</a></li>
+<li><a href="https://www.pluralsight.com/courses/master-git">Curso Pluralsight sobre Domínio do Git</a></li>
 </ul>
 
   <hr>
@@ -7254,7 +7254,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 24, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
       
     
   </small>

@@ -6295,22 +6295,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
+  <a href="#visao-geral" class="md-nav__link">
+    Visão Geral
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-profile-your-applications" class="md-nav__link">
-    How to Profile your Applications
+  <a href="#como-perfilar-suas-aplicacoes" class="md-nav__link">
+    Como Perfilar Suas Aplicações
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#specific-tools" class="md-nav__link">
-    Specific tools
+  <a href="#ferramentas-especificas" class="md-nav__link">
+    Ferramentas Específicas
   </a>
   
 </li>
@@ -7191,22 +7191,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
+  <a href="#visao-geral" class="md-nav__link">
+    Visão Geral
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-profile-your-applications" class="md-nav__link">
-    How to Profile your Applications
+  <a href="#como-perfilar-suas-aplicacoes" class="md-nav__link">
+    Como Perfilar Suas Aplicações
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#specific-tools" class="md-nav__link">
-    Specific tools
+  <a href="#ferramentas-especificas" class="md-nav__link">
+    Ferramentas Específicas
   </a>
   
 </li>
@@ -7226,19 +7226,19 @@
 
 
 <h1 id="profiling">Profiling</h1>
-<h2 id="overview">Overview</h2>
-<p>Profiling is a form of runtime analysis that measures various components of the runtime such as, memory allocation, garbage collection, threads and locks, call stacks, or frequency and duration of specific functions. It can be used to see which functions are the most costly in your binary, allowing you to focus your effort on removing the largest inefficiencies as quickly as possible. It can help you find deadlocks, memory leaks, or inefficient memory allocation, and help inform decisions around resource allocation (ie: CPU or RAM).</p>
-<h2 id="how-to-profile-your-applications">How to Profile your Applications</h2>
-<p>Profiling is somewhat language dependent, so start off by searching for "profile $language" (some common tools are listed below). Additionally, Linux Perf is a good fallback, since a lot of languages have bindings in C/C++.</p>
-<p>Profiling does incur some cost, as it requires inspecting the call stack, and sometimes pausing the application all together (ie: to trigger a full GC in Java). It is recommended to continuously profile your services, say for 10s every 10 minutes. Consider the cost when deciding on tuning these parameters.</p>
-<p>Different tools visualize profiles differently. Common CPU profiles might use a directed graph <img alt="graph" src="../images/pprof-dot.png" /> or a flame graph. <img alt="flame" src="../images/flame.png" /></p>
-<p>Unfortunately, each profiler tool typically uses its own format for storing profiles, and comes with its own visualization.</p>
-<h2 id="specific-tools">Specific tools</h2>
+<h2 id="visao-geral">Visão Geral</h2>
+<p>O profiling é uma forma de análise em tempo de execução que mede vários componentes da execução, como alocação de memória, coleta de lixo, threads e travas, pilhas de chamadas ou frequência e duração de funções específicas. Ele pode ser usado para ver quais funções são as mais custosas em seu binário, permitindo que você concentre seus esforços em remover as maiores ineficiências o mais rapidamente possível. Ele pode ajudar a encontrar deadlocks, vazamentos de memória ou alocação ineficiente de memória e ajudar nas decisões relacionadas à alocação de recursos (ou seja, CPU ou RAM).</p>
+<h2 id="como-perfilar-suas-aplicacoes">Como Perfilar Suas Aplicações</h2>
+<p>O profiling é um tanto dependente da linguagem, então comece procurando por "perfil $linguagem" (algumas ferramentas comuns estão listadas abaixo). Além disso, o Linux Perf é uma boa alternativa, já que muitas linguagens têm ligações em C/C++.</p>
+<p>O profiling incorre em algum custo, pois requer a inspeção da pilha de chamadas e, às vezes, a pausa completa da aplicação (ou seja, para acionar uma coleta completa de lixo em Java). É recomendável perfilar continuamente seus serviços, por exemplo, durante 10 segundos a cada 10 minutos. Considere o custo ao decidir ajustar esses parâmetros.</p>
+<p>Diferentes ferramentas visualizam os perfis de maneira diferente. Perfis de CPU comuns podem usar um gráfico direcionado <img alt="gráfico" src="../images/pprof-dot.png" /> ou um gráfico de chamas. <img alt="chamas" src="../images/flame.png" /></p>
+<p>Infelizmente, cada ferramenta de profiler geralmente usa seu próprio formato para armazenar perfis e vem com sua própria visualização.</p>
+<h2 id="ferramentas-especificas">Ferramentas Específicas</h2>
 <ul>
-<li>(Java, Go, Python, Ruby, eBPF) <a href="https://github.com/pyroscope-io/pyroscope">Pyroscope</a> continuous profiling out of the box.</li>
-<li>(Java and Go) <a href="https://github.com/VerizonMedia/kubectl-flame">Flame</a> - profiling containers in Kubernetes</li>
+<li>(Java, Go, Python, Ruby, eBPF) <a href="https://github.com/pyroscope-io/pyroscope">Pyroscope</a> realiza profiling contínuo prontamente.</li>
+<li>(Java e Go) <a href="https://github.com/VerizonMedia/kubectl-flame">Flame</a> - perfis de contêineres no Kubernetes</li>
 <li>(Java, Python, Go) <a href="https://www.datadoghq.com/product/code-profiling/">Datadog Continuous profiler</a></li>
-<li>(Go) <a href="https://github.com/profefe/profefe">profefe</a>, which builds <code>pprof</code> to provide continuous profiling</li>
+<li>(Go) <a href="https://github.com/profefe/profefe">profefe</a>, que cria <code>pprof</code> para fornecer profiling contínuo</li>
 <li>(Java) <a href="https://www.eclipse.org/mat/">Eclipse Memory Analyzer</a></li>
 </ul>
 
@@ -7247,7 +7247,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 12, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
       
     
   </small>

@@ -19,7 +19,7 @@
     
     
       
-        <title>Credential Scanning Tool: detect-secrets - Manual da Engenharia para Codar</title>
+        <title>Ferramenta de Verificação de Credenciais: detect-secrets - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#credential-scanning-tool-detect-secrets" class="md-skip">
+        <a href="#ferramenta-de-verificacao-de-credenciais-detect-secrets" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Credential Scanning Tool: detect-secrets
+              Ferramenta de Verificação de Credenciais: detect-secrets
             
           </span>
         </div>
@@ -3610,12 +3610,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Credential Scanning Tool: detect-secrets
+          Ferramenta de Verificação de Credenciais: detect-secrets
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Credential Scanning Tool: detect-secrets
+        Ferramenta de Verificação de Credenciais: detect-secrets
       </a>
       
         
@@ -3634,29 +3634,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#background" class="md-nav__link">
-    Background
+  <a href="#contexto" class="md-nav__link">
+    Contexto
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
-    Setup
+  <a href="#configuracao" class="md-nav__link">
+    Configuração
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pre-commit-hook" class="md-nav__link">
-    Pre-commit hook
+  <a href="#gancho-pre-commit" class="md-nav__link">
+    Gancho pré-commit
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#usage-in-ci-pipelines" class="md-nav__link">
-    Usage in CI pipelines
+  <a href="#uso-em-pipelines-de-ci" class="md-nav__link">
+    Uso em pipelines de CI
   </a>
   
 </li>
@@ -7204,29 +7204,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#background" class="md-nav__link">
-    Background
+  <a href="#contexto" class="md-nav__link">
+    Contexto
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
-    Setup
+  <a href="#configuracao" class="md-nav__link">
+    Configuração
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pre-commit-hook" class="md-nav__link">
-    Pre-commit hook
+  <a href="#gancho-pre-commit" class="md-nav__link">
+    Gancho pré-commit
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#usage-in-ci-pipelines" class="md-nav__link">
-    Usage in CI pipelines
+  <a href="#uso-em-pipelines-de-ci" class="md-nav__link">
+    Uso em pipelines de CI
   </a>
   
 </li>
@@ -7245,31 +7245,31 @@
                 
 
 
-<h1 id="credential-scanning-tool-detect-secrets">Credential Scanning Tool: detect-secrets</h1>
-<h2 id="background">Background</h2>
-<p>The <a href="https://github.com/Yelp/detect-secrets"><code>detect-secrets</code></a> tool is an open source project that uses heuristics and rules to scan for <a href="https://github.com/Yelp/detect-secrets#currently-supported-plugins">a wide range</a> of secrets. We can extend the tool with custom rules and heuristics via a simple <a href="https://github.com/Yelp/detect-secrets/blob/a9dff60/detect_secrets/plugins/base.py#L27-L49">Python plugin API</a>.</p>
-<p>Unlike other credential scanning tools, <code>detect-secrets</code> does not attempt to check a project's entire git history when invoked, but instead scans the project's current state. This means that the tool runs quickly which makes it ideal for use in continuous integration pipelines.</p>
-<p><code>detect-secrets</code> employs the concept of a "baseline file", i.e. a list of known secrets already present in the repository, and we can configure it to ignore any of these pre-existing secrets when running. This makes it easy to gradually introduce the tool into a pre-existing project.</p>
-<p>The baseline file also provides a simple and convenient way of handling false positives. We can white-list the false positive in the baseline file to ignore it on future invocations of the tool.</p>
-<h2 id="setup">Setup</h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># install system dependencies: diff, jq, python3 (if on Linux-based OS)</span>
+<h1 id="ferramenta-de-verificacao-de-credenciais-detect-secrets">Ferramenta de Verificação de Credenciais: detect-secrets</h1>
+<h2 id="contexto">Contexto</h2>
+<p>A ferramenta <a href="https://github.com/Yelp/detect-secrets"><code>detect-secrets</code></a> é um projeto de código aberto que usa heurísticas e regras para escanear <a href="https://github.com/Yelp/detect-secrets#currently-supported-plugins">uma ampla gama</a> de segredos. Podemos estender a ferramenta com regras e heurísticas personalizadas por meio de uma simples <a href="https://github.com/Yelp/detect-secrets/blob/a9dff60/detect_secrets/plugins/base.py#L27-L49">API de plug-in Python</a>.</p>
+<p>Ao contrário de outras ferramentas de verificação de credenciais, o <code>detect-secrets</code> não tenta verificar todo o histórico git de um projeto quando é invocado, mas sim escaneia o estado atual do projeto. Isso significa que a ferramenta é rápida, o que a torna ideal para uso em pipelines de integração contínua.</p>
+<p>O <code>detect-secrets</code> utiliza o conceito de um "arquivo de base", ou seja, uma lista de segredos conhecidos já presentes no repositório, e podemos configurá-lo para ignorar qualquer um desses segredos pré-existentes ao ser executado. Isso torna fácil introduzir gradualmente a ferramenta em um projeto já existente.</p>
+<p>O arquivo de base também fornece uma maneira simples e conveniente de lidar com falsos positivos. Podemos incluir na lista branca o falso positivo no arquivo de base para ignorá-lo em futuras invocações da ferramenta.</p>
+<h2 id="configuracao">Configuração</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># instale as dependências do sistema: diff, jq, python3 (se estiver em um sistema operacional baseado em Linux)</span>
 apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>diffutils<span class="w"> </span>jq<span class="w"> </span>python3<span class="w"> </span>python3-pip
 
-<span class="c1"># install system dependencies: diff, jq, python3 (if on Windows)</span>
+<span class="c1"># instale as dependências do sistema: diff, jq, python3 (se estiver no Windows)</span>
 winget<span class="w"> </span>install<span class="w"> </span>Python.Python.3
 choco<span class="w"> </span>install<span class="w"> </span>diffutils<span class="w"> </span>jq<span class="w"> </span>-y
 
-<span class="c1"># install the detect-secrets tool</span>
+<span class="c1"># instale a ferramenta detect-secrets</span>
 python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>detect-secrets
 
-<span class="c1"># run the tool to establish a list of known secrets</span>
-<span class="c1"># review this file thoroughly and check it into the repository</span>
+<span class="c1"># execute a ferramenta para estabelecer uma lista de segredos conhecidos</span>
+<span class="c1"># revise este arquivo cuidadosamente e faça check-in no repositório</span>
 detect-secrets<span class="w"> </span>scan<span class="w"> </span>&gt;<span class="w"> </span>.secrets.baseline
 </code></pre></div>
-<h2 id="pre-commit-hook">Pre-commit hook</h2>
-<p>It is recommended to use <code>detect-secrets</code> in your development environment as a Git pre-commit hook.</p>
-<p>First, follow the <a href="https://pre-commit.com/#install"><code>pre-commit</code> installation instructions</a> to install the tool in your development environment.</p>
-<p>Then, add the following to your <code>.pre-commit-config.yaml</code>:</p>
+<h2 id="gancho-pre-commit">Gancho pré-commit</h2>
+<p>É recomendável usar o <code>detect-secrets</code> em seu ambiente de desenvolvimento como um gancho pré-commit do Git.</p>
+<p>Primeiro, siga as <a href="https://pre-commit.com/#install">instruções de instalação do <code>pre-commit</code></a> para instalar a ferramenta em seu ambiente de desenvolvimento.</p>
+<p>Em seguida, adicione o seguinte ao seu <code>.pre-commit-config.yaml</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">repos</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/Yelp/detect-secrets</span>
 <span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1.4.0</span>
@@ -7277,18 +7277,18 @@ detect-secrets<span class="w"> </span>scan<span class="w"> </span>&gt;<span clas
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">detect-secrets</span>
 <span class="w">        </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;--baseline&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;.secrets.baseline&#39;</span><span class="p p-Indicator">]</span>
 </code></pre></div>
-<h2 id="usage-in-ci-pipelines">Usage in CI pipelines</h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># backup the list of known secrets</span>
+<h2 id="uso-em-pipelines-de-ci">Uso em pipelines de CI</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># faça backup da lista de segredos conhecidos</span>
 cp<span class="w"> </span>.secrets.baseline<span class="w"> </span>.secrets.new
 
-<span class="c1"># find all the secrets in the repository</span>
+<span class="c1"># encontre todos os segredos no repositório</span>
 detect-secrets<span class="w"> </span>scan<span class="w"> </span>--baseline<span class="w"> </span>.secrets.new<span class="w"> </span><span class="k">$(</span>find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>!<span class="w"> </span>-name<span class="w"> </span><span class="s1">&#39;.secrets.*&#39;</span><span class="w"> </span>!<span class="w"> </span>-path<span class="w"> </span><span class="s1">&#39;*/.git*&#39;</span><span class="k">)</span>
 
-<span class="c1"># if there is any difference between the known and newly detected secrets, break the build</span>
+<span class="c1"># se houver alguma diferença entre os segredos conhecidos e os recém-detectados, quebre o build</span>
 list_secrets<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.results | keys[] as $key | &quot;\($key),\(.[$key] | .[] | .hashed_secret)&quot;&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="p">;</span><span class="w"> </span><span class="o">}</span>
 
 <span class="k">if</span><span class="w"> </span>!<span class="w"> </span>diff<span class="w"> </span>&lt;<span class="o">(</span>list_secrets<span class="w"> </span>.secrets.baseline<span class="o">)</span><span class="w"> </span>&lt;<span class="o">(</span>list_secrets<span class="w"> </span>.secrets.new<span class="o">)</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Detected new secrets in the repo&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Foram detectados novos segredos no repositório&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
 <span class="w">  </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 <span class="k">fi</span>
 </code></pre></div>
@@ -7298,7 +7298,7 @@ list_secrets<span class="o">()</span><span class="w"> </span><span class="o">{</
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 17, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
       
     
   </small>

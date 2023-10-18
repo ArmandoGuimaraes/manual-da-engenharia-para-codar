@@ -17,7 +17,7 @@ Cada repositório de código-fonte deve incluir documentação específica para 
   - Linha de comando + editores/IDEs
 - [Logs de Decisão de Design](../../design/design-reviews/decision-log/README.md)
   - [Registro de Decisões de Arquitetura (ADRs)](../../design/design-reviews/decision-log/README.md#architecture-decision-record-(ADR))
-  - [Estudos de Trade](../../design/design-reviews/trade-studies/README.md)
+  - [Estudos de Análise](../../design/design-reviews/trade-studies/README.md)
 
 Algumas seções na documentação do repositório podem apontar para a documentação do projeto (por exemplo, Integração, Acordo de Trabalho, Guia de Contribuição).
 

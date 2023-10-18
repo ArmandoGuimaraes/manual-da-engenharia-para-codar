@@ -19,7 +19,7 @@
     
     
       
-        <title>Running detect-secrets in Azure DevOps Pipelines - Manual da Engenharia para Codar</title>
+        <title>Executando detect-secrets no Azure DevOps Pipelines - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#running-detect-secrets-in-azure-devops-pipelines" class="md-skip">
+        <a href="#executando-detect-secrets-no-azure-devops-pipelines" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Running detect-secrets in Azure DevOps Pipelines
+              Executando detect-secrets no Azure DevOps Pipelines
             
           </span>
         </div>
@@ -3596,12 +3596,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Running detect-secrets in Azure DevOps Pipelines
+          Executando detect-secrets no Azure DevOps Pipelines
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Running detect-secrets in Azure DevOps Pipelines
+        Executando detect-secrets no Azure DevOps Pipelines
       </a>
       
         
@@ -3620,8 +3620,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
+  <a href="#visao-geral" class="md-nav__link">
+    Visão geral
   </a>
   
 </li>
@@ -7190,8 +7190,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
+  <a href="#visao-geral" class="md-nav__link">
+    Visão geral
   </a>
   
 </li>
@@ -7217,54 +7217,54 @@
                 
 
 
-<h1 id="running-detect-secrets-in-azure-devops-pipelines">Running detect-secrets in Azure DevOps Pipelines</h1>
-<h2 id="overview">Overview</h2>
-<p>In this article, you can find information on how to integrate YELP detect-secrets into your Azure DevOps Pipeline. The proposed code can be part of the classic CI process or (preferred way) build validation for PRs before merging to the <code>main</code> branch.</p>
+<h1 id="executando-detect-secrets-no-azure-devops-pipelines">Executando detect-secrets no Azure DevOps Pipelines</h1>
+<h2 id="visao-geral">Visão geral</h2>
+<p>Neste artigo, você encontrará informações sobre como integrar o detect-secrets do YELP em seu Azure DevOps Pipeline. O código proposto pode fazer parte do processo clássico de CI ou (maneira preferida) validação de build para PRs antes de mesclá-los com o branch <code>main</code>.</p>
 <h2 id="azure-devops-pipeline">Azure DevOps Pipeline</h2>
-<p>Proposed Azure DevOps Pipeline contains multiple steps described below:</p>
+<p>O Azure DevOps Pipeline proposto contém várias etapas descritas abaixo:</p>
 <ol>
-<li>Set Python 3 as default</li>
-<li>Install detect-secrets using pip</li>
-<li>Run detect-secrets tool</li>
-<li>Publish results in the Pipeline Artifact<blockquote>
-<p>NOTE: It's an optional step, but for future investigation .json file with results may be helpful.</p>
+<li>Definir o Python 3 como padrão.</li>
+<li>Instalar o detect-secrets usando o pip.</li>
+<li>Executar a ferramenta detect-secrets.</li>
+<li>Publicar os resultados no Artifact do Pipeline.<blockquote>
+<p>OBS: É uma etapa opcional, mas para investigações futuras, o arquivo .json com os resultados pode ser útil.</p>
 </blockquote>
 </li>
-<li>Analyzing detect-secrets results<blockquote>
-<p>NOTE: This step does a simple analysis of the .json file. If any secret has been detected, then break the build with exit code 1.</p>
+<li>Analisar os resultados do detect-secrets.<blockquote>
+<p>OBS: Esta etapa faz uma análise simples do arquivo .json. Se algum segredo for detectado, quebre o build com o código de saída 1.</p>
 </blockquote>
 </li>
 </ol>
 <blockquote>
-<p>NOTE: The below example has 2 jobs: for Linux and Windows agents. You do not have to use both jobs - just adjust the pipeline to your needs.</p>
-<p>NOTE: Windows example does not use the latest version of detect-secrets. It is related to the bug in the detect-secret tool (see more in <a href="https://github.com/Yelp/detect-secrets/issues/452">Issue#452</a>). It is highly recommended to monitor the fix for the issue and use the latest version if possible by removing version tag <code>==1.0.3</code> in the pip install command.</p>
+<p>OBS: O exemplo abaixo tem 2 jobs: para agentes Linux e Windows. Você não precisa usar ambos os jobs - ajuste o pipeline às suas necessidades.</p>
+<p>OBS: O exemplo do Windows não usa a versão mais recente do detect-secrets. Isso está relacionado ao bug na ferramenta detect-secrets (veja mais em <a href="https://github.com/Yelp/detect-secrets/issues/452">Issue#452</a>). É altamente recomendável monitorar a correção do problema e usar a versão mais recente, se possível, removendo a tag de versão <code>==1.0.3</code> no comando de instalação do pip.</p>
 </blockquote>
 <div class="highlight"><pre><span></span><code><span class="nt">trigger</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span>
 
 <span class="nt">jobs</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu</span>
-<span class="w">    </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;detect-secrets</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">Ubuntu</span><span class="nv"> </span><span class="s">Linux</span><span class="nv"> </span><span class="s">agent&quot;</span>
+<span class="w">    </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;detect-secrets</span><span class="nv"> </span><span class="s">no</span><span class="nv"> </span><span class="s">agente</span><span class="nv"> </span><span class="s">Ubuntu</span><span class="nv"> </span><span class="s">Linux&quot;</span>
 <span class="w">    </span><span class="nt">pool</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">vmImage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
 <span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UsePythonVersion@0</span>
-<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Set</span><span class="nv"> </span><span class="s">Python</span><span class="nv"> </span><span class="s">3</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">default&quot;</span>
+<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Definir</span><span class="nv"> </span><span class="s">o</span><span class="nv"> </span><span class="s">Python</span><span class="nv"> </span><span class="s">3</span><span class="nv"> </span><span class="s">como</span><span class="nv"> </span><span class="s">padrão&quot;</span>
 <span class="w">        </span><span class="nt">inputs</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">versionSpec</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span>
 <span class="w">          </span><span class="nt">addToPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">          </span><span class="nt">architecture</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;x64&quot;</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">bash</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install detect-secrets</span>
-<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Install</span><span class="nv"> </span><span class="s">detect-secrets</span><span class="nv"> </span><span class="s">using</span><span class="nv"> </span><span class="s">pip&quot;</span>
+<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Instalar</span><span class="nv"> </span><span class="s">detect-secrets</span><span class="nv"> </span><span class="s">usando</span><span class="nv"> </span><span class="s">pip&quot;</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">bash</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">          </span><span class="no">detect-secrets --version</span>
 <span class="w">          </span><span class="no">detect-secrets scan --all-files --force-use-all-plugins --exclude-files FETCH_HEAD &gt; $(Pipeline.Workspace)/detect-secrets.json</span>
-<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Run</span><span class="nv"> </span><span class="s">detect-secrets</span><span class="nv"> </span><span class="s">tool&quot;</span>
+<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Executar</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">ferramenta</span><span class="nv"> </span><span class="s">detect-secrets&quot;</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PublishPipelineArtifact@1</span>
-<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Publish</span><span class="nv"> </span><span class="s">results</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">Pipeline</span><span class="nv"> </span><span class="s">Artifact&quot;</span>
+<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Publicar</span><span class="nv"> </span><span class="s">resultados</span><span class="nv"> </span><span class="s">no</span><span class="nv"> </span><span class="s">Artifact</span><span class="nv"> </span><span class="s">do</span><span class="nv"> </span><span class="s">Pipeline&quot;</span>
 <span class="w">        </span><span class="nt">inputs</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">targetPath</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;$(Pipeline.Workspace)/detect-secrets.json&quot;</span>
 <span class="w">          </span><span class="nt">artifact</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;detect-secrets-ubuntu&quot;</span>
@@ -7277,36 +7277,36 @@
 <span class="w">          </span><span class="no">count=$(echo &quot;${dsjson}&quot; | jq -c -r &#39;.results | length&#39;)</span>
 
 <span class="w">          </span><span class="no">if [ $count -gt 0 ]; then</span>
-<span class="w">            </span><span class="no">msg=&quot;Secrets were detected in code. ${count} file(s) affected.&quot;</span>
+<span class="w">            </span><span class="no">msg=&quot;Segredos foram detectados no código. ${count} arquivo(s) afetado(s).&quot;</span>
 <span class="w">            </span><span class="no">echo &quot;##vso[task.logissue type=error]${msg}&quot;</span>
 <span class="w">            </span><span class="no">echo &quot;##vso[task.complete result=Failed;]${msg}.&quot;</span>
 <span class="w">          </span><span class="no">else</span>
-<span class="w">            </span><span class="no">echo &quot;##vso[task.complete result=Succeeded;]No secrets detected.&quot;</span>
+<span class="w">            </span><span class="no">echo &quot;##vso[task.complete result=Succeeded;]Nenhum segredo detectado.&quot;</span>
 <span class="w">          </span><span class="no">fi</span>
-<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Analyzing</span><span class="nv"> </span><span class="s">detect-secrets</span><span class="nv"> </span><span class="s">results&quot;</span>
+<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Analisar</span><span class="nv"> </span><span class="s">resultados</span><span class="nv"> </span><span class="s">do</span><span class="nv"> </span><span class="s">detect-secrets&quot;</span>
 
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">windows</span>
-<span class="w">    </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;detect-secrets</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">Windows</span><span class="nv"> </span><span class="s">agent&quot;</span>
+<span class="w">    </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;detect-secrets</span><span class="nv"> </span><span class="s">no</span><span class="nv"> </span><span class="s">agente</span><span class="nv"> </span><span class="s">Windows&quot;</span>
 <span class="w">    </span><span class="nt">pool</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">vmImage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">windows-latest</span>
 <span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UsePythonVersion@0</span>
-<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Set</span><span class="nv"> </span><span class="s">Python</span><span class="nv"> </span><span class="s">3</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">default&quot;</span>
+<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Definir</span><span class="nv"> </span><span class="s">o</span><span class="nv"> </span><span class="s">Python</span><span class="nv"> </span><span class="s">3</span><span class="nv"> </span><span class="s">como</span><span class="nv"> </span><span class="s">padrão&quot;</span>
 <span class="w">        </span><span class="nt">inputs</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">versionSpec</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span>
 <span class="w">          </span><span class="nt">addToPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">          </span><span class="nt">architecture</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;x64&quot;</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install detect-secrets==1.0.3</span>
-<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Install</span><span class="nv"> </span><span class="s">detect-secrets</span><span class="nv"> </span><span class="s">using</span><span class="nv"> </span><span class="s">pip&quot;</span>
+<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Instalar</span><span class="nv"> </span><span class="s">detect-secrets</span><span class="nv"> </span><span class="s">usando</span><span class="nv"> </span><span class="s">pip&quot;</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">          </span><span class="no">detect-secrets --version</span>
 <span class="w">          </span><span class="no">detect-secrets scan --all-files --force-use-all-plugins &gt; $(Pipeline.Workspace)/detect-secrets.json</span>
-<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Run</span><span class="nv"> </span><span class="s">detect-secrets</span><span class="nv"> </span><span class="s">tool&quot;</span>
+<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Executar</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">ferramenta</span><span class="nv"> </span><span class="s">detect-secrets&quot;</span>
 
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PublishPipelineArtifact@1</span>
-<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Publish</span><span class="nv"> </span><span class="s">results</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">Pipeline</span><span class="nv"> </span><span class="s">Artifact&quot;</span>
+<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Publicar</span><span class="nv"> </span><span class="s">resultados</span><span class="nv"> </span><span class="s">no</span><span class="nv"> </span><span class="s">Artifact</span><span class="nv"> </span><span class="s">do</span><span class="nv"> </span><span class="s">Pipeline&quot;</span>
 <span class="w">        </span><span class="nt">inputs</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">targetPath</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;$(Pipeline.Workspace)/detect-secrets.json&quot;</span>
 <span class="w">          </span><span class="nt">artifact</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;detect-secrets-windows&quot;</span>
@@ -7320,14 +7320,16 @@
 <span class="w">          </span><span class="no">$count = ($dsObj.results | Get-Member -MemberType NoteProperty).Count</span>
 
 <span class="w">          </span><span class="no">if ($count -gt 0) {</span>
-<span class="w">            </span><span class="no">$msg = &quot;Secrets were detected in code. $count file(s) affected. &quot;</span>
+<span class="w">            </span><span class="no">$msg = &quot;Segredos foram detectados no código. $count arquivo(s) afetado(s). &quot;</span>
 <span class="w">            </span><span class="no">Write-Host &quot;##vso[task.logissue type=error]$msg&quot;</span>
 <span class="w">            </span><span class="no">Write-Host &quot;##vso[task.complete result=Failed;]$msg&quot;</span>
+
+
 <span class="w">          </span><span class="no">}</span>
 <span class="w">          </span><span class="no">else {</span>
-<span class="w">            </span><span class="no">Write-Host &quot;##vso[task.complete result=Succeeded;]No secrets detected.&quot;</span>
+<span class="w">            </span><span class="no">Write-Host &quot;##vso[task.complete result=Succeeded;]Nenhum segredo detectado.&quot;</span>
 <span class="w">          </span><span class="no">}</span>
-<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Analyzing</span><span class="nv"> </span><span class="s">detect-secrets</span><span class="nv"> </span><span class="s">results&quot;</span>
+<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Analisar</span><span class="nv"> </span><span class="s">resultados</span><span class="nv"> </span><span class="s">do</span><span class="nv"> </span><span class="s">detect-secrets&quot;</span>
 </code></pre></div>
 
   <hr>
@@ -7335,7 +7337,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 6, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
       
     
   </small>

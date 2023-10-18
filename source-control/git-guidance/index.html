@@ -7399,85 +7399,12 @@ Portanto, pode ser útil seguir uma convenção dentro da sua equipe e utilizar 
 <li><a href="http://who-t.blogspot.com/2009/12/on-commit-messages.html">Sobre mensagens de commit</a></li>
 </ul>
 <h2 id="gerenciando-repositorios-remotos">Gerenciando repositórios remotos</h2>
-<p>Um repositório Git local pode ter um ou mais repositórios remotos de suporte. Você pode listar os repositórios remotos usando <code>git remote</code> - por padrão, o repositório remoto do qual você fez a clonagem será chamado de origem.</p>
-<div class="highlight"><pre><span></span><code>&gt; git remote -v
-origin  https://github.com/microsoft/code-with-engineering-playbook.git (fetch)
-origin  https://github.com/microsoft/code-with-engineering-playbook.git (push)
-</code></pre></div>
-<h3 id="trabalhando-com-forks">Trabalhando com forks</h3>
-<p>Você pode configurar vários repositórios remotos. Isso é útil, por exemplo, se você deseja trabalhar com uma versão bifurcada do repositório. Para obter mais informações sobre como definir repositórios remotos e sincronizar repositórios ao trabalhar com bifurcações, consulte a documentação <a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/working-with-forks">Trabalhando com forks do GitHub</a>.</p>
-<h3 id="atualizando-o">Atualizando o</h3>
-<p>repositório remoto</p>
-<p>Acesse seu repositório local e verifique se você está na branch que deseja enviar ao repositório remoto. Por exemplo:</p>
-<div class="highlight"><pre><span></span><code>&gt; git branch
-* feature/my-feature
-  master
-  dev
-</code></pre></div>
-<p>Suponha que você deseja enviar as alterações da <code>feature/my-feature</code> para o repositório remoto chamado <code>origin</code>. Para atualizar o repositório remoto com as alterações locais, você pode executar:</p>
-<div class="highlight"><pre><span></span><code>&gt; git push origin feature/my-feature
-</code></pre></div>
-<p>Você também pode configurar seu repositório local para definir o branch remoto padrão. Isso significa que, quando você executa <code>git push</code>, ele envia automaticamente para o branch remoto correspondente:</p>
-<div class="highlight"><pre><span></span><code>&gt; git push --set-upstream origin feature/my-feature
-</code></pre></div>
-<h3 id="sincronizando-com-o-repositorio-remoto">Sincronizando com o repositório remoto</h3>
-<p>Antes de enviar as alterações para o repositório remoto, é aconselhável sincronizar suas alterações locais com as do repositório remoto. Isso ajuda a evitar conflitos de mesclagem. Use o comando <code>git pull</code> para puxar as alterações do repositório remoto para o seu branch local:</p>
-<div class="highlight"><pre><span></span><code>&gt; git pull origin feature/my-feature
-</code></pre></div>
-<p>Após sincronizar, você pode enviar suas alterações usando <code>git push</code>, conforme descrito anteriormente.</p>
-<h3 id="definindo-o-repositorio-remoto-padrao">Definindo o repositório remoto padrão</h3>
-<p>Se você deseja definir um repositório remoto padrão para o seu repositório local, para que você não precise especificá-lo ao usar comandos como <code>git push</code> e <code>git pull</code>, pode fazê-lo usando o comando <code>git remote</code>:</p>
-<div class="highlight"><pre><span></span><code>&gt; git remote set-url origin https://github.com/seu-usuario/seu-repositorio.git
-</code></pre></div>
-<p>Substitua <code>https://github.com/seu-usuario/seu-repositorio.git</code> pelo URL do seu repositório remoto.</p>
-<h2 id="resolvendo-conflitos">Resolvendo Conflitos</h2>
-<p>Conflitos ocorrem quando duas ou mais pessoas fazem alterações nas mesmas partes de um arquivo ou em arquivos conflitantes. O Git não pode determinar automaticamente qual versão do código deve ser mantida, portanto, é necessário resolver conflitos manualmente.</p>
-<p>Ao executar um comando que cria um conflito, como <code>git pull</code> ou <code>git merge</code>, você verá mensagens indicando os conflitos e os arquivos que estão em conflito.</p>
-<p>Para resolver conflitos, siga estas etapas:</p>
-<ol>
-<li>
-<p>Abra o arquivo em um editor de texto. Você verá marcadores de conflito que indicam as áreas em conflito, como:</p>
-<div class="highlight"><pre><span></span><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-Este é o código do HEAD (sua versão local).
-=======
-Este é o código do branch que você está mesclando (ou pull request).
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; branch-que-está-sendo-mesclado
-</code></pre></div>
-</li>
-<li>
-<p>Edite o arquivo para manter as partes que deseja manter. Você pode remover as partes indesejadas (incluindo os marcadores de conflito).</p>
-</li>
-<li>
-<p>Após editar o arquivo, salve-o.</p>
-</li>
-<li>
-<p>Adicione o arquivo resolvido aos commits usando <code>git add &lt;arquivo&gt;</code>.</p>
-</li>
-<li>
-<p>Faça um commit das alterações usando <code>git commit</code>.</p>
-</li>
-<li>
-<p>Continue com o processo de mesclagem ou pull request.</p>
-</li>
-</ol>
-<p>É importante garantir que o arquivo esteja livre de marcadores de conflito antes de fazer o commit. Certifique-se de revisar todas as alterações e testá-las para garantir que o código ainda funcione conforme o esperado.</p>
-<h2 id="referencias">Referências</h2>
-<p>Aqui estão algumas referências adicionais sobre o Git e o uso eficaz dele:</p>
-<ol>
-<li><a href="https://git-scm.com/book/pt-br/v2">Pro Git Book</a> - Um livro abrangente sobre o Git.</li>
-<li><a href="https://www.atlassian.com/git">Atlassian Git Tutorials</a> - Tutoriais detalhados da Atlassian sobre o Git.</li>
-<li><a href="https://lab.github.com/">GitHub Learning Lab</a> - Lições interativas para aprender a usar o Git e o GitHub.</li>
-<li><a href="https://try.github.io/">Try Git</a> - Um tutorial interativo que permite aprender o Git no navegador.</li>
-<li><a href="https://github.github.com/training-kit/downloads/pt_BR/github-git-cheat-sheet.pdf">Git Cheat Sheet</a> - Um guia de referência rápida do GitHub para comandos Git.</li>
-<li><a href="https://ohshitgit.com/">Oh Shit, Git!?!</a> - Um guia útil para solucionar problemas comuns com o Git.</li>
-</ol>
-<h2 id="gerenciamento-de-remotos">Gerenciamento de Remotos</h2>
 <p>Um repositório local do Git pode ter um ou mais repositórios remotos de suporte. Você pode listar os repositórios remotos usando <code>git remote</code> - por padrão, o repositório remoto do qual você clonou será chamado de origin.</p>
 <div class="highlight"><pre><span></span><code>&gt; git remote -v
 origin  https://github.com/microsoft/code-with-engineering-playbook.git (fetch)
 origin  https://github.com/microsoft/code-with-engineering-playbook.git (push)
 </code></pre></div>
-<h3 id="trabalhando-com-forks_1">Trabalhando com Forks</h3>
+<h3 id="trabalhando-com-forks">Trabalhando com Forks</h3>
 <p>Você pode definir vários remotos. Isso é útil, por exemplo, se você deseja trabalhar com uma versão bifurcada (forked) do repositório. Para obter mais informações sobre como configurar remotos upstream e sincronizar repositórios ao trabalhar com forks, consulte a <a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/working-with-forks">documentação Trabalhando com Forks do GitHub</a>.</p>
 <h3 id="atualizacao-do-remoto-se-um-repositorio-mudar-de-nome">Atualização do Remoto se um Repositório Mudar de Nome</h3>
 <p>Se o repositório mudar de alguma forma, por exemplo, uma alteração de nome, ou se você deseja alternar entre HTTPS e SSH, você precisará atualizar o remoto.</p>

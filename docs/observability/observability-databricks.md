@@ -1,63 +1,50 @@
-# Observability for Azure Databricks
+# Observabilidade para Azure Databricks
 
-## Overview
+## Visão Geral
 
-Azure Databricks is an Apache Spark–based analytics service that makes it easy to rapidly develop and deploy big data analytics. Monitoring and troubleshooting performance issues is critical when
-operating production Azure Databricks workloads. It is important to log adequate information from Azure Databricks so that it is helpful to monitor and troubleshoot performance issues.
+O Azure Databricks é um serviço de análise baseado no Apache Spark que facilita o desenvolvimento e a implantação rápida de análises de big data. Monitorar e solucionar problemas de desempenho é fundamental ao operar cargas de trabalho de produção no Azure Databricks. É importante registrar informações adequadas do Azure Databricks para monitorar e solucionar problemas de desempenho de forma eficaz.
 
-Spark is designed to run on a cluster - a cluster is a set of Virtual Machines (VMs). Spark can horizontally scale with bigger workloads needed more VMs. Azure Databricks can scale in and out as
-needed.
+O Spark foi projetado para ser executado em um cluster - um cluster é um conjunto de Máquinas Virtuais (VMs). O Spark pode escalar horizontalmente com cargas de trabalho maiores, exigindo mais VMs. O Azure Databricks pode escalar conforme necessário, aumentando ou diminuindo o número de VMs.
 
-## Approaches to Observability
+## Abordagens para Observabilidade
 
-### Azure Diagnostic Logs
+### Logs de Diagnóstico do Azure
 
-[Azure Diagnostic Logging](https://learn.microsoft.com/en-us/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) is provided out-of-the-box by Azure Databricks, providing
-visibility into actions performed against DBFS, Clusters, Accounts, Jobs, Notebooks, SSH, Workspace, Secrets, SQL Permissions, and Instance Pools.
+[Logs de Diagnóstico do Azure](https://learn.microsoft.com/en-us/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) são fornecidos prontos para uso no Azure Databricks, fornecendo visibilidade sobre ações executadas em relação ao DBFS, Clusters, Contas, Trabalhos, Notebooks, SSH, Espaço de Trabalho, Segredos, Permissões SQL e Pools de Instâncias.
 
-These logs are enabled using Azure Portal or CLI and can be configured to be delivered to one of these Azure resources.
+Esses logs são habilitados usando o Azure Portal ou CLI e podem ser configurados para serem entregues a um destes recursos do Azure.
 
 - Log Analytics Workspace
 - Blob Storage
 - Event Hub
 
-### Cluster Event Logs
+### Logs de Eventos do Cluster
 
-[Cluster Event logs](https://learn.microsoft.com/en-us/azure/databricks/clusters/configure#cluster-log-delivery) provide a quick overview into important Cluster lifecycle events. The
-log are structured - Timestamp, Event Type and Details. Unfortunately, there is no native way to export logs to Log Analytics. Logs will have to be delivered to Log Analytics either using [REST API](https://learn.microsoft.com/en-us/azure/databricks/dev-tools/api/latest/examples#cluster-log-example) or polled in the dbfs using Azure Functions.
+[Logs de Eventos do Cluster](https://learn.microsoft.com/en-us/azure/databricks/clusters/configure#cluster-log-delivery) fornecem uma visão rápida sobre eventos importantes do ciclo de vida do Cluster. Os
+logs são estruturados - Timestamp, Tipo de Evento e Detalhes. Infelizmente, não há uma maneira nativa de exportar logs para o Log Analytics. Os logs terão que ser entregues ao Log Analytics usando [REST API](https://learn.microsoft.com/en-us/azure/databricks/dev-tools/api/latest/examples#cluster-log-example) ou serem consultados no dbfs usando o Azure Functions.
 
-### VM Performance Metrics (OMS)
+### Métricas de Desempenho das VMs (OMS)
 
-[Log Analytics Agent](https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/oms-linux) provides insights into the performance counters from the Cluster VMs and helps to understand the
-Cluster Utilization patters. Leveraging Linux OMX Agent to onboard VMs into Log Analytics, helps provide insights into the VM metrics, performance, inventory and syslog metrics. It is important to
-note that Linux OMS Agent is not specific to Azure Databricks.
+O [Agente do Log Analytics](https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/oms-linux) fornece insights sobre os contadores de desempenho das VMs do Cluster e ajuda a entender os padrões de utilização do Cluster. Aproveitando o Agente do Linux OMX para integrar as VMs ao Log Analytics, ajuda a fornecer insights sobre as métricas das VMs, desempenho, inventário e métricas do syslog. É importante
+observar que o Agente OMS do Linux não é específico para o Azure Databricks.
 
-### Application Logging
+### Logs de Aplicação
 
-Of all the logs collected, this is perhaps the most important one. [Spark Monitoring library](https://github.com/mspnp/spark-monitoring) collects metrics about the driver, executors, JVM, HDFS, cache
-shuffling, DAGs, and much more. This library provides helpful insights to fine-tune Spark jobs. It allows monitoring and tracing each layer within Spark workloads, including performance and resource
-usage on the host and JVM, as well as Spark metrics and application-level logging. The library also includes ready-made Grafana dashboards that is a great starting point for building Azure Databricks
-dashboard.
+De todos os logs coletados, este é talvez o mais importante. A [biblioteca de monitoramento do Spark](https://github.com/mspnp/spark-monitoring) coleta métricas sobre o driver, executores, JVM, HDFS, cache
+embaralhamento, DAGs e muito mais. Esta biblioteca fornece insights úteis para ajustar os trabalhos do Spark. Ela permite monitorar e rastrear cada camada dentro das cargas de trabalho do Spark, incluindo desempenho e uso de recursos no host e JVM, bem como métricas do Spark e logs de nível de aplicação. A biblioteca também inclui painéis do Grafana prontos para uso, que são um ótimo ponto de partida para criar painéis do Azure Databricks.
 
 ### Logs via REST API
 
-Azure Databricks also provides [REST API](https://learn.microsoft.com/en-us/azure/databricks/dev-tools/api/latest/) support. If there's any specific log data that is required, this data can be collected using the REST API calls.
+O Azure Databricks também oferece suporte [REST API](https://learn.microsoft.com/en-us/azure/databricks/dev-tools/api/latest/). Se houver algum dado de log específico necessário, esses dados podem ser coletados usando chamadas da REST API.
 
-### NSG Flow Logs
+### Logs de Fluxo NSG
 
-[Network security group (NSG) flow logs](https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview) is a feature of Azure Network Watcher that allows you to log
-information about IP traffic flowing through an NSG. Flow data is sent to Azure Storage accounts from where you can access it as well as export it to any visualization tool, SIEM, or IDS of your choice.
-This log information is not specific to NSG Flow logs. This data can be used to identify unknown or undesired traffic and monitor traffic levels and/or bandwidth consumption. This is possible only with
-VNET-injected workspaces.
+[Logs de fluxo do grupo de segurança de rede (NSG)](https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview) é um recurso do Azure Network Watcher que permite registrar
+informações sobre o tráfego IP que passa por um NSG. Os dados de fluxo são enviados para contas de armazenamento do Azure, de onde você pode acessá-los e exportá-los para qualquer ferramenta de visualização, SIEM ou IDS de sua escolha. Essas informações de log não são específicas para logs de fluxo do NSG. Esses dados podem ser usados para identificar tráfego desconhecido ou indesejado e monitorar níveis de tráfego e/ou consumo de largura de banda. Isso é possível apenas com workspaces injetados na VNET.
 
-### Platform Logs
+### Logs da Plataforma
 
-Platform logs can be used to review provisioning/de-provisioning operations. This can be used to review activity in Databricks managed resource group. It helps discover operations performed at
-subscription level (like provisioning of VM, Disk etc.)
+Os logs da plataforma podem ser usados para revisar operações de provisionamento/desprovisionamento. Isso pode ser usado para revisar a atividade no grupo de recursos gerenciados do Databricks. Ajuda a descobrir operações executadas no
+nível da assinatura (como provisionamento de VM, disco, etc.).
 
-These logs can be enabled via Azure Monitor > Activity Logs and shipped to Log Analytics.
-
-### Ganglia metrics
-
-Ganglia metrics is a Cluster Utilization UI and is available on the Azure Databricks. It is great for viewing live metrics of interactive clusters. Ganglia metrics is available by default and takes
-snapshot of usage every 15 minutes. Historical metrics are stored as .png files, making it impossible to analyze data.
+Esses logs podem ser habilitados por meio de Azure Monitor > Logs de Atividade e enviados para o Log Analytics.

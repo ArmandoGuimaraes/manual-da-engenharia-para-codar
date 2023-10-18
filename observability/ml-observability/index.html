@@ -19,7 +19,7 @@
     
     
       
-        <title>Observability in Machine Learning - Manual da Engenharia para Codar</title>
+        <title>Observabilidade em Machine Learning - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#observability-in-machine-learning" class="md-skip">
+        <a href="#observabilidade-em-machine-learning" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Observability in Machine Learning
+              Observabilidade em Machine Learning
             
           </span>
         </div>
@@ -6201,12 +6201,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Observability in Machine Learning
+          Observabilidade em Machine Learning
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Observability in Machine Learning
+        Observabilidade em Machine Learning
       </a>
       
         
@@ -6225,36 +6225,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#model-experimentation-and-tuning" class="md-nav__link">
-    Model experimentation and tuning
+  <a href="#experimentacao-e-ajuste-do-modelo" class="md-nav__link">
+    Experimentação e ajuste do modelo
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#model-in-production" class="md-nav__link">
-    Model in production
+  <a href="#modelo-em-producao" class="md-nav__link">
+    Modelo em produção
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#training-and-re-training" class="md-nav__link">
-    Training and re-training
+  <a href="#treinamento-e-retreinamento" class="md-nav__link">
+    Treinamento e Retreinamento
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#model-performance-over-time-data-drift" class="md-nav__link">
-    Model performance over time: data drift
+  <a href="#desempenho-do-modelo-ao-longo-do-tempo-desvio-de-dados" class="md-nav__link">
+    Desempenho do modelo ao longo do tempo: desvio de dados
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-versioning" class="md-nav__link">
-    Data versioning
+  <a href="#versionamento-de-dados" class="md-nav__link">
+    Versionamento de dados
   </a>
   
 </li>
@@ -7205,36 +7205,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#model-experimentation-and-tuning" class="md-nav__link">
-    Model experimentation and tuning
+  <a href="#experimentacao-e-ajuste-do-modelo" class="md-nav__link">
+    Experimentação e ajuste do modelo
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#model-in-production" class="md-nav__link">
-    Model in production
+  <a href="#modelo-em-producao" class="md-nav__link">
+    Modelo em produção
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#training-and-re-training" class="md-nav__link">
-    Training and re-training
+  <a href="#treinamento-e-retreinamento" class="md-nav__link">
+    Treinamento e Retreinamento
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#model-performance-over-time-data-drift" class="md-nav__link">
-    Model performance over time: data drift
+  <a href="#desempenho-do-modelo-ao-longo-do-tempo-desvio-de-dados" class="md-nav__link">
+    Desempenho do modelo ao longo do tempo: desvio de dados
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-versioning" class="md-nav__link">
-    Data versioning
+  <a href="#versionamento-de-dados" class="md-nav__link">
+    Versionamento de dados
   </a>
   
 </li>
@@ -7253,26 +7253,21 @@
                 
 
 
-<h1 id="observability-in-machine-learning">Observability in Machine Learning</h1>
-<p>Development process of software system with machine learning component is more complex
-than traditional software. We need to monitor changes and variations in three dimensions:
-the code, the model and the data.
-We can distinguish two stages of such system lifespan: experimentation and production
-that require  different approaches to observability as discussed below:</p>
-<h2 id="model-experimentation-and-tuning">Model experimentation and tuning</h2>
-<p>Experimentation is a process of finding suitable machine learning model and its parameters via training and evaluating such models with one or more datasets.</p>
-<p>When developing and tuning machine learning models, the data scientists are interested in observing and comparing selected performance metrics for various model parameters.
-They also need a reliable way to reproduce a training process, such that a given dataset and given parameters produces the same models.</p>
-<p>There are many model metric evaluation solutions available, both open source (like MLFlow) and proprietary (like Azure Machine Learning Service), and of which some serve different purposes. To capture model metrics, there are a.o. the following options available:</p>
+<h1 id="observabilidade-em-machine-learning">Observabilidade em Machine Learning</h1>
+<p>O processo de desenvolvimento de sistemas de software com componentes de aprendizado de máquina é mais complexo do que o software tradicional. Precisamos monitorar mudanças e variações em três dimensões: o código, o modelo e os dados. Podemos distinguir duas etapas na vida de tal sistema: experimentação e produção, que requerem abordagens diferentes para observabilidade, como discutido abaixo:</p>
+<h2 id="experimentacao-e-ajuste-do-modelo">Experimentação e ajuste do modelo</h2>
+<p>A experimentação é um processo de encontrar um modelo de aprendizado de máquina adequado e seus parâmetros por meio do treinamento e avaliação desses modelos com um ou mais conjuntos de dados.</p>
+<p>Ao desenvolver e ajustar modelos de aprendizado de máquina, os cientistas de dados estão interessados em observar e comparar métricas de desempenho selecionadas para vários parâmetros do modelo. Eles também precisam de uma maneira confiável de reproduzir um processo de treinamento, de modo que um determinado conjunto de dados e parâmetros produza os mesmos modelos.</p>
+<p>Existem muitas soluções disponíveis para avaliação de métricas de modelo, tanto de código aberto (como o MLFlow) quanto proprietárias (como o Azure Machine Learning Service), e algumas servem para diferentes propósitos. Para capturar métricas de modelo, existem, entre outras, as seguintes opções disponíveis:</p>
 <p><a href="https://ml.azure.com/">Azure Machine Learning Service SDK</a>
-Azure Machine Learning service provides an SDK for Python, R and C# to capture your evaluation metrics to an Azure Machine Learning service (AML) Experiment. Experiments are viewed in the AML dashboard. Reproducibility is achieved by storing code or notebook snapshot together with viewed metric. You can create versioned Datasets within Azure Machine Learning service.</p>
-<p><a href="https://learn.microsoft.com/en-us/azure/databricks/applications/mlflow/">MLFlow (for Databricks)</a>
-MLFlow is open source framework, and can be hosted on Azure Databricks as its remote tracking server (it currently is the only solution that offers first-party integration with Databricks). You can use the MLFlow SDK tracking component to capture your evaluation metrics or any parameter you would like and track it at experimentation board in Azure Databricks. Source code and dataset version are also saved with log snapshot to provide reproducibility.</p>
+O Azure Machine Learning Service fornece um SDK para Python, R e C# para capturar suas métricas de avaliação em um Experimento do Azure Machine Learning service (AML). Os experimentos são visualizados no painel do AML. A reprodutibilidade é alcançada armazenando o código ou instantâneo do notebook juntamente com a métrica visualizada. Você pode criar Conjuntos de Dados versionados dentro do serviço Azure Machine Learning.</p>
+<p><a href="https://learn.microsoft.com/en-us/azure/databricks/applications/mlflow/">MLFlow (para Databricks)</a>
+O MLFlow é uma estrutura de código aberto e pode ser hospedado no Azure Databricks como seu servidor de rastreamento remoto (atualmente é a única solução que oferece integração de primeira parte com o Databricks). Você pode usar o componente de rastreamento do SDK do MLFlow para capturar suas métricas de avaliação ou qualquer parâmetro que desejar e acompanhá-lo no quadro de experimentação no Azure Databricks. O código-fonte e a versão do conjunto de dados também são salvos com o instantâneo do log para fornecer a reprodutibilidade.</p>
 <p><a href="https://www.tensorflow.org/tensorboard/">TensorBoard</a>
-TensorBoard is a popular tool amongst data scientist to visualize specific metrics of Deep Learning runs, especially of TensorFlow runs. TensorBoard is not an MLOps tool like AML/MLFlow, and therefore does not offer extensive logging capabilities. It is meant to be transient; and can therefore be used as an addition to an end-to-end MLOps tool like AML, but not as a complete MLOps tool.</p>
+O TensorBoard é uma ferramenta popular entre os cientistas de dados para visualizar métricas específicas de execuções de Aprendizado Profundo, especialmente de execuções TensorFlow. O TensorBoard não é uma ferramenta de MLOps como o AML/MLFlow e, portanto, não oferece capacidades extensas de registro. Ele é projetado para ser transitório; portanto, pode ser usado como complemento a uma ferramenta de MLOps de ponta a ponta como o AML, mas não como uma ferramenta de MLOps completa.</p>
 <p><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview">Application Insights</a>
-Application Insights can be used as an alternative sink to capture model metrics, and can therefore offer more extensive options as metrics can be transferred to e.g. a PowerBI dashboard. It also enables log querying. However, this solution means that a custom application needs to be written to send logs to AppInsights (using for example the OpenCensus Python SDK), which would mean extra effort of creating/maintaining custom code.</p>
-<p>An extensive comparison of the four tools can be found as follows:</p>
+O Application Insights pode ser usado como um sink alternativo para capturar métricas de modelo e, portanto, pode oferecer opções mais extensas, pois as métricas podem ser transferidas para, por exemplo, um painel do PowerBI. Também permite a consulta de logs. No entanto, essa solução significa que um aplicativo personalizado precisa ser desenvolvido para enviar logs para o AppInsights (usando, por exemplo, o OpenCensus Python SDK), o que implicaria esforço extra na criação/manutenção de código personalizado.</p>
+<p>Uma comparação detalhada das quatro ferramentas pode ser encontrada da seguinte forma:</p>
 <table>
 <thead>
 <tr>
@@ -7285,66 +7280,47 @@ Application Insights can be used as an alternative sink to capture model metrics
 </thead>
 <tbody>
 <tr>
-<td><strong>Metrics support</strong></td>
-<td>Values, images, matrices, logs</td>
-<td>Values, images, matrices and plots as files</td>
-<td>Metrics relevant to DL research phase</td>
-<td>Values, images, matrices, logs</td>
+<td><strong>Suporte a métricas</strong></td>
+<td>Valores, imagens, matrizes, logs</td>
+<td>Valores, imagens, matrizes e gráficos como arquivos</td>
+<td>Métricas relevantes para a pesquisa em DL</td>
+<td>Valores, imagens, matrizes, logs</td>
 </tr>
 <tr>
-<td><strong>Customizabile</strong></td>
-<td>Basic</td>
-<td>Basic</td>
-<td>Very basic</td>
-<td>High</td>
+<td><strong>Personalizável</strong></td>
+<td>Básico</td>
+<td>Básico</td>
+<td>Muito básico</td>
+<td>Alto</td>
 </tr>
 <tr>
-<td><strong>Metrics accessible</strong></td>
-<td>AML portal, AML SDK</td>
-<td>MLFlow UI, Tracking service API</td>
-<td>Tensorboard UI, history object</td>
-<td>Application Insights</td>
-</tr>
-<tr>
-<td><strong>Logs accessible</strong></td>
-<td>Rolling logs written to .txt files in blob storage, accessible via blob or AML portal. Not query-able</td>
-<td>Rolling logs are not stored</td>
-<td>Rolling logs are not stored</td>
-<td>Application Insights in Azure Portal. Query-able with KQL</td>
-</tr>
-<tr>
-<td><strong>Ease of use and set up</strong></td>
-<td>Very straightforward, only one portal</td>
-<td>More moving parts due to remote tracking server</td>
-<td>A bit over process overhead. Also depending on ML framework</td>
-<td>More moving parts as a custom app needs to be maintained</td>
-</tr>
-<tr>
-<td><strong>Shareability</strong></td>
-<td>Across people with access to AML workspace</td>
-<td>Across people with access to remote tracking server</td>
-<td>Across people with access to same directory</td>
-<td>Across people with access to AppInsights</td>
+<td><strong>Métricas acessíveis</strong></td>
+<td>Portal AML, SDK AML</td>
+<td>Interface do MLFlow, API de serviço de rastreamento</td>
+<td>Interface do Tensorboard, objeto de histórico</td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<h2 id="model-in-production">Model in production</h2>
-<p>The trained model can be deployed to production as container. Azure Machine Learning service provides SDK to deploy model as Azure Container Instance and publishes REST endpoint. You can monitor it using microservice observability methods( for more details -refer to <a href="../">Recipes</a> section). MLFLow is an alternative way to deploy ML model as a service.</p>
-<h2 id="training-and-re-training">Training and re-training</h2>
-<p>To automatically retrain the model you can use AML Pipelines or Azure Databricks.
-When re-training with AML Pipelines you can monitor information of each run, including the output, logs, and various metrics in the Azure portal experiment dashboard, or manually extract it using the AML SDK</p>
-<h2 id="model-performance-over-time-data-drift">Model performance over time: data drift</h2>
-<p>We re-train machine learning models to improve their performance and make models better aligned with data changing over time. However, in some cases model performance may degrade. This may happen in case data change dramatically and do not exhibit the patterns we observed during model development anymore. This effect is called data drift. Azure Machine Learning Service has preview feature to observe and report data drift.
-This <a href="https://learn.microsoft.com/en-us/azure/machine-learning/how-to-monitor-datasets">article</a> describes it in detail.</p>
-<h2 id="data-versioning">Data versioning</h2>
-<p>It is recommended practice to add version to all datasets. You can create a versioned Azure ML Dataset for this purpose, or manually version it if using other systems.</p>
+<p>Application Insights
+| <strong>Logs acessíveis</strong>       | Logs contínuos gravados em arquivos .txt no armazenamento de blob, acessíveis via blob ou portal AML. Não é possível consultar | Logs contínuos não são armazenados | Logs contínuos não são armazenados | Application Insights no portal Azure. Consultável com KQL
+| <strong>Facilidade de uso e configuração</strong> | Muito direto, apenas um portal | Mais partes móveis devido ao servidor de rastreamento remoto | Um pouco de sobrecarga de processo. Também depende do framework de ML | Mais partes móveis, já que um aplicativo personalizado precisa ser mantido
+| <strong>Compartilhamento</strong>          | Entre pessoas com acesso ao espaço de trabalho AML | Entre pessoas com acesso ao servidor de rastreamento remoto | Entre pessoas com acesso ao mesmo diretório | Entre pessoas com acesso ao AppInsights</p>
+<h2 id="modelo-em-producao">Modelo em produção</h2>
+<p>O modelo treinado pode ser implantado em produção como um contêiner. O Azure Machine Learning service fornece um SDK para implantar modelos como Instância de Contêiner do Azure e publica um ponto de extremidade REST. Você pode monitorá-lo usando métodos de observação de microsserviços (para mais detalhes, consulte a seção <a href="../">Receitas</a>). O MLFlow é uma maneira alternativa de implantar modelos de aprendizado de máquina como um serviço.</p>
+<h2 id="treinamento-e-retreinamento">Treinamento e Retreinamento</h2>
+<p>Para re-treinar automaticamente o modelo, você pode usar Pipelines do AML ou Azure Databricks. Ao re-treinar com Pipelines do AML, você pode monitorar informações de cada execução, incluindo a saída, logs e várias métricas no painel de experimentos do Azure, ou extrair manualmente usando o SDK do AML.</p>
+<h2 id="desempenho-do-modelo-ao-longo-do-tempo-desvio-de-dados">Desempenho do modelo ao longo do tempo: desvio de dados</h2>
+<p>Retreinamos modelos de aprendizado de máquina para melhorar seu desempenho e torná-los mais alinhados com os dados que mudam com o tempo. No entanto, em alguns casos, o desempenho do modelo pode degradar. Isso pode acontecer caso os dados mudem drasticamente e não apresentem mais os padrões que observamos durante o desenvolvimento do modelo. Esse efeito é chamado de desvio de dados. O Azure Machine Learning Service possui uma funcionalidade de visualização e relatório de desvio de dados em versão de prévia. Este <a href="https://learn.microsoft.com/en-us/azure/machine-learning/how-to-monitor-datasets">artigo</a> descreve isso em detalhes.</p>
+<h2 id="versionamento-de-dados">Versionamento de dados</h2>
+<p>É uma prática recomendada adicionar uma versão a todos os conjuntos de dados. Você pode criar um Conjunto de Dados do Azure ML versionado para esse fim ou versioná-lo manualmente se estiver usando outros sistemas.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 15, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
       
     
   </small>

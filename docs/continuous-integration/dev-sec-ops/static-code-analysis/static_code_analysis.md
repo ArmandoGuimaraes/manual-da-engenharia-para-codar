@@ -1,22 +1,20 @@
-# Static Code Analysis
+# Análise Estática de Código
 
-Static code analysis is a method of detecting security issues by examining the source code of the application.
+A análise estática de código é um método para detectar problemas de segurança examinando o código-fonte do aplicativo.
 
-## Why Static Code Analysis
+## Por que a Análise Estática de Código
 
-Compared to code reviews, Static code analysis tools are more fast, accurate and through.
-As it operates on the source code itself, it is a very early indicator for issues, and coding errors found earlier are less costly to fix.
+Comparados às revisões de código, as ferramentas de análise estática de código são mais rápidas, precisas e abrangentes. Como operam diretamente no código-fonte, são indicadores muito precoces de problemas, e erros de codificação identificados mais cedo têm um custo menor para serem corrigidos.
 
-## Applying Static Code Analysis
+## Aplicando a Análise Estática de Código
 
-Static Code Analysis should be integrated in your build process.
-There are [many tools](https://owasp.org/www-community/Source_Code_Analysis_Tools) available for Static Code Analysis, choose the ones that meet your programming language and development techniques.
+A Análise Estática de Código deve ser integrada ao seu processo de compilação. Existem [muitas ferramentas](https://owasp.org/www-community/Source_Code_Analysis_Tools) disponíveis para Análise Estática de Código; escolha aquelas que atendam à sua linguagem de programação e técnicas de desenvolvimento.
 
-## Static Code Analysis Frameworks and Tools
+## Estruturas e Ferramentas de Análise Estática de Código
 
-[SonarCloud](https://sonarcloud.io) - static code analysis with cloud-based software as a service product.
-[OWASP Source code Analysis](https://owasp.org/www-community/Source_Code_Analysis_Tools) - OWASP recommendations for source code analysis tools
+[SonarCloud](https://sonarcloud.io) - análise estática de código com produto baseado em software como serviço na nuvem.
+[Análise de Código Fonte OWASP](https://owasp.org/www-community/Source_Code_Analysis_Tools) - recomendações da OWASP para ferramentas de análise de código-fonte.
 
-## Conclusion
+## Conclusão
 
-Static code analysis is essential to identify potential problems and security issues in the code. It allows you to detect bugs and security issues at an early stage.
+A análise estática de código é essencial para identificar problemas potenciais e questões de segurança no código. Ela permite que você detecte bugs e problemas de segurança em um estágio inicial.

@@ -1,20 +1,20 @@
 # DevSecOps
 
-## The concept of DevSecOps
+## O conceito de DevSecOps
 
-DevSecOps or DevOps security is about introducing security earlier in the life cycle of application development (a.k.a shift-left), thus minimizing the impact of vulnerabilities and bringing security closer to development team.
+DevSecOps ou segurança DevOps trata da introdução da segurança mais cedo no ciclo de vida do desenvolvimento de aplicativos (também conhecido como shift-left), minimizando assim o impacto das vulnerabilidades e aproximando a segurança da equipe de desenvolvimento.
 
-## Why
+## Por que
 
-By embracing shift-left mentality, DevSecOps encourages organizations to bridge the gap that often exists between development and security teams to the point where many of the security processes are automated and are effectively handled by the development team.
+Ao adotar a mentalidade shift-left, o DevSecOps incentiva as organizações a reduzir a lacuna que muitas vezes existe entre as equipes de desenvolvimento e segurança, a ponto de muitos dos processos de segurança serem automatizados e tratados efetivamente pela equipe de desenvolvimento.
 
-## DevSecOps Practices
+## Práticas do DevSecOps
 
-This section covers different tools, frameworks and resources allowing introduction of DevSecOps best practices to your project at early stages of development.
-Topics covered:
+Esta seção aborda diferentes ferramentas, estruturas e recursos que permitem a introdução das melhores práticas do DevSecOps em seu projeto nas fases iniciais do desenvolvimento.
+Tópicos abordados:
 
-1. [Credential Scanning](./secret-management/credential_scanning.md) - automatically inspecting a project to ensure that no secrets are included in the project's source code.
-1. [Secrets Rotation](./secret-management/secrets_rotation.md) - automated process by which the secret, used by the application, is refreshed and replaced by a new secret.
-1. [Static Code Analysis](./static-code-analysis/static_code_analysis.md) - analyze source code or compiled versions of code to help find security flaws.
-1. [Penetration Testing](./penetration-testing/penetration_testing.md) - a simulated attack against your application to check for exploitable vulnerabilities.
-1. [Container Dependencies Scanning](./dependency-container-scanning/dependency_container_scanning.md) - search for vulnerabilities in container operating systems, language packages and application dependencies.
+1. [Verificação de Credenciais](./secret-management/credential_scanning.md) - inspecionar automaticamente um projeto para garantir que nenhuma informação confidencial esteja incluída no código-fonte do projeto.
+1. [Rotação de Segredos](./secret-management/secrets_rotation.md) - processo automatizado pelo qual o segredo usado pelo aplicativo é atualizado e substituído por um novo segredo.
+1. [Análise de Código Estático](./static-code-analysis/static_code_analysis.md) - analisar o código-fonte ou versões compiladas do código para ajudar a encontrar falhas de segurança.
+1. [Teste de Penetração](./penetration-testing/penetration_testing.md) - um ataque simulado contra seu aplicativo para verificar a existência de vulnerabilidades exploráveis.
+1. [Verificação de Dependências de Contêiner](./dependency-container-scanning/dependency_container_scanning.md) - procurar vulnerabilidades nos sistemas operacionais de contêiner, pacotes de linguagem e dependências de aplicativos.

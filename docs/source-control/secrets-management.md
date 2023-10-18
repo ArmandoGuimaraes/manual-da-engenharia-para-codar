@@ -1,4 +1,4 @@
-# Trabalhando com Segredosno Source Control
+# Trabalhando com Segredos no Source Control
 
 A melhor maneira de evitar a divulgação de segredos é armazená-los em arquivos locais/privados e excluí-los do rastreamento do git com um arquivo [.gitignore](https://git-scm.com/docs/gitignore).
 Por exemplo, o seguinte padrão irá excluir todos os arquivos com a extensão `.private.config`:

@@ -19,7 +19,7 @@
     
     
       
-        <title>Recommended Practices - Manual da Engenharia para Codar</title>
+        <title>Práticas Recomendadas - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#recommended-practices" class="md-skip">
+        <a href="#praticas-recomendadas" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Recommended Practices
+              Práticas Recomendadas
             
           </span>
         </div>
@@ -6117,7 +6117,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Recommended Practices
+        Práticas Recomendadas
       </a>
       
     </li>
@@ -7151,32 +7151,34 @@
                 
 
 
-<h1 id="recommended-practices">Recommended Practices</h1>
+<h1 id="praticas-recomendadas">Práticas Recomendadas</h1>
 <ol>
-<li><strong>Correlation Id</strong>: Include unique identifier at the start of the interaction to tie down aggregated data from various system components and provide a holistic view. Read more guidelines about using <a href="../correlation-id/">correlation id</a>.</li>
-<li>Ensure health of the services are <strong>monitored</strong> and provide insights into system's performance and behavior.</li>
+<li><strong>ID de Correlação</strong>: Inclua um identificador único no início da interação para vincular dados agregados de vários componentes do sistema e fornecer uma visão holística. Leia mais orientações sobre o uso do <a href="../correlation-id/">ID de correlação</a>.</li>
+<li>Certifique-se de que a <strong>saúde dos serviços</strong> seja <strong>monitorada</strong> e forneça insights sobre o desempenho e o comportamento do sistema.</li>
 <li>
-<p>Ensure <strong>dependent services</strong> are monitored properly. Errors and exceptions in dependent services like Redis cache, Service bus, etc. should be logged and alerted. Also, metrics related to dependent services should be captured and logged.</p>
-<p>- Additionally, failures in <strong>dependent services</strong> should be propagated up each level of the stack by the health check.</p>
+<p>Certifique-se de que os <strong>serviços dependentes</strong> sejam monitorados adequadamente. Erros e exceções em serviços dependentes, como o cache Redis, o Service bus, etc., devem ser registrados e alertados. Além disso, métricas relacionadas aos serviços dependentes devem ser capturadas e registradas.</p>
+<ul>
+<li>Além disso, falhas nos <strong>serviços dependentes</strong> devem ser propagadas por cada nível da pilha por meio da verificação de integridade.</li>
+</ul>
 </li>
 <li>
-<p><strong>Faults, crashes, and failures</strong> are logged as discrete events. This helps engineers identify problem area(s) during failures.</p>
+<p><strong>Falhas, crashes e falhas</strong> são registrados como eventos discretos. Isso ajuda os engenheiros a identificar áreas problemáticas durante as falhas.</p>
 </li>
-<li>Ensure logging configuration (eg: setting logging to "verbose") can be controlled without code changes.</li>
-<li>Ensure that <strong>metrics</strong> around latency and duration are collected and can be aggregated.</li>
-<li>Start small and add where there is customer impact. <a href="../pitfalls/#metric-fatigue">Avoiding metric fatigue</a> is very crucial to collecting actionable data.</li>
-<li>It is important that every data that is collected contains relevant and rich context.</li>
-<li>Personally Identifiable Information or any other customer sensitive information should never be logged. Special attention should be paid to any local privacy data regulations and collected data must adhere to those. (ex: GDPR)</li>
-<li><strong>Health checks</strong> : Appropriate health checks should added to determine if service is healthy and ready to serve traffic. On a kubernetes platform different types of probes e.g. Liveness, Readiness, Startup etc. can be used to determine health and readiness of the deployed service.</li>
+<li>Certifique-se de que a configuração de registro (por exemplo, definir o registro como "verbose") possa ser controlada sem alterações de código.</li>
+<li>Garanta que <strong>métricas</strong> relacionadas à latência e duração sejam coletadas e possam ser agregadas.</li>
+<li>Comece pequeno e adicione métricas onde houver impacto no cliente. Evitar a <a href="../pitfalls/#metric-fatigue">fadiga de métricas</a> é fundamental para coletar dados acionáveis.</li>
+<li>É importante que todos os dados coletados contenham contexto relevante e rico.</li>
+<li>Informações Pessoalmente Identificáveis ou qualquer outra informação sensível do cliente nunca devem ser registradas. Deve-se prestar atenção especial a regulamentações locais de privacidade de dados e os dados coletados devem estar em conformidade com essas regulamentações (por exemplo, GDPR).</li>
+<li><strong>Verificação de Saúde</strong>: Verificações de saúde apropriadas devem ser adicionadas para determinar se o serviço está saudável e pronto para atender ao tráfego. Em uma plataforma Kubernetes, diferentes tipos de sondagens, como Liveness, Readiness, Startup, etc., podem ser usados para determinar a saúde e prontidão do serviço implantado.</li>
 </ol>
-<p>Read more <a href="../pitfalls/">here</a> to understand what to watch out for while designing and building an observable system.</p>
+<p>Leia mais <a href="../pitfalls/">aqui</a> para entender o que observar ao projetar e construir um sistema observável.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 17, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
       
     
   </small>

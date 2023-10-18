@@ -1,21 +1,19 @@
-# Penetration Testing
+# Teste de Penetração
 
-A penetration test is a simulated attack against your application to check for exploitable security issues.
+Um teste de penetração é um ataque simulado contra o seu aplicativo para verificar se existem problemas de segurança exploráveis.
 
-## Why Penetration Testing
+## Por que o Teste de Penetração
 
-Penetration testing performed on a running application. As such, it tests the application E2E with all of its layers. It's output is a real simulated attack on the application that succeeded, therefore it is a critical issue in your application and should be addressed as soon as possible.
+O teste de penetração é realizado em um aplicativo em execução. Como tal, ele testa o aplicativo de ponta a ponta com todas as suas camadas. Seu resultado é um ataque simulado real ao aplicativo que teve sucesso, portanto, é um problema crítico em seu aplicativo e deve ser abordado o mais rápido possível.
 
-## Applying Penetration Testing
+## Aplicando o Teste de Penetração
 
-Many organizations perform manual penetration testing. But new vulnerabilities found every day. Therefore, it is a good practice to have an automated penetration testing performed.
-To achieve this automation use penetration testing tools to uncover vulnerabilities, such as unsanitized inputs that are susceptible to code injection attacks.
-Insights provided by the penetration test can then be used to fine-tune your WAF security policies and patch detected vulnerabilities.
+Muitas organizações realizam testes de penetração manuais. Mas novas vulnerabilidades são descobertas todos os dias. Portanto, é uma boa prática realizar testes de penetração automatizados. Para alcançar essa automação, use ferramentas de teste de penetração para descobrir vulnerabilidades, como entradas não sanitizadas que são suscetíveis a ataques de injeção de código. As informações fornecidas pelo teste de penetração podem ser usadas para ajustar as políticas de segurança do WAF e corrigir as vulnerabilidades detectadas.
 
-## Penetration Testing Frameworks and Tools
+## Estruturas e Ferramentas de Teste de Penetração
 
-[OWASP Zed Attack Proxy (ZAP)](https://www.zaproxy.org/) - OWASP penetration testing tool for web applications.
+[OWASP Zed Attack Proxy (ZAP)](https://www.zaproxy.org/) - Ferramenta de teste de penetração da OWASP para aplicativos da web.
 
-## Conclusion
+## Conclusão
 
-Penetration testing is essential to check for vulnerabilities in your application and protect it from simulated attacks. Insights provided by Penetration testing can identify weak spots in an organization's security posture, as well as measure the compliance of its security policy, test the staff's awareness of security issues and determine whether -- and how -- the organization would be subject to security disasters.
+O teste de penetração é essencial para verificar vulnerabilidades em seu aplicativo e protegê-lo contra ataques simulados. As informações fornecidas pelo teste de penetração podem identificar pontos fracos na postura de segurança de uma organização, bem como medir a conformidade de sua política de segurança, testar a conscientização da equipe sobre questões de segurança e determinar se e como a organização estaria sujeita a desastres de segurança.

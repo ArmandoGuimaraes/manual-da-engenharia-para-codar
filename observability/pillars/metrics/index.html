@@ -19,7 +19,7 @@
     
     
       
-        <title>Metrics - Manual da Engenharia para Codar</title>
+        <title>Métricas - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#metrics" class="md-skip">
+        <a href="#metricas" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Metrics
+              Métricas
             
           </span>
         </div>
@@ -6365,12 +6365,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Metrics
+          Métricas
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Metrics
+        Métricas
       </a>
       
         
@@ -6389,44 +6389,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
+  <a href="#visao-geral" class="md-nav__link">
+    Visão Geral
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#collection-methods" class="md-nav__link">
-    Collection Methods
+  <a href="#metodos-de-coleta" class="md-nav__link">
+    Métodos de Coleta
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    Best Practices
+  <a href="#melhores-praticas" class="md-nav__link">
+    Melhores Práticas
   </a>
   
-    <nav class="md-nav" aria-label="Best Practices">
+    <nav class="md-nav" aria-label="Melhores Práticas">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#when-should-i-use-metrics-instead-of-logs" class="md-nav__link">
-    When should I use metrics instead of logs?
+  <a href="#quando-devo-usar-metricas-em-vez-de-logs" class="md-nav__link">
+    Quando devo usar métricas em vez de logs?
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-should-be-tracked" class="md-nav__link">
-    What should be tracked?
+  <a href="#o-que-deve-ser-monitorado" class="md-nav__link">
+    O que deve ser monitorado?
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#dimension-labels" class="md-nav__link">
-    Dimension Labels
+  <a href="#rotulos-de-dimensao" class="md-nav__link">
+    Rótulos de Dimensão
   </a>
   
 </li>
@@ -6437,8 +6437,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#recommended-tools" class="md-nav__link">
-    Recommended Tools
+  <a href="#ferramentas-recomendadas" class="md-nav__link">
+    Ferramentas Recomendadas
   </a>
   
 </li>
@@ -7227,44 +7227,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
+  <a href="#visao-geral" class="md-nav__link">
+    Visão Geral
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#collection-methods" class="md-nav__link">
-    Collection Methods
+  <a href="#metodos-de-coleta" class="md-nav__link">
+    Métodos de Coleta
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    Best Practices
+  <a href="#melhores-praticas" class="md-nav__link">
+    Melhores Práticas
   </a>
   
-    <nav class="md-nav" aria-label="Best Practices">
+    <nav class="md-nav" aria-label="Melhores Práticas">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#when-should-i-use-metrics-instead-of-logs" class="md-nav__link">
-    When should I use metrics instead of logs?
+  <a href="#quando-devo-usar-metricas-em-vez-de-logs" class="md-nav__link">
+    Quando devo usar métricas em vez de logs?
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-should-be-tracked" class="md-nav__link">
-    What should be tracked?
+  <a href="#o-que-deve-ser-monitorado" class="md-nav__link">
+    O que deve ser monitorado?
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#dimension-labels" class="md-nav__link">
-    Dimension Labels
+  <a href="#rotulos-de-dimensao" class="md-nav__link">
+    Rótulos de Dimensão
   </a>
   
 </li>
@@ -7275,8 +7275,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#recommended-tools" class="md-nav__link">
-    Recommended Tools
+  <a href="#ferramentas-recomendadas" class="md-nav__link">
+    Ferramentas Recomendadas
   </a>
   
 </li>
@@ -7295,68 +7295,68 @@
                 
 
 
-<h1 id="metrics">Metrics</h1>
-<h2 id="overview">Overview</h2>
-<p>Metrics provide a near real-time stream of data, informing operators and stakeholders about the functions the system is performing as well as its health. Unlike logging and tracing, metric data tends to be more efficient to transmit and store.</p>
-<h2 id="collection-methods">Collection Methods</h2>
-<p>Metric collection approaches fall into two broad categories: push metrics &amp; pull metrics. Push metrics means that the originating component sends the data to a remote service or agent. <a href="https://azure.microsoft.com/en-us/services/monitor">Azure Monitor</a> and <a href="https://github.com/statsd/statsd">Etsy's statsd</a> are examples of push metrics. Some strengths with push metrics include:</p>
+<h1 id="metricas">Métricas</h1>
+<h2 id="visao-geral">Visão Geral</h2>
+<p>As métricas fornecem um fluxo de dados quase em tempo real, informando operadores e partes interessadas sobre as funções que o sistema está executando, bem como sua saúde. Ao contrário do registro e do rastreamento, os dados métricos tendem a ser mais eficientes para transmitir e armazenar.</p>
+<h2 id="metodos-de-coleta">Métodos de Coleta</h2>
+<p>As abordagens de coleta de métricas se enquadram em duas categorias amplas: métricas de envio e métricas de busca. Métricas de envio significam que o componente de origem envia os dados para um serviço remoto ou agente. <a href="https://azure.microsoft.com/pt-br/services/monitor">Azure Monitor</a> e <a href="https://github.com/statsd/statsd">statsd do Etsy</a> são exemplos de métricas de envio. Algumas vantagens das métricas de envio incluem:</p>
 <ul>
-<li>Only require network egress to the remote target.</li>
-<li>Originating component controls the frequency of measurement.</li>
-<li>Simplified configuration as the component only needs to know the destination of where to send data.</li>
+<li>Requer apenas a saída de rede para o destino remoto.</li>
+<li>O componente de origem controla a frequência da medição.</li>
+<li>Configuração simplificada, pois o componente só precisa saber o destino para enviar os dados.</li>
 </ul>
-<p>Some trade-offs with this approach:</p>
+<p>Algumas compensações com essa abordagem são:</p>
 <ul>
-<li>At scale, it is much more difficult to control data transmission rates, which can cause service throttling or dropping of values.</li>
-<li>Determining if every component, particularly in a dynamic scale environment, is healthy and sending data is difficult.</li>
+<li>Em escala, é muito mais difícil controlar as taxas de transmissão de dados, o que pode causar limitação de serviço ou a perda de valores.</li>
+<li>Determinar se cada componente, especialmente em um ambiente de escala dinâmica, está saudável e enviando dados é difícil.</li>
 </ul>
-<p>In the case of pull metrics, each originating component publishes an endpoint for the metric agent to connect to and gather measurements. <a href="https://prometheus.io/">Prometheus</a> and its ecosystem of tools are an example of pull style metrics. Benefits experienced using a pull metrics setup may involve:</p>
+<p>No caso das métricas de busca, cada componente de origem publica um ponto de extremidade para o agente de métricas se conectar e coletar medidas. <a href="https://prometheus.io/">Prometheus</a> e seu ecossistema de ferramentas são um exemplo de métricas no estilo de busca. Benefícios experimentados usando uma configuração de métricas de busca podem incluir:</p>
 <ul>
-<li>Singular configuration for determining what is measured and the frequency of measurement for the local environment.</li>
-<li>Every measurement target has a meta metric related to if the collection is successful or not, which can be used as a general health check.</li>
-<li>Support for routing, filtering and processing of metrics before sending them onto a globally central metrics store.</li>
+<li>Configuração única para determinar o que está sendo medido e a frequência da medição para o ambiente local.</li>
+<li>Cada alvo de medição possui uma métrica meta relacionada a se a coleta foi bem-sucedida ou não, o que pode ser usado como uma verificação geral de saúde.</li>
+<li>Suporte para roteamento, filtragem e processamento de métricas antes de enviá-las para um repositório global central de métricas.</li>
 </ul>
-<p>Items of concern to some may include:</p>
+<p>Itens de preocupação para alguns podem incluir:</p>
 <ul>
-<li>Configuring &amp; managing data sources can lead to a complex configuration. Prometheus has tooling to auto-discover and configure data sources in some environments, such as Kubernetes, but there are always exceptions to this, which lead to configuration complexity.</li>
-<li>Network configuration may add further complexity if firewalls and other ACLs need to be managed to allow connectivity.</li>
+<li>Configurar e gerenciar fontes de dados pode levar a uma configuração complexa. O Prometheus possui ferramentas para autodescobrir e configurar fontes de dados em alguns ambientes, como o Kubernetes, mas sempre há exceções a isso, o que leva à complexidade da configuração.</li>
+<li>A configuração de rede pode adicionar mais complexidade se firewalls e outras ACLs precisarem ser gerenciados para permitir a conectividade.</li>
 </ul>
-<h2 id="best-practices">Best Practices</h2>
-<h3 id="when-should-i-use-metrics-instead-of-logs">When should I use metrics instead of logs?</h3>
-<p><a href="../../log-vs-metric-vs-trace/">Logs vs Metrics vs Traces</a> covers some high level guidance on when to utilize metric data and when to use log data. Both have a valuable part to play in creating observable systems.</p>
-<h3 id="what-should-be-tracked">What should be tracked?</h3>
-<p>System critical measurements that relate to the application/machine health, which are usually excellent alert candidates. Work with your engineering and devops peers to identify the metrics, but they may include:</p>
+<h2 id="melhores-praticas">Melhores Práticas</h2>
+<h3 id="quando-devo-usar-metricas-em-vez-de-logs">Quando devo usar métricas em vez de logs?</h3>
+<p><a href="../../log-vs-metric-vs-trace/">Logs vs Métricas vs Rastreamentos</a> aborda algumas orientações de alto nível sobre quando utilizar dados métricos e quando usar dados de log. Ambos desempenham um papel valioso na criação de sistemas observáveis.</p>
+<h3 id="o-que-deve-ser-monitorado">O que deve ser monitorado?</h3>
+<p>Medições críticas do sistema relacionadas à saúde da aplicação/máquina, que geralmente são excelentes candidatas a alertas. Trabalhe com seus colegas de engenharia e devops para identificar as métricas, mas elas podem incluir:</p>
 <ul>
-<li>CPU and memory utilization.</li>
-<li>Request rate.</li>
-<li>Queue length.</li>
-<li>Unexpected exception count.</li>
-<li>Dependent service metrics like response time for Redis cache, Sql server or Service bus.</li>
+<li>Utilização de CPU e memória.</li>
+<li>Taxa de solicitações.</li>
+<li>Tamanho da fila.</li>
+<li>Contagem de exceções inesperadas.</li>
+<li>Métricas de serviços dependentes, como tempo de resposta para o cache Redis, servidor SQL ou serviço de barramento de mensagens.</li>
 </ul>
-<p>Important business-related measurements, which drive reporting to stakeholders. Consult with the various stakeholders of the component, but some examples may include:</p>
+<p>Medições importantes relacionadas aos negócios, que impulsionam relatórios para partes interessadas. Consulte as várias partes interessadas do componente, mas alguns exemplos podem incluir:</p>
 <ul>
-<li>Jobs performed.</li>
-<li>User Session length.</li>
-<li>Games played.</li>
-<li>Site visits.</li>
+<li>Tarefas executadas.</li>
+<li>Duração da sessão do usuário.</li>
+<li>Jogos jogados.</li>
+<li>Visitas ao site.</li>
 </ul>
-<h3 id="dimension-labels">Dimension Labels</h3>
-<p>Modern metric systems today usually define a single time series metric as the combination of the name of the metric and its dictionary of dimension labels. Labels are an excellent way to distinguish one instance of a metric, from another while still allowing for aggregation and other operations to be performed on the set for analysis. Some common labels used in metrics may include:</p>
+<h3 id="rotulos-de-dimensao">Rótulos de Dimensão</h3>
+<p>Os sistemas de métricas modernos hoje geralmente definem uma única métrica de série temporal como a combinação do nome da métrica e seu dicionário de rótulos de dimensão. Rótulos são uma excelente maneira de distinguir uma instância de uma métrica de outra, permitindo ainda a agregação e outras operações para análise. Alguns rótulos comuns usados em métricas podem incluir:</p>
 <ul>
-<li>Container Name</li>
-<li>Host name</li>
-<li>Code Version</li>
-<li>Kubernetes cluster name</li>
-<li>Azure Region</li>
+<li>Nome do Contêiner</li>
+<li>Nome do Host</li>
+<li>Versão do Código</li>
+<li>Nome do cluster Kubernetes</li>
+<li>Região do Azure</li>
 </ul>
-<p><em>Note</em>: Since dimension labels are used for aggregations and grouping operations, do not use unique strings or those with high cardinality as the value of a label. The value of the label is significantly diminished for reporting and in many cases has a negative performance hit on the metric system used to track it.</p>
-<h2 id="recommended-tools">Recommended Tools</h2>
+<p><em>Observação</em>: Como os rótulos de dimensão são usados para agregações e operações de agrupamento, não use strings exclusivas ou com alta cardinalidade como o valor de um rótulo. O valor do rótulo é significativamente reduzido para relatórios e, em muitos casos, tem um impacto negativo no desempenho do sistema de métricas usado para rastreá-lo.</p>
+<h2 id="ferramentas-recomendadas">Ferramentas Recomendadas</h2>
 <ul>
-<li><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/overview">Azure Monitor</a> - Umbrella of services including system metrics, log analytics and more.</li>
-<li><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/overview">Prometheus</a> - A real-time monitoring &amp; alerting application. It's exposition format for exposing time-series is the basis for OpenMetrics's standard format.</li>
-<li><a href="https://thanos.io">Thanos</a> - Open source, highly available Prometheus setup with long term storage capabilities.</li>
-<li><a href="https://cortexmetrics.io">Cortex</a> - Horizontally scalable, highly available, multi-tenant, long term Prometheus.</li>
-<li><a href="https://grafana.com">Grafana</a> - Open source dashboard &amp; visualization tool. Supports Log, Metrics and Distributed tracing data sources.</li>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/overview">Azure Monitor</a> - Conjunto de serviços, incluindo métricas do sistema, análise de registros e muito mais.</li>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/overview">Prometheus</a> - Um aplicativo de monitoramento e alerta em tempo real. Seu formato de exposição para exposição de séries temporais é a base para o formato padrão OpenMetrics.</li>
+<li><a href="https://thanos.io">Thanos</a> - Configuração do Prometheus de código aberto, altamente disponível, com capacidade de armazenamento de longo prazo.</li>
+<li><a href="https://cortexmetrics.io">Cortex</a> - Escalável horizontalmente, altamente disponível, multilocatário, Prometheus de longo prazo.</li>
+<li><a href="https://grafana.com">Grafana</a> - Ferramenta de painel e visualização de código aberto. Suporta fontes de dados de log, métricas e rastreamentos distribuídos.</li>
 </ul>
 
   <hr>
@@ -7364,7 +7364,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 15, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
       
     
   </small>

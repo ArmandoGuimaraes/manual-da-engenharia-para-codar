@@ -1,25 +1,25 @@
 # Prometheus
 
-## Overview
+## Visão Geral
 
-Originally built at SoundCloud, [Prometheus](https://prometheus.io/docs/introduction/overview/) is an open-source monitoring and alerting toolkit based on time series metrics data. It has become a de facto standard metrics solution in the Cloud Native world and widely used with Kubernetes.
+Originalmente desenvolvido na SoundCloud, o [Prometheus](https://prometheus.io/docs/introduction/overview/) é uma ferramenta de monitoramento e alerta de código aberto baseada em dados de métricas de séries temporais. Tornou-se uma solução de métricas padrão no mundo nativo da nuvem e é amplamente utilizado com o Kubernetes.
 
-The core of Prometheus is a server that scrapes and stores metrics. There are other numerous optional features and components like an Alert-manager and [client libraries](https://prometheus.io/docs/instrumenting/clientlibs/) for programming languages to extend the functionalities of Prometheus beyond the basics.
-The client libraries offer four [metric types](https://prometheus.io/docs/concepts/metric_types/): `Counter`, `Gauge`, `Histogram`, and `Summary`.
+O núcleo do Prometheus é um servidor que coleta e armazena métricas. Existem vários recursos e componentes opcionais, como o Alert-manager e [bibliotecas de cliente](https://prometheus.io/docs/instrumenting/clientlibs/) para linguagens de programação que estendem as funcionalidades do Prometheus além do básico.
+As bibliotecas de cliente oferecem quatro [tipos de métricas](https://prometheus.io/docs/concepts/metric_types/): `Counter`, `Gauge`, `Histogram` e `Summary`.
 
-## Why Prometheus?
+## Por que o Prometheus?
 
-- Prometheus is a time series database and allow for events or measurements to be tracked, monitored, and aggregated over time.
-- Prometheus is a pull-based tool. One of the biggest advantages of Prometheus over other monitoring tools is that Prometheus actively scrapes targets in order to retrieve metrics from them. Prometheus also supports the push model for pushing metrics.
-- Prometheus allows for control over how to scrape, and how often to scrape them. Through the Prometheus server, there can be multiple scrape configurations, allowing for multiple rates for different targets.
-- Similar to [Grafana](https://prometheus.io/docs/visualization/grafana/), visualization for the time series can be directly done through the Prometheus Web UI. The Web UI provides the ability to easily filter and have an overview of what is taking place with your different targets.
-- Prometheus provides a powerful functional query language called PromQL (Prometheus Query Language) that lets the user aggregate time series data in real time.
+- O Prometheus é um banco de dados de séries temporais que permite o acompanhamento, monitoramento e agregação de eventos ou medidas ao longo do tempo.
+- O Prometheus é uma ferramenta de coleta ativa. Uma das maiores vantagens do Prometheus em relação a outras ferramentas de monitoramento é que ele coleta métricas de forma ativa, raspando alvos para recuperar métricas deles. O Prometheus também suporta o modelo de envio para enviar métricas.
+- O Prometheus permite controlar como coletar métricas e com que frequência fazê-lo. Através do servidor Prometheus, podem existir várias configurações de coleta, permitindo várias taxas para diferentes alvos.
+- Semelhante ao [Grafana](https://prometheus.io/docs/visualization/grafana/), a visualização das séries temporais pode ser feita diretamente por meio da interface web do Prometheus. A interface web oferece a capacidade de filtrar facilmente e ter uma visão geral do que está acontecendo com seus diferentes alvos.
+- O Prometheus fornece uma poderosa linguagem de consulta funcional chamada PromQL (Prometheus Query Language) que permite ao usuário agregar dados de séries temporais em tempo real.
 
-## Integration with Other Tools
+## Integração com Outras Ferramentas
 
-The Prometheus client libraries allow you to add instrumentation to your code and expose internal metrics via an HTTP endpoint. The official [Prometheus client libraries](https://prometheus.io/docs/instrumenting/clientlibs/) currently are `Go`, `Java or Scala`, `Python` and `Ruby`. Unofficial third-party libraries include: `.NET/C#`, `Node.js`, and `C++`.
+As bibliotecas de cliente do Prometheus permitem adicionar instrumentação ao seu código e expor métricas internas por meio de um ponto de extremidade HTTP. As [bibliotecas de cliente oficiais do Prometheus](https://prometheus.io/docs/instrumenting/clientlibs/) atualmente são `Go`, `Java ou Scala`, `Python` e `Ruby`. Bibliotecas não oficiais de terceiros incluem: `.NET/C#`, `Node.js` e `C++`.
 
-Prometheus' metrics format is supported by a wide array of tools and services including:
+O formato de métricas do Prometheus é suportado por uma ampla variedade de ferramentas e serviços, incluindo:
 
 - [Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-prometheus-integration)
 - [Stackdriver](https://cloud.google.com/stackdriver/docs/solutions/gke/prometheus)
@@ -31,10 +31,10 @@ Prometheus' metrics format is supported by a wide array of tools and services in
 - [GitLab](https://docs.gitlab.com/ee/user/project/integrations/prometheus.html)
 - [etc...](https://prometheus.io/docs/operating/integrations/)
 
-There are numerous [exporters](https://prometheus.io/docs/instrumenting/exporters/) which are used in exporting existing metrics from third-party databases, hardware, CI/CD tools, messaging systems, APIs and other monitoring systems. In addition to client libraries and exporters, there is a significant number of [integration points](https://prometheus.io/docs/operating/integrations/) for service discovery, remote storage, alerts and management.
+Existem numerosos [exportadores](https://prometheus.io/docs/instrumenting/exporters/) que são usados para exportar métricas existentes de bancos de dados de terceiros, hardware, ferramentas CI/CD, sistemas de mensagens, APIs e outros sistemas de monitoramento. Além das bibliotecas de cliente e exportadores, há um número significativo de [pontos de integração](https://prometheus.io/docs/operating/integrations/) para descoberta de serviços, armazenamento remoto, alertas e gerenciamento.
 
-## References
+## Referências
 
-- [Prometheus Docs](https://prometheus.io/docs)
-- [Prometheus Best Practices](https://prometheus.io/docs/practices)
-- [Grafana with Prometheus](https://prometheus.io/docs/visualization/grafana/)
+- [Documentação do Prometheus](https://prometheus.io/docs)
+- [Melhores Práticas do Prometheus](https://prometheus.io/docs/practices)
+- [Grafana com Prometheus](https://prometheus.io/docs/visualization/grafana/)

@@ -1,72 +1,72 @@
-# Metrics
+# Métricas
 
-## Overview
+## Visão Geral
 
-Metrics provide a near real-time stream of data, informing operators and stakeholders about the functions the system is performing as well as its health. Unlike logging and tracing, metric data tends to be more efficient to transmit and store.
+As métricas fornecem um fluxo de dados quase em tempo real, informando operadores e partes interessadas sobre as funções que o sistema está executando, bem como sua saúde. Ao contrário do registro e do rastreamento, os dados métricos tendem a ser mais eficientes para transmitir e armazenar.
 
-## Collection Methods
+## Métodos de Coleta
 
-Metric collection approaches fall into two broad categories: push metrics & pull metrics. Push metrics means that the originating component sends the data to a remote service or agent. [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor) and [Etsy's statsd](https://github.com/statsd/statsd) are examples of push metrics. Some strengths with push metrics include:
+As abordagens de coleta de métricas se enquadram em duas categorias amplas: métricas de envio e métricas de busca. Métricas de envio significam que o componente de origem envia os dados para um serviço remoto ou agente. [Azure Monitor](https://azure.microsoft.com/pt-br/services/monitor) e [statsd do Etsy](https://github.com/statsd/statsd) são exemplos de métricas de envio. Algumas vantagens das métricas de envio incluem:
 
-- Only require network egress to the remote target.
-- Originating component controls the frequency of measurement.
-- Simplified configuration as the component only needs to know the destination of where to send data.
+- Requer apenas a saída de rede para o destino remoto.
+- O componente de origem controla a frequência da medição.
+- Configuração simplificada, pois o componente só precisa saber o destino para enviar os dados.
 
-Some trade-offs with this approach:
+Algumas compensações com essa abordagem são:
 
-- At scale, it is much more difficult to control data transmission rates, which can cause service throttling or dropping of values.
-- Determining if every component, particularly in a dynamic scale environment, is healthy and sending data is difficult.
+- Em escala, é muito mais difícil controlar as taxas de transmissão de dados, o que pode causar limitação de serviço ou a perda de valores.
+- Determinar se cada componente, especialmente em um ambiente de escala dinâmica, está saudável e enviando dados é difícil.
 
-In the case of pull metrics, each originating component publishes an endpoint for the metric agent to connect to and gather measurements. [Prometheus](https://prometheus.io/) and its ecosystem of tools are an example of pull style metrics. Benefits experienced using a pull metrics setup may involve:
+No caso das métricas de busca, cada componente de origem publica um ponto de extremidade para o agente de métricas se conectar e coletar medidas. [Prometheus](https://prometheus.io/) e seu ecossistema de ferramentas são um exemplo de métricas no estilo de busca. Benefícios experimentados usando uma configuração de métricas de busca podem incluir:
 
-- Singular configuration for determining what is measured and the frequency of measurement for the local environment.
-- Every measurement target has a meta metric related to if the collection is successful or not, which can be used as a general health check.
-- Support for routing, filtering and processing of metrics before sending them onto a globally central metrics store.
+- Configuração única para determinar o que está sendo medido e a frequência da medição para o ambiente local.
+- Cada alvo de medição possui uma métrica meta relacionada a se a coleta foi bem-sucedida ou não, o que pode ser usado como uma verificação geral de saúde.
+- Suporte para roteamento, filtragem e processamento de métricas antes de enviá-las para um repositório global central de métricas.
 
-Items of concern to some may include:
+Itens de preocupação para alguns podem incluir:
 
-- Configuring & managing data sources can lead to a complex configuration. Prometheus has tooling to auto-discover and configure data sources in some environments, such as Kubernetes, but there are always exceptions to this, which lead to configuration complexity.
-- Network configuration may add further complexity if firewalls and other ACLs need to be managed to allow connectivity.
+- Configurar e gerenciar fontes de dados pode levar a uma configuração complexa. O Prometheus possui ferramentas para autodescobrir e configurar fontes de dados em alguns ambientes, como o Kubernetes, mas sempre há exceções a isso, o que leva à complexidade da configuração.
+- A configuração de rede pode adicionar mais complexidade se firewalls e outras ACLs precisarem ser gerenciados para permitir a conectividade.
 
-## Best Practices
+## Melhores Práticas
 
-### When should I use metrics instead of logs?
+### Quando devo usar métricas em vez de logs?
 
-[Logs vs Metrics vs Traces](../log-vs-metric-vs-trace.md) covers some high level guidance on when to utilize metric data and when to use log data. Both have a valuable part to play in creating observable systems.
+[Logs vs Métricas vs Rastreamentos](../log-vs-metric-vs-trace.md) aborda algumas orientações de alto nível sobre quando utilizar dados métricos e quando usar dados de log. Ambos desempenham um papel valioso na criação de sistemas observáveis.
 
-### What should be tracked?
+### O que deve ser monitorado?
 
-System critical measurements that relate to the application/machine health, which are usually excellent alert candidates. Work with your engineering and devops peers to identify the metrics, but they may include:
+Medições críticas do sistema relacionadas à saúde da aplicação/máquina, que geralmente são excelentes candidatas a alertas. Trabalhe com seus colegas de engenharia e devops para identificar as métricas, mas elas podem incluir:
 
-- CPU and memory utilization.
-- Request rate.
-- Queue length.
-- Unexpected exception count.
-- Dependent service metrics like response time for Redis cache, Sql server or Service bus.
+- Utilização de CPU e memória.
+- Taxa de solicitações.
+- Tamanho da fila.
+- Contagem de exceções inesperadas.
+- Métricas de serviços dependentes, como tempo de resposta para o cache Redis, servidor SQL ou serviço de barramento de mensagens.
 
-Important business-related measurements, which drive reporting to stakeholders. Consult with the various stakeholders of the component, but some examples may include:
+Medições importantes relacionadas aos negócios, que impulsionam relatórios para partes interessadas. Consulte as várias partes interessadas do componente, mas alguns exemplos podem incluir:
 
-- Jobs performed.
-- User Session length.
-- Games played.
-- Site visits.
+- Tarefas executadas.
+- Duração da sessão do usuário.
+- Jogos jogados.
+- Visitas ao site.
 
-### Dimension Labels
+### Rótulos de Dimensão
 
-Modern metric systems today usually define a single time series metric as the combination of the name of the metric and its dictionary of dimension labels. Labels are an excellent way to distinguish one instance of a metric, from another while still allowing for aggregation and other operations to be performed on the set for analysis. Some common labels used in metrics may include:
+Os sistemas de métricas modernos hoje geralmente definem uma única métrica de série temporal como a combinação do nome da métrica e seu dicionário de rótulos de dimensão. Rótulos são uma excelente maneira de distinguir uma instância de uma métrica de outra, permitindo ainda a agregação e outras operações para análise. Alguns rótulos comuns usados em métricas podem incluir:
 
-- Container Name
-- Host name
-- Code Version
-- Kubernetes cluster name
-- Azure Region
+- Nome do Contêiner
+- Nome do Host
+- Versão do Código
+- Nome do cluster Kubernetes
+- Região do Azure
 
-_Note_: Since dimension labels are used for aggregations and grouping operations, do not use unique strings or those with high cardinality as the value of a label. The value of the label is significantly diminished for reporting and in many cases has a negative performance hit on the metric system used to track it.
+_Observação_: Como os rótulos de dimensão são usados para agregações e operações de agrupamento, não use strings exclusivas ou com alta cardinalidade como o valor de um rótulo. O valor do rótulo é significativamente reduzido para relatórios e, em muitos casos, tem um impacto negativo no desempenho do sistema de métricas usado para rastreá-lo.
 
-## Recommended Tools
+## Ferramentas Recomendadas
 
-- [Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/overview) - Umbrella of services including system metrics, log analytics and more.
-- [Prometheus](https://learn.microsoft.com/en-us/azure/azure-monitor/overview) - A real-time monitoring & alerting application. It's exposition format for exposing time-series is the basis for OpenMetrics's standard format.
-- [Thanos](https://thanos.io) - Open source, highly available Prometheus setup with long term storage capabilities.
-- [Cortex](https://cortexmetrics.io) - Horizontally scalable, highly available, multi-tenant, long term Prometheus.
-- [Grafana](https://grafana.com) - Open source dashboard & visualization tool. Supports Log, Metrics and Distributed tracing data sources.
+- [Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/overview) - Conjunto de serviços, incluindo métricas do sistema, análise de registros e muito mais.
+- [Prometheus](https://learn.microsoft.com/en-us/azure/azure-monitor/overview) - Um aplicativo de monitoramento e alerta em tempo real. Seu formato de exposição para exposição de séries temporais é a base para o formato padrão OpenMetrics.
+- [Thanos](https://thanos.io) - Configuração do Prometheus de código aberto, altamente disponível, com capacidade de armazenamento de longo prazo.
+- [Cortex](https://cortexmetrics.io) - Escalável horizontalmente, altamente disponível, multilocatário, Prometheus de longo prazo.
+- [Grafana](https://grafana.com) - Ferramenta de painel e visualização de código aberto. Suporta fontes de dados de log, métricas e rastreamentos distribuídos.

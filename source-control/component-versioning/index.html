@@ -19,7 +19,7 @@
     
     
       
-        <title>Component Versioning - Manual da Engenharia para Codar</title>
+        <title>Versionamento de Componentes - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#component-versioning" class="md-skip">
+        <a href="#versionamento-de-componentes" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Component Versioning
+              Versionamento de Componentes
             
           </span>
         </div>
@@ -6888,12 +6888,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Component Versioning
+          Versionamento de Componentes
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Component Versioning
+        Versionamento de Componentes
       </a>
       
         
@@ -6912,29 +6912,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#goal" class="md-nav__link">
-    Goal
+  <a href="#objetivo" class="md-nav__link">
+    Objetivo
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#version-numbers-and-versioning-schemes" class="md-nav__link">
-    Version Numbers and Versioning schemes
+  <a href="#numeros-de-versao-e-esquemas-de-versionamento" class="md-nav__link">
+    Números de Versão e Esquemas de Versionamento
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#semantic-versioning" class="md-nav__link">
-    Semantic Versioning
+  <a href="#versionamento-semantico" class="md-nav__link">
+    Versionamento Semântico
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    Resources
+  <a href="#recursos" class="md-nav__link">
+    Recursos
   </a>
   
 </li>
@@ -7198,29 +7198,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#goal" class="md-nav__link">
-    Goal
+  <a href="#objetivo" class="md-nav__link">
+    Objetivo
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#version-numbers-and-versioning-schemes" class="md-nav__link">
-    Version Numbers and Versioning schemes
+  <a href="#numeros-de-versao-e-esquemas-de-versionamento" class="md-nav__link">
+    Números de Versão e Esquemas de Versionamento
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#semantic-versioning" class="md-nav__link">
-    Semantic Versioning
+  <a href="#versionamento-semantico" class="md-nav__link">
+    Versionamento Semântico
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    Resources
+  <a href="#recursos" class="md-nav__link">
+    Recursos
   </a>
   
 </li>
@@ -7239,59 +7239,59 @@
                 
 
 
-<h1 id="component-versioning">Component Versioning</h1>
-<h2 id="goal">Goal</h2>
-<p>Larger applications consist of multiple components that reference each other and rely on compatibility of the interfaces/contracts of the components.</p>
-<p>To achieve the goal of loosely coupled applications, each component should be versioned independently hence allowing developers to detect breaking changes or seamless updates just by looking at the version number.</p>
-<h2 id="version-numbers-and-versioning-schemes">Version Numbers and Versioning schemes</h2>
-<p>For developers or other components to detect breaking changes the version number of a component is important.</p>
-<p>There is different versioning number schemes, e.g.</p>
+<h1 id="versionamento-de-componentes">Versionamento de Componentes</h1>
+<h2 id="objetivo">Objetivo</h2>
+<p>Aplicativos maiores consistem em vários componentes que se referenciam e dependem da compatibilidade das interfaces/contratos desses componentes.</p>
+<p>Para alcançar o objetivo de aplicativos fracamente acoplados, cada componente deve ser versionado independentemente, permitindo que os desenvolvedores detectem mudanças que quebram a compatibilidade ou atualizações sem problemas apenas olhando para o número da versão.</p>
+<h2 id="numeros-de-versao-e-esquemas-de-versionamento">Números de Versão e Esquemas de Versionamento</h2>
+<p>Para que os desenvolvedores ou outros componentes detectem mudanças que quebram a compatibilidade, o número da versão de um componente é importante.</p>
+<p>Existem diferentes esquemas de números de versão, como:</p>
 <p><code>major.minor[.build[.revision]]</code></p>
-<p>or</p>
+<p>ou</p>
 <p><code>major.minor[.maintenance[.build]]</code>.</p>
-<p>Upon build / CI these version numbers are being generated. During CD / release components are pushed to a <em>component repository</em> such as Nuget, NPM, Docker Hub where a history of different versions is being kept.</p>
-<p>Each build the version number is incremented at the last digit.</p>
-<p>Updating the major / minor version indicates changes of the API / interfaces / contracts:</p>
+<p>Após a compilação/CI, esses números de versão são gerados. Durante a implantação/lançamento, os componentes são enviados para um <em>repositório de componentes</em>, como Nuget, NPM, Docker Hub, onde um histórico de diferentes versões é mantido.</p>
+<p>A cada compilação, o número da versão é incrementado no último dígito.</p>
+<p>A atualização da versão principal/minor indica mudanças na API/interfaces/contratos:</p>
 <ul>
-<li>Major Version: A breaking change</li>
-<li>Minor Version: A backwards-compatible minor change</li>
-<li>Build / Revision: No API change, just a different build.</li>
+<li>Versão Principal: Uma mudança que quebra a compatibilidade</li>
+<li>Versão Menor: Uma mudança menor compatível com versões anteriores</li>
+<li>Build/Revisão: Sem mudança na API, apenas uma compilação diferente.</li>
 </ul>
-<h2 id="semantic-versioning">Semantic Versioning</h2>
-<p>Semantic Versioning is a versioning scheme specifying how to interpret the different version numbers. The most common format is <code>major.minor.patch</code>. The version number is incremented based on the following rules:</p>
+<h2 id="versionamento-semantico">Versionamento Semântico</h2>
+<p>O Versionamento Semântico é um esquema de versionamento que especifica como interpretar os diferentes números de versão. O formato mais comum é <code>major.minor.patch</code>. O número da versão é incrementado com base nas seguintes regras:</p>
 <ul>
-<li>Major version when you make incompatible API changes,</li>
-<li>Minor version when you add functionality in a backwards-compatible manner, and</li>
-<li>Patch version when you make backwards-compatible bug fixes.</li>
+<li>Versão Principal quando você faz mudanças na API que quebram a compatibilidade,</li>
+<li>Versão Menor quando você adiciona funcionalidades de maneira compatível com versões anteriores e</li>
+<li>Versão de Patch quando você faz correções de bugs compatíveis com versões anteriores.</li>
 </ul>
-<p>Examples of semver version numbers:</p>
+<p>Exemplos de números de versão semântica:</p>
 <ul>
-<li><strong>1.0.0-alpha.1</strong>: +1 commit <em>after</em> the alpha release of 1.0.0</li>
-<li><strong>2.1.0-beta</strong>: 2.1.0 in beta branch</li>
-<li><strong>2.4.2</strong>: 2.4.2 release</li>
+<li><strong>1.0.0-alpha.1</strong>: +1 commit <em>após</em> o lançamento alpha de 1.0.0</li>
+<li><strong>2.1.0-beta</strong>: 2.1.0 no branch beta</li>
+<li><strong>2.4.2</strong>: Lançamento 2.4.2</li>
 </ul>
-<p>A common practice is to determine the version number during the build process. For this the source control repository is utilized to determine the version number automatically based the source code repository.</p>
-<p>The <code>GitVersion</code> tool uses the git history to generate <em>repeatable</em> and <em>unique</em> version number based on</p>
+<p>Uma prática comum é determinar o número da versão durante o processo de compilação. Para isso, o repositório de controle de origem é utilizado para determinar automaticamente o número da versão com base no repositório de código-fonte.</p>
+<p>A ferramenta <code>GitVersion</code> utiliza o histórico do Git para gerar um número de versão <em>repetível</em> e <em>único</em> com base em:</p>
 <ul>
-<li>number of commits since last major or minor release</li>
-<li>commit messages</li>
+<li>número de commits desde o último lançamento importante ou menor</li>
+<li>mensagens de commit</li>
 <li>tags</li>
-<li>branch names</li>
+<li>nomes de branches</li>
 </ul>
-<p>Version updates happen through:</p>
+<p>As atualizações de versão ocorrem por meio de:</p>
 <ul>
-<li>Commit messages or tags for Major / Minor / Revision updates.<blockquote>
-<p>When using commit messages a convention such as Conventional Commits is recommended (see <a href="../git-guidance/#commit-message-structure">Git Guidance - Commit Message Structure</a>)</p>
+<li>Mensagens de commit ou tags para atualizações de Versão Principal/Minor/Revisão.<blockquote>
+<p>Ao usar mensagens de commit, é recomendável seguir uma convenção, como os "Conventional Commits" (consulte <a href="../git-guidance/#commit-message-structure">Orientação do Git - Estrutura de Mensagens de Commit</a>)</p>
 </blockquote>
 </li>
-<li>Branch names (e.g. develop, release/..) for Alpha / Beta / RC</li>
-<li>Otherwise: Number of commits (+12, ...)</li>
+<li>Nomes de branches (por exemplo, develop, release/..) para Alpha/Beta/RC</li>
+<li>Caso contrário: Número de commits (+12, ...)</li>
 </ul>
-<h2 id="resources">Resources</h2>
+<h2 id="recursos">Recursos</h2>
 <ul>
 <li><a href="https://gitversion.net/">GitVersion</a></li>
-<li><a href="https://semver.org/">Semantic Versioning</a></li>
-<li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/versioning">Versioning in C#</a></li>
+<li><a href="https://semver.org/">Versionamento Semântico (em inglês)</a></li>
+<li><a href="https://learn.microsoft.com/pt-br/dotnet/csharp/versioning">Versionamento em C# (em inglês)</a></li>
 </ul>
 
   <hr>
@@ -7299,7 +7299,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 19, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
       
     
   </small>

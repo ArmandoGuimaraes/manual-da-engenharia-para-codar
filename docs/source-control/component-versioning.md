@@ -1,65 +1,65 @@
-# Component Versioning
+# Versionamento de Componentes
 
-## Goal
+## Objetivo
 
-Larger applications consist of multiple components that reference each other and rely on compatibility of the interfaces/contracts of the components.
+Aplicativos maiores consistem em vários componentes que se referenciam e dependem da compatibilidade das interfaces/contratos desses componentes.
 
-To achieve the goal of loosely coupled applications, each component should be versioned independently hence allowing developers to detect breaking changes or seamless updates just by looking at the version number.
+Para alcançar o objetivo de aplicativos fracamente acoplados, cada componente deve ser versionado independentemente, permitindo que os desenvolvedores detectem mudanças que quebram a compatibilidade ou atualizações sem problemas apenas olhando para o número da versão.
 
-## Version Numbers and Versioning schemes
+## Números de Versão e Esquemas de Versionamento
 
-For developers or other components to detect breaking changes the version number of a component is important.
+Para que os desenvolvedores ou outros componentes detectem mudanças que quebram a compatibilidade, o número da versão de um componente é importante.
 
-There is different versioning number schemes, e.g.
+Existem diferentes esquemas de números de versão, como:
 
 `major.minor[.build[.revision]]`
 
-or
+ou
 
 `major.minor[.maintenance[.build]]`.
 
-Upon build / CI these version numbers are being generated. During CD / release components are pushed to a *component repository* such as Nuget, NPM, Docker Hub where a history of different versions is being kept.
+Após a compilação/CI, esses números de versão são gerados. Durante a implantação/lançamento, os componentes são enviados para um *repositório de componentes*, como Nuget, NPM, Docker Hub, onde um histórico de diferentes versões é mantido.
 
-Each build the version number is incremented at the last digit.
+A cada compilação, o número da versão é incrementado no último dígito.
 
-Updating the major / minor version indicates changes of the API / interfaces / contracts:
+A atualização da versão principal/minor indica mudanças na API/interfaces/contratos:
 
-* Major Version: A breaking change
-* Minor Version: A backwards-compatible minor change
-* Build / Revision: No API change, just a different build.
+* Versão Principal: Uma mudança que quebra a compatibilidade
+* Versão Menor: Uma mudança menor compatível com versões anteriores
+* Build/Revisão: Sem mudança na API, apenas uma compilação diferente.
 
-## Semantic Versioning
+## Versionamento Semântico
 
-Semantic Versioning is a versioning scheme specifying how to interpret the different version numbers. The most common format is `major.minor.patch`. The version number is incremented based on the following rules:
+O Versionamento Semântico é um esquema de versionamento que especifica como interpretar os diferentes números de versão. O formato mais comum é `major.minor.patch`. O número da versão é incrementado com base nas seguintes regras:
 
-* Major version when you make incompatible API changes,
-* Minor version when you add functionality in a backwards-compatible manner, and
-* Patch version when you make backwards-compatible bug fixes.
+* Versão Principal quando você faz mudanças na API que quebram a compatibilidade,
+* Versão Menor quando você adiciona funcionalidades de maneira compatível com versões anteriores e
+* Versão de Patch quando você faz correções de bugs compatíveis com versões anteriores.
 
-Examples of semver version numbers:
+Exemplos de números de versão semântica:
 
-* **1.0.0-alpha.1**: +1 commit *after* the alpha release of 1.0.0
-* **2.1.0-beta**: 2.1.0 in beta branch
-* **2.4.2**: 2.4.2 release
+* **1.0.0-alpha.1**: +1 commit *após* o lançamento alpha de 1.0.0
+* **2.1.0-beta**: 2.1.0 no branch beta
+* **2.4.2**: Lançamento 2.4.2
 
-A common practice is to determine the version number during the build process. For this the source control repository is utilized to determine the version number automatically based the source code repository.
+Uma prática comum é determinar o número da versão durante o processo de compilação. Para isso, o repositório de controle de origem é utilizado para determinar automaticamente o número da versão com base no repositório de código-fonte.
 
-The `GitVersion` tool uses the git history to generate *repeatable* and *unique* version number based on
+A ferramenta `GitVersion` utiliza o histórico do Git para gerar um número de versão *repetível* e *único* com base em:
 
-* number of commits since last major or minor release
-* commit messages
+* número de commits desde o último lançamento importante ou menor
+* mensagens de commit
 * tags
-* branch names
+* nomes de branches
 
-Version updates happen through:
+As atualizações de versão ocorrem por meio de:
 
-* Commit messages or tags for Major / Minor / Revision updates.
-  > When using commit messages a convention such as Conventional Commits is recommended (see [Git Guidance - Commit Message Structure](git-guidance/README.md#commit-message-structure))
-* Branch names (e.g. develop, release/..) for Alpha / Beta / RC
-* Otherwise: Number of commits (+12, ...)
+* Mensagens de commit ou tags para atualizações de Versão Principal/Minor/Revisão.
+  > Ao usar mensagens de commit, é recomendável seguir uma convenção, como os "Conventional Commits" (consulte [Orientação do Git - Estrutura de Mensagens de Commit](git-guidance/README.md#commit-message-structure))
+* Nomes de branches (por exemplo, develop, release/..) para Alpha/Beta/RC
+* Caso contrário: Número de commits (+12, ...)
 
-## Resources
+## Recursos
 
 * [GitVersion](https://gitversion.net/)
-* [Semantic Versioning](https://semver.org/)
-* [Versioning in C#](https://learn.microsoft.com/en-us/dotnet/csharp/versioning)
+* [Versionamento Semântico (em inglês)](https://semver.org/)
+* [Versionamento em C# (em inglês)](https://learn.microsoft.com/pt-br/dotnet/csharp/versioning)

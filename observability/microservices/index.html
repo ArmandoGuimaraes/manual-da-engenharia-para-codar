@@ -19,7 +19,7 @@
     
     
       
-        <title>Observability in Microservices - Manual da Engenharia para Codar</title>
+        <title>Observabilidade em Microservices - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#observability-in-microservices" class="md-skip">
+        <a href="#observabilidade-em-microservices" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Observability in Microservices
+              Observabilidade em Microservices
             
           </span>
         </div>
@@ -6187,12 +6187,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Observability in Microservices
+          Observabilidade em Microservices
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Observability in Microservices
+        Observabilidade em Microservices
       </a>
       
         
@@ -6211,29 +6211,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#motivations" class="md-nav__link">
-    Motivations
+  <a href="#motivacoes" class="md-nav__link">
+    Motivações
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-extend-your-tracing-information-between-microservices" class="md-nav__link">
-    How to extend your tracing information between microservices
+  <a href="#como-estender-suas-informacoes-de-rastreamento-entre-microservices" class="md-nav__link">
+    Como estender suas informações de rastreamento entre microservices
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    Example
+  <a href="#exemplo" class="md-nav__link">
+    Exemplo
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    Summary
+  <a href="#resumo" class="md-nav__link">
+    Resumo
   </a>
   
 </li>
@@ -7198,29 +7198,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#motivations" class="md-nav__link">
-    Motivations
+  <a href="#motivacoes" class="md-nav__link">
+    Motivações
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-extend-your-tracing-information-between-microservices" class="md-nav__link">
-    How to extend your tracing information between microservices
+  <a href="#como-estender-suas-informacoes-de-rastreamento-entre-microservices" class="md-nav__link">
+    Como estender suas informações de rastreamento entre microservices
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    Example
+  <a href="#exemplo" class="md-nav__link">
+    Exemplo
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    Summary
+  <a href="#resumo" class="md-nav__link">
+    Resumo
   </a>
   
 </li>
@@ -7239,42 +7239,42 @@
                 
 
 
-<h1 id="observability-in-microservices">Observability in Microservices</h1>
-<p>Microservices is a very popular software architecture, where the application is arranged as a collection of loosely coupled services. Some of those services can be written in different languages by different teams.</p>
-<h2 id="motivations">Motivations</h2>
-<p>We need to consider special cases when creating a microservice architecture from the perspective of observability. We want to capture the interactions when making requests between those microservices and correlate them.</p>
-<p>Imagine we have a microservice that accesses a database to retrieve some data as part of a request. This microservice is going to be called by someone else as part of an incoming http request or an internal process being executed. What happens if a problem occurs during the retrieval of the data (or the update of the data)? How can we associate, or correlate, that this particular call failed in the destination microservice?</p>
-<p>This is a common issue. When calling other microservices, depending on the technology stack we use, we can accidentally hide errors and exceptions that might happen on the other side. If we are using a simple REST interface, the other microservice can return a 500 HTTP status code and we don't have any idea what happen inside that microservice.</p>
-<p>More important, we don't have any way to associate our Correlation Id to whatever happens inside that microservice. Therefore, is so important to have a plan in place to be able to extend your traceability and monitoring efforts, especially when using a microservice architecture.</p>
-<h2 id="how-to-extend-your-tracing-information-between-microservices">How to extend your tracing information between microservices</h2>
-<p>The W3C consortium is working on a <a href="https://www.w3.org/TR/trace-context/">Trace Context</a> definition that can be applied when using HTTP as the protocol in a microservice architecture. But let's explain how we can implement this functionality in our software.</p>
-<p>The main idea behind this is to propagate the correlation information between HTTP request so other pieces of software can read this information and correctly correlate telemetry across microservices.</p>
-<p>The way to propagate this information is to use HTTP Headers for the Correlation Id, parent Correlation Id, etc.</p>
-<p>When you are in the scope of a HTTP Request, your tracing system should already have created four properties that you can use to send across your microservices.</p>
+<h1 id="observabilidade-em-microservices">Observabilidade em Microservices</h1>
+<p>Microservices é uma arquitetura de software muito popular, onde a aplicação é organizada como uma coleção de serviços fracamente acoplados. Alguns desses serviços podem ser escritos em diferentes linguagens por equipes diferentes.</p>
+<h2 id="motivacoes">Motivações</h2>
+<p>Precisamos considerar casos especiais ao criar uma arquitetura de microservices do ponto de vista da observabilidade. Queremos capturar as interações ao fazer solicitações entre esses microservices e correlacioná-las.</p>
+<p>Imagine que temos um microservice que acessa um banco de dados para recuperar alguns dados como parte de uma solicitação. Este microservice será chamado por outra pessoa como parte de uma solicitação HTTP de entrada ou de um processo interno em execução. O que acontece se ocorrer um problema durante a recuperação dos dados (ou a atualização dos dados)? Como podemos associar, ou correlacionar, que essa chamada específica falhou no microservice de destino?</p>
+<p>Este é um problema comum. Ao chamar outros microservices, dependendo da pilha de tecnologia que usamos, podemos inadvertidamente ocultar erros e exceções que podem ocorrer do outro lado. Se estivermos usando uma interface REST simples, o outro microservice pode retornar um código de status HTTP 500 e não temos ideia do que aconteceu dentro desse microservice.</p>
+<p>Mais importante, não temos nenhuma maneira de associar nosso Correlation Id ao que acontece dentro desse microservice. Portanto, é tão importante ter um plano em vigor para poder estender seus esforços de rastreamento e monitoramento, especialmente ao usar uma arquitetura de microservices.</p>
+<h2 id="como-estender-suas-informacoes-de-rastreamento-entre-microservices">Como estender suas informações de rastreamento entre microservices</h2>
+<p>O consórcio W3C está trabalhando em uma definição de <a href="https://www.w3.org/TR/trace-context/">Trace Context</a> que pode ser aplicada ao usar o HTTP como protocolo em uma arquitetura de microservices. Mas vamos explicar como podemos implementar essa funcionalidade em nosso software.</p>
+<p>A ideia principal por trás disso é propagar as informações de correlação entre solicitações HTTP para que outros pedaços de software possam ler essas informações e correlacionar corretamente a telemetria entre os microservices.</p>
+<p>A maneira de propagar essas informações é usar cabeçalhos HTTP para o Correlation Id, Correlation Id pai, etc.</p>
+<p>Quando você está no escopo de uma solicitação HTTP, seu sistema de rastreamento já deve ter criado quatro propriedades que você pode usar para enviar entre seus microservices.</p>
 <ul>
 <li>RequestId:0HLQV2BC3VP2T:00000001,</li>
 <li>SpanId:da13aa3c6fd9c146,</li>
 <li>TraceId:f11a03e3f078414fa7c0a0ce568c8b5c,</li>
 <li>ParentId:5076c17d0a604244</li>
 </ul>
-<p>This is an example of the four properties you can find which identify the current request.</p>
+<p>Este é um exemplo das quatro propriedades que você pode encontrar, que identificam a solicitação atual.</p>
 <ul>
-<li>RequestId is the unique id that represent the current HTTP Request.</li>
-<li>SpanId is the default automatically generated span. You can have more than one Span that scope different functionality inside your software.</li>
-<li>TraceId represent the id for current log trace.</li>
-<li>ParentId is the parent span id, that in some case can be the same or something different.</li>
+<li>RequestId é o ID único que representa a solicitação HTTP atual.</li>
+<li>SpanId é o span automaticamente gerado por padrão. Você pode ter mais de um Span que abrange funcionalidades diferentes dentro do seu software.</li>
+<li>TraceId representa o ID para o registro de log atual.</li>
+<li>ParentId é o ID do span pai, que em alguns casos pode ser o mesmo ou algo diferente.</li>
 </ul>
-<h2 id="example">Example</h2>
-<p>Now we are going to explore an example with 3 microservices that calls to each other in a row.</p>
+<h2 id="exemplo">Exemplo</h2>
+<p>Agora vamos explorar um exemplo com 3 microservices que se chamam em sequência.</p>
 <p><img alt="image" src="../microservices.png" /></p>
-<p>This image is the summary of what is needed in each microservice to propagate the trace-id from A to C.</p>
-<p>The root caller is A and that is why it doesn't have a parent-id, only have a new trace-id. Next, A calls B using HTTP. To propagate the correlation information as part of the request, we are using two new headers based on the W3C Correlation specification, trace-id and parent-id. In this example because A is the root caller, A only sends its own trace-id to microservice B.</p>
-<p>When microservice B receives the incoming HTTP request, it checks the contents of these two headers. It reads the content of the trace-id header and sets its own parent-id to this trace-id (as shown in the green rectangle inside's B). In addition, it creates a new trace-id to signal that is a new scope for the telemetry. During the execution of microservice B, it also calls microservice C and repeats the pattern. As part of the request it includes the two headers and propagates trace-id and parent-id as well.</p>
-<p>Finally, microservice C, reads the value for the incoming trace-id and sets as his own parent-id, but also creates a new trace-id that will use to send telemetry about his own operations.</p>
-<h2 id="summary">Summary</h2>
-<p>A number of Application Monitoring (APM) technology products already supports most of this Correlation Propagation. The most popular is <a href="https://github.com/openzipkin/b3-propagation">OpenZipkin/B3-Propagation</a>. W3C already proposed a recommendation for the <a href="https://www.w3.org/blog/2019/12/trace-context-enters-proposed-recommendation/">W3C Trace Context</a>, where you can see what SDK and frameworks already support this functionality. It's important to correctly implement the propagation specially when there are different teams that used different technology stacks in the same project.</p>
+<p>Esta imagem é um resumo do que é necessário em cada microservice para propagar o trace-id de A para C.</p>
+<p>O chamador raiz é A e é por isso que não possui um parent-id, apenas possui um novo trace-id. Em seguida, A chama B usando HTTP. Para propagar as informações de correlação como parte da solicitação, estamos usando dois novos cabeçalhos com base na especificação de Correlação da W3C, trace-id e parent-id. Neste exemplo, porque A é o chamador raiz, A só envia seu próprio trace-id para o microservice B.</p>
+<p>Quando o microservice B recebe a solicitação HTTP de entrada, ele verifica o conteúdo desses dois cabeçalhos. Ele lê o conteúdo do cabeçalho trace-id e define seu próprio parent-id para esse trace-id (conforme mostrado no retângulo verde dentro de B). Além disso, ele cria um novo trace-id para sinalizar que é um novo escopo para a telemetria. Durante a execução do microservice B, ele também chama o microservice C e repete o padrão. Como parte da solicitação, ele inclui os dois cabeçalhos e propaga o trace-id e o parent-id também.</p>
+<p>Finalmente, o microservice C lê o valor do trace-id de entrada e define como seu próprio parent-id, mas também cria um novo trace-id que usará para enviar telemetria sobre suas próprias operações.</p>
+<h2 id="resumo">Resumo</h2>
+<p>Vários produtos de tecnologia de monitoramento de aplicativos (APM) já suportam a maior parte dessa Propagação de Correlação. O mais popular é o <a href="https://github.com/openzipkin/b3-propagation">OpenZipkin/B3-Propagation</a>. A W3C já propôs uma recomendação para o <a href="https://www.w3.org/blog/2019/12/trace-context-enters-proposed-recommendation/">W3C Trace Context</a>, onde você pode ver quais SDKs e estruturas já suportam essa funcionalidade. É importante implementar corretamente a propagação, especialmente quando diferentes equipes usam pilhas de tecnologia diferentes no mesmo projeto.</p>
 <blockquote>
-<p>Consider using <a href="../tools/OpenTelemetry/">OpenTelemetry</a> as it implements open-source cross-platform context propagation for end-to-end distributed transactions over heterogeneous components out-of-the-box. It takes care of automatically creating and managing the Trace Context object among a full stack of microservices implemented across different technical stacks.</p>
+<p>Considere o uso do <a href="../tools/OpenTelemetry/">OpenTelemetry</a>, pois ele implementa a propagação de contexto de código aberto entre plataformas para transações distribuídas de ponta a ponta em componentes heterogêneos "out of the box". Ele cuida automaticamente da criação e gerenciamento do objeto Trace Context entre uma pilha completa de microservices implementados em diferentes tecnologias.</p>
 </blockquote>
 
   <hr>
@@ -7282,7 +7282,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 19, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
       
     
   </small>

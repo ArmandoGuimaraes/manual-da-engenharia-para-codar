@@ -71,9 +71,7 @@ a equipe deve trabalhar prontamente para limpar as cópias de dados do engajamen
 
 ### Perguntas a considerar ao trabalhar com dados
 
-- Que dados precisamos
-
-?
+- Que dados precisamos?
 - Qual é a base legal para o processamento desses dados?
 - Se somos o processador com base na obrigação contratual, qual é nossa responsabilidade listada no contrato?
 - O contrato precisa ser alterado?

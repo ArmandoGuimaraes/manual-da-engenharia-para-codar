@@ -32,4 +32,33 @@ Os seres humanos são os verdadeiros especialistas em se adaptar à diversidade.
 
 ### Linter de Acessibilidade
 
-[Deque Systems](https://www.deque.com/) são especialistas em acessibilidade na web que fornecem treinamento e ferramentas de acessibilidade para muitas organizações, incluindo a Microsoft. Uma das muitas ferramentas oferecidas pela Deque é o [axe Linter de Acessibilidade para VS Code](https://marketplace.visualstudio.com/items?itemName=deque-systems.vscode-axe-linter). Esta extensão do VS Code usa o mecanismo de regras [axe-core](https://github.com/dequelabs/axe-core/blob/develop/doc/rule-descriptions.md#:~:text=WCAG%202.0%20Level%20A%20%26%20AA%20Rules%20,%20%20%20%2011%20more%20rows%20?msclkid=604d209ed16411eca3c4c2af8c378e89) para identificar problemas de acessibilidade em HTML, Angular, React, Markdown e Vue. Usar
+[A Deque Systems](https://www.deque.com/) é uma empresa especializada em acessibilidade na web que oferece treinamento e ferramentas de acessibilidade para diversas organizações, incluindo a Microsoft. Uma das muitas ferramentas oferecidas pela Deque é o [axe Accessibility Linter para o VS Code](https://marketplace.visualstudio.com/items?itemName=deque-systems.vscode-axe-linter). Esta extensão do VS Code utiliza o motor de regras [axe-core](https://github.com/dequelabs/axe-core/blob/develop/doc/rule-descriptions.md#:~:text=WCAG%202.0%20Level%20A%20%26%20AA%20Rules%20,%20%20%20%2011%20more%20rows%20?msclkid=604d209ed16411eca3c4c2af8c378e89) para identificar problemas de acessibilidade em HTML, Angular, React, Markdown e Vue. Utilizar um verificador de acessibilidade pode ajudar a garantir que os problemas de acessibilidade sejam abordados no início do ciclo de desenvolvimento.
+
+## Práticas
+
+### Testes de Acessibilidade
+
+Os testes de acessibilidade são uma subcategoria especializada de testes de software e incluem ferramentas automatizadas e processos de teste manuais que variam de projeto para projeto. Além das ferramentas como Accessibility Insights mencionadas anteriormente, existem muitas outras soluções para testes de acessibilidade. A W3C fornece uma lista abrangente de ferramentas de avaliação e teste em seu site em [https://www.w3.org/WAI/ER/tools/](https://www.w3.org/WAI/ER/tools/).
+
+Se você deseja adicionar testes automatizados aos seus Pipelines do Azure, pode considerar a [extensão Accessibility Testing](https://marketplace.visualstudio.com/items?itemName=DrewLewis.Accessibility) criada por Drew Lewis, um ex-funcionário da Microsoft.
+
+É importante lembrar que apenas a automação das ferramentas não é suficiente; certifique-se de complementar seus testes automatizados com testes manuais. O Accessibility Insights (link acima) pode orientar os usuários em algumas etapas de teste manual.
+
+### Fundamentos de Código e Documentação
+
+Antes de começar os testes, você pode fazer algumas pequenas alterações na forma como escreve o código e a documentação.
+
+- Documente! Além da documentação em texto, isso também significa comentários de código, nomes claros de variáveis e arquivos, e saídas de pipeline ou scripts que relatem claramente o sucesso ou a falha e forneçam detalhes.
+- Evite letras minúsculas em nomes de variáveis e arquivos, hashtags, neologismos, etc. Use camelCase, snake_case ou outros métodos de separação de palavras.
+- Introduza abreviações soletrando o termo completo e, em seguida, a abreviação entre parênteses.
+- Use cabeçalhos de forma eficaz para dividir o conteúdo por tópico. Não use mais de um h1 por página e não pule níveis (por exemplo, use um h3 diretamente abaixo de um h1). Evite usar formatação para fazer algo *parecer* um cabeçalho quando não é.
+- Use texto de link descritivo. Evite associar um link a frases como "Leia mais" e certifique-se de que o texto informe diretamente para onde o link aponta. O texto do link deve ser autoexplicativo.
+- Ao incluir imagens ou diagramas, adicione texto alternativo (alt text). Isso nunca deve ser apenas "Imagem" ou "Diagrama" (ou similar). Em sua descrição, destaque o objetivo da imagem ou diagrama na página e o que ele se destina a transmitir.
+- Prefira guias a espaços sempre que possível. Isso permite que os usuários usem sua largura de guia preferida, para que usuários com uma variedade de visões possam visualizar o código facilmente.
+
+## Recursos Adicionais
+
+* [Tecnologia e Ferramentas de Acessibilidade da Microsoft](https://www.microsoft.com/accessibility)
+* [Diretrizes de Conteúdo Web para Acessibilidade (WCAG)](https://www.w3.org/TR/WCAG20/#intro)
+* [Diretrizes e Requisitos de Acessibilidade | Guia de Estilo da Microsoft](https://learn.microsoft.com/en-us/style-guide/accessibility/accessibility-guidelines-requirements)
+* [Guia de Estilo para Desenvolvedores do Google: Escrever Documentação Acessível](https://developers.google.com/style/accessibility)

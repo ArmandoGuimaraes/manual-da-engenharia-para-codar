@@ -1,13 +1,13 @@
-# Merge strategies
+# Estratégias de Mesclagem
 
-Agree if you want a linear or non-linear commit history. There are pros and cons to both approaches:
+Decida se você deseja uma história de commits linear ou não linear. Existem prós e contras para ambas as abordagens:
 
-* Pro linear: [Avoid messy git history, use linear history](https://dev.to/bladesensei/avoid-messy-git-history-3g26)
-* Con linear: [Why you should stop using Git rebase](https://medium.com/@fredrikmorken/why-you-should-stop-using-git-rebase-5552bee4fed1)
+* Pró Linear: [Evite histórico de Git bagunçado, use histórico linear](https://dev.to/bladesensei/avoid-messy-git-history-3g26)
+* Contra Linear: [Por que você deve parar de usar Git rebase](https://medium.com/@fredrikmorken/why-you-should-stop-using-git-rebase-5552bee4fed1)
 
-## Approach for non-linear commit history
+## Abordagem para História de Commits Não Linear
 
-Merging `topic` into `main`
+Mesclando `topic` em `main`
 
 ```md
   A---B---C topic
@@ -19,11 +19,11 @@ git checkout main
 git merge topic
 ```
 
-## Two approaches to achieve a linear commit history
+## Duas abordagens para obter uma história de commits linear
 
-### Rebase topic branch before merging into main
+### Rebase na branch `topic` antes de mesclar com `main`
 
-Before merging `topic` into `main`, we rebase `topic` with the `main` branch:
+Antes de mesclar `topic` em `main`, fazemos um rebase de `topic` com a branch `main`:
 
 ```bash
           A---B---C topic
@@ -36,11 +36,11 @@ git checkout topic
 git rebase origin/main
 ```
 
-Create a PR topic --> main in Azure DevOps and approve using the squash merge option
+Crie um PR `topic` --> `main` no Azure DevOps e aprove usando a opção de mesclagem "squash".
 
-### Rebase topic branch before squash merge into main
+### Rebase na branch `topic` antes de fazer um squash merge com `main`
 
-[Squash merging](https://learn.microsoft.com/en-us/azure/devops/repos/git/merging-with-squash?view=azure-devops) is a merge option that allows you to condense the Git history of topic branches when you complete a pull request. Instead of adding each commit on `topic` to the history of `main`, a squash merge takes all the file changes and adds them to a single new commit on `main`.
+[O merge de squash](https://learn.microsoft.com/en-us/azure/devops/repos/git/merging-with-squash?view=azure-devops) é uma opção de mesclagem que permite condensar o histórico Git das branches de tópicos quando você conclui uma solicitação pull. Em vez de adicionar cada commit em `topic` ao histórico de `main`, um squash merge pega todas as alterações de arquivo e as adiciona a um único novo commit em `main`.
 
 ```bash
           A---B---C topic
@@ -48,4 +48,4 @@ Create a PR topic --> main in Azure DevOps and approve using the squash merge op
 D---E---F-----------G---H main
 ```
 
-Create a PR topic --> main in Azure DevOps and approve using the squash merge option
+Crie um PR `topic` --> `main` no Azure DevOps e aprove usando a opção de mesclagem "squash".

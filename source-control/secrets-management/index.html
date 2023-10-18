@@ -19,7 +19,7 @@
     
     
       
-        <title>Working with Secrets in Source Control - Manual da Engenharia para Codar</title>
+        <title>Trabalhando com Segredosno Source Control - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#working-with-secrets-in-source-control" class="md-skip">
+        <a href="#trabalhando-com-segredosno-source-control" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Working with Secrets in Source Control
+              Trabalhando com Segredosno Source Control
             
           </span>
         </div>
@@ -6930,7 +6930,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Working with Secrets in Source Control
+        Trabalhando com Segredosno Source Control
       </a>
       
     </li>
@@ -7151,21 +7151,21 @@
                 
 
 
-<h1 id="working-with-secrets-in-source-control">Working with Secrets in Source Control</h1>
-<p>The best way to avoid leaking secrets is to store them in local/private files and exclude these from git tracking with a <a href="https://git-scm.com/docs/gitignore">.gitignore</a> file.
-E.g. the following pattern will exclude all files with the extension <code>.private.config</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># remove private configuration</span>
+<h1 id="trabalhando-com-segredosno-source-control">Trabalhando com Segredosno Source Control</h1>
+<p>A melhor maneira de evitar a divulgação de segredos é armazená-los em arquivos locais/privados e excluí-los do rastreamento do git com um arquivo <a href="https://git-scm.com/docs/gitignore">.gitignore</a>.
+Por exemplo, o seguinte padrão irá excluir todos os arquivos com a extensão <code>.private.config</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># remover configurações privadas</span>
 *.private.config
 </code></pre></div>
-<p>For more details on proper management of credentials and secrets in source control, and handling an accidental commit of secrets to source control, please refer to the <a href="../../continuous-delivery/secrets-management/">Secrets Management</a> document which has further information, split by language as well.</p>
-<p>As an extra security measure, apply <a href="../../continuous-integration/dev-sec-ops/secret-management/credential_scanning/">credential scanning</a> in your CI/CD pipeline.</p>
+<p>Para obter mais detalhes sobre o gerenciamento adequado de credenciais e segredos em source controls, e como lidar com a inclusão acidental de segredos no source control, consulte o documento de <a href="../../continuous-delivery/secrets-management/">Gerenciamento de Segredos</a>, que contém informações adicionais, divididas por linguagem.</p>
+<p>Como medida de segurança adicional, aplique a <a href="../../continuous-integration/dev-sec-ops/secret-management/credential_scanning/">verificação de credenciais</a> em seu pipeline de CI/CD.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 6, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
       
     
   </small>

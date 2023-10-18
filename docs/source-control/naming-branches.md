@@ -1,19 +1,19 @@
-# Naming branches
+# Dando nomes para branches
 
-When contributing to existing projects, look for and stick with the agreed branch naming convention. In open source projects this information is typically found in the contributing instructions, often in a file named `CONTRIBUTING.md`.
+Ao contribuir para projetos existentes, é importante buscar e aderir à convenção de nomenclatura de branches acordada. Em projetos de código aberto, essa informação geralmente é encontrada nas instruções de contribuição, muitas vezes em um arquivo chamado `CONTRIBUTING.md`.
 
-In the beginning of a new project the team agrees on the project conventions including the branch naming strategy.
+No início de um novo projeto, a equipe concorda com as convenções do projeto, incluindo a estratégia de nomenclatura de branches.
 
-Here's an example of a branch naming convention:
-
-```plaintext
-<user alias>/[feature/bug/hotfix]/<work item ID>_<title>
-```
-
-Which could translate to something as follows:
+Aqui está um exemplo de uma convenção de nomenclatura de branch:
 
 ```plaintext
-dickinson/feature/271_add_more_cowbell
+<alias do usuário>/[recurso/bug/hotfix]/<ID do item de trabalho>_<título>
 ```
 
-The example above is just that - an example. The team can choose to omit or add parts. Choosing a branch convention can depend on the development model (e.g. [trunk-based development](https://trunkbaseddevelopment.com/)), [versioning](component-versioning.md) model, tools used in managing source control, matter of taste etc. Focus on simplicity and reducing ambiguity; a good branch naming strategy allows the team to understand the purpose and ownership of each branch in the repository.
+Isso pode se traduzir em algo como:
+
+```plaintext
+dickinson/recurso/271_adicionar_mais_cowbell
+```
+
+O exemplo acima é apenas isso - um exemplo. A equipe pode optar por omitir ou adicionar partes. A escolha de uma convenção de nomenclatura de branch pode depender do modelo de desenvolvimento (por exemplo, [desenvolvimento baseado no tronco](https://trunkbaseddevelopment.com/)), modelo de [versionamento](component-versioning.md), ferramentas usadas para gerenciar o controle de código, questões de gosto, etc. Concentre-se na simplicidade e na redução de ambiguidade; uma boa estratégia de nomenclatura de branch permite que a equipe compreenda o propósito e a propriedade de cada branch no repositório.

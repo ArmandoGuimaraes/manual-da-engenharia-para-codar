@@ -1,14 +1,14 @@
-# Using Git LFS and VFS for Git introduction
+# Introdução ao Git LFS e VFS for Git
 
-**Git LFS** and **VFS for Git** are solutions for using Git with (large) binary files and large source trees.
+**Git LFS** e **VFS for Git** são soluções para usar o Git com arquivos binários (grandes) e árvores de código-fonte grandes.
 
 ## Git LFS
 
-Git is very good and keeping track of changes in text-based files like code, but it is not that good at tracking binary files. For instance, if you store a Photoshop image file (PSD) in a repository, with every change, the complete file is stored again in the history. This can make the history of the Git repo very large, which makes a clone of the repository more and more time-consuming.
+O Git é muito bom em rastrear alterações em arquivos baseados em texto, como código, mas não é tão eficaz em rastrear arquivos binários. Por exemplo, se você armazenar um arquivo de imagem do Photoshop (PSD) em um repositório, a cada alteração, o arquivo completo é armazenado novamente no histórico. Isso pode tornar o histórico do repositório Git muito grande, o que torna o clone do repositório cada vez mais demorado.
 
-A solution to work with binary files is using Git LFS (or Git Large File System). This is an extension to Git and must be installed separately, and it can only be used with a repository platform that supports LFS. GitHub.com and Azure DevOps for instance are platforms that have support for LFS.
+Uma solução para trabalhar com arquivos binários é usar o Git LFS (ou Git Large File System). Esta é uma extensão para o Git e deve ser instalada separadamente, e só pode ser usada com uma plataforma de repositório que suporta LFS. GitHub.com e Azure DevOps, por exemplo, são plataformas que têm suporte para LFS.
 
-The way it works in short, is that a placeholder file is stored in the repo with information for the LFS system. It looks something like this:
+A maneira como funciona, em resumo, é que um arquivo de espaço reservado é armazenado no repositório com informações para o sistema LFS. Parece algo assim:
 
 ```shell
 version https://git-lfs.github.com/spec/v1
@@ -16,139 +16,141 @@ oid a747cfbbef63fc0a3f5ffca332ae486ee7bf77c1d1b9b2de02e261ef97d085fe
 size 4923023
 ```
 
-The actual file is stored in a separate storage. This way Git will track changes in this placeholder file, not the large file. The combination of using Git and Git LFS will hide this from the developer though. You will just work with the repository and files as before.
+O arquivo real é armazenado em um armazenamento separado. Dessa forma, o Git rastreará as alterações neste arquivo de espaço reservado, não no arquivo grande. A combinação do uso do Git e do Git LFS ocultará isso do desenvolvedor. Você continuará a trabalhar com o repositório e os arquivos como antes.
 
-When working with these large files yourself, you'll still see the Git history grown on your own machine, as Git will still start tracking these large files locally, but when you clone the repo, the history is actually pretty small. So it's beneficial for others not working directly on the large files.
+Ao trabalhar com esses arquivos grandes por conta própria, você ainda verá o histórico do Git crescer em sua própria máquina, pois o Git ainda começará a rastrear esses arquivos grandes localmente, mas quando você clonar o repositório, o histórico será realmente pequeno. Portanto, é benéfico para outras pessoas que não trabalham diretamente nos arquivos grandes.
 
-### Pros of Git LFS
+### Prós do Git LFS
 
-* Uses the end to end Git workflow for all files
-* Git LFS supports file locking to avoid conflicts for undiffable assets
-* Git LFS is fully supported in Azure DevOps Services
+* Usa o fluxo de trabalho de ponta a ponta do Git para todos os arquivos.
+* Git LFS suporta bloqueio de arquivos para evitar conflitos em ativos indiferenciáveis.
+* Git LFS é totalmente suportado no Azure DevOps Services.
 
-### Cons of Git LFS
+### Contras do Git LFS
 
-* Everyone who contributes to the repository needs to install Git LFS
-* If not set up properly:
-  * Binary files committed through Git LFS are not visible as Git will only download the data describing the large file
-  * Committing large binaries will push the full binary to the repository
-* Git cannot merge the changes from two different versions of a binary file; file locking mitigates this
-* Azure Repos do not support using SSH for repositories with Git LFS tracked files - for more information see the Git LFS [authentication documentation](https://github.com/git-lfs/git-lfs/blob/master/docs/api/authentication.md)
+* Todos que contribuem para o repositório precisam instalar o Git LFS.
+* Se não configurado corretamente:
+  * Arquivos binários enviados pelo Git LFS não são visíveis, pois o Git só baixará os dados que descrevem o arquivo grande.
+  * Enviar binários grandes empurrará o arquivo binário completo para o repositório.
+* O Git não pode mesclar as alterações de duas versões diferentes de um arquivo binário; o bloqueio de arquivos mitiga isso.
+* O Azure Repos não oferece suporte ao uso do SSH para repositórios com arquivos rastreados pelo Git LFS - para obter mais informações, consulte a [documentação de autenticação do Git LFS](https://github.com/git-lfs/git-lfs/blob/master/docs/api/authentication.md).
 
-### Installation and use of Git LFS
+### Instalação e uso do Git LFS
 
-Go to [https://git-lfs.github.com](https://git-lfs.github.com) and download and install the setup from there.
+Acesse [https://git-lfs.github.com](https://git-lfs.github.com) e faça o download e instale o programa a partir de lá.
 
-For every repository you want to use LFS, you have to go through these steps:
+Para cada repositório que você deseja usar o LFS, você precisa seguir estas etapas:
 
-* Setup LFS for the repo:
+* Configurar o LFS para o repositório:
 
 ```shell
 git lfs install
 ```
 
-* Indicate which files have to be considered as large files (or binary files). As an example, to consider all Photoshop files to be large:
+* Indicar quais arquivos devem ser considerados como arquivos grandes (ou arquivos binários). Como exemplo, para considerar todos os arquivos do Photoshop como grandes:
 
 ```shell
 git lfs track "*.psd"
 ```
 
-There are more fine-grained ways to indicate files in a folder and more. See the [Git LFS Documentation](https://github.com/git-lfs/git-lfs/tree/master/docs?utm_source=gitlfs_site&utm_medium=docs_link&utm_campaign=gitlfs).
+Existem maneiras mais refinadas de indicar arquivos em uma pasta e mais. Consulte a [Documentação do Git LFS](https://github.com/git-lfs/git-lfs/tree/master/docs?utm_source=gitlfs_site&utm_medium=docs_link&utm_campaign=gitlfs) para mais informações.
 
-With these commands a `.gitattribute` file is created which contains these settings and must be part of the repository.
+Com esses comandos, um arquivo `.gitattribute` é criado, que contém essas configurações e deve fazer parte do repositório.
 
-From here on you just use the standard Git commands to work in the repository. The rest will be handled by Git and Git LFS.
+A partir daqui, você usa os comandos Git padrão para trabalhar no repositório. O resto será tratado pelo Git e Git LFS.
 
-### Common LFS commands
+### Comandos Comuns do LFS
 
-Install Git LFS
+Instalar o Git LFS
 
 ```bash
 git lfs install       # windows
 sudo apt-get git-lfs  # linux
 ```
 
-See the [Git LFS installation instructions](https://github.com/git-lfs/git-lfs/wiki/Installation) for installation on other systems
+Veja as [instruções de instalação do Git LFS](https://github.com/git-lfs/git-lfs/wiki/Installation) para a instalação em outros sistemas.
 
-Track .mp4 files with Git LFS
+Rastrear arquivos .mp4 com o Git LFS
 
 ```bash
 git lfs track '*.mp4'
 ```
 
-Update the `.gitattributes` file listing the files and patterns to track
+Atualizar o arquivo `.gitattributes` listando os arquivos e padrões a serem rastreados
 
 ```bash
 *.mp4 filter=lfs diff=lfs merge=lfs -text
 docs/images/* filter=lfs diff=lfs merge=lfs -text
 ```
 
-List all patterns tracked
+Listar todos os padrões rastreados
 
 ```bash
 git lfs track
 ```
 
-List all files tracked
+Listar todos os arquivos rastreados
 
 ```bash
 git lfs ls-files
 ```
 
-Download files to your working directory
+Baixar arquivos para o seu diretório de trabalho
 
 ```bash
 git lfs pull
-git lfs pull --include="path/to/file"
+git lfs pull --include="caminho/para/arquivo"
 ```
 
 ## VFS for Git
 
-Imagine a large repository containing multiple projects, ex. one per feature. As a developer you may only be working on some features, and thus you don't want to download all the projects in the repo. By default, with Git however, cloning the repository means you will download *all* files/projects.
+Imagine um repositório grande contendo vários projetos, por exemplo, um por recurso. Como desenvolvedor, você pode estar trabalhando apenas em alguns recursos e, portanto, não deseja baixar todos os projetos do repositório. Por padrão, com o Git, no entanto, clonar o repositório significa que você baixará *todos* os arquivos/projetos.
 
-VFS for Git (or Virtual File System for Git) solves this problem, as it will only download what you need to your local machine, but if you look in the file system, e.g. with Windows Explorer, it will show all the folders and files including the correct file sizes.
+O VFS for Git (ou Virtual File System for Git) resolve esse problema, pois baixará apenas o que você precisa para sua máquina local, mas se você olhar no sistema de arquivos, por exemplo, com o Windows Explorer, ele mostrará todas as pastas e arquivos, incluindo os tamanhos de arquivo corretos.
 
-The Git platform must support GVFS to make this work. GitHub.com and Azure DevOps both support this out of the box.
+A plataforma Git deve oferecer suporte ao GVFS para que isso funcione. GitHub.com e Azure DevOps oferecem suporte a isso nativamente.
 
-### Installation and use of VFS for Git
+### Instalação e uso do VFS for Git
 
-Microsoft create VFS for Git and made it open source. It can be found at [https://github.com/microsoft/VFSForGit](https://github.com/microsoft/VFSForGit). It's only available for Windows.
+A Microsoft criou o VFS for Git e o tornou de código aberto. Ele pode ser encontrado em
 
-The necessary installers can be found at [https://github.com/Microsoft/VFSForGit/releases](https://github.com/Microsoft/VFSForGit/releases)
+ [https://github.com/microsoft/VFSForGit](https://github.com/microsoft/VFSForGit). Está disponível apenas para Windows.
 
-On the releases page you'll find two important downloads:
+Os instaladores necessários podem ser encontrados em [https://github.com/Microsoft/VFSForGit/releases](https://github.com/Microsoft/VFSForGit/releases).
 
-* Git 2.28.0.0 installer, which is a requirement for running VFS for Git. This is not the same as the standard Git for Windows install!
-* SetupGVFS installer.
+Na página de lançamentos, você encontrará dois downloads importantes:
 
-Download those files and install them on your machine.
+* Instalador do Git 2.28.0.0, que é um requisito para executar o VFS for Git. Isso não é o mesmo que a instalação padrão do Git para Windows!
+* Instalador SetupGVFS.
 
-To be able to use VFS for Git for a repository, a `.gitattributes` file needs to be added to the repo with this line in it:
+Baixe esses arquivos e instale-os em sua máquina.
+
+Para usar o VFS for Git em um repositório, um arquivo `.gitattributes` precisa ser adicionado ao repositório com esta linha:
 
 ```shell
 * -text
 ```
 
-To clone a repository to your machine using VFS for Git you use `gvfs` instead of `git` like so:
+Para clonar um repositório em sua máquina usando o VFS for Git, use `gvfs` em vez de `git`, assim:
 
 ```shell
 gvfs clone [URL] [dir]
 ```
 
-Once this is done, you have a folder which contains a `src` folder which contains the contents of the repository. This is done because of a practice to put all outputs of build systems outside this tree. This makes it easier to manage `.gitignore` files and to keep Git performant with lots of files.
+Depois disso, você terá uma pasta que contém uma pasta `src` que contém o conteúdo do repositório. Isso é feito por uma prática de colocar todas as saídas dos sistemas de construção fora desta árvore. Isso facilita o gerenciamento de arquivos `.gitignore` e mantém o Git eficiente com muitos arquivos.
 
-For working with the repository you just use Git commands as before.
+Para trabalhar com o repositório, basta usar os comandos Git como antes.
 
-To remove a VFS for Git repository from your machine, make sure the VFS process is stopped and execute this command from the main folder:
+Para remover um repositório VFS for Git de sua máquina, certifique-se de que o processo VFS esteja parado e execute este comando na pasta principal:
 
 ```shell
 gvfs unmount
 ```
 
-This will stop the process and unregister it, after that you can safely remove the folder.
+Isso interromperá o processo e o desregistrará; depois disso, você pode remover com segurança a pasta.
 
-### References
+### Referências
 
-* [Git LFS getting started](https://git-lfs.github.com/)
-* [Git LFS manual](https://github.com/git-lfs/git-lfs/tree/master/docs)
-* [Git LFS on Azure Repos](https://learn.microsoft.com/en-us/azure/devops/repos/git/manage-large-files?view=azure-devops)
+* [Primeiros passos com o Git LFS](https://git-lfs.github.com/)
+* [Manual do Git LFS](https://github.com/git-lfs/git-lfs/tree/master/docs)
+* [Git LFS no Azure Repos](https://learn.microsoft.com/en-us/azure/devops/repos/git/manage-large-files?view=azure-devops)

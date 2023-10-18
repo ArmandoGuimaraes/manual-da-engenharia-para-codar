@@ -1,27 +1,27 @@
-# Threat Modeling
+# Modelagem de Ameaças
 
-Threat modeling is an effective way to help secure your systems, applications, networks, and services. It's a systematic approach that identifies potential threats and recommendations to help reduce risk and meet security objectives earlier in the development lifecycle.
+A modelagem de ameaças é uma maneira eficaz de ajudar a proteger seus sistemas, aplicativos, redes e serviços. É uma abordagem sistemática que identifica ameaças potenciais e recomendações para reduzir o risco e atender a objetivos de segurança mais cedo no ciclo de vida do desenvolvimento.
 
-## Threat Modeling Phases
+## Fases da Modelagem de Ameaças
 
-1. *Diagram*  
-    Capture all requirements for your system and create a data-flow diagram
-2. *Identify*  
-    Apply a threat-modeling framework to the data-flow diagram and find potential security issues. Here we can use [STRIDE framework](https://learn.microsoft.com/en-us/training/modules/tm-use-a-framework-to-identify-threats-and-find-ways-to-reduce-or-eliminate-risk/1b-threat-modeling-framework) to identify the threats.  
-3. *Mitigate*  
-    Decide how to approach each issue with the appropriate combination of security controls.  
-4. *Validate*  
-    Verify requirements are met, issues are found, and security controls are implemented.
+1. *Diagrama*  
+   Capture todos os requisitos para o seu sistema e crie um diagrama de fluxo de dados.
+2. *Identificar*  
+   Aplique um framework de modelagem de ameaças ao diagrama de fluxo de dados e identifique possíveis problemas de segurança. Aqui, podemos usar o [framework STRIDE](https://learn.microsoft.com/pt-br/training/modules/tm-use-a-framework-to-identify-threats-and-find-ways-to-reduce-or-eliminate-risk/1b-threat-modeling-framework) para identificar as ameaças.
+3. *Mitigar*  
+   Decida como abordar cada problema com a combinação apropriada de controles de segurança.
+4. *Validar*  
+   Verifique se os requisitos são atendidos, se os problemas são encontrados e se os controles de segurança são implementados.
 
-Example of these phases is covered in the [threat modelling example.](./threat-modelling-example.md)  
-More details about these phases can be found at [Threat Modeling Security Fundamentals.](https://learn.microsoft.com/en-us/training/paths/tm-threat-modeling-fundamentals/)
+Um exemplo dessas fases é coberto no [exemplo de modelagem de ameaças](./threat-modelling-example.md).  
+Mais detalhes sobre essas fases podem ser encontrados em [Fundamentos de Segurança da Modelagem de Ameaças](https://learn.microsoft.com/pt-br/training/paths/tm-threat-modeling-fundamentals/).
 
-## Threat Modeling Example
+## Exemplo de Modelagem de Ameaças
 
-   [Here is an example](./threat-modelling-example.md) of a threat modeling document which talks about the architecture and different phases involved in the threat modeling. This document can be used as reference template for creating threat modeling documents.
+[Aqui está um exemplo](./threat-modelling-example.md) de um documento de modelagem de ameaças que aborda a arquitetura e as diferentes fases envolvidas na modelagem de ameaças. Este documento pode ser usado como modelo de referência para criar documentos de modelagem de ameaças.
 
-## References
+## Referências
 
-* [Threat Modeling](https://www.microsoft.com/en-us/securityengineering/sdl/threatmodeling)
-* [Microsoft Threat Modeling Tool](https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool)
-* [STRIDE (Threat modeling framework)](https://learn.microsoft.com/en-us/training/modules/tm-use-a-framework-to-identify-threats-and-find-ways-to-reduce-or-eliminate-risk/1b-threat-modeling-framework)
+* [Modelagem de Ameaças](https://www.microsoft.com/pt-br/securityengineering/sdl/threatmodeling)
+* [Ferramenta de Modelagem de Ameaças da Microsoft](https://learn.microsoft.com/pt-br/azure/security/develop/threat-modeling-tool)
+* [STRIDE (Framework de modelagem de ameaças)](https://learn.microsoft.com/pt-br/training/modules/tm-use-a-framework-to-identify-threats-and-find-ways-to-reduce-or-eliminate-risk/1b-threat-modeling-framework)

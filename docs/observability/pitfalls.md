@@ -1,23 +1,23 @@
-# Things to Watch for when Building Observable Systems
+# Coisas a Observar ao Construir Sistemas Observáveis
 
-## Observability as an afterthought
+## Observabilidade como Pensamento Tardio
 
-One of the design goals when building a system should be to enable monitoring of the system. This helps planning and thinking application availability, logging and metrics at the time of design and development. Observability also acts as a great debugging tool providing developers a bird's eye view of the system. By leaving instrumentation and logging of metrics towards the end, the development teams lose valuable insights during development.
+Um dos objetivos de design ao construir um sistema deve ser possibilitar o monitoramento do sistema. Isso ajuda no planejamento e na consideração da disponibilidade da aplicação, do registro de eventos e das métricas no momento do design e desenvolvimento. A observabilidade também atua como uma ótima ferramenta de depuração, fornecendo aos desenvolvedores uma visão geral do sistema. Ao deixar a instrumentação e o registro de métricas para o final, as equipes de desenvolvimento perdem informações valiosas durante o desenvolvimento.
 
-## Metric Fatigue
+## Fadiga de Métricas
 
-1. It is recommended to collect and measure *what you need* **and** *not what you can*. Don't attempt to monitor everything.
-2. If the data is not actionable, it is useless and becomes noise. On the contrary, it is sometimes very difficult to forecast every possible scenario that could go wrong.
-3. There must be a balance between collecting what is needed vs. logging every single activity in the system. A general rule of thumb is to follow these principles
+1. É recomendável coletar e medir *o que você precisa* **e** *não o que você pode*. Não tente monitorar tudo.
+2. Se os dados não forem acionáveis, eles são inúteis e se tornam ruído. Por outro lado, às vezes é muito difícil prever todos os cenários possíveis que podem dar errado.
+3. Deve haver um equilíbrio entre coletar o que é necessário e registrar todas as atividades no sistema. Uma regra geral é seguir esses princípios:
 
-   - rules that catch incidents must be simple, relevant and reliable
-   - any data that is collected but not aggregated or alerted on must be reviewed if it is still required.
+   - regras que identificam incidentes devem ser simples, relevantes e confiáveis
+   - qualquer dado que seja coletado, mas não agregado ou não gerou alertas, deve ser revisado para verificar se ainda é necessário.
 
-## Context
+## Contexto
 
-All data logged must contain rich context, which is useful for getting an overall view of the system and easy to trace back errors/failures during troubleshooting. While logging data, care must also be taken to avoid data silos.
+Todos os dados registrados devem conter um contexto rico, que seja útil para obter uma visão geral do sistema e fácil de rastrear erros/falhas durante a solução de problemas. Ao registrar dados, também é importante evitar a criação de silos de dados.
 
-## Personally Identifiable Information
+## Informações Pessoais Identificáveis
 
-As a general rule, do not log any customer sensitive and Personal Identifiable Information (PII). Ensure any pertinent privacy regulations are followed regarding PII (Ex: GDPR etc.)
-Read more [here](logs-privacy.md) on how to keep sensitive data out of logs.
+Como regra geral, não registre nenhuma informação sensível do cliente e informações pessoais identificáveis (PII). Certifique-se de seguir as regulamentações de privacidade pertinentes em relação à PII (Ex: GDPR etc.)
+Leia mais [aqui](logs-privacy.md) sobre como manter dados sensíveis fora dos registros.

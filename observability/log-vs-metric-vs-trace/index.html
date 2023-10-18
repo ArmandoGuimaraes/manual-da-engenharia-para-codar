@@ -19,7 +19,7 @@
     
     
       
-        <title>Logs vs Metrics vs Traces - Manual da Engenharia para Codar</title>
+        <title>Logs vs. Metrics vs. Traces - Manual da Engenharia para Codar</title>
       
     
     
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Logs vs Metrics vs Traces
+              Logs vs. Metrics vs. Traces
             
           </span>
         </div>
@@ -6159,12 +6159,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Logs vs Metrics vs Traces
+          Logs vs. Metrics vs. Traces
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Logs vs Metrics vs Traces
+        Logs vs. Metrics vs. Traces
       </a>
       
         
@@ -6183,30 +6183,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
+  <a href="#visao-geral" class="md-nav__link">
+    Visão Geral
   </a>
   
-    <nav class="md-nav" aria-label="Overview">
+    <nav class="md-nav" aria-label="Visão Geral">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#metrics" class="md-nav__link">
-    Metrics
+  <a href="#metricas" class="md-nav__link">
+    Métricas
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#logs" class="md-nav__link">
-    Logs
+  <a href="#registros-logs" class="md-nav__link">
+    Registros (Logs)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#traces" class="md-nav__link">
-    Traces
+  <a href="#rastreamentos-traces" class="md-nav__link">
+    Rastreamentos (Traces)
   </a>
   
 </li>
@@ -6217,8 +6217,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#usage-guidance" class="md-nav__link">
-    Usage Guidance
+  <a href="#orientacoes-de-uso" class="md-nav__link">
+    Orientações de Uso
   </a>
   
 </li>
@@ -7211,30 +7211,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
+  <a href="#visao-geral" class="md-nav__link">
+    Visão Geral
   </a>
   
-    <nav class="md-nav" aria-label="Overview">
+    <nav class="md-nav" aria-label="Visão Geral">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#metrics" class="md-nav__link">
-    Metrics
+  <a href="#metricas" class="md-nav__link">
+    Métricas
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#logs" class="md-nav__link">
-    Logs
+  <a href="#registros-logs" class="md-nav__link">
+    Registros (Logs)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#traces" class="md-nav__link">
-    Traces
+  <a href="#rastreamentos-traces" class="md-nav__link">
+    Rastreamentos (Traces)
   </a>
   
 </li>
@@ -7245,8 +7245,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#usage-guidance" class="md-nav__link">
-    Usage Guidance
+  <a href="#orientacoes-de-uso" class="md-nav__link">
+    Orientações de Uso
   </a>
   
 </li>
@@ -7265,30 +7265,30 @@
                 
 
 
-<h1 id="logs-vs-metrics-vs-traces">Logs vs Metrics vs Traces</h1>
-<p><img alt="Signals" src="../images/signals.png" /></p>
-<h2 id="overview">Overview</h2>
-<h3 id="metrics">Metrics</h3>
-<p>The purpose of metrics is to inform observers about the health &amp; operations regarding a component or system. A metric represents a point in time measure of a particular source, and data-wise tends to be very small. The compact size allows for efficient collection even at scale in large systems. Metrics also lend themselves very well to pre-aggregation within the component before collection, reducing computation cost for processing &amp; storing large numbers of metric time series in a central system. Due to how efficiently metrics are processed &amp; stored, it lends itself very well for use in automated alerting, as metrics are an excellent source for the health data for all components in the system.</p>
-<h3 id="logs">Logs</h3>
-<p>Log data inform observers about the discrete events that occurred within a component or a set of components. Just about every software component log information about its activities over time. This rich data tends to be much larger than metric data and can cause processing issues, especially if components are logging too verbosely. Therefore, using log data to understand the health of an extensive system tends to be avoided and depends on metrics for that data. Once metric telemetry highlights potential problem sources, filtered log data for those sources can be used to understand what occurred.</p>
-<h3 id="traces">Traces</h3>
-<p>Where logging provides an overview to a discrete, event-triggered log, tracing encompasses a much wider, continuous view of an application. The goal of tracing is to following a program’s flow and data progression.</p>
-<p>In many instances, tracing represents a single user’s journey through an entire app stack. Its purpose isn’t reactive, but instead focused on optimization. By tracing through a stack, developers can identify bottlenecks and focus on improving performance.</p>
-<p>A distributed trace is defined as a collection of spans. A span is the smallest unit in a trace and represents a piece of the workflow in a distributed landscape. It can be an HTTP request, call to a database, or execution of a message from a queue.</p>
-<p>When a problem does occur, tracing allows you to see how you got there:</p>
+<h1 id="logs-vs-metrics-vs-traces">Logs vs. Metrics vs. Traces</h1>
+<p><img alt="Sinais" src="../images/signals.png" /></p>
+<h2 id="visao-geral">Visão Geral</h2>
+<h3 id="metricas">Métricas</h3>
+<p>O objetivo das métricas é informar observadores sobre a saúde e as operações de um componente ou sistema. Uma métrica representa uma medida pontual em um determinado momento de uma fonte específica e, em termos de dados, tende a ser muito pequena. O tamanho compacto permite a coleta eficiente, mesmo em sistemas grandes em escala. As métricas também se prestam muito bem à pré-agregação dentro do componente antes da coleta, reduzindo o custo computacional para o processamento e armazenamento de um grande número de séries temporais de métricas em um sistema central. Devido à eficiência no processamento e armazenamento de métricas, elas são uma excelente fonte de dados de saúde para todos os componentes no sistema e são muito adequadas para uso em alertas automatizados.</p>
+<h3 id="registros-logs">Registros (Logs)</h3>
+<p>Os dados de registro informam os observadores sobre os eventos discretos que ocorreram dentro de um componente ou conjunto de componentes. Quase todos os componentes de software registram informações sobre suas atividades ao longo do tempo. Esses dados ricos costumam ser muito maiores do que os dados métricos e podem causar problemas de processamento, especialmente se os componentes estiverem registrando informações em excesso. Portanto, o uso de dados de registro para entender a saúde de um sistema extenso tende a ser evitado e depende das métricas para esses dados. Uma vez que a telemetria de métricas destaca possíveis fontes de problemas, os dados de registro filtrados para essas fontes podem ser usados para entender o que ocorreu.</p>
+<h3 id="rastreamentos-traces">Rastreamentos (Traces)</h3>
+<p>Onde o registro fornece uma visão geral de um registro discreto acionado por eventos, o rastreamento abrange uma visão muito mais ampla e contínua de uma aplicação. O objetivo do rastreamento é seguir o fluxo de um programa e a progressão dos dados.</p>
+<p>Em muitas instâncias, o rastreamento representa a jornada de um único usuário por todo o conjunto de aplicativos. Seu objetivo não é reativo, mas sim focado na otimização. Ao rastrear um conjunto, os desenvolvedores podem identificar gargalos e focar na melhoria do desempenho.</p>
+<p>Um rastreamento distribuído é definido como uma coleção de spans (trechos). Um span é a menor unidade em um rastreamento e representa uma parte do fluxo de trabalho em um cenário distribuído. Pode ser uma solicitação HTTP, uma chamada a um banco de dados ou a execução de uma mensagem de uma fila.</p>
+<p>Quando ocorre um problema, o rastreamento permite ver como você chegou lá:</p>
 <ul>
-<li>Which function.</li>
-<li>The function’s duration.</li>
-<li>Parameters passed.</li>
-<li>How deep into the function the user could get.</li>
+<li>Qual função.</li>
+<li>A duração da função.</li>
+<li>Parâmetros passados.</li>
+<li>Até que ponto o usuário pode entrar na função.</li>
 </ul>
-<h2 id="usage-guidance">Usage Guidance</h2>
-<p>When to use metric or log data to track a particular piece of telemetry can be summarized with the following points:</p>
+<h2 id="orientacoes-de-uso">Orientações de Uso</h2>
+<p>Quando usar dados métricos ou de registro para rastrear uma telemetria específica pode ser resumido nos seguintes pontos:</p>
 <ul>
-<li>Use metrics to track the occurrence of an event, counting of items, the time taken to perform an action or to report the current value of a resource (CPU, memory, etc.)</li>
-<li>Use logs to track detailed information about an event also monitored by a metric, particularly errors, warnings or other exceptional situations.</li>
-<li>A trace provides visibility into how a request is processed across multiple services in a microservices environment. Every trace needs to have a unique identifier associated with it.</li>
+<li>Use métricas para rastrear a ocorrência de um evento, contagem de itens, o tempo necessário para realizar uma ação ou para relatar o valor atual de um recurso (CPU, memória, etc.).</li>
+<li>Use registros para rastrear informações detalhadas sobre um evento também monitorado por uma métrica, especialmente erros, avisos ou outras situações excepcionais.</li>
+<li>Um rastreamento fornece visibilidade sobre como uma solicitação é processada por vários serviços em um ambiente de microsserviços. Cada rastreamento precisa ter um identificador único associado a ele.</li>
 </ul>
 
   <hr>
@@ -7296,7 +7296,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 19, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
       
     
   </small>

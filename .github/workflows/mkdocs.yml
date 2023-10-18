@@ -1,5 +1,5 @@
 ---
-name: Build and deploy mkdocs to https://microsoft.github.io/code-with-engineering-playbook
+name: Build and deploy mkdocs to https://armandoguimaraes.github.io/manual-da-engenharia-para-codar/
 on:
   push:
     branches:

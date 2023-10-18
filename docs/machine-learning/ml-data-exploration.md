@@ -1,6 +1,6 @@
 # Exploração de Dados
 
-Após a [concepção](./ml-formulacao-problema-concepcao.md) e tipicamente como parte do [estudo de viabilidade de ML](./ml-estudo-viabilidade.md), o próximo passo é confirmar o acesso aos recursos e, em seguida, mergulhar profundamente nos dados disponíveis por meio de workshops de exploração de dados.
+Após a [concepção](./ml-problem-formulation-envisioning.md) e tipicamente como parte do [estudo de viabilidade de ML](./ml-feasibility-study.md), o próximo passo é confirmar o acesso aos recursos e, em seguida, mergulhar profundamente nos dados disponíveis por meio de workshops de exploração de dados.
 
 ## Objetivo do Workshop de Exploração de Dados
 

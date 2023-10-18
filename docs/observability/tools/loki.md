@@ -1,38 +1,26 @@
 # Loki
 
-Loki is a horizontally-scalable, highly-available, multi-tenant log aggregation system, created by Grafana
-Labs inspired by the learnings from Prometheus. Loki is commonly referred as 'Prometheus, but for logs', which
-makes total sense. Both tools follow the same architecture, which is an agent collecting metrics in each
-of the components of the software system, a server which stores the logs and also the Grafana dashboard, which
-access the loki server to build its visualizations and queries. That being said, Loki has three main
-components:
+O Loki é um sistema de agregação de logs horizontalmente escalável, altamente disponível e multi-inquilino, criado pela Grafana Labs, inspirado nas lições aprendidas com o Prometheus. O Loki é comumente chamado de 'Prometheus, mas para logs', o que faz todo sentido. Ambas as ferramentas seguem a mesma arquitetura, que consiste em um agente coletando métricas em cada um dos componentes do sistema de software, um servidor que armazena os logs e também o painel Grafana, que acessa o servidor Loki para criar suas visualizações e consultas. Dito isso, o Loki possui três componentes principais:
 
 ## Promtail
 
-It is the agent portion of Loki. It can be used to grab logs from several places, like var/log/ for
-example. The configuration of the Promtail is a yaml file called `config-promtail.yml`. In this file, its described all the paths and log sources that will be
-aggregated on Loki Server.
+É a parte do agente do Loki. Pode ser usado para capturar logs de vários lugares, como `/var/log/`, por exemplo. A configuração do Promtail é um arquivo YAML chamado `config-promtail.yml`. Neste arquivo, são descaminhados todos os caminhos e fontes de log que serão agregados no servidor Loki.
 
-## Loki Server
+## Servidor Loki
 
-Loki Server is responsible for receiving and storing all the logs received from all the different systems. The Loki Server is also
-responsible for the queries done on Grafana, for example.
+O servidor Loki é responsável por receber e armazenar todos os logs recebidos de todos os sistemas diferentes. O servidor Loki também é responsável pelas consultas feitas no Grafana, por exemplo.
 
-## Grafana Dashboards
+## Painéis do Grafana
 
-Grafana Dashboards are responsible for creating the visualizations and performing queries. After all, it will
-be a web page that people with the right access can log into to see, query and create alerts for the aggregated
-logs.
+Os painéis do Grafana são responsáveis por criar as visualizações e realizar consultas. Afinal, será uma página da web na qual as pessoas com o acesso correto podem fazer login para ver, consultar e criar alertas para os logs agregados.
 
-## Why use Loki
+## Por que usar o Loki
 
-The main reason to use Loki instead of other log aggregation tools, is that Loki optimizes the necessary
-storage. It does that by following the same pattern as prometheus, which index the labels and make chunks
-of the log itself, using less space than just storing the raw logs.
+A principal razão para usar o Loki em vez de outras ferramentas de agregação de logs é que o Loki otimiza o armazenamento necessário. Ele faz isso seguindo o mesmo padrão do Prometheus, que indexa as etiquetas e cria fragmentos do próprio log, usando menos espaço do que simplesmente armazenar os logs brutos.
 
-## References
+## Referências
 
-- [Loki Official Site](https://grafana.com/oss/loki/)
-- [Inserting logs into Loki](https://grafana.com/docs/loki/latest/getting-started/get-logs-into-loki/)
-- [Adding Loki Source to Grafana](https://grafana.com/docs/grafana/latest/datasources/loki/#adding-the-data-source)
-- [Loki Best Practices](https://grafana.com/docs/loki/latest/best-practices/)
+- [Site Oficial do Loki](https://grafana.com/oss/loki/)
+- [Inserindo logs no Loki](https://grafana.com/docs/loki/latest/getting-started/get-logs-into-loki/)
+- [Adicionando uma fonte do Loki ao Grafana](https://grafana.com/docs/grafana/latest/datasources/loki/#adding-the-data-source)
+- [Melhores Práticas do Loki](https://grafana.com/docs/loki/latest/best-practices/)

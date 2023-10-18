@@ -19,7 +19,7 @@
     
     
       
-        <title>Merge strategies - Manual da Engenharia para Codar</title>
+        <title>Estratégias de Mesclagem - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#merge-strategies" class="md-skip">
+        <a href="#estrategias-de-mesclagem" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Merge strategies
+              Estratégias de Mesclagem
             
           </span>
         </div>
@@ -6902,12 +6902,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Merge strategies
+          Estratégias de Mesclagem
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Merge strategies
+        Estratégias de Mesclagem
       </a>
       
         
@@ -6926,30 +6926,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#approach-for-non-linear-commit-history" class="md-nav__link">
-    Approach for non-linear commit history
+  <a href="#abordagem-para-historia-de-commits-nao-linear" class="md-nav__link">
+    Abordagem para História de Commits Não Linear
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#two-approaches-to-achieve-a-linear-commit-history" class="md-nav__link">
-    Two approaches to achieve a linear commit history
+  <a href="#duas-abordagens-para-obter-uma-historia-de-commits-linear" class="md-nav__link">
+    Duas abordagens para obter uma história de commits linear
   </a>
   
-    <nav class="md-nav" aria-label="Two approaches to achieve a linear commit history">
+    <nav class="md-nav" aria-label="Duas abordagens para obter uma história de commits linear">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rebase-topic-branch-before-merging-into-main" class="md-nav__link">
-    Rebase topic branch before merging into main
+  <a href="#rebase-na-branch-topic-antes-de-mesclar-com-main" class="md-nav__link">
+    Rebase na branch topic antes de mesclar com main
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#rebase-topic-branch-before-squash-merge-into-main" class="md-nav__link">
-    Rebase topic branch before squash merge into main
+  <a href="#rebase-na-branch-topic-antes-de-fazer-um-squash-merge-com-main" class="md-nav__link">
+    Rebase na branch topic antes de fazer um squash merge com main
   </a>
   
 </li>
@@ -7204,30 +7204,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#approach-for-non-linear-commit-history" class="md-nav__link">
-    Approach for non-linear commit history
+  <a href="#abordagem-para-historia-de-commits-nao-linear" class="md-nav__link">
+    Abordagem para História de Commits Não Linear
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#two-approaches-to-achieve-a-linear-commit-history" class="md-nav__link">
-    Two approaches to achieve a linear commit history
+  <a href="#duas-abordagens-para-obter-uma-historia-de-commits-linear" class="md-nav__link">
+    Duas abordagens para obter uma história de commits linear
   </a>
   
-    <nav class="md-nav" aria-label="Two approaches to achieve a linear commit history">
+    <nav class="md-nav" aria-label="Duas abordagens para obter uma história de commits linear">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rebase-topic-branch-before-merging-into-main" class="md-nav__link">
-    Rebase topic branch before merging into main
+  <a href="#rebase-na-branch-topic-antes-de-mesclar-com-main" class="md-nav__link">
+    Rebase na branch topic antes de mesclar com main
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#rebase-topic-branch-before-squash-merge-into-main" class="md-nav__link">
-    Rebase topic branch before squash merge into main
+  <a href="#rebase-na-branch-topic-antes-de-fazer-um-squash-merge-com-main" class="md-nav__link">
+    Rebase na branch topic antes de fazer um squash merge com main
   </a>
   
 </li>
@@ -7251,14 +7251,14 @@
                 
 
 
-<h1 id="merge-strategies">Merge strategies</h1>
-<p>Agree if you want a linear or non-linear commit history. There are pros and cons to both approaches:</p>
+<h1 id="estrategias-de-mesclagem">Estratégias de Mesclagem</h1>
+<p>Decida se você deseja uma história de commits linear ou não linear. Existem prós e contras para ambas as abordagens:</p>
 <ul>
-<li>Pro linear: <a href="https://dev.to/bladesensei/avoid-messy-git-history-3g26">Avoid messy git history, use linear history</a></li>
-<li>Con linear: <a href="https://medium.com/@fredrikmorken/why-you-should-stop-using-git-rebase-5552bee4fed1">Why you should stop using Git rebase</a></li>
+<li>Pró Linear: <a href="https://dev.to/bladesensei/avoid-messy-git-history-3g26">Evite histórico de Git bagunçado, use histórico linear</a></li>
+<li>Contra Linear: <a href="https://medium.com/@fredrikmorken/why-you-should-stop-using-git-rebase-5552bee4fed1">Por que você deve parar de usar Git rebase</a></li>
 </ul>
-<h2 id="approach-for-non-linear-commit-history">Approach for non-linear commit history</h2>
-<p>Merging <code>topic</code> into <code>main</code></p>
+<h2 id="abordagem-para-historia-de-commits-nao-linear">Abordagem para História de Commits Não Linear</h2>
+<p>Mesclando <code>topic</code> em <code>main</code></p>
 <div class="highlight"><pre><span></span><code>  A---B---C topic
  /         \
 D---E---F---G---H main
@@ -7267,9 +7267,9 @@ git fetch origin
 git checkout main
 git merge topic
 </code></pre></div>
-<h2 id="two-approaches-to-achieve-a-linear-commit-history">Two approaches to achieve a linear commit history</h2>
-<h3 id="rebase-topic-branch-before-merging-into-main">Rebase topic branch before merging into main</h3>
-<p>Before merging <code>topic</code> into <code>main</code>, we rebase <code>topic</code> with the <code>main</code> branch:</p>
+<h2 id="duas-abordagens-para-obter-uma-historia-de-commits-linear">Duas abordagens para obter uma história de commits linear</h2>
+<h3 id="rebase-na-branch-topic-antes-de-mesclar-com-main">Rebase na branch <code>topic</code> antes de mesclar com <code>main</code></h3>
+<p>Antes de mesclar <code>topic</code> em <code>main</code>, fazemos um rebase de <code>topic</code> com a branch <code>main</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="w">          </span>A---B---C<span class="w"> </span>topic
 <span class="w">         </span>/<span class="w">         </span><span class="se">\</span>
 D---E---F-----------G---H<span class="w"> </span>main
@@ -7279,21 +7279,21 @@ git<span class="w"> </span>pull
 git<span class="w"> </span>checkout<span class="w"> </span>topic
 git<span class="w"> </span>rebase<span class="w"> </span>origin/main
 </code></pre></div>
-<p>Create a PR topic --&gt; main in Azure DevOps and approve using the squash merge option</p>
-<h3 id="rebase-topic-branch-before-squash-merge-into-main">Rebase topic branch before squash merge into main</h3>
-<p><a href="https://learn.microsoft.com/en-us/azure/devops/repos/git/merging-with-squash?view=azure-devops">Squash merging</a> is a merge option that allows you to condense the Git history of topic branches when you complete a pull request. Instead of adding each commit on <code>topic</code> to the history of <code>main</code>, a squash merge takes all the file changes and adds them to a single new commit on <code>main</code>.</p>
+<p>Crie um PR <code>topic</code> --&gt; <code>main</code> no Azure DevOps e aprove usando a opção de mesclagem "squash".</p>
+<h3 id="rebase-na-branch-topic-antes-de-fazer-um-squash-merge-com-main">Rebase na branch <code>topic</code> antes de fazer um squash merge com <code>main</code></h3>
+<p><a href="https://learn.microsoft.com/en-us/azure/devops/repos/git/merging-with-squash?view=azure-devops">O merge de squash</a> é uma opção de mesclagem que permite condensar o histórico Git das branches de tópicos quando você conclui uma solicitação pull. Em vez de adicionar cada commit em <code>topic</code> ao histórico de <code>main</code>, um squash merge pega todas as alterações de arquivo e as adiciona a um único novo commit em <code>main</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="w">          </span>A---B---C<span class="w"> </span>topic
 <span class="w">         </span>/
 D---E---F-----------G---H<span class="w"> </span>main
 </code></pre></div>
-<p>Create a PR topic --&gt; main in Azure DevOps and approve using the squash merge option</p>
+<p>Crie um PR <code>topic</code> --&gt; <code>main</code> no Azure DevOps e aprove usando a opção de mesclagem "squash".</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 15, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
       
     
   </small>

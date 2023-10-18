@@ -1,26 +1,19 @@
-# Observability of CI/CD Pipelines
+# Observabilidade de Pipelines de CI/CD
 
-With increasing complexity to delivery pipelines, it is very important
-to consider Observability in the context of build and release of
-applications.
+Com o aumento da complexidade das pipelines de entrega, é muito importante considerar a observabilidade no contexto da compilação e implantação de aplicativos.
 
-## Benefits
+## Benefícios
 
-- Having proper instrumentation during build time helps gain insights into the various stages of the build and release process.
+- Ter uma instrumentação adequada durante o tempo de compilação ajuda a obter insights sobre as várias etapas do processo de compilação e implantação.
 
-- Helps developers understand where the pipeline performance bottlenecks are, based on the data collected. This
-helps in having data-driven conversations around identifying latency between jobs, performance issues,
-artifact upload/download times providing valuable insights into agents availability and capacity.
+- Ajuda os desenvolvedores a entender onde estão os gargalos de desempenho da pipeline, com base nos dados coletados. Isso ajuda a ter conversas baseadas em dados sobre a identificação de latência entre tarefas, problemas de desempenho, tempos de upload/download de artefatos, fornecendo informações valiosas sobre a disponibilidade e capacidade dos agentes.
 
-- Helps to identify trends in failures, thus allowing developers to quickly do root cause analysis.
+- Ajuda a identificar tendências em falhas, permitindo que os desenvolvedores façam rapidamente uma análise da causa raiz.
 
-- Helps to provide an organization-wide view of pipeline health to easily identify trends.
+- Ajuda a fornecer uma visão da saúde da pipeline em toda a organização, para identificar tendências facilmente.
 
-## Points to Consider
+## Pontos a Considerar
 
-- It is important to identify the Key Performance Indicators (KPIs) for evaluating a successful CI/CD pipeline. Where needed, additional tracing can be added to better record KPI metrics. For example, adding pipeline build tags to identify a 'Release Candidate' vs. 'Non-Release Candidate' helps in evaluating the end-to-end release process timeline.
+- É importante identificar os Indicadores-chave de Desempenho (KPIs) para avaliar uma pipeline de CI/CD bem-sucedida. Quando necessário, é possível adicionar rastreamento adicional para registrar melhor as métricas de KPI. Por exemplo, adicionar tags de compilação da pipeline para identificar um 'Candidato a Lançamento' vs. 'Não Candidato a Lançamento' ajuda a avaliar o cronograma do processo de lançamento de ponta a ponta.
 
-- Depending on the tooling used (Azure DevOps, Jenkins etc.,), basic reporting on the pipelines is
-available out-of-the-box. It is important to evaluate these reports against the KPIs to understand if
-a custom reporting solution for their pipelines is needed. If required, custom dashboards can be built using
-third-party tools like Grafana or Power BI Dashboards.
+- Dependendo das ferramentas usadas (Azure DevOps, Jenkins etc.), relatórios básicos sobre as pipelines estão disponíveis prontos para uso. É importante avaliar esses relatórios em relação aos KPIs para entender se é necessário uma solução de relatórios personalizados para suas pipelines. Se necessário, é possível criar painéis personalizados usando ferramentas de terceiros como Grafana ou Power BI Dashboards.

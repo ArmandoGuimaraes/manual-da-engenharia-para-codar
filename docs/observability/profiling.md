@@ -1,23 +1,23 @@
 # Profiling
 
-## Overview
+## Visão Geral
 
-Profiling is a form of runtime analysis that measures various components of the runtime such as, memory allocation, garbage collection, threads and locks, call stacks, or frequency and duration of specific functions. It can be used to see which functions are the most costly in your binary, allowing you to focus your effort on removing the largest inefficiencies as quickly as possible. It can help you find deadlocks, memory leaks, or inefficient memory allocation, and help inform decisions around resource allocation (ie: CPU or RAM).
+O profiling é uma forma de análise em tempo de execução que mede vários componentes da execução, como alocação de memória, coleta de lixo, threads e travas, pilhas de chamadas ou frequência e duração de funções específicas. Ele pode ser usado para ver quais funções são as mais custosas em seu binário, permitindo que você concentre seus esforços em remover as maiores ineficiências o mais rapidamente possível. Ele pode ajudar a encontrar deadlocks, vazamentos de memória ou alocação ineficiente de memória e ajudar nas decisões relacionadas à alocação de recursos (ou seja, CPU ou RAM).
 
-## How to Profile your Applications
+## Como Perfilar Suas Aplicações
 
-Profiling is somewhat language dependent, so start off by searching for "profile $language" (some common tools are listed below). Additionally, Linux Perf is a good fallback, since a lot of languages have bindings in C/C++.
+O profiling é um tanto dependente da linguagem, então comece procurando por "perfil $linguagem" (algumas ferramentas comuns estão listadas abaixo). Além disso, o Linux Perf é uma boa alternativa, já que muitas linguagens têm ligações em C/C++.
 
-Profiling does incur some cost, as it requires inspecting the call stack, and sometimes pausing the application all together (ie: to trigger a full GC in Java). It is recommended to continuously profile your services, say for 10s every 10 minutes. Consider the cost when deciding on tuning these parameters.
+O profiling incorre em algum custo, pois requer a inspeção da pilha de chamadas e, às vezes, a pausa completa da aplicação (ou seja, para acionar uma coleta completa de lixo em Java). É recomendável perfilar continuamente seus serviços, por exemplo, durante 10 segundos a cada 10 minutos. Considere o custo ao decidir ajustar esses parâmetros.
 
-Different tools visualize profiles differently. Common CPU profiles might use a directed graph ![graph](images/pprof-dot.png) or a flame graph. ![flame](images/flame.png)
+Diferentes ferramentas visualizam os perfis de maneira diferente. Perfis de CPU comuns podem usar um gráfico direcionado ![gráfico](images/pprof-dot.png) ou um gráfico de chamas. ![chamas](images/flame.png)
 
-Unfortunately, each profiler tool typically uses its own format for storing profiles, and comes with its own visualization.
+Infelizmente, cada ferramenta de profiler geralmente usa seu próprio formato para armazenar perfis e vem com sua própria visualização.
 
-## Specific tools
+## Ferramentas Específicas
 
-- (Java, Go, Python, Ruby, eBPF) [Pyroscope](https://github.com/pyroscope-io/pyroscope) continuous profiling out of the box.
-- (Java and Go) [Flame](https://github.com/VerizonMedia/kubectl-flame) - profiling containers in Kubernetes
+- (Java, Go, Python, Ruby, eBPF) [Pyroscope](https://github.com/pyroscope-io/pyroscope) realiza profiling contínuo prontamente.
+- (Java e Go) [Flame](https://github.com/VerizonMedia/kubectl-flame) - perfis de contêineres no Kubernetes
 - (Java, Python, Go) [Datadog Continuous profiler](https://www.datadoghq.com/product/code-profiling/)
-- (Go) [profefe](https://github.com/profefe/profefe), which builds `pprof` to provide continuous profiling
+- (Go) [profefe](https://github.com/profefe/profefe), que cria `pprof` para fornecer profiling contínuo
 - (Java) [Eclipse Memory Analyzer](https://www.eclipse.org/mat/)

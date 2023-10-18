@@ -1,44 +1,44 @@
-# Correlation IDs
+# IDs de Correlação
 
-## The Need
+## A Necessidade
 
-In a distributed system architecture (microservice architecture), it is highly difficult to understand a single end to end customer transaction flow through the various components.
+Em uma arquitetura de sistema distribuído (arquitetura de microsserviços), é altamente difícil entender o fluxo de uma única transação de cliente de ponta a ponta por meio dos vários componentes.
 
-Here are some the general challenges -
+Aqui estão alguns dos desafios gerais:
 
-* It becomes challenging to understand the end-to-end behavior of a client request entering the application.
-* Aggregation: Consolidating logs from multiple components and making sense out of these logs is difficult, if not impossible.
-* Cyclic dependencies on services, course of events and asynchronous requests are not easily deciphered.
-* While troubleshooting a request, the diagnostic context of the logs are very important to get to the root of the problem.
+- Torna-se desafiador entender o comportamento de ponta a ponta de uma solicitação de cliente que entra na aplicação.
+- Agregação: Consolidar registros de vários componentes e dar sentido a esses registros é difícil, senão impossível.
+- Dependências cíclicas em serviços, sequência de eventos e solicitações assíncronas não são facilmente decifradas.
+- Ao solucionar uma solicitação, o contexto de diagnóstico dos registros é muito importante para chegar à raiz do problema.
 
-## Solution
+## Solução
 
-A Correlation ID is a unique identifier that is added to the very first interaction (incoming request) to  identify the context and is passed to all components that are involved in the transaction flow. Correlation ID becomes the glue that binds the transaction together and helps to draw an overall picture of events.
+Um ID de Correlação é um identificador único que é adicionado à primeira interação (solicitação de entrada) para identificar o contexto e é passado para todos os componentes envolvidos no fluxo de transação. O ID de Correlação se torna a cola que une a transação e ajuda a criar uma imagem geral dos eventos.
 
->Note: Before implementing your own Correlation ID, investigate if your telemetry tool of choice provides an auto-generated Correlation ID and that it serves the purposes of your application. For instance, [Application Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/auto-collect-dependencies) offers dependency auto-collection for some application frameworks
+>Nota: Antes de implementar seu próprio ID de Correlação, verifique se sua ferramenta de telemetria de escolha fornece um ID de Correlação gerado automaticamente e se ele atende aos propósitos de sua aplicação. Por exemplo, o [Application Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/auto-collect-dependencies) oferece a coleta automática de dependências para alguns frameworks de aplicação.
 
-### Recommended Practices
+### Práticas Recomendadas
 
-1. Assign each external request a Correlation ID that binds the message to a transaction.
-2. The Correlation ID for a transaction must be assigned as early as you can.
-3. Propagate Correlation ID to all downstream components/services.
-4. All components/services of the transaction use this Correlation ID in their logs.
-5. For an HTTP Request, Correlation ID is typically passed in the header.
-6. Add it to an outgoing response where possible.
-7. Based on the use case, there can be additional correlation IDs that may be needed. For instance, tracking logs based on both Session ID and User ID may be required. While adding multiple correlation ID, remember to propagate them through the components.
+1. Atribua a cada solicitação externa um ID de Correlação que vincule a mensagem a uma transação.
+2. O ID de Correlação para uma transação deve ser atribuído o mais cedo possível.
+3. Propague o ID de Correlação para todos os componentes/serviços downstream.
+4. Todos os componentes/serviços da transação devem usar esse ID de Correlação em seus registros.
+5. Para uma solicitação HTTP, o ID de Correlação é geralmente passado no cabeçalho.
+6. Adicione-o a uma resposta de saída, sempre que possível.
+7. Com base no caso de uso, pode haver IDs de correlação adicionais que podem ser necessários. Por exemplo, pode ser necessário rastrear registros com base tanto no ID da Sessão quanto no ID do Usuário. Ao adicionar vários IDs de correlação, lembre-se de propagá-los pelos componentes.
 
->Consider using [OpenTelemetry](./tools/OpenTelemetry.md) as it implements open-source cross-platform context propagation for end-to-end distributed transactions over heterogeneous components out-of-the-box. It takes care of automatically creating and managing the "Correlation-id", called TraceId.
+>Considere o uso do [OpenTelemetry](./tools/OpenTelemetry.md), pois ele implementa a propagação de contexto de código aberto multiplataforma para transações distribuídas de ponta a ponta em componentes heterogêneos pronto para uso. Ele cuida automaticamente da criação e gerenciamento do "ID de Correlação", chamado de TraceId.
 
-## Use Cases
+## Casos de Uso
 
-### Log Correlation
+### Correlação de Logs
 
-Log correlation is the ability to track disparate events through different parts of the application. Having a Correlation ID provides more context making it easy to build rules for reporting and analysis.
+A correlação de logs é a capacidade de rastrear eventos discrepantes em diferentes partes da aplicação. Ter um ID de Correlação fornece mais contexto, facilitando a criação de regras para relatórios e análises.
 
-### Secondary reporting/observer systems
+### Sistemas secundários de relatórios/observadores
 
-Using Correlation ID helps secondary systems to correlate data without application context. Some examples - generating metrics based on tracing data, integrating runtime/system diagnostics etc. For example, feeding AppInsights data and correlating it to infrastructure issues.
+Usar o ID de Correlação ajuda os sistemas secundários a correlacionar dados sem contexto de aplicação. Alguns exemplos incluem a geração de métricas com base em dados de rastreamento, a integração de diagnósticos em tempo de execução/sistema etc. Por exemplo, alimentar dados do AppInsights e correlacioná-los com problemas de infraestrutura.
 
-### Troubleshooting Errors
+### Solução de Problemas de Erros
 
-For troubleshooting an errors, Correlation ID is a great starting point to trace the workflow of a transaction.
+Para solucionar erros, o ID de Correlação é um ótimo ponto de partida para rastrear o fluxo de trabalho de uma transação.

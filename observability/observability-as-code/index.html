@@ -19,7 +19,7 @@
     
     
       
-        <title>Observability as Code - Manual da Engenharia para Codar</title>
+        <title>Observabilidade como Código - Manual da Engenharia para Codar</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#observability-as-code" class="md-skip">
+        <a href="#observabilidade-como-codigo" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Observability as Code
+              Observabilidade como Código
             
           </span>
         </div>
@@ -6215,12 +6215,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Observability as Code
+          Observabilidade como Código
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Observability as Code
+        Observabilidade como Código
       </a>
       
         
@@ -6239,15 +6239,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#examples-of-observability-as-code" class="md-nav__link">
-    Examples of Observability as Code
+  <a href="#exemplos-de-observabilidade-como-codigo" class="md-nav__link">
+    Exemplos de Observabilidade como Código
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#why" class="md-nav__link">
-    Why
+  <a href="#por-que" class="md-nav__link">
+    Por que
   </a>
   
 </li>
@@ -7184,15 +7184,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#examples-of-observability-as-code" class="md-nav__link">
-    Examples of Observability as Code
+  <a href="#exemplos-de-observabilidade-como-codigo" class="md-nav__link">
+    Exemplos de Observabilidade como Código
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#why" class="md-nav__link">
-    Why
+  <a href="#por-que" class="md-nav__link">
+    Por que
   </a>
   
 </li>
@@ -7211,40 +7211,38 @@
                 
 
 
-<h1 id="observability-as-code">Observability as Code</h1>
-<p>As much as possible, configuration and management of observability assets such as cloud resource provisioning, monitoring alerts and dashboards must be managed as code. Observability as Code is achieved using any one of Terraform / Ansible / ARM Templates</p>
-<h2 id="examples-of-observability-as-code">Examples of Observability as Code</h2>
+<h1 id="observabilidade-como-codigo">Observabilidade como Código</h1>
+<p>Na medida do possível, a configuração e o gerenciamento de ativos de observabilidade, como provisionamento de recursos em nuvem, alertas de monitoramento e painéis, devem ser gerenciados como código. A Observabilidade como Código é alcançada usando qualquer um dos seguintes: Terraform, Ansible ou Modelos ARM.</p>
+<h2 id="exemplos-de-observabilidade-como-codigo">Exemplos de Observabilidade como Código</h2>
 <ol>
 <li>
-<p>Dashboards as Code - Monitoring Dashboards can be created as JSON or XML templates. This template is source control maintained and any changes to the dashboards can be reviewed. Automation can be built for enabling the dashboard. <a href="https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards-create-programmatically">More about how to do this in Azure</a>. Grafana dashboard can also be <a href="https://grafana.com/blog/2020/02/26/how-to-configure-grafana-as-code/">configured as code</a> which eventually can be source-controlled to be used in automation and pipelines.</p>
+<p>Painéis como Código - Painéis de Monitoramento podem ser criados como modelos JSON ou XML. Este modelo é mantido no controle de origem e qualquer alteração nos painéis pode ser revisada. A automação pode ser criada para habilitar o painel. <a href="https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards-create-programmatically">Saiba mais sobre como fazer isso no Azure</a>. Painéis do Grafana também podem ser <a href="https://grafana.com/blog/2020/02/26/how-to-configure-grafana-as-code/">configurados como código</a>, o que eventualmente pode ser controlado no controle de origem para ser usado na automação e em pipelines.</p>
 </li>
 <li>
-<p>Alerts as Code - Alerts can be created within Azure by using Terraform or ARM templates. Such alerts can be source-controlled and be deployed as part of pipelines (Azure DevOps pipelines, Jenkins, GitHub Actions etc.). Few references of how to do this are: <a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_metric_alert">Terraform Monitor Metric Alert</a>. Alerts can also be created based on log analytics query and can be defined as code using <a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_scheduled_query_rules_alert#example-usage">Terraform Monitor Scheduled Query Rules Alert</a>.</p>
+<p>Alertas como Código - Alertas podem ser criados no Azure usando Terraform ou modelos ARM. Tais alertas podem ser controlados no controle de origem e implantados como parte de pipelines (pipelines do Azure DevOps, Jenkins, GitHub Actions, etc.). Algumas referências de como fazer isso são: <a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_metric_alert">Alerta de Métrica de Monitoramento com Terraform</a>. Alertas também podem ser criados com base em consultas de log analytics e podem ser definidos como código usando <a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_scheduled_query_rules_alert#example-usage">Regras de Alerta de Consulta Programada do Terraform Monitor</a>.</p>
 </li>
 <li>
-<p>Automating Log Analytics Queries - There are several use cases where automation of log analytics queries may be needed. Example, Automatic Report Generation, Running custom queries programmatically for analysis, debugging etc. For these use cases to work, log queries should be source-controlled and automation can be built using <a href="https://learn.microsoft.com/en-us/rest/api/loganalytics/">log analytics REST</a> or <a href="https://learn.microsoft.com/en-us/cli/azure/ext/log-analytics/monitor/log-analytics?view=azure-cli-latest">azure cli</a>.</p>
+<p>Automação de Consultas do Log Analytics - Existem vários casos de uso em que a automação de consultas do log analytics pode ser necessária. Por exemplo, geração automática de relatórios, execução de consultas personalizadas de forma programática para análise, depuração, etc. Para que esses casos de uso funcionem, as consultas de log devem ser controladas no controle de origem e a automação pode ser criada usando <a href="https://learn.microsoft.com/en-us/rest/api/loganalytics/">log analytics REST</a> ou <a href="https://learn.microsoft.com/en-us/cli/azure/ext/log-analytics/monitor/log-analytics?view=azure-cli-latest">azure cli</a>.</p>
 </li>
 </ol>
-<h2 id="why">Why</h2>
+<h2 id="por-que">Por que</h2>
 <ul>
-<li>It makes configuration repeatable and automatable. It also avoids manual configuration of monitoring alerts and dashboards from scratch across environments.</li>
+<li>Torna a configuração repetível e automatizável. Também evita a configuração manual de alertas de monitoramento e painéis do zero em todos os ambientes.</li>
 </ul>
 <ul>
-<li>Configured dashboards help troubleshoot errors during integration and deployment (CI/CD)</li>
+<li>Painéis configurados ajudam a solucionar erros durante a integração e implantação (CI/CD).</li>
 </ul>
 <ul>
-<li>We can audit changes and roll them back if there are any issues.</li>
+<li>Podemos auditar alterações e revertê-las se houver problemas.</li>
 </ul>
 <ul>
-<li>Identify actionable insights from the generated metrics data across all environments, not just production.</li>
+<li>Identificar insights acionáveis a partir dos dados de métricas gerados em todos os ambientes, não apenas na produção.</li>
 </ul>
 <ul>
-<li>Configuration and management of observability assets like alert threshold, duration, configuration
-values using IAC help us in avoiding configuration mistakes, errors or overlooks during deployment.</li>
+<li>A configuração e o gerenciamento de ativos de observabilidade, como limiar de alerta, duração, valores de configuração, usando IAC, ajudam a evitar erros de configuração, erros ou omissões durante a implantação.</li>
 </ul>
 <ul>
-<li>When practicing observability as code, the changes can be reviewed by the team similar to other code
-contributions.</li>
+<li>Ao praticar a observabilidade como código, as alterações podem ser revisadas pela equipe, assim como outras contribuições de código.</li>
 </ul>
 
   <hr>
@@ -7252,7 +7250,7 @@ contributions.</li>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 15, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
       
     
   </small>

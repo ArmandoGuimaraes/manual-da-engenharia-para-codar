@@ -1,41 +1,36 @@
-# Dependency and Container Scanning
+# Verificação de Dependências e Contêineres
 
-Dependency and Container scanning is performed in order to search for vulnerabilities in operating systems, language and application packages.
+A verificação de dependências e contêineres é realizada para procurar vulnerabilidades nos sistemas operacionais, pacotes de linguagem e aplicativos.
 
-## Why Dependency and Container Scanning
+## Por que a Verificação de Dependências e Contêineres
 
-Container images are standard application delivery format in cloud-native environments.
-Having a broad selection of images from the community, we often choose a community base image, and then add packages that we need to it, which might also come from community sources.
-Those arbitrary dependencies might introduce vulnerabilities to our image and application.
+As imagens de contêiner são um formato padrão de entrega de aplicativos em ambientes nativos da nuvem. Tendo uma ampla seleção de imagens da comunidade, frequentemente escolhemos uma imagem base da comunidade e depois adicionamos pacotes de que precisamos, que também podem vir de fontes da comunidade. Essas dependências arbitrárias podem introduzir vulnerabilidades em nossa imagem e aplicação.
 
-## Applying Dependency and Container Scanning
+## Aplicação da Verificação de Dependências e Contêineres
 
-Images that contain software with security vulnerabilities become exploitable at runtime. When building an image in your CI pipeline, image scanning must be a requirement for a build to pass. Images that did not pass scanning should never be pushed to your production-accessible container registry.
+As imagens que contêm software com vulnerabilidades de segurança se tornam exploráveis em tempo de execução. Ao criar uma imagem em seu pipeline de CI, a verificação de imagens deve ser um requisito para que a construção seja aprovada. Imagens que não passaram na verificação nunca devem ser enviadas para o registro de contêiner acessível em produção.
 
-Dependency and Container scanning best practices:
+Melhores práticas de verificação de dependências e contêineres:
 
-1. Base Image - if your image is built on top of a third-party base image, validate the following:
-   - The image comes from a well-known company or open-source group.
-   - It is hosted on a reputable registry.
-   - The Dockerfile is available, and check for dependencies installed in it.
-   - The image is frequently updated - old images might not contain the latest security updates.
-1. Remove Non-Essential Software - Start with a minimal base image and install only the tools, libraries and configuration files that are required by your application.
-Avoid installing the following tools or remove them if present:
-    - Network tools and clients: e.g., wget, curl, netcat, ssh.
-    - Shells: e.g. sh, bash. Note that removing shells also prevents the use of shell scripts at runtime. Instead, use an executable when possible.
-    - Compilers and debuggers. These should be used only in build and development containers, but never in production containers.
-1. Container images should be immutable - download and include all the required dependencies during the image build.
-1. Scan for vulnerabilities in software dependencies -  today there is likely no software project without some form of external libraries, dependencies or open source.
-While it allows the development team to focus on their application code, the dependency brings forth an expected downside where the security posture of the real application is now resting on it.
-To detect vulnerabilities contained within a project’s dependencies use container scanning tools which as part of their analysis scan the software dependencies (see "Dependency and Container Scanning Frameworks and Tools").
+1. Imagem Base - se sua imagem for construída em cima de uma imagem base de terceiros, valide o seguinte:
+   - A imagem é de uma empresa conhecida ou de um grupo de código aberto.
+   - Ela está hospedada em um registro respeitável.
+   - O Dockerfile está disponível e verifique as dependências instaladas nele.
+   - A imagem é atualizada com frequência - imagens antigas podem não conter as últimas atualizações de segurança.
+1. Remova Software Não Essencial - Comece com uma imagem base mínima e instale apenas as ferramentas, bibliotecas e arquivos de configuração necessários para seu aplicativo. Evite instalar as seguintes ferramentas ou remova-as se estiverem presentes:
+   - Ferramentas e clientes de rede: por exemplo, wget, curl, netcat, ssh.
+   - Shells: por exemplo, sh, bash. Observe que remover shells também impede o uso de scripts de shell em tempo de execução. Em vez disso, use um executável sempre que possível.
+   - Compiladores e depuradores. Eles devem ser usados apenas em contêineres de build e desenvolvimento, mas nunca em contêineres de produção.
+1. As imagens de contêiner devem ser imutáveis - faça o download e inclua todas as dependências necessárias durante a construção da imagem.
+1. Verifique as vulnerabilidades nas dependências de software - hoje, provavelmente, não existe projeto de software sem alguma forma de bibliotecas externas, dependências ou código aberto. Embora permita que a equipe de desenvolvimento se concentre no código de seu aplicativo, a dependência traz um lado negativo esperado, em que a postura de segurança do aplicativo real agora depende dela. Para detectar vulnerabilidades contidas nas dependências de um projeto, use ferramentas de verificação de contêineres que, como parte de sua análise, examinem as dependências de software (consulte "Estruturas e Ferramentas de Verificação de Dependências e Contêineres").
 
-## Dependency and Container Scanning Frameworks and Tools
+## Estruturas e Ferramentas de Verificação de Dependências e Contêineres
 
-1. [Trivy](https://github.com/aquasecurity/trivy) - a simple and comprehensive vulnerability scanner for containers (doesn't support Windows containers)
-1. [Aqua](https://www.aquasec.com/solutions/azure-container-security/) - dependency and container scanning for applications running on AKS, ACI and Windows Containers. Has an integration with AzDO pipelines.
-1. [Dependency-Check Plugin for SonarQube](https://github.com/dependency-check/dependency-check-sonar-plugin) - OnPrem dependency scanning
-1. [Mend (previously WhiteSource)](https://www.mend.io/) - Open Source Scanning Software
+1. [Trivy](https://github.com/aquasecurity/trivy) - uma ferramenta simples e abrangente de verificação de vulnerabilidades para contêineres (não suporta contêineres Windows).
+1. [Aqua](https://www.aquasec.com/solutions/azure-container-security/) - verificação de dependências e contêineres para aplicativos em execução no AKS, ACI e contêineres Windows. Possui integração com os pipelines do Azure DevOps.
+1. [Plugin Dependency-Check para SonarQube](https://github.com/dependency-check/dependency-check-sonar-plugin) - Verificação de dependência local
+1. [Mend (anteriormente WhiteSource)](https://www.mend.io/) - Software de verificação de código aberto
 
-## Conclusion
+## Conclusão
 
-A powerful technology such as containers should be used carefully. Install the minimal requirements needed for your application, be aware of the software dependencies your application is using and make sure to maintain it over time by using container and dependencies scanning tools.
+Tecnologias poderosas, como contêineres, devem ser usadas com cuidado. Instale apenas os requisitos mínimos necessários para seu aplicativo, esteja ciente das dependências de software que seu aplicativo está usando e certifique-se de mantê-las ao longo do tempo usando ferramentas de verificação de contêineres e dependências.

@@ -1,22 +1,21 @@
-# Azure DevOps Service Connection Security
+# Segurança da Conexão de Serviço no Azure DevOps
 
-Service Connections are used in Azure DevOps Pipelines to connect to external services, like Azure, GitHub, Docker, Kubernetes, and many other services. Service Connections can be used to authenticate to these external services and to invoke diverse types of commands, like create and update resources in Azure, upload container images to Docker, or deploy applications to Kubernetes.
+As Conexões de Serviço são usadas nos Pipelines do Azure DevOps para se conectar a serviços externos, como Azure, GitHub, Docker, Kubernetes e muitos outros. As Conexões de Serviço podem ser usadas para autenticar-se nesses serviços externos e para invocar diversos tipos de comandos, como criar e atualizar recursos no Azure, fazer upload de imagens de contêiner no Docker ou implantar aplicativos no Kubernetes.
 
-To be able to invoke these commands, Service Connections need to have the right permissions to do so, for most types of Service Connections the permissions can be scoped to a subset of resources to limit the access they have. To improve the principle of least privilege, it's often very common to have separate Service Connections for different environments like Dev/Test/QA/Prod.
+Para poder invocar esses comandos, as Conexões de Serviço precisam ter as permissões corretas para fazê-lo. Para a maioria dos tipos de Conexões de Serviço, as permissões podem ser limitadas a um subconjunto de recursos para restringir o acesso que elas têm. Para melhorar o princípio do menor privilégio, é comum ter Conexões de Serviço separadas para diferentes ambientes, como Dev/Teste/QA/Produção.
 
-## Secure Service Connection
+## Segurança da Conexão de Serviço
 
-Securing Service Connections can be achieved by using several methods.
+A segurança das Conexões de Serviço pode ser alcançada por meio de vários métodos.
 
-- [User permissions](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints#user-permissions) can be configured to ensure only the correct users can create, view, use, and manage the Service Connection.
-- [Pipeline-level permissions](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints#pipeline-permissions) can be configured to ensure only approved YAML pipelines are able to use the Service Connection.
-- [Project permissions](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints#project-permissions---cross-project-sharing-of-service-connections) can be configured to ensure only certain Azure DevOps projects are able to use the Service Connection.
+- [Permissões de usuário](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints#user-permissions) podem ser configuradas para garantir que apenas os usuários corretos possam criar, visualizar, usar e gerenciar a Conexão de Serviço.
+- [Permissões de nível de pipeline](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints#pipeline-permissions) podem ser configuradas para garantir que apenas pipelines YAML aprovados possam usar a Conexão de Serviço.
+- [Permissões de projeto](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints#project-permissions---cross-project-sharing-of-service-connections) podem ser configuradas para garantir que apenas determinados projetos do Azure DevOps possam usar a Conexão de Serviço.
 
-After using the above methods, what is secured is **who** can use the Service Connections.
-What still *isn't* secured however, is **what** can be done with the Service Connections.  
+Após o uso dos métodos acima, o que está seguro é **quem** pode usar as Conexões de Serviço. O que ainda não está seguro, no entanto, é **o que** pode ser feito com as Conexões de Serviço.
 
-Because Service Connections have all the necessary permissions in the external services, it is crucial to secure Service Connections so they cannot be misused by accident or by malicious users.  
-An example of this is a Azure DevOps Pipeline that uses a Service Connection to an Azure Resource Group (or entire subscription) to list all resources and then delete those resources.  Without the correct security in place, it could be possible to execute this Pipeline, without any validation or reviews being done.  
+Porque as Conexões de Serviço têm todas as permissões necessárias nos serviços externos, é crucial garantir que elas não possam ser usadas acidentalmente ou por usuários mal-intencionados. Um exemplo disso é um Pipeline do Azure DevOps que usa uma Conexão de Serviço a um Grupo de Recursos do Azure (ou a uma assinatura inteira) para listar todos os recursos e depois excluir esses recursos. Sem a segurança correta em vigor, seria possível executar esse Pipeline sem validação ou revisão.
+
 ```yaml
 pool:
   vmImage: ubuntu-latest
@@ -24,7 +23,7 @@ pool:
 steps:
 - task: AzureCLI@2
   inputs:
-    azureSubscription: 'Production Service Connection'
+    azureSubscription: 'Conexão de Serviço de Produção'
     scriptType: 'pscore'
     scriptLocation: 'inlineScript'
     inlineScript: |
@@ -34,33 +33,28 @@ steps:
       }
 ```
 
-## Pipeline Security caveat
+## Aviso de Segurança do Pipeline
 
-YAML pipelines can be triggered without the need for a pull request, this introduces a security risk.  
+Os pipelines YAML podem ser acionados sem a necessidade de um pull request, o que introduz um risco de segurança.
 
-In good practice, [Pull Requests](../../../code-reviews/pull-requests.md) and [Code Reviews](../../../code-reviews/README.md) should be used to ensure the code that is being deployed, is being reviewed by a second person and potentially automatically being checked for vulnerabilities and other security issues.  
-However, YAML Pipelines can be executed without the need for a Pull Request and Code Reviews. This allows the (malicious) user to make changes using the Service Connection which would normally require a reviewer.  
+Em boas práticas, [Pull Requests](../../../code-reviews/pull-requests.md) e [Code Reviews](../../../code-reviews/README.md) devem ser usados para garantir que o código que está sendo implantado seja revisado por uma segunda pessoa e, potencialmente, verificado automaticamente em relação a vulnerabilidades e outros problemas de segurança. No entanto, os pipelines YAML podem ser executados sem a necessidade de um Pull Request e Code Reviews. Isso permite ao usuário (malicioso) fazer alterações usando a Conexão de Serviço que normalmente exigiriam um revisor.
 
-The configuration of *when* a pipeline should be triggered is specified in the YAML Pipeline itself and therefore a pipeline can be configured to execute on changes in a temporary branch. In this temporary branch, any changes made to the pipeline itself will be executed without being reviewed.  
+A configuração de *quando* um pipeline deve ser acionado é especificada no próprio pipeline YAML e, portanto, um pipeline pode ser configurado para ser executado em alterações em um branch temporário. Nesse branch temporário, quaisquer alterações feitas no pipeline em si serão executadas sem revisão.
 
-If the given pipeline has been granted [Pipeline-level permissions](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints#pipeline-permissions) to use a specific Service Connection, any command can be executed using that Service Connection, without anyone reviewing the command.
-Since Service Connections can have a lot of permissions in the external service, executing any pipeline without review could potentially have big consequences.
+Se o pipeline concedeu [Permissões de nível de pipeline](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints#pipeline-permissions) para usar uma Conexão de Serviço específica, qualquer comando pode ser executado usando essa Conexão de Serviço, sem que ninguém revise o comando. Como as Conexões de Serviço podem ter muitas permissões no serviço externo, executar qualquer pipeline sem revisão pode ter potencialmente grandes consequências.
 
-## Service Connection Checks
+## Verificações de Conexão de Serviço
 
-To prevent accidental mis-use of Service Connections there are several checks that can be configured. These checks are configured on the Service Connection itself and therefore can only be configured by the owner or administrator of that Service Connection. A user of a certain YAML Pipeline cannot modify these checks since the checks are not defined in the YAML file itself.
-Configuration can be done in the Approvals and Checks menu on the Service Connection.
-![ApprovalsAndChecks](images/approvals-and-checks.png)
+Para evitar o uso acidental de Conexões de Serviço, existem várias verificações que podem ser configuradas. Essas verificações são configuradas na própria Conexão de Serviço e, portanto, só podem ser configuradas pelo proprietário ou administrador dessa Conexão de Serviço. Um usuário de um determinado pipeline YAML não pode modificar essas verificações, pois elas não são definidas no arquivo YAML em si. A configuração pode ser feita no menu Aprovações e Verificações na Conexão de Serviço.
 
-### Branch Control
+### Controle de Branch
 
-By configuring Branch Control on a Service Connection, you can control that the Service Connection can only be used in a YAML Pipeline if the pipeline is running from a specific branch.  
+Configurando o Controle de Branch em uma Conexão de Serviço, você pode controlar que a Conexão de Serviço só pode ser usada em um pipeline YAML se o pipeline estiver sendo executado a partir de um branch específico.
 
-By configuring Branch Control to only allow the main branch (and potentially release branches) you can ensure a YAML Pipeline can only use the Service Connection after any changes to that pipeline have been merged into the main branch, and therefore has passed any Pull Requests checks and Code Reviews.
-As an additional check, Branch Control can verify if Branch Protections (like required Pull Requests and Code Reviews) are actually configured on the allowed branches.
+Ao configurar o Controle de Branch para permitir apenas o branch principal (e potencialmente os branches de release), você pode garantir que um pipeline YAML só pode usar a Conexão de Serviço depois que quaisquer alterações nesse pipeline forem mescladas no branch principal e, portanto, tenham passado por verificações de Pull Request e revisões de código.
 
-With Branch Control in place, in combination with Branch Protections, it is not possible anymore to run any commands against a Service Connection without having multiple persons review the commands. Therefore accidental, or malicious, mis-use of the permissions a Service Connection has is not possible anymore.  
+Com o Controle de Branch em vigor, em combinação com Proteções de Branch, não é mais possível executar comandos contra uma Conexão de Serviço sem que várias pessoas revisem os comandos. Portanto, o uso acidental ou mal-intencionado das permissões de uma Conexão de Serviço não é mais possível.
 
-**Note: When setting a wildcard for the Allowed Branches, anyone could still create a branch matching that wildcard and would be able to use the Service Connection. Using [git permissions](https://learn.microsoft.com/en-us/azure/devops/repos/git/require-branch-folders#enforce-permissions) it can be configured so only administrators are allowed to create certain branches, like release branches.*
-
-![BranchControl](images/branch-control.png)
+**Observação: ao definir um curinga para os Branches Permitidos, qualquer pessoa ainda poderia criar um branch que corresponda a esse curinga e usar a Conexão de Serviço. Usando [permissões do Git](https://learn.microsoft.com/en-us/azure/devops/repos/git/require-branch-folders#enforce-permissions), é possível configurar para que apenas administradores possam criar determinados branches, como branches de release.*
+ 
+ ![BranchControl](images/branch-control.png)

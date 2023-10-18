@@ -9,7 +9,7 @@ Um engenheiro ou cientista de dados trabalhando em um projeto da [Engenharia](do
 
 Este é o nosso manual. Todas as contribuições são bem-vindas! Sinta-se à vontade para enviar um [pull request](https://github.com/microsoft/code-with-engineering-playbook/pulls) para se envolver.
 
-> **Nota:** Se você está lendo isso no GitHub - vá para [https://microsoft.github.io/code-with-engineering-playbook/](https://microsoft.github.io/code-with-engineering-playbook/) para uma melhor experiência de leitura
+> **Nota:** Se você está lendo isso no GitHub - vá para [https://armandoguimaraes.github.io/manual-da-engenharia-para-codar/](https://armandoguimaraes.github.io/manual-da-engenharia-para-codar/) para uma melhor experiência de leitura
 
 ## Por que ter um Manual
 

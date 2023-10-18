@@ -1,32 +1,32 @@
-# Guidance for Privacy
+# Orientações para Privacidade
 
-## Overview
+## Visão Geral
 
-To ensure the privacy of your system users, as well as comply with several regulations like GDPR, some types of data shouldn’t exist in logs.
-This includes customer's sensitive, Personal Identifiable Information (PII), and any other data that wasn't legally sanctioned.
+Para garantir a privacidade dos usuários do seu sistema, bem como cumprir várias regulamentações como o GDPR, alguns tipos de dados não devem existir em registros (logs).
+Isso inclui informações sensíveis dos clientes, Informações de Identificação Pessoal (IIP), e qualquer outro dado que não tenha sido legalmente autorizado.
 
-### Recommended Practices
+### Práticas Recomendadas
 
-1. Separate components and minimize the parts of the system that log sensitive data.
-2. Keep sensitive data out of URLs, since request URLs are typically logged by proxies and web servers.
-3. Avoid using PII data for system debugging as much as possible. For example, use ids instead of usernames.
-4. Use Structured Logging and include a deny-list for sensitive properties.
-5. Put an extra effort on spotting logging statements with sensitive data during code review, as it is common for reviewers to skip reading logging statements. This can be added as an additional checkbox if you're using Pull Request Templates.
-6. Include mechanisms to detect sensitive data in logs, on your organizational pipelines for QA or Automated Testing.
+1. Separe os componentes e minimize as partes do sistema que registram dados sensíveis.
+2. Evite colocar dados sensíveis em URLs, uma vez que os URLs de solicitação geralmente são registrados por proxies e servidores da web.
+3. Evite usar dados de IIP para depuração do sistema o máximo possível. Por exemplo, use IDs em vez de nomes de usuário.
+4. Use Registros Estruturados e inclua uma lista de negação (deny-list) para propriedades sensíveis.
+5. Faça um esforço extra para identificar declarações de registro com dados sensíveis durante a revisão de código, pois é comum os revisores pularem a leitura de declarações de registro. Isso pode ser adicionado como uma caixa de seleção adicional se você estiver usando Modelos de Solicitação de Pull (Pull Request Templates).
+6. Inclua mecanismos para detectar dados sensíveis em registros, em seus pipelines organizacionais para QA ou Testes Automatizados.
 
-### Tools and Implementation Methods
+### Ferramentas e Métodos de Implementação
 
-Use these tools and methods for sensitive data de-identification in logs.
+Use essas ferramentas e métodos para desidentificação de dados sensíveis em registros.
 
 #### Application Insights
 
-Application Insights offers telemetry interception in some of the SDKs, that can be done by implementing the `ITelemetryProcessor` interface.
-ITelemetryProcessor processes the telemetry information before it is sent to Application Insights, and can be useful in many situations, such as filtering and modifications. Below is an example of intercepting 'trace' typed telemetry:
+O Application Insights oferece interceptação de telemetria em alguns dos SDKs, que pode ser feita implementando a interface `ITelemetryProcessor`.
+O `ITelemetryProcessor` processa as informações de telemetria antes de serem enviadas para o Application Insights e pode ser útil em muitas situações, como filtragem e modificações. Abaixo está um exemplo de interceptação de telemetria do tipo 'trace':
 
 ```csharp
 using Microsoft.ApplicationInsights.DataContracts;
 
-namespace Example
+namespace Exemplo
 {
     using Microsoft.ApplicationInsights.Channel;
     using Microsoft.ApplicationInsights.Extensibility;
@@ -37,8 +37,8 @@ namespace Example
         {
             var requestTelemetry = telemetry as TraceTelemetry;
             if (requestTelemetry == null) return;
-            # redact emails from the message parameter
-            requestTelemetry.Message = Regex.Replace(requestTelemetry.Message, @"[^@\s]+@[^@\s]+\.[^@\s]+", "[email removed]");
+            # redija os e-mails do parâmetro de mensagem
+            requestTelemetry.Message = Regex.Replace(requestTelemetry.Message, @"[^@\s]+@[^@\s]+\.[^@\s]+", "[e-mail removido]");
         }
     }
 }
@@ -46,19 +46,19 @@ namespace Example
 
 #### Elastic Stack
 
-Elastic Stack (formerly "ELK stack") allows logs interception by Logstash's [filter-plugins](https://www.elastic.co/guide/en/logstash/current/filter-plugins.html).
-Using some of the existing plugins, like 'mutate', 'alter' and 'prune' might be sufficient for most cases of deidentifying and redacting PIIs.
-For a more robust and customized use-case, a 'ruby' plugin can be used, executing arbitrary Ruby code.
-Filter plugins also exists in some Logstash alternatives, like [Fluentd](https://docs.fluentd.org/filter) and [Fluent Bit](https://docs.fluentbit.io/manual/pipeline/filters).
+O Elastic Stack (anteriormente conhecido como "ELK stack") permite a interceptação de registros por meio dos [plugins de filtro](https://www.elastic.co/guide/en/logstash/current/filter-plugins.html) do Logstash.
+O uso de alguns dos plugins existentes, como 'mutate', 'alter' e 'prune', pode ser suficiente para a maioria dos casos de desidentificação e ocultação de IIPs.
+Para casos de uso mais robustos e personalizados, pode-se usar um plugin 'ruby', executando código Ruby arbitrário.
+Os plugins de filtro também estão disponíveis em algumas alternativas ao Logstash, como [Fluentd](https://docs.fluentd.org/filter) e [Fluent Bit](https://docs.fluentbit.io/manual/pipeline/filters).
 
 #### Presidio
 
-[Presidio](https://github.com/microsoft/presidio) offers data protection and anonymization API. It provides fast identification and anonymization modules for private entities in text.
-Presidio allows using predefined or custom PII recognizers, leveraging Named Entity Recognition, regular expressions, rule based logic and checksum with relevant context in multiple languages.
-It can be used alongside the log interception methods mentioned above to help and ensure sensitive data is properly managed and governed.
-Presidio is containerized for REST HTTP API and also can be installed as a python package, to be called from python code.
-Instead of handling the anonymization in the application code, both APIs can be used using external calls.
-Elastic Stack, for example, can handle PII redaction using the 'ruby' filter plugin to call Presidio in REST HTTP API, or by calling a python script consuming Presidio as a package:
+[Presidio](https://github.com/microsoft/presidio) oferece API de proteção e anonimização de dados. Ele fornece módulos de identificação e anonimização rápidos para entidades privadas em texto.
+O Presidio permite o uso de reconhecedores de IIPs predefinidos ou personalizados, aproveitando o Reconhecimento de Entidades Nomeadas, expressões regulares, lógica baseada em regras e soma de verificação com contexto relevante em vários idiomas.
+Ele pode ser usado junto com os métodos de interceptação de logs mencionados acima para ajudar a garantir que os dados sensíveis sejam gerenciados e governados adequadamente.
+O Presidio é contido para uma API HTTP REST e também pode ser instalado como um pacote Python, para ser chamado a partir de código Python.
+Em vez de lidar com a anonimização no código da aplicação, ambas as APIs podem ser usadas por meio de chamadas externas.
+O Elastic Stack, por exemplo, pode lidar com a ocultação de IIPs usando o filtro 'ruby' para chamar o Presidio na API HTTP REST ou chamando um script Python que consome o Presidio como um pacote:
 
 `logstash.conf`
 
@@ -71,11 +71,13 @@ filter {
    ruby {
     code => 'require "open3"
              message = event.get("message")
-             # Call a python script triggering Presidio analyzer and anonymizer, and printing the result.
-             cmd =  "python /path/to/presidio/anonymization/script.py \"#{message}\""
-             # Fetch the script's stdout
+             # Chama um script Python que aciona o analisador e
+
+ anonimizador do Presidio e imprime o resultado.
+             cmd =  "python /caminho/para/o/script/de/anonimização/do/presidio.py \"#{message}\""
+             # Obtém a saída padrão do script.
              stdin, stdout, stderr = Open3.popen3(cmd)
-             # Override message with the anonymized text.
+             # Substitui a mensagem pelo texto anonimizado.
              event.set("message", stdout.read)
              filter_matched(event)'
    }
@@ -85,3 +87,4 @@ output {
     ...
 }
 ```
+

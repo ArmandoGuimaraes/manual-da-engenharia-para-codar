@@ -47,9 +47,7 @@ Introduza a segurança ao seu projeto desde as fases iniciais. A seção [DevSec
 - [Prevenção de Injeção SQL](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.md)
 - [Redirecionamentos e Encaminhamentos não Validados](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.md)
 - [Segurança de Serviços Web](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Web_Service_Security_Cheat_Sheet.md)
-- [Segurança XML](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/XML
-
-_Security_Cheat_Sheet.md)
+- [Segurança XML](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/XML_Security_Cheat_Sheet.md)
 
 ## Ferramentas Recomendadas
 
